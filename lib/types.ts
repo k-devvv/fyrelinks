@@ -8,6 +8,9 @@ export interface Category {
   accentColor: string;
   bannerGradient: string;
   featuredArticleSlug: string;
+  tier?: string;
+  cpcRange?: string;
+  isNew?: boolean;
 }
 
 export interface Author {
@@ -42,6 +45,17 @@ export interface ComparisonProduct {
   featured?: boolean;
 }
 
+export interface MatrixTableRow {
+  name: string;
+  metricOrType: string;
+  priceOrLicense: string;
+  highlight: string;
+  verdict: string;
+  score?: number;
+  badge?: string;
+  affiliateUrl?: string;
+}
+
 export interface FAQItem {
   question: string;
   answer: string;
@@ -73,6 +87,8 @@ export interface ReviewPost {
   readTime: string;
   featured: boolean;
   trending: boolean;
+  cpcTier?: string;
+  tableData?: MatrixTableRow[];
   author: Author;
   heroImage: string;
   product: {
