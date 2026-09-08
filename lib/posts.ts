@@ -622,8 +622,8 @@ export const POSTS: ReviewPost[] = [
   {
     id: "post-macbook-pro-m3",
     slug: "macbook-pro-m3-max-developer-review",
-    category: "developer-hardware",
-    categoryName: "Developer Hardware",
+    category: "hardware",
+    categoryName: "Hardware (Workstations & GPUs)",
     title: "Apple MacBook Pro 16 M3 Max Review: The Developer Powerhouse Benchmarked",
     subtitle: "We compiled Chromium, launched 14 Docker containers, and trained a 7B parameter LoRA model on the 16-inch M3 Max. Is it overkill or essential?",
     metaTitle: "MacBook Pro 16 M3 Max Review for Developers: Compile Times & Thermals",
@@ -816,8 +816,8 @@ export const POSTS: ReviewPost[] = [
   {
     id: "post-home-assistant-green",
     slug: "home-assistant-green-review",
-    category: "smart-home",
-    categoryName: "Smart Home & IoT",
+    category: "workflow",
+    categoryName: "Workflow (Async Systems & Automation)",
     title: "Home Assistant Green Review: Is Local Smart Home Finally Plug-and-Play?",
     subtitle: "We plugged in the $99 Home Assistant Green hub and linked 48 Zigbee, Z-Wave, and Matter devices. Zero cloud subscriptions, 100% private.",
     metaTitle: "Home Assistant Green Review (2025): Best Local Smart Hub Tested",
@@ -997,8 +997,8 @@ export const POSTS: ReviewPost[] = [
   {
     id: "post-protonvpn-plus",
     slug: "protonvpn-plus-speed-audit",
-    category: "cybersecurity",
-    categoryName: "VPNs & Privacy",
+    category: "stack",
+    categoryName: "Stack (Security & Cloud Infra)",
     title: "ProtonVPN Plus Security & Speed Audit: The Best Privacy-First VPN in 2025",
     subtitle: "We tested 38 server locations across 4 continents, ran 200 DNS leak checks, and verified Swiss legal protections. Here is the unvarnished verdict.",
     metaTitle: "ProtonVPN Plus Review (2025): Speed Test, Audits & Streaming",
@@ -1178,8 +1178,8 @@ export const POSTS: ReviewPost[] = [
   {
     id: "post-shure-sm7db",
     slug: "shure-sm7db-microphone-review",
-    category: "audio-gear",
-    categoryName: "Creator Audio Gear",
+    category: "hardware",
+    categoryName: "Hardware (Audio & Creator Gear)",
     title: "Shure SM7dB Review: The Legendary Broadcast Mic Built-In Preamp Tested",
     subtitle: "Shure added an active +28dB clean preamp designed by Cloudlifter inside the iconic SM7B body. Is it the ultimate podcast and stream mic?",
     metaTitle: "Shure SM7dB Microphone Review: Built-in Preamp & Sound Quality",
@@ -1363,11 +1363,23 @@ export function getAllPosts(): ReviewPost[] {
 }
 
 export function getPostBySlug(category: string, slug: string): ReviewPost | undefined {
-  return POSTS.find((p) => p.category === category && p.slug === slug);
+  return POSTS.find(
+    (p) =>
+      p.slug === slug &&
+      (p.category === category ||
+        LEGACY_CATEGORY_MAP[category] === p.category ||
+        (LEGACY_CATEGORY_MAP[p.category] && LEGACY_CATEGORY_MAP[p.category] === category))
+  );
 }
 
 export function getPostsByCategory(categorySlug: string): ReviewPost[] {
-  return POSTS.filter((p) => p.category === categorySlug);
+  const targetCategory = LEGACY_CATEGORY_MAP[categorySlug] || categorySlug;
+  return POSTS.filter(
+    (p) =>
+      p.category === categorySlug ||
+      p.category === targetCategory ||
+      (LEGACY_CATEGORY_MAP[p.category] === categorySlug)
+  );
 }
 
 export function getFeaturedPosts(): ReviewPost[] {
@@ -1397,8 +1409,14 @@ export function getAllCategories(): Category[] {
   return CATEGORIES;
 }
 
+export function getAllCategoriesWithLegacy(): Category[] {
+  return [...CATEGORIES, ...LEGACY_CATEGORIES];
+}
+
 export function getCategoryBySlug(slug: string): Category | undefined {
-  return CATEGORIES.find((c) => c.slug === slug);
+  const direct = CATEGORIES.find((c) => c.slug === slug);
+  if (direct) return direct;
+  return LEGACY_CATEGORIES.find((c) => c.slug === slug);
 }
 
 export function searchPosts(query: string): ReviewPost[] {

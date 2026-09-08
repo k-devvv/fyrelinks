@@ -16,6 +16,8 @@ import {
   Headphones,
   Zap,
   ExternalLink,
+  Layers,
+  Cpu,
 } from "lucide-react";
 import { CATEGORIES, POSTS } from "@/lib/posts";
 
@@ -76,6 +78,14 @@ export default function Navbar() {
 
   const getCategoryIcon = (id: string) => {
     switch (id) {
+      case "stack":
+        return <Layers className="w-4 h-4 text-orange-400" />;
+      case "create":
+        return <Sparkles className="w-4 h-4 text-purple-400" />;
+      case "workflow":
+        return <Cpu className="w-4 h-4 text-emerald-400" />;
+      case "hardware":
+        return <Laptop className="w-4 h-4 text-blue-400" />;
       case "ai-tools":
         return <Sparkles className="w-4 h-4 text-orange-400" />;
       case "developer-hardware":
@@ -104,8 +114,8 @@ export default function Navbar() {
         <div className="hidden md:flex items-center justify-between px-4 sm:px-6 lg:px-8 py-1.5 bg-gradient-to-r from-fyre-950/60 via-surface to-fyre-950/60 border-b border-surface-border/40 text-xs text-gray-400">
           <div className="flex items-center gap-2">
             <span className="flex h-2 w-2 rounded-full bg-fyre-500 animate-pulse" />
-            <span className="font-medium text-gray-300">Lab Tested 2025:</span>
-            <span>100% Independent Hardware & Software Benchmarks</span>
+            <span className="font-medium text-gray-300">Lab Tested 2026:</span>
+            <span>100% Independent Hardware, Software & Generative Diffusion Benchmarks</span>
           </div>
           <div className="flex items-center gap-4 text-gray-400">
             <Link href="/about" className="hover:text-fyre-400 transition-colors">
@@ -146,13 +156,13 @@ export default function Navbar() {
                 type="button"
                 className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-300 hover:text-white rounded-lg hover:bg-surface-hover transition-colors"
               >
-                <span>Categories</span>
+                <span>Testing Silos</span>
                 <ChevronDown className="w-4 h-4 text-gray-400 group-hover:rotate-180 transition-transform duration-200" />
               </button>
 
-              <div className="absolute left-0 top-full mt-1 w-64 p-2 bg-surface-card border border-surface-border rounded-xl shadow-2xl backdrop-blur-xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200 z-50">
+              <div className="absolute left-0 top-full mt-1 w-72 p-2 bg-surface-card border border-surface-border rounded-xl shadow-2xl backdrop-blur-xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200 z-50">
                 <div className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider px-2 py-1 mb-1">
-                  Product Verticals
+                  Primary Architecture Silos
                 </div>
                 {CATEGORIES.map((cat) => (
                   <Link
@@ -163,8 +173,20 @@ export default function Navbar() {
                     <div className="p-1.5 rounded-md bg-surface-border/50 group-hover/item:bg-surface-border transition-colors">
                       {getCategoryIcon(cat.id)}
                     </div>
-                    <div className="flex flex-col">
-                      <span className="font-medium text-xs text-white">{cat.name}</span>
+                    <div className="flex flex-col flex-1 min-w-0">
+                      <div className="flex items-center gap-1.5">
+                        <span className="font-bold text-xs text-white">{cat.name}</span>
+                        {cat.tier && (
+                          <span className="text-[9px] font-mono text-amber-400/90 font-bold">
+                            {cat.tier}
+                          </span>
+                        )}
+                        {cat.isNew && (
+                          <span className="px-1.5 py-0.2 rounded text-[8px] font-black uppercase tracking-wider bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-glow">
+                            NEW
+                          </span>
+                        )}
+                      </div>
                       <span className="text-[10px] text-gray-400 line-clamp-1">{cat.shortDescription}</span>
                     </div>
                   </Link>
@@ -172,18 +194,23 @@ export default function Navbar() {
               </div>
             </div>
 
-            {/* Direct Links */}
-            {CATEGORIES.slice(0, 3).map((cat) => (
+            {/* Direct Links for all 4 Silos */}
+            {CATEGORIES.map((cat) => (
               <Link
                 key={cat.id}
                 href={`/${cat.slug}`}
-                className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
+                className={`relative flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
                   pathname.startsWith(`/${cat.slug}`)
                     ? "text-fyre-400 bg-fyre-500/10 font-semibold"
                     : "text-gray-300 hover:text-white hover:bg-surface-hover"
                 }`}
               >
-                {cat.name.split("&")[0].trim()}
+                <span>{cat.name}</span>
+                {cat.isNew && (
+                  <span className="px-1.5 py-0.5 rounded text-[9px] font-black uppercase tracking-wider bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-glow animate-pulse">
+                    NEW
+                  </span>
+                )}
               </Link>
             ))}
 
@@ -248,7 +275,7 @@ export default function Navbar() {
           <div className="lg:hidden border-b border-surface-border bg-surface-card/95 backdrop-blur-xl px-4 pt-2 pb-6 space-y-4">
             <div className="space-y-1">
               <div className="text-xs font-semibold text-gray-400 uppercase tracking-wider px-2 py-1">
-                Browse Categories
+                Architecture Silos
               </div>
               {CATEGORIES.map((cat) => (
                 <Link
@@ -258,7 +285,17 @@ export default function Navbar() {
                 >
                   <div className="flex items-center gap-2.5">
                     {getCategoryIcon(cat.id)}
-                    <span>{cat.name}</span>
+                    <span className="font-semibold">{cat.name}</span>
+                    {cat.tier && (
+                      <span className="text-[10px] font-mono text-amber-400/90 font-bold">
+                        ({cat.tier})
+                      </span>
+                    )}
+                    {cat.isNew && (
+                      <span className="px-1.5 py-0.2 rounded text-[8px] font-black uppercase tracking-wider bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-glow">
+                        NEW
+                      </span>
+                    )}
                   </div>
                   <span className="text-xs text-gray-500">→</span>
                 </Link>

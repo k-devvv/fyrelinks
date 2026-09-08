@@ -109,10 +109,10 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Col 2: Categories */}
+          {/* Col 2: Architecture Silos */}
           <div className="space-y-3">
             <h4 className="text-xs font-bold text-white uppercase tracking-wider">
-              Product Categories
+              Architecture Silos
             </h4>
             <ul className="space-y-2 text-sm">
               {CATEGORIES.map((cat) => (
@@ -121,7 +121,19 @@ export default function Footer() {
                     href={`/${cat.slug}`}
                     className="hover:text-white transition-colors flex items-center justify-between group"
                   >
-                    <span>{cat.name}</span>
+                    <div className="flex items-center gap-1.5">
+                      <span>{cat.name}</span>
+                      {cat.tier && (
+                        <span className="text-[10px] font-mono text-amber-400 font-semibold">
+                          ({cat.tier})
+                        </span>
+                      )}
+                      {cat.isNew && (
+                        <span className="px-1.5 py-0.2 rounded text-[8px] font-bold bg-purple-500/30 text-purple-300 border border-purple-500/40">
+                          NEW
+                        </span>
+                      )}
+                    </div>
                     <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity text-fyre-400" />
                   </Link>
                 </li>

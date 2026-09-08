@@ -14,7 +14,7 @@ import {
   HelpCircle,
 } from "lucide-react";
 import {
-  getAllCategories,
+  getAllCategoriesWithLegacy,
   getCategoryBySlug,
   getPostsByCategory,
 } from "@/lib/posts";
@@ -26,7 +26,7 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  const categories = getAllCategories();
+  const categories = getAllCategoriesWithLegacy();
   return categories.map((cat) => ({
     category: cat.slug,
   }));
@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!category) return {};
 
   return {
-    title: `${category.name} Reviews & Lab Benchmarks (2025)`,
+    title: `${category.name} Reviews & Lab Benchmarks (2026)`,
     description: category.description,
     alternates: {
       canonical: `https://fyrelinkz.com/${category.slug}`,
@@ -78,9 +78,21 @@ export default function CategoryPage({ params }: Props) {
         </nav>
 
         <div className="space-y-4 max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-fyre-500/10 border border-fyre-500/30 text-fyre-400 text-xs font-bold uppercase tracking-wider">
-            <Flame className="w-3.5 h-3.5" />
-            <span>Curated Testing Vertical</span>
+          <div className="flex flex-wrap items-center gap-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-fyre-500/10 border border-fyre-500/30 text-fyre-400 text-xs font-bold uppercase tracking-wider">
+              <Flame className="w-3.5 h-3.5" />
+              <span>Curated Testing Vertical</span>
+            </div>
+            {category.tier && (
+              <span className="px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold font-mono">
+                {category.tier} Silo {category.cpcRange ? `• CPC ${category.cpcRange}` : ""}
+              </span>
+            )}
+            {category.isNew && (
+              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-black tracking-wider uppercase bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-glow animate-pulse">
+                NEW SILO
+              </span>
+            )}
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight font-sans">

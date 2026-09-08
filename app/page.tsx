@@ -16,6 +16,7 @@ import {
   Headphones,
   Laptop,
   CheckCircle,
+  Layers,
 } from "lucide-react";
 import { getAllCategories, getFeaturedPosts, getTrendingPosts, POSTS } from "@/lib/posts";
 import AdSlot from "@/components/AdSlot";
@@ -35,7 +36,7 @@ export default function HomePage() {
           <div className="lg:col-span-7 space-y-6">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-fyre-500/10 border border-fyre-500/30 text-fyre-400 text-xs font-bold tracking-wide uppercase">
               <Flame className="w-4 h-4 text-fyre-500 animate-pulse" />
-              <span>Independent Lab Benchmarks • 2025 Edition</span>
+              <span>Independent Lab Benchmarks • 2026 Edition</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1] font-sans">
@@ -62,7 +63,7 @@ export default function HomePage() {
                 href="#categories"
                 className="flex items-center gap-2 px-5 py-3.5 rounded-xl font-semibold text-sm text-gray-300 bg-surface-card hover:bg-surface-hover border border-surface-border transition-colors"
               >
-                <span>Browse Product Categories</span>
+                <span>Browse Architecture Silos</span>
               </Link>
             </div>
 
@@ -89,10 +90,15 @@ export default function HomePage() {
               <div className="absolute top-0 right-0 w-48 h-48 bg-fyre-500/10 rounded-full blur-3xl pointer-events-none" />
 
               <div className="flex items-center justify-between pb-4 mb-4 border-b border-surface-border">
-                <div className="flex items-center gap-2">
+                <div className="flex flex-wrap items-center gap-2">
                   <span className="px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wide bg-fyre-500 text-white">
                     {heroPost.verdict.badge}
                   </span>
+                  {heroPost.cpcTier && (
+                    <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                      CPC: {heroPost.cpcTier}
+                    </span>
+                  )}
                   <span className="text-xs font-semibold text-gray-400">{heroPost.categoryName}</span>
                 </div>
                 <div className="flex items-center gap-1 text-amber-400 font-bold text-sm font-mono">
@@ -166,50 +172,73 @@ export default function HomePage() {
         />
       </section>
 
-      {/* 3. Category Hub Directory */}
+      {/* 3. Category Hub Directory - 4 Silos */}
       <section id="categories" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div className="space-y-1">
             <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-fyre-400">
               <Cpu className="w-4 h-4" />
-              <span>Testing Verticals</span>
+              <span>Architecture Taxonomy</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
-              Explore Our Testing Laboratories
+              Explore The Four Architecture Silos
             </h2>
             <p className="text-sm text-gray-400">
-              Specialized benchmarks across consumer tech, developer tooling, and network privacy.
+              Curated, reproducible benchmarks spanning production stacks, generative diffusion, async engineering, and workstations.
             </p>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {categories.map((cat) => (
             <Link
               key={cat.id}
               href={`/${cat.slug}`}
-              className="group relative overflow-hidden rounded-2xl bg-surface-card border border-surface-border p-5 hover:border-fyre-500/50 hover:bg-surface-hover transition-all duration-200"
+              className="group relative overflow-hidden rounded-2xl bg-surface-card border border-surface-border p-6 hover:border-fyre-500/50 hover:bg-surface-hover transition-all duration-200 flex flex-col justify-between"
             >
-              <div className="space-y-3">
+              <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <div className="p-2 rounded-xl bg-surface border border-surface-border group-hover:bg-fyre-500/10 group-hover:border-fyre-500/30 transition-colors">
-                    {cat.id === "ai-tools" && <Sparkles className="w-5 h-5 text-orange-400" />}
-                    {cat.id === "developer-hardware" && <Laptop className="w-5 h-5 text-blue-400" />}
-                    {cat.id === "smart-home" && <Cpu className="w-5 h-5 text-emerald-400" />}
-                    {cat.id === "cybersecurity" && <Lock className="w-5 h-5 text-purple-400" />}
-                    {cat.id === "audio-gear" && <Headphones className="w-5 h-5 text-pink-400" />}
+                  <div className="p-2.5 rounded-xl bg-surface border border-surface-border group-hover:bg-fyre-500/10 group-hover:border-fyre-500/30 transition-colors">
+                    {cat.id === "stack" && <Layers className="w-5 h-5 text-orange-400" />}
+                    {cat.id === "create" && <Sparkles className="w-5 h-5 text-purple-400" />}
+                    {cat.id === "workflow" && <Cpu className="w-5 h-5 text-emerald-400" />}
+                    {cat.id === "hardware" && <Laptop className="w-5 h-5 text-blue-400" />}
+                    {cat.id !== "stack" && cat.id !== "create" && cat.id !== "workflow" && cat.id !== "hardware" && (
+                      <Cpu className="w-5 h-5 text-amber-400" />
+                    )}
                   </div>
-                  <ChevronRight className="w-4 h-4 text-gray-500 group-hover:text-fyre-400 group-hover:translate-x-0.5 transition-all" />
+                  <div className="flex items-center gap-1.5">
+                    {cat.isNew && (
+                      <span className="px-2 py-0.5 rounded text-[9px] font-black uppercase tracking-wider bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-glow animate-pulse">
+                        NEW SILO
+                      </span>
+                    )}
+                    <ChevronRight className="w-4 h-4 text-gray-500 group-hover:text-fyre-400 group-hover:translate-x-0.5 transition-all" />
+                  </div>
                 </div>
                 <div>
-                  <h3 className="font-bold text-sm text-white group-hover:text-fyre-400 transition-colors">
-                    {cat.name}
-                  </h3>
-                  <p className="text-[11px] text-gray-400 mt-1 line-clamp-2 leading-relaxed">
+                  <div className="flex items-center gap-2 mb-1">
+                    <h3 className="font-bold text-base text-white group-hover:text-fyre-400 transition-colors">
+                      {cat.name}
+                    </h3>
+                    {cat.tier && (
+                      <span className="text-[10px] font-mono text-amber-400/90 font-bold">
+                        ({cat.tier})
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-xs text-gray-400 line-clamp-2 leading-relaxed">
                     {cat.shortDescription}
                   </p>
                 </div>
               </div>
+
+              {cat.cpcRange && (
+                <div className="mt-4 pt-3 border-t border-surface-border/60 flex items-center justify-between text-[11px] text-gray-400 font-mono">
+                  <span>Intent CPC</span>
+                  <span className="text-amber-400/90 font-bold">{cat.cpcRange}</span>
+                </div>
+              )}
             </Link>
           ))}
         </div>

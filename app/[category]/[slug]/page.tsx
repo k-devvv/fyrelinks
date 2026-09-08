@@ -27,6 +27,7 @@ import QuickVerdict from "@/components/QuickVerdict";
 import ComparisonTable from "@/components/ComparisonTable";
 import FloatingCard from "@/components/FloatingCard";
 import AdSlot from "@/components/AdSlot";
+import MatrixTable from "@/components/MatrixTable";
 
 interface Props {
   params: {
@@ -37,10 +38,18 @@ interface Props {
 
 export async function generateStaticParams() {
   const posts = getAllPosts();
-  return posts.map((p) => ({
+  const primaryParams = posts.map((p) => ({
     category: p.category,
     slug: p.slug,
   }));
+  const legacyParams = [
+    { category: "ai-tools", slug: "cursor-ai-code-editor-review" },
+    { category: "developer-hardware", slug: "macbook-pro-m3-max-developer-review" },
+    { category: "smart-home", slug: "home-assistant-green-review" },
+    { category: "cybersecurity", slug: "protonvpn-plus-speed-audit" },
+    { category: "audio-gear", slug: "shure-sm7db-microphone-review" },
+  ];
+  return [...primaryParams, ...legacyParams];
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -155,6 +164,11 @@ export default function ReviewPage({ params }: Props) {
             <span className="px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wide bg-fyre-500/20 text-fyre-400 border border-fyre-500/30">
               {post.verdict.badge}
             </span>
+            {post.cpcTier && (
+              <span className="px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wide bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                CPC Intent Tier: {post.cpcTier}
+              </span>
+            )}
             <span className="text-xs text-gray-400 font-medium">• {post.categoryName}</span>
           </div>
 
@@ -231,6 +245,11 @@ export default function ReviewPage({ params }: Props) {
           affiliateUrl={post.product.affiliateUrl}
           ctaText={post.product.ctaText}
         />
+
+        {/* Generative Media Matrix Table if available */}
+        {post.tableData && post.tableData.length > 0 && (
+          <MatrixTable tableData={post.tableData} />
+        )}
 
         {/* 2. Technical Specs Table */}
         <section aria-label="Technical Specifications" className="my-10 space-y-4">
