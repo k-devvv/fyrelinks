@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/", "/_next/", "/admin/", "/go/"],
       },
     ],
-    sitemap: "https://fyrelinkz.com/sitemap.xml",
-    host: "https://fyrelinkz.com",
+    sitemap: "https://www.fyrelinkz.com/sitemap.xml",
+    host: "https://www.fyrelinkz.com",
   };
 }

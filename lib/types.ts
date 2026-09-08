@@ -28,8 +28,15 @@ export interface ReviewPost {
   title: string;
   metaTitle: string;
   metaDescription: string;
+  postType?: "comparison" | "guide" | "teardown" | "hardware";
   verdict: string;
-  cpcTier: string;
+  testedDate: string;
+  testedHardware: string;
+  testingScope: string;
+  evidenceBasis?: string;
+  whoThisIsFor: string;
+  whereItFails: string;
+  costPerUsableMinute?: string;
   readTime: string;
   publishedAt: string;
   updatedAt: string;
@@ -37,11 +44,11 @@ export interface ReviewPost {
     name: string;
     role: string;
   };
-  score: number;
-  badge: string;
+  score?: number;
+  badge?: string;
   keySpecs: KeySpec[];
   tableData: MatrixTableRow[];
-  sections: { heading: string; content: string }[];
+  sections: { heading: string; content: string; subpoints?: string[] }[];
   faqs: FAQItem[];
 }
 
@@ -55,7 +62,5 @@ export interface Category {
   accentColor: string;
   bannerGradient: string;
   featuredArticleSlug: string;
-  tier?: string;
-  cpcRange?: string;
   isNew?: boolean;
 }

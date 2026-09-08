@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     "Comprehensive Privacy Policy for fyrelinkz.com. Learn how we handle telemetry, cookies, affiliate network tracking tags, and your GDPR/CCPA consumer rights.",
   alternates: {
-    canonical: "https://fyrelinkz.com/privacy",
+    canonical: "https://www.fyrelinkz.com/privacy",
   },
 };
 

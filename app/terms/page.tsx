@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     "Terms of Service, acceptable use guidelines, and FTC affiliate disclosures governing the use of fyrelinkz.com.",
   alternates: {
-    canonical: "https://fyrelinkz.com/terms",
+    canonical: "https://www.fyrelinkz.com/terms",
   },
 };
 

@@ -32,7 +32,7 @@ export default function SmartLink({
   // Determine rel tags for external links
   const relAttribute = isAffiliate || isGoRedirect
     ? "nofollow sponsored noopener noreferrer"
-    : "nofollow noopener noreferrer";
+    : "noopener noreferrer";
 
   return (
     <a

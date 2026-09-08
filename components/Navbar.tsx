@@ -8,18 +8,9 @@ import {
   Search,
   Menu,
   X,
-  Sparkles,
-  ChevronDown,
-  ShieldCheck,
-  Laptop,
-  Home,
-  Headphones,
-  Zap,
   ExternalLink,
-  Layers,
-  Cpu,
 } from "lucide-react";
-import { CATEGORIES, POSTS } from "@/lib/posts";
+import { POSTS } from "@/lib/posts";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -29,7 +20,7 @@ export default function Navbar() {
   const pathname = usePathname();
   const searchInputRef = useRef<HTMLInputElement>(null);
 
-  // Scroll detection for sticky header shadow
+  // Scroll detection for header border
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -72,192 +63,97 @@ export default function Navbar() {
           p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
           p.metaDescription.toLowerCase().includes(searchQuery.toLowerCase()) ||
           p.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          p.badge.toLowerCase().includes(searchQuery.toLowerCase())
+          (p.badge?.toLowerCase().includes(searchQuery.toLowerCase()) ?? false)
       ).slice(0, 5)
     : [];
 
-  const getCategoryIcon = (id: string) => {
-    switch (id) {
-      case "stack":
-        return <Layers className="w-4 h-4 text-orange-400" />;
-      case "create":
-        return <Sparkles className="w-4 h-4 text-purple-400" />;
-      case "workflow":
-        return <Cpu className="w-4 h-4 text-emerald-400" />;
-      case "hardware":
-        return <Laptop className="w-4 h-4 text-blue-400" />;
-      case "ai-tools":
-        return <Sparkles className="w-4 h-4 text-orange-400" />;
-      case "developer-hardware":
-        return <Laptop className="w-4 h-4 text-blue-400" />;
-      case "smart-home":
-        return <Home className="w-4 h-4 text-emerald-400" />;
-      case "cybersecurity":
-        return <ShieldCheck className="w-4 h-4 text-purple-400" />;
-      case "audio-gear":
-        return <Headphones className="w-4 h-4 text-pink-400" />;
-      default:
-        return <Zap className="w-4 h-4 text-amber-400" />;
-    }
-  };
+  const navLinks = [
+    { label: "Reviews", href: "/create", description: "AI Video & Diffusion Models" },
+    { label: "Comparisons", href: "/stack", description: "Cloud APIs vs Local Compute" },
+    { label: "Hardware", href: "/hardware", description: "Workstations & GPUs" },
+    { label: "Guides", href: "/workflow", description: "ComfyUI & Systems Workflows" },
+    { label: "About", href: "/about", description: "Editorial Standards & Methodology" },
+  ];
 
   return (
     <>
       <header
         className={`sticky top-0 z-40 w-full transition-all duration-200 ${
           scrolled
-            ? "bg-background/90 backdrop-blur-md border-b border-surface-border shadow-lg shadow-black/40"
-            : "bg-background/70 backdrop-blur-sm border-b border-surface-border/50"
+            ? "bg-background/95 backdrop-blur-md border-b border-surface-border shadow-md"
+            : "bg-background/80 backdrop-blur-sm border-b border-surface-border/60"
         }`}
       >
-        {/* Top Mini Banner */}
-        <div className="hidden md:flex items-center justify-between px-4 sm:px-6 lg:px-8 py-1.5 bg-gradient-to-r from-fyre-950/60 via-surface to-fyre-950/60 border-b border-surface-border/40 text-xs text-gray-400">
+        {/* Top Mini Announcement / Transparency Strip */}
+        <div className="hidden md:flex items-center justify-between px-4 sm:px-6 lg:px-8 py-1.5 bg-surface/50 border-b border-surface-border/40 text-xs text-gray-400">
           <div className="flex items-center gap-2">
-            <span className="flex h-2 w-2 rounded-full bg-fyre-500 animate-pulse" />
-            <span className="font-medium text-gray-300">Lab Tested 2026:</span>
-            <span>100% Independent Hardware, Software & Generative Diffusion Benchmarks</span>
+            <span className="flex h-1.5 w-1.5 rounded-full bg-fyre-500" />
+            <span className="font-medium text-gray-300">FyreLinkz:</span>
+            <span>Practical guides, model comparisons & compute economics for AI creators</span>
           </div>
-          <div className="flex items-center gap-4 text-gray-400">
+          <div className="flex items-center gap-4 text-gray-400 text-[11px]">
             <Link href="/about" className="hover:text-fyre-400 transition-colors">
-              Editorial Policy
+              Editorial Standards
             </Link>
             <span>•</span>
-            <span className="text-gray-500">FTC Reader Supported Disclosure</span>
+            <span className="text-gray-500">Reader-Supported Publication</span>
           </div>
         </div>
 
         {/* Main Nav Bar */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-15 flex items-center justify-between gap-4">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-fyre-500 to-rose-600 shadow-glow group-hover:shadow-glow-lg transition-all duration-300">
-              <Flame className="w-5 h-5 text-white animate-bounce" style={{ animationDuration: "2.5s" }} />
+            <div className="flex items-center justify-center w-8 h-8 rounded-xl bg-fyre-500/15 border border-fyre-500/30 text-fyre-400 group-hover:bg-fyre-500/25 transition-colors">
+              <Flame className="w-4 h-4 text-fyre-400" />
             </div>
             <div className="flex flex-col">
-              <div className="flex items-center gap-1.5">
-                <span className="font-extrabold text-xl tracking-tight text-white font-sans">
-                  FYRE<span className="text-fyre-500">LINKZ</span>
-                </span>
-                <span className="px-1.5 py-0.5 text-[10px] font-bold tracking-wide uppercase bg-fyre-500/10 text-fyre-400 border border-fyre-500/30 rounded-md">
-                  PRO
-                </span>
-              </div>
-              <span className="text-[10px] text-gray-400 tracking-wider -mt-1 hidden sm:block">
-                VERIFIED TECH REVIEWS
+              <span className="font-black text-lg tracking-tight text-white font-sans leading-none">
+                FYRE<span className="text-fyre-500">LINKZ</span>
+              </span>
+              <span className="text-[9px] text-gray-400 tracking-wider font-mono mt-0.5 hidden sm:block">
+                AI CREATOR & COMPUTE GUIDES
               </span>
             </div>
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
-            {/* Categories Dropdown */}
-            <div className="relative group">
-              <button
-                type="button"
-                className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-300 hover:text-white rounded-lg hover:bg-surface-hover transition-colors"
-              >
-                <span>Testing Silos</span>
-                <ChevronDown className="w-4 h-4 text-gray-400 group-hover:rotate-180 transition-transform duration-200" />
-              </button>
+          <nav className="hidden lg:flex items-center gap-1">
+            {navLinks.map((link) => {
+              const isActive =
+                link.href === "/about"
+                  ? pathname === "/about"
+                  : pathname.startsWith(link.href);
 
-              <div className="absolute left-0 top-full mt-1 w-72 p-2 bg-surface-card border border-surface-border rounded-xl shadow-2xl backdrop-blur-xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200 z-50">
-                <div className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider px-2 py-1 mb-1">
-                  Primary Architecture Silos
-                </div>
-                {CATEGORIES.map((cat) => (
-                  <Link
-                    key={cat.id}
-                    href={`/${cat.slug}`}
-                    className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-gray-300 hover:text-white hover:bg-surface-hover transition-colors group/item"
-                  >
-                    <div className="p-1.5 rounded-md bg-surface-border/50 group-hover/item:bg-surface-border transition-colors">
-                      {getCategoryIcon(cat.id)}
-                    </div>
-                    <div className="flex flex-col flex-1 min-w-0">
-                      <div className="flex items-center gap-1.5">
-                        <span className="font-bold text-xs text-white">{cat.name}</span>
-                        {cat.tier && (
-                          <span className="text-[9px] font-mono text-amber-400/90 font-bold">
-                            {cat.tier}
-                          </span>
-                        )}
-                        {cat.isNew && (
-                          <span className="px-1.5 py-0.2 rounded text-[8px] font-black uppercase tracking-wider bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-glow">
-                            NEW
-                          </span>
-                        )}
-                      </div>
-                      <span className="text-[10px] text-gray-400 line-clamp-1">{cat.shortDescription}</span>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            {/* Direct Links for all 4 Silos */}
-            {CATEGORIES.map((cat) => (
-              <Link
-                key={cat.id}
-                href={`/${cat.slug}`}
-                className={`relative flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
-                  pathname.startsWith(`/${cat.slug}`)
-                    ? "text-fyre-400 bg-fyre-500/10 font-semibold"
-                    : "text-gray-300 hover:text-white hover:bg-surface-hover"
-                }`}
-              >
-                <span>{cat.name}</span>
-                {cat.isNew && (
-                  <span className="px-1.5 py-0.5 rounded text-[9px] font-black uppercase tracking-wider bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-glow animate-pulse">
-                    NEW
-                  </span>
-                )}
-              </Link>
-            ))}
-
-            <Link
-              href="/about"
-              className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
-                pathname === "/about"
-                  ? "text-fyre-400 bg-fyre-500/10 font-semibold"
-                  : "text-gray-300 hover:text-white hover:bg-surface-hover"
-              }`}
-            >
-              Methodology
-            </Link>
-
-            <Link
-              href="/contact"
-              className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
-                pathname === "/contact"
-                  ? "text-fyre-400 bg-fyre-500/10 font-semibold"
-                  : "text-gray-300 hover:text-white hover:bg-surface-hover"
-              }`}
-            >
-              Contact
-            </Link>
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-colors ${
+                    isActive
+                      ? "text-fyre-400 bg-fyre-500/10"
+                      : "text-gray-300 hover:text-white hover:bg-surface-hover"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </nav>
 
-          {/* Right Actions: Search trigger & CTA */}
+          {/* Right Actions: Search trigger & Mobile Menu Button */}
           <div className="flex items-center gap-2.5">
             <button
               onClick={() => setSearchOpen(true)}
-              aria-label="Search reviews"
-              className="flex items-center gap-2 px-3 py-2 text-sm text-gray-400 hover:text-white bg-surface-card hover:bg-surface-hover border border-surface-border rounded-xl transition-all"
+              aria-label="Search reviews and guides"
+              className="flex items-center gap-2 px-3 py-1.5 text-xs text-gray-400 hover:text-white bg-surface-card hover:bg-surface-hover border border-surface-border rounded-xl transition-all"
             >
-              <Search className="w-4 h-4 text-gray-400" />
-              <span className="hidden sm:inline text-xs text-gray-400">Search reviews...</span>
+              <Search className="w-3.5 h-3.5 text-gray-400" />
+              <span className="hidden sm:inline">Search...</span>
               <kbd className="hidden sm:inline-flex items-center px-1.5 py-0.5 text-[10px] font-mono text-gray-400 bg-surface rounded border border-surface-border">
                 ⌘K
               </kbd>
             </button>
-
-            <Link
-              href="/#trending"
-              className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-white bg-gradient-to-r from-fyre-500 to-rose-600 hover:from-fyre-600 hover:to-rose-700 rounded-xl shadow-glow transition-all duration-200"
-            >
-              <Zap className="w-3.5 h-3.5 fill-white" />
-              <span>Top Verdicts</span>
-            </Link>
 
             {/* Mobile Menu Button */}
             <button
@@ -265,71 +161,35 @@ export default function Navbar() {
               aria-label="Toggle mobile menu"
               className="lg:hidden p-2 text-gray-400 hover:text-white rounded-lg hover:bg-surface-hover"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="lg:hidden border-b border-surface-border bg-surface-card/95 backdrop-blur-xl px-4 pt-2 pb-6 space-y-4">
+          <div className="lg:hidden border-b border-surface-border bg-surface-card px-4 pt-2 pb-5 space-y-3">
             <div className="space-y-1">
-              <div className="text-xs font-semibold text-gray-400 uppercase tracking-wider px-2 py-1">
-                Architecture Silos
-              </div>
-              {CATEGORIES.map((cat) => (
+              {navLinks.map((link) => (
                 <Link
-                  key={cat.id}
-                  href={`/${cat.slug}`}
-                  className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-surface-hover"
+                  key={link.href}
+                  href={link.href}
+                  className="flex items-center justify-between px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-surface-hover"
                 >
-                  <div className="flex items-center gap-2.5">
-                    {getCategoryIcon(cat.id)}
-                    <span className="font-semibold">{cat.name}</span>
-                    {cat.tier && (
-                      <span className="text-[10px] font-mono text-amber-400/90 font-bold">
-                        ({cat.tier})
-                      </span>
-                    )}
-                    {cat.isNew && (
-                      <span className="px-1.5 py-0.2 rounded text-[8px] font-black uppercase tracking-wider bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-glow">
-                        NEW
-                      </span>
-                    )}
+                  <div>
+                    <span className="font-semibold text-white block">{link.label}</span>
+                    <span className="text-xs text-gray-400">{link.description}</span>
                   </div>
                   <span className="text-xs text-gray-500">→</span>
                 </Link>
               ))}
             </div>
 
-            <div className="border-t border-surface-border/60 pt-3 space-y-1">
-              <div className="text-xs font-semibold text-gray-400 uppercase tracking-wider px-2 py-1">
-                Information & Lab
-              </div>
-              <Link
-                href="/about"
-                className="block px-3 py-2 rounded-lg text-sm text-gray-300 hover:text-white hover:bg-surface-hover"
-              >
-                About & Testing Methodology
-              </Link>
-              <Link
-                href="/contact"
-                className="block px-3 py-2 rounded-lg text-sm text-gray-300 hover:text-white hover:bg-surface-hover"
-              >
-                Contact & Pitch Gear
-              </Link>
-              <Link
-                href="/privacy"
-                className="block px-3 py-2 rounded-lg text-sm text-gray-300 hover:text-white hover:bg-surface-hover"
-              >
-                Privacy Policy
-              </Link>
-              <Link
-                href="/terms"
-                className="block px-3 py-2 rounded-lg text-sm text-gray-300 hover:text-white hover:bg-surface-hover"
-              >
-                Terms of Service
-              </Link>
+            <div className="border-t border-surface-border pt-3 flex flex-wrap gap-4 text-xs text-gray-400 px-3">
+              <Link href="/about" className="hover:text-white">About & Methodology</Link>
+              <Link href="/contact" className="hover:text-white">Contact</Link>
+              <Link href="/privacy" className="hover:text-white">Privacy</Link>
+              <Link href="/terms" className="hover:text-white">Terms</Link>
             </div>
           </div>
         )}
@@ -337,20 +197,23 @@ export default function Navbar() {
 
       {/* Search Modal Overlay */}
       {searchOpen && (
-        <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-150">
+        <div
+          className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4 bg-black/80 backdrop-blur-sm"
+          onClick={() => setSearchOpen(false)}
+        >
           <div
             className="w-full max-w-2xl bg-surface-card border border-surface-border rounded-2xl shadow-2xl overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Search Input Bar */}
-            <div className="flex items-center px-4 py-3.5 border-b border-surface-border gap-3 bg-surface">
-              <Search className="w-5 h-5 text-fyre-400 shrink-0" />
+            <div className="flex items-center px-4 py-3 border-b border-surface-border gap-3 bg-surface">
+              <Search className="w-4 h-4 text-fyre-400 shrink-0" />
               <input
                 ref={searchInputRef}
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search products, reviews, categories, or benchmarks..."
+                placeholder="Search models, guides, ComfyUI, hardware..."
                 className="w-full bg-transparent text-white placeholder-gray-400 text-sm focus:outline-none"
               />
               <button
@@ -361,31 +224,26 @@ export default function Navbar() {
               </button>
             </div>
 
-            {/* Live Results or Suggestions */}
-            <div className="max-h-96 overflow-y-auto p-4 space-y-3">
+            {/* Search Results */}
+            <div className="max-h-96 overflow-y-auto p-4 space-y-2">
               {searchQuery.trim() === "" ? (
                 <div>
                   <p className="text-xs font-medium text-gray-400 uppercase tracking-wider mb-2">
-                    Popular In-Depth Reviews
+                    Featured Guides & Teardowns
                   </p>
-                  <div className="space-y-2">
-                    {POSTS.slice(0, 3).map((post) => (
+                  <div className="space-y-1.5">
+                    {POSTS.slice(0, 4).map((post) => (
                       <Link
                         key={post.slug}
                         href={`/${post.category}/${post.slug}`}
                         className="flex items-center justify-between p-2.5 rounded-xl bg-surface hover:bg-surface-hover border border-surface-border transition-colors group"
                       >
-                        <div className="flex items-center gap-3">
-                          <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-fyre-500/10 text-fyre-400 font-bold text-xs">
-                            {post.score.toFixed(1)}
+                        <div className="space-y-0.5">
+                          <div className="text-xs font-semibold text-white group-hover:text-fyre-400 transition-colors">
+                            {post.title}
                           </div>
-                          <div>
-                            <div className="text-xs font-semibold text-white group-hover:text-fyre-400 transition-colors">
-                              {post.title}
-                            </div>
-                            <div className="text-[11px] text-gray-400">
-                              {post.category.toUpperCase()} • {post.cpcTier}
-                            </div>
+                          <div className="text-[11px] text-gray-400">
+                            {post.evidenceBasis || "Guide"} • {post.category.toUpperCase()}
                           </div>
                         </div>
                         <ExternalLink className="w-3.5 h-3.5 text-gray-500 group-hover:text-white transition-colors" />
@@ -394,7 +252,7 @@ export default function Navbar() {
                   </div>
                 </div>
               ) : searchResults.length > 0 ? (
-                <div className="space-y-2">
+                <div className="space-y-1.5">
                   <p className="text-xs font-medium text-gray-400 uppercase tracking-wider mb-2">
                     {searchResults.length} Match{searchResults.length > 1 ? "es" : ""} Found
                   </p>
@@ -405,24 +263,18 @@ export default function Navbar() {
                       className="flex items-center justify-between p-3 rounded-xl bg-surface hover:bg-surface-hover border border-surface-border transition-colors group"
                     >
                       <div className="space-y-1">
-                        <div className="flex items-center gap-2">
-                          <span className="px-1.5 py-0.5 text-[10px] font-bold rounded bg-fyre-500/20 text-fyre-400">
-                            ★ {post.score.toFixed(1)}
-                          </span>
-                          <span className="text-xs font-semibold text-white group-hover:text-fyre-400 transition-colors">
-                            {post.badge}
-                          </span>
-                          <span className="text-xs text-gray-400 font-mono">({post.cpcTier})</span>
-                        </div>
-                        <p className="text-xs text-gray-300 line-clamp-1">{post.title}</p>
+                        <span className="text-xs font-semibold text-white group-hover:text-fyre-400 transition-colors">
+                          {post.title}
+                        </span>
+                        <p className="text-xs text-gray-400 line-clamp-1">{post.metaDescription}</p>
                       </div>
-                      <span className="text-xs text-fyre-400 font-medium">Read Review →</span>
+                      <span className="text-xs text-fyre-400 font-medium shrink-0 ml-2">Read →</span>
                     </Link>
                   ))}
                 </div>
               ) : (
                 <div className="py-8 text-center text-gray-400 text-sm">
-                  No reviews matched &ldquo;{searchQuery}&rdquo;. Try searching for &ldquo;MiniMax&rdquo;, &ldquo;Apollo&rdquo;, or &ldquo;Monitors&rdquo;.
+                  No guides matched &ldquo;{searchQuery}&rdquo;. Try searching for &ldquo;MiniMax&rdquo;, &ldquo;FLUX&rdquo;, or &ldquo;ComfyUI&rdquo;.
                 </div>
               )}
             </div>

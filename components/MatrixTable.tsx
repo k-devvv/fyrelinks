@@ -44,7 +44,7 @@ export default function MatrixTable({
         <div className="space-y-1.5">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-fyre-500/10 border border-fyre-500/30 text-fyre-400 text-xs font-bold uppercase tracking-wider">
             <Flame className="w-3.5 h-3.5 text-fyre-500 animate-pulse" />
-            <span>Empirical Benchmark Matrix</span>
+            <span>Model Comparison Matrix</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
             {title}
@@ -99,7 +99,7 @@ export default function MatrixTable({
                 <th className="py-4 px-5">Metric / Resolution Profile</th>
                 <th className="py-4 px-5">Pricing & Licensing</th>
                 <th className="py-4 px-5">Temporal & Motion Highlight</th>
-                <th className="py-4 px-6">Lab Verdict & Best Use Case</th>
+                <th className="py-4 px-6">Editorial Verdict & Best Use Case</th>
                 <th className="py-4 px-4 text-right">Access</th>
               </tr>
             </thead>
@@ -285,7 +285,7 @@ export default function MatrixTable({
       <div className="flex items-center gap-2 p-3.5 rounded-xl bg-surface/60 border border-surface-border text-xs text-gray-400">
         <Info className="w-4 h-4 text-fyre-400 shrink-0" />
         <span>
-          <strong className="text-gray-200">Lab Note:</strong> All models benchmarked on standardized 120-prompt test suite across 4 domains (complex human anatomy, cloth physics, fluid dynamics, camera pan/tilt lock).
+          <strong className="text-gray-200">Evaluation Note:</strong> Models evaluated across hands-on workflow sessions focusing on prompt adherence, temporal coherence, motion stability, and rendering economics.
         </span>
       </div>
     </section>

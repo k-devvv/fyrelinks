@@ -9,24 +9,20 @@ interface ArticleVisualProps {
 export default function ArticleVisual({ category, slug }: ArticleVisualProps) {
   // Render tailored visual diagrams per category with rich SVG glassmorphism styling
   return (
-    <div className="my-8 w-full overflow-hidden rounded-2xl border border-white/10 bg-slate-950/80 p-5 sm:p-7 shadow-2xl backdrop-blur-xl relative">
-      {/* Atmospheric radial ambient glow */}
-      <div className="absolute top-0 right-1/4 w-80 h-40 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-1/4 w-80 h-40 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
-
+    <div className="my-8 w-full overflow-hidden rounded-2xl border border-surface-border bg-surface-card p-5 sm:p-7 shadow-lg relative">
       {/* Diagram Header Label */}
-      <div className="flex items-center justify-between gap-2 pb-4 mb-4 border-b border-white/10 text-xs font-mono text-slate-400">
+      <div className="flex items-center justify-between gap-2 pb-4 mb-4 border-b border-surface-border text-xs font-mono text-gray-400">
         <div className="flex items-center gap-2">
-          <span className="flex h-2 w-2 rounded-full bg-orange-500 animate-pulse" />
-          <span className="font-semibold tracking-wider uppercase text-slate-200">
+          <span className="flex h-2 w-2 rounded-full bg-fyre-500" />
+          <span className="font-semibold tracking-wider uppercase text-gray-200">
             {category === "create" && "Generative Media & Latent Diffusion Architecture"}
-            {category === "stack" && "Enterprise AI Infrastructure & Data Pipeline Graph"}
-            {category === "workflow" && "Asynchronous Engineering & Cognitive IDE Flow"}
-            {category === "hardware" && "Workstation High-Bandwidth Interconnect Topology"}
+            {category === "stack" && "AI Infrastructure & Data Pipeline Topology"}
+            {category === "workflow" && "Engineering Systems & Agentic IDE Flow"}
+            {category === "hardware" && "Workstation Interconnect & Bus Topology"}
           </span>
         </div>
-        <span className="hidden sm:inline-block px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[10px] text-slate-400">
-          Interactive System Spec (2026)
+        <span className="hidden sm:inline-block px-2.5 py-0.5 rounded bg-surface border border-surface-border text-[10px] text-gray-400 font-mono">
+          Architecture Diagram
         </span>
       </div>
 
