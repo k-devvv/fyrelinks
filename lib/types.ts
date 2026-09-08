@@ -50,6 +50,25 @@ export interface ReviewPost {
   tableData: MatrixTableRow[];
   sections: { heading: string; content: string; subpoints?: string[] }[];
   faqs: FAQItem[];
+  videoComparisons?: VideoComparisonItem[];
+}
+
+export interface VideoModelClip {
+  modelName: string;
+  videoSrc?: string;
+  posterSrc: string;
+  promptUsed: string;
+  costInCredits: string;
+  renderTime: string;
+  strengths: string[];
+  failurePoints: string[];
+}
+
+export interface VideoComparisonItem {
+  title: string;
+  promptDescription: string;
+  clipA: VideoModelClip;
+  clipB: VideoModelClip;
 }
 
 export interface Category {

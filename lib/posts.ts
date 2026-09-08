@@ -132,6 +132,81 @@ export const POSTS: ReviewPost[] = [
         answer: "Factoring in re-rolls and prompt adjustments, commercial projects typically spend between $1.80 and $4.20 per usable minute of final footage using cloud APIs.",
       },
     ],
+    videoComparisons: [
+      {
+        title: "Benchmark 01: 180° Camera Tracking & Fluid Cloth Dynamics",
+        promptDescription: "Woman walking down rain-slicked Tokyo neon street at night, dynamic tracking shot, fluid trench coat physics, reflective asphalt puddles, 1080p cinematic",
+        clipA: {
+          modelName: "MiniMax Hailuo 01",
+          videoSrc: "/media/sample-motion-a.mp4",
+          posterSrc: "/media/minimax-hailuo-motion.jpg",
+          promptUsed: "Woman walking down rain-slicked Tokyo neon street at night, dynamic tracking shot, fluid trench coat physics, reflective asphalt puddles, 1080p cinematic",
+          costInCredits: "10 Credits (~$0.12)",
+          renderTime: "42s generation",
+          strengths: [
+            "Superior cloth & trench coat fabric physics without rubber banding",
+            "Puddle reflections dynamically mirror neon signs with minimal warping",
+            "Natural eye blink & head turn micro-movements"
+          ],
+          failurePoints: [
+            "Slight anatomical warping on fingers holding umbrella at frame 110",
+            "180-degree camera spin causes momentary background signage hallucination"
+          ],
+        },
+        clipB: {
+          modelName: "Seedance 2.5",
+          videoSrc: "/media/sample-motion-b.mp4",
+          posterSrc: "/media/seedance-motion-test.jpg",
+          promptUsed: "Woman walking down rain-slicked Tokyo neon street at night, dynamic tracking shot, fluid trench coat physics, reflective asphalt puddles, 1080p cinematic",
+          costInCredits: "16 Credits (~$0.18)",
+          renderTime: "74s generation",
+          strengths: [
+            "Rock-solid character face identity lock across 360-degree reference angles",
+            "High camera velocity tracking remains locked on subject torso"
+          ],
+          failurePoints: [
+            "High-frequency background signage jitter during rapid camera deceleration",
+            "Fabric wrinkles appear stamped rather than physically simulated",
+            "Secondary reflections in puddles drift out of sync with walking cadence"
+          ],
+        },
+      },
+      {
+        title: "Benchmark 02: Chromatic Lighting Separation & Velocity Presets",
+        promptDescription: "Dual-tone lighting: warm amber key light on subject face, vibrant cyan neon backlight, high contrast cinematic motion",
+        clipA: {
+          modelName: "MiniMax Hailuo 01",
+          videoSrc: "/media/sample-motion-a.mp4",
+          posterSrc: "/media/minimax-hailuo-motion.jpg",
+          promptUsed: "Dual-tone lighting: warm amber key light on subject face, vibrant cyan neon backlight, high contrast cinematic motion",
+          costInCredits: "10 Credits (~$0.12)",
+          renderTime: "45s generation",
+          strengths: [
+            "Sharp chromatic separation between amber key light and cyan rim light",
+            "Realistic subsurface skin scattering under contrasting directional light"
+          ],
+          failurePoints: [
+            "Distant background vehicles occasionally merge into light streaks"
+          ],
+        },
+        clipB: {
+          modelName: "Higgsfield AI",
+          videoSrc: "/media/sample-motion-b.mp4",
+          posterSrc: "/media/higgsfield-motion-test.jpg",
+          promptUsed: "Dual-tone lighting: warm amber key light on subject face, vibrant cyan neon backlight, high contrast cinematic motion",
+          costInCredits: "Subscription Tier ($29/mo)",
+          renderTime: "28s generation",
+          strengths: [
+            "Ultra-fast preset execution with dramatic cinematic lens flare",
+            "High dynamic motion velocity tailored for rapid social b-roll cuts"
+          ],
+          failurePoints: [
+            "Severe chromatic spill: cyan light bleeds directly onto neutral skin tones",
+            "Facial features soften into plastic texture under saturated neon"
+          ],
+        },
+      },
+    ],
   },
   {
     slug: "top-b2b-data-enrichment-platforms",

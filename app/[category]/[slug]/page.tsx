@@ -9,6 +9,7 @@ import FAQSection from "@/components/FAQSection";
 import QuickVerdict from "@/components/QuickVerdict";
 import ComparisonTable from "@/components/ComparisonTable";
 import ArticleVisual from "@/components/ArticleVisual";
+import VideoComparison from "@/components/VideoComparison";
 
 interface PageProps {
   params: {
@@ -133,6 +134,36 @@ export default function ArticlePage({ params }: PageProps) {
       {post.tableData && post.tableData.length > 0 && (
         <div className="my-8">
           <ComparisonTable data={post.tableData} />
+        </div>
+      )}
+
+      {/* Interactive Side-by-Side Video Motion Comparison & Evidence Teardown */}
+      {post.videoComparisons && post.videoComparisons.length > 0 && (
+        <div className="space-y-6 my-10">
+          <div className="border-t border-surface-border pt-6">
+            <div className="flex items-center gap-2 text-xs font-mono text-fyre-400 mb-1.5 uppercase tracking-wider">
+              <span className="w-2 h-2 rounded-full bg-fyre-500 animate-pulse" />
+              <span>Motion Lab Evidence Teardown</span>
+            </div>
+            <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+              Synchronized Video & Motion Benchmark Teardown
+            </h2>
+            <p className="text-sm text-gray-400 mt-1">
+              Synchronized 1080p motion stress-tests evaluated on physics consistency, temporal drift, and credit burn efficiency.
+            </p>
+          </div>
+
+          <div className="space-y-8">
+            {post.videoComparisons.map((comp, idx) => (
+              <VideoComparison
+                key={idx}
+                title={comp.title}
+                promptDescription={comp.promptDescription}
+                clipA={comp.clipA}
+                clipB={comp.clipB}
+              />
+            ))}
+          </div>
         </div>
       )}
 
