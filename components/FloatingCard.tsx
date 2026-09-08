@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { ExternalLink, X, ChevronUp, Flame, Star, ShieldCheck } from "lucide-react";
+import SmartLink from "@/components/SmartLink";
 
 interface FloatingCardProps {
   productName: string;
@@ -117,15 +118,14 @@ export default function FloatingCard({
               <span>{rating} / 10</span>
             </div>
 
-            <a
+            <SmartLink
               href={affiliateUrl}
-              target="_blank"
-              rel="nofollow sponsored noopener noreferrer"
+              isAffiliate={true}
               className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-fyre-500 to-rose-600 hover:from-fyre-600 hover:to-rose-700 shadow-glow transition-all"
             >
               <span>{ctaText}</span>
               <ExternalLink className="w-3.5 h-3.5" />
-            </a>
+            </SmartLink>
           </div>
         </div>
 

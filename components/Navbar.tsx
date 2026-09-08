@@ -70,9 +70,9 @@ export default function Navbar() {
     ? POSTS.filter(
         (p) =>
           p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          p.product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          p.categoryName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          p.excerpt.toLowerCase().includes(searchQuery.toLowerCase())
+          p.metaDescription.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          p.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          p.badge.toLowerCase().includes(searchQuery.toLowerCase())
       ).slice(0, 5)
     : [];
 
@@ -371,20 +371,20 @@ export default function Navbar() {
                   <div className="space-y-2">
                     {POSTS.slice(0, 3).map((post) => (
                       <Link
-                        key={post.id}
+                        key={post.slug}
                         href={`/${post.category}/${post.slug}`}
                         className="flex items-center justify-between p-2.5 rounded-xl bg-surface hover:bg-surface-hover border border-surface-border transition-colors group"
                       >
                         <div className="flex items-center gap-3">
                           <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-fyre-500/10 text-fyre-400 font-bold text-xs">
-                            {post.verdict.score}
+                            {post.score.toFixed(1)}
                           </div>
                           <div>
                             <div className="text-xs font-semibold text-white group-hover:text-fyre-400 transition-colors">
                               {post.title}
                             </div>
                             <div className="text-[11px] text-gray-400">
-                              {post.categoryName} • {post.product.price}
+                              {post.category.toUpperCase()} • {post.cpcTier}
                             </div>
                           </div>
                         </div>
@@ -400,19 +400,19 @@ export default function Navbar() {
                   </p>
                   {searchResults.map((post) => (
                     <Link
-                      key={post.id}
+                      key={post.slug}
                       href={`/${post.category}/${post.slug}`}
                       className="flex items-center justify-between p-3 rounded-xl bg-surface hover:bg-surface-hover border border-surface-border transition-colors group"
                     >
                       <div className="space-y-1">
                         <div className="flex items-center gap-2">
                           <span className="px-1.5 py-0.5 text-[10px] font-bold rounded bg-fyre-500/20 text-fyre-400">
-                            ★ {post.verdict.score}
+                            ★ {post.score.toFixed(1)}
                           </span>
                           <span className="text-xs font-semibold text-white group-hover:text-fyre-400 transition-colors">
-                            {post.product.name}
+                            {post.badge}
                           </span>
-                          <span className="text-xs text-gray-400 font-mono">({post.product.price})</span>
+                          <span className="text-xs text-gray-400 font-mono">({post.cpcTier})</span>
                         </div>
                         <p className="text-xs text-gray-300 line-clamp-1">{post.title}</p>
                       </div>
@@ -422,7 +422,7 @@ export default function Navbar() {
                 </div>
               ) : (
                 <div className="py-8 text-center text-gray-400 text-sm">
-                  No reviews matched &ldquo;{searchQuery}&rdquo;. Try searching for &ldquo;Cursor&rdquo;, &ldquo;MacBook&rdquo;, or &ldquo;VPN&rdquo;.
+                  No reviews matched &ldquo;{searchQuery}&rdquo;. Try searching for &ldquo;MiniMax&rdquo;, &ldquo;Apollo&rdquo;, or &ldquo;Monitors&rdquo;.
                 </div>
               )}
             </div>

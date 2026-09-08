@@ -13,20 +13,20 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://fyrelinkz.com"),
   title: {
-    default: "FyreLinkz | Verified Tech Reviews, Lab Benchmarks & Deals",
+    default: "FyreLinkz | Verified Tech Reviews & AI Benchmarks",
     template: "%s | FyreLinkz",
   },
   description:
-    "Independent lab benchmarks, in-depth developer hardware evaluations, AI tools reviews, and verified affiliate deals curated for engineers and creators.",
+    "Independent hardware benchmarks, SaaS pricing teardowns, and generative AI workflow matrices.",
   keywords: [
     "tech reviews",
     "developer hardware",
-    "AI coding copilots",
-    "MacBook Pro benchmark",
-    "Home Assistant hub",
-    "no-logs VPN audit",
-    "Shure microphone review",
-    "Cursor AI vs Copilot",
+    "AI video generation",
+    "B2B data enrichment",
+    "async engineering",
+    "4K 144Hz monitors",
+    "AI benchmarks",
+    "SaaS pricing",
     "fyrelinkz",
   ],
   authors: [{ name: "FyreLinkz Editorial Board" }],
@@ -39,15 +39,22 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://fyrelinkz.com",
+    languages: {
+      "en-US": "https://fyrelinkz.com",
+      "en-GB": "https://fyrelinkz.com",
+      "en-CA": "https://fyrelinkz.com",
+      "en-AU": "https://fyrelinkz.com",
+      "x-default": "https://fyrelinkz.com",
+    },
   },
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://fyrelinkz.com",
     siteName: "FyreLinkz",
-    title: "FyreLinkz | Verified Tech Reviews & Lab Benchmarks",
+    title: "FyreLinkz | Verified Tech Reviews & AI Benchmarks",
     description:
-      "100% independent tech benchmarks, unvarnished verdicts, and verified merchant deals for software engineers, designers, and creators.",
+      "Independent hardware benchmarks, SaaS pricing teardowns, and generative AI workflow matrices.",
     images: [
       {
         url: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&h=630&q=80",
@@ -59,9 +66,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "FyreLinkz | Verified Tech Reviews & Lab Benchmarks",
+    title: "FyreLinkz | Verified Tech Reviews & AI Benchmarks",
     description:
-      "100% independent tech benchmarks, unvarnished verdicts, and verified merchant deals.",
+      "Independent hardware benchmarks, SaaS pricing teardowns, and generative AI workflow matrices.",
     images: [
       "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&h=630&q=80",
     ],

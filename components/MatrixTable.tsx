@@ -15,6 +15,7 @@ import {
   Info,
 } from "lucide-react";
 import { MatrixTableRow } from "@/lib/types";
+import SmartLink from "@/components/SmartLink";
 
 interface MatrixTableProps {
   tableData: MatrixTableRow[];
@@ -188,15 +189,14 @@ export default function MatrixTable({
                     {/* Action */}
                     <td className="py-5 px-4 align-top text-right">
                       {row.affiliateUrl ? (
-                        <a
+                        <SmartLink
                           href={row.affiliateUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
+                          isAffiliate={true}
                           className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold text-white bg-fyre-500 hover:bg-fyre-600 transition-colors shadow-glow"
                         >
                           <span>Deploy</span>
                           <ArrowUpRight className="w-3.5 h-3.5" />
-                        </a>
+                        </SmartLink>
                       ) : (
                         <span className="text-xs text-gray-500">—</span>
                       )}
@@ -266,15 +266,14 @@ export default function MatrixTable({
               {/* Action Button */}
               {row.affiliateUrl && (
                 <div className="pt-2">
-                  <a
+                  <SmartLink
                     href={row.affiliateUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    isAffiliate={true}
                     className="w-full flex items-center justify-center gap-1.5 py-2.5 rounded-xl font-bold text-xs text-white bg-gradient-to-r from-fyre-500 to-rose-600 hover:from-fyre-600 shadow-glow"
                   >
                     <span>Deploy {row.name}</span>
                     <ArrowUpRight className="w-4 h-4" />
-                  </a>
+                  </SmartLink>
                 </div>
               )}
             </div>

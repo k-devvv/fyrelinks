@@ -92,38 +92,30 @@ export default function HomePage() {
               <div className="flex items-center justify-between pb-4 mb-4 border-b border-surface-border">
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wide bg-fyre-500 text-white">
-                    {heroPost.verdict.badge}
+                    {heroPost.badge}
                   </span>
                   {heroPost.cpcTier && (
                     <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">
                       CPC: {heroPost.cpcTier}
                     </span>
                   )}
-                  <span className="text-xs font-semibold text-gray-400">{heroPost.categoryName}</span>
+                  <span className="text-xs font-semibold text-gray-400 capitalize">{heroPost.category} Silo</span>
                 </div>
                 <div className="flex items-center gap-1 text-amber-400 font-bold text-sm font-mono">
                   <Star className="w-4 h-4 fill-amber-400" />
-                  <span>{heroPost.verdict.score} / 10</span>
+                  <span>{heroPost.score.toFixed(1)} / 10</span>
                 </div>
               </div>
 
-              <div className="relative h-48 w-full rounded-2xl overflow-hidden mb-5 bg-surface-border/50">
-                <Image
-                  src={heroPost.heroImage}
-                  alt={heroPost.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 500px"
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-80" />
-                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
-                  <span className="px-2.5 py-1 rounded-lg bg-black/70 backdrop-blur-md text-xs font-mono font-bold text-white border border-white/10">
-                    {heroPost.product.brand} {heroPost.product.model}
-                  </span>
-                  <span className="px-2.5 py-1 rounded-lg bg-emerald-500/90 text-xs font-mono font-black text-white">
-                    {heroPost.product.price}
-                  </span>
+              <div className="p-4 rounded-2xl bg-surface/80 border border-surface-border/80 mb-4 space-y-2">
+                <div className="text-[11px] font-bold text-fyre-400 uppercase tracking-wide">Key Spec Highlights</div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                  {heroPost.keySpecs.map((spec, sIdx) => (
+                    <div key={sIdx} className="flex items-center justify-between p-2 rounded-lg bg-surface border border-surface-border">
+                      <span className="text-gray-400">{spec.label}:</span>
+                      <span className="font-mono text-white font-semibold">{spec.value}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
 
@@ -131,19 +123,12 @@ export default function HomePage() {
                 <Link href={`/${heroPost.category}/${heroPost.slug}`}>{heroPost.title}</Link>
               </h2>
 
-              <p className="text-xs text-gray-300 mt-2 line-clamp-2 leading-relaxed">
-                {heroPost.verdict.summary}
+              <p className="text-xs text-gray-300 mt-2 line-clamp-3 leading-relaxed">
+                {heroPost.metaDescription}
               </p>
 
               <div className="mt-5 pt-4 border-t border-surface-border flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <Image
-                    src={heroPost.author.avatar}
-                    alt={heroPost.author.name}
-                    width={28}
-                    height={28}
-                    className="rounded-full object-cover"
-                  />
                   <span className="text-xs text-gray-400">{heroPost.author.name}</span>
                 </div>
                 <Link
@@ -261,60 +246,55 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {POSTS.map((post) => (
             <article
-              key={post.id}
-              className="flex flex-col justify-between rounded-3xl overflow-hidden bg-surface-card border border-surface-border hover:border-surface-active hover:shadow-xl transition-all duration-300 group"
+              key={post.slug}
+              className="flex flex-col justify-between rounded-3xl overflow-hidden bg-surface-card border border-surface-border hover:border-surface-active hover:shadow-xl transition-all duration-300 group p-6 sm:p-8 space-y-6"
             >
-              <div>
-                {/* Image & Badges */}
-                <div className="relative h-52 w-full overflow-hidden bg-surface">
-                  <Image
-                    src={post.heroImage}
-                    alt={post.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 400px"
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-surface-card via-transparent to-transparent opacity-90" />
-
-                  {/* Top tags */}
-                  <div className="absolute top-3 left-3 flex items-center gap-2">
-                    <span className="px-2.5 py-1 rounded-lg text-[10px] font-extrabold uppercase tracking-wide bg-black/70 backdrop-blur-md text-white border border-white/10">
-                      {post.categoryName}
+              <div className="space-y-4">
+                <div className="flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-2">
+                    <span className="px-2.5 py-1 rounded-lg text-[10px] font-extrabold uppercase tracking-wide bg-fyre-500/20 text-fyre-400 border border-fyre-500/30">
+                      {post.badge}
+                    </span>
+                    <span className="px-2.5 py-1 rounded-lg text-[10px] font-mono font-bold bg-surface border border-surface-border text-gray-300 uppercase">
+                      {post.category} Silo
                     </span>
                   </div>
-
-                  {/* Score badge */}
-                  <div className="absolute top-3 right-3 flex items-center gap-1 px-2.5 py-1 rounded-lg bg-surface-card/90 backdrop-blur-md border border-amber-500/30 text-amber-400 text-xs font-bold font-mono">
+                  <div className="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-surface/90 border border-amber-500/30 text-amber-400 text-xs font-bold font-mono">
                     <Star className="w-3.5 h-3.5 fill-amber-400" />
-                    <span>{post.verdict.score}</span>
-                  </div>
-
-                  {/* Price Tag */}
-                  <div className="absolute bottom-3 left-3">
-                    <span className="px-2.5 py-1 rounded-lg bg-fyre-500/20 backdrop-blur-md border border-fyre-500/40 text-fyre-400 text-xs font-mono font-bold">
-                      {post.product.price}
-                    </span>
+                    <span>{post.score.toFixed(1)}</span>
                   </div>
                 </div>
 
-                {/* Article Info */}
-                <div className="p-6 space-y-3">
-                  <h3 className="text-lg font-bold text-white group-hover:text-fyre-400 transition-colors leading-snug line-clamp-2">
+                <div className="space-y-2">
+                  <h3 className="text-xl font-bold text-white group-hover:text-fyre-400 transition-colors leading-snug">
                     <Link href={`/${post.category}/${post.slug}`}>{post.title}</Link>
                   </h3>
-                  <p className="text-xs text-gray-400 line-clamp-2 leading-relaxed">
-                    {post.excerpt}
+                  <p className="text-xs sm:text-sm text-gray-300 line-clamp-3 leading-relaxed">
+                    {post.metaDescription}
                   </p>
+                </div>
+
+                <div className="grid grid-cols-2 gap-2 pt-2 text-xs">
+                  {post.keySpecs.slice(0, 2).map((spec, sIdx) => (
+                    <div key={sIdx} className="p-2.5 rounded-xl bg-surface/60 border border-surface-border/70 text-[11px]">
+                      <div className="text-gray-400">{spec.label}</div>
+                      <div className="font-mono text-white font-semibold line-clamp-1">{spec.value}</div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="flex items-center justify-between text-[11px] font-mono text-gray-400 pt-2 border-t border-surface-border/50">
+                  <span>Monetization Intent</span>
+                  <span className="text-amber-400 font-bold">{post.cpcTier}</span>
                 </div>
               </div>
 
-              {/* Card Footer */}
-              <div className="px-6 pb-6 pt-3 border-t border-surface-border/60 flex items-center justify-between">
+              <div className="pt-4 border-t border-surface-border/60 flex items-center justify-between">
                 <div className="text-[11px] text-gray-500 font-medium">
-                  {post.readTime} • Updated {post.updatedAt}
+                  {post.readTime} • {post.author.name}
                 </div>
                 <Link
                   href={`/${post.category}/${post.slug}`}

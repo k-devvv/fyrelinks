@@ -2,9 +2,10 @@
 
 import React, { useState } from "react";
 import { Flame, ExternalLink, Copy, Check, Tag, ShieldCheck } from "lucide-react";
+import SmartLink from "@/components/SmartLink";
 
 interface AdSlotProps {
-  format?: "leaderboard" | "in-feed" | "sidebar";
+  format?: "leaderboard" | "in-feed" | "sidebar" | "horizontal";
   dealTitle?: string;
   dealSubtitle?: string;
   couponCode?: string;
@@ -12,17 +13,21 @@ interface AdSlotProps {
   discountBadge?: string;
   sponsorName?: string;
   className?: string;
+  minHeight?: string;
+  slotId?: string;
 }
 
 export default function AdSlot({
   format = "in-feed",
-  dealTitle = "Exclusive: 50% Off ProtonVPN Plus + 3 Months Free",
-  dealSubtitle = "Military-grade Swiss encryption, 10 Gbps WireGuard speeds, and zero-logs architecture verified by independent audits.",
-  couponCode = "FYRE50",
-  affiliateUrl = "https://protonvpn.com/?ref=fyrelinkz",
-  discountBadge = "50% OFF",
-  sponsorName = "Proton AG",
+  dealTitle = "Exclusive: Verified Enterprise Deal & Verified Stock",
+  dealSubtitle = "High-intent reader supported benchmark tooling. Reader exclusive discount rates verified by FyreLinkz Lab.",
+  couponCode = "FYREPRO",
+  affiliateUrl = "https://fyrelinkz.com",
+  discountBadge = "VERIFIED DEAL",
+  sponsorName = "FyreLinkz Network",
   className = "",
+  minHeight,
+  slotId,
 }: AdSlotProps) {
   const [copied, setCopied] = useState(false);
 
@@ -79,15 +84,14 @@ export default function AdSlot({
               </button>
             )}
 
-            <a
+            <SmartLink
               href={affiliateUrl}
-              target="_blank"
-              rel="nofollow sponsored noopener noreferrer"
+              isAffiliate={true}
               className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold text-white bg-gradient-to-r from-fyre-500 to-rose-600 hover:from-fyre-600 hover:to-rose-700 shadow-glow transition-all duration-200"
             >
               <span>Claim Deal</span>
               <ExternalLink className="w-3.5 h-3.5" />
-            </a>
+            </SmartLink>
           </div>
         </div>
       </aside>
@@ -131,15 +135,14 @@ export default function AdSlot({
           </div>
         )}
 
-        <a
+        <SmartLink
           href={affiliateUrl}
-          target="_blank"
-          rel="nofollow sponsored noopener noreferrer"
+          isAffiliate={true}
           className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-fyre-500 to-rose-600 hover:from-fyre-600 hover:to-rose-700 shadow-glow transition-all"
         >
           <span>Get Verified Deal</span>
           <ExternalLink className="w-3.5 h-3.5" />
-        </a>
+        </SmartLink>
 
         <div className="flex items-center justify-center gap-1.5 text-[10px] text-gray-500">
           <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
@@ -201,15 +204,14 @@ export default function AdSlot({
             </button>
           )}
 
-          <a
+          <SmartLink
             href={affiliateUrl}
-            target="_blank"
-            rel="nofollow sponsored noopener noreferrer"
+            isAffiliate={true}
             className="flex items-center justify-center gap-2 w-full md:w-auto px-6 py-3 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-fyre-500 to-rose-600 hover:from-fyre-600 hover:to-rose-700 shadow-glow transition-all"
           >
             <span>Activate Discount</span>
             <ExternalLink className="w-4 h-4" />
-          </a>
+          </SmartLink>
         </div>
       </div>
     </aside>

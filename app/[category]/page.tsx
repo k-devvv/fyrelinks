@@ -125,49 +125,36 @@ export default function CategoryPage({ params }: Props) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {posts.map((post) => (
             <article
-              key={post.id}
-              className="flex flex-col justify-between rounded-3xl overflow-hidden bg-surface-card border border-surface-border hover:border-surface-active hover:shadow-xl transition-all duration-300 group"
+              key={post.slug}
+              className="flex flex-col justify-between rounded-3xl overflow-hidden bg-surface-card border border-surface-border hover:border-surface-active hover:shadow-xl transition-all duration-300 group p-6 space-y-5"
             >
-              <div>
-                <div className="relative h-52 w-full overflow-hidden bg-surface">
-                  <Image
-                    src={post.heroImage}
-                    alt={post.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 400px"
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-surface-card via-transparent to-transparent opacity-90" />
-
-                  <div className="absolute top-3 left-3">
-                    <span className="px-2.5 py-1 rounded-lg text-[10px] font-extrabold uppercase tracking-wide bg-fyre-500 text-white">
-                      {post.verdict.badge}
-                    </span>
-                  </div>
-
-                  <div className="absolute top-3 right-3 flex items-center gap-1 px-2.5 py-1 rounded-lg bg-surface-card/90 backdrop-blur-md border border-amber-500/30 text-amber-400 text-xs font-bold font-mono">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between gap-2">
+                  <span className="px-2.5 py-1 rounded-lg text-[10px] font-extrabold uppercase tracking-wide bg-fyre-500/20 text-fyre-400 border border-fyre-500/30">
+                    {post.badge}
+                  </span>
+                  <div className="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-surface/90 border border-amber-500/30 text-amber-400 text-xs font-bold font-mono">
                     <Star className="w-3.5 h-3.5 fill-amber-400" />
-                    <span>{post.verdict.score}</span>
-                  </div>
-
-                  <div className="absolute bottom-3 left-3">
-                    <span className="px-2.5 py-1 rounded-lg bg-emerald-500/20 backdrop-blur-md border border-emerald-500/40 text-emerald-400 text-xs font-mono font-bold">
-                      {post.product.price}
-                    </span>
+                    <span>{post.score.toFixed(1)}</span>
                   </div>
                 </div>
 
-                <div className="p-6 space-y-3">
+                <div className="space-y-2">
                   <h3 className="text-lg font-bold text-white group-hover:text-fyre-400 transition-colors leading-snug line-clamp-2">
                     <Link href={`/${category.slug}/${post.slug}`}>{post.title}</Link>
                   </h3>
-                  <p className="text-xs text-gray-400 line-clamp-2 leading-relaxed">
-                    {post.excerpt}
+                  <p className="text-xs text-gray-400 line-clamp-3 leading-relaxed">
+                    {post.metaDescription}
                   </p>
+                </div>
+
+                <div className="flex items-center justify-between text-[11px] font-mono text-gray-400 pt-2 border-t border-surface-border/50">
+                  <span>CPC Tier</span>
+                  <span className="text-amber-400 font-bold">{post.cpcTier}</span>
                 </div>
               </div>
 
-              <div className="px-6 pb-6 pt-3 border-t border-surface-border/60 flex items-center justify-between">
+              <div className="pt-4 border-t border-surface-border/60 flex items-center justify-between">
                 <div className="text-[11px] text-gray-500">
                   {post.readTime}
                 </div>
