@@ -7,6 +7,7 @@ import FAQSection from "@/components/FAQSection";
 import QuickVerdict from "@/components/QuickVerdict";
 import ComparisonTable from "@/components/ComparisonTable";
 import AdSlot from "@/components/AdSlot";
+import ArticleVisual from "@/components/ArticleVisual";
 
 interface PageProps {
   params: {
@@ -78,6 +79,9 @@ export default function ArticlePage({ params }: PageProps) {
       <p className="text-lg text-slate-300 leading-relaxed mb-8">
         {post.metaDescription}
       </p>
+
+      {/* Dynamic Architecture / Tech Visual Diagram */}
+      <ArticleVisual category={post.category} slug={post.slug} />
 
       {/* AEO Quick Verdict Box */}
       <QuickVerdict score={post.score} verdict={post.verdict} />
