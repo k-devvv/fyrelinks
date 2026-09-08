@@ -47,6 +47,9 @@ export const metadata: Metadata = {
       "x-default": "https://fyrelinkz.com",
     },
   },
+  verification: {
+    google: "YOUR_GOOGLE_VERIFICATION_TOKEN_HERE",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
