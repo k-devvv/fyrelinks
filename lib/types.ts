@@ -19,6 +19,7 @@ export interface MatrixTableRow {
   score?: number;
   badge?: string;
   affiliateUrl?: string;
+  redirectUrl?: string;
 }
 
 export interface ReviewPost {

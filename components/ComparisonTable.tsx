@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Check, X, ExternalLink, Star, Award, Sparkles, Flame, CheckCircle2, ArrowUpRight } from "lucide-react";
 import { MatrixTableRow } from "@/lib/types";
+import SmartLink from "@/components/SmartLink";
 
 export interface ComparisonTableProps {
   data?: MatrixTableRow[];
@@ -18,6 +19,8 @@ export default function ComparisonTable({
   const [selectedFilter, setSelectedFilter] = useState<string>("all");
 
   if (!data || data.length === 0) return null;
+
+  const hasAction = data.some((r) => r.redirectUrl || r.affiliateUrl);
 
   return (
     <section aria-label="Technical Comparison Table" className="my-10 w-full overflow-hidden rounded-3xl bg-surface-card border border-surface-border p-6 md:p-8 shadow-2xl">
@@ -43,6 +46,7 @@ export default function ComparisonTable({
               <th className="py-4 px-5">Pricing / License</th>
               <th className="py-4 px-5">Key Advantage</th>
               <th className="py-4 px-5">Editorial Lab Verdict</th>
+              {hasAction && <th className="py-4 px-5 text-right">Action</th>}
             </tr>
           </thead>
           <tbody className="divide-y divide-surface-border/60 text-xs">
@@ -89,6 +93,24 @@ export default function ComparisonTable({
                 <td className="py-4 px-5 align-top text-gray-300 leading-relaxed max-w-xs">
                   {row.verdict}
                 </td>
+
+                {/* Optional Action Button */}
+                {hasAction && (
+                  <td className="py-4 px-5 align-top text-right">
+                    {row.redirectUrl || row.affiliateUrl ? (
+                      <SmartLink
+                        href={row.redirectUrl || row.affiliateUrl || "#"}
+                        isAffiliate={true}
+                        className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold text-white bg-fyre-500 hover:bg-fyre-600 transition-colors shadow-glow"
+                      >
+                        <span>Explore</span>
+                        <ArrowUpRight className="w-3.5 h-3.5" />
+                      </SmartLink>
+                    ) : (
+                      <span className="text-xs text-gray-500">—</span>
+                    )}
+                  </td>
+                )}
               </tr>
             ))}
           </tbody>

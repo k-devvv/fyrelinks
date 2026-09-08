@@ -15,8 +15,11 @@ export default function SmartLink({
   className = "",
   ...props
 }: SmartLinkProps) {
-  // Check if link is internal (starts with '/' or '#' or contains domain)
-  const isInternal = href.startsWith("/") || href.startsWith("#") || href.includes("fyrelinkz.com");
+  // Treat /go/ affiliate redirects as outbound affiliate links
+  const isGoRedirect = href.startsWith("/go/");
+  const isInternal =
+    (href.startsWith("/") || href.startsWith("#") || href.includes("fyrelinkz.com")) &&
+    !isGoRedirect;
 
   if (isInternal) {
     return (
@@ -27,7 +30,7 @@ export default function SmartLink({
   }
 
   // Determine rel tags for external links
-  const relAttribute = isAffiliate
+  const relAttribute = isAffiliate || isGoRedirect
     ? "nofollow sponsored noopener noreferrer"
     : "nofollow noopener noreferrer";
 
