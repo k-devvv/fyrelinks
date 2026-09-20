@@ -1,0 +1,4 @@
+# FyreLinkz ads.txt
+# Account onboarding: Google AdSense
+# Once your Google AdSense application is approved, replace pub-XXXXXXXXXXXXXXXX with your real publisher ID:
+# google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0

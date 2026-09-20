@@ -1,15 +1,13 @@
-import { MetadataRoute } from "next";
-
+import type { MetadataRoute } from "next";
+import { SITE_URL } from "@/lib/editorial";
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: [
-      {
-        userAgent: "*",
-        allow: "/",
-        disallow: ["/api/", "/_next/", "/admin/", "/go/"],
-      },
-    ],
-    sitemap: "https://www.fyrelinkz.com/sitemap.xml",
-    host: "https://www.fyrelinkz.com",
+    rules: [{
+      userAgent: "*",
+      allow: "/",
+      disallow: ["/api/", "/admin/", "/go/"]
+    }],
+    sitemap: SITE_URL + "/sitemap.xml",
+    host: SITE_URL
   };
 }

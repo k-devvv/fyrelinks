@@ -6,5 +6,6 @@ export const REDIRECT_MAP: Record<string, string> = {
 };
 
 export function getRedirectUrl(slug: string): string | undefined {
-  return REDIRECT_MAP[slug.toLowerCase()];
+  const key = slug.toLowerCase();
+  return Object.prototype.hasOwnProperty.call(REDIRECT_MAP, key) ? REDIRECT_MAP[key] : undefined;
 }

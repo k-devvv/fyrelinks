@@ -1,0 +1,2399 @@
+{
+  "checkedAt": "2026-09-12",
+  "providers": [
+    {
+      "id": "higgsfield",
+      "name": "Higgsfield",
+      "mark": "H",
+      "url": "https://higgsfield.ai/pricing",
+      "note": "Base individual plans. Approximate model rates come from the live comparison table. Subscription credits reset monthly; temporary Unlimited offers are excluded from these credit-mode estimates.",
+      "plans": [
+        {
+          "id": "basic",
+          "name": "Basic",
+          "monthly": 9,
+          "annual": 9,
+          "credits": 120,
+          "tier": 0
+        },
+        {
+          "id": "pro",
+          "name": "Pro",
+          "monthly": 29,
+          "annual": 23,
+          "credits": 600,
+          "tier": 1
+        },
+        {
+          "id": "max",
+          "name": "Max",
+          "monthly": 79,
+          "annual": 59,
+          "credits": 1800,
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "runway",
+      "name": "Runway",
+      "mark": "R",
+      "url": "https://runway.com/pricing",
+      "note": "Paid individual web plans. Standard and Pro credits reset monthly; Max permits one month of rollover. API billing is separate. This comparison uses published base model rates, without temporary discounts.",
+      "plans": [
+        {
+          "id": "standard",
+          "name": "Standard",
+          "monthly": 15,
+          "annual": 12,
+          "credits": 625,
+          "tier": 0
+        },
+        {
+          "id": "pro",
+          "name": "Pro",
+          "monthly": 35,
+          "annual": 28,
+          "credits": 2250,
+          "tier": 1
+        },
+        {
+          "id": "max",
+          "name": "Max",
+          "monthly": 95,
+          "annual": 76,
+          "credits": 9500,
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "luma",
+      "name": "Luma",
+      "mark": "L",
+      "url": "https://lumalabs.ai/pricing",
+      "note": "Current Luma individual subscriptions, not the former Dream Machine plan ladder. Credits are shared with other tools. The selected rate specifies generation, edit or reframe mode.",
+      "plans": [
+        {
+          "id": "plus",
+          "name": "Plus",
+          "monthly": 30,
+          "annual": 25,
+          "credits": 10000,
+          "tier": 0
+        },
+        {
+          "id": "pro",
+          "name": "Pro",
+          "monthly": 90,
+          "annual": 75,
+          "credits": 40000,
+          "tier": 1
+        },
+        {
+          "id": "ultra",
+          "name": "Ultra",
+          "monthly": 300,
+          "annual": 250,
+          "credits": 150000,
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "pika",
+      "name": "Pika",
+      "mark": "P",
+      "url": "https://pika.art/pricing?interval=month",
+      "note": "Paid web subscriptions. Unspent monthly credits do not roll over. Purchased credit packs have separate rules. Generation and editing tools have different credit rates.",
+      "plans": [
+        {
+          "id": "standard",
+          "name": "Standard",
+          "monthly": 10,
+          "annual": 8,
+          "credits": 700,
+          "tier": 0
+        },
+        {
+          "id": "pro",
+          "name": "Pro",
+          "monthly": 35,
+          "annual": 28,
+          "credits": 2300,
+          "tier": 1
+        },
+        {
+          "id": "fancy",
+          "name": "Fancy",
+          "monthly": 95,
+          "annual": 76,
+          "credits": 6000,
+          "tier": 2
+        }
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "id": "higgsfield-seedance-2-0-720p-5",
+      "provider": "higgsfield",
+      "model": "Seedance 2.0",
+      "setting": "720p",
+      "seconds": 5,
+      "credits": 22,
+      "minTier": 1,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-seedance-2-0-1080p-5",
+      "provider": "higgsfield",
+      "model": "Seedance 2.0",
+      "setting": "1080p",
+      "seconds": 5,
+      "credits": 45,
+      "minTier": 1,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-seedance-2-0-4k-5",
+      "provider": "higgsfield",
+      "model": "Seedance 2.0",
+      "setting": "4K",
+      "seconds": 5,
+      "credits": 110,
+      "minTier": 1,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-seedance-2-0-fast-720p-5",
+      "provider": "higgsfield",
+      "model": "Seedance 2.0 Fast",
+      "setting": "720p",
+      "seconds": 5,
+      "credits": 17,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-kling-3-0-720p-5",
+      "provider": "higgsfield",
+      "model": "Kling 3.0",
+      "setting": "720p",
+      "seconds": 5,
+      "credits": 7,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-kling-3-0-1080p-5",
+      "provider": "higgsfield",
+      "model": "Kling 3.0",
+      "setting": "1080p",
+      "seconds": 5,
+      "credits": 8,
+      "minTier": 1,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-kling-3-0-4k-5",
+      "provider": "higgsfield",
+      "model": "Kling 3.0",
+      "setting": "4K",
+      "seconds": 5,
+      "credits": 30,
+      "minTier": 1,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-kling-omni-3-image-reference-720p-5",
+      "provider": "higgsfield",
+      "model": "Kling Omni 3",
+      "setting": "Image reference · 720p",
+      "seconds": 5,
+      "credits": 5,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-kling-omni-3-image-reference-1080p-5",
+      "provider": "higgsfield",
+      "model": "Kling Omni 3",
+      "setting": "Image reference · 1080p",
+      "seconds": 5,
+      "credits": 7,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-kling-omni-3-first-last-frame-720p-5",
+      "provider": "higgsfield",
+      "model": "Kling Omni 3",
+      "setting": "First/last frame · 720p",
+      "seconds": 5,
+      "credits": 5,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-kling-omni-3-first-last-frame-1080p-5",
+      "provider": "higgsfield",
+      "model": "Kling Omni 3",
+      "setting": "First/last frame · 1080p",
+      "seconds": 5,
+      "credits": 6,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-grok-video-generation-5",
+      "provider": "higgsfield",
+      "model": "Grok Video",
+      "setting": "Generation",
+      "seconds": 5,
+      "credits": 7,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-grok-video-editing-5",
+      "provider": "higgsfield",
+      "model": "Grok Video",
+      "setting": "Editing",
+      "seconds": 5,
+      "credits": 10,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-kling-2-6-motion-control-720p-5",
+      "provider": "higgsfield",
+      "model": "Kling 2.6 Motion Control",
+      "setting": "720p",
+      "seconds": 5,
+      "credits": 5,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-kling-2-6-motion-control-1080p-5",
+      "provider": "higgsfield",
+      "model": "Kling 2.6 Motion Control",
+      "setting": "1080p",
+      "seconds": 5,
+      "credits": 7,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-kling-3-0-motion-control-720p-5",
+      "provider": "higgsfield",
+      "model": "Kling 3.0 Motion Control",
+      "setting": "720p",
+      "seconds": 5,
+      "credits": 7,
+      "minTier": 1,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-kling-3-0-motion-control-1080p-5",
+      "provider": "higgsfield",
+      "model": "Kling 3.0 Motion Control",
+      "setting": "1080p",
+      "seconds": 5,
+      "credits": 12,
+      "minTier": 1,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-kling-omni-1-720p-5",
+      "provider": "higgsfield",
+      "model": "Kling Omni 1",
+      "setting": "720p",
+      "seconds": 5,
+      "credits": 7,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-kling-omni-1-1080p-5",
+      "provider": "higgsfield",
+      "model": "Kling Omni 1",
+      "setting": "1080p",
+      "seconds": 5,
+      "credits": 10,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-kling-2-6-with-sound-5",
+      "provider": "higgsfield",
+      "model": "Kling 2.6",
+      "setting": "With sound",
+      "seconds": 5,
+      "credits": 10,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-kling-2-6-without-sound-5",
+      "provider": "higgsfield",
+      "model": "Kling 2.6",
+      "setting": "Without sound",
+      "seconds": 5,
+      "credits": 5,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-wan-2-6-480p-5",
+      "provider": "higgsfield",
+      "model": "Wan 2.6",
+      "setting": "480p",
+      "seconds": 5,
+      "credits": 7,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-wan-2-6-720p-5",
+      "provider": "higgsfield",
+      "model": "Wan 2.6",
+      "setting": "720p",
+      "seconds": 5,
+      "credits": 13,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-wan-2-6-1080p-5",
+      "provider": "higgsfield",
+      "model": "Wan 2.6",
+      "setting": "1080p",
+      "seconds": 5,
+      "credits": 20,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-wan-3-0-480p-5",
+      "provider": "higgsfield",
+      "model": "Wan 3.0",
+      "setting": "480p",
+      "seconds": 5,
+      "credits": 5,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "higgsfield-wan-3-0-720p-5",
+      "provider": "higgsfield",
+      "model": "Wan 3.0",
+      "setting": "720p",
+      "seconds": 5,
+      "credits": 8.75,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "higgsfield-wan-3-0-1080p-5",
+      "provider": "higgsfield",
+      "model": "Wan 3.0",
+      "setting": "1080p",
+      "seconds": 5,
+      "credits": 17.5,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "higgsfield-wan-3-0-prime-480p-5",
+      "provider": "higgsfield",
+      "model": "Wan 3.0 Prime",
+      "setting": "480p",
+      "seconds": 5,
+      "credits": 7.5,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "higgsfield-wan-3-0-prime-720p-5",
+      "provider": "higgsfield",
+      "model": "Wan 3.0 Prime",
+      "setting": "720p",
+      "seconds": 5,
+      "credits": 15,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "higgsfield-wan-3-0-prime-1080p-5",
+      "provider": "higgsfield",
+      "model": "Wan 3.0 Prime",
+      "setting": "1080p",
+      "seconds": 5,
+      "credits": 30,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "higgsfield-seedance-1-5-480p-5",
+      "provider": "higgsfield",
+      "model": "Seedance 1.5",
+      "setting": "480p",
+      "seconds": 5,
+      "credits": 1,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-seedance-1-5-720p-5",
+      "provider": "higgsfield",
+      "model": "Seedance 1.5",
+      "setting": "720p",
+      "seconds": 5,
+      "credits": 3,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-seedance-1-5-1080p-5",
+      "provider": "higgsfield",
+      "model": "Seedance 1.5",
+      "setting": "1080p",
+      "seconds": 5,
+      "credits": 7,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-higgsfield-dop-lite-720p-3",
+      "provider": "higgsfield",
+      "model": "Higgsfield DoP",
+      "setting": "Lite · 720p",
+      "seconds": 3,
+      "credits": 3,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-higgsfield-dop-standard-720p-3",
+      "provider": "higgsfield",
+      "model": "Higgsfield DoP",
+      "setting": "Standard · 720p",
+      "seconds": 3,
+      "credits": 7,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-higgsfield-dop-turbo-720p-3",
+      "provider": "higgsfield",
+      "model": "Higgsfield DoP",
+      "setting": "Turbo · 720p",
+      "seconds": 3,
+      "credits": 5,
+      "minTier": 1,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-sora-2-720p-4",
+      "provider": "higgsfield",
+      "model": "Sora 2",
+      "setting": "720p",
+      "seconds": 4,
+      "credits": 10,
+      "minTier": 1,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-sora-2-pro-720p-4",
+      "provider": "higgsfield",
+      "model": "Sora 2 Pro",
+      "setting": "720p",
+      "seconds": 4,
+      "credits": 30,
+      "minTier": 1,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-sora-2-pro-1080p-4",
+      "provider": "higgsfield",
+      "model": "Sora 2 Pro",
+      "setting": "1080p",
+      "seconds": 4,
+      "credits": 50,
+      "minTier": 1,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-sora-2-max-720p-4",
+      "provider": "higgsfield",
+      "model": "Sora 2 Max",
+      "setting": "720p",
+      "seconds": 4,
+      "credits": 14,
+      "minTier": 1,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-sora-2-max-1080p-4",
+      "provider": "higgsfield",
+      "model": "Sora 2 Max",
+      "setting": "1080p",
+      "seconds": 4,
+      "credits": 34,
+      "minTier": 1,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-sora-2-pro-max-720p-4",
+      "provider": "higgsfield",
+      "model": "Sora 2 Pro Max",
+      "setting": "720p",
+      "seconds": 4,
+      "credits": 34,
+      "minTier": 1,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-sora-2-pro-max-1080p-4",
+      "provider": "higgsfield",
+      "model": "Sora 2 Pro Max",
+      "setting": "1080p",
+      "seconds": 4,
+      "credits": 54,
+      "minTier": 1,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-veo-3-1-fast-720p-4",
+      "provider": "higgsfield",
+      "model": "Veo 3.1 Fast",
+      "setting": "720p",
+      "seconds": 4,
+      "credits": 11,
+      "minTier": 1,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-veo-3-1-fast-1080p-4",
+      "provider": "higgsfield",
+      "model": "Veo 3.1 Fast",
+      "setting": "1080p",
+      "seconds": 4,
+      "credits": 11,
+      "minTier": 1,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-veo-3-1-720p-4",
+      "provider": "higgsfield",
+      "model": "Veo 3.1",
+      "setting": "720p",
+      "seconds": 4,
+      "credits": 29,
+      "minTier": 1,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-veo-3-1-1080p-4",
+      "provider": "higgsfield",
+      "model": "Veo 3.1",
+      "setting": "1080p",
+      "seconds": 4,
+      "credits": 29,
+      "minTier": 1,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-veo-3-fast-720p-8",
+      "provider": "higgsfield",
+      "model": "Veo 3 Fast",
+      "setting": "720p",
+      "seconds": 8,
+      "credits": 22,
+      "minTier": 1,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-veo-3-720p-8",
+      "provider": "higgsfield",
+      "model": "Veo 3",
+      "setting": "720p",
+      "seconds": 8,
+      "credits": 58,
+      "minTier": 1,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-kling-2-5-turbo-720p-5",
+      "provider": "higgsfield",
+      "model": "Kling 2.5 Turbo",
+      "setting": "720p",
+      "seconds": 5,
+      "credits": 4,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-kling-2-5-turbo-1080p-5",
+      "provider": "higgsfield",
+      "model": "Kling 2.5 Turbo",
+      "setting": "1080p",
+      "seconds": 5,
+      "credits": 6,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-kling-2-1-720p-5",
+      "provider": "higgsfield",
+      "model": "Kling 2.1",
+      "setting": "720p",
+      "seconds": 5,
+      "credits": 5,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-kling-2-1-1080p-5",
+      "provider": "higgsfield",
+      "model": "Kling 2.1",
+      "setting": "1080p",
+      "seconds": 5,
+      "credits": 10,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-kling-2-1-master-1080p-5",
+      "provider": "higgsfield",
+      "model": "Kling 2.1 Master",
+      "setting": "1080p",
+      "seconds": 5,
+      "credits": 25,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-wan-2-2-fast-720p-5",
+      "provider": "higgsfield",
+      "model": "Wan 2.2 Fast",
+      "setting": "720p",
+      "seconds": 5,
+      "credits": 5,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-wan-2-2-720p-5",
+      "provider": "higgsfield",
+      "model": "Wan 2.2",
+      "setting": "720p",
+      "seconds": 5,
+      "credits": 7,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-wan-2-5-fast-720p-5",
+      "provider": "higgsfield",
+      "model": "Wan 2.5 Fast",
+      "setting": "720p",
+      "seconds": 5,
+      "credits": 9,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-wan-2-5-fast-1080p-5",
+      "provider": "higgsfield",
+      "model": "Wan 2.5 Fast",
+      "setting": "1080p",
+      "seconds": 5,
+      "credits": 13,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-wan-2-5-480p-5",
+      "provider": "higgsfield",
+      "model": "Wan 2.5",
+      "setting": "480p",
+      "seconds": 5,
+      "credits": 7,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-wan-2-5-720p-5",
+      "provider": "higgsfield",
+      "model": "Wan 2.5",
+      "setting": "720p",
+      "seconds": 5,
+      "credits": 13,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-wan-2-5-1080p-5",
+      "provider": "higgsfield",
+      "model": "Wan 2.5",
+      "setting": "1080p",
+      "seconds": 5,
+      "credits": 20,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-minimax-hailuo-2-3-fast-768p-6",
+      "provider": "higgsfield",
+      "model": "Minimax Hailuo 2.3 Fast",
+      "setting": "768p",
+      "seconds": 6,
+      "credits": 4,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-minimax-hailuo-2-3-fast-1080p-6",
+      "provider": "higgsfield",
+      "model": "Minimax Hailuo 2.3 Fast",
+      "setting": "1080p",
+      "seconds": 6,
+      "credits": 7,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-minimax-hailuo-2-3-768p-6",
+      "provider": "higgsfield",
+      "model": "Minimax Hailuo 2.3",
+      "setting": "768p",
+      "seconds": 6,
+      "credits": 6,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-minimax-hailuo-2-3-1080p-6",
+      "provider": "higgsfield",
+      "model": "Minimax Hailuo 2.3",
+      "setting": "1080p",
+      "seconds": 6,
+      "credits": 10,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-minimax-hailuo-02-fast-512p-6",
+      "provider": "higgsfield",
+      "model": "Minimax Hailuo 02 Fast",
+      "setting": "512p",
+      "seconds": 6,
+      "credits": 3,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-minimax-hailuo-02-768p-6",
+      "provider": "higgsfield",
+      "model": "Minimax Hailuo 02",
+      "setting": "768p",
+      "seconds": 6,
+      "credits": 6,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-minimax-hailuo-02-1080p-6",
+      "provider": "higgsfield",
+      "model": "Minimax Hailuo 02",
+      "setting": "1080p",
+      "seconds": 6,
+      "credits": 10,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-seedance-pro-fast-720p-5",
+      "provider": "higgsfield",
+      "model": "Seedance Pro Fast",
+      "setting": "720p",
+      "seconds": 5,
+      "credits": 4,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-seedance-pro-fast-1080p-5",
+      "provider": "higgsfield",
+      "model": "Seedance Pro Fast",
+      "setting": "1080p",
+      "seconds": 5,
+      "credits": 9,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-seedance-pro-480p-5",
+      "provider": "higgsfield",
+      "model": "Seedance Pro",
+      "setting": "480p",
+      "seconds": 5,
+      "credits": 4,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-seedance-pro-720p-5",
+      "provider": "higgsfield",
+      "model": "Seedance Pro",
+      "setting": "720p",
+      "seconds": 5,
+      "credits": 8,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-seedance-pro-1080p-5",
+      "provider": "higgsfield",
+      "model": "Seedance Pro",
+      "setting": "1080p",
+      "seconds": 5,
+      "credits": 18,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-higgsfield-speak-2-0-lip-sync-720p-5",
+      "provider": "higgsfield",
+      "model": "Higgsfield Speak 2.0",
+      "setting": "Lip sync · 720p",
+      "seconds": 5,
+      "credits": 14,
+      "minTier": 1,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-wan-2-5-speak-fast-lip-sync-720p-5",
+      "provider": "higgsfield",
+      "model": "Wan 2.5 Speak Fast",
+      "setting": "Lip sync · 720p",
+      "seconds": 5,
+      "credits": 9,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-wan-2-5-speak-fast-lip-sync-1080p-5",
+      "provider": "higgsfield",
+      "model": "Wan 2.5 Speak Fast",
+      "setting": "Lip sync · 1080p",
+      "seconds": 5,
+      "credits": 12,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-wan-2-5-speak-lip-sync-480p-5",
+      "provider": "higgsfield",
+      "model": "Wan 2.5 Speak",
+      "setting": "Lip sync · 480p",
+      "seconds": 5,
+      "credits": 6,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-wan-2-5-speak-lip-sync-720p-5",
+      "provider": "higgsfield",
+      "model": "Wan 2.5 Speak",
+      "setting": "Lip sync · 720p",
+      "seconds": 5,
+      "credits": 12,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-wan-2-5-speak-lip-sync-1080p-5",
+      "provider": "higgsfield",
+      "model": "Wan 2.5 Speak",
+      "setting": "Lip sync · 1080p",
+      "seconds": 5,
+      "credits": 20,
+      "minTier": 0,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-kling-speak-lip-sync-720p-2",
+      "provider": "higgsfield",
+      "model": "Kling Speak",
+      "setting": "Lip sync · 720p",
+      "seconds": 2,
+      "credits": 2,
+      "minTier": 1,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-kling-speak-lip-sync-1080p-2",
+      "provider": "higgsfield",
+      "model": "Kling Speak",
+      "setting": "Lip sync · 1080p",
+      "seconds": 2,
+      "credits": 4,
+      "minTier": 1,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-kling-lipsync-720p-5",
+      "provider": "higgsfield",
+      "model": "Kling Lipsync",
+      "setting": "720p",
+      "seconds": 5,
+      "credits": 2,
+      "minTier": 1,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-infinite-talk-480p-5",
+      "provider": "higgsfield",
+      "model": "Infinite Talk",
+      "setting": "480p",
+      "seconds": 5,
+      "credits": 18,
+      "minTier": 1,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-infinite-talk-720p-2",
+      "provider": "higgsfield",
+      "model": "Infinite Talk",
+      "setting": "720p",
+      "seconds": 2,
+      "credits": 12,
+      "minTier": 1,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-sync-lipsync-3-4k-30-fps-2",
+      "provider": "higgsfield",
+      "model": "Sync Lipsync 3",
+      "setting": "4K · 30 FPS",
+      "seconds": 2,
+      "credits": 18,
+      "minTier": 1,
+      "approx": true
+    },
+    {
+      "id": "higgsfield-seedance-2-5-enter-the-quote-shown-in-your-account",
+      "provider": "higgsfield",
+      "model": "Seedance 2.5",
+      "setting": "Enter the quote shown in your account",
+      "seconds": null,
+      "credits": null,
+      "minTier": 1,
+      "approx": false
+    },
+    {
+      "id": "higgsfield-seedance-2-0-mini-enter-the-quote-shown-in-your-account",
+      "provider": "higgsfield",
+      "model": "Seedance 2.0 Mini",
+      "setting": "Enter the quote shown in your account",
+      "seconds": null,
+      "credits": null,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "higgsfield-gemini-omni-flash-enter-the-quote-shown-in-your-account",
+      "provider": "higgsfield",
+      "model": "Gemini Omni Flash",
+      "setting": "Enter the quote shown in your account",
+      "seconds": null,
+      "credits": null,
+      "minTier": 1,
+      "approx": false
+    },
+    {
+      "id": "higgsfield-grok-imagine-1-5-enter-the-quote-shown-in-your-account",
+      "provider": "higgsfield",
+      "model": "Grok Imagine 1.5",
+      "setting": "Enter the quote shown in your account",
+      "seconds": null,
+      "credits": null,
+      "minTier": 1,
+      "approx": false
+    },
+    {
+      "id": "higgsfield-genjutsu-enter-the-quote-shown-in-your-account",
+      "provider": "higgsfield",
+      "model": "Genjutsu",
+      "setting": "Enter the quote shown in your account",
+      "seconds": null,
+      "credits": null,
+      "minTier": 1,
+      "approx": false
+    },
+    {
+      "id": "runway-gen-4-5-generation-5",
+      "provider": "runway",
+      "model": "Gen-4.5",
+      "setting": "Generation",
+      "seconds": 5,
+      "credits": 60,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "runway-aleph-2-0-video-editing-5",
+      "provider": "runway",
+      "model": "Aleph 2.0",
+      "setting": "Video editing",
+      "seconds": 5,
+      "credits": 140,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "runway-seedance-2-0-pro-1080p-4",
+      "provider": "runway",
+      "model": "Seedance 2.0 Pro",
+      "setting": "1080p",
+      "seconds": 4,
+      "credits": 160,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "runway-seedance-2-0-fast-generation-4",
+      "provider": "runway",
+      "model": "Seedance 2.0 Fast",
+      "setting": "Generation",
+      "seconds": 4,
+      "credits": 116,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "runway-seedance-2-0-mini-generation-4",
+      "provider": "runway",
+      "model": "Seedance 2.0 Mini",
+      "setting": "Generation",
+      "seconds": 4,
+      "credits": 64,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "runway-kling-3-0-pro-with-audio-5",
+      "provider": "runway",
+      "model": "Kling 3.0 Pro",
+      "setting": "With audio",
+      "seconds": 5,
+      "credits": 85,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "runway-kling-3-0-standard-with-audio-5",
+      "provider": "runway",
+      "model": "Kling 3.0 Standard",
+      "setting": "With audio",
+      "seconds": 5,
+      "credits": 65,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "runway-kling-3-0-turbo-1080p-5",
+      "provider": "runway",
+      "model": "Kling 3.0 Turbo",
+      "setting": "1080p",
+      "seconds": 5,
+      "credits": 80,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "runway-kling-3-0-motion-control-1080p-5",
+      "provider": "runway",
+      "model": "Kling 3.0 Motion Control",
+      "setting": "1080p",
+      "seconds": 5,
+      "credits": 85,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "runway-gen-4-aleph-video-editing-5",
+      "provider": "runway",
+      "model": "Gen-4 Aleph",
+      "setting": "Video editing",
+      "seconds": 5,
+      "credits": 75,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "runway-gen-4-video-generation-5",
+      "provider": "runway",
+      "model": "Gen-4 Video",
+      "setting": "Generation",
+      "seconds": 5,
+      "credits": 60,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "runway-gen-4-video-turbo-generation-5",
+      "provider": "runway",
+      "model": "Gen-4 Video Turbo",
+      "setting": "Generation",
+      "seconds": 5,
+      "credits": 25,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "runway-act-two-performance-transfer-5",
+      "provider": "runway",
+      "model": "Act-Two",
+      "setting": "Performance transfer",
+      "seconds": 5,
+      "credits": 25,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "runway-veo-3-1-with-audio-8",
+      "provider": "runway",
+      "model": "Veo 3.1",
+      "setting": "With audio",
+      "seconds": 8,
+      "credits": 320,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "runway-veo-3-with-audio-8",
+      "provider": "runway",
+      "model": "Veo 3",
+      "setting": "With audio",
+      "seconds": 8,
+      "credits": 320,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "runway-kling-o3-pro-5",
+      "provider": "runway",
+      "model": "Kling O3",
+      "setting": "Pro",
+      "seconds": 5,
+      "credits": 85,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "runway-kling-2-6-pro-generation-5",
+      "provider": "runway",
+      "model": "Kling 2.6 Pro",
+      "setting": "Generation",
+      "seconds": 5,
+      "credits": 125,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "runway-kling-2-5-turbo-pro-1080p-5",
+      "provider": "runway",
+      "model": "Kling 2.5 Turbo Pro",
+      "setting": "1080p",
+      "seconds": 5,
+      "credits": 75,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "runway-kling-2-5-turbo-generation-5",
+      "provider": "runway",
+      "model": "Kling 2.5 Turbo",
+      "setting": "Generation",
+      "seconds": 5,
+      "credits": 50,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "runway-wan-2-6-1080p-5",
+      "provider": "runway",
+      "model": "Wan 2.6",
+      "setting": "1080p",
+      "seconds": 5,
+      "credits": 75,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "runway-wan-2-6-flash-1080p-5",
+      "provider": "runway",
+      "model": "Wan 2.6 Flash",
+      "setting": "1080p",
+      "seconds": 5,
+      "credits": 50,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "runway-happyhorse-1-0-1080p-5",
+      "provider": "runway",
+      "model": "HappyHorse 1.0",
+      "setting": "1080p",
+      "seconds": 5,
+      "credits": 150,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "runway-grok-imagine-720p-5",
+      "provider": "runway",
+      "model": "Grok Imagine",
+      "setting": "720p",
+      "seconds": 5,
+      "credits": 40,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "runway-grok-imagine-1-5-720p-5",
+      "provider": "runway",
+      "model": "Grok Imagine 1.5",
+      "setting": "720p",
+      "seconds": 5,
+      "credits": 81,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "runway-seedance-2-5-enter-your-current-account-quote",
+      "provider": "runway",
+      "model": "Seedance 2.5",
+      "setting": "Enter your current account quote",
+      "seconds": null,
+      "credits": null,
+      "minTier": 1,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-2-draft-sdr-generation-5s-5",
+      "provider": "luma",
+      "model": "Ray3.2",
+      "setting": "Draft · SDR · generation · 5s",
+      "seconds": 5,
+      "credits": 20,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-2-draft-sdr-generation-10s-10",
+      "provider": "luma",
+      "model": "Ray3.2",
+      "setting": "Draft · SDR · generation · 10s",
+      "seconds": 10,
+      "credits": 60,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-2-draft-hdr-generation-5s-5",
+      "provider": "luma",
+      "model": "Ray3.2",
+      "setting": "Draft · HDR · generation · 5s",
+      "seconds": 5,
+      "credits": 40,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-2-draft-hdr-generation-10s-10",
+      "provider": "luma",
+      "model": "Ray3.2",
+      "setting": "Draft · HDR · generation · 10s",
+      "seconds": 10,
+      "credits": 120,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-2-draft-hdr-exr-generation-5s-5",
+      "provider": "luma",
+      "model": "Ray3.2",
+      "setting": "Draft · HDR + EXR · generation · 5s",
+      "seconds": 5,
+      "credits": 60,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-2-draft-hdr-exr-generation-10s-10",
+      "provider": "luma",
+      "model": "Ray3.2",
+      "setting": "Draft · HDR + EXR · generation · 10s",
+      "seconds": 10,
+      "credits": 180,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-14-draft-sdr-generation-5",
+      "provider": "luma",
+      "model": "Ray3.14",
+      "setting": "Draft · SDR · generation",
+      "seconds": 5,
+      "credits": 20,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-14-draft-hdr-generation-5",
+      "provider": "luma",
+      "model": "Ray3.14",
+      "setting": "Draft · HDR · generation",
+      "seconds": 5,
+      "credits": 80,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-2-540p-sdr-generation-5s-5",
+      "provider": "luma",
+      "model": "Ray3.2",
+      "setting": "540p · SDR · generation · 5s",
+      "seconds": 5,
+      "credits": 50,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-2-540p-sdr-generation-10s-10",
+      "provider": "luma",
+      "model": "Ray3.2",
+      "setting": "540p · SDR · generation · 10s",
+      "seconds": 10,
+      "credits": 150,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-2-540p-hdr-generation-5s-5",
+      "provider": "luma",
+      "model": "Ray3.2",
+      "setting": "540p · HDR · generation · 5s",
+      "seconds": 5,
+      "credits": 100,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-2-540p-hdr-generation-10s-10",
+      "provider": "luma",
+      "model": "Ray3.2",
+      "setting": "540p · HDR · generation · 10s",
+      "seconds": 10,
+      "credits": 300,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-2-540p-hdr-exr-generation-5s-5",
+      "provider": "luma",
+      "model": "Ray3.2",
+      "setting": "540p · HDR + EXR · generation · 5s",
+      "seconds": 5,
+      "credits": 150,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-2-540p-hdr-exr-generation-10s-10",
+      "provider": "luma",
+      "model": "Ray3.2",
+      "setting": "540p · HDR + EXR · generation · 10s",
+      "seconds": 10,
+      "credits": 450,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-14-540p-sdr-generation-5",
+      "provider": "luma",
+      "model": "Ray3.14",
+      "setting": "540p · SDR · generation",
+      "seconds": 5,
+      "credits": 50,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-14-540p-hdr-generation-5",
+      "provider": "luma",
+      "model": "Ray3.14",
+      "setting": "540p · HDR · generation",
+      "seconds": 5,
+      "credits": 200,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-2-720p-sdr-generation-5s-5",
+      "provider": "luma",
+      "model": "Ray3.2",
+      "setting": "720p · SDR · generation · 5s",
+      "seconds": 5,
+      "credits": 100,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-2-720p-sdr-generation-10s-10",
+      "provider": "luma",
+      "model": "Ray3.2",
+      "setting": "720p · SDR · generation · 10s",
+      "seconds": 10,
+      "credits": 300,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-2-720p-hdr-generation-5s-5",
+      "provider": "luma",
+      "model": "Ray3.2",
+      "setting": "720p · HDR · generation · 5s",
+      "seconds": 5,
+      "credits": 200,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-2-720p-hdr-generation-10s-10",
+      "provider": "luma",
+      "model": "Ray3.2",
+      "setting": "720p · HDR · generation · 10s",
+      "seconds": 10,
+      "credits": 600,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-2-720p-hdr-exr-generation-5s-5",
+      "provider": "luma",
+      "model": "Ray3.2",
+      "setting": "720p · HDR + EXR · generation · 5s",
+      "seconds": 5,
+      "credits": 300,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-2-720p-hdr-exr-generation-10s-10",
+      "provider": "luma",
+      "model": "Ray3.2",
+      "setting": "720p · HDR + EXR · generation · 10s",
+      "seconds": 10,
+      "credits": 900,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-14-720p-sdr-generation-5",
+      "provider": "luma",
+      "model": "Ray3.14",
+      "setting": "720p · SDR · generation",
+      "seconds": 5,
+      "credits": 100,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-14-720p-hdr-generation-5",
+      "provider": "luma",
+      "model": "Ray3.14",
+      "setting": "720p · HDR · generation",
+      "seconds": 5,
+      "credits": 400,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-2-1080p-sdr-generation-5s-5",
+      "provider": "luma",
+      "model": "Ray3.2",
+      "setting": "1080p · SDR · generation · 5s",
+      "seconds": 5,
+      "credits": 400,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-2-1080p-sdr-generation-10s-10",
+      "provider": "luma",
+      "model": "Ray3.2",
+      "setting": "1080p · SDR · generation · 10s",
+      "seconds": 10,
+      "credits": 1200,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-2-1080p-hdr-generation-5s-5",
+      "provider": "luma",
+      "model": "Ray3.2",
+      "setting": "1080p · HDR · generation · 5s",
+      "seconds": 5,
+      "credits": 800,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-2-1080p-hdr-generation-10s-10",
+      "provider": "luma",
+      "model": "Ray3.2",
+      "setting": "1080p · HDR · generation · 10s",
+      "seconds": 10,
+      "credits": 2400,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-2-1080p-hdr-exr-generation-5s-5",
+      "provider": "luma",
+      "model": "Ray3.2",
+      "setting": "1080p · HDR + EXR · generation · 5s",
+      "seconds": 5,
+      "credits": 1200,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-2-1080p-hdr-exr-generation-10s-10",
+      "provider": "luma",
+      "model": "Ray3.2",
+      "setting": "1080p · HDR + EXR · generation · 10s",
+      "seconds": 10,
+      "credits": 3600,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-14-1080p-sdr-generation-5",
+      "provider": "luma",
+      "model": "Ray3.14",
+      "setting": "1080p · SDR · generation",
+      "seconds": 5,
+      "credits": 400,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-14-1080p-hdr-generation-5",
+      "provider": "luma",
+      "model": "Ray3.14",
+      "setting": "1080p · HDR · generation",
+      "seconds": 5,
+      "credits": 1600,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-2-draft-video-editing-1",
+      "provider": "luma",
+      "model": "Ray3.2",
+      "setting": "Draft · video editing",
+      "seconds": 1,
+      "credits": 36,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-2-540p-video-editing-1",
+      "provider": "luma",
+      "model": "Ray3.2",
+      "setting": "540p · video editing",
+      "seconds": 1,
+      "credits": 48,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-2-720p-video-editing-1",
+      "provider": "luma",
+      "model": "Ray3.2",
+      "setting": "720p · video editing",
+      "seconds": 1,
+      "credits": 72,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-2-1080p-video-editing-1",
+      "provider": "luma",
+      "model": "Ray3.2",
+      "setting": "1080p · video editing",
+      "seconds": 1,
+      "credits": 144,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-2-draft-reframe-1",
+      "provider": "luma",
+      "model": "Ray3.2",
+      "setting": "Draft · reframe",
+      "seconds": 1,
+      "credits": 10,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-2-540p-reframe-1",
+      "provider": "luma",
+      "model": "Ray3.2",
+      "setting": "540p · reframe",
+      "seconds": 1,
+      "credits": 20,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-2-720p-reframe-1",
+      "provider": "luma",
+      "model": "Ray3.2",
+      "setting": "720p · reframe",
+      "seconds": 1,
+      "credits": 40,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-2-1080p-reframe-1",
+      "provider": "luma",
+      "model": "Ray3.2",
+      "setting": "1080p · reframe",
+      "seconds": 1,
+      "credits": 120,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-14-draft-video-editing-1",
+      "provider": "luma",
+      "model": "Ray3.14",
+      "setting": "Draft · video editing",
+      "seconds": 1,
+      "credits": 12,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-14-540p-video-editing-1",
+      "provider": "luma",
+      "model": "Ray3.14",
+      "setting": "540p · video editing",
+      "seconds": 1,
+      "credits": 24,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-14-720p-video-editing-1",
+      "provider": "luma",
+      "model": "Ray3.14",
+      "setting": "720p · video editing",
+      "seconds": 1,
+      "credits": 48,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-ray3-14-1080p-video-editing-1",
+      "provider": "luma",
+      "model": "Ray3.14",
+      "setting": "1080p · video editing",
+      "seconds": 1,
+      "credits": 192,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-seedance-2-0-480p-audio-1",
+      "provider": "luma",
+      "model": "Seedance 2.0",
+      "setting": "480p · audio",
+      "seconds": 1,
+      "credits": 47,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-seedance-2-0-720p-audio-1",
+      "provider": "luma",
+      "model": "Seedance 2.0",
+      "setting": "720p · audio",
+      "seconds": 1,
+      "credits": 107,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-seedance-2-0-1080p-audio-1",
+      "provider": "luma",
+      "model": "Seedance 2.0",
+      "setting": "1080p · audio",
+      "seconds": 1,
+      "credits": 240,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-seedance-2-0-4k-audio-1",
+      "provider": "luma",
+      "model": "Seedance 2.0",
+      "setting": "4K · audio",
+      "seconds": 1,
+      "credits": 959,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-seedance-2-5-480p-audio-1",
+      "provider": "luma",
+      "model": "Seedance 2.5",
+      "setting": "480p · audio",
+      "seconds": 1,
+      "credits": 61,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-seedance-2-5-720p-audio-1",
+      "provider": "luma",
+      "model": "Seedance 2.5",
+      "setting": "720p · audio",
+      "seconds": 1,
+      "credits": 130,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-seedance-2-5-1080p-audio-1",
+      "provider": "luma",
+      "model": "Seedance 2.5",
+      "setting": "1080p · audio",
+      "seconds": 1,
+      "credits": 319,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-seedance-2-0-mini-480p-audio-1",
+      "provider": "luma",
+      "model": "Seedance 2.0 Mini",
+      "setting": "480p · audio",
+      "seconds": 1,
+      "credits": 26,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-seedance-2-0-mini-720p-audio-1",
+      "provider": "luma",
+      "model": "Seedance 2.0 Mini",
+      "setting": "720p · audio",
+      "seconds": 1,
+      "credits": 55,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-kling-omni-720p-no-audio-1",
+      "provider": "luma",
+      "model": "Kling Omni",
+      "setting": "720p · no audio",
+      "seconds": 1,
+      "credits": 30,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-kling-omni-720p-audio-1",
+      "provider": "luma",
+      "model": "Kling Omni",
+      "setting": "720p · audio",
+      "seconds": 1,
+      "credits": 40,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-kling-omni-1080p-no-audio-1",
+      "provider": "luma",
+      "model": "Kling Omni",
+      "setting": "1080p · no audio",
+      "seconds": 1,
+      "credits": 40,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-kling-omni-1080p-audio-1",
+      "provider": "luma",
+      "model": "Kling Omni",
+      "setting": "1080p · audio",
+      "seconds": 1,
+      "credits": 49,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-kling-omni-4k-audio-1",
+      "provider": "luma",
+      "model": "Kling Omni",
+      "setting": "4K · audio",
+      "seconds": 1,
+      "credits": 147,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-kling-3-0-720p-no-audio-1",
+      "provider": "luma",
+      "model": "Kling 3.0",
+      "setting": "720p · no audio",
+      "seconds": 1,
+      "credits": 30,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-kling-3-0-720p-audio-1",
+      "provider": "luma",
+      "model": "Kling 3.0",
+      "setting": "720p · audio",
+      "seconds": 1,
+      "credits": 40,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-kling-3-0-1080p-no-audio-1",
+      "provider": "luma",
+      "model": "Kling 3.0",
+      "setting": "1080p · no audio",
+      "seconds": 1,
+      "credits": 40,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-kling-3-0-1080p-audio-1",
+      "provider": "luma",
+      "model": "Kling 3.0",
+      "setting": "1080p · audio",
+      "seconds": 1,
+      "credits": 49,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-kling-3-0-4k-audio-1",
+      "provider": "luma",
+      "model": "Kling 3.0",
+      "setting": "4K · audio",
+      "seconds": 1,
+      "credits": 147,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-veo-3-1-720p-no-audio-1",
+      "provider": "luma",
+      "model": "Veo 3.1",
+      "setting": "720p · no audio",
+      "seconds": 1,
+      "credits": 140,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-veo-3-1-720p-audio-1",
+      "provider": "luma",
+      "model": "Veo 3.1",
+      "setting": "720p · audio",
+      "seconds": 1,
+      "credits": 280,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-veo-3-1-1080p-no-audio-1",
+      "provider": "luma",
+      "model": "Veo 3.1",
+      "setting": "1080p · no audio",
+      "seconds": 1,
+      "credits": 140,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-veo-3-1-1080p-audio-1",
+      "provider": "luma",
+      "model": "Veo 3.1",
+      "setting": "1080p · audio",
+      "seconds": 1,
+      "credits": 280,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-minimax-h3-768p-audio-1",
+      "provider": "luma",
+      "model": "Minimax H3",
+      "setting": "768p · audio",
+      "seconds": 1,
+      "credits": 28,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-minimax-h3-2k-audio-1",
+      "provider": "luma",
+      "model": "Minimax H3",
+      "setting": "2K · audio",
+      "seconds": 1,
+      "credits": 46,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-flux-3-hd-audio-1",
+      "provider": "luma",
+      "model": "Flux 3",
+      "setting": "HD · audio",
+      "seconds": 1,
+      "credits": 60,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-flux-3-fhd-audio-1",
+      "provider": "luma",
+      "model": "Flux 3",
+      "setting": "FHD · audio",
+      "seconds": 1,
+      "credits": 102,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-flux-3-hd-video-editing-1",
+      "provider": "luma",
+      "model": "Flux 3",
+      "setting": "HD · video editing",
+      "seconds": 1,
+      "credits": 144,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-flux-3-fhd-video-editing-1",
+      "provider": "luma",
+      "model": "Flux 3",
+      "setting": "FHD · video editing",
+      "seconds": 1,
+      "credits": 186,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-kling-3-0-turbo-720p-audio-1",
+      "provider": "luma",
+      "model": "Kling 3.0 Turbo",
+      "setting": "720p · audio",
+      "seconds": 1,
+      "credits": 40,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-kling-3-0-turbo-1080p-audio-1",
+      "provider": "luma",
+      "model": "Kling 3.0 Turbo",
+      "setting": "1080p · audio",
+      "seconds": 1,
+      "credits": 49,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-sync-lipsync-2-lip-sync-1",
+      "provider": "luma",
+      "model": "Sync Lipsync 2",
+      "setting": "Lip sync",
+      "seconds": 1,
+      "credits": 4,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-sync-lipsync-2-pro-lip-sync-1",
+      "provider": "luma",
+      "model": "Sync Lipsync 2 Pro",
+      "setting": "Lip sync",
+      "seconds": 1,
+      "credits": 6,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-sync-lipsync-3-lip-sync-1",
+      "provider": "luma",
+      "model": "Sync Lipsync 3",
+      "setting": "Lip sync",
+      "seconds": 1,
+      "credits": 45,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "luma-gemini-omni-flash-variable-reservation-enter-final-quote",
+      "provider": "luma",
+      "model": "Gemini Omni Flash",
+      "setting": "Variable reservation · enter final quote",
+      "seconds": null,
+      "credits": null,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "pika-pika-2-5-480p-5s-5",
+      "provider": "pika",
+      "model": "Pika 2.5",
+      "setting": "480p · 5s",
+      "seconds": 5,
+      "credits": 12,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "pika-pika-2-5-480p-10s-10",
+      "provider": "pika",
+      "model": "Pika 2.5",
+      "setting": "480p · 10s",
+      "seconds": 10,
+      "credits": 24,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "pika-pika-2-5-720p-5s-5",
+      "provider": "pika",
+      "model": "Pika 2.5",
+      "setting": "720p · 5s",
+      "seconds": 5,
+      "credits": 20,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "pika-pika-2-5-720p-10s-10",
+      "provider": "pika",
+      "model": "Pika 2.5",
+      "setting": "720p · 10s",
+      "seconds": 10,
+      "credits": 40,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "pika-pika-2-5-1080p-5s-5",
+      "provider": "pika",
+      "model": "Pika 2.5",
+      "setting": "1080p · 5s",
+      "seconds": 5,
+      "credits": 40,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "pika-pika-2-5-1080p-10s-10",
+      "provider": "pika",
+      "model": "Pika 2.5",
+      "setting": "1080p · 10s",
+      "seconds": 10,
+      "credits": 80,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "pika-pikaframes-2-5-480p-5s-5",
+      "provider": "pika",
+      "model": "Pikaframes 2.5",
+      "setting": "480p · 5s",
+      "seconds": 5,
+      "credits": 12,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "pika-pikaframes-2-5-480p-10s-10",
+      "provider": "pika",
+      "model": "Pikaframes 2.5",
+      "setting": "480p · 10s",
+      "seconds": 10,
+      "credits": 24,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "pika-pikaframes-2-5-480p-15s-15",
+      "provider": "pika",
+      "model": "Pikaframes 2.5",
+      "setting": "480p · 15s",
+      "seconds": 15,
+      "credits": 36,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "pika-pikaframes-2-5-480p-20s-20",
+      "provider": "pika",
+      "model": "Pikaframes 2.5",
+      "setting": "480p · 20s",
+      "seconds": 20,
+      "credits": 48,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "pika-pikaframes-2-5-480p-25s-25",
+      "provider": "pika",
+      "model": "Pikaframes 2.5",
+      "setting": "480p · 25s",
+      "seconds": 25,
+      "credits": 60,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "pika-pikaframes-2-5-720p-5s-5",
+      "provider": "pika",
+      "model": "Pikaframes 2.5",
+      "setting": "720p · 5s",
+      "seconds": 5,
+      "credits": 20,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "pika-pikaframes-2-5-720p-10s-10",
+      "provider": "pika",
+      "model": "Pikaframes 2.5",
+      "setting": "720p · 10s",
+      "seconds": 10,
+      "credits": 40,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "pika-pikaframes-2-5-720p-15s-15",
+      "provider": "pika",
+      "model": "Pikaframes 2.5",
+      "setting": "720p · 15s",
+      "seconds": 15,
+      "credits": 60,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "pika-pikaframes-2-5-720p-20s-20",
+      "provider": "pika",
+      "model": "Pikaframes 2.5",
+      "setting": "720p · 20s",
+      "seconds": 20,
+      "credits": 80,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "pika-pikaframes-2-5-720p-25s-25",
+      "provider": "pika",
+      "model": "Pikaframes 2.5",
+      "setting": "720p · 25s",
+      "seconds": 25,
+      "credits": 100,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "pika-pikaframes-2-5-1080p-5s-5",
+      "provider": "pika",
+      "model": "Pikaframes 2.5",
+      "setting": "1080p · 5s",
+      "seconds": 5,
+      "credits": 40,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "pika-pikaframes-2-5-1080p-10s-10",
+      "provider": "pika",
+      "model": "Pikaframes 2.5",
+      "setting": "1080p · 10s",
+      "seconds": 10,
+      "credits": 80,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "pika-pikaframes-2-5-1080p-15s-15",
+      "provider": "pika",
+      "model": "Pikaframes 2.5",
+      "setting": "1080p · 15s",
+      "seconds": 15,
+      "credits": 120,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "pika-pikaframes-2-5-1080p-20s-20",
+      "provider": "pika",
+      "model": "Pikaframes 2.5",
+      "setting": "1080p · 20s",
+      "seconds": 20,
+      "credits": 160,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "pika-pikaframes-2-5-1080p-25s-25",
+      "provider": "pika",
+      "model": "Pikaframes 2.5",
+      "setting": "1080p · 25s",
+      "seconds": 25,
+      "credits": 200,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "pika-pikascenes-480p-5",
+      "provider": "pika",
+      "model": "Pikascenes",
+      "setting": "480p",
+      "seconds": 5,
+      "credits": 20,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "pika-pikascenes-720p-5",
+      "provider": "pika",
+      "model": "Pikascenes",
+      "setting": "720p",
+      "seconds": 5,
+      "credits": 35,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "pika-pikascenes-1080p-5",
+      "provider": "pika",
+      "model": "Pikascenes",
+      "setting": "1080p",
+      "seconds": 5,
+      "credits": 65,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "pika-pikadditions-pikaswaps-480p-5",
+      "provider": "pika",
+      "model": "Pikadditions / Pikaswaps",
+      "setting": "480p",
+      "seconds": 5,
+      "credits": 20,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "pika-pikadditions-pikaswaps-720p-5",
+      "provider": "pika",
+      "model": "Pikadditions / Pikaswaps",
+      "setting": "720p",
+      "seconds": 5,
+      "credits": 35,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "pika-pikadditions-pikaswaps-1080p-5",
+      "provider": "pika",
+      "model": "Pikadditions / Pikaswaps",
+      "setting": "1080p",
+      "seconds": 5,
+      "credits": 65,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "pika-pikatwists-turbo-720p-5",
+      "provider": "pika",
+      "model": "Pikatwists",
+      "setting": "Turbo · 720p",
+      "seconds": 5,
+      "credits": 60,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "pika-pikatwists-pro-1080p-5",
+      "provider": "pika",
+      "model": "Pikatwists",
+      "setting": "Pro · 1080p",
+      "seconds": 5,
+      "credits": 80,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "pika-pikaffects-image-to-video-5",
+      "provider": "pika",
+      "model": "Pikaffects",
+      "setting": "Image to video",
+      "seconds": 5,
+      "credits": 15,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "pika-pikaffects-video-to-video-5",
+      "provider": "pika",
+      "model": "Pikaffects",
+      "setting": "Video to video",
+      "seconds": 5,
+      "credits": 18,
+      "minTier": 0,
+      "approx": false
+    },
+    {
+      "id": "pika-pikaformance-720p-per-second-of-audio-1",
+      "provider": "pika",
+      "model": "Pikaformance",
+      "setting": "720p · per second of audio",
+      "seconds": 1,
+      "credits": 3,
+      "minTier": 0,
+      "approx": false
+    }
+  ]
+}

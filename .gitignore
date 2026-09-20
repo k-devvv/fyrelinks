@@ -4,3 +4,11 @@ node_modules
 out
 build
 node_modules
+work/
+test-results/
+*.tsbuildinfo
+
+.vercel
+.env*
+
+!.env.example

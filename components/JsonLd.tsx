@@ -1,95 +1,78 @@
-import React from "react";
-import { ReviewPost } from "@/lib/types";
-
-type JsonLdProps =
-  | { post: ReviewPost; url: string; data?: never }
-  | { data: Record<string, unknown> | Record<string, unknown>[]; post?: never; url?: never };
-
-export default function JsonLd(props: JsonLdProps) {
-  if ("post" in props && props.post && props.url) {
-    const { post, url } = props;
-    const articleType =
-      post.postType === "hardware" || post.postType === "guide" ? "TechArticle" : "Article";
-
-    const schemaGraph: Record<string, unknown>[] = [
-      {
-        "@type": articleType,
-        "@id": `${url}#article`,
-        isPartOf: {
-          "@type": "WebSite",
-          "@id": "https://www.fyrelinkz.com/#website",
-          name: "FyreLinkz",
-          url: "https://www.fyrelinkz.com",
+import type { EditorialPost } from "@/lib/editorial";
+import { SITE_URL } from "@/lib/editorial";
+import { getCategoryBySlug } from "@/lib/posts";
+type Props = {
+  post: EditorialPost;
+  url: string;
+  data?: never;
+} | {
+  data: Record<string, unknown> | Record<string, unknown>[];
+  post?: never;
+  url?: never;
+};
+export default function JsonLd(props: Props) {
+  let data: unknown = props.data;
+  if (props.post) {
+    const p = props.post;
+    data = {
+      "@context": "https://schema.org",
+      "@graph": [{
+        "@type": p.category === "news" ? "NewsArticle" : "Article",
+        "@id": props.url + "#article",
+        headline: p.title,
+        description: p.metaDescription,
+        url: props.url,
+        mainEntityOfPage: props.url,
+        datePublished: p.publishedAt + "T12:00:00+05:30",
+        dateModified: p.updatedAt + "T12:00:00+05:30",
+        image: {
+          '@type': 'ImageObject',
+          url: SITE_URL + '/art/' + p.image + '.png',
+          width: 1200,
+          height: 750
         },
-        headline: post.title,
-        description: post.metaDescription,
-        url: url,
-        datePublished: post.publishedAt,
-        dateModified: post.updatedAt || post.publishedAt,
-        inLanguage: "en-US",
         author: {
           "@type": "Organization",
-          name: post.author.name,
-          url: "https://www.fyrelinkz.com/about",
+          name: p.author.name,
+          url: SITE_URL + "/about"
         },
         publisher: {
-          "@type": "Organization",
-          name: "FyreLinkz",
-          url: "https://www.fyrelinkz.com",
-          logo: {
-            "@type": "ImageObject",
-            url: "https://www.fyrelinkz.com/icon.svg",
-          },
+          "@id": SITE_URL + "/#organization"
         },
-        mainEntityOfPage: url,
-      },
-    ];
-
-    if (post.faqs && post.faqs.length > 0) {
-      schemaGraph.push({
-        "@type": "FAQPage",
-        "@id": `${url}#faq`,
-        mainEntity: post.faqs.map((faq) => ({
-          "@type": "Question",
-          name: faq.question,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: faq.answer,
-          },
-        })),
-      });
-    }
-
-    return (
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@graph": schemaGraph,
-          }),
-        }}
-      />
-    );
+        isPartOf: {
+          "@id": SITE_URL + "/#website"
+        },
+        citation: p.sources.map(s => s.url),
+        inLanguage: "en",
+        articleSection: p.topic
+      }, generateBreadcrumbSchema([{
+        name: "Home",
+        url: SITE_URL
+      }, {
+        name: getCategoryBySlug(p.category)?.name ?? p.topic,
+        url: SITE_URL + "/" + p.category
+      }, {
+        name: p.title,
+        url: props.url!
+      }])]
+    };
   }
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(props.data) }}
-    />
-  );
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{
+    __html: JSON.stringify(data).replace(/</g, "\\u003c")
+  }} />;
 }
-
-export function generateBreadcrumbSchema(items: { name: string; url: string }[]) {
+export function generateBreadcrumbSchema(items: {
+  name: string;
+  url: string;
+}[]) {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: items.map((item, index) => ({
+    itemListElement: items.map((i, index) => ({
       "@type": "ListItem",
       position: index + 1,
-      name: item.name,
-      item: item.url,
-    })),
+      name: i.name,
+      item: i.url
+    }))
   };
 }

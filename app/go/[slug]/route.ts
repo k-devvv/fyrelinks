@@ -1,19 +1,19 @@
 import { NextRequest, NextResponse } from "next/server";
-import { REDIRECT_MAP } from "@/lib/redirects";
+import { getRedirectUrl } from "@/lib/redirects";
 
 export const dynamic = "force-dynamic";
 
 export async function GET(
-  request: NextRequest,
-  { params }: { params: { slug: string } }
+  _request: NextRequest,
+  { params }: { params: Promise<{ slug: string }> }
 ) {
-  const slug = params.slug?.toLowerCase();
-  const destination = REDIRECT_MAP[slug];
+  const destination = getRedirectUrl((await params).slug || "");
 
   if (destination) {
-    return NextResponse.redirect(destination, 307);
+    const response = NextResponse.redirect(destination, 307);
+    response.headers.set("X-Robots-Tag", "noindex, nofollow");
+    return response;
   }
 
-  // Fallback to home page if redirect slug is not mapped
-  return NextResponse.redirect(new URL("/", request.url), 302);
+  return new NextResponse("Link not found", { status: 404, headers: { "X-Robots-Tag": "noindex" } });
 }

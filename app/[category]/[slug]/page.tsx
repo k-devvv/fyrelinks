@@ -1,229 +1,65 @@
-import React from "react";
-import { notFound } from "next/navigation";
-import { Metadata } from "next";
 import Link from "next/link";
-import { Calendar, Cpu, FlaskConical, Clock, ChevronRight, ArrowRight, ShieldCheck } from "lucide-react";
-import { POSTS, getRelatedPosts } from "@/lib/posts";
+import { notFound } from "next/navigation";
+import { POSTS, getPostBySlug, getCategoryBySlug, getRelatedPosts } from "@/lib/posts";
+import { SITE_URL, articlePath, sectionId, formatDate, SOURCE_CHECK_DATE } from "@/lib/editorial";
+import { pageMetadata } from "@/lib/metadata";
 import JsonLd from "@/components/JsonLd";
-import FAQSection from "@/components/FAQSection";
-import QuickVerdict from "@/components/QuickVerdict";
-import ComparisonTable from "@/components/ComparisonTable";
-import ArticleVisual from "@/components/ArticleVisual";
-import VideoComparison from "@/components/VideoComparison";
-
-interface PageProps {
-  params: {
+import StoryCard, { StoryImage } from "@/components/StoryCard";
+import AdSlot from "@/components/AdSlot";
+import type { Metadata } from "next";
+type Props = {
+  params: Promise<{
     category: string;
     slug: string;
-  };
-}
-
-export async function generateStaticParams() {
-  return POSTS.map((post) => ({
-    category: post.category,
-    slug: post.slug,
+  }>;
+};
+export const dynamicParams = false;
+export function generateStaticParams() {
+  return POSTS.map(p => ({
+    category: p.category,
+    slug: p.slug
   }));
 }
-
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const post = POSTS.find((p) => p.slug === params.slug);
-  if (!post) return {};
-
-  const url = `https://www.fyrelinkz.com/${post.category}/${post.slug}`;
-
+export async function generateMetadata({
+  params
+}: Props): Promise<Metadata> {
+  const {category, slug} = await params;
+  const p = getPostBySlug(category, slug);
+  if (!p) return {};
+  const m = pageMetadata(p.title, p.metaDescription, articlePath(p), "/art/" + p.image + ".png");
   return {
-    title: `${post.metaTitle} | FyreLinkz`,
-    description: post.metaDescription,
-    alternates: { canonical: url },
+    ...m,
     openGraph: {
-      title: post.metaTitle,
-      description: post.metaDescription,
-      url: url,
-      siteName: "FyreLinkz",
+      ...m.openGraph,
       type: "article",
-      publishedTime: post.publishedAt,
-      modifiedTime: post.updatedAt,
-      authors: [post.author.name],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: post.metaTitle,
-      description: post.metaDescription,
-    },
+      publishedTime: p.publishedAt + "T12:00:00+05:30",
+      modifiedTime: p.updatedAt + "T12:00:00+05:30",
+      authors: [SITE_URL + "/about"]
+    }
   };
 }
+function renderInlineText(text: string) {
+  if (!text || !text.includes("[")) return text;
+  const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
+  return parts.map((part, idx) => {
+    const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (match) {
+      const [, label, href] = match;
+      if (href.startsWith("/")) {
+        return <Link key={idx} href={href}>{label}</Link>;
+      }
+      return <a key={idx} href={href} target="_blank" rel="noopener noreferrer">{label} ↗</a>;
+    }
+    return part;
+  });
+}
 
-export default function ArticlePage({ params }: PageProps) {
-  const post = POSTS.find((p) => p.slug === params.slug);
-  if (!post) notFound();
-
-  const currentUrl = `https://www.fyrelinkz.com/${post.category}/${post.slug}`;
-  const relatedPosts = getRelatedPosts(post.slug, 2);
-
-  return (
-    <article className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-8">
-      <JsonLd post={post} url={currentUrl} />
-
-      {/* Breadcrumb Navigation */}
-      <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-gray-400">
-        <Link href="/" className="hover:text-white transition-colors">
-          Home
-        </Link>
-        <ChevronRight className="w-3.5 h-3.5 text-gray-600" />
-        <Link href={`/${post.category}`} className="hover:text-white capitalize transition-colors">
-          {post.category}
-        </Link>
-        <ChevronRight className="w-3.5 h-3.5 text-gray-600" />
-        <span className="text-gray-300 truncate max-w-xs">{post.title}</span>
-      </nav>
-
-      {/* Editorial Evidence & Methodology Metadata Badges */}
-      <header className="space-y-4">
-        <div className="flex flex-wrap items-center gap-2 text-xs text-gray-300">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-surface-card border border-surface-border text-gray-300 font-mono">
-            <FlaskConical className="w-3.5 h-3.5 text-fyre-400" />
-            <span>{post.evidenceBasis || "Technical Guide"}</span>
-          </span>
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-surface-card border border-surface-border text-gray-300 font-mono">
-            <Cpu className="w-3.5 h-3.5 text-fyre-400" />
-            <span className="truncate max-w-[200px]">{post.testedHardware}</span>
-          </span>
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-surface-card border border-surface-border text-gray-300 font-mono">
-            <Calendar className="w-3.5 h-3.5 text-fyre-400" />
-            <span>{post.testedDate}</span>
-          </span>
-          <span className="inline-flex items-center gap-1 px-2.5 py-1 text-gray-400 font-mono">
-            <Clock className="w-3.5 h-3.5" />
-            <span>{post.readTime}</span>
-          </span>
-        </div>
-
-        <h1 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
-          {post.title}
-        </h1>
-
-        <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-          {post.metaDescription}
-        </p>
-
-        {/* Byline & Author Desk */}
-        <div className="flex items-center gap-3 pt-2 border-t border-surface-border text-xs text-gray-400">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-emerald-400" />
-            <span className="font-semibold text-gray-200">{post.author.name}</span>
-            <span>•</span>
-            <span className="text-gray-400">{post.author.role}</span>
-          </div>
-        </div>
-      </header>
-
-      {/* Dynamic Architecture / Tech Visual Diagram */}
-      <ArticleVisual category={post.category} slug={post.slug} />
-
-      {/* Evidence-First Quick Verdict Box */}
-      <QuickVerdict
-        score={post.score}
-        verdict={post.verdict}
-        badge={post.postType === "guide" ? "Guide Overview" : "Executive Takeaway"}
-        whoThisIsFor={post.whoThisIsFor}
-        whereItFails={post.whereItFails}
-        costPerUsableMinute={post.costPerUsableMinute}
-      />
-
-      {/* In-Depth Matrix / Comparison Table */}
-      {post.tableData && post.tableData.length > 0 && (
-        <div className="my-8">
-          <ComparisonTable data={post.tableData} />
-        </div>
-      )}
-
-      {/* Interactive Side-by-Side Video Motion Comparison & Evidence Teardown */}
-      {post.videoComparisons && post.videoComparisons.length > 0 && (
-        <div className="space-y-6 my-10">
-          <div className="border-t border-surface-border pt-6">
-            <div className="flex items-center gap-2 text-xs font-mono text-fyre-400 mb-1.5 uppercase tracking-wider">
-              <span className="w-2 h-2 rounded-full bg-fyre-500 animate-pulse" />
-              <span>Motion Lab Evidence Teardown</span>
-            </div>
-            <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-              Synchronized Video & Motion Benchmark Teardown
-            </h2>
-            <p className="text-sm text-gray-400 mt-1">
-              Synchronized 1080p motion stress-tests evaluated on physics consistency, temporal drift, and credit burn efficiency.
-            </p>
-          </div>
-
-          <div className="space-y-8">
-            {post.videoComparisons.map((comp, idx) => (
-              <VideoComparison
-                key={idx}
-                title={comp.title}
-                promptDescription={comp.promptDescription}
-                clipA={comp.clipA}
-                clipB={comp.clipB}
-              />
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* Main Content Sections */}
-      <div className="space-y-8 my-8 text-gray-200">
-        {post.sections.map((section, idx) => (
-          <section key={idx} className="space-y-3">
-            <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-              {section.heading}
-            </h2>
-            <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
-              {section.content}
-            </p>
-          </section>
-        ))}
-      </div>
-
-      {/* Scope & Methodology Disclosure */}
-      <div className="p-4 rounded-xl bg-surface-card border border-surface-border text-xs text-gray-400 space-y-1.5">
-        <div className="flex items-center gap-2 font-semibold text-gray-300">
-          <ShieldCheck className="w-4 h-4 text-fyre-400" />
-          <span>Research Methodology & Scope</span>
-        </div>
-        <p className="leading-relaxed">
-          {post.testingScope}. FyreLinkz evaluations are conducted independently without vendor pre-approval or sponsored placement.
-        </p>
-      </div>
-
-      {/* FAQ Section with clean semantic markup */}
-      <FAQSection faqs={post.faqs} />
-
-      {/* Related Reading & Comparisons */}
-      {relatedPosts.length > 0 && (
-        <section className="pt-8 border-t border-surface-border space-y-4">
-          <h3 className="text-lg font-bold text-white tracking-tight">
-            Related Teardowns & Architecture Guides
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {relatedPosts.map((related) => (
-              <Link
-                key={related.slug}
-                href={`/${related.category}/${related.slug}`}
-                className="p-4 rounded-xl bg-surface-card border border-surface-border hover:border-fyre-500/40 transition-colors group space-y-2"
-              >
-                <div className="flex items-center justify-between text-[11px] text-gray-400">
-                  <span className="font-mono uppercase">{related.category}</span>
-                  <span>{related.readTime}</span>
-                </div>
-                <h4 className="font-bold text-sm text-white group-hover:text-fyre-400 transition-colors line-clamp-2">
-                  {related.title}
-                </h4>
-                <div className="flex items-center gap-1 text-xs text-fyre-400 pt-1">
-                  <span>Read Breakdown</span>
-                  <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-                </div>
-              </Link>
-            ))}
-          </div>
-        </section>
-      )}
-    </article>
-  );
+export default async function ArticlePage({
+  params
+}: Props) {
+  const {category: categorySlug, slug} = await params;
+  const p = getPostBySlug(categorySlug, slug);
+  if (!p) notFound();
+  const category = getCategoryBySlug(p.category)!;
+  return <article className="wrap article-page"><JsonLd post={p} url={SITE_URL + articlePath(p)} /><nav className="breadcrumbs" aria-label="Breadcrumb"><Link href="/">Home</Link><span>/</span><Link href={"/" + p.category}>{category.name}</Link></nav><header className="article-header"><div className="story-meta"><span className="eyebrow topic">{p.topic}</span><span>{p.evidenceBasis} · {p.readTime}</span></div><h1>{p.title}</h1><p className="article-deck">{p.metaDescription}</p><div className="article-byline"><span className="author-mark">f<span>✳</span></span><div><Link href="/about">{p.author.name}</Link><p>Published <time dateTime={p.publishedAt}>{formatDate(p.publishedAt)}</time>{p.updatedAt !== p.publishedAt && <> · Updated <time dateTime={p.updatedAt}>{formatDate(p.updatedAt)}</time></>}</p></div></div>{p.eventDate && <p className="event-date">Announcement date: <time dateTime={p.eventDate}>{formatDate(p.eventDate)}</time> · Reported from the original source</p>}</header><figure className="article-figure"><StoryImage post={p} priority /><figcaption>Illustration by FyreLinkz. {p.category === "news" ? "Reporting based on the linked announcement." : "A conceptual illustration, not a benchmark result."}</figcaption></figure><div className="article-grid"><aside className="article-contents"><div><span className="eyebrow">IN THIS STORY</span><nav aria-label="Table of contents">{p.sections.map(s => <a href={"#" + sectionId(s.heading)} key={s.heading}>{s.heading}</a>)}<a href="#sources">Sources & further reading</a></nav><Link href="/create" className="contents-tool">Explore AI creator guides ↗</Link></div></aside><div className="article-body"><div className="takeaway"><span className="eyebrow">THE USEFUL PART</span><p>{p.verdict}</p></div>{p.sections.map((s, i) => <section id={sectionId(s.heading)} key={s.heading}><h2>{s.heading}</h2><p>{renderInlineText(s.content)}</p>{s.subpoints && <ul>{s.subpoints.map(b => <li key={b}>{renderInlineText(b)}</li>)}</ul>}{s.sourceIds && <div className="inline-sources">Source: {s.sourceIds.map((id, j) => <span key={id}>{j > 0 && " · "}<a href={p.sources[id - 1].url} rel="noopener noreferrer" target="_blank">{p.sources[id - 1].publisher} [{id}] ↗</a></span>)}</div>}{i === 2 && <AdSlot placement="article" />}</section>)}<section className="sources-box" id="sources"><span className="eyebrow">FOLLOW THE SOURCE</span><h2>Sources & further reading</h2><p>Primary sources checked {formatDate(p.sourceCheckedAt)}. Vendor statements are attributed; editorial advice is our own.</p><ol>{p.sources.map((s, i) => <li key={s.url}><span className="source-number">{i + 1}</span><div><a href={s.url} rel="noopener noreferrer" target="_blank">{s.title} ↗</a><small>{s.publisher}{s.publishedAt && " · " + formatDate(s.publishedAt)}</small></div></li>)}</ol></section><div className="correction-link"><strong>Something changed?</strong><p>Help us keep this useful. <Link href="/contact">Send a correction or a primary source →</Link></p></div></div></div><section className="related-section"><div className="section-heading"><h2>Keep following the thread<span>.</span></h2></div><div className="guide-grid">{getRelatedPosts(p.slug).map(r => <StoryCard post={r} key={r.slug} />)}</div></section></article>;
 }
