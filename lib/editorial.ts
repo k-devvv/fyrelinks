@@ -18,6 +18,7 @@ export interface ArticleInput {
   description: string;
   topic: string;
   image: string;
+  imageAlt?: string;
   takeaway: string;
   sections: ArticleSection[];
   sources: Source[];
@@ -65,7 +66,7 @@ export function articleFromInput(p: ArticleInput): EditorialPost {
     keySpecs: [],
     tableData: [],
     faqs: [],
-    imageAlt: `FyreLinkz editorial illustration: ${p.topic.toLowerCase()}`
+    imageAlt: p.imageAlt ?? `FyreLinkz editorial illustration: ${p.title}`
   };
 }
 export function articlePath(p: Pick<EditorialPost, 'category' | 'slug'>) {

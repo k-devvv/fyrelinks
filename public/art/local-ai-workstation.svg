@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750">
+<defs>
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M40 0H0V40" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  </pattern>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+    <feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#000" flood-opacity="0.5"/>
+  </filter>
+  <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+    <feGaussianBlur stdDeviation="12" result="blur"/>
+    <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+  </filter>
+  
+      <linearGradient id="chipGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#2d3748"/><stop offset="100%" stop-color="#1a202c"/></linearGradient>
+    
+</defs>
+<rect width="1200" height="750" fill="#121417"/>
+<rect width="1200" height="750" fill="url(#grid)"/>
+<circle cx="1050" cy="100" r="320" fill="#ecc94b" opacity="0.08" filter="url(#softGlow)"/>
+<circle cx="150" cy="650" r="280" fill="#ecc94b" opacity="0.05" filter="url(#softGlow)"/>
+<text x="50" y="65" font-family="monospace, 'Courier New', monospace" font-size="14" fill="#ecc94b" letter-spacing="3" font-weight="600">HARDWARE / VRAM, PCIE LANES &amp; LOCAL COMPUTE PC</text>
+
+      <g transform="translate(100, 105)" filter="url(#shadow)">
+        <rect width="1000" height="540" rx="14" fill="#171b21" stroke="#2a323d" stroke-width="2"/>
+        <rect width="1000" height="42" rx="14" fill="#1f252e"/>
+        <text x="35" y="26" font-family="monospace" font-size="13" fill="#ecc94b" font-weight="bold">GPU ARCHITECTURE: VRAM CAPACITY &amp; BANDWIDTH HIERARCHY</text>
+
+        <!-- Main GPU Die &amp; Memory Module Layout -->
+        <g transform="translate(50, 70)">
+          <rect width="520" height="420" rx="10" fill="#1c241e" stroke="#2e4233" stroke-width="2"/>
+          <text x="25" y="30" font-family="monospace" font-size="12" fill="#9ae6b4">WORKSTATION PCB (PCIe 5.0 x16)</text>
+          
+          <rect x="180" y="130" width="160" height="160" rx="6" fill="#2d3748" stroke="#cbd5e0" stroke-width="2"/>
+          <rect x="200" y="150" width="120" height="120" rx="4" fill="#1a202c"/>
+          <text x="235" y="215" font-family="monospace" font-size="14" fill="#ecc94b" font-weight="bold">CUDA /</text>
+          <text x="230" y="235" font-family="monospace" font-size="14" fill="#ecc94b" font-weight="bold">TENSOR</text>
+
+          <rect x="90" y="140" width="65" height="40" rx="3" fill="#2b6cb0" stroke="#63b3ed"/><text x="100" y="165" font-family="monospace" font-size="10" fill="#fff">VRAM</text>
+          <rect x="90" y="210" width="65" height="40" rx="3" fill="#2b6cb0" stroke="#63b3ed"/><text x="100" y="235" font-family="monospace" font-size="10" fill="#fff">VRAM</text>
+          
+          <rect x="365" y="140" width="65" height="40" rx="3" fill="#2b6cb0" stroke="#63b3ed"/><text x="375" y="165" font-family="monospace" font-size="10" fill="#fff">VRAM</text>
+          <rect x="365" y="210" width="65" height="40" rx="3" fill="#2b6cb0" stroke="#63b3ed"/><text x="375" y="235" font-family="monospace" font-size="10" fill="#fff">VRAM</text>
+
+          <rect x="190" y="60" width="65" height="45" rx="3" fill="#2b6cb0" stroke="#63b3ed"/><text x="200" y="87" font-family="monospace" font-size="10" fill="#fff">VRAM</text>
+          <rect x="265" y="60" width="65" height="45" rx="3" fill="#2b6cb0" stroke="#63b3ed"/><text x="275" y="87" font-family="monospace" font-size="10" fill="#fff">VRAM</text>
+
+          <rect x="190" y="315" width="65" height="45" rx="3" fill="#2b6cb0" stroke="#63b3ed"/><text x="200" y="342" font-family="monospace" font-size="10" fill="#fff">VRAM</text>
+          <rect x="265" y="315" width="65" height="45" rx="3" fill="#2b6cb0" stroke="#63b3ed"/><text x="275" y="342" font-family="monospace" font-size="10" fill="#fff">VRAM</text>
+
+          <g transform="translate(100, 395)">
+            <rect width="320" height="20" fill="#d69e2e"/>
+            <line x1="120" y1="395" x2="120" y2="415" stroke="#1c241e"/>
+            <line x1="200" y1="395" x2="200" y2="415" stroke="#1c241e"/>
+            <line x1="280" y1="395" x2="280" y2="415" stroke="#1c241e"/>
+          </g>
+        </g>
+
+        <!-- Right Side: VRAM Workload Requirement Chart -->
+        <g transform="translate(600, 70)">
+          <rect width="360" height="420" rx="8" fill="#13171d" stroke="#2a323d"/>
+          <text x="25" y="35" font-family="monospace" font-size="12" fill="#ecc94b" font-weight="bold">WORKLOAD VRAM REQUIREMENTS</text>
+          
+          <g transform="translate(25, 60)">
+            <text x="0" y="15" font-family="monospace" font-size="11" fill="#a0aec0">SDXL 1024px &amp; 7B-8B LLM Q4</text>
+            <rect x="0" y="25" width="310" height="16" rx="3" fill="#2d3748"/>
+            <rect x="0" y="25" width="120" height="16" rx="3" fill="#48bb78"/>
+            <text x="130" y="38" font-family="monospace" font-size="10" fill="#9ae6b4">16 GB (Baseline)</text>
+          </g>
+
+          <g transform="translate(25, 130)">
+            <text x="0" y="15" font-family="monospace" font-size="11" fill="#a0aec0">FLUX.1 Dev fp8 &amp; 14B-32B LLM Q4</text>
+            <rect x="0" y="25" width="310" height="16" rx="3" fill="#2d3748"/>
+            <rect x="0" y="25" width="200" height="16" rx="3" fill="#ecc94b"/>
+            <text x="210" y="38" font-family="monospace" font-size="10" fill="#f6e05e">24 GB (Sweet Spot)</text>
+          </g>
+
+          <g transform="translate(25, 200)">
+            <text x="0" y="15" font-family="monospace" font-size="11" fill="#a0aec0">Local Video Gen &amp; 70B Quantized</text>
+            <rect x="0" y="25" width="310" height="16" rx="3" fill="#2d3748"/>
+            <rect x="0" y="25" width="310" height="16" rx="3" fill="#ff8056"/>
+            <text x="200" y="38" font-family="monospace" font-size="10" fill="#fff">48 GB+ (Dual GPU)</text>
+          </g>
+
+          <rect x="20" y="280" width="320" height="115" rx="6" fill="#1e2430" stroke="#3182ce"/>
+          <text x="35" y="308" font-family="monospace" font-size="11" fill="#63b3ed" font-weight="bold">CRITICAL EVALUATION RULE:</text>
+          <text x="35" y="333" font-family="monospace" font-size="10" fill="#e2e8f0">Compute speed can wait.</text>
+          <text x="35" y="353" font-family="monospace" font-size="10" fill="#e2e8f0">Insufficient VRAM causes an OOM crash.</text>
+          <text x="35" y="373" font-family="monospace" font-size="10" fill="#fbd38d">Check model size + context window first.</text>
+        </g>
+      </g>
+    
+<text x="50" y="715" font-family="monospace, 'Courier New', monospace" font-size="12" fill="#718096" opacity="0.75" letter-spacing="2">FYRELINKZ / EDITORIAL ILLUSTRATION · CONCEPTUAL ARTWORK</text>
+</svg>

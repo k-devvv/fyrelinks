@@ -19,7 +19,7 @@ export default function AdSlot({
     return (
       <aside className="ad-slot" aria-label="Advertisement">
         <span className="eyebrow">SPONSOR</span>
-        <a href={url} rel="sponsored noopener noreferrer" target="_blank">
+        <a href={url} rel="sponsored nofollow noopener noreferrer" target="_blank">
           {title} ↗
         </a>
         <Link href="/about#funding">About our funding</Link>

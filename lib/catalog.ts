@@ -35,7 +35,7 @@ export function getCategoryBySlug(slug: string) {
 }
 export function getRelatedPosts(slug: string, limit = 3) {
   const p = POSTS.find(p => p.slug === slug);
-  return POSTS.filter(x => x.slug !== slug).sort((a, b) => Number(b.topic === p?.topic) - Number(a.topic === p?.topic) || Number(b.category === p?.category) - Number(a.category === p?.category)).slice(0, limit);
+  return POSTS.filter(x => x.slug !== slug).sort((a, b) => Number(b.topic === p?.topic) - Number(a.topic === p?.topic) || Number(b.category === p?.category) - Number(a.category === p?.category) || b.updatedAt.localeCompare(a.updatedAt)).slice(0, limit);
 }
 export function getFeaturedPosts() {
   return GUIDES;

@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750">
+<defs>
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M40 0H0V40" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  </pattern>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+    <feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#000" flood-opacity="0.5"/>
+  </filter>
+  <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+    <feGaussianBlur stdDeviation="12" result="blur"/>
+    <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+  </filter>
+  
+      <linearGradient id="vecGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#63b3ed"/><stop offset="100%" stop-color="#3182ce"/></linearGradient>
+    
+</defs>
+<rect width="1200" height="750" fill="#0f1622"/>
+<rect width="1200" height="750" fill="url(#grid)"/>
+<circle cx="1050" cy="100" r="320" fill="#63b3ed" opacity="0.08" filter="url(#softGlow)"/>
+<circle cx="150" cy="650" r="280" fill="#63b3ed" opacity="0.05" filter="url(#softGlow)"/>
+<text x="50" y="65" font-family="monospace, 'Courier New', monospace" font-size="14" fill="#63b3ed" letter-spacing="3" font-weight="600">STACK / VECTOR DB LATENCY, HNSW INDEXING &amp; MEMORY</text>
+
+      <g transform="translate(100, 105)" filter="url(#shadow)">
+        <rect width="1000" height="540" rx="14" fill="#131e2e" stroke="#23354f" stroke-width="2"/>
+        <rect width="1000" height="42" rx="14" fill="#1c2a40"/>
+        <text x="35" y="26" font-family="monospace" font-size="13" fill="#63b3ed" font-weight="bold">QDRANT VS WEAVIATE VS MILVUS VS PINECONE: ARCHITECTURE COMPARISON</text>
+
+        <!-- Left: 3D High-Dimensional Vector Clustering -->
+        <g transform="translate(60, 80)">
+          <rect width="460" height="400" rx="8" fill="#0d1420" stroke="#1e2c42"/>
+          <text x="25" y="35" font-family="monospace" font-size="11" fill="#90cdf4" font-weight="bold">HNSW GRAPH &amp; COSINE SIMILARITY VECTORS</text>
+          
+          <line x1="60" y1="340" x2="400" y2="340" stroke="#4a5568" stroke-width="1.5"/>
+          <line x1="60" y1="340" x2="60" y2="70" stroke="#4a5568" stroke-width="1.5"/>
+          <line x1="60" y1="340" x2="180" y2="220" stroke="#4a5568" stroke-width="1.5" stroke-dasharray="3,3"/>
+          <text x="390" y="360" font-family="monospace" font-size="10" fill="#718096">Dim X</text>
+          <text x="30" y="70" font-family="monospace" font-size="10" fill="#718096">Dim Y</text>
+          <text x="180" y="210" font-family="monospace" font-size="10" fill="#718096">Dim Z</text>
+
+          <circle cx="150" cy="160" r="8" fill="#e53e3e"/>
+          <text x="165" y="165" font-family="monospace" font-size="11" fill="#fff" font-weight="bold">q (Query Vector)</text>
+
+          <g>
+            <circle cx="210" cy="140" r="6" fill="#63b3ed"/>
+            <circle cx="240" cy="170" r="6" fill="#63b3ed"/>
+            <circle cx="190" cy="200" r="6" fill="#63b3ed"/>
+            <circle cx="260" cy="120" r="5" fill="#4299e1"/>
+            <circle cx="280" cy="180" r="5" fill="#4299e1"/>
+            
+            <line x1="150" y1="160" x2="210" y2="140" stroke="#63b3ed" stroke-width="2"/>
+            <line x1="150" y1="160" x2="190" y2="200" stroke="#63b3ed" stroke-width="2"/>
+            <line x1="210" y1="140" x2="240" y2="170" stroke="#4299e1" stroke-width="1"/>
+            <line x1="240" y1="170" x2="280" y2="180" stroke="#4299e1" stroke-width="1"/>
+          </g>
+
+          <circle cx="340" cy="260" r="5" fill="#4a5568"/>
+          <circle cx="360" cy="290" r="5" fill="#4a5568"/>
+          <circle cx="320" cy="310" r="5" fill="#4a5568"/>
+
+          <rect x="25" y="320" width="180" height="30" rx="4" fill="#1a273b"/>
+          <text x="35" y="340" font-family="monospace" font-size="10" fill="#90cdf4">k-NN Recall@10: 98.4%</text>
+        </g>
+
+        <!-- Right: Engine Comparison Cards -->
+        <g transform="translate(550, 80)">
+          <rect width="400" height="400" rx="8" fill="#101724" stroke="#23354f"/>
+          <text x="25" y="35" font-family="monospace" font-size="12" fill="#63b3ed" font-weight="bold">PRODUCTION COMPARISON SUMMARY</text>
+          
+          <rect x="25" y="55" width="350" height="65" rx="6" fill="#162234"/>
+          <text x="40" y="80" font-family="monospace" font-size="12" fill="#fff" font-weight="bold">Qdrant (Rust)</text>
+          <text x="40" y="100" font-family="monospace" font-size="10" fill="#a0aec0">Ultra-fast p99 latency · Memory-mapped payload filtering</text>
+
+          <rect x="25" y="130" width="350" height="65" rx="6" fill="#162234"/>
+          <text x="40" y="155" font-family="monospace" font-size="12" fill="#fff" font-weight="bold">Weaviate (Go)</text>
+          <text x="40" y="175" font-family="monospace" font-size="10" fill="#a0aec0">GraphQL &amp; modular native multi-modal vectorizers</text>
+
+          <rect x="25" y="205" width="350" height="65" rx="6" fill="#162234"/>
+          <text x="40" y="230" font-family="monospace" font-size="12" fill="#fff" font-weight="bold">Milvus (Distributed)</text>
+          <text x="40" y="250" font-family="monospace" font-size="10" fill="#a0aec0">Billion-scale cluster sharding with separated compute</text>
+
+          <rect x="25" y="280" width="350" height="65" rx="6" fill="#162234"/>
+          <text x="40" y="305" font-family="monospace" font-size="12" fill="#fff" font-weight="bold">Pinecone (Serverless)</text>
+          <text x="40" y="325" font-family="monospace" font-size="10" fill="#a0aec0">Zero maintenance · Pay per storage read unit</text>
+
+          <rect x="25" y="355" width="350" height="30" rx="4" fill="#2b6cb0"/>
+          <text x="80" y="375" font-family="monospace" font-size="11" fill="#fff" font-weight="bold">EXPLORE VECTOR BENCHMARK ↗</text>
+        </g>
+      </g>
+    
+<text x="50" y="715" font-family="monospace, 'Courier New', monospace" font-size="12" fill="#718096" opacity="0.75" letter-spacing="2">FYRELINKZ / EDITORIAL ILLUSTRATION · CONCEPTUAL ARTWORK</text>
+</svg>

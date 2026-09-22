@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750">
+<defs>
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M40 0H0V40" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  </pattern>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+    <feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#000" flood-opacity="0.5"/>
+  </filter>
+  <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+    <feGaussianBlur stdDeviation="12" result="blur"/>
+    <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+  </filter>
+  
+      <linearGradient id="waterfallGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3182ce"/><stop offset="100%" stop-color="#2b6cb0"/></linearGradient>
+    
+</defs>
+<rect width="1200" height="750" fill="#0e1724"/>
+<rect width="1200" height="750" fill="url(#grid)"/>
+<circle cx="1050" cy="100" r="320" fill="#3182ce" opacity="0.08" filter="url(#softGlow)"/>
+<circle cx="150" cy="650" r="280" fill="#3182ce" opacity="0.05" filter="url(#softGlow)"/>
+<text x="50" y="65" font-family="monospace, 'Courier New', monospace" font-size="14" fill="#3182ce" letter-spacing="3" font-weight="600">DATA PIPELINES / B2B ENRICHMENT WATERFALL CASCADES</text>
+
+      <g transform="translate(100, 105)" filter="url(#shadow)">
+        <rect width="1000" height="540" rx="14" fill="#131e2e" stroke="#25354d" stroke-width="2"/>
+        <rect width="1000" height="42" rx="14" fill="#1b2a40"/>
+        <text x="35" y="26" font-family="monospace" font-size="13" fill="#63b3ed" font-weight="bold">APOLLO VS CLAY: WATERFALL ENRICHMENT MATCH RATES &amp; ORCHESTRATION</text>
+
+        <!-- Stepped Cascade Stages -->
+        <g transform="translate(40, 75)">
+          <rect width="260" height="400" rx="8" fill="#101824" stroke="#22334a"/>
+          <text x="20" y="30" font-family="monospace" font-size="11" fill="#90cdf4" font-weight="bold">STEP 1: INGESTION</text>
+          
+          <rect x="20" y="55" width="220" height="120" rx="4" fill="#172233"/>
+          <text x="35" y="85" font-family="monospace" font-size="10" fill="#cbd5e0">company: "Stripe"</text>
+          <text x="35" y="110" font-family="monospace" font-size="10" fill="#cbd5e0">domain: "stripe.com"</text>
+          <text x="35" y="135" font-family="monospace" font-size="10" fill="#cbd5e0">lead: "Engineering VP"</text>
+
+          <rect x="20" y="200" width="220" height="170" rx="4" fill="#172233"/>
+          <text x="35" y="230" font-family="monospace" font-size="10" fill="#a0aec0">Input records: 1,000</text>
+          <text x="35" y="260" font-family="monospace" font-size="10" fill="#a0aec0">Missing email: 64%</text>
+          <text x="35" y="290" font-family="monospace" font-size="10" fill="#a0aec0">Missing phone: 82%</text>
+          <text x="35" y="330" font-family="monospace" font-size="10" fill="#e53e3e">Raw Match Rate: 36%</text>
+        </g>
+
+        <!-- Connection Arrow -->
+        <g transform="translate(315, 230)">
+          <path d="M 0 30 L 45 30" stroke="#63b3ed" stroke-width="4"/>
+          <polygon points="45,30 35,22 35,38" fill="#63b3ed"/>
+        </g>
+
+        <!-- Tier 2: Clay Waterfall Logic (Provider Cascade) -->
+        <g transform="translate(375, 75)">
+          <rect width="270" height="400" rx="8" fill="#101824" stroke="#22334a"/>
+          <text x="20" y="30" font-family="monospace" font-size="11" fill="#63b3ed" font-weight="bold">STEP 2: WATERFALL</text>
+
+          <rect x="20" y="55" width="230" height="70" rx="4" fill="#18273b" stroke="#3182ce"/>
+          <text x="35" y="80" font-family="monospace" font-size="10" fill="#fff" font-weight="bold">1. Try Provider A</text>
+          <text x="35" y="100" font-family="monospace" font-size="9" fill="#90cdf4">Found: 420 (Cost: $0.01)</text>
+
+          <rect x="20" y="140" width="230" height="70" rx="4" fill="#18273b" stroke="#3182ce"/>
+          <text x="35" y="165" font-family="monospace" font-size="10" fill="#fff" font-weight="bold">2. If null → Try Provider B</text>
+          <text x="35" y="185" font-family="monospace" font-size="9" fill="#90cdf4">Found: 280 (Cost: $0.03)</text>
+
+          <rect x="20" y="225" width="230" height="70" rx="4" fill="#18273b" stroke="#3182ce"/>
+          <text x="35" y="250" font-family="monospace" font-size="10" fill="#fff" font-weight="bold">3. If null → Try Provider C</text>
+          <text x="35" y="270" font-family="monospace" font-size="9" fill="#90cdf4">Found: 110 (Cost: $0.05)</text>
+
+          <rect x="20" y="315" width="230" height="55" rx="4" fill="#22543d"/>
+          <text x="35" y="338" font-family="monospace" font-size="10" fill="#9ae6b4" font-weight="bold">TOTAL FOUND: 810 / 1000</text>
+          <text x="35" y="358" font-family="monospace" font-size="9" fill="#c6f6d5">Match rate jumped to 81%</text>
+        </g>
+
+        <!-- Connection Arrow -->
+        <g transform="translate(660, 230)">
+          <path d="M 0 30 L 45 30" stroke="#48bb78" stroke-width="4"/>
+          <polygon points="45,30 35,22 35,38" fill="#48bb78"/>
+        </g>
+
+        <!-- Tier 3: Verified Golden Records -->
+        <g transform="translate(720, 75)">
+          <rect width="240" height="400" rx="8" fill="#101824" stroke="#22334a"/>
+          <text x="20" y="30" font-family="monospace" font-size="11" fill="#48bb78" font-weight="bold">STEP 3: GOLDEN CRM</text>
+
+          <rect x="20" y="55" width="200" height="320" rx="4" fill="#0b111a"/>
+          <text x="30" y="85" font-family="monospace" font-size="10" fill="#48bb78">✓ Verified Email</text>
+          <text x="30" y="115" font-family="monospace" font-size="10" fill="#48bb78">✓ Direct Dial</text>
+          <text x="30" y="145" font-family="monospace" font-size="10" fill="#48bb78">✓ Revenue &amp; Headcount</text>
+          <text x="30" y="175" font-family="monospace" font-size="10" fill="#48bb78">✓ Active Tech Stack</text>
+
+          <rect x="20" y="240" width="200" height="110" rx="4" fill="#1b3624" stroke="#48bb78"/>
+          <text x="30" y="270" font-family="monospace" font-size="10" fill="#9ae6b4">ORCHESTRATION WIN:</text>
+          <text x="30" y="295" font-family="monospace" font-size="9" fill="#e2e8f0">Never rely on one database.</text>
+          <text x="30" y="315" font-family="monospace" font-size="9" fill="#e2e8f0">Waterfall reduces bounce rate.</text>
+        </g>
+      </g>
+    
+<text x="50" y="715" font-family="monospace, 'Courier New', monospace" font-size="12" fill="#718096" opacity="0.75" letter-spacing="2">FYRELINKZ / EDITORIAL ILLUSTRATION · CONCEPTUAL ARTWORK</text>
+</svg>

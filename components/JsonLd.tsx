@@ -1,5 +1,5 @@
 import type { EditorialPost } from "@/lib/editorial";
-import { SITE_URL } from "@/lib/editorial";
+import { SITE_URL, sectionId } from "@/lib/editorial";
 import { getCategoryBySlug } from "@/lib/posts";
 type Props = {
   post: EditorialPost;
@@ -21,6 +21,14 @@ export default function JsonLd(props: Props) {
         "@id": props.url + "#article",
         headline: p.title,
         description: p.metaDescription,
+        abstract: p.verdict,
+        isAccessibleForFree: true,
+        hasPart: p.sections.map(s => ({
+          "@type": "WebPageElement",
+          "@id": props.url + "#" + sectionId(s.heading),
+          name: s.heading,
+          url: props.url + "#" + sectionId(s.heading)
+        })),
         url: props.url,
         mainEntityOfPage: props.url,
         datePublished: p.publishedAt + "T12:00:00+05:30",

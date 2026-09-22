@@ -5,7 +5,7 @@
     "title": "Runway moves into your editing timeline",
     "description": "New plugins bring AI generation to Premiere Pro and After Effects. What changes for editors—and what still uses credits.",
     "topic": "AI video",
-    "image": "timeline",
+    "image": "runway-timeline",
     "eventDate": "2026-09-08",
     "featured": true,
     "takeaway": "Runway announced Adobe plugins on September 8. The download is free; generation uses your Runway plan and credits.",
@@ -23,6 +23,10 @@
       }
     ],
     "sections": [
+      {
+        "heading": "Start here",
+        "content": "The render is ready. Now comes the less glamorous job: getting it into your edit, naming the revision and checking that it matches the sequence. That handoff is the reason to look at Runway's Adobe plugins. Here is what the announcement actually changes, what still costs credits and what to check before using it on a deadline."
+      },
       {
         "heading": "What was announced",
         "content": "Runway's September 8 changelog introduces panels for Adobe Premiere Pro and After Effects on macOS and Windows. The company says editors can generate images and video, restyle existing footage and place results in their sequence or composition. The release is listed for paid plans.",
@@ -53,11 +57,16 @@
         "sourceIds": [
           2
         ]
+      },
+      {
+        "heading": "Try this next",
+        "content": "Next, turn one missing shot in your edit into a clear prompt. Read [AI video prompts: six examples and a repeatable workflow](/create/ai-video-prompt-guide-examples)."
       }
     ],
     "publishedAt": "2026-09-12",
-    "updatedAt": "2026-09-12",
-    "sourceCheckedAt": "2026-09-12"
+    "updatedAt": "2026-09-21",
+    "sourceCheckedAt": "2026-09-12",
+    "imageAlt": "Conceptual editorial illustration of an NLE video editing timeline with AI video generation tracks and keyframes."
   },
   {
     "slug": "comfyui-native-trellis2-pixal3d",
@@ -65,7 +74,7 @@
     "title": "ComfyUI brings 3D generation into the graph",
     "description": "Native Trellis.2 and Pixal3D support adds a new path from an image to a mesh. Production readiness still needs checking.",
     "topic": "ComfyUI",
-    "image": "sculpture",
+    "image": "comfyui-3d-graph",
     "eventDate": "2026-08-31",
     "featured": true,
     "takeaway": "Comfy Org announced native Trellis.2 and Pixal3D support on August 31, with updated 3D loading, preview and export tools.",
@@ -78,6 +87,10 @@
       }
     ],
     "sections": [
+      {
+        "heading": "Start here",
+        "content": "A generated mesh is only useful if it survives the next step in your project. Before treating native 3D generation as a shortcut, decide where the asset needs to go: a background render, an animation or an interactive scene. This announcement is worth understanding through that destination, not just through an impressive preview."
+      },
       {
         "heading": "What changed",
         "content": "Comfy Org says both models now run as core nodes, with rebuilt 3D tools and mesh post-processing. Its announcement describes an expanded material workflow. The integration reduces reliance on separate custom-node installations for this specific pipeline.",
@@ -105,11 +118,16 @@
       {
         "heading": "Where this fits",
         "content": "Our starting point would be a prototype asset with a modest cleanup budget. A close-up hero prop has different acceptance criteria from a background object. Keep the source image, workflow and exported mesh together so you can repeat a promising run. This is workflow advice, not a measured ranking of 3D models."
+      },
+      {
+        "heading": "Try this next",
+        "content": "New to the graph? Build one working image workflow before adding another kind of output. Read [ComfyUI beginner guide: your first image and common fixes](/workflow/comfyui-beginner-first-workflow-guide)."
       }
     ],
     "publishedAt": "2026-09-12",
-    "updatedAt": "2026-09-12",
-    "sourceCheckedAt": "2026-09-12"
+    "updatedAt": "2026-09-21",
+    "sourceCheckedAt": "2026-09-12",
+    "imageAlt": "Conceptual editorial illustration of a ComfyUI node graph generating an isometric 3D mesh wireframe."
   },
   {
     "slug": "comfy-mcp-local-workflows",
@@ -117,7 +135,7 @@
     "title": "Comfy MCP connects agents to local workflows",
     "description": "Comfy Org open-sourced its local MCP server. Agents can inspect an installation and help build workflows around available models and nodes.",
     "topic": "ComfyUI",
-    "image": "nodes",
+    "image": "comfy-mcp-agent",
     "eventDate": "2026-08-18",
     "featured": true,
     "takeaway": "Comfy Org's August 18 announcement extends its MCP connection to local installations and links to the open-source server.",
@@ -130,6 +148,10 @@
       }
     ],
     "sections": [
+      {
+        "heading": "Start here",
+        "content": "You have a workflow idea, a folder full of models and no desire to explain your installation from scratch. Comfy MCP is interesting because it connects an agent to that local context. Read the announcement with one question in mind: which small, inspectable task would you trust the connection to help with?"
+      },
       {
         "heading": "What the local connection adds",
         "content": "Comfy Org describes a connection that exposes local hardware, installed models and loaded nodes to an agent. The announcement says it supports building, editing and running workflows, alongside the existing cloud connection.",
@@ -157,19 +179,24 @@
         "sourceIds": [
           1
         ]
+      },
+      {
+        "heading": "Try this next",
+        "content": "Create a baseline workflow you understand before asking an agent to change it. Read [ComfyUI beginner guide: your first image and common fixes](/workflow/comfyui-beginner-first-workflow-guide)."
       }
     ],
     "publishedAt": "2026-09-12",
-    "updatedAt": "2026-09-12",
-    "sourceCheckedAt": "2026-09-12"
+    "updatedAt": "2026-09-21",
+    "sourceCheckedAt": "2026-09-12",
+    "imageAlt": "Conceptual illustration of an AI agent protocol bridge communicating with local ComfyUI workflow nodes."
   },
   {
     "slug": "ai-video-generation-matrix-minimax-higgsfield-seedance",
     "category": "create",
-    "title": "MiniMax, Seedance or Higgsfield? Start with the shot",
+    "title": "MiniMax vs Seedance vs Higgsfield: choose for your next shot",
     "description": "Compare AI video tools by controls, delivery requirements, accepted takes and the real cost of finishing a shot.",
     "topic": "AI video",
-    "image": "video",
+    "image": "ai-video-matrix",
     "featured": true,
     "takeaway": "Compare the exact model and workflow you will use. A platform name alone does not tell you what a shot costs or whether its result is usable.",
     "sources": [
@@ -180,6 +207,10 @@
       }
     ],
     "sections": [
+      {
+        "heading": "Start here",
+        "content": "Three attractive demo reels do not tell you which service will finish your project. Start with the shot you need: a product turn, a character action or a moving background. This guide gives you a comparison brief, an acceptance checklist and a way to count the cost of rejected takes. It is a selection framework, not a tested league table."
+      },
       {
         "heading": "Separate the platform from the model",
         "content": "A creative platform can offer several models behind one interface. Runway's plugin documentation, for example, lists multiple video models in the same panel. Compare the selected model version, input mode and output settings; do not assume a result belongs to the platform's own model.",
@@ -203,7 +234,7 @@
       },
       {
         "heading": "Calculate cost from accepted footage",
-        "content": "Divide generation spend by accepted seconds, then multiply by 60. For an illustrative example, spending $12 across a batch that yields 30 accepted seconds gives $24 per usable minute. This is arithmetic, not a quoted vendor price or measured rejection rate. Include upscaling, editing and audio costs separately. For practical prompt structures and camera directions that improve your accepted shot ratio, see our companion [AI video prompting guide](/create/ai-video-prompt-guide-examples)."
+        "content": "Divide generation spend by accepted seconds, then multiply by 60. For an illustrative example, spending $12 across a batch that yields 30 accepted seconds gives $24 per usable minute. This is arithmetic, not a quoted vendor price or measured rejection rate. Include upscaling, editing and audio costs separately. For practical prompt structures and camera directions to try in your next shot, see our companion [AI video prompting guide](/create/ai-video-prompt-guide-examples)."
       },
       {
         "heading": "Know when to stop rerolling",
@@ -229,19 +260,24 @@
       {
         "heading": "Track the cost of finishing, not only generating",
         "content": "Alongside generation charges, record time spent selecting takes, repairing defects, upscaling, creating audio and assembling the edit. These costs depend on your workflow; a public credit table cannot settle them. Keep subscription overhead separate from the marginal cost of another attempt. If the deadline is fixed, a tool that produces acceptable material earlier may be a better choice even when its listed clip price is higher. Revisit the decision after a real project using saved results, not a promotional output selected by the vendor."
+      },
+      {
+        "heading": "Try this next",
+        "content": "Put your shortlist to work: choose one of six original shot prompts and adapt it to your brief. Read [AI video prompts: six examples and a repeatable workflow](/create/ai-video-prompt-guide-examples)."
       }
     ],
     "publishedAt": "2026-09-08",
-    "updatedAt": "2026-09-20",
-    "sourceCheckedAt": "2026-09-12"
+    "updatedAt": "2026-09-21",
+    "sourceCheckedAt": "2026-09-12",
+    "imageAlt": "Conceptual editorial illustration of camera motion vector tracking and comparison across generative video models."
   },
   {
     "slug": "comfyui-flux-lora-training-and-inference-guide",
     "category": "create",
-    "title": "FLUX in ComfyUI: build a workflow you can repeat",
+    "title": "FLUX in ComfyUI: a practical workflow and LoRA checklist",
     "description": "Choose a FLUX.1 starting point, understand the graph and introduce LoRAs after a reproducible baseline works.",
     "topic": "ComfyUI",
-    "image": "nodes",
+    "image": "comfyui-flux-lora",
     "featured": true,
     "takeaway": "Get one documented inference workflow working first. Save the graph and model versions before adding LoRAs, quantization or training.",
     "sources": [
@@ -262,6 +298,10 @@
       }
     ],
     "sections": [
+      {
+        "heading": "Start here",
+        "content": "Your base image looks promising, but the moment you add a LoRA, several other things change too. Was it the model, the prompt or the new component? Build a baseline you can return to, then make one deliberate change. This guide helps you organize that experiment without turning your graph into a guessing game."
+      },
       {
         "heading": "Choose the model deliberately",
         "content": "Black Forest Labs identifies FLUX.1 dev as a 12-billion-parameter model. Its model card links a specific non-commercial model license and separately describes permitted output uses. FLUX.1 schnell lists Apache 2.0. Treat model licensing and output usage as separate checks; read the terms for the exact files you download.",
@@ -313,19 +353,24 @@
       {
         "heading": "Choose the next change by the problem you can see",
         "content": "If the image is compositionally wrong, investigate the input and conditioning before optimizing memory. If the workflow fails to load, verify required files and component compatibility before rewriting the prompt. If the result changes after an update, compare the saved baseline on the new environment before adding more nodes. Solve one category of failure at a time. The useful milestone is not the longest graph: it is an output you can explain, reproduce closely enough for the project and hand off with clear notes."
+      },
+      {
+        "heading": "Try this next",
+        "content": "If the graph still feels unfamiliar, start with the first-image walkthrough. Read [ComfyUI beginner guide: your first image and common fixes](/workflow/comfyui-beginner-first-workflow-guide)."
       }
     ],
     "publishedAt": "2026-09-08",
-    "updatedAt": "2026-09-20",
-    "sourceCheckedAt": "2026-09-12"
+    "updatedAt": "2026-09-21",
+    "sourceCheckedAt": "2026-09-12",
+    "imageAlt": "Conceptual diagram of FLUX.1 latent diffusion architecture with LoRA weight adapter nodes."
   },
   {
     "slug": "best-local-ai-workstation-build-guide-2026",
     "category": "hardware",
-    "title": "Build your local AI PC around memory, not hype",
+    "title": "Building a local AI PC: check VRAM before buying a GPU",
     "description": "A workload-first guide to GPU memory, model offloading, multi-GPU assumptions and the costs beyond a graphics-card specification.",
     "topic": "Local AI",
-    "image": "chip",
+    "image": "local-ai-workstation",
     "featured": true,
     "takeaway": "Choose a target model and working configuration before choosing hardware. Two GPUs are not automatically one larger memory pool.",
     "sources": [
@@ -341,6 +386,10 @@
       }
     ],
     "sections": [
+      {
+        "heading": "Start here",
+        "content": "A graphics card can look perfect on a specification sheet and still be wrong for the model you want to run. Before building a shopping cart, write down your actual workflow, output size and waiting-time limit. Use this guide to turn those requirements into questions about memory, software support and the rest of the machine."
+      },
       {
         "heading": "Specify the workload first",
         "content": "List the exact model, precision, context or image dimensions, and concurrency you expect. A workstation for one image at a time has a different budget from one serving several long conversations. Ask whether the software loads your intended configuration and whether its measured throughput meets the job."
@@ -389,19 +438,24 @@
       {
         "heading": "Make the purchase reversible where possible",
         "content": "Check the seller's return terms and the physical compatibility of the whole build before ordering. List case clearance, power connectors, cooling space and the expansion slots your actual configuration will use. Plan where models, project inputs and backups will live. After assembly, run the smallest known working workflow, then your everyday workload, before adding the demanding one. Record failures and actual operating costs during this trial so the next upgrade follows evidence rather than a specification headline."
+      },
+      {
+        "heading": "Try this next",
+        "content": "Complete the workstation around the work you do every day: check monitor readability before chasing refresh-rate numbers. Read [A 4K monitor for coding: check text before refresh rate](/hardware/best-4k-144hz-monitors-for-programming)."
       }
     ],
     "publishedAt": "2026-09-08",
-    "updatedAt": "2026-09-20",
-    "sourceCheckedAt": "2026-09-12"
+    "updatedAt": "2026-09-21",
+    "sourceCheckedAt": "2026-09-12",
+    "imageAlt": "Conceptual illustration of local AI workstation GPU memory architecture and cooling components."
   },
   {
     "slug": "civitai-sdxl-photorealism-checkpoint-matrix",
     "category": "create",
-    "title": "How to compare SDXL checkpoints without cherry-picking",
+    "title": "Choosing an SDXL checkpoint: a fair comparison checklist",
     "description": "A repeatable evaluation sheet for portrait and product workflows: fixed prompts, compatible settings and recorded failure cases.",
     "topic": "AI images",
-    "image": "sculpture",
+    "image": "sdxl-checkpoint-matrix",
     "takeaway": "Use the same brief and record every result. Community example images are inspiration, not a controlled comparison.",
     "sources": [
       {
@@ -411,6 +465,10 @@
       }
     ],
     "sections": [
+      {
+        "heading": "Start here",
+        "content": "One beautiful sample image can hide the exact problem your project keeps hitting. Instead of downloading every promising checkpoint, make a small test set that includes your difficult cases. This guide helps you compare repeatable results, record failures and choose a model for your own portrait or product workflow."
+      },
       {
         "heading": "Start from the model family",
         "content": "Stability AI's SDXL model card describes the base model and an optional refiner workflow. Use it to understand the starting architecture before comparing community checkpoints. A checkpoint author's recommended settings may differ; record those differences rather than silently giving one model an easier test.",
@@ -435,19 +493,24 @@
       {
         "heading": "Keep usage terms with the files",
         "content": "Check the terms on the exact checkpoint and any adapter before using them in a client workflow. Do not assume that all files sharing a base architecture have identical terms. This page replaces an unsupported ranking of RealVisXL, Juggernaut and CyberRealistic; no measured winner is claimed."
+      },
+      {
+        "heading": "Try this next",
+        "content": "Use the same baseline-first approach when experimenting with FLUX and LoRAs. Read [FLUX in ComfyUI: a practical workflow and LoRA checklist](/create/comfyui-flux-lora-training-and-inference-guide)."
       }
     ],
     "publishedAt": "2026-09-08",
-    "updatedAt": "2026-09-12",
-    "sourceCheckedAt": "2026-09-12"
+    "updatedAt": "2026-09-21",
+    "sourceCheckedAt": "2026-09-12",
+    "imageAlt": "Conceptual illustration of optical calibration spheres, lighting scales, and SDXL checkpoint comparison."
   },
   {
     "slug": "frontier-ai-tools-benchmark-matrix-2026",
     "category": "create",
-    "title": "New AI model releases: what to check before switching",
+    "title": "Is a new AI model worth switching to? A practical checklist",
     "description": "Turn a model announcement into a useful decision: verify availability, controls, costs and whether it improves your actual workflow.",
     "topic": "AI video",
-    "image": "video",
+    "image": "frontier-ai-benchmark",
     "takeaway": "A release announcement proves an announced capability. It does not prove an improvement on your own task.",
     "sources": [
       {
@@ -462,6 +525,10 @@
       }
     ],
     "sections": [
+      {
+        "heading": "Start here",
+        "content": "Another model announcement arrives before you have finished learning the last one. You do not need to rebuild your workflow every time. First identify the part of your current job that is slow, unreliable or missing a needed control. Then use the checklist below to decide whether the release deserves a small trial."
+      },
       {
         "heading": "Verify the exact release",
         "content": "Runway's changelog records model and product updates with dates and plan labels. Comfy Org separately documents local workflow integrations. Use original release notes to distinguish a new model from a new interface, provider integration or availability change.",
@@ -487,19 +554,24 @@
       {
         "heading": "Run a small switch test",
         "content": "Save a baseline job and try the alternative with the same brief. Count the time to inspect, revise and export—not just generation time. Keep your existing workflow until the alternative produces a repeatable benefit. Earlier unsupported frontier-model rankings have been replaced by this evaluation guide."
+      },
+      {
+        "heading": "Try this next",
+        "content": "For a concrete example, apply the checklist to your next AI video shot. Read [MiniMax vs Seedance vs Higgsfield: choose for your next shot](/create/ai-video-generation-matrix-minimax-higgsfield-seedance)."
       }
     ],
     "publishedAt": "2026-09-08",
-    "updatedAt": "2026-09-12",
-    "sourceCheckedAt": "2026-09-12"
+    "updatedAt": "2026-09-21",
+    "sourceCheckedAt": "2026-09-12",
+    "imageAlt": "Conceptual editorial illustration of multidimensional AI model benchmark radar chart and metrics."
   },
   {
     "slug": "self-hosted-vector-db-pricing-and-latency-benchmarks",
     "category": "stack",
-    "title": "Qdrant, Weaviate, Milvus or Pinecone: plan a fair comparison",
+    "title": "Qdrant vs Weaviate vs Milvus vs Pinecone: what to compare",
     "description": "Choose a vector database with a workload sheet that covers retrieval quality, filters, memory, operating costs and recovery.",
     "topic": "Developer tools",
-    "image": "nodes",
+    "image": "vector-database-benchmarks",
     "takeaway": "There is no useful latency winner without a dataset, retrieval target, hardware configuration and query workload.",
     "sources": [
       {
@@ -524,6 +596,10 @@
       }
     ],
     "sections": [
+      {
+        "heading": "Start here",
+        "content": "Your search demo finds a useful paragraph. The harder questions arrive when you add real filters, more documents and a recovery requirement. Before selecting a vector database, write down those conditions. This guide helps you design a comparison around retrieval quality and operational work, without pretending one benchmark fits every application."
+      },
       {
         "heading": "Begin with the retrieval problem",
         "content": "The linked documentation describes the platforms and their indexing concepts. Before comparing implementation choices, define your records, vector dimensions, metadata filters and expected query mix. A demonstration with unfiltered vectors does not establish performance for filtered production traffic.",
@@ -551,19 +627,24 @@
       {
         "heading": "A sensible shortlist process",
         "content": "Start with the platform your team can operate competently, then test the requirement most likely to disqualify it. A useful proof of concept includes a restore or rebuild, not only a successful query. Keep the configuration and evaluation sheet with the decision so the choice can be revisited as volume changes."
+      },
+      {
+        "heading": "Try this next",
+        "content": "Check the other half of retrieval quality: whether your extraction pipeline preserves the source material you need. Read [Firecrawl or Playwright for RAG? Choose the missing step](/stack/ai-web-scraping-pipelines-firecrawl-playwright-rag)."
       }
     ],
     "publishedAt": "2026-09-08",
-    "updatedAt": "2026-09-12",
-    "sourceCheckedAt": "2026-09-12"
+    "updatedAt": "2026-09-21",
+    "sourceCheckedAt": "2026-09-12",
+    "imageAlt": "Conceptual illustration of high-dimensional vector embeddings, nearest-neighbor clusters, and graph indexing."
   },
   {
     "slug": "ai-web-scraping-pipelines-firecrawl-playwright-rag",
     "category": "stack",
-    "title": "Firecrawl or Playwright for RAG? Choose the missing step",
+    "title": "Firecrawl vs Playwright for RAG: which problem are you solving?",
     "description": "Separate page access, extraction and retrieval. Compare a managed extraction service with a browser workflow using a small evaluation set.",
     "topic": "Developer tools",
-    "image": "nodes",
+    "image": "web-scraping-rag",
     "takeaway": "An extraction API and a browser automation library solve different parts of the pipeline. Pick based on what your documents actually need.",
     "sources": [
       {
@@ -578,6 +659,10 @@
       }
     ],
     "sections": [
+      {
+        "heading": "Start here",
+        "content": "The page loads, but the extracted text contains navigation, misses a table or loses the source link. More browser automation is not automatically the answer. Separate opening a page from extracting its useful content, then test the missing step. This guide gives you a small evaluation process before you commit to a pipeline."
+      },
       {
         "heading": "Define the output contract",
         "content": "Firecrawl documents outputs including Markdown and HTML, along with response metadata. Playwright provides browser automation. A browser reaching a page is not the same as producing a clean document for retrieval. Specify the headings, tables, links and source metadata you need to preserve.",
@@ -607,19 +692,24 @@
           "Deduplicate repeated content before chunking.",
           "Track changes so old passages can be removed from the index."
         ]
+      },
+      {
+        "heading": "Try this next",
+        "content": "Once extraction works, define how you will evaluate the database that retrieves those documents. Read [Qdrant vs Weaviate vs Milvus vs Pinecone: what to compare](/stack/self-hosted-vector-db-pricing-and-latency-benchmarks)."
       }
     ],
     "publishedAt": "2026-09-08",
-    "updatedAt": "2026-09-12",
-    "sourceCheckedAt": "2026-09-12"
+    "updatedAt": "2026-09-21",
+    "sourceCheckedAt": "2026-09-12",
+    "imageAlt": "Conceptual diagram showing web DOM tree parsing, markdown extraction, and RAG ingestion."
   },
   {
     "slug": "cursor-vs-windsurf-vs-copilot-developer-benchmarks",
     "category": "workflow",
-    "title": "Cursor, Windsurf and Copilot: compare the work, not the demo",
+    "title": "Cursor vs Windsurf vs Copilot: compare one real coding task",
     "description": "Evaluate coding agents on a real repository task, review effort and repeatability. Check current product documentation before choosing a plan.",
     "topic": "Developer tools",
-    "image": "timeline",
+    "image": "ai-code-editors",
     "takeaway": "A tool that writes code quickly may still need extensive review. Measure the completed, verified change.",
     "sources": [
       {
@@ -639,6 +729,10 @@
       }
     ],
     "sections": [
+      {
+        "heading": "Start here",
+        "content": "A coding demo ends when the generated code appears. Your job continues through review, tests and maintenance. Give each candidate the same bounded task in a repository you understand, then count the work needed to accept the change. This is an evaluation method, not a claim that we have benchmarked the current releases."
+      },
       {
         "heading": "Check the current product first",
         "content": "Cursor documents its agent tooling, GitHub describes its cloud agent, and the Windsurf Cascade documentation now redirects to Devin Desktop's Cascade pages. Product naming, available modes and plans change. Check the current official docs for the exact tool you are evaluating.",
@@ -665,19 +759,24 @@
       {
         "heading": "Try the workflow more than once",
         "content": "Repeat with a documentation task or a small feature after the initial bug fix. A tool can be strong at one type of work and awkward at another. This page replaces unsupported autocomplete-latency and model-ranking claims with a reproducible evaluation method."
+      },
+      {
+        "heading": "Try this next",
+        "content": "Keep the decision useful: record the task, evidence and reason for your choice in a short decision note. Read [A simple Notion system for decisions that stay findable](/workflow/async-engineering-notion-architecture)."
       }
     ],
     "publishedAt": "2026-09-08",
-    "updatedAt": "2026-09-12",
-    "sourceCheckedAt": "2026-09-12"
+    "updatedAt": "2026-09-21",
+    "sourceCheckedAt": "2026-09-12",
+    "imageAlt": "Conceptual editorial illustration of an AI coding editor with inline diffs, symbol tree, and completion stream."
   },
   {
     "slug": "async-engineering-notion-architecture",
     "category": "workflow",
-    "title": "A simple Notion system for decisions that stay findable",
+    "title": "A simple Notion decision log your team can actually use",
     "description": "Connect projects, decision records and owners without turning documentation into a second project-management job.",
     "topic": "Developer tools",
-    "image": "nodes",
+    "image": "notion-decision-log",
     "takeaway": "Start with an owner, a decision and a review date. Add database relations only when they answer a real navigation question.",
     "sources": [
       {
@@ -692,6 +791,10 @@
       }
     ],
     "sections": [
+      {
+        "heading": "Start here",
+        "content": "The same question comes up again because nobody can find why the team chose the current approach. You do not need a huge documentation system to fix that. Start with one decision, one owner and a link to the evidence. This guide shows how to make the record useful to the next person who needs it."
+      },
       {
         "heading": "Build around a decision record",
         "content": "Our proposed record contains the problem, considered options, chosen action, owner and consequences. Link the issue or project that triggered it. A short explanation of why a decision was made is often more useful than an exhaustive transcript."
@@ -719,19 +822,24 @@
           "Record superseding decisions instead of silently rewriting history.",
           "Name the person responsible for the next review."
         ]
+      },
+      {
+        "heading": "Try this next",
+        "content": "Try the format on a concrete team decision: choosing a coding assistant for a real repository task. Read [Cursor vs Windsurf vs Copilot: compare one real coding task](/workflow/cursor-vs-windsurf-vs-copilot-developer-benchmarks)."
       }
     ],
     "publishedAt": "2026-09-08",
-    "updatedAt": "2026-09-12",
-    "sourceCheckedAt": "2026-09-12"
+    "updatedAt": "2026-09-21",
+    "sourceCheckedAt": "2026-09-12",
+    "imageAlt": "Conceptual illustration of structured architectural decision records, RFC status badges, and documentation hierarchy."
   },
   {
     "slug": "top-b2b-data-enrichment-platforms",
     "category": "stack",
-    "title": "Apollo or Clay: evaluate enrichment on your own records",
+    "title": "Apollo vs Clay: compare the records you can actually use",
     "description": "Use a controlled sample to compare usable fields, duplicates, source freshness and the cost of accepted records.",
     "topic": "Developer tools",
-    "image": "nodes",
+    "image": "data-enrichment-waterfall",
     "takeaway": "A claimed match rate is not your usable-record rate. Define the fields and validation rules your workflow needs.",
     "sources": [
       {
@@ -746,6 +854,10 @@
       }
     ],
     "sections": [
+      {
+        "heading": "Start here",
+        "content": "A large result set is not the same as a useful one. Before comparing enrichment subscriptions, define which fields your workflow needs and what makes a record acceptable. Then test a small, permitted sample. This guide focuses on quality, freshness and the cost of accepted records rather than the biggest advertised database."
+      },
       {
         "heading": "Distinguish database access from orchestration",
         "content": "Apollo describes enrichment for existing records. Clay describes a waterfall that tries data providers in sequence. These represent different workflow approaches; the product pages alone do not establish which produces better results for your particular accounts.",
@@ -772,19 +884,24 @@
       {
         "heading": "Choose a maintenance process",
         "content": "Enrichment is a continuing data-quality task. Decide what happens when a field changes and who reviews conflicts. Start with the smallest workflow that produces useful records. Earlier unsourced match-rate rankings have been removed; no universal winner is claimed."
+      },
+      {
+        "heading": "Try this next",
+        "content": "Document the acceptance rules and the reason for your platform choice so the next review starts from evidence. Read [A simple Notion decision log your team can actually use](/workflow/async-engineering-notion-architecture)."
       }
     ],
     "publishedAt": "2026-09-08",
-    "updatedAt": "2026-09-12",
-    "sourceCheckedAt": "2026-09-12"
+    "updatedAt": "2026-09-21",
+    "sourceCheckedAt": "2026-09-12",
+    "imageAlt": "Conceptual diagram of a waterfall data enrichment workflow with multi-provider verification stages."
   },
   {
     "slug": "best-4k-144hz-monitors-for-programming",
     "category": "hardware",
-    "title": "A 4K monitor for coding: check text before refresh rate",
+    "title": "Choosing a 4K coding monitor: text, scaling and desk space",
     "description": "Compare resolution, scaling, desk distance and everyday readability with your own editor and applications.",
     "topic": "Hardware",
-    "image": "timeline",
+    "image": "4k-coding-monitor",
     "takeaway": "The useful display is the one that keeps your actual applications readable at your normal distance. Test that setup before choosing by refresh rate alone.",
     "sources": [
       {
@@ -799,6 +916,10 @@
       }
     ],
     "sections": [
+      {
+        "heading": "Start here",
+        "content": "You spend the day looking at text, yet monitor comparisons often begin with refresh rate. Start with your editor, normal viewing distance and the amount of space you need for two useful windows. This checklist helps you evaluate the screen as a daily work tool before paying for features that may not solve your problem."
+      },
       {
         "heading": "Keep native resolution, then adjust scale",
         "content": "Microsoft recommends the display's recommended resolution and explains that lower resolutions can make text less sharp. Use layout or text-size controls to find a readable interface instead of assuming smaller text means more productive space.",
@@ -825,11 +946,16 @@
       {
         "heading": "Keep the claim modest",
         "content": "A higher refresh rate may be attractive for motion, but this page makes no medical or eye-fatigue claim. Compare the actual mode you intend to use and current product specifications before buying. This replaces the earlier unsupported top-monitor ranking with a practical evaluation guide."
+      },
+      {
+        "heading": "Try this next",
+        "content": "Planning the whole setup? Match your local AI machine to its workload before ordering components. Read [Building a local AI PC: check VRAM before buying a GPU](/hardware/best-local-ai-workstation-build-guide-2026)."
       }
     ],
     "publishedAt": "2026-09-08",
-    "updatedAt": "2026-09-12",
-    "sourceCheckedAt": "2026-09-12"
+    "updatedAt": "2026-09-21",
+    "sourceCheckedAt": "2026-09-12",
+    "imageAlt": "Conceptual illustration of a 4K programming monitor with subpixel text clarity and ergonomic viewing distance."
   },
   {
     "slug": "ai-video-prompt-guide-examples",
@@ -837,11 +963,11 @@
     "title": "AI video prompts: six examples and a repeatable workflow",
     "description": "Write clearer AI video prompts with six original shot examples, a troubleshooting checklist and a practical method for comparing takes.",
     "topic": "AI video",
-    "image": "video",
+    "image": "ai-video-prompt-shot",
     "takeaway": "Treat a prompt as a short shot brief: one visible action, a deliberate camera choice and a clear finish. These examples are editorial starting points, not benchmarked prompts or promised results.",
     "featured": true,
     "publishedAt": "2026-09-20",
-    "updatedAt": "2026-09-20",
+    "updatedAt": "2026-09-21",
     "sourceCheckedAt": "2026-09-20",
     "sources": [
       {
@@ -856,6 +982,10 @@
       }
     ],
     "sections": [
+      {
+        "heading": "Start here",
+        "content": "The clip looks polished, but the camera moves when you wanted a still shot and the action never quite finishes. Before adding more adjectives, simplify the brief. Work through six original examples, change one variable between attempts and decide what makes a take usable. The examples are starting points for your own tests, not guaranteed outputs."
+      },
       {
         "heading": "Start with the shot, not a list of adjectives",
         "content": "Before opening a generator, write what the viewer must understand from the clip. A useful brief might be: show the texture of a ceramic mug while a hand turns it once. That gives you something concrete to judge. Words such as stunning or cinematic cannot tell you whether the handle stays attached or the movement finishes before the cut. Choose the delivery format and intended place in the edit first. A background loop, a product detail and a story beat need different kinds of success. To compare how different model architectures handle motion and generation credits, review our [AI video generation matrix](/create/ai-video-generation-matrix-minimax-higgsfield-seedance).",
@@ -918,8 +1048,13 @@
       {
         "heading": "Before using a clip commercially",
         "content": "Check the current terms for the generation service and the rights to your input materials. A paid subscription is not a substitute for reviewing those terms. Keep the relevant license or permission record with the project and avoid implying that a person or brand endorsed a fabricated scene. If a client requests evidence of how an asset was created, your saved brief, source materials and attempt log will be more useful than an unsupported claim that the output is fully cleared. You can verify published model pricing and provider rates in our [AI video models directory](/ai-video-models)."
+      },
+      {
+        "heading": "Try this next",
+        "content": "Have a clear shot brief? Use it to compare platforms instead of choosing from their demo reels. Read [MiniMax vs Seedance vs Higgsfield: choose for your next shot](/create/ai-video-generation-matrix-minimax-higgsfield-seedance)."
       }
-    ]
+    ],
+    "imageAlt": "Conceptual illustration of a cinematic camera viewfinder overlay with composition guidelines and motion trajectory."
   },
   {
     "slug": "comfyui-beginner-first-workflow-guide",
@@ -927,11 +1062,11 @@
     "title": "ComfyUI beginner guide: your first image and common fixes",
     "description": "Follow a simple ComfyUI learning path: load an official workflow, find the required model, understand the graph and troubleshoot common first-run problems.",
     "topic": "ComfyUI",
-    "image": "nodes",
+    "image": "comfyui-first-workflow",
     "takeaway": "Make one official example work unchanged before adding LoRAs or custom nodes. Save that baseline so later experiments have a known working starting point.",
     "featured": true,
     "publishedAt": "2026-09-20",
-    "updatedAt": "2026-09-20",
+    "updatedAt": "2026-09-21",
     "sourceCheckedAt": "2026-09-20",
     "sources": [
       {
@@ -951,6 +1086,10 @@
       }
     ],
     "sections": [
+      {
+        "heading": "Start here",
+        "content": "An unfamiliar canvas, missing model files and a row of connected boxes can make the first image feel harder than it needs to be. Give yourself one small goal: run an official example, save the result and understand the path to the output. This walkthrough helps you build that baseline before adding custom nodes or LoRAs."
+      },
       {
         "heading": "Set a small, useful first goal",
         "content": "Your first goal is a saved image from a workflow you understand well enough to run again. It is not a giant graph that combines every popular extension. Choose a simple subject, such as a blue teapot on a kitchen shelf, and use it throughout your first session. Keeping the subject constant makes it easier to notice which setting changed the result. The checkpoints and folders below refer to the official basic example; other model families can require different loaders, encoders and files."
@@ -1019,7 +1158,12 @@
           "Describe the intended result and the current failure in separate sentences.",
           "Reopen the saved workflow to confirm your handoff is complete."
         ]
+      },
+      {
+        "heading": "Try this next",
+        "content": "Once the first workflow works, move on to a controlled FLUX and LoRA experiment. Read [FLUX in ComfyUI: a practical workflow and LoRA checklist](/create/comfyui-flux-lora-training-and-inference-guide)."
       }
-    ]
+    ],
+    "imageAlt": "Conceptual diagram of a foundational ComfyUI node graph with model loader, prompt encoders, sampler, and VAE decode."
   }
 ]

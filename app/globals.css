@@ -1945,3 +1945,14 @@ kbd {
     display: none
   }
 }
+
+/* In-article discovery stays lightweight and keyboard accessible. */
+.article-next-read { margin: 2rem 0; border: 1px solid var(--line, #334155); border-radius: 12px; overflow: hidden; }
+.article-next-read > a { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 1rem; align-items: center; padding: 1rem; text-decoration: none; }
+.article-next-read .story-image { width: 100%; height: auto; border-radius: 8px; }
+.article-next-read strong, .article-next-read small, .article-next-read span > span { display: block; }
+.article-next-read strong { margin: .4rem 0; line-height: 1.35; }
+.article-next-read span > span { font-size: .875rem; line-height: 1.5; }
+.article-next-read > a:focus-visible { outline: 3px solid currentColor; outline-offset: -4px; }
+.breadcrumbs [aria-current="page"] { min-width: 0; overflow-wrap: anywhere; }
+@media (max-width: 560px) { .article-next-read > a { grid-template-columns: 1fr; } .article-next-read .story-image { max-height: 180px; object-fit: cover; } }

@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750">
+<defs>
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M40 0H0V40" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  </pattern>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+    <feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#000" flood-opacity="0.5"/>
+  </filter>
+  <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+    <feGaussianBlur stdDeviation="12" result="blur"/>
+    <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+  </filter>
+  
+      <radialGradient id="sphereGrad" cx="35%" cy="35%" r="65%"><stop offset="0%" stop-color="#e2e8f0"/><stop offset="50%" stop-color="#4a5568"/><stop offset="100%" stop-color="#1a202c"/></radialGradient>
+      <linearGradient id="spectrum" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#e53e3e"/><stop offset="25%" stop-color="#ecc94b"/><stop offset="50%" stop-color="#48bb78"/><stop offset="75%" stop-color="#3182ce"/><stop offset="100%" stop-color="#9f7aea"/></linearGradient>
+    
+</defs>
+<rect width="1200" height="750" fill="#10141c"/>
+<rect width="1200" height="750" fill="url(#grid)"/>
+<circle cx="1050" cy="100" r="320" fill="#3182ce" opacity="0.08" filter="url(#softGlow)"/>
+<circle cx="150" cy="650" r="280" fill="#3182ce" opacity="0.05" filter="url(#softGlow)"/>
+<text x="50" y="65" font-family="monospace, 'Courier New', monospace" font-size="14" fill="#3182ce" letter-spacing="3" font-weight="600">AI IMAGES / SDXL CHECKPOINT PHOTOREALISM</text>
+
+      <g transform="translate(100, 105)" filter="url(#shadow)">
+        <rect width="1000" height="540" rx="14" fill="#151b26" stroke="#253245" stroke-width="2"/>
+        <rect width="1000" height="42" rx="14" fill="#1d2636"/>
+        <text x="35" y="26" font-family="monospace" font-size="13" fill="#63b3ed" font-weight="bold">SDXL CALIBRATION BENCHMARK: TEXTURE FIDELITY &amp; SKIN TONES</text>
+
+        <!-- Optical Calibration Spheres -->
+        <g transform="translate(60, 80)">
+          <circle cx="100" cy="120" r="70" fill="#718096" stroke="#a0aec0" stroke-width="2"/>
+          <text x="65" y="220" font-family="monospace" font-size="11" fill="#cbd5e0">18% Grey Chart</text>
+
+          <circle cx="280" cy="120" r="70" fill="url(#sphereGrad)" stroke="#cbd5e0" stroke-width="2"/>
+          <text x="245" y="220" font-family="monospace" font-size="11" fill="#cbd5e0">Specular Ball</text>
+
+          <circle cx="460" cy="120" r="70" fill="#2d3748" stroke="#63b3ed" stroke-width="2"/>
+          <path d="M 410 120 Q 460 70 510 120" fill="none" stroke="#fff" stroke-width="4"/>
+          <text x="425" y="220" font-family="monospace" font-size="11" fill="#cbd5e0">Chrome Mirror</text>
+        </g>
+
+        <!-- Dynamic Exposure / Spectrum Ramp -->
+        <g transform="translate(60, 335)">
+          <rect width="480" height="24" rx="4" fill="url(#spectrum)"/>
+          <text x="0" y="-10" font-family="monospace" font-size="10" fill="#a0aec0">Color Calibration Wedge</text>
+          <g transform="translate(0, 40)">
+            <rect x="0" y="0" width="60" height="25" fill="#000"/><text x="20" y="17" font-family="monospace" font-size="10" fill="#fff">0%</text>
+            <rect x="60" y="0" width="60" height="25" fill="#2d3748"/>
+            <rect x="120" y="0" width="60" height="25" fill="#4a5568"/>
+            <rect x="180" y="0" width="60" height="25" fill="#718096"/>
+            <rect x="240" y="0" width="60" height="25" fill="#a0aec0"/>
+            <rect x="300" y="0" width="60" height="25" fill="#cbd5e0"/>
+            <rect x="360" y="0" width="60" height="25" fill="#e2e8f0"/>
+            <rect x="420" y="0" width="60" height="25" fill="#ffffff"/><text x="430" y="17" font-family="monospace" font-size="10" fill="#000">100%</text>
+          </g>
+        </g>
+
+        <!-- Checkpoint Comparison Radar/Metrics -->
+        <g transform="translate(600, 75)">
+          <rect width="345" height="420" rx="8" fill="#10151f" stroke="#253245"/>
+          <text x="25" y="35" font-family="monospace" font-size="12" fill="#63b3ed" font-weight="bold">CHECKPOINT EVALUATION MATRIX</text>
+          
+          <rect x="25" y="60" width="295" height="65" rx="6" fill="#18202d"/>
+          <text x="40" y="85" font-family="monospace" font-size="11" fill="#fff" font-weight="bold">Juggernaut XL</text>
+          <text x="40" y="105" font-family="monospace" font-size="10" fill="#a0aec0">Skin Micro-texture: 9.2 · Lighting: 9.0</text>
+
+          <rect x="25" y="140" width="295" height="65" rx="6" fill="#18202d"/>
+          <text x="40" y="165" font-family="monospace" font-size="11" fill="#fff" font-weight="bold">RealVisXL</text>
+          <text x="40" y="185" font-family="monospace" font-size="10" fill="#a0aec0">Lens Flare / Film Grain: 9.4 · Artifacts: Low</text>
+
+          <rect x="25" y="220" width="295" height="65" rx="6" fill="#18202d"/>
+          <text x="40" y="245" font-family="monospace" font-size="11" fill="#fff" font-weight="bold">ZavyChromaXL</text>
+          <text x="40" y="265" font-family="monospace" font-size="10" fill="#a0aec0">Contrast &amp; Shadow Depth: 8.8 · Range: High</text>
+
+          <rect x="25" y="305" width="295" height="85" rx="6" fill="#16253b" stroke="#3182ce"/>
+          <text x="35" y="330" font-family="monospace" font-size="10" fill="#90cdf4" font-weight="bold">EDITORIAL VERDICT:</text>
+          <text x="35" y="350" font-family="monospace" font-size="10" fill="#e2e8f0">No universal "best". Use fixed seeds,</text>
+          <text x="35" y="370" font-family="monospace" font-size="10" fill="#e2e8f0">neutral lighting and zero negative prompt bloat.</text>
+        </g>
+      </g>
+    
+<text x="50" y="715" font-family="monospace, 'Courier New', monospace" font-size="12" fill="#718096" opacity="0.75" letter-spacing="2">FYRELINKZ / EDITORIAL ILLUSTRATION · CONCEPTUAL ARTWORK</text>
+</svg>
