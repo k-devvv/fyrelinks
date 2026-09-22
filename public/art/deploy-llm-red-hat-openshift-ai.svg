@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750" fill="none">
+  <defs>
+    <linearGradient id="rhoaiBg" x1="0" y1="0" x2="1200" y2="750" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0b0e15"/>
+      <stop offset="100%" stop-color="#121824"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#162030"/>
+      <stop offset="100%" stop-color="#0e1420"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="750" fill="url(#rhoaiBg)"/>
+  <rect width="1200" height="750" fill="none" stroke="#242d3e" stroke-width="2"/>
+
+  <!-- Top Title -->
+  <text x="70" y="75" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#ff8056">ENTERPRISE INFRASTRUCTURE / KUBERNETES &amp; OPENSHIFT AI</text>
+  <text x="70" y="115" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="800" fill="#f3f5f9" letter-spacing="-0.5">Deploying Open-Source LLMs on Red Hat OpenShift AI</text>
+  <text x="70" y="145" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" fill="#94a3b8">KServe vLLM Runtime · NVIDIA GPU Operator · Node Feature Discovery · TLS Ingress</text>
+
+  <!-- 3 Architecture Column Cards -->
+  <!-- Column 1: Hardware & Cluster Foundation -->
+  <g transform="translate(70, 185)">
+    <rect width="335" height="495" rx="12" fill="url(#cardGrad)" stroke="#38bdf8" stroke-width="1.5" stroke-opacity="0.6"/>
+    <rect x="20" y="25" width="130" height="24" rx="6" fill="#38bdf8" fill-opacity="0.15" stroke="#38bdf8" stroke-width="1"/>
+    <text x="85" y="41" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#38bdf8">1. CLUSTER LAYER</text>
+    
+    <text x="20" y="85" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="700" fill="#f3f5f9">GPU Operator &amp; NFD</text>
+    <text x="20" y="108" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#94a3b8">Automatic hardware discovery &amp; drivers</text>
+
+    <g transform="translate(20, 135)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#cbd5e1">
+      <rect width="295" height="60" rx="8" fill="#0b0e14" stroke="#1f293d"/>
+      <text x="15" y="25" font-weight="600" fill="#f3f5f9">Node Feature Discovery</text>
+      <text x="15" y="45" font-size="11" fill="#94a3b8">Labels PCI devices &amp; GPU architectures</text>
+
+      <rect y="75" width="295" height="60" rx="8" fill="#0b0e14" stroke="#1f293d"/>
+      <text x="15" y="100" font-weight="600" fill="#f3f5f9">NVIDIA GPU Operator</text>
+      <text x="15" y="120" font-size="11" fill="#94a3b8">Container toolkit, CUDA drivers &amp; DCGM</text>
+
+      <rect y="150" width="295" height="60" rx="8" fill="#0b0e14" stroke="#1f293d"/>
+      <text x="15" y="175" font-weight="600" fill="#f3f5f9">Worker Node Partitioning</text>
+      <text x="15" y="195" font-size="11" fill="#94a3b8">Taints &amp; tolerations for dedicated GPU pools</text>
+
+      <rect y="225" width="295" height="70" rx="8" fill="#0b0e14" stroke="#1f293d"/>
+      <text x="15" y="250" font-weight="600" fill="#f3f5f9">Resource Allocations</text>
+      <text x="15" y="270" font-size="11" fill="#94a3b8">nvidia.com/gpu: 1 (A10G / L40S)</text>
+      <text x="15" y="285" font-size="11" fill="#94a3b8">Memory request: 32Gi minimum</text>
+    </g>
+  </g>
+
+  <!-- Column 2: KServe & vLLM Serving Engine -->
+  <g transform="translate(435, 185)">
+    <rect width="335" height="495" rx="12" fill="url(#cardGrad)" stroke="#f97316" stroke-width="1.5" stroke-opacity="0.6"/>
+    <rect x="20" y="25" width="130" height="24" rx="6" fill="#f97316" fill-opacity="0.15" stroke="#f97316" stroke-width="1"/>
+    <text x="85" y="41" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#f97316">2. SERVING RUNTIME</text>
+    
+    <text x="20" y="85" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="700" fill="#f3f5f9">vLLM &amp; KServe Pods</text>
+    <text x="20" y="108" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#94a3b8">Continuous batching &amp; PagedAttention</text>
+
+    <g transform="translate(20, 135)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#cbd5e1">
+      <rect width="295" height="60" rx="8" fill="#0b0e14" stroke="#1f293d"/>
+      <text x="15" y="25" font-weight="600" fill="#f3f5f9">S3 Model Weight Mount</text>
+      <text x="15" y="45" font-size="11" fill="#94a3b8">Fast streaming from S3/MinIO bucket</text>
+
+      <rect y="75" width="295" height="60" rx="8" fill="#0b0e14" stroke="#1f293d"/>
+      <text x="15" y="100" font-weight="600" fill="#f3f5f9">PagedAttention Memory</text>
+      <text x="15" y="120" font-size="11" fill="#94a3b8">Zero memory fragmentation for KV cache</text>
+
+      <rect y="150" width="295" height="60" rx="8" fill="#0b0e14" stroke="#1f293d"/>
+      <text x="15" y="175" font-weight="600" fill="#f3f5f9">Continuous Batching</text>
+      <text x="15" y="195" font-size="11" fill="#94a3b8">Maximizes GPU utilization across requests</text>
+
+      <rect y="225" width="295" height="70" rx="8" fill="#0b0e14" stroke="#1f293d"/>
+      <text x="15" y="250" font-weight="600" fill="#f3f5f9">vLLM Container Args</text>
+      <text x="15" y="270" font-size="11" fill="#94a3b8">--model /mnt/models/llama-3.1-8b</text>
+      <text x="15" y="285" font-size="11" fill="#94a3b8">--gpu-memory-utilization 0.92</text>
+    </g>
+  </g>
+
+  <!-- Column 3: Ingress, Autoscaling & Observability -->
+  <g transform="translate(800, 185)">
+    <rect width="335" height="495" rx="12" fill="url(#cardGrad)" stroke="#10b981" stroke-width="1.5" stroke-opacity="0.6"/>
+    <rect x="20" y="25" width="130" height="24" rx="6" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-width="1"/>
+    <text x="85" y="41" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#10b981">3. PRODUCTION INGRESS</text>
+    
+    <text x="20" y="85" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="700" fill="#f3f5f9">Routes &amp; Telemetry</text>
+    <text x="20" y="108" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#94a3b8">Secure API endpoints &amp; autoscaling</text>
+
+    <g transform="translate(20, 135)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#cbd5e1">
+      <rect width="295" height="60" rx="8" fill="#0b0e14" stroke="#1f293d"/>
+      <text x="15" y="25" font-weight="600" fill="#f3f5f9">OpenShift TLS Route</text>
+      <text x="15" y="45" font-size="11" fill="#94a3b8">Edge termination &amp; custom subdomains</text>
+
+      <rect y="75" width="295" height="60" rx="8" fill="#0b0e14" stroke="#1f293d"/>
+      <text x="15" y="100" font-weight="600" fill="#f3f5f9">OpenAI-Compatible API</text>
+      <text x="15" y="120" font-size="11" fill="#94a3b8">Drop-in /v1/chat/completions endpoint</text>
+
+      <rect y="150" width="295" height="60" rx="8" fill="#0b0e14" stroke="#1f293d"/>
+      <text x="15" y="175" font-weight="600" fill="#f3f5f9">Prometheus &amp; Grafana</text>
+      <text x="15" y="195" font-size="11" fill="#94a3b8">vllm_num_requests_waiting telemetry</text>
+
+      <rect y="225" width="295" height="70" rx="8" fill="#0b0e14" stroke="#1f293d"/>
+      <text x="15" y="250" font-weight="600" fill="#f3f5f9">Horizontal Pod Autoscaler</text>
+      <text x="15" y="270" font-size="11" fill="#94a3b8">Scale from 1 to N based on queue depth</text>
+      <text x="15" y="285" font-size="11" fill="#94a3b8">Scale-to-zero support via Knative</text>
+    </g>
+  </g>
+</svg>

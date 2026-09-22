@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750" fill="none">
+  <defs>
+    <linearGradient id="euBg" x1="0" y1="0" x2="1200" y2="750" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0b0e15"/>
+      <stop offset="100%" stop-color="#121824"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#162030"/>
+      <stop offset="100%" stop-color="#0e1420"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="750" fill="url(#euBg)"/>
+  <rect width="1200" height="750" fill="none" stroke="#242d3e" stroke-width="2"/>
+
+  <!-- Top Title -->
+  <text x="70" y="75" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#ff8056">REGULATORY COMPLIANCE / REGULATION (EU) 2024/1689</text>
+  <text x="70" y="115" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="800" fill="#f3f5f9" letter-spacing="-0.5">EU AI Act Developer Obligations: Risk Tiers &amp; Rules</text>
+  <text x="70" y="145" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" fill="#94a3b8">General-Purpose AI (GPAI) · Synthetic Media Watermarking · Transparency Notices</text>
+
+  <!-- 3 Regulatory Column Cards -->
+  <!-- Column 1: Classification & Risk Tiers -->
+  <g transform="translate(70, 185)">
+    <rect width="335" height="495" rx="12" fill="url(#cardGrad)" stroke="#ef4444" stroke-width="1.5" stroke-opacity="0.6"/>
+    <rect x="20" y="25" width="130" height="24" rx="6" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1"/>
+    <text x="85" y="41" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#f87171">1. RISK TIERS</text>
+    
+    <text x="20" y="85" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="700" fill="#f3f5f9">Risk Classification</text>
+    <text x="20" y="108" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#94a3b8">Categorizing AI application scope</text>
+
+    <g transform="translate(20, 135)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#cbd5e1">
+      <rect width="295" height="60" rx="8" fill="#0b0e14" stroke="#1f293d"/>
+      <text x="15" y="25" font-weight="600" fill="#f87171">Prohibited AI Practices</text>
+      <text x="15" y="45" font-size="11" fill="#94a3b8">Social scoring, subliminal cognitive nudging</text>
+
+      <rect y="75" width="295" height="60" rx="8" fill="#0b0e14" stroke="#1f293d"/>
+      <text x="15" y="100" font-weight="600" fill="#fb923c">High-Risk Systems</text>
+      <text x="15" y="120" font-size="11" fill="#94a3b8">Critical infrastructure, HR hiring, biometric ID</text>
+
+      <rect y="150" width="295" height="60" rx="8" fill="#0b0e14" stroke="#1f293d"/>
+      <text x="15" y="175" font-weight="600" fill="#60a5fa">General-Purpose AI (GPAI)</text>
+      <text x="15" y="195" font-size="11" fill="#94a3b8">Foundation models: copyright policy &amp; evals</text>
+
+      <rect y="225" width="295" height="70" rx="8" fill="#0b0e14" stroke="#1f293d"/>
+      <text x="15" y="250" font-weight="600" fill="#34d399">Minimal / Specific Risk</text>
+      <text x="15" y="270" font-size="11" fill="#94a3b8">Customer support bots, search, coding tools</text>
+      <text x="15" y="285" font-size="11" fill="#94a3b8">Obligation: transparency notice to users</text>
+    </g>
+  </g>
+
+  <!-- Column 2: Developer Duties -->
+  <g transform="translate(435, 185)">
+    <rect width="335" height="495" rx="12" fill="url(#cardGrad)" stroke="#38bdf8" stroke-width="1.5" stroke-opacity="0.6"/>
+    <rect x="20" y="25" width="130" height="24" rx="6" fill="#38bdf8" fill-opacity="0.15" stroke="#38bdf8" stroke-width="1"/>
+    <text x="85" y="41" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#38bdf8">2. DEVELOPER DUTIES</text>
+    
+    <text x="20" y="85" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="700" fill="#f3f5f9">Technical Mandates</text>
+    <text x="20" y="108" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#94a3b8">What engineers must implement in code</text>
+
+    <g transform="translate(20, 135)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#cbd5e1">
+      <rect width="295" height="60" rx="8" fill="#0b0e14" stroke="#1f293d"/>
+      <text x="15" y="25" font-weight="600" fill="#f3f5f9">Article 50 Transparency</text>
+      <text x="15" y="45" font-size="11" fill="#94a3b8">Explicit notice that user is chatting with AI</text>
+
+      <rect y="75" width="295" height="60" rx="8" fill="#0b0e14" stroke="#1f293d"/>
+      <text x="15" y="100" font-weight="600" fill="#f3f5f9">Synthetic Media Tagging</text>
+      <text x="15" y="120" font-size="11" fill="#94a3b8">Machine-readable C2PA provenance metadata</text>
+
+      <rect y="150" width="295" height="60" rx="8" fill="#0b0e14" stroke="#1f293d"/>
+      <text x="15" y="175" font-weight="600" fill="#f3f5f9">High-Risk Technical Files</text>
+      <text x="15" y="195" font-size="11" fill="#94a3b8">Audit logs, risk mitigation, human override</text>
+
+      <rect y="225" width="295" height="70" rx="8" fill="#0b0e14" stroke="#1f293d"/>
+      <text x="15" y="250" font-weight="600" fill="#f3f5f9">Provider vs. Deployer</text>
+      <text x="15" y="270" font-size="11" fill="#94a3b8">Fine-tuning can reclassify deployer as provider</text>
+      <text x="15" y="285" font-size="11" fill="#94a3b8">Maintain strict vendor SLA &amp; model cards</text>
+    </g>
+  </g>
+
+  <!-- Column 3: Timeline & Enforcement -->
+  <g transform="translate(800, 185)">
+    <rect width="335" height="495" rx="12" fill="url(#cardGrad)" stroke="#10b981" stroke-width="1.5" stroke-opacity="0.6"/>
+    <rect x="20" y="25" width="130" height="24" rx="6" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-width="1"/>
+    <text x="85" y="41" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#10b981">3. ENFORCEMENT</text>
+    
+    <text x="20" y="85" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="700" fill="#f3f5f9">Phased Deadlines</text>
+    <text x="20" y="108" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#94a3b8">Key compliance enforcement milestones</text>
+
+    <g transform="translate(20, 135)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#cbd5e1">
+      <rect width="295" height="60" rx="8" fill="#0b0e14" stroke="#1f293d"/>
+      <text x="15" y="25" font-weight="600" fill="#f3f5f9">February 2025</text>
+      <text x="15" y="45" font-size="11" fill="#94a3b8">Prohibited AI practices become strictly banned</text>
+
+      <rect y="75" width="295" height="60" rx="8" fill="#0b0e14" stroke="#1f293d"/>
+      <text x="15" y="100" font-weight="600" fill="#f3f5f9">August 2025</text>
+      <text x="15" y="120" font-size="11" fill="#94a3b8">GPAI model governance &amp; AI Office oversight</text>
+
+      <rect y="150" width="295" height="60" rx="8" fill="#0b0e14" stroke="#1f293d"/>
+      <text x="15" y="175" font-weight="600" fill="#f3f5f9">August 2026</text>
+      <text x="15" y="195" font-size="11" fill="#94a3b8">Full enforcement for high-risk AI obligations</text>
+
+      <rect y="225" width="295" height="70" rx="8" fill="#0b0e14" stroke="#1f293d"/>
+      <text x="15" y="250" font-weight="600" fill="#f3f5f9">Penalty Framework</text>
+      <text x="15" y="270" font-size="11" fill="#94a3b8">Fines up to €35M or 7% of global annual turnover</text>
+      <text x="15" y="285" font-size="11" fill="#94a3b8">Proportionate caps for startups &amp; SMEs</text>
+    </g>
+  </g>
+</svg>

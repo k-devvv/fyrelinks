@@ -79,3 +79,16 @@ body{font-family:var(--sans);font-size:16px}h1,h2,h3{font-family:var(--display);
 .article-checklist ul{list-style:none;padding:0;margin:0;display:grid;gap:11px}
 .article-checklist li{display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#d8dee9;line-height:1.5}
 .article-checklist .check-box{display:inline-grid;place-content:center;width:18px;height:18px;border-radius:4px;background:rgba(255,128,86,.15);border:1px solid rgba(255,128,86,.35);color:var(--accent);font-size:11px;font-weight:bold;flex-shrink:0;margin-top:2px}
+
+/* Let editorial imagery breathe rather than covering it with a dark gradient. */
+.story-lead { min-height: 0; display: flex; flex-direction: column; }
+.story-lead > .story-image-link { position: relative; inset: auto; display: block; height: auto; min-height: 0; }
+.story-lead .story-image { width: 100%; height: auto; aspect-ratio: 1.65; object-fit: cover; }
+.story-lead > .story-copy { position: relative; inset: auto; padding: 24px; background: var(--surface); }
+.story-lead h2 { font-size: clamp(26px, 2.6vw, 36px); }
+.story-card .byline-small { font-size: 12px; }
+.story-card .story-meta { font-size: 11px; }
+.story-compact { grid-template-columns: 46% minmax(0,1fr); gap: 16px; }
+.story-compact .story-image { object-position: center; }
+.story-compact .story-copy { min-width: 0; }
+@media(max-width: 640px) { .story-lead > .story-copy { padding: 20px; } .story-compact { grid-template-columns: 40% minmax(0,1fr); gap: 12px; } .story-compact h2 { font-size: 19px; } }

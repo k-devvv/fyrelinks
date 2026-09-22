@@ -10,6 +10,7 @@ export default function BrandIntro() {
   const [fading, setFading] = useState(false);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const isDisposedRef = useRef(false);
+  const cleanupRef = useRef<(() => void) | null>(null);
 
   const dismiss = useCallback(() => {
     if (isDisposedRef.current) return;
@@ -17,6 +18,7 @@ export default function BrandIntro() {
     setFading(true);
     setTimeout(() => {
       setActive(false);
+      cleanupRef.current?.();
     }, 180);
   }, []);
 
@@ -71,10 +73,10 @@ export default function BrandIntro() {
     let sceneInstance: any = null;
     let cleanupListeners: (() => void) | null = null;
 
-    // Hard safety timeout: overlay is guaranteed to dismiss within 1100ms
+    // Hard safety timeout: overlay is guaranteed to dismiss within 2600ms
     const hardTimeout = setTimeout(() => {
       dismiss();
-    }, 1100);
+    }, 2600);
 
     // Dynamically import Three.js with strict 400ms timeout cutoff
     const threePromise = import("three");
@@ -297,7 +299,7 @@ export default function BrandIntro() {
         logoGroup.add(sparksPoints);
 
         // Animation Timeline: 750ms total
-        const duration = 750;
+        const duration = 1800;
         const startTime = performance.now();
 
         const animate = (currentTime: number) => {
@@ -410,7 +412,7 @@ export default function BrandIntro() {
         dismiss();
       });
 
-    return () => {
+    const cleanup = () => {
       clearTimeout(hardTimeout);
       if (cleanupListeners) cleanupListeners();
       if (animationFrameId !== null) cancelAnimationFrame(animationFrameId);
@@ -441,6 +443,8 @@ export default function BrandIntro() {
         }
       }
     };
+    cleanupRef.current = cleanup;
+    return cleanup;
   }, [dismiss]);
 
   if (!active) return null;

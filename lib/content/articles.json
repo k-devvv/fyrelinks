@@ -1959,5 +1959,208 @@
       }
     ],
     "imageAlt": "Architecture flowchart comparing deterministic single-pass RAG retrieval against cyclical stateful agent execution loops."
+  },
+  {
+    "slug": "deploy-llm-red-hat-openshift-ai-vllm-kserve",
+    "category": "workflow",
+    "title": "Deploy an open-source LLM on Red Hat OpenShift AI: vLLM and KServe setup",
+    "description": "Architectural guide: configuring Red Hat OpenShift AI with vLLM, KServe, and the NVIDIA GPU Operator to serve production LLMs with predictable latency.",
+    "topic": "Enterprise infrastructure",
+    "image": "deploy-llm-red-hat-openshift-ai",
+    "featured": false,
+    "publishedAt": "2026-09-22",
+    "updatedAt": "2026-09-22",
+    "sourceCheckedAt": "2026-09-22",
+    "takeaway": "Direct Answer: Deploying open-source LLMs on Red Hat OpenShift AI replaces manual Docker scripts with Kubernetes-native autoscaling and automated hardware discovery. Pair KServe's SingleModelServing architecture with the vLLM serving runtime and the NVIDIA GPU Operator to achieve continuous batching, PagedAttention memory optimization, and enterprise-grade TLS ingress.",
+    "sources": [
+      {
+        "publisher": "Red Hat",
+        "title": "Red Hat OpenShift AI Documentation: Serving Models",
+        "url": "https://docs.redhat.com/en/documentation/red_hat_openshift_ai/"
+      },
+      {
+        "publisher": "KServe Project",
+        "title": "KServe vLLM Runtime Guidelines & API Specifications",
+        "url": "https://kserve.github.io/website/latest/modelserving/v1beta1/llm/vllm/"
+      },
+      {
+        "publisher": "NVIDIA",
+        "title": "NVIDIA GPU Operator on OpenShift Container Platform",
+        "url": "https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/openshift/steps.html"
+      }
+    ],
+    "sections": [
+      {
+        "heading": "Start here",
+        "content": "Intended reader: Platform engineers, MLOps specialists, and enterprise architects hosting LLMs on Kubernetes. Practical outcome: A fully configured, reproducible OpenShift AI deployment serving 8B–14B parameter models with vLLM and KServe. As enterprise data sovereignty mandates move models into private clouds, OpenShift AI provides a declarative control plane that automates GPU driver lifecycle, vLLM continuous batching, and secure API ingress."
+      },
+      {
+        "heading": "Prerequisites: Node Feature Discovery and the NVIDIA GPU Operator",
+        "content": "Before provisioning serving pods, OpenShift worker nodes must expose GPU hardware as schedulable Kubernetes resources. Install Node Feature Discovery (NFD) to scan PCIe buses and label worker nodes with GPU family tags. Follow with the NVIDIA GPU Operator, which automatically compiles and deploys NVIDIA driver containers, container toolkits, and DCGM monitoring pods without manual host configuration.",
+        "sourceIds": [
+          1,
+          3
+        ]
+      },
+      {
+        "heading": "Serving runtime: KServe with vLLM PagedAttention",
+        "content": "OpenShift AI supports two serving paradigms: ModelMesh (for dense multi-model CPU workloads) and SingleModelServing via KServe (the standard for LLMs). Within your Data Science Project, select the vLLM Serving Runtime template. vLLM implements PagedAttention, which partitions KV cache memory into non-contiguous blocks, virtually eliminating memory fragmentation and enabling continuous batching across concurrent client queries.",
+        "sourceIds": [
+          1,
+          2
+        ]
+      },
+      {
+        "heading": "Cluster configuration: storage mount, resources and TLS route",
+        "content": "Connect an S3-compatible object store (such as Ceph, AWS S3, or MinIO) containing model weights in SafeTensors format. Allocate dedicated GPU slices in the ServingRuntime manifest:",
+        "table": {
+          "headers": [
+            "Deployment Parameter",
+            "Recommended Specification",
+            "Operational Impact"
+          ],
+          "rows": [
+            [
+              "Resource Limits",
+              "nvidia.com/gpu: 1, memory: 32Gi",
+              "Guarantees dedicated VRAM allocation for 8B models without pod eviction"
+            ],
+            [
+              "Serving Engine",
+              "vLLM v0.6+ Container Image",
+              "Delivers 2.5x–4x higher throughput via continuous request scheduling"
+            ],
+            [
+              "Model Weight Source",
+              "S3 Bucket / Internal MinIO",
+              "Enables rapid pod cold starts and zero-downtime rolling weight rollouts"
+            ],
+            [
+              "Ingress Protocol",
+              "OpenShift Route (Edge TLS)",
+              "Terminates HTTPS at router layer and exposes standard OpenAI-compatible API"
+            ]
+          ]
+        },
+        "sourceIds": [
+          1,
+          2
+        ]
+      },
+      {
+        "heading": "Production checklist: day-two operations and autoscaling",
+        "content": "Verify these four operational checkpoints before routing customer traffic to your inference cluster:",
+        "checklist": [
+          "Configure Horizontal Pod Autoscaler (HPA) targeting Prometheus metric 'vllm:num_requests_waiting'.",
+          "Enable dedicated node taints (e.g. 'nvidia.com/gpu=present:NoSchedule') to prevent non-AI workloads from scheduling on GPU nodes.",
+          "Set '--gpu-memory-utilization 0.90' in vLLM args to reserve 10% VRAM for peak context activation surges.",
+          "Verify readiness probes are mapped to the '/health' endpoint to prevent traffic routing during model weight loading."
+        ]
+      },
+      {
+        "heading": "Try this next",
+        "content": "Evaluating local vs edge model performance? Compare quantization tradeoffs in our guide on [Reduce Local LLM VRAM Usage](/workflow/reduce-local-llm-vram-usage-quantization-context-offloading)."
+      }
+    ],
+    "imageAlt": "Architectural diagram showing Red Hat OpenShift AI cluster with NVIDIA GPU Operator, vLLM KServe runtime, and S3 model weight storage."
+  },
+  {
+    "slug": "eu-ai-act-obligations-developers-guide",
+    "category": "workflow",
+    "title": "EU AI Act obligations for developers: compliance tiers, synthetic media and GPAI",
+    "description": "A practical technical breakdown of Regulation (EU) 2024/1689: transparency rules, GPAI model governance, and synthetic media labeling.",
+    "topic": "AI governance",
+    "image": "eu-ai-act-developer-obligations",
+    "featured": false,
+    "publishedAt": "2026-09-22",
+    "updatedAt": "2026-09-22",
+    "sourceCheckedAt": "2026-09-22",
+    "takeaway": "Direct Answer: The EU AI Act (Regulation 2024/1689) imposes strict compliance obligations on software developers based on their role and risk classification. If you build user-facing AI applications, Article 50 mandates clear transparency disclosures informing users they are interacting with AI, alongside machine-readable watermarking (such as C2PA) for synthetic audio, image, and video outputs.",
+    "sources": [
+      {
+        "publisher": "Official Journal of the European Union",
+        "title": "Regulation (EU) 2024/1689 of the European Parliament and of the Council (Artificial Intelligence Act)",
+        "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689"
+      },
+      {
+        "publisher": "European Commission",
+        "title": "European AI Office: Implementation Guidelines and GPAI Code of Practice",
+        "url": "https://digital-strategy.ec.europa.eu/en/policies/ai-office"
+      }
+    ],
+    "sections": [
+      {
+        "heading": "Start here",
+        "content": "Intended reader: Engineering leads, product managers, and software developers integrating LLMs and generative models into European products. Practical outcome: A clear breakdown of legal risk tiers, required user-facing disclosures, and technical watermarking mandates under Regulation (EU) 2024/1689. Unlike GDPR, the EU AI Act enforces technical product safety standards with fines up to €35 million or 7% of worldwide annual turnover."
+      },
+      {
+        "heading": "Provider versus deployer: determining your legal status",
+        "content": "The regulation establishes a critical distinction between upstream 'Providers' and downstream 'Deployers'. If you fine-tune an open-source model (like Llama or Mistral) with proprietary data or substantially modify its intended purpose, European regulators may classify your organization as an upstream Provider, triggering comprehensive technical documentation and copyright policy obligations. If you query third-party APIs (OpenAI, Anthropic) via standard API keys, you operate primarily as a Deployer.",
+        "sourceIds": [
+          1,
+          2
+        ]
+      },
+      {
+        "heading": "Risk tiers: what is banned, regulated or permitted",
+        "content": "The EU AI Act categorizes systems across four operational risk tiers with proportional compliance burdens:",
+        "table": {
+          "headers": [
+            "Risk Tier",
+            "System Examples",
+            "Developer Obligation"
+          ],
+          "rows": [
+            [
+              "Unacceptable Risk",
+              "Social scoring, biometric categorization for sensitive attributes, subliminal manipulation",
+              "Strictly prohibited across the EU as of February 2025"
+            ],
+            [
+              "High Risk",
+              "Recruitment CV screening, critical infrastructure, credit scoring, legal evaluation",
+              "Exhaustive conformity assessments, continuous logging, human oversight, and CE marking"
+            ],
+            [
+              "General-Purpose AI (GPAI)",
+              "Foundation models (GPT-4, Claude 3.5, Llama 3) with >10^25 FLOPs training compute",
+              "Model cards, copyright transparency, and red-teaming evaluations supervised by the AI Office"
+            ],
+            [
+              "Specific / Minimal Risk",
+              "Customer support chatbots, generative content generation, internal code assistants",
+              "Article 50 transparency notices and synthetic media watermarking"
+            ]
+          ]
+        },
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "Article 50: transparency notices and synthetic media labeling",
+        "content": "Most commercial software developers fall into the 'Specific Risk' tier. Under Article 50, developers must satisfy two core engineering requirements: first, conversational bots must explicitly notify users in plain language that they are interacting with an AI system; second, any generative pipeline that outputs synthetic audio, image, video, or realistic text must embed machine-readable metadata (e.g. C2PA provenance headers) enabling automated detection of generated media.",
+        "sourceIds": [
+          1,
+          2
+        ]
+      },
+      {
+        "heading": "Developer compliance checklist: implementation steps",
+        "content": "Review this compliance checklist before releasing AI features to users residing in the European Economic Area:",
+        "checklist": [
+          "Include an upfront disclaimer on AI chat interfaces: 'You are interacting with an artificial intelligence assistant.'",
+          "Implement C2PA cryptographic provenance metadata headers on exported synthetic imagery and video files.",
+          "Establish an audit trail logging model inputs, outputs, and system errors with 6-month retention.",
+          "Verify your model vendor complies with EU copyright opt-out protocols (TDM reservation under Directive 2019/790).",
+          "Implement human override controls allowing operators to halt or correct automated decision workflows."
+        ]
+      },
+      {
+        "heading": "Try this next",
+        "content": "Need to understand how generative media tools handle verification? Check our breakdown of [AI video model pricing and architectures](/ai-video-models)."
+      }
+    ],
+    "imageAlt": "Legal-tech compliance illustration showing AI core encircled by regulatory governance rings, scales of justice, and verification checklists."
   }
 ]
