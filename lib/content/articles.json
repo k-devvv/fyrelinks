@@ -808,7 +808,47 @@
         "sourceIds": [
           1,
           2
-        ]
+        ],
+        "table": {
+          "headers": [
+            "Criterion",
+            "Playwright (Self-Hosted)",
+            "Firecrawl (Managed API)",
+            "Architectural Choice"
+          ],
+          "rows": [
+            [
+              "Infrastructure Cost",
+              "Compute only (Run locally / VM)",
+              "Usage-based per-credit pricing",
+              "Playwright for high-volume batch runs"
+            ],
+            [
+              "JavaScript Rendering",
+              "Full Chromium / WebKit engine",
+              "Handled on managed server",
+              "Both render dynamic client-side DOMs"
+            ],
+            [
+              "Proxy & Anti-Bot",
+              "Self-managed proxy rotation",
+              "Built-in residential proxy pool",
+              "Firecrawl for heavily protected sites"
+            ],
+            [
+              "Citation Metadata",
+              "Custom DOM extraction logic",
+              "Automated markdown with titles",
+              "Playwright gives granular anchor control"
+            ],
+            [
+              "Maintenance Overhead",
+              "Browser binaries & crash restarts",
+              "Zero browser maintenance (REST API)",
+              "Firecrawl for fast developer velocity"
+            ]
+          ]
+        }
       },
       {
         "heading": "Use representative pages",
@@ -830,6 +870,21 @@
           "Keep tables and headings attached to their surrounding context.",
           "Deduplicate repeated content before chunking.",
           "Track changes so old passages can be removed from the index."
+        ]
+      },
+      {
+        "heading": "Build a Playwright extraction pipeline with verifiable citations",
+        "content": "When extracting web pages for RAG, dumping raw HTML or unsegmented text destroys citation capability. An effective Playwright extraction pipeline strips noise elements (nav, header, footer, ads, SVG icons), preserves semantic hierarchy (h1, h2, h3), and partitions text into 400–600 token chunks. Each stored vector record must carry metadata: canonical source_url, page_title, heading_anchor, and extraction_timestamp. This allows the answering LLM to provide clickable, verifiable footnotes rather than ungrounded claims.",
+        "checklist": [
+          "Launch Playwright with minimal resource overhead: playwright.chromium.launch({ headless: true }).",
+          "Wait for network idle or main content selector before scraping: page.waitForSelector(\"article, main\").",
+          "Remove non-editorial nodes from DOM: document.querySelectorAll(\"nav, footer, aside, script, style\").forEach(el => el.remove()).",
+          "Extract text segmented by heading boundaries to preserve topical integrity.",
+          "Append source_url, title, and section_id to every chunk payload in the vector database.",
+          "Prompt LLM to cite document [source_url#heading] whenever asserting a factual claim."
+        ],
+        "sourceIds": [
+          2
         ]
       },
       {
