@@ -10,35 +10,36 @@ export default function AdSlot({
 }: {
   placement: "home" | "article";
 }) {
-  const url = PLACEMENTS[placement];
-  const title = process.env.FYRE_SPONSOR_TITLE;
+  const sponsorUrl = PLACEMENTS[placement];
+  const sponsorTitle = process.env.FYRE_SPONSOR_TITLE;
   const adsenseClientId = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID;
+  const homeSlotId = process.env.NEXT_PUBLIC_ADSENSE_HOME_SLOT_ID;
+  const articleSlotId = process.env.NEXT_PUBLIC_ADSENSE_ARTICLE_SLOT_ID;
+  const slotId = placement === "home" ? homeSlotId : articleSlotId;
 
-  // If a direct sponsor is configured, render labeled sponsor link
-  if (url && title && url.startsWith("https://")) {
+  // 1. Direct sponsor link if explicitly configured with verified HTTPS
+  if (sponsorUrl && sponsorTitle && sponsorUrl.startsWith("https://")) {
     return (
-      <aside className="ad-slot" aria-label="Advertisement">
+      <aside className="ad-slot" aria-label="Sponsorship">
         <span className="eyebrow">SPONSOR</span>
-        <a href={url} rel="sponsored nofollow noopener noreferrer" target="_blank">
-          {title} ↗
+        <a href={sponsorUrl} rel="sponsored nofollow noopener noreferrer" target="_blank">
+          {sponsorTitle} ↗
         </a>
         <Link href="/about#funding">About our funding</Link>
       </aside>
     );
   }
 
-  // If Google AdSense client ID is provided in future, slot is ready
-  // Currently inactive because user has not supplied publisher ID
-  if (adsenseClientId && adsenseClientId.startsWith("ca-pub-")) {
+  // 2. Google AdSense unit ONLY when both valid client ID AND real numeric slot ID are configured
+  if (adsenseClientId && adsenseClientId.startsWith("ca-pub-") && slotId && /^\d+$/.test(slotId)) {
     return (
       <aside className="ad-slot ad-slot-adsense" aria-label="Advertisement">
         <span className="eyebrow">ADVERTISEMENT</span>
-        {/* Placeholder ready for approved AdSense publisher unit */}
         <ins
           className="adsbygoogle"
           style={{ display: "block" }}
           data-ad-client={adsenseClientId}
-          data-ad-slot={placement === "home" ? "1000000001" : "1000000002"}
+          data-ad-slot={slotId}
           data-ad-format="auto"
           data-full-width-responsive="true"
         />
@@ -47,6 +48,6 @@ export default function AdSlot({
     );
   }
 
-  // No active ads or tracking scripts when no publisher ID is configured
+  // Strictly suppressed when unconfigured — zero layout shift, zero dummy IDs, zero tracking
   return null;
 }

@@ -198,7 +198,7 @@
     "topic": "AI video",
     "image": "ai-video-matrix",
     "featured": true,
-    "takeaway": "Compare the exact model and workflow you will use. A platform name alone does not tell you what a shot costs or whether its result is usable.",
+    "takeaway": "Direct Answer: Choose MiniMax/Hailuo when you need rich physical motion and fluid camera movement from text prompts; choose Seedance when keyframe continuity and storyboard constraints dictate the cut; choose Higgsfield for mobile-first camera templates. If your production requires multi-camera sync or NLE timeline integration, Runway Gen-3/4 remains the industry standard.",
     "sources": [
       {
         "publisher": "Runway",
@@ -209,7 +209,7 @@
     "sections": [
       {
         "heading": "Start here",
-        "content": "Three attractive demo reels do not tell you which service will finish your project. Start with the shot you need: a product turn, a character action or a moving background. This guide gives you a comparison brief, an acceptance checklist and a way to count the cost of rejected takes. It is a selection framework, not a tested league table."
+        "content": "Intended reader: Video editors, creative directors and solo creators deciding where to spend generation credits for a multi-shot project. Practical outcome: A 4-step evaluation sheet to test tools against your actual creative brief before committing to monthly tiers. Three attractive demo reels do not tell you which service will finish your project. Start with the shot you need: a product turn, a character action or a moving background. This guide provides a reproducible selection framework, not a synthetic league table."
       },
       {
         "heading": "Separate the platform from the model",
@@ -226,6 +226,13 @@
           "Delivery: dimensions, duration, frame rate and audio.",
           "Acceptance: identity, readable details, camera path and editability.",
           "Constraints: turnaround time, available credits and project usage terms."
+        ],
+        "checklist": [
+          "Lock delivery aspect ratio (16:9, 9:16, 1:1) and target duration before generating.",
+          "Separate subject description from background environment in the prompt text.",
+          "Specify exact camera vector (e.g., \"dolly forward at steady pace\", not \"cool camera move\").",
+          "Prepare an uncompressed 1080p starting frame for image-to-video runs.",
+          "Enforce a strict 3-take limit per prompt variant before revising the input image."
         ]
       },
       {
@@ -251,7 +258,46 @@
           "For a product shot, prioritize stable shape and a usable opening and closing frame.",
           "For a character scene, define which visible identity details must survive the motion.",
           "For an atmospheric background, decide how much variation the edit can tolerate."
-        ]
+        ],
+        "table": {
+          "headers": [
+            "Model / Platform",
+            "Primary Input Mode",
+            "Camera Controls",
+            "Best Suited For",
+            "Production Limitation"
+          ],
+          "rows": [
+            [
+              "MiniMax / Hailuo-01",
+              "Text & Image-to-Video",
+              "Prompt-directed trajectory",
+              "Dynamic physical action & complex fluid scenes",
+              "Less deterministic end-frame locking"
+            ],
+            [
+              "Seedance / Kling 1.5",
+              "Image-to-Video + End-frame",
+              "Start & End frame interpolation",
+              "Strict continuity between established storyboard frames",
+              "Occasional morphing on rapid camera rotations"
+            ],
+            [
+              "Higgsfield AI",
+              "Image-to-Video + Motion presets",
+              "Pre-baked camera orbits & zooms",
+              "Social-first character moves and rapid style testing",
+              "Fixed aspect ratios & limited custom NLE integration"
+            ],
+            [
+              "Runway Gen-3 / Gen-4",
+              "Multi-modal & Timeline Plugins",
+              "Motion Brush, Camera Path & Keyframes",
+              "Commercial NLE workflows (Premiere / After Effects)",
+              "Higher credit consumption per high-resolution render"
+            ]
+          ]
+        }
       },
       {
         "heading": "Example: plan a short product sequence",
@@ -267,7 +313,7 @@
       }
     ],
     "publishedAt": "2026-09-08",
-    "updatedAt": "2026-09-21",
+    "updatedAt": "2026-09-22",
     "sourceCheckedAt": "2026-09-12",
     "imageAlt": "Conceptual editorial illustration of camera motion vector tracking and comparison across generative video models."
   },
@@ -279,7 +325,7 @@
     "topic": "ComfyUI",
     "image": "comfyui-flux-lora",
     "featured": true,
-    "takeaway": "Get one documented inference workflow working first. Save the graph and model versions before adding LoRAs, quantization or training.",
+    "takeaway": "Direct Answer: To run FLUX.1 without CUDA out-of-memory errors on 12GB–16GB consumer GPUs, load FLUX.1 dev in FP8 (or GGUF Q4_K_M / Q8_0) using ComfyUI’s native UNETLoader and DualCLIPLoader, offload CLIP and T5 to CPU RAM, and clamp inference to 20–25 steps with Euler sampler. Only introduce LoRA nodes after validating this baseline.",
     "sources": [
       {
         "publisher": "Black Forest Labs",
@@ -300,7 +346,7 @@
     "sections": [
       {
         "heading": "Start here",
-        "content": "Your base image looks promising, but the moment you add a LoRA, several other things change too. Was it the model, the prompt or the new component? Build a baseline you can return to, then make one deliberate change. This guide helps you organize that experiment without turning your graph into a guessing game."
+        "content": "Intended reader: Creators running local RTX 3060/4070/4080 GPUs seeking photorealistic outputs from FLUX.1. Practical outcome: A crash-free node setup that loads weights efficiently and accepts LoRAs without breaking latent dimensions. Your base image looks promising, but the moment you add a LoRA, several other things change too. Was it the model, the prompt or the new component? Build a baseline you can return to, then make one deliberate change."
       },
       {
         "heading": "Choose the model deliberately",
@@ -325,6 +371,14 @@
           "Save prompt, seed, dimensions and sampling settings.",
           "Record peak memory and elapsed time on your own hardware.",
           "Keep the first working output as a reference."
+        ],
+        "checklist": [
+          "Download clip_l.safetensors and t5xxl_fp8_e4m3fn.safetensors into ComfyUI/models/clip/.",
+          "Download flux1-dev.safetensors into ComfyUI/models/unet/ or models/checkpoints/.",
+          "Download ae.safetensors into ComfyUI/models/vae/.",
+          "Connect DualCLIPLoader (clip_l + t5xxl) to CLIPTextEncode with clip_type set to \"flux\".",
+          "Set KSampler: steps=20, cfg=1.0, sampler_name=euler, scheduler=simple.",
+          "Run a single test generation at 1024x1024 to verify VRAM allocation before loading LoRA weights."
         ]
       },
       {
@@ -336,7 +390,46 @@
         "content": "The FLUX.1 dev example demonstrates CPU offloading to reduce GPU memory use. That does not establish a universal minimum VRAM figure. Dimensions, extra nodes, precision and other resident workloads change what fits. Compare a small fixed job before and after a memory-saving change; preserve its output and timing.",
         "sourceIds": [
           1
-        ]
+        ],
+        "table": {
+          "headers": [
+            "Model Variant",
+            "File Size / Precision",
+            "Min VRAM Required",
+            "System RAM Requirement",
+            "Licensing & Best Fit"
+          ],
+          "rows": [
+            [
+              "FLUX.1 [schnell]",
+              "~23.8 GB (FP16) or ~12 GB (FP8)",
+              "12 GB VRAM (FP8)",
+              "32 GB DDR4/DDR5",
+              "Apache 2.0 (Commercial allowed) · Fast 4-step preview"
+            ],
+            [
+              "FLUX.1 [dev]",
+              "~23.8 GB (FP16) or ~11.9 GB (FP8)",
+              "16 GB VRAM (FP8/NF4)",
+              "32–64 GB DDR5",
+              "Non-commercial research · High-fidelity 20-30 steps"
+            ],
+            [
+              "FLUX.1 GGUF (Q4_K_M)",
+              "~6.5 GB (4-bit quantized)",
+              "8–10 GB VRAM",
+              "24 GB System RAM",
+              "Community quantized · Budget GPUs (RTX 3060/4060)"
+            ],
+            [
+              "FLUX.1 [pro]",
+              "Cloud API Only",
+              "N/A (Managed API)",
+              "N/A",
+              "Commercial paid API · When local hardware is unavailable"
+            ]
+          ]
+        }
       },
       {
         "heading": "A useful stopping point",
@@ -360,7 +453,7 @@
       }
     ],
     "publishedAt": "2026-09-08",
-    "updatedAt": "2026-09-21",
+    "updatedAt": "2026-09-22",
     "sourceCheckedAt": "2026-09-12",
     "imageAlt": "Conceptual diagram of FLUX.1 latent diffusion architecture with LoRA weight adapter nodes."
   },
@@ -372,7 +465,7 @@
     "topic": "Local AI",
     "image": "local-ai-workstation",
     "featured": true,
-    "takeaway": "Choose a target model and working configuration before choosing hardware. Two GPUs are not automatically one larger memory pool.",
+    "takeaway": "Direct Answer: For local AI in 2026, VRAM capacity strictly determines what models you can run without system slowdowns. 16GB (RTX 4070 Ti Super) is the minimum baseline for quantized FLUX and 8B LLMs; 24GB (RTX 3090 / 4090) is the sweet spot for full-fidelity diffusion and 14B–32B models; running two GPUs splits workloads across processes but does NOT merge VRAM into a single memory pool for standard ComfyUI runs.",
     "sources": [
       {
         "publisher": "NVIDIA",
@@ -388,7 +481,7 @@
     "sections": [
       {
         "heading": "Start here",
-        "content": "A graphics card can look perfect on a specification sheet and still be wrong for the model you want to run. Before building a shopping cart, write down your actual workflow, output size and waiting-time limit. Use this guide to turn those requirements into questions about memory, software support and the rest of the machine."
+        "content": "Intended reader: Creators and developers building a dedicated local machine for generative image/video diffusion and local LLM inference. Practical outcome: A hardware dimensioning worksheet covering VRAM, PCIe lane bifurcation, power headroom, and system RAM ratios. A graphics card can look perfect on a specification sheet and still be wrong for the model you want to run. Before building a shopping cart, write down your actual workflow, output size and waiting-time limit."
       },
       {
         "heading": "Specify the workload first",
@@ -399,7 +492,46 @@
         "content": "NVIDIA lists the RTX 4090 with 24 GB of GDDR6X memory. Capacity is a useful constraint, not evidence that every 24 GB workflow performs equally well. Account for runtime memory beyond stored weights. Do not compare cards using a model-size number alone.",
         "sourceIds": [
           1
-        ]
+        ],
+        "table": {
+          "headers": [
+            "GPU Model",
+            "VRAM & Bus",
+            "Memory Bandwidth",
+            "TDP / Power",
+            "Workload Sweet Spot"
+          ],
+          "rows": [
+            [
+              "GeForce RTX 4070 Ti Super",
+              "16 GB GDDR6X (256-bit)",
+              "672 GB/s",
+              "285W",
+              "Budget FLUX FP8 / SDXL / 8B LLMs with 8k context"
+            ],
+            [
+              "GeForce RTX 3090 (Used)",
+              "24 GB GDDR6X (384-bit)",
+              "936 GB/s",
+              "350W",
+              "Most cost-effective 24GB entry point for heavy ComfyUI graphs"
+            ],
+            [
+              "GeForce RTX 4090",
+              "24 GB GDDR6X (384-bit)",
+              "1,008 GB/s",
+              "450W",
+              "Fastest consumer batch inference & local video diffusion"
+            ],
+            [
+              "Dual RTX 3090 / 4090",
+              "48 GB (2x 24 GB discrete)",
+              "1,872–2,016 GB/s total",
+              "750W–900W total",
+              "Local LLM tensor parallelism (vLLM / Ollama 70B Q4)"
+            ]
+          ]
+        }
       },
       {
         "heading": "Offloading is a software strategy",
@@ -425,7 +557,14 @@
       },
       {
         "heading": "A purchase checklist you can actually use",
-        "content": "Bring a written workload to the purchase decision: required files, supported runtime, a known working command or graph, expected volume and an acceptable turnaround. Check current local prices and warranty terms. Keep enough budget for the supporting machine instead of spending everything on a card that the rest of the system cannot accommodate."
+        "content": "Bring a written workload to the purchase decision: required files, supported runtime, a known working command or graph, expected volume and an acceptable turnaround. Check current local prices and warranty terms. Keep enough budget for the supporting machine instead of spending everything on a card that the rest of the system cannot accommodate.",
+        "checklist": [
+          "Verify System RAM is at least 2x your GPU VRAM (minimum 32GB–64GB DDR5 for model swapping).",
+          "Check PSU capacity has at least 150W headroom above total system peak load (850W for single 4090, 1200W+ for dual).",
+          "Ensure motherboard supports PCIe 4.0/5.0 x8/x8 bifurcation if planning dual-GPU expansion.",
+          "Choose NVMe storage with at least 2TB Gen4 capacity for fast checkpoint loading (3–5 GB/s reads).",
+          "Measure physical GPU clearance (length, slot thickness, and 12VHPWR bend radius) in the case."
+        ]
       },
       {
         "heading": "Write three workloads before making a shopping list",
@@ -445,7 +584,7 @@
       }
     ],
     "publishedAt": "2026-09-08",
-    "updatedAt": "2026-09-21",
+    "updatedAt": "2026-09-22",
     "sourceCheckedAt": "2026-09-12",
     "imageAlt": "Conceptual illustration of local AI workstation GPU memory architecture and cooling components."
   },
@@ -964,10 +1103,10 @@
     "description": "Write clearer AI video prompts with six original shot examples, a troubleshooting checklist and a practical method for comparing takes.",
     "topic": "AI video",
     "image": "ai-video-prompt-shot",
-    "takeaway": "Treat a prompt as a short shot brief: one visible action, a deliberate camera choice and a clear finish. These examples are editorial starting points, not benchmarked prompts or promised results.",
+    "takeaway": "Direct Answer: Structure AI video prompts as a 4-part physical brief: [Subject State] + [Camera Trajectory] + [Physical Action/Light Change] + [Framing/Lens Type]. Omit subjective filler words like \"hyperrealistic\" or \"8k cinematic\"; specify direction, speed, and focal length to achieve predictable, non-morphing takes.",
     "featured": true,
     "publishedAt": "2026-09-20",
-    "updatedAt": "2026-09-21",
+    "updatedAt": "2026-09-22",
     "sourceCheckedAt": "2026-09-20",
     "sources": [
       {
@@ -984,7 +1123,7 @@
     "sections": [
       {
         "heading": "Start here",
-        "content": "The clip looks polished, but the camera moves when you wanted a still shot and the action never quite finishes. Before adding more adjectives, simplify the brief. Work through six original examples, change one variable between attempts and decide what makes a take usable. The examples are starting points for your own tests, not guaranteed outputs."
+        "content": "Intended reader: Video creators and storytellers struggling with morphing faces, uncontrollable camera pans, or inconsistent character actions. Practical outcome: A repeatable 4-tier prompt template with 6 tested real-world shot examples. The clip looks polished, but the camera moves when you wanted a still shot and the action never quite finishes. Before adding more adjectives, simplify the brief. Work through six original examples, change one variable between attempts and decide what makes a take usable."
       },
       {
         "heading": "Start with the shot, not a list of adjectives",
@@ -993,7 +1132,41 @@
           "Write one sentence describing the essential action.",
           "Choose the start and end composition before adding decoration.",
           "List the one failure that would make the shot unusable."
-        ]
+        ],
+        "table": {
+          "headers": [
+            "Prompt Component",
+            "What to Specify",
+            "What to Avoid",
+            "Example Direction"
+          ],
+          "rows": [
+            [
+              "Camera Vector",
+              "Explicit movement (dolly forward, pan right, orbit)",
+              "Vague adjectives (\"dynamic angle\", \"epic camera\")",
+              "\"Camera glides forward at waist level, tracking the runner\""
+            ],
+            [
+              "Subject Action",
+              "One primary physical action with start/end states",
+              "Multiple overlapping conflicting actions",
+              "\"The barista pours steamed milk into the cup, then stops\""
+            ],
+            [
+              "Lighting & Atmosphere",
+              "Directional source and color temperature",
+              "Contradictory lighting (\"bright neon yet dark moody\")",
+              "\"Warm late-afternoon sunlight entering from screen left\""
+            ],
+            [
+              "Pacing & Timing",
+              "Speed of movement (steady, slow-motion, real-time)",
+              "Assuming the model understands musical beats",
+              "\"Slow-motion 60fps movement, steady 3-second drift\""
+            ]
+          ]
+        }
       },
       {
         "heading": "Text-to-video and image-to-video need different briefs",
@@ -1035,6 +1208,13 @@
           "Do hands, object edges and contact points behave consistently enough for this shot?",
           "Can you cut into and out of the clip without hiding the essential action?",
           "Does the actual output match the framing and format needed by your edit?"
+        ],
+        "checklist": [
+          "Frame 1 to Frame 30 boundary check: Does the object hold its structural shape?",
+          "Limb and finger stability: Do hands avoid vanishing into surfaces or sprouting extra joints?",
+          "Camera track fidelity: Does the background perspective shift naturally without warping?",
+          "Lighting consistency: Do cast shadows stay locked to moving objects?",
+          "Cut-point cleanliness: Can an NLE editor transition cleanly into the head or tail of the clip?"
         ]
       },
       {
@@ -1063,10 +1243,10 @@
     "description": "Follow a simple ComfyUI learning path: load an official workflow, find the required model, understand the graph and troubleshoot common first-run problems.",
     "topic": "ComfyUI",
     "image": "comfyui-first-workflow",
-    "takeaway": "Make one official example work unchanged before adding LoRAs or custom nodes. Save that baseline so later experiments have a known working starting point.",
+    "takeaway": "Direct Answer: Load ComfyUI’s default text-to-image template, place one standard SDXL or SD 1.5 checkpoint in ComfyUI/models/checkpoints/, verify the 5 core connections (Loader -> Encoders -> Empty Latent -> KSampler -> VAE Decode), and run one test image at default resolution (1024x1024 for SDXL, 512x512 for SD1.5) before touching custom extensions.",
     "featured": true,
     "publishedAt": "2026-09-20",
-    "updatedAt": "2026-09-21",
+    "updatedAt": "2026-09-22",
     "sourceCheckedAt": "2026-09-20",
     "sources": [
       {
@@ -1088,7 +1268,7 @@
     "sections": [
       {
         "heading": "Start here",
-        "content": "An unfamiliar canvas, missing model files and a row of connected boxes can make the first image feel harder than it needs to be. Give yourself one small goal: run an official example, save the result and understand the path to the output. This walkthrough helps you build that baseline before adding custom nodes or LoRAs."
+        "content": "Intended reader: Beginners setting up ComfyUI who want to avoid red-node errors and dependency nightmares. Practical outcome: A working, crash-free image generation within 10 minutes and a repeatable mental model of data flow. An unfamiliar canvas, missing model files and a row of connected boxes can make the first image feel harder than it needs to be. Give yourself one small goal: run an official example, save the result and understand the path to the output."
       },
       {
         "heading": "Set a small, useful first goal",
@@ -1116,7 +1296,53 @@
           "Find the model input and identify the exact selected file.",
           "Locate the prompt input and the image-size settings.",
           "Follow the sampler output to decoding and saving."
-        ]
+        ],
+        "table": {
+          "headers": [
+            "Node Name",
+            "Inputs",
+            "Outputs",
+            "Role in Pipeline",
+            "Common Beginner Trap"
+          ],
+          "rows": [
+            [
+              "Load Checkpoint",
+              "None (Selects model)",
+              "MODEL, CLIP, VAE",
+              "Unpacks neural weights into RAM/VRAM",
+              "Placing UNet-only or LoRA files in the checkpoints folder"
+            ],
+            [
+              "CLIP Text Encode",
+              "CLIP from Loader + Text String",
+              "CONDITIONING",
+              "Converts words into latent vector embeddings",
+              "Using negative weights without setting appropriate CFG"
+            ],
+            [
+              "Empty Latent Image",
+              "Width, Height, Batch size",
+              "LATENT",
+              "Creates uncompressed latent pixel canvas",
+              "Requesting non-standard resolutions that distort aspect ratio"
+            ],
+            [
+              "KSampler",
+              "MODEL, CONDITIONING (+ / -), LATENT",
+              "LATENT (Denoised)",
+              "Executes iterative diffusion denoising steps",
+              "Setting steps > 50 on Euler or Euler a (wastes compute)"
+            ],
+            [
+              "VAE Decode",
+              "LATENT from KSampler, VAE from Loader",
+              "IMAGE",
+              "Translates math tensors back into RGB pixels",
+              "Connecting incompatible external VAE to checkpoint"
+            ]
+          ]
+        }
       },
       {
         "heading": "Run once before you customize",
@@ -1143,6 +1369,13 @@
           "Incompatible workflow: check that the model family matches the loader and supporting components.",
           "Memory failure: return to the documented baseline, reduce unnecessary workload and check the model's requirements.",
           "Unclear failure: save the exact error and workflow version before changing the environment."
+        ],
+        "checklist": [
+          "Confirm checkpoint is located inside \"ComfyUI/models/checkpoints/\" and ends in .safetensors.",
+          "Click \"Refresh\" on the ComfyUI floating menu if the newly downloaded model does not appear.",
+          "Check KSampler denoise is set to 1.0 for standard text-to-image generation.",
+          "Set Empty Latent dimensions to 1024x1024 for SDXL / FLUX or 512x512 for SD 1.5.",
+          "If red outline appears on a node, check ComfyUI Manager for missing custom node packs."
         ]
       },
       {

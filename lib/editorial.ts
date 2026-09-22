@@ -5,11 +5,17 @@ export interface Source {
   publisher: string;
   publishedAt?: string;
 }
+export interface ArticleTable {
+  headers: string[];
+  rows: string[][];
+}
 export interface ArticleSection {
   heading: string;
   content: string;
   subpoints?: string[];
   sourceIds?: number[];
+  table?: ArticleTable;
+  checklist?: string[];
 }
 export interface ArticleInput {
   slug: string;
@@ -42,7 +48,18 @@ export interface EditorialPost extends Omit<ReviewPost, 'category' | 'sections'>
 export const SITE_URL = 'https://www.fyrelinkz.com';
 export const SOURCE_CHECK_DATE = '2026-09-12';
 export function articleFromInput(p: ArticleInput): EditorialPost {
-  const words = [p.description, p.takeaway, ...p.sections.flatMap(s => [s.heading, s.content, ...(s.subpoints ?? [])])].join(' ').split(/\s+/).length;
+  const words = [
+    p.description,
+    p.takeaway,
+    ...p.sections.flatMap(s => [
+      s.heading,
+      s.content,
+      ...(s.subpoints ?? []),
+      ...(s.checklist ?? []),
+      ...(s.table?.headers ?? []),
+      ...(s.table?.rows?.flat() ?? [])
+    ])
+  ].join(' ').split(/\s+/).length;
   return {
     ...p,
     featured: p.featured ?? false,

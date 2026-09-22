@@ -39,6 +39,10 @@ export const metadata: Metadata = {
       height: 750
     }]
   },
+  icons: {
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/brand/symbol.svg" }]
+  },
   twitter: {
     card: "summary_large_image",
     images: ["/art/cover.png"]
@@ -66,7 +70,7 @@ export default function RootLayout({
         "@id": SITE_URL + "/#organization",
         name: "FyreLinkz",
         url: SITE_URL,
-        logo: SITE_URL + "/art/cover.png",
+        logo: SITE_URL + "/brand/symbol.svg",
         publishingPrinciples: SITE_URL + "/about"
       }, {
         "@context": "https://schema.org",
