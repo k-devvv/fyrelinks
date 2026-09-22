@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750" fill="none">
+  <defs>
+    <linearGradient id="quantBg" x1="0" y1="0" x2="1200" y2="750" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0b0e14"/>
+      <stop offset="100%" stop-color="#141a26"/>
+    </linearGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#172133"/>
+      <stop offset="100%" stop-color="#0f1522"/>
+    </linearGradient>
+    <linearGradient id="barQ4" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ff8056"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="750" fill="url(#quantBg)"/>
+  <rect width="1200" height="750" fill="none" stroke="#252f42" stroke-width="2"/>
+
+  <!-- Top Title -->
+  <text x="70" y="75" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#ff8056">LOCAL INFERENCE OPTIMIZATION / VRAM EQUATION</text>
+  <text x="70" y="115" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="800" fill="#f3f5f9" letter-spacing="-0.5">Reducing Local LLM VRAM Footprint</text>
+  <text x="70" y="145" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" fill="#94a3b8">Total VRAM = Model Weights (Bits/Param) + KV Cache (Layers × Context × Heads) + CUDA Runtime</text>
+
+  <!-- 3 Pillar Strategy Cards -->
+  <!-- Pillar 1: Weight Quantization -->
+  <g transform="translate(70, 185)">
+    <rect width="335" height="495" rx="12" fill="url(#cardBg)" stroke="#2a384e" stroke-width="1.5"/>
+    <rect x="25" y="25" width="130" height="24" rx="6" fill="#3b82f6" fill-opacity="0.15" stroke="#3b82f6" stroke-width="1"/>
+    <text x="90" y="41" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#60a5fa">LEVER 01: WEIGHTS</text>
+    
+    <text x="25" y="85" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" fill="#f3f5f9">GGUF Quantization</text>
+    <text x="25" y="108" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#94a3b8">Compress stationary model matrices</text>
+
+    <!-- Bar comparison -->
+    <g transform="translate(25, 135)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12">
+      <text x="0" y="15" fill="#cbd5e1">FP16 (Unquantized)</text>
+      <rect x="0" y="25" width="285" height="20" rx="4" fill="#ef4444" fill-opacity="0.7"/>
+      <text x="280" y="40" text-anchor="end" font-weight="700" fill="#ffffff">16.0 GB</text>
+
+      <text x="0" y="75" fill="#cbd5e1">Q8_0 (8-bit)</text>
+      <rect x="0" y="85" width="155" height="20" rx="4" fill="#3b82f6" fill-opacity="0.75"/>
+      <text x="150" y="100" text-anchor="end" font-weight="700" fill="#ffffff">8.5 GB</text>
+
+      <text x="0" y="135" fill="#cbd5e1">Q4_K_M (Recommended Sweet Spot)</text>
+      <rect x="0" y="145" width="95" height="20" rx="4" fill="url(#barQ4)"/>
+      <text x="90" y="160" text-anchor="end" font-weight="700" fill="#ffffff">4.9 GB</text>
+
+      <text x="0" y="195" fill="#cbd5e1">Q2_K (Extreme / Perplexity loss)</text>
+      <rect x="0" y="205" width="55" height="20" rx="4" fill="#64748b" fill-opacity="0.8"/>
+      <text x="50" y="220" text-anchor="end" font-weight="700" fill="#ffffff">2.8 GB</text>
+    </g>
+
+    <text x="25" y="415" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#94a3b8">Q4_K_M reduces weight size by ~68% with &lt;1% measurable loss in benchmark accuracy.</text>
+  </g>
+
+  <!-- Pillar 2: KV Cache Compression -->
+  <g transform="translate(433, 185)">
+    <rect width="335" height="495" rx="12" fill="url(#cardBg)" stroke="#2a384e" stroke-width="1.5"/>
+    <rect x="25" y="25" width="130" height="24" rx="6" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-width="1"/>
+    <text x="90" y="41" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#34d399">LEVER 02: ATTENTION</text>
+    
+    <text x="25" y="85" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" fill="#f3f5f9">KV Cache Quantization</text>
+    <text x="25" y="108" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#94a3b8">Compress context memory dynamically</text>
+
+    <!-- Cache comparison -->
+    <g transform="translate(25, 140)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#cbd5e1">
+      <rect width="285" height="75" rx="8" fill="#111827" stroke="#1f293d"/>
+      <text x="15" y="30" font-weight="700" fill="#f3f5f9">Standard FP16 Cache</text>
+      <text x="15" y="55" font-size="12" fill="#ef4444">~1.05 GB per 8k context (Llama-3 8B)</text>
+      <text x="270" y="45" text-anchor="end" font-weight="700" fill="#ef4444">100%</text>
+
+      <g transform="translate(0, 95)">
+        <rect width="285" height="75" rx="8" fill="#111827" stroke="#1f293d"/>
+        <text x="15" y="30" font-weight="700" fill="#f3f5f9">FP8 KV Cache (--cache-type-k f8)</text>
+        <text x="15" y="55" font-size="12" fill="#3b82f6">~525 MB per 8k context (50% reduction)</text>
+        <text x="270" y="45" text-anchor="end" font-weight="700" fill="#3b82f6">-50%</text>
+      </g>
+
+      <g transform="translate(0, 190)">
+        <rect width="285" height="75" rx="8" fill="#111827" stroke="#10b981" stroke-opacity="0.5"/>
+        <text x="15" y="30" font-weight="700" fill="#f3f5f9">Q4_0 KV Cache (--cache-type-k q4_0)</text>
+        <text x="15" y="55" font-size="12" fill="#10b981">~265 MB per 8k context (75% reduction)</text>
+        <text x="270" y="45" text-anchor="end" font-weight="700" fill="#10b981">-75%</text>
+      </g>
+    </g>
+
+    <text x="25" y="465" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#94a3b8">Enables 32k context on cards that previously ran out of memory at 8k.</text>
+  </g>
+
+  <!-- Pillar 3: Context & Offloading -->
+  <g transform="translate(795, 185)">
+    <rect width="335" height="495" rx="12" fill="url(#cardBg)" stroke="#2a384e" stroke-width="1.5"/>
+    <rect x="25" y="25" width="130" height="24" rx="6" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1"/>
+    <text x="90" y="41" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#fbbf24">LEVER 03: BOUNDARIES</text>
+    
+    <text x="25" y="85" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" fill="#f3f5f9">Context Clamping</text>
+    <text x="25" y="108" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#94a3b8">Manage runtime allocation limits</text>
+
+    <!-- Context scaling rule -->
+    <g transform="translate(25, 140)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#cbd5e1">
+      <text x="0" y="20" font-weight="700" fill="#f3f5f9">• Default 128k context trap:</text>
+      <text x="0" y="45" font-size="12" fill="#94a3b8">Allocates memory for tokens you aren't using.</text>
+
+      <text x="0" y="85" font-weight="700" fill="#f3f5f9">• Set exact num_ctx in Ollama:</text>
+      <rect x="0" y="95" width="285" height="35" rx="6" fill="#0b0e14" stroke="#1e2535"/>
+      <text x="12" y="118" font-family="monospace" font-size="12" fill="#ff8056">PARAMETER num_ctx 4096</text>
+
+      <text x="0" y="165" font-weight="700" fill="#f3f5f9">• CPU Layer Offload Threshold:</text>
+      <text x="0" y="190" font-size="12" fill="#94a3b8">Offload bottom layers to GPU, remainder to DDR5 system RAM with -ngl flag.</text>
+
+      <text x="0" y="235" font-weight="700" fill="#f3f5f9">• PCIe Bottleneck Awareness:</text>
+      <text x="0" y="260" font-size="12" fill="#ef4444">Spilling even 2 layers across PCIe 4.0 x8 cuts throughput by 65%–80%.</text>
+    </g>
+  </g>
+</svg>

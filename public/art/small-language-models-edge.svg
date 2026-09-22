@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750" fill="none">
+  <defs>
+    <linearGradient id="slmBg" x1="0" y1="0" x2="1200" y2="750" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0c0f17"/>
+      <stop offset="100%" stop-color="#141926"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0" y1="0" x2="0" y2="1" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#182235"/>
+      <stop offset="100%" stop-color="#0f1624"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="750" fill="url(#slmBg)"/>
+  <rect width="1200" height="750" fill="none" stroke="#252f44" stroke-width="2"/>
+
+  <!-- Top Title -->
+  <text x="70" y="75" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#ff8056">EDGE AI / SMALL LANGUAGE MODELS (SUB-4B)</text>
+  <text x="70" y="115" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="800" fill="#f3f5f9" letter-spacing="-0.5">Small Language Models for Edge &amp; Embedded Devices</text>
+  <text x="70" y="145" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" fill="#94a3b8">Raspberry Pi 5 · Apple Silicon Mac Mini · Jetson Orin Nano · Mobile ARM NPU</text>
+
+  <!-- 4 Model Evaluation Cards Grid -->
+  <!-- Card 1: Qwen 2.5 3B (Top Pick: Code & Math) -->
+  <g transform="translate(70, 185)">
+    <rect width="515" height="235" rx="12" fill="url(#cardGrad)" stroke="#10b981" stroke-width="1.5" stroke-opacity="0.7"/>
+    <rect x="25" y="25" width="135" height="24" rx="6" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-width="1"/>
+    <text x="92" y="41" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#34d399">BEST ALL-AROUND</text>
+    
+    <text x="25" y="85" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="700" fill="#f3f5f9">Qwen 2.5 3B (Instruct)</text>
+    <text x="25" y="108" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#94a3b8">Alibaba Cloud · 3.09B parameters · Q4_K_M (~2.0 GB)</text>
+
+    <g transform="translate(25, 135)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#cbd5e1">
+      <text x="0" y="15">• Core Strength: Unrivaled coding &amp; structured JSON extraction at 3B.</text>
+      <text x="0" y="40">• Min Hardware: 4GB–8GB RAM (Runs on RPi 5 8GB at ~12 tokens/sec).</text>
+      <text x="0" y="65">• Context Capacity: Native 32k context with YaRN rope scaling.</text>
+    </g>
+  </g>
+
+  <!-- Card 2: Llama 3.2 1B & 3B (Meta Multilingual) -->
+  <g transform="translate(615, 185)">
+    <rect width="515" height="235" rx="12" fill="url(#cardGrad)" stroke="#3b82f6" stroke-width="1.5" stroke-opacity="0.7"/>
+    <rect x="25" y="25" width="135" height="24" rx="6" fill="#3b82f6" fill-opacity="0.15" stroke="#3b82f6" stroke-width="1"/>
+    <text x="92" y="41" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#60a5fa">ULTRA-LIGHTWEIGHT</text>
+    
+    <text x="25" y="85" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="700" fill="#f3f5f9">Llama 3.2 1B &amp; 3B</text>
+    <text x="25" y="108" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#94a3b8">Meta AI · 1.23B &amp; 3.21B parameters · Q4_K_M (~1.3 GB &amp; ~2.2 GB)</text>
+
+    <g transform="translate(25, 135)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#cbd5e1">
+      <text x="0" y="15">• Core Strength: 1B variant fits comfortably on 4GB edge boards.</text>
+      <text x="0" y="40">• Min Hardware: 4GB RAM for 1B (~26 t/s on RPi 5), 8GB for 3B.</text>
+      <text x="0" y="65">• Context Capacity: 128k context support with low latency prompt eval.</text>
+    </g>
+  </g>
+
+  <!-- Card 3: Phi-3.5 Mini (Microsoft Long-Context) -->
+  <g transform="translate(70, 445)">
+    <rect width="515" height="235" rx="12" fill="url(#cardGrad)" stroke="#2a384e" stroke-width="1.5"/>
+    <rect x="25" y="25" width="135" height="24" rx="6" fill="#8b5cf6" fill-opacity="0.15" stroke="#8b5cf6" stroke-width="1"/>
+    <text x="92" y="41" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#a78bfa">LONG CONTEXT 128K</text>
+    
+    <text x="25" y="85" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="700" fill="#f3f5f9">Phi-3.5 Mini (3.8B)</text>
+    <text x="25" y="108" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#94a3b8">Microsoft Research · 3.82B parameters · Q4_K_M (~2.4 GB)</text>
+
+    <g transform="translate(25, 135)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#cbd5e1">
+      <text x="0" y="15">• Core Strength: Multi-document synthesis &amp; reasoning from synthetic data.</text>
+      <text x="0" y="40">• Min Hardware: 8GB–16GB RAM (Requires higher RAM bandwidth).</text>
+      <text x="0" y="65">• Limitation: Slightly slower token generation on pure CPU threads.</text>
+    </g>
+  </g>
+
+  <!-- Card 4: Gemma 2 2B (Google Efficient) -->
+  <g transform="translate(615, 445)">
+    <rect width="515" height="235" rx="12" fill="url(#cardGrad)" stroke="#2a384e" stroke-width="1.5"/>
+    <rect x="25" y="25" width="135" height="24" rx="6" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1"/>
+    <text x="92" y="41" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#fbbf24">LOCAL EMBEDDED</text>
+    
+    <text x="25" y="85" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="700" fill="#f3f5f9">Gemma 2 2B</text>
+    <text x="25" y="108" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#94a3b8">Google DeepMind · 2.61B parameters · Q4_K_M (~1.7 GB)</text>
+
+    <g transform="translate(25, 135)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#cbd5e1">
+      <text x="0" y="15">• Core Strength: High conversational quality &amp; sliding window attention.</text>
+      <text x="0" y="40">• Min Hardware: 4GB–8GB RAM (Clean fit for mobile on-device).</text>
+      <text x="0" y="65">• Limitation: Fixed 8k context window limit in standard release.</text>
+    </g>
+  </g>
+</svg>

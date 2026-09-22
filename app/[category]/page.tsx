@@ -38,5 +38,5 @@ export default async function CategoryPage({
     }, {
       name: c.name,
       url: SITE_URL + "/" + c.slug
-    }])} /><nav className="breadcrumbs" aria-label="Breadcrumb"><Link href="/">Home</Link><span>/</span><span>{c.name}</span></nav><header className="category-header"><span className="eyebrow">THE FYRELINKZ FIELD GUIDE</span><h1>{c.name}<span>.</span></h1><p>{c.description}</p><small>{posts.length} {posts.length === 1 ? "story" : "stories"} · Sources included</small></header><div className="category-grid">{posts.map((p, i) => <StoryCard key={p.slug} post={p} priority={i === 0} />)}</div></div>;
+    }])} /><nav className="breadcrumbs" aria-label="Breadcrumb"><Link href="/">Home</Link><span>/</span><span aria-current="page">{c.name}</span></nav><header className="category-header"><span className="eyebrow">THE FYRELINKZ FIELD GUIDE</span><h1>{c.name}<span>.</span></h1><p>{c.description}</p><small>{posts.length} {posts.length === 1 ? "story" : "stories"} · Sources included</small></header><div className="category-grid">{posts.map((p, i) => <StoryCard key={p.slug} post={p} priority={i === 0} />)}</div></div>;
 }

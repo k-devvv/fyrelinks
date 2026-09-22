@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750" fill="none">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1200" y2="750" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0c0f17"/>
+      <stop offset="100%" stop-color="#141923"/>
+    </linearGradient>
+    <linearGradient id="vramBarGrad" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="60%" stop-color="#ff8056"/>
+      <stop offset="85%" stop-color="#ef4444"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0" y1="0" x2="0" y2="1" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#18202f"/>
+      <stop offset="100%" stop-color="#101520"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="750" fill="url(#bgGrad)"/>
+  <rect width="1200" height="750" fill="none" stroke="#252d3d" stroke-width="2"/>
+
+  <!-- Top Header Label -->
+  <text x="70" y="75" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#ff8056">HARDWARE ARCHITECTURE / LAPTOP GPU VRAM ALLOCATION</text>
+  <text x="70" y="115" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="800" fill="#f3f5f9" letter-spacing="-0.5">NVIDIA GeForce RTX 4050 Laptop (6GB GDDR6)</text>
+  <text x="70" y="145" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" fill="#94a3b8">96-Bit Memory Bus · 192 GB/s Bandwidth · Real-world LLM Inference Boundary</text>
+
+  <!-- 6GB VRAM Allocation Bar Graph -->
+  <g transform="translate(70, 190)">
+    <!-- Container Box -->
+    <rect width="1060" height="130" rx="12" fill="url(#cardGrad)" stroke="#273244" stroke-width="1.5"/>
+    
+    <text x="25" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700" fill="#e2e8f0">Physical VRAM Partition (Total 6,144 MB)</text>
+    <text x="1035" y="38" text-anchor="end" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" fill="#94a3b8">Windows DWM + OS Display Overhead Reserved</text>
+
+    <!-- Visual Segmented Bar -->
+    <g transform="translate(25, 55)">
+      <!-- Total Bar Track -->
+      <rect width="1010" height="42" rx="8" fill="#0b0e14" stroke="#1f2737" stroke-width="1"/>
+      
+      <!-- Segment 1: OS / Windows DWM (~1.2 GB = 20%) -->
+      <rect x="0" y="0" width="202" height="42" rx="8" fill="#ef4444" fill-opacity="0.75"/>
+      <rect x="194" y="0" width="8" height="42" fill="#ef4444" fill-opacity="0.75"/>
+      <text x="15" y="26" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#ffffff">OS / DWM (~1.2 GB)</text>
+
+      <!-- Segment 2: Usable Model Weights (~3.6 GB = 60%) -->
+      <rect x="202" y="0" width="555" height="42" fill="#ff8056" fill-opacity="0.85"/>
+      <text x="217" y="26" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#ffffff">Usable Model Weights (~3.6 GB Q4_K_M)</text>
+
+      <!-- Segment 3: KV Cache Headroom (~1.2 GB = 20%) -->
+      <rect x="757" y="0" width="253" height="42" rx="8" fill="#3b82f6" fill-opacity="0.85"/>
+      <rect x="757" y="0" width="8" height="42" fill="#3b82f6" fill-opacity="0.85"/>
+      <text x="772" y="26" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#ffffff">KV Cache &amp; Context (~1.2 GB)</text>
+    </g>
+  </g>
+
+  <!-- Model Comparison Columns -->
+  <!-- Column 1: 3B Model (Green / Sweet Spot) -->
+  <g transform="translate(70, 355)">
+    <rect width="515" height="325" rx="12" fill="url(#cardGrad)" stroke="#10b981" stroke-width="1.5" stroke-opacity="0.6"/>
+    
+    <rect x="25" y="25" width="110" height="24" rx="6" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-width="1"/>
+    <text x="80" y="41" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#34d399">RECOMMENDED</text>
+    
+    <text x="25" y="85" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="700" fill="#f3f5f9">3B Parameter Models</text>
+    <text x="25" y="110" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#94a3b8">Llama 3.2 3B · Qwen 2.5 3B (Q4_K_M)</text>
+
+    <!-- Specs List -->
+    <g transform="translate(25, 135)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#cbd5e1">
+      <text x="0" y="20">• Weight Size: ~2.0 GB – 2.2 GB</text>
+      <text x="0" y="50">• VRAM Ingestion: 100% On-Device GPU Memory</text>
+      <text x="0" y="80">• Usable Context: 8,192 – 16,384 tokens safely</text>
+      <text x="0" y="110">• Generation Speed: ~45 – 60 tokens/sec</text>
+      <text x="0" y="140">• Thermal Impact: Sustained 45W–60W, minimal throttling</text>
+    </g>
+  </g>
+
+  <!-- Column 2: 7B/8B Model (Warning / Offload Risk) -->
+  <g transform="translate(615, 355)">
+    <rect width="515" height="325" rx="12" fill="url(#cardGrad)" stroke="#f59e0b" stroke-width="1.5" stroke-opacity="0.6"/>
+    
+    <rect x="25" y="25" width="130" height="24" rx="6" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1"/>
+    <text x="90" y="41" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#fbbf24">CONSTRAINED FIT</text>
+    
+    <text x="25" y="85" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="700" fill="#f3f5f9">7B / 8B Parameter Models</text>
+    <text x="25" y="110" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#94a3b8">Llama 3.1 8B · Qwen 2.5 7B (Q4_K_M)</text>
+
+    <!-- Specs List -->
+    <g transform="translate(25, 135)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#cbd5e1">
+      <text x="0" y="20">• Weight Size: ~4.7 GB – 5.1 GB (Borderline VRAM capacity)</text>
+      <text x="0" y="50">• VRAM Ingestion: Spills into System DDR5 RAM at &gt;2k context</text>
+      <text x="0" y="80">• Usable Context: Restricted to 2,048 tokens before OOM</text>
+      <text x="0" y="110">• Generation Speed: Drops from ~28 t/s down to 6–10 t/s on spillage</text>
+      <text x="0" y="140">• Thermal Impact: High fan noise, peak TGP power draw</text>
+    </g>
+  </g>
+</svg>
