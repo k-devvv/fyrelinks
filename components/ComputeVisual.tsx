@@ -1,292 +1,177 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
+import type * as Three from "three";
 
-/**
- * Lightweight, non-blocking Three.js visual representing generative latent space & compute.
- * - Lazy-loaded after critical content paints
- * - Fixed aspect-ratio container (zero CLS)
- * - Attractive SVG/CSS static fallback for no-JS / no-WebGL / reduced-motion
- * - Strict intersection observer: pauses when offscreen or tab is hidden
- * - Disposes all geometries, materials, listeners, and WebGL context on unmount
- * - Subtle pointer tilt/warp interaction without capturing pointer events
- */
+/** Decorative WebGL, loaded after content. The SVG remains if WebGL is unavailable. */
 export default function ComputeVisual() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [isSupported, setIsSupported] = useState(true);
+  const host = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // 1. Accessibility: Skip WebGL on prefers-reduced-motion
-    const motionPref = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (motionPref.matches) {
-      setIsSupported(false);
-      return;
-    }
+    const container = host.current;
+    const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const connection = (navigator as Navigator & { connection?: { saveData?: boolean; effectiveType?: string } }).connection;
+    if (!container || motion.matches || connection?.saveData || /^(slow-)?2g$/.test(connection?.effectiveType ?? "")) return;
 
-    // 2. Hardware / Network constraint: Skip on Save-Data or 2G
-    const nav = navigator as Navigator & {
-      connection?: { saveData?: boolean; effectiveType?: string };
+    let disposed = false;
+    let visible = false;
+    let frame = 0;
+    let lastFrame = 0;
+    let renderer: Three.WebGLRenderer | undefined;
+    let camera: Three.PerspectiveCamera | undefined;
+    let scene: Three.Scene | undefined;
+    let sculpture: Three.Group | undefined;
+    let observer: IntersectionObserver | undefined;
+    let resizeObserver: ResizeObserver | undefined;
+    let pointerX = 0;
+    let pointerY = 0;
+    let targetX = 0;
+    let targetY = 0;
+    let cleanUpRendererEvents = () => {};
+
+    const stop = () => {
+      if (frame) window.cancelAnimationFrame(frame);
+      frame = 0;
     };
-    if (nav.connection?.saveData || (nav.connection?.effectiveType && /2g/.test(nav.connection.effectiveType))) {
-      setIsSupported(false);
-      return;
-    }
 
-    // 3. WebGL capability check
-    try {
-      const testCanvas = document.createElement("canvas");
-      const hasWebGL = Boolean(testCanvas.getContext("webgl2") || testCanvas.getContext("webgl"));
-      if (!hasWebGL) {
-        setIsSupported(false);
+    const render = (time: number) => {
+      if (disposed || !visible || document.hidden || !renderer || !scene || !camera || !sculpture) {
+        frame = 0;
         return;
       }
-    } catch {
-      setIsSupported(false);
-      return;
-    }
-
-    let isDisposed = false;
-    let animationFrameId: number | null = null;
-    let renderer: any = null;
-    let scene: any = null;
-    let camera: any = null;
-    let particles: any = null;
-    let isIntersecting = false;
-    let observer: IntersectionObserver | null = null;
-
-    // Mouse coordinates normalized (-1 to 1)
-    let targetMouseX = 0;
-    let targetMouseY = 0;
-    let currentMouseX = 0;
-    let currentMouseY = 0;
-
-    const onPointerMove = (e: PointerEvent) => {
-      const rect = containerRef.current?.getBoundingClientRect();
-      if (!rect) return;
-      const x = (e.clientX - rect.left) / rect.width;
-      const y = (e.clientY - rect.top) / rect.height;
-      targetMouseX = (x - 0.5) * 2;
-      targetMouseY = (y - 0.5) * 2;
+      frame = window.requestAnimationFrame(render);
+      if (time - lastFrame < 32) return;
+      lastFrame = time;
+      pointerX += (targetX - pointerX) * .045;
+      pointerY += (targetY - pointerY) * .045;
+      sculpture.rotation.y = time * .00012 + pointerX * .12;
+      sculpture.rotation.x = pointerY * .1;
+      renderer.render(scene, camera);
     };
 
-    // Lazy load Three.js after idle / paint
-    const initTimer = setTimeout(() => {
-      import("three")
-        .then((THREE) => {
-          if (isDisposed || !containerRef.current) return;
+    const start = () => {
+      if (!frame && visible && !document.hidden && !disposed) frame = window.requestAnimationFrame(render);
+    };
 
-          const container = containerRef.current;
-          const width = container.clientWidth || 360;
-          const height = container.clientHeight || 200;
+    const onPointerMove = (event: PointerEvent) => {
+      const bounds = container.getBoundingClientRect();
+      targetX = ((event.clientX - bounds.left) / bounds.width - .5) * 2;
+      targetY = ((event.clientY - bounds.top) / bounds.height - .5) * 2;
+    };
+    const onPointerLeave = () => { targetX = 0; targetY = 0; };
+    const onVisibilityChange = () => document.hidden ? stop() : start();
 
-          // Renderer with clamped pixel ratio and powerPreference
-          renderer = new THREE.WebGLRenderer({
-            alpha: true,
-            antialias: true,
-            powerPreference: "low-power"
-          });
-          renderer.setClearColor(0x000000, 0);
-          renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
-          renderer.setSize(width, height);
-          renderer.domElement.className = "compute-visual-canvas";
-          renderer.domElement.setAttribute("aria-hidden", "true");
-          container.appendChild(renderer.domElement);
+    const initTimer = window.setTimeout(() => {
+      import("three").then((module) => {
+        if (disposed || !host.current) return;
+        const width = container.clientWidth || 360;
+        const height = container.clientHeight || 260;
+        renderer = new module.WebGLRenderer({ alpha: true, antialias: false, powerPreference: "low-power" });
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.35));
+        renderer.setSize(width, height);
+        renderer.domElement.className = "compute-visual-canvas";
+        renderer.domElement.setAttribute("aria-hidden", "true");
+        container.appendChild(renderer.domElement);
 
-          // Perspective camera
-          camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
-          camera.position.set(0, 4.5, 11);
-          camera.lookAt(0, 0, 0);
+        scene = new module.Scene();
+        camera = new module.PerspectiveCamera(37, width / height, .1, 50);
+        camera.position.set(0, 0, 7.5);
+        sculpture = new module.Group();
 
-          scene = new THREE.Scene();
+        const brass = new module.LineBasicMaterial({ color: 0xb77b45, transparent: true, opacity: .76 });
+        const ember = new module.LineBasicMaterial({ color: 0xd9502b, transparent: true, opacity: .82 });
+        const pearl = new module.MeshBasicMaterial({ color: 0x986438, wireframe: true, transparent: true, opacity: .48 });
+        const rings = [
+          { radius: 1.45, tube: .013, rotation: [0, 0, 0] },
+          { radius: 1.2, tube: .017, rotation: [.83, .2, -.36] },
+          { radius: 1.64, tube: .012, rotation: [-.72, .28, .44] }
+        ] as const;
+        for (const [index, ring] of rings.entries()) {
+          const mesh = new module.Mesh(new module.TorusGeometry(ring.radius, ring.tube, 5, 160), index === 1 ? ember : brass);
+          mesh.rotation.set(ring.rotation[0], ring.rotation[1], ring.rotation[2]);
+          sculpture.add(mesh);
+        }
+        const core = new module.Mesh(new module.IcosahedronGeometry(.53, 1), pearl);
+        sculpture.add(core);
 
-          // Generate 32x22 grid of compute lattice points (704 points total)
-          const cols = 32;
-          const rows = 22;
-          const count = cols * rows;
-          const positions = new Float32Array(count * 3);
-          const originalY = new Float32Array(count);
-          const scales = new Float32Array(count);
+        const seed = new module.SphereGeometry(.052, 10, 8);
+        const seedMaterial = new module.MeshBasicMaterial({ color: 0xd9502b });
+        for (let i = 0; i < 7; i++) {
+          const angle = i / 7 * Math.PI * 2;
+          const bead = new module.Mesh(seed, seedMaterial);
+          bead.position.set(Math.cos(angle) * 1.82, Math.sin(angle) * .88, Math.sin(angle + 1) * .42);
+          sculpture.add(bead);
+        }
+        scene.add(sculpture);
 
-          const spacingX = 0.42;
-          const spacingZ = 0.38;
-          const offsetX = ((cols - 1) * spacingX) / 2;
-          const offsetZ = ((rows - 1) * spacingZ) / 2;
+        const resize = () => {
+          if (!renderer || !camera) return;
+          const w = container.clientWidth, h = container.clientHeight;
+          if (!w || !h) return;
+          camera.aspect = w / h;
+          camera.updateProjectionMatrix();
+          renderer.setSize(w, h);
+        };
+        const contextLost = (event: Event) => { event.preventDefault(); stop(); };
+        const contextRestored = () => { resize(); start(); };
 
-          let index = 0;
-          for (let ix = 0; ix < cols; ix++) {
-            for (let iz = 0; iz < rows; iz++) {
-              const x = ix * spacingX - offsetX;
-              const z = iz * spacingZ - offsetZ;
-              const distFromCenter = Math.sqrt(x * x + z * z);
-              const y = Math.sin(distFromCenter * 0.8) * 0.4;
+        renderer.domElement.addEventListener("webglcontextlost", contextLost);
+        renderer.domElement.addEventListener("webglcontextrestored", contextRestored);
+        cleanUpRendererEvents = () => {
+          renderer?.domElement.removeEventListener("webglcontextlost", contextLost);
+          renderer?.domElement.removeEventListener("webglcontextrestored", contextRestored);
+        };
+        container.addEventListener("pointermove", onPointerMove, { passive: true });
+        container.addEventListener("pointerleave", onPointerLeave);
+        document.addEventListener("visibilitychange", onVisibilityChange);
+        resizeObserver = new ResizeObserver(resize);
+        resizeObserver.observe(container);
+        observer = new IntersectionObserver(([entry]) => {
+          visible = entry.isIntersecting;
+          visible ? start() : stop();
+        }, { threshold: .05 });
+        observer.observe(container);
 
-              positions[index * 3] = x;
-              positions[index * 3 + 1] = y;
-              positions[index * 3 + 2] = z;
-
-              originalY[index] = y;
-              scales[index] = Math.max(0.5, 1.2 - distFromCenter * 0.15);
-              index++;
-            }
-          }
-
-          const geometry = new THREE.BufferGeometry();
-          geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-          geometry.setAttribute("scale", new THREE.BufferAttribute(scales, 1));
-
-          // Soft radiant particle shader/points
-          const material = new THREE.PointsMaterial({
-            color: 0xff7a45,
-            size: 0.16,
-            transparent: true,
-            opacity: 0.75,
-            blending: THREE.AdditiveBlending
-          });
-
-          particles = new THREE.Points(geometry, material);
-          scene.add(particles);
-
-          setIsLoaded(true);
-
-          // Animation loop
-          let clockTime = 0;
-          const animate = () => {
-            if (isDisposed) return;
-
-            if (isIntersecting && !document.hidden) {
-              clockTime += 0.02;
-
-              // Smooth pointer dampening
-              currentMouseX += (targetMouseX - currentMouseX) * 0.08;
-              currentMouseY += (targetMouseY - currentMouseY) * 0.08;
-
-              // Gently tilt scene based on pointer
-              particles.rotation.y = clockTime * 0.08 + currentMouseX * 0.25;
-              particles.rotation.x = currentMouseY * 0.15;
-
-              // Undulate positions in a latent wave pattern
-              const pos = geometry.attributes.position.array as Float32Array;
-              for (let i = 0; i < count; i++) {
-                const px = pos[i * 3];
-                const pz = pos[i * 3 + 2];
-                // Double sinusoidal latent field wave
-                pos[i * 3 + 1] =
-                  originalY[i] +
-                  Math.sin(px * 1.2 + clockTime) * 0.28 +
-                  Math.cos(pz * 1.4 + clockTime * 0.8) * 0.24;
-              }
-              geometry.attributes.position.needsUpdate = true;
-
-              renderer.render(scene, camera);
-            }
-
-            animationFrameId = requestAnimationFrame(animate);
-          };
-
-          // Handle container resize
-          const onResize = () => {
-            if (!containerRef.current || !renderer || !camera) return;
-            const w = containerRef.current.clientWidth;
-            const h = containerRef.current.clientHeight;
-            if (w === 0 || h === 0) return;
-            camera.aspect = w / h;
-            camera.updateProjectionMatrix();
-            renderer.setSize(w, h);
-          };
-
-          // WebGL Context Loss safety
-          const handleContextLost = (e: Event) => {
-            e.preventDefault();
-            if (animationFrameId !== null) cancelAnimationFrame(animationFrameId);
-          };
-          const handleContextRestored = () => {
-            if (renderer && scene && camera) {
-              animationFrameId = requestAnimationFrame(animate);
-            }
-          };
-
-          const domEl = renderer.domElement;
-          domEl.addEventListener("webglcontextlost", handleContextLost, false);
-          domEl.addEventListener("webglcontextrestored", handleContextRestored, false);
-          window.addEventListener("resize", onResize, { passive: true });
-          window.addEventListener("pointermove", onPointerMove, { passive: true });
-
-          // Intersection observer: only render when visible in viewport
-          observer = new IntersectionObserver(
-            ([entry]) => {
-              isIntersecting = entry.isIntersecting;
-            },
-            { threshold: 0.05 }
-          );
-          observer.observe(container);
-
-          animationFrameId = requestAnimationFrame(animate);
-        })
-        .catch(() => {
-          setIsSupported(false);
-        });
-    }, 80);
+      }).catch(() => { /* Keep the visible SVG fallback. */ });
+    }, 220);
 
     return () => {
-      isDisposed = true;
-      clearTimeout(initTimer);
-      if (animationFrameId !== null) cancelAnimationFrame(animationFrameId);
-      if (observer) observer.disconnect();
-      window.removeEventListener("pointermove", onPointerMove);
-
-      if (scene) {
-        scene.traverse((child: any) => {
-          if (child.geometry) child.geometry.dispose();
-          if (child.material) {
-            if (Array.isArray(child.material)) child.material.forEach((m: any) => m.dispose());
-            else child.material.dispose();
-          }
-        });
-      }
-
-      if (renderer) {
-        try {
-          renderer.dispose();
-          renderer.forceContextLoss();
-          if (renderer.domElement && renderer.domElement.parentNode) {
-            renderer.domElement.parentNode.removeChild(renderer.domElement);
-          }
-        } catch {}
-      }
+      disposed = true;
+      window.clearTimeout(initTimer);
+      stop();
+      observer?.disconnect();
+      resizeObserver?.disconnect();
+      container.removeEventListener("pointermove", onPointerMove);
+      container.removeEventListener("pointerleave", onPointerLeave);
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+      cleanUpRendererEvents();
+      scene?.traverse((object) => {
+        if (object.type === "Mesh" || object.type === "Line" || object.type === "Points") {
+          const mesh = object as Three.Mesh;
+          mesh.geometry.dispose();
+          const material = mesh.material;
+          if (Array.isArray(material)) material.forEach((item) => item.dispose());
+          else material.dispose();
+        }
+      });
+      renderer?.dispose();
+      renderer?.forceContextLoss();
+      renderer?.domElement.remove();
     };
   }, []);
 
-  return (
-    <div
-      ref={containerRef}
-      className={`hero-compute-stage ${isLoaded ? "is-active" : ""}`}
-      aria-label="Interactive generative latent compute visualization"
-    >
-      {/* Editorial static fallback (always rendered underneath/before WebGL initializes) */}
-      <div className="hero-compute-fallback" aria-hidden="true">
-        <svg viewBox="0 0 360 180" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-          <defs>
-            <radialGradient id="computeGlow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#ff7a45" stopOpacity="0.22" />
-              <stop offset="70%" stopColor="#ff7a45" stopOpacity="0.03" />
-              <stop offset="100%" stopColor="#ff7a45" stopOpacity="0" />
-            </radialGradient>
-            <pattern id="computeGrid" width="24" height="24" patternUnits="userSpaceOnUse">
-              <path d="M 24 0 L 0 0 0 24" fill="none" stroke="rgba(255, 128, 86, 0.08)" strokeWidth="0.8" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#computeGlow)" />
-          <rect width="100%" height="100%" fill="url(#computeGrid)" />
-          <circle cx="180" cy="90" r="48" stroke="rgba(255, 128, 86, 0.25)" strokeWidth="1" strokeDasharray="3 3" />
-          <circle cx="180" cy="90" r="4" fill="#ff7a45" />
-          <circle cx="140" cy="80" r="2.5" fill="#ff9d7b" fillOpacity="0.8" />
-          <circle cx="220" cy="100" r="2.5" fill="#ff9d7b" fillOpacity="0.8" />
-          <circle cx="110" cy="110" r="2" fill="#ff7a45" fillOpacity="0.5" />
-          <circle cx="250" cy="70" r="2" fill="#ff7a45" fillOpacity="0.5" />
-        </svg>
-        <span className="compute-tag">LATENT COMPUTE DYNAMICS</span>
-      </div>
+  return <div ref={host} className="hero-compute-stage" role="img" aria-label="Fine copper rings orbiting a faceted generative model">
+    <div className="hero-compute-fallback" aria-hidden="true">
+      <svg viewBox="0 0 360 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="180" cy="124" r="72" stroke="#b77b45" stroke-opacity=".62" stroke-dasharray="2 7" />
+        <ellipse cx="180" cy="124" rx="135" ry="47" transform="rotate(-31 180 124)" stroke="#d9502b" stroke-opacity=".56" />
+        <ellipse cx="180" cy="124" rx="113" ry="43" transform="rotate(39 180 124)" stroke="#9f7147" stroke-opacity=".62" />
+        <path d="m180 82 36 22 0 41-36 22-36-22v-41l36-22Z" stroke="#8e6744" stroke-opacity=".52" />
+        <path d="m180 82 0 85m-36-63 72 41m0-41-72 41" stroke="#8e6744" stroke-opacity=".38" />
+        <circle cx="72" cy="81" r="4" fill="#d9502b"/><circle cx="273" cy="175" r="4" fill="#d9502b"/>
+        <circle cx="180" cy="45" r="3" fill="#bd8750"/><circle cx="135" cy="203" r="3" fill="#bd8750"/>
+      </svg>
+      <span className="compute-tag">A LITTLE MORE POSSIBILITY</span>
     </div>
-  );
+  </div>;
 }

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import "./tech-theme.css";
+import "./studio.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Analytics from "@/components/Analytics";
@@ -10,7 +11,7 @@ import JsonLd from "@/components/JsonLd";
 import { POSTS } from "@/lib/posts";
 import { SITE_URL, articlePath } from "@/lib/editorial";
 export const viewport: Viewport = {
-  themeColor: "#0b0d12",
+  themeColor: "#f7f3eb",
   width: "device-width",
   initialScale: 1
 };
