@@ -4,9 +4,23 @@ import {NEWS, GUIDES} from "@/lib/posts";
 import {articlePath, formatDate} from "@/lib/editorial";
 import StoryCard from "@/components/StoryCard";
 import AdSlot from "@/components/AdSlot";
+import ComputeVisual from "@/components/ComputeVisual";
 export default function Home() {
   return <div className="wrap home">
-    <section className="home-intro"><div><span className="eyebrow"><i className="signal-dot"/> INDEPENDENT PUBLICATION FOR CREATIVE AI</span><h1>Find your next<br/><span>AI workflow.</span></h1></div><div><p>For AI video creators, ComfyUI builders and people choosing local hardware. Sourced guides, model teardowns and reproducible steps—without synthetic claims or noise.</p><Link href="/create" className="button-primary">Explore creator guides <ArrowUpRight size={18}/></Link><Link href="/ai-video-models" className="intro-secondary">Browse the AI model directory ↗</Link></div></section>
+    <section className="home-intro">
+      <div className="home-intro-main">
+        <span className="eyebrow"><i className="signal-dot"/> INDEPENDENT PUBLICATION FOR CREATIVE AI</span>
+        <h1>Find your next<br/><span>AI workflow.</span></h1>
+        <p>For AI video creators, ComfyUI builders and people choosing local hardware. Sourced guides, model teardowns and reproducible steps—without synthetic claims or noise.</p>
+        <div className="home-intro-actions">
+          <Link href="/create" className="button-primary">Explore creator guides <ArrowUpRight size={18}/></Link>
+          <Link href="/ai-video-models" className="intro-secondary">Browse the AI model directory ↗</Link>
+        </div>
+      </div>
+      <div className="home-intro-visual">
+        <ComputeVisual />
+      </div>
+    </section>
     <div className="section-heading compact-heading"><h2>On the radar</h2><Link href="/news">All news <ArrowRight size={16}/></Link></div>
     <section className="hero-grid" aria-label="Featured stories"><StoryCard post={NEWS[0]} variant="lead" priority/><div className="hero-side">{NEWS.slice(1,3).map(p=><StoryCard key={p.slug} post={p} variant="compact"/>)}</div></section>
     <nav className="discovery-grid" aria-label="Explore FyreLinkz core pillars"><Link href="/create/ai-video-prompt-guide-examples"><Layers3/><div><strong>AI Video Direction</strong><span>Six reproducible prompt structures & shot economics.</span></div><ArrowUpRight/></Link><Link href="/hardware/best-local-ai-workstation-build-guide-2026"><Monitor/><div><strong>Local AI Hardware</strong><span>Workload-first VRAM thresholds & multi-GPU sizing.</span></div><ArrowUpRight/></Link><Link href="/workflow/comfyui-beginner-first-workflow-guide"><BookOpen/><div><strong>ComfyUI Graph Workflows</strong><span>Crash-free node baselines & step-by-step triage.</span></div><ArrowUpRight/></Link></nav>

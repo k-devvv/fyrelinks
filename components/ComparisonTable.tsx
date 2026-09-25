@@ -14,7 +14,7 @@ export interface ComparisonTableProps {
 export default function ComparisonTable({
   data,
   title = "Head-to-Head Performance Matrix",
-  description = "Side-by-side technical specifications, pricing tiers, and empirical lab verdicts.",
+  description = "Side-by-side technical specifications, verified pricing tiers, and documentation-backed comparative findings.",
 }: ComparisonTableProps) {
   const [selectedFilter, setSelectedFilter] = useState<string>("all");
 

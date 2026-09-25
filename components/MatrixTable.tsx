@@ -26,7 +26,7 @@ interface MatrixTableProps {
 export default function MatrixTable({
   tableData,
   title = "AI Video Generation Performance Matrix (2026)",
-  subtitle = "Direct head-to-head empirical testing across temporal consistency, camera motion, frame fluidity, and render economics.",
+  subtitle = "Direct side-by-side technical comparison across temporal consistency, camera motion, frame fluidity, and render economics.",
 }: MatrixTableProps) {
   const [selectedFilter, setSelectedFilter] = useState<"all" | "cloud" | "local">("all");
   const [highlightedRow, setHighlightedRow] = useState<string | null>(null);

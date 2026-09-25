@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Analytics from "@/components/Analytics";
 import ScrollReveal from "@/components/ScrollReveal";
-import BrandIntro from "@/components/BrandIntro";
+import PointerAccent from "@/components/PointerAccent";
 import JsonLd from "@/components/JsonLd";
 import { POSTS } from "@/lib/posts";
 import { SITE_URL, articlePath } from "@/lib/editorial";
@@ -65,7 +65,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <html lang="en"><body><a href="#main-content" className="skip-link">Skip to content</a><BrandIntro /><JsonLd data={[{
+  return <html lang="en"><body><a href="#main-content" className="skip-link">Skip to content</a><PointerAccent /><JsonLd data={[{
         "@context": "https://schema.org",
         "@type": "Organization",
         "@id": SITE_URL + "/#organization",

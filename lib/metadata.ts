@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { SITE_URL } from "./editorial";
 export function pageMetadata(title: string, description: string, path: string, image = "/art/cover.png"): Metadata {
+  const cleanTitle = title.replace(/\s*\|\s*FyreLinkz.*$/i, "").trim();
   return {
-    title,
+    title: cleanTitle,
     description,
     alternates: {
       canonical: SITE_URL + path

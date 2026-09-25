@@ -2059,7 +2059,7 @@
       },
       {
         "heading": "Try this next",
-        "content": "Evaluating local vs edge model performance? Compare quantization tradeoffs in our guide on [Reduce Local LLM VRAM Usage](/workflow/reduce-local-llm-vram-usage-quantization-context-offloading)."
+        "content": "Evaluating local vs edge model performance? Compare quantization tradeoffs in our guide on [Reduce Local LLM VRAM Usage](/workflow/reduce-local-llm-vram-quantization-offloading-guide)."
       }
     ],
     "imageAlt": "Architectural diagram showing Red Hat OpenShift AI cluster with NVIDIA GPU Operator, vLLM KServe runtime, and S3 model weight storage."
