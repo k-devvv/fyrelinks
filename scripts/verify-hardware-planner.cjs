@@ -13,6 +13,7 @@ require.extensions['.ts'] = (module, filename) => {
 };
 
 const { HARDWARE_CANDIDATES } = require('../lib/hardware-planner/catalog.ts');
+const { recommendHardware, MARKET_BUDGET_LIMITS } = require('../lib/hardware-planner/recommend.ts');
 
 const CLOCK = new Date('2026-09-26T00:00:00Z');
 const MARKET_CURRENCIES = { us: 'USD', uk: 'GBP', ca: 'CAD', de: 'EUR' };
@@ -119,4 +120,56 @@ const priceCount = HARDWARE_CANDIDATES.reduce((count, candidate) => count + MARK
 ).length, 0);
 assert.ok(priceCount > 0, 'Starter catalogue has at least one verified market price example');
 
+const invalid = recommendHardware({ market: 'us', budget: 0, workload: 'comfyui-image', path: 'desktop-upgrade' }, CLOCK);
+assert.match(invalid.error, /greater than zero/);
+assert.equal(invalid.recommendations.length, 0);
+for (const budget of [-1, Number.NaN, Number.POSITIVE_INFINITY, MARKET_BUDGET_LIMITS.us + 1]) {
+  assert.ok(recommendHardware({ market: 'us', budget, workload: 'local-llm', path: 'laptop' }, CLOCK).error,
+    `Reject invalid or out-of-range budget ${budget}`);
+}
+assert.ok(recommendHardware({ market: 'unknown', budget: 1000, workload: 'local-llm', path: 'laptop' }, CLOCK).error,
+  'Reject unsupported market');
+
+const priced = recommendHardware({ market: 'us', budget: 900, workload: 'comfyui-image', path: 'desktop-upgrade' }, CLOCK);
+assert.equal(priced.error, null);
+assert.equal(priced.recommendations.length, 1);
+assert.equal(priced.recommendations[0].estimatedTotal, 799.99, 'Keep the sourced GPU-only example amount');
+assert.equal(priced.recommendations[0].fit, 'strong', '16 GB GPU meets image planning heuristic');
+assert.ok(priced.recommendations[0].caveats.some(text => /graphics card only/i.test(text)),
+  'Disclose existing-PC fit and excluded upgrade costs');
+
+const overBudget = recommendHardware({ market: 'us', budget: 500, workload: 'comfyui-image', path: 'desktop-upgrade' }, CLOCK);
+assert.equal(overBudget.recommendations[0].fit, 'over-budget');
+assert.equal(overBudget.recommendations[0].estimatedTotal, 799.99);
+
+const unpriced = recommendHardware({ market: 'uk', budget: 1500, workload: 'comfyui-image', path: 'desktop-build' }, CLOCK);
+assert.ok(unpriced.recommendations.length > 0);
+assert.ok(unpriced.recommendations.every(candidate => candidate.estimatedTotal === null),
+  'Unknown build prices never become zero or fake totals');
+assert.ok(unpriced.recommendations.every(candidate => candidate.caveats.some(text => /No verified current price/i.test(text))));
+
+const stale = recommendHardware({ market: 'us', budget: 2000, workload: 'comfyui-image', path: 'desktop-upgrade' }, new Date('2026-11-01T00:00:00Z'));
+assert.equal(stale.stalePriceCount, 1, 'Actual catalog price becomes stale under injected clock');
+assert.equal(stale.recommendations[0].estimatedTotal, null, 'Stale price excluded from budget ranking');
+assert.ok(stale.recommendations[0].caveats.some(text => /older than 30 days/i.test(text)));
+const staleGermany = recommendHardware({ market: 'de', budget: 2000, workload: 'comfyui-image', path: 'desktop-upgrade' }, new Date('2026-11-01T00:00:00Z'));
+assert.equal(staleGermany.stalePriceCount, 1, 'Germany retailer price is stale under injected clock');
+assert.equal(staleGermany.recommendations[0].estimatedTotal, null, 'Stale Germany price cannot drive affordability');
+
+const analyticsSource = fs.readFileSync(require.resolve('../components/Analytics.tsx'), 'utf8');
+const measurementSource = fs.readFileSync(require.resolve('../lib/measurement.ts'), 'utf8');
+const plannerUiSource = fs.readFileSync(require.resolve('../components/HardwarePlanner.tsx'), 'utf8');
+for (const eventName of ['planner_start', 'planner_complete', 'planner_market', 'planner_guide_click', 'planner_source_click']) {
+  assert.ok(analyticsSource.includes(`"${eventName}"`), `Analytics event ${eventName} is allowlisted`);
+  assert.ok(measurementSource.includes(`"${eventName}"`), `Measurement type includes ${eventName}`);
+}
+assert.match(analyticsSource, /plannerEvent\?\["market","workload","path","placement"\]/,
+  'Planner analytics forwards only fixed categorical dimensions');
+assert.match(analyticsSource, /market:new Set\(\["us","uk","ca","de"\]\)/,
+  'Planner markets are enum validated');
+assert.doesNotMatch(plannerUiSource, /measure\("planner_(?:start|complete|market|guide_click|source_click)"\s*,\s*\{[^}]*budget/s,
+  'Planner event payloads never include budget');
+
 console.log(`Hardware planner catalog verified: ${HARDWARE_CANDIDATES.length} candidates across 4 markets.`);
+console.log('Hardware planner rules verified: validation, ranking, stale prices, and no-fit cases.');
+console.log('Hardware planner analytics verified: consent-safe allowlist excludes budget and free text.');

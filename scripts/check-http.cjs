@@ -3,7 +3,7 @@ const fs = require('node:fs');
 const data = require('../lib/content/articles.json');
 const base = process.env.FYRE_TEST_URL || 'http://127.0.0.1:3092';
 const origin = 'https://www.fyrelinkz.com';
-const routes = ['/', '/news', '/create', '/workflow', '/hardware', '/stack', '/about', '/contact', '/privacy', '/terms', '/ai-video-models', ...data.map(p => '/' + p.category + '/' + p.slug)];
+const routes = ['/', '/news', '/create', '/workflow', '/hardware', '/hardware/ai-workstation-planner', '/stack', '/about', '/contact', '/privacy', '/terms', '/ai-video-models', ...data.map(p => '/' + p.category + '/' + p.slug)];
 (async () => {
   const links = new Set(); let schemas = 0;
   for (const route of routes) {
