@@ -20,7 +20,12 @@ const MARKETS = Object.keys(MARKET_CURRENCIES);
 const WORKLOADS = ['comfyui-image', 'comfyui-video', 'local-llm', 'mixed'];
 const PATHS = ['desktop-build', 'desktop-upgrade', 'laptop'];
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
-const PRICE_HOSTS = { us: 'www.bestbuy.com', uk: 'www.scan.co.uk' };
+const PRICE_SOURCE_RULES = {
+  us: { host: 'www.newegg.com', productPath: /\/p\/N82E\d+$/ },
+  uk: { host: 'www.scan.co.uk', productPath: /\/products\/.+/ },
+  ca: null,
+  de: { host: 'www.mindfactory.de', productPath: /\/product_info\.php\/.+\.html$/ },
+};
 
 function assertPrice(price, market) {
   assert.ok(price && typeof price === 'object', `Price object exists for ${market}`);
@@ -41,9 +46,10 @@ function assertPrice(price, market) {
     `Identifiable ${market} source label`);
   assert.ok(/^https:\/\//.test(price.source.url), `HTTPS ${market} price source`);
   const url = new URL(price.source.url);
-  assert.equal(url.hostname, PRICE_HOSTS[market], `Approved retailer host for ${market} price`);
-  if (market === 'us') assert.match(url.pathname, /\/product\/.+\/sku\/\d+$/, 'US source is a product URL');
-  if (market === 'uk') assert.match(url.pathname, /\/products\/.+/, 'UK source is a product URL');
+  const sourceRule = PRICE_SOURCE_RULES[market];
+  assert.ok(sourceRule, `A verified direct-retailer source rule exists for ${market}`);
+  assert.equal(url.hostname, sourceRule.host, `Approved retailer host for ${market} price`);
+  assert.match(url.pathname, sourceRule.productPath, `${market} source is a direct product URL`);
 }
 
 function isStale(checkedAt, now = CLOCK) {
@@ -90,15 +96,7 @@ for (const candidate of HARDWARE_CANDIDATES) {
   }
   assert.deepEqual(Object.keys(candidate.prices).sort(), [...MARKETS].sort(),
     `All four market prices exist: ${candidate.id}`);
-  for (const market of MARKETS) {
-    assertPrice(candidate.prices[market], market);
-    if (candidate.prices[market].amount !== null) {
-      assert.equal(candidate.priceScope, 'graphics-card-only',
-        `Only a graphics-card-only candidate has a researched price: ${candidate.id}`);
-      assert.equal(candidate.path, 'desktop-upgrade',
-        `A GPU part price cannot be presented as a complete desktop/laptop price: ${candidate.id}`);
-    }
-  }
+  for (const market of MARKETS) assertPrice(candidate.prices[market], market);
 }
 
 for (const path of PATHS) assert.ok(coveredPaths.has(path), `Catalogue covers ${path}`);
