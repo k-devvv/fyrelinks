@@ -10,7 +10,13 @@ declare global {
 const id = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "";
 const configured = /^G-[A-Z0-9]+$/.test(id);
 const consentKey = "fyre-analytics-consent";
-const allowedEvents = new Set(["estimate_view","estimate_share","model_select","plan_select","provider_visit","source_visit","rss_subscribe","related_read"]);
+const allowedEvents = new Set(["estimate_view","estimate_share","model_select","plan_select","provider_visit","source_visit","rss_subscribe","related_read","planner_start","planner_complete","planner_market","planner_guide_click","planner_source_click"]);
+const plannerValues:Record<string,Set<string>>={
+  market:new Set(["us","uk","ca","de"]),
+  workload:new Set(["comfyui-image","comfyui-video","local-llm","mixed"]),
+  path:new Set(["desktop-build","desktop-upgrade","laptop"]),
+  placement:new Set(["planner","result-card","methodology"])
+};
 
 function privateMode() {
   return navigator.doNotTrack === "1" || (navigator as Navigator & {globalPrivacyControl?: boolean}).globalPrivacyControl === true;
@@ -75,9 +81,13 @@ export default function Analytics() {
       const detail=(e as CustomEvent).detail;
       if (!detail||!allowedEvents.has(detail.name)) return;
       const fields:Record<string,string|number>={};
-      for (const key of ["provider","model","plan","billing","fits","placement"]) {
+      const plannerEvent=detail.name.startsWith("planner_");
+      const keys=plannerEvent?["market","workload","path","placement"]:["provider","model","plan","billing","fits","placement"];
+      for (const key of keys) {
         const value=detail.properties?.[key];
-        if (typeof value==="string"&&/^[a-zA-Z0-9_-]{1,150}$/.test(value)) fields[key]=value;
+        if (typeof value==="string"&&/^[a-zA-Z0-9_-]{1,150}$/.test(value)) {
+          if (plannerEvent ? plannerValues[key]?.has(value) : true) fields[key]=value;
+        }
       }
       window.gtag?.("event",detail.name,fields);
     };

@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { POSTS, CATEGORIES } from "@/lib/posts";
 import { SITE_URL, SOURCE_CHECK_DATE, articlePath } from "@/lib/editorial";
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [...["", "/about", "/contact", "/privacy", "/terms", "/ai-video-models"].map(path => ({
+  return [...["", "/about", "/contact", "/privacy", "/terms", "/ai-video-models", "/hardware/ai-workstation-planner"].map(path => ({
     url: SITE_URL + path,
     lastModified: new Date(path === "" ? POSTS.reduce((latest,p)=>p.updatedAt>latest?p.updatedAt:latest,SOURCE_CHECK_DATE) : SOURCE_CHECK_DATE)
   })), ...CATEGORIES.map(c => ({

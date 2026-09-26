@@ -17,7 +17,7 @@ fs.mkdirSync(output, { recursive: true });
   const errors = [];
   page.on('pageerror', e => errors.push(e.message));
 
-  const routes = ['/', '/news', '/create', '/workflow', '/hardware', '/stack', '/about', '/contact', '/privacy', '/terms', '/ai-video-models', ...data.map(p => '/' + p.category + '/' + p.slug)];
+  const routes = ['/', '/news', '/create', '/workflow', '/hardware', '/hardware/ai-workstation-planner', '/stack', '/about', '/contact', '/privacy', '/terms', '/ai-video-models', ...data.map(p => '/' + p.category + '/' + p.slug)];
   let broken = [];
   let schemas = 0;
 
@@ -43,7 +43,11 @@ fs.mkdirSync(output, { recursive: true });
       schemas++;
     }
 
-    const missing = await page.locator('img').evaluateAll(imgs => imgs.filter(i => !i.complete || i.naturalWidth === 0).map(i => i.src));
+    const missing = await page.locator('img').evaluateAll(imgs => Promise.all(imgs.map(async image => {
+      image.loading = 'eager';
+      try { await image.decode(); } catch {}
+      return !image.complete || image.naturalWidth === 0 ? image.src : null;
+    })).then(results => results.filter(Boolean)));
     assert.deepEqual(missing, [], route + ' images');
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false, route + ' desktop overflow');
 
@@ -136,11 +140,39 @@ fs.mkdirSync(output, { recursive: true });
   // Responsive layout tests
   for (const width of [320, 390, 768]) {
     await page.setViewportSize({ width, height: 844 });
-    for (const route of ['/', '/news', '/create', '/ai-video-models', '/create/comfyui-flux-lora-training-and-inference-guide']) {
+    for (const route of ['/', '/news', '/create', '/ai-video-models', '/hardware/ai-workstation-planner', '/create/comfyui-flux-lora-training-and-inference-guide']) {
       await page.goto(base + route, { waitUntil: 'networkidle' });
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false, route + ' overflow at ' + width);
     }
   }
+
+  // Planner keyboard/form/error/data-scope checks
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await page.goto(base + '/hardware/ai-workstation-planner', { waitUntil: 'networkidle' });
+  assert.equal(await page.getByRole('heading', { name: 'Plan a machine for your workload.' }).count(), 1);
+  await page.locator('.hardware-planner-form input[type="number"]').fill('-5');
+  await page.getByRole('button', { name: /Show hardware options/ }).click();
+  assert.match(await page.locator('#planner-error').innerText(), /budget from 1 to/);
+  await page.locator('.hardware-planner-form input[type="number"]').fill('900');
+  await page.locator('.hardware-planner-form select').nth(2).selectOption('desktop-upgrade');
+  await page.getByRole('button', { name: /Show hardware options/ }).click();
+  assert.equal(await page.locator('.hardware-result-card').count(), 1, 'Desktop upgrade returns one source-backed profile');
+  assert.ok(await page.getByText(/GPU price example only/i).count(), 'GPU-only price scope is visible');
+  assert.ok(await page.locator('.planner-card-links a[target="_blank"][rel="noopener noreferrer"]').count() > 0);
+  assert.equal(new URL(page.url()).search, '', 'Planner inputs are not written to URL');
+  const browserState = await page.evaluate(() => ({
+    stored: JSON.stringify(localStorage),
+    horizontalOverflow: document.documentElement.scrollWidth > innerWidth,
+  }));
+  assert.equal(browserState.horizontalOverflow, false, 'Planner has no horizontal overflow');
+  assert.ok(!browserState.stored.includes('900'), 'Budget is not persisted');
+  await page.locator('.hardware-planner-form select').nth(0).selectOption('uk');
+  await page.locator('.hardware-planner-form select').nth(2).selectOption('desktop-build');
+  await page.locator('.hardware-planner-form input[type="number"]').fill('1500');
+  await page.getByRole('button', { name: /Show hardware options/ }).click();
+  assert.ok(await page.getByText(/No complete current price is verified/i).count(), 'Unknown complete-system prices are explicit');
+  await page.setViewportSize({ width: 390, height: 844 });
+  assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false, 'Planner mobile overflow');
 
   // Mobile navigation test
   await page.setViewportSize({ width: 390, height: 844 });
@@ -166,6 +198,7 @@ fs.mkdirSync(output, { recursive: true });
     search: 'passed',
     calculatorRedirect: 'passed',
     modelDirectory: 'passed',
+    hardwarePlanner: 'passed',
     mobileNavigation: 'passed',
     browserErrors: errors
   };
