@@ -1,5 +1,90 @@
 [
   {
+    "slug": "google-ai-video-codirector-long-form-continuity",
+    "category": "news",
+    "title": "Google’s AI co-director tackles long-video continuity",
+    "description": "Google Research outlined four systems for planning shots, preserving characters and refining long AI videos. Here is what creators can use—and what remains research.",
+    "topic": "AI video",
+    "image": "google-ai-video-codirector",
+    "eventDate": "2026-09-24",
+    "featured": true,
+    "takeaway": "Google Research’s September 24, 2026 report describes four research systems for long-form video continuity. They address story planning, storyboard memory, segment generation and visual review; the report does not announce a generally available video product.",
+    "sources": [
+      {
+        "publisher": "Google Research",
+        "title": "Automating coherent long-form video generation",
+        "url": "https://research.google/blog/coherent-long-form-video-generation/",
+        "publishedAt": "2026-09-24"
+      },
+      {
+        "publisher": "Google Research authors · arXiv",
+        "title": "Co-Director: Agentic Generative Video Storytelling",
+        "url": "https://arxiv.org/abs/2604.24842",
+        "publishedAt": "2026-04-27"
+      },
+      {
+        "publisher": "Google Research authors · arXiv",
+        "title": "CANVAS: Continuity-Aware Narratives via Visual Agentic Storyboarding",
+        "url": "https://arxiv.org/abs/2604.13452",
+        "publishedAt": "2026-04-15"
+      },
+      {
+        "publisher": "Google Research authors · arXiv",
+        "title": "A²RD: Agentic Autoregressive Diffusion for Long Video Consistency",
+        "url": "https://arxiv.org/abs/2605.06924",
+        "publishedAt": "2026-05-07"
+      },
+      {
+        "publisher": "Google Research authors · arXiv",
+        "title": "VQQA: An Agentic Approach for Video Evaluation and Quality Improvement",
+        "url": "https://arxiv.org/abs/2603.12310",
+        "publishedAt": "2026-03-13"
+      }
+    ],
+    "sections": [
+      {
+        "heading": "Why AI characters change between shots",
+        "content": "A video model can make one attractive clip and still lose the character, room or object when the next shot begins. Google Research’s September 24 report focuses on that handoff problem: a chain of individually plausible generations can drift away from one story, and one early mistake can carry into later shots. The announcement groups four research efforts around planning, memory, longer sequences and review. It describes work from Google researchers, not a new consumer app or a feature anyone can switch on today.",
+        "sourceIds": [1]
+      },
+      {
+        "heading": "Four research systems, four jobs",
+        "content": "Co-Director steers the overall creative direction and coordinates specialist agents. CANVAS builds a storyboard with persistent information about characters, places and objects. A²RD generates video in segments and carries multimodal memory forward as it moves between them. VQQA asks visual questions about generated footage, critiques the result and uses feedback to refine later attempts. Google presents these as complementary pieces of a research framework; they are not four production-ready tools bundled for creators.",
+        "subpoints": [
+          "Co-Director: coordinate intent and shot-level work across a narrative.",
+          "CANVAS: keep character and location details available when a scene returns.",
+          "A²RD: generate in segments while retrieving prior video context.",
+          "VQQA: review visual output and guide another generation pass."
+        ],
+        "sourceIds": [1, 2, 3, 4, 5]
+      },
+      {
+        "heading": "What the reported results do—and do not—show",
+        "content": "Google reports gains on its selected benchmarks and shows examples of multi-shot and minutes-long output. Those are the research authors’ evaluations, not an independent FyreLinkz test or a guarantee that every prompt will keep a face, costume or set consistent. The linked papers describe different tasks and measurements, so their scores should not be merged into one universal quality number. No public release, consumer access, price or creator-facing API is announced in this report.",
+        "sourceIds": [1, 2, 3, 4, 5]
+      },
+      {
+        "heading": "A continuity checklist you can use now",
+        "content": "The useful lesson is workflow-shaped: write down what must stay fixed before generating more shots. This checklist is FyreLinkz editorial advice inspired by the reported research; we have not tested Google’s systems.",
+        "checklist": [
+          "Create a short continuity sheet: character appearance, wardrobe, location, lighting and key props.",
+          "Storyboard each shot with one action and one clear transition from the shot before it.",
+          "Mark details that must persist separately from details allowed to change.",
+          "Review every cut for identity, geography and object changes before extending the sequence.",
+          "Log the prompt, model, reference images and accepted take so revisions remain traceable."
+        ]
+      },
+      {
+        "heading": "What video creators should watch next",
+        "content": "The research points toward video systems that plan and check sequences, not only render isolated clips. For creators today, storyboards and reference frames still provide a practical way to communicate continuity across tools. Start with our [repeatable AI video prompt workflow](/create/ai-video-prompt-guide-examples), then compare current generation options in the [AI video model matrix](/create/ai-video-generation-matrix-minimax-higgsfield-seedance). We will update this report if Google publishes an accessible product or new evaluation details."
+      }
+    ],
+    "publishedAt": "2026-09-26",
+    "updatedAt": "2026-09-26",
+    "sourceCheckedAt": "2026-09-26",
+    "imageAlt": "Editorial storyboard illustration connecting four video frames with a shared character and location continuity line."
+  },
+  {
     "slug": "runway-adobe-premiere-after-effects-plugins",
     "category": "news",
     "title": "Runway moves into your editing timeline",
@@ -1286,7 +1371,7 @@
       },
       {
         "heading": "Try this next",
-        "content": "Have a clear shot brief? Use it to compare platforms instead of choosing from their demo reels. Read [MiniMax vs Seedance vs Higgsfield: choose for your next shot](/create/ai-video-generation-matrix-minimax-higgsfield-seedance)."
+        "content": "Have a clear shot brief? Use it to compare platforms instead of choosing from their demo reels. Read [MiniMax vs Seedance vs Higgsfield: choose for your next shot](/create/ai-video-generation-matrix-minimax-higgsfield-seedance). For the latest research on maintaining continuity across longer AI videos, see [Google’s four-system approach to long-form video](/news/google-ai-video-codirector-long-form-continuity)."
       }
     ],
     "imageAlt": "Conceptual illustration of a cinematic camera viewfinder overlay with composition guidelines and motion trajectory."

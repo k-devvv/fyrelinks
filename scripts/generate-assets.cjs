@@ -43,6 +43,47 @@ ${safeContent}
 }
 
 const ASSETS = {
+  'google-ai-video-codirector': {
+    eyebrowText: 'GOOGLE RESEARCH / LONG-FORM VIDEO · SEPT 2026',
+    accentColor: '#e6a35d',
+    bgGradient: '#151914',
+    defs: `
+      <linearGradient id="frameGlow" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#e6a35d"/><stop offset="100%" stop-color="#f5d9a8"/></linearGradient>
+      <linearGradient id="scene" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#40524b"/><stop offset="100%" stop-color="#202a26"/></linearGradient>
+    `,
+    artContent: `
+      <text x="54" y="180" font-family="Georgia, serif" font-size="58" fill="#f5f0e5" font-weight="700">Can AI keep</text>
+      <text x="54" y="246" font-family="Georgia, serif" font-size="58" fill="#e6a35d" font-weight="700">a story together?</text>
+      <text x="57" y="286" font-family="monospace" font-size="15" fill="#bdc2b8" letter-spacing="2">FOUR SYSTEMS. ONE CONTINUITY PROBLEM.</text>
+      <g transform="translate(58 350)" filter="url(#shadow)">
+        <rect width="240" height="210" rx="14" fill="#202722" stroke="#9c7046" stroke-width="2"/>
+        <rect x="15" y="15" width="210" height="150" rx="8" fill="url(#scene)"/>
+        <circle cx="120" cy="77" r="31" fill="#d28a53" opacity=".9"/>
+        <path d="M83 146c4-34 20-49 37-49s33 15 37 49" fill="#be7048"/>
+        <path d="M28 131h184M28 141h120" stroke="#b7c6af" stroke-width="3" opacity=".45"/>
+        <text x="19" y="191" font-family="monospace" font-size="13" fill="#e6a35d">SHOT 01 / INTRO</text>
+      </g>
+      <g transform="translate(480 350)" filter="url(#shadow)">
+        <rect width="240" height="210" rx="14" fill="#202722" stroke="#9c7046" stroke-width="2"/>
+        <rect x="15" y="15" width="210" height="150" rx="8" fill="url(#scene)"/>
+        <circle cx="120" cy="77" r="31" fill="#d28a53" opacity=".9"/>
+        <path d="M83 146c4-34 20-49 37-49s33 15 37 49" fill="#be7048"/>
+        <path d="M28 131h184M28 141h120" stroke="#b7c6af" stroke-width="3" opacity=".45"/>
+        <text x="19" y="191" font-family="monospace" font-size="13" fill="#e6a35d">SHOT 08 / RETURN</text>
+      </g>
+      <path d="M310 450 C355 380 420 380 466 450" fill="none" stroke="url(#frameGlow)" stroke-width="3" stroke-dasharray="8 9"/>
+      <circle cx="388" cy="410" r="32" fill="#252c26" stroke="#e6a35d" stroke-width="2"/>
+      <path d="M376 410h24M388 398v24" stroke="#f5d9a8" stroke-width="3"/>
+      <text x="322" y="482" font-family="monospace" font-size="10" fill="#d7c4a6" letter-spacing="1">MEMORY / STORYBOARD</text>
+      <g transform="translate(775 365)">
+        <circle cx="70" cy="70" r="65" fill="#202722" stroke="#46564b" stroke-width="2"/>
+        <path d="M70 22v16M70 102v16M22 70h16M102 70h16M36 36l12 12M92 92l12 12M104 36 92 48M48 92l-12 12" stroke="#e6a35d" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="70" cy="70" r="24" fill="#d28a53"/>
+        <text x="18" y="166" font-family="monospace" font-size="12" fill="#bdc2b8" letter-spacing="1">REVIEW THE CUT</text>
+      </g>
+      <text x="55" y="635" font-family="Georgia, serif" font-size="23" fill="#f2ead9">Plan → remember → generate → review</text>
+    `
+  },
   // 1. Runway Adobe Timeline
   'runway-timeline': {
     eyebrowText: 'TIMELINE / RUNWAY ADOBE NLE EXTENSION',
@@ -1334,8 +1375,11 @@ const ASSETS = {
 };
 
 async function generateAll() {
-  console.log(`Generating ${Object.keys(ASSETS).length} bespoke assets...`);
-  for (const [name, config] of Object.entries(ASSETS)) {
+  const requested = process.argv.slice(2);
+  const entries = requested.length ? Object.entries(ASSETS).filter(([name]) => requested.includes(name)) : Object.entries(ASSETS);
+  if (requested.some(name => !ASSETS[name])) throw new Error(`Unknown asset: ${requested.find(name => !ASSETS[name])}`);
+  console.log(`Generating ${entries.length} bespoke assets...`);
+  for (const [name, config] of entries) {
     const svgContent = createSvg(config);
     const svgPath = path.join(ART_DIR, `${name}.svg`);
     const pngPath = path.join(ART_DIR, `${name}.png`);
@@ -1357,7 +1401,7 @@ async function generateAll() {
 
     console.log(`✓ Generated ${name} (.svg, .png, .webp)`);
   }
-  console.log('All 16 assets generated successfully.');
+  console.log(`All ${entries.length} assets generated successfully.`);
 }
 
 generateAll().catch(err => {
