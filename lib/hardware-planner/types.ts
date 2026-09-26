@@ -25,6 +25,8 @@ export type HardwareCandidate = {
   id: string;
   name: string;
   path: SystemPath;
+  /** Scope represented by any non-null price; prevents GPU quotes reading as PC totals. */
+  priceScope: "full-system" | "graphics-card-only";
   supportedWorkloads: WorkloadId[];
   /** Dedicated graphics memory in GiB; null means unified/unknown memory. */
   gpuMemoryGb: number | null;

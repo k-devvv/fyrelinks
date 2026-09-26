@@ -20,6 +20,7 @@ const MARKETS = Object.keys(MARKET_CURRENCIES);
 const WORKLOADS = ['comfyui-image', 'comfyui-video', 'local-llm', 'mixed'];
 const PATHS = ['desktop-build', 'desktop-upgrade', 'laptop'];
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
+const PRICE_HOSTS = { us: 'www.bestbuy.com', uk: 'www.scan.co.uk' };
 
 function assertPrice(price, market) {
   assert.ok(price && typeof price === 'object', `Price object exists for ${market}`);
@@ -39,7 +40,10 @@ function assertPrice(price, market) {
   assert.ok(price.source && typeof price.source.label === 'string' && price.source.label.length > 5,
     `Identifiable ${market} source label`);
   assert.ok(/^https:\/\//.test(price.source.url), `HTTPS ${market} price source`);
-  assert.ok(/\./.test(new URL(price.source.url).hostname), `Valid host for ${market} price source`);
+  const url = new URL(price.source.url);
+  assert.equal(url.hostname, PRICE_HOSTS[market], `Approved retailer host for ${market} price`);
+  if (market === 'us') assert.match(url.pathname, /\/product\/.+\/sku\/\d+$/, 'US source is a product URL');
+  if (market === 'uk') assert.match(url.pathname, /\/products\/.+/, 'UK source is a product URL');
 }
 
 function isStale(checkedAt, now = CLOCK) {
@@ -57,6 +61,8 @@ for (const candidate of HARDWARE_CANDIDATES) {
   assert.ok(candidate.id && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(candidate.id), `Stable ID: ${candidate.id}`);
   assert.ok(candidate.name.trim().length > 0, `Name exists: ${candidate.id}`);
   assert.ok(PATHS.includes(candidate.path), `Valid path: ${candidate.id}`);
+  assert.ok(['full-system', 'graphics-card-only'].includes(candidate.priceScope),
+    `Valid price scope: ${candidate.id}`);
   coveredPaths.add(candidate.path);
   assert.ok(Array.isArray(candidate.supportedWorkloads) && candidate.supportedWorkloads.length > 0,
     `Workload coverage exists: ${candidate.id}`);
@@ -84,7 +90,15 @@ for (const candidate of HARDWARE_CANDIDATES) {
   }
   assert.deepEqual(Object.keys(candidate.prices).sort(), [...MARKETS].sort(),
     `All four market prices exist: ${candidate.id}`);
-  for (const market of MARKETS) assertPrice(candidate.prices[market], market);
+  for (const market of MARKETS) {
+    assertPrice(candidate.prices[market], market);
+    if (candidate.prices[market].amount !== null) {
+      assert.equal(candidate.priceScope, 'graphics-card-only',
+        `Only a graphics-card-only candidate has a researched price: ${candidate.id}`);
+      assert.equal(candidate.path, 'desktop-upgrade',
+        `A GPU part price cannot be presented as a complete desktop/laptop price: ${candidate.id}`);
+    }
+  }
 }
 
 for (const path of PATHS) assert.ok(coveredPaths.has(path), `Catalogue covers ${path}`);
