@@ -12,11 +12,6 @@ export default function AdSlot({
 }) {
   const sponsorUrl = PLACEMENTS[placement];
   const sponsorTitle = process.env.FYRE_SPONSOR_TITLE;
-  const adsenseClientId = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID;
-  const homeSlotId = process.env.NEXT_PUBLIC_ADSENSE_HOME_SLOT_ID;
-  const articleSlotId = process.env.NEXT_PUBLIC_ADSENSE_ARTICLE_SLOT_ID;
-  const slotId = placement === "home" ? homeSlotId : articleSlotId;
-
   // 1. Direct sponsor link if explicitly configured with verified HTTPS
   if (sponsorUrl && sponsorTitle && sponsorUrl.startsWith("https://")) {
     return (
@@ -30,24 +25,7 @@ export default function AdSlot({
     );
   }
 
-  // 2. Google AdSense unit ONLY when both valid client ID AND real numeric slot ID are configured
-  if (adsenseClientId && adsenseClientId.startsWith("ca-pub-") && slotId && /^\d+$/.test(slotId)) {
-    return (
-      <aside className="ad-slot ad-slot-adsense" aria-label="Advertisement">
-        <span className="eyebrow">ADVERTISEMENT</span>
-        <ins
-          className="adsbygoogle"
-          style={{ display: "block" }}
-          data-ad-client={adsenseClientId}
-          data-ad-slot={slotId}
-          data-ad-format="auto"
-          data-full-width-responsive="true"
-        />
-        <Link href="/privacy#advertising">Ad policy & consent</Link>
-      </aside>
-    );
-  }
-
-  // Strictly suppressed when unconfigured — zero layout shift, zero dummy IDs, zero tracking
+  // Network-ad rendering stays disabled until a real CMP and ad loader are integrated.
+  // A configured AdSense <ins> alone is inert and would appear as a misleading blank slot.
   return null;
 }

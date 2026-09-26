@@ -1277,7 +1277,7 @@
     "sections": [
       {
         "heading": "Start here",
-        "content": "Intended reader: Video creators and storytellers struggling with morphing faces, uncontrollable camera pans, or inconsistent character actions. Practical outcome: A repeatable 4-tier prompt template with 6 tested real-world shot examples. The clip looks polished, but the camera moves when you wanted a still shot and the action never quite finishes. Before adding more adjectives, simplify the brief. Work through six original examples, change one variable between attempts and decide what makes a take usable."
+        "content": "Intended reader: Video creators and storytellers struggling with morphing faces, uncontrollable camera pans, or inconsistent character actions. Practical outcome: A repeatable 4-tier prompt template with six original shot-planning examples. These are illustrative briefs, not tested model outputs. The clip looks polished, but the camera moves when you wanted a still shot and the action never quite finishes. Before adding more adjectives, simplify the brief. Work through six examples, change one variable between attempts and decide what makes a take usable."
       },
       {
         "heading": "Start with the shot, not a list of adjectives",

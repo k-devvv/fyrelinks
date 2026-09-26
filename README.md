@@ -47,15 +47,12 @@ Original illustrations live in `public/art` (SVGs for UI rendering and 1200x750 
 
 ## Advertising & Monetization Readiness
 
-No ad-network scripts run on the live site without explicit configuration. Monetization architecture is structured as follows:
+No ad-network scripts run on the live site. Monetization readiness is structured as follows:
 
 1. **Direct Sponsorships**: Can be enabled at build time using `FYRE_SPONSOR_TITLE` and `FYRE_HOME_SPONSOR_URL` / `FYRE_ARTICLE_SPONSOR_URL`. Configured sponsorships reserve designated slots and qualify links with `rel="sponsored"`.
-2. **Google AdSense Preparation**:
-   - `components/AdSlot.tsx` supports `NEXT_PUBLIC_ADSENSE_CLIENT_ID` (format: `ca-pub-XXXXXXXXXXXXXXXX`).
-   - When no publisher ID is provided, ad slots render nothing (`null`). Zero third-party ad scripts or tracking cookies are loaded.
-   - `public/ads.txt` is prepared with publisher verification instructions.
-   - `app/privacy/page.tsx` describes our advertising policy and mandates the implementation of a Google-certified Consent Management Platform (CMP) for visitors in applicable jurisdictions (EEA, UK, CPRA) before ad serving is activated.
-   - AdSense integration remains strictly inactive until a valid publisher ID is supplied by the account owner and approved by Google.
+2. **Display-ad integration is not yet active**: `public/ads.txt` contains comments only; no seller is declared. `components/AdSlot.tsx` does not load an ad network. Add an approved partner, certified CMP/required regional controls, real seller records, and a consent-aware ad loader before enabling inventory. The existing analytics preference is not ad consent.
+
+See `docs/marketing-operations.md` for audience priorities, network selection gates and launch checks.
 
 ## Verification
 

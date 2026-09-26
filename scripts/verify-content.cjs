@@ -27,6 +27,7 @@ for (const p of POSTS) {
   assert.ok(p.sourceCheckedAt);
   assert.ok(p.sections.every(s => !s.sourceIds || s.sourceIds.every(i => Number.isInteger(i) && i > 0 && i <= p.sources.length)));
   assert.ok(p.sections.length >= 3, `${p.slug}: useful sections`);
+  assert.ok(!p.sections.some(s => /tested real-world shot examples/i.test(s.content)), `${p.slug}: do not claim tests without published evidence`);
   assert.ok(!p.videoComparisons?.length, 'No unverified test clips');
   assert.ok(new Date(p.publishedAt) <= new Date());
   assert.ok(new Date(p.updatedAt) >= new Date(p.publishedAt));
