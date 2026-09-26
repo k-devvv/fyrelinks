@@ -1,5 +1,6 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
+const path = require('node:path');
 const ts = require('typescript');
 require.extensions['.ts'] = (module, filename) => {
   const code = ts.transpileModule(fs.readFileSync(filename, 'utf8'), {
@@ -17,6 +18,9 @@ const {
 } = require('../lib/posts.ts');
 assert.equal(new Set(POSTS.map(p => p.slug)).size, POSTS.length, 'Unique slugs');
 for (const p of POSTS) {
+  assert.ok(fs.existsSync(path.join(__dirname, '..', 'public', 'art', `${p.image}.webp`)), `${p.slug}: card image exists`);
+  const socialImage = `${p.image}${p.image.endsWith('-photo') ? '.jpg' : '.png'}`;
+  assert.ok(fs.existsSync(path.join(__dirname, '..', 'public', 'art', socialImage)), `${p.slug}: social image exists`);
   assert.ok(p.sources?.length, `${p.slug}: primary sources required`);
   assert.ok(CATEGORIES.some(c => c.slug === p.category));
   assert.ok(p.sources.every(s => s.url.startsWith('https://')));

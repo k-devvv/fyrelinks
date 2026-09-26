@@ -5,7 +5,7 @@
     "title": "Google’s AI co-director tackles long-video continuity",
     "description": "Google Research outlined four systems for planning shots, preserving characters and refining long AI videos. Here is what creators can use—and what remains research.",
     "topic": "AI video",
-    "image": "google-ai-video-codirector",
+    "image": "google-ai-video-codirector-photo",
     "eventDate": "2026-09-24",
     "featured": true,
     "takeaway": "Google Research’s September 24, 2026 report describes four research systems for long-form video continuity. They address story planning, storyboard memory, segment generation and visual review; the report does not announce a generally available video product.",
@@ -45,7 +45,9 @@
       {
         "heading": "Why AI characters change between shots",
         "content": "A video model can make one attractive clip and still lose the character, room or object when the next shot begins. Google Research’s September 24 report focuses on that handoff problem: a chain of individually plausible generations can drift away from one story, and one early mistake can carry into later shots. The announcement groups four research efforts around planning, memory, longer sequences and review. It describes work from Google researchers, not a new consumer app or a feature anyone can switch on today.",
-        "sourceIds": [1]
+        "sourceIds": [
+          1
+        ]
       },
       {
         "heading": "Four research systems, four jobs",
@@ -56,12 +58,24 @@
           "A²RD: generate in segments while retrieving prior video context.",
           "VQQA: review visual output and guide another generation pass."
         ],
-        "sourceIds": [1, 2, 3, 4, 5]
+        "sourceIds": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
       },
       {
         "heading": "What the reported results do—and do not—show",
         "content": "Google reports gains on its selected benchmarks and shows examples of multi-shot and minutes-long output. Those are the research authors’ evaluations, not an independent FyreLinkz test or a guarantee that every prompt will keep a face, costume or set consistent. The linked papers describe different tasks and measurements, so their scores should not be merged into one universal quality number. No public release, consumer access, price or creator-facing API is announced in this report.",
-        "sourceIds": [1, 2, 3, 4, 5]
+        "sourceIds": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
       },
       {
         "heading": "A continuity checklist you can use now",
@@ -82,7 +96,7 @@
     "publishedAt": "2026-09-26",
     "updatedAt": "2026-09-26",
     "sourceCheckedAt": "2026-09-26",
-    "imageAlt": "Editorial storyboard illustration connecting four video frames with a shared character and location continuity line."
+    "imageAlt": "Generated editorial photograph: Storyboard sheets and a filmmaker reviewing continuity between video shots."
   },
   {
     "slug": "runway-adobe-premiere-after-effects-plugins",
@@ -90,7 +104,7 @@
     "title": "Runway moves into your editing timeline",
     "description": "New plugins bring AI generation to Premiere Pro and After Effects. What changes for editors—and what still uses credits.",
     "topic": "AI video",
-    "image": "runway-timeline",
+    "image": "runway-timeline-photo",
     "eventDate": "2026-09-08",
     "featured": true,
     "takeaway": "Runway announced Adobe plugins on September 8. The download is free; generation uses your Runway plan and credits.",
@@ -151,7 +165,7 @@
     "publishedAt": "2026-09-12",
     "updatedAt": "2026-09-21",
     "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "Conceptual editorial illustration of an NLE video editing timeline with AI video generation tracks and keyframes."
+    "imageAlt": "Generated editorial photograph: Video editor reviewing a sequence of generated clips on a large editing monitor."
   },
   {
     "slug": "comfyui-native-trellis2-pixal3d",
@@ -159,7 +173,7 @@
     "title": "ComfyUI brings 3D generation into the graph",
     "description": "Native Trellis.2 and Pixal3D support adds a new path from an image to a mesh. Production readiness still needs checking.",
     "topic": "ComfyUI",
-    "image": "comfyui-3d-graph",
+    "image": "comfyui-3d-graph-photo",
     "eventDate": "2026-08-31",
     "featured": true,
     "takeaway": "Comfy Org announced native Trellis.2 and Pixal3D support on August 31, with updated 3D loading, preview and export tools.",
@@ -212,7 +226,7 @@
     "publishedAt": "2026-09-12",
     "updatedAt": "2026-09-21",
     "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "Conceptual editorial illustration of a ComfyUI node graph generating an isometric 3D mesh wireframe."
+    "imageAlt": "Generated editorial photograph: Digital sculptor inspecting a detailed 3D character model at a workstation."
   },
   {
     "slug": "comfy-mcp-local-workflows",
@@ -220,7 +234,7 @@
     "title": "Comfy MCP connects agents to local workflows",
     "description": "Comfy Org open-sourced its local MCP server. Agents can inspect an installation and help build workflows around available models and nodes.",
     "topic": "ComfyUI",
-    "image": "comfy-mcp-agent",
+    "image": "comfy-mcp-agent-photo",
     "eventDate": "2026-08-18",
     "featured": true,
     "takeaway": "Comfy Org's August 18 announcement extends its MCP connection to local installations and links to the open-source server.",
@@ -273,7 +287,7 @@
     "publishedAt": "2026-09-12",
     "updatedAt": "2026-09-21",
     "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "Conceptual illustration of an AI agent protocol bridge communicating with local ComfyUI workflow nodes."
+    "imageAlt": "Generated editorial photograph: Creator working with a local AI workflow across two computer monitors."
   },
   {
     "slug": "ai-video-generation-matrix-minimax-higgsfield-seedance",
@@ -281,7 +295,7 @@
     "title": "MiniMax vs Seedance vs Higgsfield: choose for your next shot",
     "description": "Compare AI video tools by controls, delivery requirements, accepted takes and the real cost of finishing a shot.",
     "topic": "AI video",
-    "image": "ai-video-matrix",
+    "image": "ai-video-matrix-photo",
     "featured": true,
     "takeaway": "Direct Answer: Choose MiniMax/Hailuo when you need rich physical motion and fluid camera movement from text prompts; choose Seedance when keyframe continuity and storyboard constraints dictate the cut; choose Higgsfield for mobile-first camera templates. If your production requires multi-camera sync or NLE timeline integration, Runway Gen-3/4 remains the industry standard.",
     "sources": [
@@ -400,7 +414,7 @@
     "publishedAt": "2026-09-08",
     "updatedAt": "2026-09-22",
     "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "Conceptual editorial illustration of camera motion vector tracking and comparison across generative video models."
+    "imageAlt": "Generated editorial photograph: Filmmaker comparing alternate generated video shots on a studio monitor."
   },
   {
     "slug": "comfyui-flux-lora-training-and-inference-guide",
@@ -408,7 +422,7 @@
     "title": "FLUX in ComfyUI: a practical workflow and LoRA checklist",
     "description": "Choose a FLUX.1 starting point, understand the graph and introduce LoRAs after a reproducible baseline works.",
     "topic": "ComfyUI",
-    "image": "comfyui-flux-lora",
+    "image": "comfyui-flux-lora-photo",
     "featured": true,
     "takeaway": "Direct Answer: To run FLUX.1 without CUDA out-of-memory errors on 12GB–16GB consumer GPUs, load FLUX.1 dev in FP8 (or GGUF Q4_K_M / Q8_0) using ComfyUI’s native UNETLoader and DualCLIPLoader, offload CLIP and T5 to CPU RAM, and clamp inference to 20–25 steps with Euler sampler. Only introduce LoRA nodes after validating this baseline.",
     "sources": [
@@ -540,7 +554,7 @@
     "publishedAt": "2026-09-08",
     "updatedAt": "2026-09-22",
     "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "Conceptual diagram of FLUX.1 latent diffusion architecture with LoRA weight adapter nodes."
+    "imageAlt": "Generated editorial photograph: Digital artist refining a portrait on a pen display in a home studio."
   },
   {
     "slug": "best-local-ai-workstation-build-guide-2026",
@@ -548,7 +562,7 @@
     "title": "Building a local AI PC: check VRAM before buying a GPU",
     "description": "A workload-first guide to GPU memory, model offloading, multi-GPU assumptions and the costs beyond a graphics-card specification.",
     "topic": "Local AI",
-    "image": "local-ai-workstation",
+    "image": "local-ai-workstation-photo",
     "featured": true,
     "takeaway": "Direct Answer: For local AI in 2026, VRAM capacity strictly determines what models you can run without system slowdowns. 16GB (RTX 4070 Ti Super) is the minimum baseline for quantized FLUX and 8B LLMs; 24GB (RTX 3090 / 4090) is the sweet spot for full-fidelity diffusion and 14B–32B models; running two GPUs splits workloads across processes but does NOT merge VRAM into a single memory pool for standard ComfyUI runs.",
     "sources": [
@@ -671,7 +685,7 @@
     "publishedAt": "2026-09-08",
     "updatedAt": "2026-09-22",
     "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "Conceptual illustration of local AI workstation GPU memory architecture and cooling components."
+    "imageAlt": "Generated editorial photograph: PC builder checking the graphics card and cooling inside an open workstation."
   },
   {
     "slug": "civitai-sdxl-photorealism-checkpoint-matrix",
@@ -679,7 +693,7 @@
     "title": "Choosing an SDXL checkpoint: a fair comparison checklist",
     "description": "A repeatable evaluation sheet for portrait and product workflows: fixed prompts, compatible settings and recorded failure cases.",
     "topic": "AI images",
-    "image": "sdxl-checkpoint-matrix",
+    "image": "sdxl-checkpoint-matrix-photo",
     "takeaway": "Use the same brief and record every result. Community example images are inspiration, not a controlled comparison.",
     "sources": [
       {
@@ -726,7 +740,7 @@
     "publishedAt": "2026-09-08",
     "updatedAt": "2026-09-21",
     "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "Conceptual illustration of optical calibration spheres, lighting scales, and SDXL checkpoint comparison."
+    "imageAlt": "Generated editorial photograph: Artist comparing two printed fantasy landscape images at a desk."
   },
   {
     "slug": "frontier-ai-tools-benchmark-matrix-2026",
@@ -734,7 +748,7 @@
     "title": "Is a new AI model worth switching to? A practical checklist",
     "description": "Turn a model announcement into a useful decision: verify availability, controls, costs and whether it improves your actual workflow.",
     "topic": "AI video",
-    "image": "frontier-ai-benchmark",
+    "image": "frontier-ai-benchmark-photo",
     "takeaway": "A release announcement proves an announced capability. It does not prove an improvement on your own task.",
     "sources": [
       {
@@ -787,7 +801,7 @@
     "publishedAt": "2026-09-08",
     "updatedAt": "2026-09-21",
     "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "Conceptual editorial illustration of multidimensional AI model benchmark radar chart and metrics."
+    "imageAlt": "Generated editorial photograph: Researchers comparing generated image samples and evaluation notes."
   },
   {
     "slug": "self-hosted-vector-db-pricing-and-latency-benchmarks",
@@ -795,7 +809,7 @@
     "title": "Qdrant vs Weaviate vs Milvus vs Pinecone: what to compare",
     "description": "Choose a vector database with a workload sheet that covers retrieval quality, filters, memory, operating costs and recovery.",
     "topic": "Developer tools",
-    "image": "vector-database-benchmarks",
+    "image": "vector-database-benchmarks-photo",
     "takeaway": "There is no useful latency winner without a dataset, retrieval target, hardware configuration and query workload.",
     "sources": [
       {
@@ -860,7 +874,7 @@
     "publishedAt": "2026-09-08",
     "updatedAt": "2026-09-21",
     "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "Conceptual illustration of high-dimensional vector embeddings, nearest-neighbor clusters, and graph indexing."
+    "imageAlt": "Generated editorial photograph: Engineer inspecting server hardware and notes in a small data room."
   },
   {
     "slug": "ai-web-scraping-pipelines-firecrawl-playwright-rag",
@@ -868,7 +882,7 @@
     "title": "Firecrawl vs Playwright for RAG: which problem are you solving?",
     "description": "Separate page access, extraction and retrieval. Compare a managed extraction service with a browser workflow using a small evaluation set.",
     "topic": "Developer tools",
-    "image": "web-scraping-rag",
+    "image": "web-scraping-rag-photo",
     "takeaway": "Direct Answer: Use Playwright when your RAG pipeline requires full local control over authenticated sessions, custom browser actions, or on-premise privacy without per-page cloud costs. Choose Firecrawl when you need clean, LLM-ready markdown extracted through managed proxies without maintaining headless browser infrastructure. For verifiable citations, always store the source URL and paragraph heading with each extracted chunk.",
     "sources": [
       {
@@ -980,7 +994,7 @@
     "publishedAt": "2026-09-08",
     "updatedAt": "2026-09-22",
     "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "Conceptual diagram showing web DOM tree parsing, markdown extraction, and RAG ingestion."
+    "imageAlt": "Generated editorial photograph: Data engineer reviewing a web research pipeline at a desktop workstation."
   },
   {
     "slug": "cursor-vs-windsurf-vs-copilot-developer-benchmarks",
@@ -988,7 +1002,7 @@
     "title": "Cursor vs Windsurf vs Copilot: compare one real coding task",
     "description": "Evaluate coding agents on a real repository task, review effort and repeatability. Check current product documentation before choosing a plan.",
     "topic": "Developer tools",
-    "image": "ai-code-editors",
+    "image": "ai-code-editors-photo",
     "takeaway": "A tool that writes code quickly may still need extensive review. Measure the completed, verified change.",
     "sources": [
       {
@@ -1047,7 +1061,7 @@
     "publishedAt": "2026-09-08",
     "updatedAt": "2026-09-21",
     "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "Conceptual editorial illustration of an AI coding editor with inline diffs, symbol tree, and completion stream."
+    "imageAlt": "Generated editorial photograph: Developer working on a coding task at a laptop and external monitor."
   },
   {
     "slug": "async-engineering-notion-architecture",
@@ -1055,7 +1069,7 @@
     "title": "A simple Notion decision log your team can actually use",
     "description": "Connect projects, decision records and owners without turning documentation into a second project-management job.",
     "topic": "Developer tools",
-    "image": "notion-decision-log",
+    "image": "notion-decision-log-photo",
     "takeaway": "Start with an owner, a decision and a review date. Add database relations only when they answer a real navigation question.",
     "sources": [
       {
@@ -1110,7 +1124,7 @@
     "publishedAt": "2026-09-08",
     "updatedAt": "2026-09-21",
     "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "Conceptual illustration of structured architectural decision records, RFC status badges, and documentation hierarchy."
+    "imageAlt": "Generated editorial photograph: Small product team reviewing decisions together around a shared notebook."
   },
   {
     "slug": "top-b2b-data-enrichment-platforms",
@@ -1118,7 +1132,7 @@
     "title": "Apollo vs Clay: compare the records you can actually use",
     "description": "Use a controlled sample to compare usable fields, duplicates, source freshness and the cost of accepted records.",
     "topic": "Developer tools",
-    "image": "data-enrichment-waterfall",
+    "image": "data-enrichment-waterfall-photo",
     "takeaway": "A claimed match rate is not your usable-record rate. Define the fields and validation rules your workflow needs.",
     "sources": [
       {
@@ -1172,7 +1186,7 @@
     "publishedAt": "2026-09-08",
     "updatedAt": "2026-09-21",
     "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "Conceptual diagram of a waterfall data enrichment workflow with multi-provider verification stages."
+    "imageAlt": "Generated editorial photograph: Analyst comparing two sample customer records to find missing company details."
   },
   {
     "slug": "best-4k-144hz-monitors-for-programming",
@@ -1180,7 +1194,7 @@
     "title": "Choosing a 4K coding monitor: text, scaling and desk space",
     "description": "Compare resolution, scaling, desk distance and everyday readability with your own editor and applications.",
     "topic": "Hardware",
-    "image": "4k-coding-monitor",
+    "image": "4k-coding-monitor-photo",
     "takeaway": "The useful display is the one that keeps your actual applications readable at your normal distance. Test that setup before choosing by refresh rate alone.",
     "sources": [
       {
@@ -1234,7 +1248,7 @@
     "publishedAt": "2026-09-08",
     "updatedAt": "2026-09-21",
     "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "Conceptual illustration of a 4K programming monitor with subpixel text clarity and ergonomic viewing distance."
+    "imageAlt": "Generated editorial photograph: Developer using a large high-resolution monitor at a tidy desk."
   },
   {
     "slug": "ai-video-prompt-guide-examples",
@@ -1242,7 +1256,7 @@
     "title": "AI video prompts: six examples and a repeatable workflow",
     "description": "Write clearer AI video prompts with six original shot examples, a troubleshooting checklist and a practical method for comparing takes.",
     "topic": "AI video",
-    "image": "ai-video-prompt-shot",
+    "image": "ai-video-prompt-shot-photo",
     "takeaway": "Direct Answer: Structure AI video prompts as a 4-part physical brief: [Subject State] + [Camera Trajectory] + [Physical Action/Light Change] + [Framing/Lens Type]. Omit subjective filler words like \"hyperrealistic\" or \"8k cinematic\"; specify direction, speed, and focal length to achieve predictable, non-morphing takes.",
     "featured": true,
     "publishedAt": "2026-09-20",
@@ -1374,7 +1388,7 @@
         "content": "Have a clear shot brief? Use it to compare platforms instead of choosing from their demo reels. Read [MiniMax vs Seedance vs Higgsfield: choose for your next shot](/create/ai-video-generation-matrix-minimax-higgsfield-seedance). For the latest research on maintaining continuity across longer AI videos, see [Google’s four-system approach to long-form video](/news/google-ai-video-codirector-long-form-continuity)."
       }
     ],
-    "imageAlt": "Conceptual illustration of a cinematic camera viewfinder overlay with composition guidelines and motion trajectory."
+    "imageAlt": "Generated editorial photograph: Filmmaker positioning a handmade ceramic mug for a close-up video shot."
   },
   {
     "slug": "comfyui-beginner-first-workflow-guide",
@@ -1382,7 +1396,7 @@
     "title": "ComfyUI beginner guide: your first image and common fixes",
     "description": "Follow a simple ComfyUI learning path: load an official workflow, find the required model, understand the graph and troubleshoot common first-run problems.",
     "topic": "ComfyUI",
-    "image": "comfyui-first-workflow",
+    "image": "comfyui-first-workflow-photo",
     "takeaway": "Direct Answer: Load ComfyUI’s default text-to-image template, place one standard SDXL or SD 1.5 checkpoint in ComfyUI/models/checkpoints/, verify the 5 core connections (Loader -> Encoders -> Empty Latent -> KSampler -> VAE Decode), and run one test image at default resolution (1024x1024 for SDXL, 512x512 for SD1.5) before touching custom extensions.",
     "featured": true,
     "publishedAt": "2026-09-20",
@@ -1537,7 +1551,7 @@
         "content": "Once the first workflow works, move on to a controlled FLUX and LoRA experiment. Read [FLUX in ComfyUI: a practical workflow and LoRA checklist](/create/comfyui-flux-lora-training-and-inference-guide)."
       }
     ],
-    "imageAlt": "Conceptual diagram of a foundational ComfyUI node graph with model loader, prompt encoders, sampler, and VAE decode."
+    "imageAlt": "Generated editorial photograph: Beginner creator reviewing an AI-generated landscape beside a laptop."
   },
   {
     "slug": "run-local-llm-rtx-4050-laptop-guide",
@@ -1545,7 +1559,7 @@
     "title": "Run a local LLM on an RTX 4050 laptop: setup and memory trade-offs",
     "description": "How to run local LLMs on an RTX 4050 laptop GPU: 6GB VRAM realities, 3B vs 8B model limits, thermal throttling and Ollama setup.",
     "topic": "Local AI",
-    "image": "rtx-4050-laptop",
+    "image": "rtx-4050-laptop-photo",
     "featured": true,
     "publishedAt": "2026-09-22",
     "updatedAt": "2026-09-22",
@@ -1661,7 +1675,7 @@
         "content": "Want to optimize memory further? Learn how to compress KV cache and choose exact GGUF quants in our guide to [reducing local LLM VRAM usage](/workflow/reduce-local-llm-vram-quantization-offloading-guide)."
       }
     ],
-    "imageAlt": "Conceptual diagram of RTX 4050 laptop GPU memory partition and 3B vs 8B model allocation."
+    "imageAlt": "Generated editorial photograph: Technician inspecting cooling hardware inside a portable AI workstation."
   },
   {
     "slug": "reduce-local-llm-vram-quantization-offloading-guide",
@@ -1669,7 +1683,7 @@
     "title": "Reduce local LLM VRAM usage: quantization, context length and offloading",
     "description": "Optimize local LLM memory: 4-bit GGUF quantization, FP8 KV cache compression, context window budgeting and GPU layer offloading.",
     "topic": "Local AI",
-    "image": "llm-vram-quantization",
+    "image": "llm-vram-quantization-photo",
     "featured": true,
     "publishedAt": "2026-09-22",
     "updatedAt": "2026-09-22",
@@ -1794,7 +1808,7 @@
         "content": "Running on mobile hardware? See how these quantization techniques apply to budget GPUs in our [RTX 4050 laptop LLM guide](/hardware/run-local-llm-rtx-4050-laptop-guide)."
       }
     ],
-    "imageAlt": "Layered architectural breakdown of LLM memory allocation across model weights, KV cache, and CUDA buffers."
+    "imageAlt": "Generated editorial photograph: Graphics card and memory chips on a hardware workbench."
   },
   {
     "slug": "small-language-models-edge-devices-guide",
@@ -1802,7 +1816,7 @@
     "title": "Choose a small language model for an edge device",
     "description": "Compare leading sub-4B models for edge hardware: Qwen 2.5, Llama 3.2, Phi-3.5 Mini and Gemma 2 on Raspberry Pi and Apple Silicon.",
     "topic": "Developer tools",
-    "image": "small-language-models-edge",
+    "image": "small-language-models-edge-photo",
     "featured": false,
     "publishedAt": "2026-09-22",
     "updatedAt": "2026-09-22",
@@ -1923,7 +1937,7 @@
         "content": "Building a retrieval system around your edge model? Learn how to evaluate vector databases in our [self-hosted vector DB comparison](/stack/self-hosted-vector-db-pricing-and-latency-benchmarks)."
       }
     ],
-    "imageAlt": "Comparison diagram of small language models (Qwen 2.5, Llama 3.2, Phi-3.5, Gemma 2) across memory footprint and context limits."
+    "imageAlt": "Generated editorial photograph: Engineer measuring a compact edge-computing board and camera sensor."
   },
   {
     "slug": "stateful-agents-vs-simple-rag-workflow-guide",
@@ -1931,7 +1945,7 @@
     "title": "Stateful agents versus a simple RAG workflow: when complexity helps",
     "description": "Architectural guide: comparing single-turn deterministic RAG pipelines with multi-turn autonomous agent loops. Latency, cost and reliability.",
     "topic": "Developer tools",
-    "image": "rag-vs-stateful-agents",
+    "image": "rag-vs-stateful-agents-photo",
     "featured": false,
     "publishedAt": "2026-09-22",
     "updatedAt": "2026-09-22",
@@ -2043,7 +2057,7 @@
         "content": "Need to feed dynamic web data into your retrieval pipeline? Read our comprehensive guide on [Firecrawl vs Playwright for RAG](/stack/ai-web-scraping-pipelines-firecrawl-playwright-rag)."
       }
     ],
-    "imageAlt": "Architecture flowchart comparing deterministic single-pass RAG retrieval against cyclical stateful agent execution loops."
+    "imageAlt": "Generated editorial photograph: Researcher cross-checking source documents against a computer search result."
   },
   {
     "slug": "deploy-llm-red-hat-openshift-ai-vllm-kserve",
@@ -2051,7 +2065,7 @@
     "title": "Deploy an open-source LLM on Red Hat OpenShift AI: vLLM and KServe setup",
     "description": "Architectural guide: configuring Red Hat OpenShift AI with vLLM, KServe, and the NVIDIA GPU Operator to serve production LLMs with predictable latency.",
     "topic": "Enterprise infrastructure",
-    "image": "deploy-llm-red-hat-openshift-ai",
+    "image": "deploy-llm-red-hat-openshift-ai-photo",
     "featured": false,
     "publishedAt": "2026-09-22",
     "updatedAt": "2026-09-22",
@@ -2147,7 +2161,7 @@
         "content": "Evaluating local vs edge model performance? Compare quantization tradeoffs in our guide on [Reduce Local LLM VRAM Usage](/workflow/reduce-local-llm-vram-quantization-offloading-guide)."
       }
     ],
-    "imageAlt": "Architectural diagram showing Red Hat OpenShift AI cluster with NVIDIA GPU Operator, vLLM KServe runtime, and S3 model weight storage."
+    "imageAlt": "Generated editorial photograph: Platform engineer monitoring GPU servers in an enterprise data center."
   },
   {
     "slug": "eu-ai-act-obligations-developers-guide",
@@ -2155,7 +2169,7 @@
     "title": "EU AI Act obligations for developers: compliance tiers, synthetic media and GPAI",
     "description": "A practical technical breakdown of Regulation (EU) 2024/1689: transparency rules, GPAI model governance, and synthetic media labeling.",
     "topic": "AI governance",
-    "image": "eu-ai-act-developer-obligations",
+    "image": "eu-ai-act-developer-obligations-photo",
     "featured": false,
     "publishedAt": "2026-09-22",
     "updatedAt": "2026-09-22",
@@ -2246,6 +2260,6 @@
         "content": "Need to understand how generative media tools handle verification? Check our breakdown of [AI video model pricing and architectures](/ai-video-models)."
       }
     ],
-    "imageAlt": "Legal-tech compliance illustration showing AI core encircled by regulatory governance rings, scales of justice, and verification checklists."
+    "imageAlt": "Generated editorial photograph: Developer and compliance lead reviewing a synthetic-media disclosure checklist."
   }
 ]

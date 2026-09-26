@@ -1,5 +1,5 @@
 import type { EditorialPost } from "@/lib/editorial";
-import { SITE_URL, sectionId } from "@/lib/editorial";
+import { SITE_URL, articleShareImagePath, sectionId } from "@/lib/editorial";
 import { getCategoryBySlug } from "@/lib/posts";
 type Props = {
   post: EditorialPost;
@@ -35,7 +35,7 @@ export default function JsonLd(props: Props) {
         dateModified: p.updatedAt + "T12:00:00+05:30",
         image: {
           '@type': 'ImageObject',
-          url: SITE_URL + '/art/' + p.image + '.png',
+          url: SITE_URL + articleShareImagePath(p.image),
           width: 1200,
           height: 750
         },

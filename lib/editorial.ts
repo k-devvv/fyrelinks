@@ -89,6 +89,9 @@ export function articleFromInput(p: ArticleInput): EditorialPost {
 export function articlePath(p: Pick<EditorialPost, 'category' | 'slug'>) {
   return `/${p.category}/${p.slug}`;
 }
+export function articleShareImagePath(image: string) {
+  return `/art/${image}${image.endsWith('-photo') ? '.jpg' : '.png'}`;
+}
 export function sectionId(h: string) {
   return h.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 }
