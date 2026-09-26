@@ -2262,4 +2262,187 @@
     ],
     "imageAlt": "Generated editorial photograph: Developer and compliance lead reviewing a synthetic-media disclosure checklist."
   }
+,
+  {
+    "slug": "jev-needle3-small-ai-models-gpu-cost",
+    "category": "news",
+    "title": "Jev, Needle 3 and tiny AI models: what runs locally, what costs tokens?",
+    "description": "A practical read of this week’s AI model chatter: Jev’s hosted decision API, Needle 3’s tiny on-device jobs, and what a 2B local model needs.",
+    "topic": "AI models",
+    "image": "jev-needle-small-models-photo",
+    "imageAlt": "AI-generated editorial photograph of a tiny edge-computing board and desktop GPU beside a laptop, illustrating local AI models and hardware costs.",
+    "eventDate": "2026-09-20",
+    "featured": true,
+    "takeaway": "The models in AI Search’s September roundup are not interchangeable. Jev is a hosted, typed decision service billed on input tokens; Needle 3 is a tiny on-device tool, extraction and embedding model; MiniCPM5-2B is a general text generator you can run locally with a suitable runtime. Pick by task, then test quality and total cost on your own workload.",
+    "sources": [
+      { "publisher": "AI Search on X", "title": "Weekly AI roundup, September 20, 2026", "url": "https://x.com/aisearchio/status/2101514853999677735", "publishedAt": "2026-09-20" },
+      { "publisher": "Hugging Face", "title": "Trending text-generation models", "url": "https://huggingface.co/models?pipeline_tag=text-generation&sort=trending" },
+      { "publisher": "Cactus Compute · Hugging Face", "title": "Needle 3 model card and benchmark methodology", "url": "https://huggingface.co/Cactus-Compute/needle3" },
+      { "publisher": "TypeSafe", "title": "Jev model documentation and current pricing", "url": "https://docs.typesafe.ai/models" },
+      { "publisher": "TypeSafe", "title": "Introducing System One models and Jev", "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev", "publishedAt": "2026-09-15" },
+      { "publisher": "OpenBMB · Hugging Face", "title": "MiniCPM5-2B model card and reported evaluations", "url": "https://huggingface.co/openbmb/MiniCPM5-2B" },
+      { "publisher": "OpenBMB · Hugging Face", "title": "MiniCPM5-2B GGUF quantizations and llama.cpp setup", "url": "https://huggingface.co/openbmb/MiniCPM5-2B-GGUF" },
+      { "publisher": "Yu Sun et al. · arXiv preprint", "title": "Type-Safe Is Not Error-Free: A Constrained Decision Head Follows the Option Name, Not the Rubric Bound to It", "url": "https://arxiv.org/abs/2609.26758", "publishedAt": "2026-09-22" },
+      { "publisher": "Delip Rao and co-author · arXiv preprint", "title": "JEV vs. LLMs as Rubric Judges: Cheaper, Faster, and Wrong in the Same Places", "url": "https://arxiv.org/abs/2609.29769", "publishedAt": "2026-09-24" },
+      { "publisher": "Liquid AI · Hugging Face", "title": "Deploy local agents everywhere with LFM2.5-2.6B", "url": "https://huggingface.co/blog/LiquidAI/lfm2-5-2-6b", "publishedAt": "2026-08-04" }
+    ],
+    "sections": [
+      {
+        "heading": "The small-model story is really three different stories",
+        "content": "AI Search’s September 20 roundup placed Jev and Needle 3 alongside a wave of new models. Hugging Face’s live trending page is a useful discovery signal, but rank and download counts change; popularity does not prove accuracy or fit. The more useful pattern is that “small AI” now covers very different products: hosted decision APIs, tiny embedded specialists, and compact generative models. Compare them by what they do, what evidence supports them, and what your actual workload costs.",
+        "sourceIds": [1, 2]
+      },
+      {
+        "heading": "Needle 3: tiny specialist for local structured work",
+        "content": "Cactus describes Needle 3 as an on-device model for tool selection, structured extraction, classification and text embeddings. Its model card reports a single 8–29 MB model file and a 121M-parameter full model; Cactus says the architecture’s effective arithmetic is closer to 50M parameters. It is not a general-purpose chat replacement. The intended benefit is handling narrow, schema-shaped jobs on phones, wearables, robots and other constrained devices without sending every request to a cloud API.",
+        "subpoints": [
+          "Hardware: designed for device-side runtimes; the model card does not prescribe a discrete GPU. CPU, mobile accelerator or supported embedded runtime may fit, depending on platform and latency target.",
+          "Price: no per-token hosted inference price is listed on the model card. Local inference avoids a provider token bill, while still using device power and engineering time.",
+          "Evidence: the reported exact-match tool-call and field-level extraction results are Cactus’s own full-split evaluations, not an independent FyreLinkz benchmark."
+        ],
+        "sourceIds": [3]
+      },
+      {
+        "heading": "Jev: pay-per-input-token decision model, not a tiny local LLM",
+        "content": "TypeSafe documents Jev 1.13 as a hosted System One model that returns calibrated, structured decisions. It accepts text, not image, audio or video input. Current listed price is $0.042 per million input tokens; output tokens are free. This makes cost estimation straightforward: 100 million input tokens cost $4.20; one billion cost $42, before any applicable tax or account-specific terms. For one million requests averaging 1,000 input tokens, that is also one billion input tokens, or $42 at the published rate. Token batching and repeated state affect the count, so use actual request payloads to estimate.",
+        "subpoints": [
+          "Use it when a workflow needs typed choices or rubric-style classification and you have checked its decisions on representative examples.",
+          "Do not compare its price directly with local generation: Jev sells a hosted decision service; a local model has hardware, energy and maintenance costs instead of a provider token charge.",
+          "Pin a version for evaluations. TypeSafe says aliases can move as releases change."
+        ],
+        "sourceIds": [4, 5]
+      },
+      {
+        "heading": "MiniCPM5-2B: a local generator with a small-model footprint",
+        "content": "OpenBMB positions MiniCPM5-2B as a dense 2B text model for local and resource-constrained use, with tool-use and long-context goals. In OpenBMB’s own comparison table, it reports a 53.9 average against 33.2 for LiquidAI LFM2.5-2.6B and 28.0 for Qwen3.5-2B; on LiveCodeBench v6, it reports 69.1 against 42.1 for LFM2.5. These are the model maker’s selected evaluation results, not an independent or universal ranking, and it does not lead every individual test. Hugging Face lists Apache-2.0 for the model. A GGUF build lets compatible llama.cpp, Ollama or LM Studio setups load a quantized version; the repository documents a Q4_K_M quick start.",
+        "subpoints": [
+          "GPU: no single GPU is required if you run on CPU, but GPU offload can improve speed when your runtime supports your card. Start with the quantized file size, then reserve extra RAM or VRAM for runtime, context/KV cache and other processes.",
+          "Cost: local runs have no per-token provider fee. Estimate power as device watts × hours ÷ 1,000 × your electricity price per kWh; include the hardware purchase only if you are comparing total ownership cost.",
+          "Benchmark honestly: test your own prompts, language, context length and tool calls. Measure quality, peak memory and tokens per second on your hardware."
+        ],
+        "sourceIds": [6, 7]
+      },
+      {
+        "heading": "Benchmarks need a reliability and task-fit check",
+        "content": "Two September arXiv preprints add a useful caution to Jev’s “typed” output story. One reports that, in its controlled rubric experiment, changing semantically loaded option names affected decisions even while the output remained type-valid. A second study comparing Jev with several LLM judges reports mixed outcomes across rubric panels, rather than one winner for every grading task. These are new preprints, not settled consensus and not proof that Jev fails in every use. They do show why schema-valid output must not be mistaken for a correct judgment. Use neutral option labels, blind spot checks and a human escalation path for consequential decisions.",
+        "sourceIds": [8, 9]
+      },
+      {
+        "heading": "Which one should you try first?",
+        "content": "Use this shortlist to choose a first experiment; it is FyreLinkz editorial guidance, not a claim that we independently benchmarked the models.",
+        "table": {
+          "headers": ["Need", "Starting point", "Hardware or spend", "What to verify"],
+          "rows": [
+            ["Route local app tools; extract fields on a constrained device", "Needle 3", "On-device runtime; no published token rate", "Exact-match tool calls, field F1, confidence calibration"],
+            ["Classify or score text with a typed decision output", "Jev 1.13", "Hosted API; $0.042 per million input tokens, output free", "Accuracy by class, option-name bias, current token volume"],
+            ["Generate and edit text locally; explore tool use", "MiniCPM5-2B GGUF", "CPU or supported GPU; quantized model plus runtime/context memory", "Task quality, peak memory, speed, license and deployment fit"],
+            ["Compare another compact local agent model", "LiquidAI LFM2.5-2.6B", "Local device; vendor reports under 2.5 GB memory for its setup", "Reproduce results on your own device and prompts"]
+          ]
+        },
+        "sourceIds": [3, 4, 6, 7, 10]
+      },
+      {
+        "heading": "Build a small evaluation you can reproduce",
+        "content": "Create a small private test set from the task you actually plan to ship. Give every candidate the same inputs, freeze model versions and record answers before looking at aggregate scores. For each local run, note device, runtime, quantization, context length, peak memory and median/p95 latency. For Jev, count input tokens and apply the published rate; check the current docs before budgeting because prices and rate limits can change. Keep failures in the report. A model that costs less but causes expensive review or correction may not be cheaper overall.",
+        "checklist": [
+          "Write 30–100 representative examples, including ambiguous and out-of-scope cases.",
+          "Define success before running: exact match, field-level F1, grounded answer, or human-rated quality.",
+          "Log version, prompt, runtime, quantization, hardware, latency and memory for each run.",
+          "Calculate cloud input-token cost and local energy separately; include human correction time.",
+          "Check confidence calibration and route uncertain or high-impact results to a person."
+        ],
+        "sourceIds": [4, 6, 7, 8, 9]
+      },
+      {
+        "heading": "What this week’s trend means for buyers and builders",
+        "content": "The model-count race is less useful than the task-fit shift. Needle 3 shows why a model can be tiny by specializing; Jev shows a hosted decision product can price input tokens rather than output prose; MiniCPM5-2B and LFM2.5 show continuing investment in capable local agents. None removes evaluation work. Choose the narrowest system that passes your test set, then compare its whole operating cost. For local AI planning, use our [AI workstation planner](/hardware/ai-workstation-planner) to shortlist parts by country, budget and workload; for creators choosing hosted media tools, see our [AI video model comparison](/ai-video-models)."
+      }
+    ],
+    "publishedAt": "2026-09-26",
+    "updatedAt": "2026-09-26",
+    "sourceCheckedAt": "2026-09-26"
+  }
+,
+  {
+    "slug": "taomate-h3-benchmark-gpu-requirements-license",
+    "category": "news",
+    "title": "TaoMate H3: 10.6× faster first video, but what does it really take?",
+    "description": "The most-viewed recent AI Search post we inspected covered TaoMate H3. Here is the measured speedup, eight-GPU requirement, cloud-cost math and US/UK/EU license check.",
+    "topic": "AI video",
+    "image": "taomate-h3-streaming-photo",
+    "imageAlt": "AI-generated editorial photograph of a multi-GPU server beside a video editing timeline, illustrating TaoMate H3 hardware requirements.",
+    "eventDate": "2026-09-13",
+    "featured": true,
+    "takeaway": "AI Search’s September 13 TaoMate H3 post had 39,873 public X views when we checked on September 26—the highest view count among the recent posts inspected, not a verified all-time profile record and not Google Search impressions. TaoMate’s own benchmark reports a 10.60× speedup to first playable video for one 10-second, 480p test, measured on eight H20 96 GB GPUs. It is a multi-GPU research/production setup, and MiniMax H3’s default community license excludes the US, UK and EU unless a separate license is obtained.",
+    "sources": [
+      { "publisher": "AI Search on X", "title": "TaoMate H3 post: streaming MiniMax H3 generation", "url": "https://x.com/aisearchio/status/2098886150907953620", "publishedAt": "2026-09-13" },
+      { "publisher": "AI Search on X", "title": "FastH3 V2 post, used as a recent-post view-count comparison", "url": "https://x.com/aisearchio/status/2099976938739904834", "publishedAt": "2026-09-16" },
+      { "publisher": "TaoLiveAIGC · GitHub", "title": "TaoMate-H3 official repository, installation requirements and benchmark", "url": "https://github.com/TaoLiveAIGC/TaoMate-H3", "publishedAt": "2026-09-08" },
+      { "publisher": "MiniMax · Hugging Face", "title": "MiniMax H3 model card, system architecture and local deployment", "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3" },
+      { "publisher": "MiniMax · Hugging Face", "title": "MiniMax H3 Community License Agreement", "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/main/LICENSE", "publishedAt": "2026-08-02" },
+      { "publisher": "Google Search Central", "title": "Search Console and Google Analytics metrics", "url": "https://developers.google.com/search/docs/monitor-debug/google-analytics-search-console" }
+    ],
+    "sections": [
+      {
+        "heading": "Which post drew the strongest visible interest?",
+        "content": "On September 26, 2026, the recent TaoMate H3 post on AI Search’s X profile showed 39,873 views. That was the largest public view count among the recent profile posts we inspected; a September 16 post about FastH3 V2 showed 28,120. X exposes these as post views. They are not Google Search impressions, unique people, website visits or proof of buying intent. We used the count as a topic-selection signal, then checked the project’s own repository before writing about it. Google Search impressions are measured separately in Search Console when a site listing is shown in Google results.",
+        "sourceIds": [1, 2, 6]
+      },
+      {
+        "heading": "What TaoMate H3 changes",
+        "content": "TaoMate-H3 is a streaming audio-video generation runtime from Alibaba’s TaoLive AIGC team, built around MiniMax H3 and a three-step LoRA. The project says it generates synchronized audio and video in small chunks and supports continuous generation. That makes it interesting for production teams who care about time to first usable frame and long-form continuity. It is not a new consumer website or a one-click replacement for Hailuo; it is code, model weights and an inference stack that operators install and maintain.",
+        "sourceIds": [3, 4]
+      },
+      {
+        "heading": "Read the 10.6× speed claim with its test conditions",
+        "content": "TaoMate’s README reports 17.287 seconds to a first playable video versus 183.313 seconds for its MiniMax H3 comparison: 10.60× faster. The stated test is one 10-second output at 480×864, seed 8301, on one node with eight NVIDIA H20 96 GB GPUs using TP2 × Ulysses4. The same table reports 14.810 seconds versus 169.572 seconds for pure DiT time and 31.37 GiB peak DiT memory for TaoMate. The authors say pure DiT time excludes model loading, text encoding, VAE decoding and media encoding; the first-playable metric includes VAE decoding and H.264 publication, but excludes internal audio preparation. Treat these as project-reported results for this setup, not a universal speed guarantee or independently reproduced FyreLinkz test.",
+        "sourceIds": [3]
+      },
+      {
+        "heading": "GPU and software requirements: this is not a normal desktop build",
+        "content": "The TaoMate repository lists Linux, Python 3.10 or 3.11, CUDA 12.8, PyTorch 2.8 and NVIDIA Hopper/SM90 GPUs. It says eight H20 cards with 96 GB each are the validated configuration, and its runner accepts a four- or eight-GPU count. The public benchmark specifically used eight H20s. MiniMax H3’s model card separately documents a four-GPU SGLang deployment for its base checkpoints. That does not prove every four-GPU combination works with TaoMate: the TaoMate project’s stated tested setup remains the safer reference. A single gaming GPU, Apple laptop or typical 16–24 GB creator card is outside the published TaoMate configuration.",
+        "subpoints": [
+          "For a creator in the US, UK, Canada or EU, get a cloud quote for the required full node before planning a purchase. Compare like-for-like GPU model, per-card VRAM, interconnect, Linux image, storage, region and whether the machine can be stopped between jobs.",
+          "Do not infer end-to-end delivery time from 17.287 seconds: startup, checkpoint download, model load, queueing, audio preparation, post-processing and failed runs can add time.",
+          "For an ordinary solo workflow, a hosted video-generation service or smaller local model may be the more realistic starting point. Check current service prices and terms before choosing."
+        ],
+        "sourceIds": [3, 4]
+      },
+      {
+        "heading": "US, UK and EU readers: check the license before downloading",
+        "content": "The MiniMax H3 Community License Agreement currently defines the US, UK and European Union as Excluded Territories. Its terms say people in those territories interested in deploying the model may contact MiniMax about a separate license. The agreement also addresses hosted services, so do not assume that running weights locally, renting a GPU in another country or calling a hosted endpoint avoids the territorial terms. Confirm written authorization and review the current agreement before using H3 or TaoMate for a commercial project. Canada is not named in that exclusion list, but Canadian users still need to read all license and acceptable-use terms. This is a practical license-reading note, not legal advice; terms may change.",
+        "sourceIds": [4, 5]
+      },
+      {
+        "heading": "Estimate the real cost for a US, UK, Canadian or EU production",
+        "content": "The repository publishes benchmark timings, not a cloud rate card or cost per generated second. Prices vary by provider, region, currency, taxes and availability, so use a dated quote rather than copying another country’s price. For a rented node, estimate total cost as node hourly rate × billable runtime, then add storage, data transfer, setup, idle time and reruns. Convert to local currency and include sales tax or VAT where applicable. For a self-owned node, add acquisition, power, cooling, maintenance and depreciation. Compare that total with current hosted-service pricing for the same resolution, duration and retries; do not treat a speedup ratio as a cost saving by itself.",
+        "table": {
+          "headers": ["Market", "Before committing", "Budget basis"],
+          "rows": [
+            ["United States", "Confirm H3 license eligibility first; the default agreement excludes the US and provides a separate-license contact path.", "Quote full-node hourly rate in USD, plus storage, egress and sales tax."],
+            ["United Kingdom", "Confirm separate H3 authorization; the default agreement excludes the UK.", "Quote in GBP; include VAT, cross-border charges and data-transfer fees."],
+            ["European Union", "Confirm separate H3 authorization; the default agreement excludes the EU.", "Check data-center region, euro quote, VAT and data-governance needs."],
+            ["Canada", "Canada is not in the listed exclusion set; still check current license, cloud availability and acceptable-use terms.", "Quote in CAD; include provincial taxes, storage and egress."]
+          ]
+        },
+        "sourceIds": [3, 5]
+      },
+      {
+        "heading": "Is TaoMate worth testing for your team?",
+        "content": "TaoMate is worth evaluating if you already have access to a supported multi-GPU node, need streaming synchronized audio-video output, and can satisfy MiniMax’s licensing terms. It is a poor first purchase for someone expecting to run long video generations on one consumer graphics card. Reproduce the published 10-second case first, record wall-clock time from cold start to saved file, and compare quality and continuity against your own baseline. Then test several prompts, seeds and failure cases; the public speed table alone says nothing about your project’s visual quality or operating cost.",
+        "checklist": [
+          "Resolve territory and license eligibility before moving model weights or generated outputs.",
+          "Record exact GPU model/count, VRAM, interconnect, driver, CUDA, PyTorch, runtime commit and model revision.",
+          "Measure cold-start and warm-run time separately, including queue, audio, decode and export steps.",
+          "Run matching prompts and seeds at the same resolution; score first playable time, quality and continuity separately.",
+          "Get current local-currency cloud and hosted-service quotes; include taxes, egress, storage and reruns.",
+          "Use our [AI workstation planner](/hardware/ai-workstation-planner) to compare more accessible creator-machine options if this cluster is beyond your workload."
+        ],
+        "sourceIds": [3, 4, 5]
+      }
+    ],
+    "publishedAt": "2026-09-26",
+    "updatedAt": "2026-09-26",
+    "sourceCheckedAt": "2026-09-26"
+  }
 ]
