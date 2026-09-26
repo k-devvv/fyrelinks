@@ -66,7 +66,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <html lang="en"><body><a href="#main-content" className="skip-link">Skip to content</a><PointerAccent /><JsonLd data={[{
+  return <html lang="en"><head><script dangerouslySetInnerHTML={{ __html: `(()=>{try{const t=localStorage.getItem('fyrelinkz-theme');const d=window.matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.dataset.theme=t==='light'||t==='dark'?t:d?'dark':'light'}catch{}})()` }} /></head><body><a href="#main-content" className="skip-link">Skip to content</a><PointerAccent /><JsonLd data={[{
         "@context": "https://schema.org",
         "@type": "Organization",
         "@id": SITE_URL + "/#organization",
