@@ -4,22 +4,28 @@ import {NEWS, GUIDES} from "@/lib/posts";
 import {articlePath, formatDate} from "@/lib/editorial";
 import StoryCard from "@/components/StoryCard";
 import AdSlot from "@/components/AdSlot";
-import ComputeVisual from "@/components/ComputeVisual";
 export default function Home() {
   return <div className="wrap home">
     <section className="home-intro">
       <div className="home-intro-main">
-        <span className="eyebrow"><i className="signal-dot"/> INDEPENDENT PUBLICATION FOR CREATIVE AI</span>
-        <h1>Find your next<br/><span>AI workflow.</span></h1>
-        <p>For AI video creators, ComfyUI builders and people choosing local hardware. Sourced guides, model teardowns and reproducible steps—without synthetic claims or noise.</p>
+        <span className="eyebrow"><i className="signal-dot"/> INDEPENDENT FIELD NOTES FOR CREATIVE AI</span>
+        <h1>Choose better AI tools.<br/><span>Skip costly guesswork.</span></h1>
+        <p>Source-linked guides for AI video, ComfyUI and local hardware—so you know what to try, what it takes and where it can fail before spending time or credits.</p>
         <div className="home-intro-actions">
-          <Link href="/create" className="button-primary">Explore creator guides <ArrowUpRight size={18}/></Link>
-          <Link href="/ai-video-models" className="intro-secondary">Browse the AI model directory ↗</Link>
+          <Link href="/create" className="button-primary">Explore practical guides <ArrowUpRight size={18}/></Link>
+          <Link href="/ai-video-models" className="intro-secondary">Compare video models <ArrowRight size={16}/></Link>
         </div>
+        <div className="hero-proof" aria-label="Editorial standards"><span>Primary sources linked</span><span>No paid rankings</span><span>Practical next steps</span></div>
       </div>
-      <div className="home-intro-visual">
-        <ComputeVisual />
-      </div>
+      <aside className="hero-pathways" aria-label="Choose a starting point">
+        <div className="pathways-heading"><span className="eyebrow">START WITH WHAT YOU’RE MAKING</span><span className="pathways-count">FIELD GUIDE · 01—03</span></div>
+        <div className="pathways-list">
+          <Link className="pathway-link" href="/create/ai-video-prompt-guide-examples"><span className="pathway-number">01</span><span className="pathway-copy"><small>CREATE</small><strong>Plan an AI video shot</strong><span>Prompt structure · model choice · usable takes</span></span><ArrowUpRight aria-hidden="true" size={18}/></Link>
+          <Link className="pathway-link" href="/workflow/comfyui-beginner-first-workflow-guide"><span className="pathway-number">02</span><span className="pathway-copy"><small>BUILD</small><strong>Start a local ComfyUI workflow</strong><span>First graph · model files · common fixes</span></span><ArrowUpRight aria-hidden="true" size={18}/></Link>
+          <Link className="pathway-link" href="/hardware/best-local-ai-workstation-build-guide-2026"><span className="pathway-number">03</span><span className="pathway-copy"><small>CHOOSE</small><strong>Size hardware for your workload</strong><span>VRAM needs · GPU trade-offs · total cost</span></span><ArrowUpRight aria-hidden="true" size={18}/></Link>
+        </div>
+        <div className="pathways-foot"><span className="pathways-pulse" aria-hidden="true"/>Follow sources. Understand trade-offs. Make your call.</div>
+      </aside>
     </section>
     <div className="section-heading compact-heading"><h2>On the radar</h2><Link href="/news">All news <ArrowRight size={16}/></Link></div>
     <section className="hero-grid" aria-label="Featured stories"><StoryCard post={NEWS[0]} variant="lead" priority/><div className="hero-side">{NEWS.slice(1,3).map(p=><StoryCard key={p.slug} post={p} variant="compact"/>)}</div></section>
