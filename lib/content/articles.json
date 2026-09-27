@@ -2445,4 +2445,133 @@
     "updatedAt": "2026-09-26",
     "sourceCheckedAt": "2026-09-26"
   }
+  ,{
+    "slug": "local-ai-pc-upgrade-vs-build-laptop-workstation",
+    "category": "hardware",
+    "title": "Upgrade your PC for local AI—or buy a laptop? A practical decision guide",
+    "description": "Choose between upgrading a desktop, building a PC, or buying a laptop or workstation for local AI. Start with workload, GPU memory, software support, and total cost.",
+    "topic": "Local AI hardware",
+    "image": "local-ai-pc-upgrade-photo",
+    "imageAlt": "Close-up photograph of a processor seated in a desktop motherboard socket.",
+    "imageCaption": "A processor seated in a motherboard socket; illustrative hardware photography, not a tested FyreLinkz build. ",
+    "imageCreditName": "Roman Spiridonov",
+    "imageCreditUrl": "https://unsplash.com/photos/gray-and-green-computer-processor-FemeYrbdMWE",
+    "featured": true,
+    "takeaway": "If you already own a desktop, identify the exact model, workload, software backend, and limiting component before buying anything. A GPU upgrade can help when your target model and context fit its supported memory and runtime; it will not fix incompatible software, insufficient system memory, a weak power supply, or a workflow that depends on a supported NPU execution path. Buy a laptop for portability, a workstation for a supported and supportable configuration, and a new desktop when upgrades cannot solve your constraints.",
+    "sources": [
+      {
+        "publisher": "NVIDIA",
+        "title": "NVIDIA NIM LLM profiles: compatible, low-memory, and incompatible profiles",
+        "url": "https://docs.nvidia.com/nim/large-language-models/latest/profiles.html"
+      },
+      {
+        "publisher": "NVIDIA",
+        "title": "Supported GPU architectures for NVIDIA NIM LLMs",
+        "url": "https://docs.nvidia.com/nim/large-language-models/latest/supported-architectures.html"
+      },
+      {
+        "publisher": "Hugging Face Transformers documentation",
+        "title": "Quantization overview",
+        "url": "https://huggingface.co/docs/transformers/main/quantization/overview"
+      },
+      {
+        "publisher": "Ollama documentation",
+        "title": "GPU support",
+        "url": "https://github.com/ollama/ollama/blob/main/docs/gpu.mdx"
+      },
+      {
+        "publisher": "Ollama documentation",
+        "title": "Context length",
+        "url": "https://github.com/ollama/ollama/blob/main/docs/context-length.mdx"
+      },
+      {
+        "publisher": "Microsoft Learn",
+        "title": "Windows ML overview",
+        "url": "https://learn.microsoft.com/windows/ai/new-windows-ml/overview"
+      },
+      {
+        "publisher": "AMD ROCm documentation",
+        "title": "Radeon and Ryzen Linux compatibility matrix",
+        "url": "https://rocm.docs.amd.com/projects/radeon-ryzen/en/latest/docs/compatibility/compatibilityrad/native_linux/native_linux_compatibility.html"
+      }
+    ],
+    "sections": [
+      {
+        "heading": "Start with the job you need the computer to do",
+        "content": "“Run AI locally” can mean chatting with a quantized language model, generating images, editing video, transcribing audio, or building software that calls models. Those jobs do not share one hardware requirement. Write down the exact application, model and revision, operating system, target context or image size, and whether you need interactive speed or can wait for a batch job. Check the model card and the application’s own hardware guidance before comparing machines. A parameter count by itself cannot tell you whether a model will load, what context will fit, or how quickly your workflow will run.",
+        "sourceIds": [1, 3, 4, 5]
+      },
+      {
+        "heading": "VRAM is a fit constraint, not a complete performance score",
+        "content": "For GPU inference, model weights occupy only part of available memory. The runtime also needs memory for the working context and other buffers; increasing context length can increase that demand. Quantization stores values at lower precision and can reduce memory use, but methods make different quality and compatibility trade-offs. NVIDIA’s NIM profile documentation makes the distinction concrete: a profile can be compatible, low-memory, or incompatible, and a low-memory profile can run with reduced context. Use the target application’s profile or a documented memory estimate as a starting point, then test the exact model and settings on the machine you plan to use. Do not treat a GPU’s advertised memory capacity as a promise that every model or context will fit.",
+        "sourceIds": [1, 3, 5]
+      },
+      {
+        "heading": "Check the software path before choosing a GPU",
+        "content": "A GPU can have enough memory and still be a poor purchase for a particular app if its driver, operating system, inference backend, or model kernel is unsupported. NVIDIA lists GPU models verified for specific NIM profiles and separately documents architecture and minimum-memory requirements; other GPUs may be technically compatible but unverified. Ollama documents GPU support by vendor and backend, while AMD’s ROCm matrix is specific to GPU, operating system, and software versions. Check the current compatibility page for your exact card and intended stack; a vendor-wide label such as “AMD supported” is not enough to establish that your specific workflow works. Software support changes, so save the link and version you used when you make the decision.",
+        "sourceIds": [2, 4, 7]
+      },
+      {
+        "heading": "Desktop upgrade, new build, laptop, or workstation?",
+        "content": "Compare the whole system and the way you work. An existing desktop is often the first option to investigate because a targeted upgrade may preserve usable parts, but first verify the case, power supply, connectors, cooling, motherboard, operating system, and software support. A new desktop lets you choose those constraints together. A laptop trades upgrade flexibility for portability and may rely on a particular GPU or NPU software path. A workstation can offer a documented configuration and vendor support; the word “workstation” alone does not guarantee that an AI framework supports its accelerator.",
+        "table": {
+          "headers": ["Path", "Consider it when", "Check before spending"],
+          "rows": [
+            ["Upgrade desktop", "The current system is compatible and one identified part limits your target workload.", "GPU clearance, power supply capacity/connectors, cooling, memory fit, driver and backend support."],
+            ["Build desktop", "You need to choose memory, power, cooling, storage and upgrade room together.", "Exact app support, total system cost, component dimensions, power draw, warranty and local availability."],
+            ["Buy laptop", "Portability matters more than part replacement or future GPU upgrades.", "Exact GPU/NPU support in your app, shared-memory limits, thermal behavior, ports and warranty."],
+            ["Buy workstation", "Your work benefits from a validated configuration, service, or vendor support.", "The exact accelerator and software stack are listed as supported; confirm support terms and upgrade limits."]
+          ]
+        },
+        "sourceIds": [2, 4, 6, 7]
+      },
+      {
+        "heading": "Treat NPU TOPS and GPU memory as different specifications",
+        "content": "An NPU may be useful for supported, power-efficient on-device tasks, but a TOPS figure is not a substitute for GPU memory or proof that a model runs in your application. Windows ML can route supported workloads through execution providers for CPU, GPU, or NPU hardware. The provider, model format, drivers, and application determine what actually runs. Before paying extra for an NPU feature, confirm that the software you use supports it and that the expected task is compatible. For a local language-model workflow, verify the actual runtime path rather than comparing TOPS numbers across unlike accelerators.",
+        "sourceIds": [6]
+      },
+      {
+        "heading": "Make a country-aware budget with current listings",
+        "content": "There is no durable “best value” part list that stays accurate across the US, UK, Canada, and EU: stock, currency, tax, shipping, warranty, and sales change. Compare the complete upgrade or machine price in your own country, including parts you must replace and any cooling or power changes. Check at least two reputable local sellers on the same day, record the model number and warranty, and compare the total against a new system with the same target workload. Our [AI workstation planner](/hardware/ai-workstation-planner) helps you start from country, budget, and workload; confirm its estimates against current retailer listings before purchase.",
+        "checklist": [
+          "Record the exact application, model revision, operating system, target context or output size, and acceptable wait time.",
+          "Check the model owner’s requirements and the runtime’s current GPU/NPU compatibility page.",
+          "Estimate model, context, and runtime memory together; leave room for the rest of the system and concurrent apps.",
+          "For a desktop, confirm card dimensions, power supply connectors and capacity, case airflow, motherboard fit, and warranty effects.",
+          "Compare full local-currency totals, including tax, shipping, replacement components, and return terms.",
+          "Test the exact app and settings during the return window; record load success, memory use, speed, and output quality."
+        ],
+        "sourceIds": [1, 2, 3, 4, 5, 6, 7]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "How much VRAM do I need to run a local AI model?",
+        "answer": "There is no single VRAM number for every model. It depends on the exact model and quantization, context length, runtime, and other GPU workloads. Check the model owner’s requirements and the runtime’s fit profile, then test the settings you intend to use."
+      },
+      {
+        "question": "Can I use a smaller quantized model on a GPU with less memory?",
+        "answer": "Often, quantization reduces the memory used by model weights, but it can affect output quality and does not remove context or runtime memory needs. Confirm that your app supports the chosen quantization and verify the model at your intended context length."
+      },
+      {
+        "question": "Should I upgrade my current PC or build a new one for local AI?",
+        "answer": "Upgrade if you have identified a specific bottleneck and the case, power, cooling, motherboard, and software support are compatible. Build new if several constraints would force replacements or the total upgrade cost approaches a suitable new system. Compare complete local prices before deciding."
+      },
+      {
+        "question": "Is a laptop NPU enough for local language models?",
+        "answer": "An NPU can accelerate supported workloads, but its TOPS rating alone does not show whether a particular language model, context, or runtime is supported. Check the application’s supported model formats and execution providers for the exact laptop."
+      },
+      {
+        "question": "Will an AMD GPU work with my local AI software?",
+        "answer": "It depends on the exact GPU, operating system, driver, runtime, and model backend. Consult the current compatibility matrix for that combination; support for one AMD card or platform does not establish support for every card or application."
+      },
+      {
+        "question": "Are current AI PC part prices the same in the US, UK, Canada, and EU?",
+        "answer": "No. Currency, tax, stock, shipping, warranty, and retailer pricing vary by market and date. Compare current listings in your country and include the full system cost rather than relying on an undated global price estimate."
+      }
+    ],
+    "publishedAt": "2026-09-27",
+    "updatedAt": "2026-09-27",
+    "sourceCheckedAt": "2026-09-27"
+  }
 ]

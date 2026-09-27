@@ -1,6 +1,6 @@
 # FyreLinkz Editorial Growth Program — Design
 
-**Status:** Design for owner review; no content or product implementation is included in this change.
+**Status:** Approved for staged implementation.
 
 ## Goal
 

@@ -1,5 +1,5 @@
 import type { EditorialPost } from "@/lib/editorial";
-import { SITE_URL, articleShareImagePath, sectionId } from "@/lib/editorial";
+import { SITE_URL, articleShareImagePath, sectionId, faqPageSchema } from "@/lib/editorial";
 import { getCategoryBySlug } from "@/lib/posts";
 type Props = {
   post: EditorialPost;
@@ -62,7 +62,7 @@ export default function JsonLd(props: Props) {
       }, {
         name: p.title,
         url: props.url!
-      }])]
+      }]), ...(faqPageSchema(p.faqs) ? [faqPageSchema(p.faqs)] : [])]
     };
   }
   return <script type="application/ld+json" dangerouslySetInnerHTML={{
