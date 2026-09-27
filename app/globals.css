@@ -851,6 +851,19 @@ kbd {
   text-decoration: underline;
   text-underline-offset: 3px
 }
+.article-faq {
+  margin-top: 48px!important;
+  padding: 26px 28px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  scroll-margin-top: 32px
+}
+.article-faq>.eyebrow { color: var(--accent); font-size: 9px }
+.article-faq h2 { margin: 10px 0 18px }
+.article-faq details { border-top: 1px solid var(--line); padding: 16px 0 }
+.article-faq summary { cursor: pointer; color: var(--ink); font-weight: 650; line-height: 1.6 }
+.article-faq details p { max-width: 760px; margin: 12px 0 0; color: var(--muted) }
+.article-faq summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px }
 .takeaway {
   background: #edeee5;
   border-left: 3px solid var(--accent);

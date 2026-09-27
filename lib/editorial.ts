@@ -1,4 +1,4 @@
-import type { ReviewPost } from './types';
+import type { FAQItem, ReviewPost } from './types';
 export interface Source {
   title: string;
   url: string;
@@ -25,8 +25,12 @@ export interface ArticleInput {
   topic: string;
   image: string;
   imageAlt?: string;
+  imageCaption?: string;
+  imageCreditName?: string;
+  imageCreditUrl?: string;
   takeaway: string;
   sections: ArticleSection[];
+  faqs?: FAQItem[];
   sources: Source[];
   eventDate?: string;
   publishedAt: string;
@@ -39,6 +43,9 @@ export interface EditorialPost extends Omit<ReviewPost, 'category' | 'sections'>
   topic: string;
   image: string;
   imageAlt: string;
+  imageCaption?: string;
+  imageCreditName?: string;
+  imageCreditUrl?: string;
   sources: Source[];
   eventDate?: string;
   sourceCheckedAt: string;
@@ -58,7 +65,8 @@ export function articleFromInput(p: ArticleInput): EditorialPost {
       ...(s.checklist ?? []),
       ...(s.table?.headers ?? []),
       ...(s.table?.rows?.flat() ?? [])
-    ])
+    ]),
+    ...(p.faqs ?? []).flatMap(f => [f.question, f.answer])
   ].join(' ').split(/\s+/).length;
   return {
     ...p,
@@ -82,7 +90,7 @@ export function articleFromInput(p: ArticleInput): EditorialPost {
     },
     keySpecs: [],
     tableData: [],
-    faqs: [],
+    faqs: p.faqs ?? [],
     imageAlt: p.imageAlt ?? `FyreLinkz editorial illustration: ${p.title}`
   };
 }
@@ -94,6 +102,17 @@ export function articleShareImagePath(image: string) {
 }
 export function sectionId(h: string) {
   return h.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+export function faqPageSchema(faqs: FAQItem[]) {
+  if (!faqs.length) return undefined;
+  return {
+    "@type": "FAQPage",
+    mainEntity: faqs.map(faq => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: { "@type": "Answer", text: faq.answer }
+    }))
+  };
 }
 export function formatDate(d: string) {
   return new Intl.DateTimeFormat('en', {
