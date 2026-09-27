@@ -34,7 +34,7 @@ function cleanPageLocation() {
 }
 function disableTracking() {
   (window as unknown as Record<string,unknown>)[`ga-disable-${id}`] = true;
-  window.gtag?.("consent","update",{analytics_storage:"denied",ad_storage:"denied",ad_user_data:"denied",ad_personalization:"denied"});
+  window.gtag?.("consent","update",{analytics_storage:"denied"});
   for (const cookie of document.cookie.split(";")) {
     const name = cookie.split("=")[0].trim();
     if (!name.startsWith("_ga")) continue;
@@ -60,11 +60,15 @@ export default function Analytics() {
     (window as unknown as Record<string,unknown>)[`ga-disable-${id}`]=false;
     window.dataLayer=window.dataLayer||[];
     window.gtag=window.gtag||function(){window.dataLayer!.push(arguments);};
-    window.gtag("consent","default",{analytics_storage:"denied",ad_storage:"denied",ad_user_data:"denied",ad_personalization:"denied"});
+    // This site currently uses consent-gated GA4 only, not advertising tags.
+    // Avoid sending blanket denied ad signals in every region; add regional ad
+    // consent defaults when an ad platform and its consent flow are introduced.
+    window.gtag("consent","default",{analytics_storage:"denied"});
     window.gtag("consent","update",{analytics_storage:"granted"});
     window.gtag("js",new Date());
     let script=document.getElementById("fyre-google-tag") as HTMLScriptElement|null;
     if (!script) {
+      window.dataLayer.push({"gtm.start":Date.now(),event:"gtm.js"});
       script=document.createElement("script");script.id="fyre-google-tag";script.async=true;script.src=`https://www.googletagmanager.com/gtm.js?id=${containerId}`;
       document.head.appendChild(script);
     }
