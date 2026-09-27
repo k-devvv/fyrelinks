@@ -7,7 +7,8 @@ import Link from "next/link";
 declare global {
   interface Window {dataLayer?: unknown[]; gtag?: (...args: unknown[]) => void;}
 }
-const id = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "";
+// Default to FyreLinkz's own GA4 stream; Vercel can still override it per environment.
+const id = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "G-FX5Q71NMSE";
 const configured = /^G-[A-Z0-9]+$/.test(id);
 const consentKey = "fyre-analytics-consent";
 const allowedEvents = new Set(["estimate_view","estimate_share","model_select","plan_select","provider_visit","source_visit","rss_subscribe","related_read","planner_start","planner_complete","planner_market","planner_guide_click","planner_source_click"]);
