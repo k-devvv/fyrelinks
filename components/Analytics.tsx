@@ -7,9 +7,10 @@ import Link from "next/link";
 declare global {
   interface Window {dataLayer?: unknown[]; gtag?: (...args: unknown[]) => void;}
 }
-// Default to FyreLinkz's own GA4 stream; Vercel can still override it per environment.
-const id = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "G-FX5Q71NMSE";
-const configured = /^G-[A-Z0-9]+$/.test(id);
+// Public IDs for this site's GA4 stream and GTM container.
+const id = "G-FX5Q71NMSE";
+const containerId = "GTM-NBVLKZLF";
+const configured = /^G-[A-Z0-9]+$/.test(id) && /^GTM-[A-Z0-9]+$/.test(containerId);
 const consentKey = "fyre-analytics-consent";
 const allowedEvents = new Set(["estimate_view","estimate_share","model_select","plan_select","provider_visit","source_visit","rss_subscribe","related_read","planner_start","planner_complete","planner_market","planner_guide_click","planner_source_click"]);
 const plannerValues:Record<string,Set<string>>={
@@ -33,7 +34,7 @@ function cleanPageLocation() {
 }
 function disableTracking() {
   (window as unknown as Record<string,unknown>)[`ga-disable-${id}`] = true;
-  window.gtag?.("consent","update",{analytics_storage:"denied",ad_storage:"denied",ad_user_data:"denied",ad_personalization:"denied"});
+  window.gtag?.("consent","update",{analytics_storage:"denied"});
   for (const cookie of document.cookie.split(";")) {
     const name = cookie.split("=")[0].trim();
     if (!name.startsWith("_ga")) continue;
@@ -59,13 +60,16 @@ export default function Analytics() {
     (window as unknown as Record<string,unknown>)[`ga-disable-${id}`]=false;
     window.dataLayer=window.dataLayer||[];
     window.gtag=window.gtag||function(){window.dataLayer!.push(arguments);};
-    window.gtag("consent","default",{analytics_storage:"denied",ad_storage:"denied",ad_user_data:"denied",ad_personalization:"denied"});
+    // This site currently uses consent-gated GA4 only, not advertising tags.
+    // Avoid sending blanket denied ad signals in every region; add regional ad
+    // consent defaults when an ad platform and its consent flow are introduced.
+    window.gtag("consent","default",{analytics_storage:"denied"});
     window.gtag("consent","update",{analytics_storage:"granted"});
     window.gtag("js",new Date());
-    window.gtag("config",id,{send_page_view:false,allow_google_signals:false,allow_ad_personalization_signals:false,page_location:cleanPageLocation(),page_referrer:document.referrer?new URL(document.referrer).origin:""});
     let script=document.getElementById("fyre-google-tag") as HTMLScriptElement|null;
     if (!script) {
-      script=document.createElement("script");script.id="fyre-google-tag";script.async=true;script.src=`https://www.googletagmanager.com/gtag/js?id=${id}`;
+      window.dataLayer.push({"gtm.start":Date.now(),event:"gtm.js"});
+      script=document.createElement("script");script.id="fyre-google-tag";script.async=true;script.src=`https://www.googletagmanager.com/gtm.js?id=${containerId}`;
       document.head.appendChild(script);
     }
     setReady(true);

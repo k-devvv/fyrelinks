@@ -83,8 +83,9 @@ The publication is engineered for monetization readiness while adhering strictly
 
 ## 6. Analytics Setup (Optional)
 
-Consent-based Google Analytics 4 is supported via `NEXT_PUBLIC_GA_MEASUREMENT_ID`.
-- No tracking cookies or events are triggered before explicit user consent.
+Consent-based Google Analytics 4 is routed through the FyreLinkz Google Tag Manager container. The public container and Measurement IDs are set in `components/Analytics.tsx`.
+- The GTM container and analytics tags load only after explicit analytics consent. No tracking cookies or events are triggered before consent; Do Not Track and Global Privacy Control suppress tracking.
+- Keep the GA4 Google Tag's automatic page view disabled; the site sends sanitized SPA page views itself. Google Signals and ad personalization signals stay disabled. Do not add advertising, affiliate, or other vendor tags before their consent and privacy requirements are reviewed.
 - DNT (Do Not Track) and GPC (Global Privacy Control) browser headers are respected.
 - Event tracking captures `page_view`, `source_visit`, `related_read`, and `rss_subscribe`.
 
