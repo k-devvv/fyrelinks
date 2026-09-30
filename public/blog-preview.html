@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="theme-color" content="#f7f3eb"/>
+<title>Fine-Tuning versus RAG versus Pre-Training: Cost Drivers &amp; Trade-Offs | FyreLinkz</title>
+<meta name="description" content="Before committing budget, understand the real cost drivers behind fine-tuning, retrieval-augmented generation and full pre-training."/>
+<link rel="icon" href="https://www.fyrelinkz.com/icon.svg" type="image/svg+xml"/>
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:28px}
+body{margin:0;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit}
+button{cursor:pointer;border:0;background:none;color:inherit}
+h1,h2,h3,p{margin:0}
+img{display:block;max-width:100%;height:auto}
+:root{color-scheme:light;--paper:#f7f3eb;--ink:#20211e;--muted:#696961;--line:#ded9cf;--accent:#d9502b;--lime:#e3edc3;--surface:#fffdf8;--raised:#efeae1;--serif:"Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,serif;--sans:"Aptos","Segoe UI",sans-serif;--display:"Iowan Old Style","Palatino Linotype",Georgia,serif}
+[data-theme="dark"]{color-scheme:dark;--paper:#11120f;--ink:#f1eee7;--muted:#b2aca0;--line:#3b3933;--accent:#ff926d;--surface:#1b1b18;--raised:#292822}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px}
+::selection{background:#f0c7a5;color:#25211e}
+.wrap{max-width:1340px;margin-inline:auto;padding-inline:clamp(22px,5.3vw,84px)}
+.skip-link{position:fixed;left:20px;top:-80px;background:var(--ink);color:white;padding:14px;z-index:100}
+.skip-link:focus{top:10px}
+.eyebrow{font-size:10px;font-weight:700;letter-spacing:1.55px;text-transform:uppercase;line-height:1.5}
+.site-header{background:#20211e;color:#fffaf3;border:0}
+.utility{display:flex;justify-content:space-between;align-items:center;padding-block:13px;border-bottom:1px solid #514f47;font-size:9px;letter-spacing:1.5px}
+.utility>div{display:flex;gap:25px;letter-spacing:.4px}
+.utility a:hover{text-decoration:underline}
+.masthead{display:flex;align-items:center;gap:28px;min-height:78px;padding-block:12px}
+.brand{display:inline-flex;align-items:center;gap:11px;white-space:nowrap;font-family:var(--sans);font-size:25px;font-weight:720;letter-spacing:-1.05px}
+.brand-name{display:inline-flex;align-items:baseline}
+.brand-accent{color:#f4875d}
+.brand-period{display:none}
+.brand-icon-wrapper{width:43px;height:43px;display:grid;place-items:center;flex:0 0 auto}
+.brand-symbol{overflow:visible;width:100%;height:100%;animation:mark-arrive .68s cubic-bezier(.16,1,.3,1) both;transform-origin:center}
+.brand-mark-orbit{stroke:#f5875c;stroke-width:1.4;fill:none;stroke-dasharray:128;stroke-dashoffset:128;animation:orbit-draw 1s .12s cubic-bezier(.16,1,.3,1) forwards}
+.brand-mark-letter{stroke:#fff9f0;stroke-width:3.25;stroke-linecap:round;stroke-linejoin:round;fill:none}
+.brand-mark-spark{fill:#f3c77b;transform-origin:34px 18px;animation:spark-arrive .55s .5s cubic-bezier(.16,1,.3,1) both}
+.brand:hover .brand-symbol{animation:mark-turn .48s cubic-bezier(.16,1,.3,1) both}
+@keyframes mark-arrive{from{opacity:0;transform:scale(.78) rotate(-12deg)}to{opacity:1;transform:scale(1) rotate(0)}}
+@keyframes orbit-draw{to{stroke-dashoffset:0}}
+@keyframes spark-arrive{from{opacity:0;transform:rotate(-32deg) scale(.5)}to{opacity:1;transform:rotate(0) scale(1)}}
+@keyframes mark-turn{50%{transform:rotate(10deg) scale(1.045)}}
+.masthead-note{font-size:12px;line-height:1.6;padding-left:26px;border-left:1px solid #514f47;color:#d8d4ca}
+.masthead-note strong{color:#fffaf3;font-weight:400}
+.header-actions{margin-left:auto;display:flex;align-items:center;gap:9px}
+.theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:39px;padding:8px 12px;border:1px solid #5b584f;border-radius:99px;color:#f6eee4;font-size:12px;transition:background .18s,border-color .18s}
+.theme-toggle:hover{border-color:#ec9169;background:#ffffff10}
+.search-button{display:flex;align-items:center;gap:10px;border:1px solid #5b584f;padding:10px 14px;font-size:12px;border-radius:99px;color:#f6eee4}
+.search-button:hover{border-color:#ec9169;color:white}
+.search-button kbd{font-family:inherit;font-size:9px;background:#383831;color:#f0e8dc;padding:3px 5px;border-radius:2px;margin-left:16px}
+.mobile-toggle{display:none}
+.nav-border{background:#272821;border-bottom:1px solid #4b4a41;border-top:1px solid #4b4a41}
+.main-nav{display:flex;align-items:center;gap:clamp(19px,3vw,44px);min-height:46px;font-size:12px;font-weight:600}
+.main-nav a{display:flex;align-items:center;gap:6px;padding-block:13px;position:relative;color:#e5dfd4}
+.main-nav a:hover,.main-nav a[aria-current=page]{color:#ffc49f}
+.main-nav a[aria-current=page]:after{position:absolute;bottom:-1px;left:0;right:0;height:2px;background:#f4875d;content:""}
+.main-nav .nav-tool{margin-left:auto;font-size:11px;font-weight:400;color:#ffc49f}
+.article-page{padding-bottom:80px}
+.reading-progress-bar{position:fixed;top:0;left:0;height:3px;background:var(--accent);z-index:99;width:0;transition:width .12s}
+.breadcrumbs{display:flex;align-items:center;gap:8px;font-size:11px;padding:20px 0 30px;color:var(--muted)}
+.breadcrumbs a:hover{color:var(--accent)}
+.breadcrumbs span[aria-current]{color:var(--ink)}
+.article-header{max-width:760px;margin-bottom:28px}
+.article-header .story-meta{display:flex;align-items:center;flex-wrap:wrap;gap:12px;font-size:10px;color:var(--muted);margin-bottom:18px}
+.topic{color:var(--accent)}
+.article-header h1{font-family:var(--display);font-size:clamp(36px,4.4vw,60px);line-height:1.05;letter-spacing:-1.8px;font-weight:500}
+.article-deck{font-size:20px;color:var(--muted);line-height:1.6;margin-top:18px;max-width:640px}
+.article-byline{display:flex;align-items:center;gap:14px;margin-top:26px}
+.author-mark{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--raised);color:var(--ink);font-family:var(--display);font-size:19px;font-weight:650;letter-spacing:-.5px;flex-shrink:0}
+.author-mark span{color:var(--accent);font-size:10px;margin-left:1px}
+.article-byline div a{font-weight:600;font-size:14px}
+.article-byline div a:hover{color:var(--accent)}
+.article-byline div p{font-size:11px;color:var(--muted);margin-top:3px}
+.event-date{font-size:11px;color:var(--muted);margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}
+.article-figure{margin:32px 0 36px}
+.article-figure .story-image{border-radius:12px;aspect-ratio:1.85;width:100%;object-fit:cover}
+.article-figure figcaption{font-size:11px;color:var(--muted);margin-top:10px;font-style:italic}
+.article-grid{display:grid;grid-template-columns:220px minmax(0,1fr);gap:50px;margin-top:8px}
+.article-contents{position:sticky;top:80px;align-self:start}
+.article-contents .eyebrow{display:block;margin-bottom:14px;color:var(--muted)}
+.article-contents nav{display:flex;flex-direction:column}
+.article-contents nav a{display:block;padding:9px 0;font-size:13px;color:var(--muted);border-bottom:1px solid var(--line);line-height:1.4}
+.article-contents nav a:hover{color:var(--accent)}
+.contents-tool{display:block;margin-top:18px;padding:10px 14px;background:var(--raised);color:var(--accent);border-radius:7px;font-size:12px;font-weight:600;text-align:center}
+.contents-tool:hover{background:var(--line)}
+.article-body{max-width:720px}
+.article-body p,.article-body li{color:var(--muted);font-size:17px;line-height:1.85}
+.article-body p{margin-bottom:20px}
+.article-body h2{font-family:var(--display);font-size:30px;letter-spacing:-.7px;font-weight:500;margin:42px 0 18px;line-height:1.15}
+.article-body ul,.article-body ol{padding-left:22px;margin:14px 0 20px}
+.article-body li{margin-bottom:8px}
+.article-body a{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.article-body a:hover{color:var(--ink)}
+.takeaway{padding:27px;margin-bottom:36px}
+[data-theme="dark"] .takeaway{background:#1e2118;border:1px solid #3a3d2f;border-left:3px solid #bdea97;border-radius:0 9px 9px 0}
+.takeaway .eyebrow{color:#bdea97}
+[data-theme="dark"] .takeaway p{color:#e8eadf;font-size:21px;line-height:1.6;margin:12px 0 0}
+.inline-sources{font-size:11px;color:var(--muted);margin-top:-8px;margin-bottom:20px;padding-top:8px}
+.inline-sources a{color:var(--muted);text-decoration:underline}
+.inline-sources a:hover{color:var(--accent)}
+.matrix-table-wrapper{margin:24px 0 32px;overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+.matrix-table{width:100%;border-collapse:collapse;font-size:13px}
+.matrix-table thead{background:var(--raised)}
+.matrix-table th{text-align:left;padding:14px 16px;font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--line)}
+.matrix-table td{padding:14px 16px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.55;color:var(--muted)}
+.matrix-table tbody tr:last-child td{border-bottom:0}
+.matrix-table tbody tr:hover{background:var(--raised)}
+.article-checklist{margin:20px 0 32px;padding:22px 24px;background:var(--surface);border:1px solid var(--line);border-radius:10px}
+.checklist-badge{display:inline-block;font-size:9px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.article-checklist ul{list-style:none;padding:0;margin:0}
+.article-checklist li{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px;line-height:1.65;color:var(--muted)}
+.article-checklist li:last-child{border:0}
+.check-box{display:grid;place-items:center;width:22px;height:22px;border-radius:5px;background:var(--raised);color:var(--accent);font-size:13px;flex-shrink:0;margin-top:1px;font-weight:700}
+.sources-box{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:28px;margin-top:42px}
+.sources-box>.eyebrow{color:var(--accent);display:block;margin-bottom:8px}
+.sources-box h2{font-family:var(--display);font-size:27px;font-weight:500;letter-spacing:-.5px;margin-bottom:6px}
+.sources-box>p{font-size:12px;color:var(--muted);margin-bottom:20px}
+.sources-box ol{list-style:none;padding:0;margin:0}
+.sources-box li{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--line);font-size:13px}
+.sources-box li:last-child{border:0}
+.source-number{display:grid;place-items:center;width:28px;height:28px;border:1px solid var(--line);border-radius:50%;color:var(--muted);font-size:11px;flex-shrink:0;font-weight:600}
+.sources-box li div a{color:var(--ink);font-weight:500}
+.sources-box li div a:hover{color:var(--accent)}
+.sources-box li small{display:block;color:var(--muted);font-size:11px;margin-top:3px}
+.correction-link{margin-top:32px;padding:20px 24px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+.correction-link strong{font-size:14px}
+.correction-link p{font-size:13px;color:var(--muted);margin-top:4px}
+.correction-link a{color:var(--accent)}
+.related-section{margin-top:60px;padding-top:40px;border-top:1px solid var(--line)}
+.section-heading{display:flex;justify-content:space-between;align-items:end;gap:20px;padding-bottom:20px;border-bottom:1px solid var(--ink);margin-bottom:22px}
+.section-heading h2{font-family:var(--display);font-size:clamp(27px,3vw,38px);font-weight:500;letter-spacing:-.045em;line-height:1.15}
+.section-heading h2 span{color:var(--accent)}
+.guide-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:24px}
+.story-card{border:1px solid var(--line);border-radius:5px;overflow:hidden;background:var(--surface);box-shadow:0 4px 20px -19px #373025;transition:transform .28s cubic-bezier(.16,1,.3,1),box-shadow .28s ease}
+.story-card:hover{transform:translateY(-3px);box-shadow:0 16px 36px -24px #3e322866}
+.story-image-link{display:block;position:relative;overflow:hidden;background:var(--raised);border:0;border-radius:0}
+.story-image{width:100%;aspect-ratio:1.6;object-fit:cover;transition:transform .7s cubic-bezier(.16,1,.3,1)}
+.story-card:hover .story-image{transform:scale(1.025)}
+.image-arrow{position:absolute;bottom:0;right:0;display:grid;place-items:center;width:36px;height:36px;background:var(--paper);font-size:25px;transform:translateY(100%);transition:transform .2s}
+.story-image-link:hover .image-arrow{transform:translateY(0)}
+.story-copy{padding:16px}
+.story-meta{display:flex;align-items:center;flex-wrap:wrap;gap:12px;font-size:10px;color:var(--muted);margin-bottom:10px}
+.card-badge{font-size:10px;color:var(--muted)}
+.story-card h2{font-family:var(--display);font-size:22px;font-weight:500;letter-spacing:-.035em;line-height:1.13}
+.story-card h2 a:hover{color:var(--accent)}
+.story-card .story-copy>p{color:var(--muted);font-size:13px;line-height:1.75;margin-top:10px}
+.byline-small{font-size:9px;margin-top:14px}
+.byline-small span{color:var(--muted)}
+.site-footer{background:#171714;border-top:1px solid var(--line)}
+.footer-top{display:flex;justify-content:space-between;gap:60px;padding:50px 0 40px}
+.footer-top>div>p{font-size:12px;color:var(--muted);margin-top:14px;line-height:1.7}
+.footer-links{display:flex;gap:60px}
+.footer-links>div{display:flex;flex-direction:column;gap:10px}
+.footer-links .eyebrow{margin-bottom:6px;color:var(--muted)}
+.footer-links a{font-size:12px;color:var(--muted)}
+.footer-links a:hover{color:var(--accent)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-top:1px solid var(--line);font-size:10px;color:#8d97a9}
+.footer-bottom a:hover{color:var(--accent)}
+.article-next-read{margin:32px 0}
+.article-next-read a{display:grid;grid-template-columns:280px 1fr;gap:22px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface);transition:border-color .2s}
+.article-next-read a:hover{border-color:var(--accent)}
+.article-next-read .story-image{aspect-ratio:1.6;height:100%;object-fit:cover;border-radius:0}
+.article-next-read span{display:flex;flex-direction:column;justify-content:center;padding:20px 22px 20px 0;gap:8px}
+.article-next-read small{color:var(--accent)}
+.article-next-read strong{font-family:var(--display);font-size:21px;font-weight:500;letter-spacing:-.3px;line-height:1.2}
+.article-next-read span>span{font-size:13px;color:var(--muted);line-height:1.6}
+@media(max-width:900px){
+  .article-grid{grid-template-columns:1fr}
+  .article-contents{display:none}
+  .guide-grid{grid-template-columns:1fr}
+  .footer-top{flex-direction:column;gap:30px}
+  .footer-links{flex-wrap:wrap;gap:30px}
+  .article-next-read a{grid-template-columns:1fr}
+  .masthead-note{display:none}
+}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to content</a>
+<header class="site-header">
+  <div class="utility wrap">
+    <span>INDEPENDENT SIGNAL FOR THE AI GENERATION</span>
+    <div><a href="https://www.fyrelinkz.com/about">Our approach</a><a href="https://www.fyrelinkz.com/feed.xml">RSS &#8599;</a></div>
+  </div>
+  <div class="masthead wrap">
+    <a class="brand" aria-label="FyreLinkz home" href="https://www.fyrelinkz.com/">
+      <span class="brand-icon-wrapper" aria-hidden="true"><svg class="brand-symbol" viewBox="0 0 48 48" fill="none" role="presentation"><path class="brand-mark-orbit" d="M24 3.75a20.25 20.25 0 1 1 0 40.5 20.25 20.25 0 0 1 0-40.5Z"/><path class="brand-mark-letter" d="M28.7 12.5h-5a5.7 5.7 0 0 0-5.7 5.7V35M14 24h13.5M29 26v8h7"/><path class="brand-mark-spark" d="m34 11 1.8 5.2L41 18l-5.2 1.8L34 25l-1.8-5.2L27 18l5.2-1.8L34 11Z"/></svg></span>
+      <span class="brand-name"><span>fyre</span><span class="brand-accent">linkz</span><span class="brand-period">.</span></span>
+    </a>
+    <p class="masthead-note">Less noise.<br/><strong>More making.</strong></p>
+    <div class="header-actions">
+      <button class="theme-toggle" aria-label="Switch to light mode" title="Switch to light mode"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg><span>Light</span></button>
+      <button class="search-button" aria-label="Search FyreLinkz"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><span>Search</span><kbd>Ctrl K</kbd></button>
+    </div>
+  </div>
+  <div class="nav-border">
+    <nav id="main-navigation" aria-label="Main navigation" class="main-nav wrap">
+      <a aria-current="page" href="https://www.fyrelinkz.com/news">News</a>
+      <a href="https://www.fyrelinkz.com/create">AI video &amp; images</a>
+      <a href="https://www.fyrelinkz.com/workflow">Guides</a>
+      <a href="https://www.fyrelinkz.com/hardware">Hardware</a>
+      <a href="https://www.fyrelinkz.com/ai-video-models">Model directory</a>
+      <a class="nav-tool" href="https://www.fyrelinkz.com/create">Start reading <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+    </nav>
+  </div>
+</header>
+<main id="main-content" tabindex="-1">
+<article class="wrap article-page">
+  <div class="reading-progress-bar" aria-hidden="true"></div>
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <a href="https://www.fyrelinkz.com/">Home</a><span>/</span>
+    <a href="https://www.fyrelinkz.com/news">News</a><span aria-hidden="true">/</span>
+    <span aria-current="page">Fine-Tuning vs RAG vs Pre-Training</span>
+  </nav>
+  <header class="article-header">
+    <div class="story-meta"><span class="eyebrow topic">AI models</span><span>Source analysis &#183; 5 min read</span></div>
+    <h1>Fine-Tuning versus RAG versus Pre-Training: Cost Drivers &amp; Trade-Offs</h1>
+    <p class="article-deck">Before committing budget, understand the real cost drivers behind fine-tuning, retrieval-augmented generation and full pre-training. This analysis covers compute, data, latency and maintenance so you can match your workload to the right approach.</p>
+    <div class="article-byline">
+      <span class="author-mark">f<span>&#10035;</span></span>
+      <div><a href="https://www.fyrelinkz.com/about">FyreLinkz Editorial</a><p>Published <time datetime="2026-09-30">Sep 30, 2026</time></p></div>
+    </div>
+    <p class="event-date">Analysis date: <time datetime="2026-09-30">Sep 30, 2026</time> &#183; Sourced from primary documentation</p>
+  </header>
+  <figure class="article-figure">
+    <img alt="Editorial photograph: Data engineer reviewing holographic cost comparison dashboards showing Fine-Tuning, RAG, and Pre-Training pipelines." width="1200" height="750" class="story-image" style="color:transparent" src="/art/fine-tuning-rag-pretraining-cost-photo.jpg"/>
+    <figcaption>Editorial photograph. Illustrative only; not a product screenshot or test evidence.</figcaption>
+  </figure>
+  <div class="article-grid">
+    <aside class="article-contents"><div>
+      <span class="eyebrow">IN THIS STORY</span>
+      <nav aria-label="Table of contents">
+        <a href="#why-the-choice-matters-now">Why the choice matters now</a>
+        <a href="#three-approaches-one-table">Three approaches, one table</a>
+        <a href="#fine-tuning-when-it-pays">Fine-tuning: when it pays</a>
+        <a href="#rag-when-it-pays">RAG: when it pays</a>
+        <a href="#pre-training-when-it-pays">Pre-training: when it pays</a>
+        <a href="#decision-checklist">Decision checklist</a>
+        <a href="#sources">Sources &amp; further reading</a>
+      </nav>
+      <a class="contents-tool" href="https://www.fyrelinkz.com/workflow">Explore AI workflow guides &#8599;</a>
+    </div></aside>
+    <div class="article-body">
+      <div class="takeaway">
+        <span class="eyebrow">QUICK ANSWER</span>
+        <p>Fine-tuning reshapes a pre-trained model for your task. RAG retrieves external context at inference time. Pre-training builds a model from scratch. Each trades off compute cost, data requirement, latency and ongoing maintenance differently&#8212;choosing the wrong one wastes budget without improving output.</p>
+      </div>
+      <section id="why-the-choice-matters-now">
+        <h2>Why the choice matters now</h2>
+        <p>Enterprise teams deploying LLMs face a real cost decision before their first production prompt. The price of a single GPU hour on an H100 ranges from $2.50 to $3.80 on major clouds, and a full fine-tuning run on a 70B model can consume 200&#8211;400 GPU-hours. A RAG pipeline avoids that training spend but adds retrieval-infrastructure costs. Pre-training&#8212;reserved for frontier labs or well-funded startups&#8212;can run past $1M in compute alone.</p>
+        <p>Choosing the wrong approach doesn&#8217;t just overspend. It locks in latency profiles, data freshness limits and maintenance burdens that compound over time. This guide separates each approach&#8217;s real cost drivers so teams can size the trade-off before committing.</p>
+        <div class="inline-sources">Source: <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/fine-tuning.html" target="_blank" rel="noopener noreferrer">AWS SageMaker documentation [1] &#8599;</a> &#183; <a href="https://cloud.google.com/vertex-ai/docs/generative-ai/models/tune-models" target="_blank" rel="noopener noreferrer">Google Cloud Vertex AI [2] &#8599;</a></div>
+      </section>
+      <section id="three-approaches-one-table">
+        <h2>Three approaches, one table</h2>
+        <p>This matrix compares the key cost dimensions. &#8220;Setup compute&#8221; is the one-time training or indexing cost; &#8220;inference overhead&#8221; is the per-request penalty; &#8220;data freshness&#8221; describes how quickly new information reaches the model.</p>
+        <div class="matrix-table-wrapper">
+          <table class="matrix-table">
+            <thead><tr><th>Dimension</th><th>Fine-Tuning</th><th>RAG</th><th>Pre-Training</th></tr></thead>
+            <tbody>
+              <tr><td>Setup compute</td><td>Medium &#8212; 200&#8211;400 GPU-hrs (70B)</td><td>Low &#8212; indexing only</td><td>Very high &#8212; 10k+ GPU-hrs</td></tr>
+              <tr><td>Data requirement</td><td>1k&#8211;100k curated examples</td><td>Existing docs / DB</td><td>Billions of tokens</td></tr>
+              <tr><td>Data freshness</td><td>Stale until retrained</td><td>Near-real-time</td><td>Stale until retrained</td></tr>
+              <tr><td>Inference overhead</td><td>None beyond base model</td><td>Retrieval latency added</td><td>None beyond base model</td></tr>
+              <tr><td>Ongoing maintenance</td><td>Periodic retraining</td><td>Index + pipeline upkeep</td><td>Full retraining cycle</td></tr>
+              <tr><td>Best for</td><td>Style / format / domain shift</td><td>Knowledge-heavy, fast-changing data</td><td>New language or domain from scratch</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="inline-sources">Source: <a href="https://arxiv.org/abs/2312.10997" target="_blank" rel="noopener noreferrer">Lewis et al. &#8212; RAG survey, arXiv [3] &#8599;</a></div>
+      </section>
+      <section id="fine-tuning-when-it-pays">
+        <h2>Fine-tuning: when it pays</h2>
+        <p>Fine-tuning adjusts a pre-trained model&#8217;s weights using task-specific data. The economic case is strong when you need consistent style, format or domain adherence and your data changes slowly enough to retrain quarterly or less.</p>
+        <ul>
+          <li><strong>Cost driver:</strong> GPU-hours for training. LoRA and QLoRA reduce this by 60&#8211;80% on large models.</li>
+          <li><strong>Hidden cost:</strong> Data curation. A high-quality 10k-example dataset may take weeks of expert annotation.</li>
+          <li><strong>Latency:</strong> No inference-time penalty beyond the base model&#8212;weights are baked in.</li>
+          <li><strong>Maintenance:</strong> Each retrain requires scheduling, evaluation and rollback infrastructure.</li>
+        </ul>
+        <div class="inline-sources">Source: <a href="https://arxiv.org/abs/2305.14314" target="_blank" rel="noopener noreferrer">Dettmers et al. &#8212; QLoRA, arXiv [4] &#8599;</a></div>
+      </section>
+      <section id="rag-when-it-pays">
+        <h2>RAG: when it pays</h2>
+        <p>RAG retrieves relevant documents at inference time and feeds them into the model&#8217;s context window. It avoids retraining entirely and keeps answers grounded in your latest data.</p>
+        <ul>
+          <li><strong>Cost driver:</strong> Vector database hosting and embedding generation. Managed services (Pinecone, Weaviate Cloud) start at $70/month; self-hosted Qdrant or Milvus shifts cost to infrastructure engineering.</li>
+          <li><strong>Hidden cost:</strong> Chunking strategy quality directly impacts retrieval accuracy. Bad chunks = bad answers regardless of LLM quality.</li>
+          <li><strong>Latency:</strong> Adds 100&#8211;400ms per query for retrieval and re-ranking.</li>
+          <li><strong>Maintenance:</strong> Index freshness pipeline&#8212;if your data updates hourly, your pipeline must too.</li>
+        </ul>
+        <div class="inline-sources">Source: <a href="https://arxiv.org/abs/2005.11401" target="_blank" rel="noopener noreferrer">Lewis et al. &#8212; RAG original paper, arXiv [5] &#8599;</a></div>
+      </section>
+      <aside class="article-next-read" aria-label="Related reading">
+        <a href="https://www.fyrelinkz.com/stack/self-hosted-vector-db-pricing-and-latency-benchmarks">
+          <img alt="Vector database comparison editorial photograph." loading="lazy" width="1200" height="750" class="story-image" style="color:transparent" src="https://www.fyrelinkz.com/_next/image?url=%2Fart%2Fvector-db-comparison-photo.webp&amp;w=828&amp;q=75"/>
+          <span><small class="eyebrow">READ NEXT</small><strong>Qdrant vs Weaviate vs Milvus vs Pinecone: what to compare</strong><span>Choose a vector database with a workload sheet that covers retrieval quality, filters, memory, operating costs and recovery.</span></span>
+        </a>
+      </aside>
+      <section id="pre-training-when-it-pays">
+        <h2>Pre-training: when it pays</h2>
+        <p>Pre-training builds a model from a blank parameter set using massive data. Unless you&#8217;re a frontier lab or need a fundamentally new capability&#8212;a language, modality or safety property not present in any open model&#8212;this is rarely the right choice for production teams.</p>
+        <ul>
+          <li><strong>Cost driver:</strong> Raw compute. Llama 3 70B required roughly 6,000 H100 GPU-hours. Costs start at $1M+ for a competitive model.</li>
+          <li><strong>Hidden cost:</strong> Data pipeline engineering&#8212;cleaning, deduplication, toxicity filtering&#8212;is a separate multi-month project.</li>
+          <li><strong>Latency:</strong> Same as fine-tuning. No inference-time penalty.</li>
+          <li><strong>Maintenance:</strong> Full retraining for data updates. The cost of a single update rivals the initial training run.</li>
+        </ul>
+        <div class="inline-sources">Source: <a href="https://ai.meta.com/llama/" target="_blank" rel="noopener noreferrer">Meta AI &#8212; Llama 3 technical report [6] &#8599;</a></div>
+      </section>
+      <section id="decision-checklist">
+        <h2>A decision checklist you can use now</h2>
+        <p>Walk through these questions before allocating budget. This is FyreLinkz editorial guidance based on the sourced research above.</p>
+        <div class="article-checklist">
+          <span class="checklist-badge">DECISION CHECKLIST</span>
+          <ul>
+            <li><span class="check-box" aria-hidden="true">&#10003;</span><span>How often does your source data change? If daily &#8594; RAG. If quarterly &#8594; fine-tuning.</span></li>
+            <li><span class="check-box" aria-hidden="true">&#10003;</span><span>Do you need consistent output style/format? If yes &#8594; fine-tuning. RAG preserves base model style.</span></li>
+            <li><span class="check-box" aria-hidden="true">&#10003;</span><span>Is latency critical (&lt;200ms p99)? Fine-tuning adds zero overhead; RAG adds retrieval time.</span></li>
+            <li><span class="check-box" aria-hidden="true">&#10003;</span><span>Can you afford a retraining pipeline? Fine-tuning needs one; RAG needs an index-refresh pipeline instead.</span></li>
+            <li><span class="check-box" aria-hidden="true">&#10003;</span><span>Is an existing open model close enough? If yes &#8594; fine-tune or RAG it. Pre-training is a last resort.</span></li>
+            <li><span class="check-box" aria-hidden="true">&#10003;</span><span>Budget the hidden costs: data curation (fine-tuning), chunking quality (RAG), or data pipeline (pre-training).</span></li>
+          </ul>
+        </div>
+      </section>
+      <section class="sources-box" id="sources">
+        <span class="eyebrow">FOLLOW THE SOURCE</span>
+        <h2>Sources &amp; further reading</h2>
+        <p>Primary sources checked Sep 30, 2026. Vendor statements are attributed; editorial advice is our own.</p>
+        <ol>
+          <li><span class="source-number">1</span><div><a href="https://docs.aws.amazon.com/sagemaker/latest/dg/fine-tuning.html" rel="noopener noreferrer" target="_blank">Fine-tune foundation models &#8212; AWS SageMaker &#8599;</a><small>AWS &#183; Updated 2026</small></div></li>
+          <li><span class="source-number">2</span><div><a href="https://cloud.google.com/vertex-ai/docs/generative-ai/models/tune-models" rel="noopener noreferrer" target="_blank">Tune foundation models &#8212; Google Cloud Vertex AI &#8599;</a><small>Google Cloud &#183; Updated 2026</small></div></li>
+          <li><span class="source-number">3</span><div><a href="https://arxiv.org/abs/2312.10997" rel="noopener noreferrer" target="_blank">Retrieval-Augmented Generation survey &#8599;</a><small>arXiv &#183; Dec 2023</small></div></li>
+          <li><span class="source-number">4</span><div><a href="https://arxiv.org/abs/2305.14314" rel="noopener noreferrer" target="_blank">QLoRA: Efficient Finetuning of Quantized LLMs &#8599;</a><small>Dettmers et al. &#183; arXiv &#183; May 2023</small></div></li>
+          <li><span class="source-number">5</span><div><a href="https://arxiv.org/abs/2005.11401" rel="noopener noreferrer" target="_blank">Retrieval-Augmented Generation for Knowledge-Intensive NLP &#8599;</a><small>Lewis et al. &#183; arXiv &#183; May 2020</small></div></li>
+          <li><span class="source-number">6</span><div><a href="https://ai.meta.com/llama/" rel="noopener noreferrer" target="_blank">Llama 3 technical documentation &#8599;</a><small>Meta AI &#183; 2024&#8211;2026</small></div></li>
+        </ol>
+      </section>
+      <div class="correction-link">
+        <strong>Something changed?</strong>
+        <p>Help us keep this useful. <a href="https://www.fyrelinkz.com/contact">Send a correction or a primary source &#8594;</a></p>
+      </div>
+    </div>
+  </div>
+  <section class="related-section">
+    <div class="section-heading"><h2>Keep following the thread<span>.</span></h2></div>
+    <div class="guide-grid">
+      <article class="story-card story-standard">
+        <a class="story-image-link" href="https://www.fyrelinkz.com/stack/self-hosted-vector-db-pricing-and-latency-benchmarks">
+          <img alt="Vector database benchmark photograph." loading="lazy" width="1200" height="750" class="story-image" style="color:transparent" src="https://www.fyrelinkz.com/_next/image?url=%2Fart%2Fvector-db-comparison-photo.webp&amp;w=640&amp;q=75"/>
+          <span class="image-arrow" aria-hidden="true">&#8599;</span>
+        </a>
+        <div class="story-copy">
+          <div class="story-meta"><span class="eyebrow topic">Developer tools</span><span class="card-badge">Guide &#183; 5 min read</span></div>
+          <h2><a href="https://www.fyrelinkz.com/stack/self-hosted-vector-db-pricing-and-latency-benchmarks">Qdrant vs Weaviate vs Milvus vs Pinecone: what to compare</a></h2>
+          <p>Choose a vector database with a workload sheet that covers retrieval quality, filters, memory, operating costs and recovery.</p>
+          <div class="byline-small">FyreLinkz Editorial <span>&#183; Updated <time datetime="2026-09-22">Sep 22, 2026</time></span></div>
+        </div>
+      </article>
+      <article class="story-card story-standard">
+        <a class="story-image-link" href="https://www.fyrelinkz.com/workflow/cursor-vs-windsurf-vs-copilot-developer-benchmarks">
+          <img alt="Coding agent comparison photograph." loading="lazy" width="1200" height="750" class="story-image" style="color:transparent" src="https://www.fyrelinkz.com/_next/image?url=%2Fart%2Fcursor-windsurf-copilot-photo.webp&amp;w=640&amp;q=75"/>
+          <span class="image-arrow" aria-hidden="true">&#8599;</span>
+        </a>
+        <div class="story-copy">
+          <div class="story-meta"><span class="eyebrow topic">Developer tools</span><span class="card-badge">Guide &#183; 5 min read</span></div>
+          <h2><a href="https://www.fyrelinkz.com/workflow/cursor-vs-windsurf-vs-copilot-developer-benchmarks">Cursor vs Windsurf vs Copilot: compare one real coding task</a></h2>
+          <p>Evaluate coding agents on a real repository task, review effort and repeatability.</p>
+          <div class="byline-small">FyreLinkz Editorial <span>&#183; Updated <time datetime="2026-09-22">Sep 22, 2026</time></span></div>
+        </div>
+      </article>
+      <article class="story-card story-standard">
+        <a class="story-image-link" href="https://www.fyrelinkz.com/workflow/reduce-local-llm-vram-quantization-offloading-guide">
+          <img alt="GPU memory optimization photograph." loading="lazy" width="1200" height="750" class="story-image" style="color:transparent" src="https://www.fyrelinkz.com/_next/image?url=%2Fart%2Fllm-vram-quantization-photo.webp&amp;w=640&amp;q=75"/>
+          <span class="image-arrow" aria-hidden="true">&#8599;</span>
+        </a>
+        <div class="story-copy">
+          <div class="story-meta"><span class="eyebrow topic">Local AI</span><span class="card-badge">Guide &#183; 4 min read</span></div>
+          <h2><a href="https://www.fyrelinkz.com/workflow/reduce-local-llm-vram-quantization-offloading-guide">Reduce local LLM VRAM usage: quantization, context length and offloading</a></h2>
+          <p>Optimize local LLM memory: 4-bit GGUF quantization, FP8 KV cache, context budgeting and GPU offloading.</p>
+          <div class="byline-small">FyreLinkz Editorial <span>&#183; Updated <time datetime="2026-09-22">Sep 22, 2026</time></span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+</article>
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-top">
+    <div>
+      <a class="brand" aria-label="FyreLinkz home" href="https://www.fyrelinkz.com/">
+        <span class="brand-icon-wrapper" aria-hidden="true"><svg class="brand-symbol" viewBox="0 0 48 48" fill="none" role="presentation"><path class="brand-mark-orbit" d="M24 3.75a20.25 20.25 0 1 1 0 40.5 20.25 20.25 0 0 1 0-40.5Z"/><path class="brand-mark-letter" d="M28.7 12.5h-5a5.7 5.7 0 0 0-5.7 5.7V35M14 24h13.5M29 26v8h7"/><path class="brand-mark-spark" d="m34 11 1.8 5.2L41 18l-5.2 1.8L34 25l-1.8-5.2L27 18l5.2-1.8L34 11Z"/></svg></span>
+        <span class="brand-name"><span>fyre</span><span class="brand-accent">linkz</span><span class="brand-period">.</span></span>
+      </a>
+      <p>Clear thinking for creative technology.<br/>News, guides and better questions.</p>
+    </div>
+    <div class="footer-links">
+      <div><span class="eyebrow">Explore</span><a href="https://www.fyrelinkz.com/news">Latest news</a><a href="https://www.fyrelinkz.com/create">AI video &amp; images</a><a href="https://www.fyrelinkz.com/hardware">Local AI &amp; hardware</a></div>
+      <div><span class="eyebrow">Keep curious</span><a href="https://www.fyrelinkz.com/workflow">Practical guides</a><a href="https://www.fyrelinkz.com/ai-video-models">Video model directory</a><a href="https://www.fyrelinkz.com/feed.xml">Subscribe via RSS &#8599;</a><a href="https://www.fyrelinkz.com/about">About &amp; methodology</a></div>
+      <div><span class="eyebrow">Get in touch</span><a href="https://www.fyrelinkz.com/contact">Contact &amp; corrections</a><a href="https://www.fyrelinkz.com/privacy">Privacy</a><a href="https://www.fyrelinkz.com/terms">Terms</a></div>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>&#169; 2026 FyreLinkz</span>
+    <span>Original analysis. Sources included.</span>
+    <a href="#main-content">Back to top &#8593;</a>
+  </div>
+</footer>
+<script>
+(function(){
+  var bar=document.querySelector('.reading-progress-bar');
+  if(!bar)return;
+  window.addEventListener('scroll',function(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.width=h>0?(window.scrollY/h*100)+'%':'0';
+  },{passive:true});
+})();
+</script>
+</body>
+</html>
