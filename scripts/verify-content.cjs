@@ -19,7 +19,8 @@ const {
 const { faqPageSchema } = require('../lib/editorial.ts');
 assert.equal(new Set(POSTS.map(p => p.slug)).size, POSTS.length, 'Unique slugs');
 for (const p of POSTS) {
-  assert.ok(fs.existsSync(path.join(__dirname, '..', 'public', 'art', `${p.image}.webp`)), `${p.slug}: card image exists`);
+  const cardImage = `${p.image}${p.image.endsWith('-photo') ? '.jpg' : '.webp'}`;
+  assert.ok(fs.existsSync(path.join(__dirname, '..', 'public', 'art', cardImage)), `${p.slug}: card image exists`);
   const socialImage = `${p.image}${p.image.endsWith('-photo') ? '.jpg' : '.png'}`;
   assert.ok(fs.existsSync(path.join(__dirname, '..', 'public', 'art', socialImage)), `${p.slug}: social image exists`);
   assert.ok(p.sources?.length, `${p.slug}: primary sources required`);
