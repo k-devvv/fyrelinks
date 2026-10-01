@@ -5,8 +5,8 @@
     "title": "Anthropic’s AI wet lab finds ART repeats in phage DNA. What was actually validated?",
     "description": "Anthropic says Claude agents flagged an array-associated reverse transcriptase system in bacteriophages. Human researchers found short RNAs; the enzyme’s function remains unknown.",
     "topic": "AI biology",
-    "image": "anthropic-art-wetlab",
-    "imageAlt": "Editorial illustration of a laboratory pipette, sample tubes and a DNA repeat pattern; a conceptual image, not an Anthropic experiment.",
+    "image": "anthropic-art-wetlab-photo",
+    "imageAlt": "AI-generated editorial photograph of a researcher pipetting samples in a molecular biology lab; illustrative, not a photograph of Anthropic’s experiment.",
     "eventDate": "2026-09-23",
     "featured": true,
     "takeaway": "Anthropic reports that Claude agents helped identify a bacteriophage system it calls array-associated reverse transcriptases (ART), linking a reverse-transcriptase gene with an accessory gene and repeated non-coding DNA. The company says early human-run experiments found distinct short RNAs from the array. That is evidence of RNA expression, not proof of the enzyme’s function, a gene-editing capability or a medical application. A Nature update also reports a separate research group’s prior work on the system, leaving discovery history and data provenance questions to resolve.",
@@ -108,7 +108,7 @@
     "publishedAt": "2026-10-01",
     "updatedAt": "2026-10-01",
     "sourceCheckedAt": "2026-10-01",
-    "imageCaption": "Original vector illustration by FyreLinkz Editorial, not a photograph or an image from Anthropic’s laboratory."
+    "imageCaption": "AI-generated editorial photograph created for this explainer; illustrative, not from Anthropic’s laboratory."
   },
   {
     "slug": "google-ai-video-codirector-long-form-continuity",
