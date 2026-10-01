@@ -14,7 +14,7 @@ export function StoryImage({
   return (
     <Image
       className={`story-image ${className}`.trim()}
-      src={`/art/${post.image}.webp`}
+      src={`/art/${post.image}${post.image.endsWith("-photo") ? ".jpg" : ".webp"}`}
       alt={post.imageAlt || `FyreLinkz editorial illustration: ${post.title}`}
       width={1200}
       height={750}
