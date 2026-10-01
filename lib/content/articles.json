@@ -1,5 +1,116 @@
 [
   {
+    "slug": "anthropic-claude-wet-lab-art-enzyme-system",
+    "category": "news",
+    "title": "Anthropic’s AI wet lab finds ART repeats in phage DNA. What was actually validated?",
+    "description": "Anthropic says Claude agents flagged an array-associated reverse transcriptase system in bacteriophages. Human researchers found short RNAs; the enzyme’s function remains unknown.",
+    "topic": "AI biology",
+    "image": "anthropic-art-wetlab",
+    "imageAlt": "Editorial illustration of a laboratory pipette, sample tubes and a DNA repeat pattern; a conceptual image, not an Anthropic experiment.",
+    "eventDate": "2026-09-23",
+    "featured": true,
+    "takeaway": "Anthropic reports that Claude agents helped identify a bacteriophage system it calls array-associated reverse transcriptases (ART), linking a reverse-transcriptase gene with an accessory gene and repeated non-coding DNA. The company says early human-run experiments found distinct short RNAs from the array. That is evidence of RNA expression, not proof of the enzyme’s function, a gene-editing capability or a medical application. A Nature update also reports a separate research group’s prior work on the system, leaving discovery history and data provenance questions to resolve.",
+    "sections": [
+      {
+        "heading": "What Anthropic says Claude found",
+        "content": "Anthropic’s September 23, 2026 announcement describes array-associated reverse transcriptases, or ARTs: a reverse-transcriptase gene next to a partner gene and an array of evenly spaced, non-coding DNA repeats, found mainly in bacteriophages (viruses that infect bacteria). The underlying reverse transcriptase was already known from earlier studies; Anthropic’s specific claim is that its agents recognized the surrounding repeat-and-partner pattern as a possible system. The arrangement resembles CRISPR arrays at a structural level. Resemblance is a useful clue for researchers, not evidence that ART works like CRISPR.",
+        "sourceIds": [
+          1,
+          3
+        ]
+      },
+      {
+        "heading": "The agent scale is notable; the number is not a quality score",
+        "content": "Anthropic says roughly 950 Claude agent sessions searched for 21 hours and used about 210 million tokens. The company reports that the workflow gathered more than 200,000 reverse transcriptases, proposed 3,500 candidate systems, and narrowed those to 20 reports for closer review. Those figures describe the company’s process, not a head-to-head benchmark or a measure of accuracy. The scientific value lies in whether the candidates survive careful review and experiments—not in how many agents ran or tokens they consumed.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "What the wet-lab work does—and does not—show",
+        "content": "Anthropic reports that initial experiments detected the repeat array as distinct short RNAs. That is an early experimental observation supporting RNA expression and processing. Anthropic also says its human scientists performed all laboratory work; the model helped search sequence data, compare candidates, review literature and prepare reports. The announcement says the system’s primary function is still unknown and that follow-up experiments are underway. The preprint is an early report, so its claims should be treated as provisional until methods, interpretation and results receive wider scrutiny.",
+        "sourceIds": [
+          1,
+          3
+        ]
+      },
+      {
+        "heading": "A discovery-history question deserves careful reporting",
+        "content": "Nature’s September 25 report was later updated with a separate scientist’s account: Mario Rodríguez Mestre of the University of Copenhagen said his group had studied the microbial system for years and that he had uploaded information about it to Anthropic’s models. Nature reported Anthropic’s response that the model responsible was not trained on user transcripts. These statements do not, by themselves, settle what the agents accessed, how the pattern was independently recognized, or how the system’s history should be credited. They do make data lineage, prior-art searches and transparent attribution central questions for readers to follow. We are reporting the two accounts without treating the disagreement as resolved.",
+        "sourceIds": [
+          2
+        ]
+      },
+      {
+        "heading": "Why this is not a new CRISPR or a treatment",
+        "content": "“CRISPR-like” in this story refers to the visual organization of repeated DNA sequences and the possibility that those sequences have a role in a biological system. Anthropic has not shown that ART edits genomes, cuts or copies DNA in a programmable way, or can be used in a therapy. It has not announced a medicine, clinical study or validated biotechnology product. A candidate mechanism needs biochemical characterization, functional experiments, independent replication and safety assessment before any translational claim would be justified.",
+        "sourceIds": [
+          1,
+          3
+        ]
+      },
+      {
+        "heading": "What would make the result stronger next",
+        "content": "The next meaningful milestones are concrete: clarify the system’s components and activity; test competing explanations for the short RNAs; publish methods and data sufficient for outside groups to inspect the claim; establish how the prior work and training or input data relate to the agent’s output; and see whether independent researchers reproduce the findings. This is also the useful lens for AI in biology more broadly: agents may help sift enormous datasets and produce hypotheses, while accountable scientists remain responsible for experimental design, evidence, interpretation and credit. For a different kind of multi-step AI workflow, see our guide to [stateful agents versus simple retrieval](/workflow/stateful-agents-vs-simple-rag-workflow-guide).",
+        "sourceIds": [
+          1,
+          2,
+          3
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What does ART mean in Anthropic’s wet-lab announcement?",
+        "answer": "ART means array-associated reverse transcriptases: a reported arrangement of a reverse-transcriptase gene, a neighboring partner gene and an array of non-coding DNA repeats, found mainly in bacteriophages."
+      },
+      {
+        "question": "Did Claude perform the wet-lab experiments?",
+        "answer": "No. Anthropic says human scientists performed all laboratory work. Claude agents searched and analyzed sequence data, reviewed literature and helped identify candidates for human follow-up."
+      },
+      {
+        "question": "What did the experiments confirm?",
+        "answer": "Anthropic reports early evidence that the repeat array is expressed as distinct short RNAs. The primary biological function and enzyme mechanism remain unknown."
+      },
+      {
+        "question": "Is ART a new CRISPR gene-editing tool?",
+        "answer": "No demonstrated gene-editing function has been reported. The CRISPR comparison describes a resemblance in repeat-array structure; it does not establish that ART edits DNA or has therapeutic uses."
+      },
+      {
+        "question": "How many AI agents and tokens did Anthropic report?",
+        "answer": "Anthropic says roughly 950 agents searched for 21 hours and used about 210 million tokens. These are company-reported workflow figures, not an independent accuracy benchmark."
+      },
+      {
+        "question": "Was the ART system previously known?",
+        "answer": "Anthropic says the underlying reverse transcriptase had been identified earlier, while the associated array and partner-gene pattern was the notable observation. Nature later reported a researcher’s account that his group had studied the system for years; the discovery history and data lineage remain questions for further clarification."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "Anthropic",
+        "title": "Claude discovers a novel enzyme system with CRISPR-like repeats",
+        "url": "https://www.anthropic.com/news/claude-discovers-novel-enzyme-system",
+        "publishedAt": "2026-09-23"
+      },
+      {
+        "publisher": "Nature",
+        "title": "Anthropic’s AI biolab finds “CRISPR-like” DNA in viruses. What’s next?",
+        "url": "https://www.nature.com/articles/d41586-026-03039-6",
+        "publishedAt": "2026-09-25"
+      },
+      {
+        "publisher": "Anthropic research team · bioRxiv",
+        "title": "Technical preprint on AI-agent-assisted identification of array-associated reverse transcriptases",
+        "url": "https://www.biorxiv.org/content/10.64898/2026.09.22.753630v1",
+        "publishedAt": "2026-09-22"
+      }
+    ],
+    "publishedAt": "2026-10-01",
+    "updatedAt": "2026-10-01",
+    "sourceCheckedAt": "2026-10-01",
+    "imageCaption": "Original vector illustration by FyreLinkz Editorial, not a photograph or an image from Anthropic’s laboratory."
+  },
+  {
     "slug": "google-ai-video-codirector-long-form-continuity",
     "category": "news",
     "title": "Google’s AI co-director tackles long-video continuity",
@@ -2261,8 +2372,7 @@
       }
     ],
     "imageAlt": "Generated editorial photograph: Developer and compliance lead reviewing a synthetic-media disclosure checklist."
-  }
-,
+  },
   {
     "slug": "jev-needle3-small-ai-models-gpu-cost",
     "category": "news",
@@ -2275,22 +2385,70 @@
     "featured": true,
     "takeaway": "The models in AI Search’s September roundup are not interchangeable. Jev is a hosted, typed decision service billed on input tokens; Needle 3 is a tiny on-device tool, extraction and embedding model; MiniCPM5-2B is a general text generator you can run locally with a suitable runtime. Pick by task, then test quality and total cost on your own workload.",
     "sources": [
-      { "publisher": "AI Search on X", "title": "Weekly AI roundup, September 20, 2026", "url": "https://x.com/aisearchio/status/2101514853999677735", "publishedAt": "2026-09-20" },
-      { "publisher": "Hugging Face", "title": "Trending text-generation models", "url": "https://huggingface.co/models?pipeline_tag=text-generation&sort=trending" },
-      { "publisher": "Cactus Compute · Hugging Face", "title": "Needle 3 model card and benchmark methodology", "url": "https://huggingface.co/Cactus-Compute/needle3" },
-      { "publisher": "TypeSafe", "title": "Jev model documentation and current pricing", "url": "https://docs.typesafe.ai/models" },
-      { "publisher": "TypeSafe", "title": "Introducing System One models and Jev", "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev", "publishedAt": "2026-09-15" },
-      { "publisher": "OpenBMB · Hugging Face", "title": "MiniCPM5-2B model card and reported evaluations", "url": "https://huggingface.co/openbmb/MiniCPM5-2B" },
-      { "publisher": "OpenBMB · Hugging Face", "title": "MiniCPM5-2B GGUF quantizations and llama.cpp setup", "url": "https://huggingface.co/openbmb/MiniCPM5-2B-GGUF" },
-      { "publisher": "Yu Sun et al. · arXiv preprint", "title": "Type-Safe Is Not Error-Free: A Constrained Decision Head Follows the Option Name, Not the Rubric Bound to It", "url": "https://arxiv.org/abs/2609.26758", "publishedAt": "2026-09-22" },
-      { "publisher": "Delip Rao and co-author · arXiv preprint", "title": "JEV vs. LLMs as Rubric Judges: Cheaper, Faster, and Wrong in the Same Places", "url": "https://arxiv.org/abs/2609.29769", "publishedAt": "2026-09-24" },
-      { "publisher": "Liquid AI · Hugging Face", "title": "Deploy local agents everywhere with LFM2.5-2.6B", "url": "https://huggingface.co/blog/LiquidAI/lfm2-5-2-6b", "publishedAt": "2026-08-04" }
+      {
+        "publisher": "AI Search on X",
+        "title": "Weekly AI roundup, September 20, 2026",
+        "url": "https://x.com/aisearchio/status/2101514853999677735",
+        "publishedAt": "2026-09-20"
+      },
+      {
+        "publisher": "Hugging Face",
+        "title": "Trending text-generation models",
+        "url": "https://huggingface.co/models?pipeline_tag=text-generation&sort=trending"
+      },
+      {
+        "publisher": "Cactus Compute · Hugging Face",
+        "title": "Needle 3 model card and benchmark methodology",
+        "url": "https://huggingface.co/Cactus-Compute/needle3"
+      },
+      {
+        "publisher": "TypeSafe",
+        "title": "Jev model documentation and current pricing",
+        "url": "https://docs.typesafe.ai/models"
+      },
+      {
+        "publisher": "TypeSafe",
+        "title": "Introducing System One models and Jev",
+        "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
+        "publishedAt": "2026-09-15"
+      },
+      {
+        "publisher": "OpenBMB · Hugging Face",
+        "title": "MiniCPM5-2B model card and reported evaluations",
+        "url": "https://huggingface.co/openbmb/MiniCPM5-2B"
+      },
+      {
+        "publisher": "OpenBMB · Hugging Face",
+        "title": "MiniCPM5-2B GGUF quantizations and llama.cpp setup",
+        "url": "https://huggingface.co/openbmb/MiniCPM5-2B-GGUF"
+      },
+      {
+        "publisher": "Yu Sun et al. · arXiv preprint",
+        "title": "Type-Safe Is Not Error-Free: A Constrained Decision Head Follows the Option Name, Not the Rubric Bound to It",
+        "url": "https://arxiv.org/abs/2609.26758",
+        "publishedAt": "2026-09-22"
+      },
+      {
+        "publisher": "Delip Rao and co-author · arXiv preprint",
+        "title": "JEV vs. LLMs as Rubric Judges: Cheaper, Faster, and Wrong in the Same Places",
+        "url": "https://arxiv.org/abs/2609.29769",
+        "publishedAt": "2026-09-24"
+      },
+      {
+        "publisher": "Liquid AI · Hugging Face",
+        "title": "Deploy local agents everywhere with LFM2.5-2.6B",
+        "url": "https://huggingface.co/blog/LiquidAI/lfm2-5-2-6b",
+        "publishedAt": "2026-08-04"
+      }
     ],
     "sections": [
       {
         "heading": "The small-model story is really three different stories",
         "content": "AI Search’s September 20 roundup placed Jev and Needle 3 alongside a wave of new models. Hugging Face’s live trending page is a useful discovery signal, but rank and download counts change; popularity does not prove accuracy or fit. The more useful pattern is that “small AI” now covers very different products: hosted decision APIs, tiny embedded specialists, and compact generative models. Compare them by what they do, what evidence supports them, and what your actual workload costs.",
-        "sourceIds": [1, 2]
+        "sourceIds": [
+          1,
+          2
+        ]
       },
       {
         "heading": "Needle 3: tiny specialist for local structured work",
@@ -2300,7 +2458,9 @@
           "Price: no per-token hosted inference price is listed on the model card. Local inference avoids a provider token bill, while still using device power and engineering time.",
           "Evidence: the reported exact-match tool-call and field-level extraction results are Cactus’s own full-split evaluations, not an independent FyreLinkz benchmark."
         ],
-        "sourceIds": [3]
+        "sourceIds": [
+          3
+        ]
       },
       {
         "heading": "Jev: pay-per-input-token decision model, not a tiny local LLM",
@@ -2310,7 +2470,10 @@
           "Do not compare its price directly with local generation: Jev sells a hosted decision service; a local model has hardware, energy and maintenance costs instead of a provider token charge.",
           "Pin a version for evaluations. TypeSafe says aliases can move as releases change."
         ],
-        "sourceIds": [4, 5]
+        "sourceIds": [
+          4,
+          5
+        ]
       },
       {
         "heading": "MiniCPM5-2B: a local generator with a small-model footprint",
@@ -2320,26 +2483,63 @@
           "Cost: local runs have no per-token provider fee. Estimate power as device watts × hours ÷ 1,000 × your electricity price per kWh; include the hardware purchase only if you are comparing total ownership cost.",
           "Benchmark honestly: test your own prompts, language, context length and tool calls. Measure quality, peak memory and tokens per second on your hardware."
         ],
-        "sourceIds": [6, 7]
+        "sourceIds": [
+          6,
+          7
+        ]
       },
       {
         "heading": "Benchmarks need a reliability and task-fit check",
         "content": "Two September arXiv preprints add a useful caution to Jev’s “typed” output story. One reports that, in its controlled rubric experiment, changing semantically loaded option names affected decisions even while the output remained type-valid. A second study comparing Jev with several LLM judges reports mixed outcomes across rubric panels, rather than one winner for every grading task. These are new preprints, not settled consensus and not proof that Jev fails in every use. They do show why schema-valid output must not be mistaken for a correct judgment. Use neutral option labels, blind spot checks and a human escalation path for consequential decisions.",
-        "sourceIds": [8, 9]
+        "sourceIds": [
+          8,
+          9
+        ]
       },
       {
         "heading": "Which one should you try first?",
         "content": "Use this shortlist to choose a first experiment; it is FyreLinkz editorial guidance, not a claim that we independently benchmarked the models.",
         "table": {
-          "headers": ["Need", "Starting point", "Hardware or spend", "What to verify"],
+          "headers": [
+            "Need",
+            "Starting point",
+            "Hardware or spend",
+            "What to verify"
+          ],
           "rows": [
-            ["Route local app tools; extract fields on a constrained device", "Needle 3", "On-device runtime; no published token rate", "Exact-match tool calls, field F1, confidence calibration"],
-            ["Classify or score text with a typed decision output", "Jev 1.13", "Hosted API; $0.042 per million input tokens, output free", "Accuracy by class, option-name bias, current token volume"],
-            ["Generate and edit text locally; explore tool use", "MiniCPM5-2B GGUF", "CPU or supported GPU; quantized model plus runtime/context memory", "Task quality, peak memory, speed, license and deployment fit"],
-            ["Compare another compact local agent model", "LiquidAI LFM2.5-2.6B", "Local device; vendor reports under 2.5 GB memory for its setup", "Reproduce results on your own device and prompts"]
+            [
+              "Route local app tools; extract fields on a constrained device",
+              "Needle 3",
+              "On-device runtime; no published token rate",
+              "Exact-match tool calls, field F1, confidence calibration"
+            ],
+            [
+              "Classify or score text with a typed decision output",
+              "Jev 1.13",
+              "Hosted API; $0.042 per million input tokens, output free",
+              "Accuracy by class, option-name bias, current token volume"
+            ],
+            [
+              "Generate and edit text locally; explore tool use",
+              "MiniCPM5-2B GGUF",
+              "CPU or supported GPU; quantized model plus runtime/context memory",
+              "Task quality, peak memory, speed, license and deployment fit"
+            ],
+            [
+              "Compare another compact local agent model",
+              "LiquidAI LFM2.5-2.6B",
+              "Local device; vendor reports under 2.5 GB memory for its setup",
+              "Reproduce results on your own device and prompts"
+            ]
           ]
         },
-        "sourceIds": [3, 4, 6, 7, 10]
+        "sourceIds": [
+          3,
+          4,
+          6,
+          7,
+          10
+        ]
       },
       {
         "heading": "Build a small evaluation you can reproduce",
@@ -2351,7 +2551,13 @@
           "Calculate cloud input-token cost and local energy separately; include human correction time.",
           "Check confidence calibration and route uncertain or high-impact results to a person."
         ],
-        "sourceIds": [4, 6, 7, 8, 9]
+        "sourceIds": [
+          4,
+          6,
+          7,
+          8,
+          9
+        ]
       },
       {
         "heading": "What this week’s trend means for buyers and builders",
@@ -2361,8 +2567,7 @@
     "publishedAt": "2026-09-26",
     "updatedAt": "2026-09-26",
     "sourceCheckedAt": "2026-09-26"
-  }
-,
+  },
   {
     "slug": "taomate-h3-benchmark-gpu-requirements-license",
     "category": "news",
@@ -2375,28 +2580,65 @@
     "featured": true,
     "takeaway": "AI Search’s September 13 TaoMate H3 post had 39,873 public X views when we checked on September 26—the highest view count among the recent posts inspected, not a verified all-time profile record and not Google Search impressions. TaoMate’s own benchmark reports a 10.60× speedup to first playable video for one 10-second, 480p test, measured on eight H20 96 GB GPUs. It is a multi-GPU research/production setup, and MiniMax H3’s default community license excludes the US, UK and EU unless a separate license is obtained.",
     "sources": [
-      { "publisher": "AI Search on X", "title": "TaoMate H3 post: streaming MiniMax H3 generation", "url": "https://x.com/aisearchio/status/2098886150907953620", "publishedAt": "2026-09-13" },
-      { "publisher": "AI Search on X", "title": "FastH3 V2 post, used as a recent-post view-count comparison", "url": "https://x.com/aisearchio/status/2099976938739904834", "publishedAt": "2026-09-16" },
-      { "publisher": "TaoLiveAIGC · GitHub", "title": "TaoMate-H3 official repository, installation requirements and benchmark", "url": "https://github.com/TaoLiveAIGC/TaoMate-H3", "publishedAt": "2026-09-08" },
-      { "publisher": "MiniMax · Hugging Face", "title": "MiniMax H3 model card, system architecture and local deployment", "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3" },
-      { "publisher": "MiniMax · Hugging Face", "title": "MiniMax H3 Community License Agreement", "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/main/LICENSE", "publishedAt": "2026-08-02" },
-      { "publisher": "Google Search Central", "title": "Search Console and Google Analytics metrics", "url": "https://developers.google.com/search/docs/monitor-debug/google-analytics-search-console" }
+      {
+        "publisher": "AI Search on X",
+        "title": "TaoMate H3 post: streaming MiniMax H3 generation",
+        "url": "https://x.com/aisearchio/status/2098886150907953620",
+        "publishedAt": "2026-09-13"
+      },
+      {
+        "publisher": "AI Search on X",
+        "title": "FastH3 V2 post, used as a recent-post view-count comparison",
+        "url": "https://x.com/aisearchio/status/2099976938739904834",
+        "publishedAt": "2026-09-16"
+      },
+      {
+        "publisher": "TaoLiveAIGC · GitHub",
+        "title": "TaoMate-H3 official repository, installation requirements and benchmark",
+        "url": "https://github.com/TaoLiveAIGC/TaoMate-H3",
+        "publishedAt": "2026-09-08"
+      },
+      {
+        "publisher": "MiniMax · Hugging Face",
+        "title": "MiniMax H3 model card, system architecture and local deployment",
+        "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3"
+      },
+      {
+        "publisher": "MiniMax · Hugging Face",
+        "title": "MiniMax H3 Community License Agreement",
+        "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/main/LICENSE",
+        "publishedAt": "2026-08-02"
+      },
+      {
+        "publisher": "Google Search Central",
+        "title": "Search Console and Google Analytics metrics",
+        "url": "https://developers.google.com/search/docs/monitor-debug/google-analytics-search-console"
+      }
     ],
     "sections": [
       {
         "heading": "Which post drew the strongest visible interest?",
         "content": "On September 26, 2026, the recent TaoMate H3 post on AI Search’s X profile showed 39,873 views. That was the largest public view count among the recent profile posts we inspected; a September 16 post about FastH3 V2 showed 28,120. X exposes these as post views. They are not Google Search impressions, unique people, website visits or proof of buying intent. We used the count as a topic-selection signal, then checked the project’s own repository before writing about it. Google Search impressions are measured separately in Search Console when a site listing is shown in Google results.",
-        "sourceIds": [1, 2, 6]
+        "sourceIds": [
+          1,
+          2,
+          6
+        ]
       },
       {
         "heading": "What TaoMate H3 changes",
         "content": "TaoMate-H3 is a streaming audio-video generation runtime from Alibaba’s TaoLive AIGC team, built around MiniMax H3 and a three-step LoRA. The project says it generates synchronized audio and video in small chunks and supports continuous generation. That makes it interesting for production teams who care about time to first usable frame and long-form continuity. It is not a new consumer website or a one-click replacement for Hailuo; it is code, model weights and an inference stack that operators install and maintain.",
-        "sourceIds": [3, 4]
+        "sourceIds": [
+          3,
+          4
+        ]
       },
       {
         "heading": "Read the 10.6× speed claim with its test conditions",
         "content": "TaoMate’s README reports 17.287 seconds to a first playable video versus 183.313 seconds for its MiniMax H3 comparison: 10.60× faster. The stated test is one 10-second output at 480×864, seed 8301, on one node with eight NVIDIA H20 96 GB GPUs using TP2 × Ulysses4. The same table reports 14.810 seconds versus 169.572 seconds for pure DiT time and 31.37 GiB peak DiT memory for TaoMate. The authors say pure DiT time excludes model loading, text encoding, VAE decoding and media encoding; the first-playable metric includes VAE decoding and H.264 publication, but excludes internal audio preparation. Treat these as project-reported results for this setup, not a universal speed guarantee or independently reproduced FyreLinkz test.",
-        "sourceIds": [3]
+        "sourceIds": [
+          3
+        ]
       },
       {
         "heading": "GPU and software requirements: this is not a normal desktop build",
@@ -2406,26 +2648,55 @@
           "Do not infer end-to-end delivery time from 17.287 seconds: startup, checkpoint download, model load, queueing, audio preparation, post-processing and failed runs can add time.",
           "For an ordinary solo workflow, a hosted video-generation service or smaller local model may be the more realistic starting point. Check current service prices and terms before choosing."
         ],
-        "sourceIds": [3, 4]
+        "sourceIds": [
+          3,
+          4
+        ]
       },
       {
         "heading": "US, UK and EU readers: check the license before downloading",
         "content": "The MiniMax H3 Community License Agreement currently defines the US, UK and European Union as Excluded Territories. Its terms say people in those territories interested in deploying the model may contact MiniMax about a separate license. The agreement also addresses hosted services, so do not assume that running weights locally, renting a GPU in another country or calling a hosted endpoint avoids the territorial terms. Confirm written authorization and review the current agreement before using H3 or TaoMate for a commercial project. Canada is not named in that exclusion list, but Canadian users still need to read all license and acceptable-use terms. This is a practical license-reading note, not legal advice; terms may change.",
-        "sourceIds": [4, 5]
+        "sourceIds": [
+          4,
+          5
+        ]
       },
       {
         "heading": "Estimate the real cost for a US, UK, Canadian or EU production",
         "content": "The repository publishes benchmark timings, not a cloud rate card or cost per generated second. Prices vary by provider, region, currency, taxes and availability, so use a dated quote rather than copying another country’s price. For a rented node, estimate total cost as node hourly rate × billable runtime, then add storage, data transfer, setup, idle time and reruns. Convert to local currency and include sales tax or VAT where applicable. For a self-owned node, add acquisition, power, cooling, maintenance and depreciation. Compare that total with current hosted-service pricing for the same resolution, duration and retries; do not treat a speedup ratio as a cost saving by itself.",
         "table": {
-          "headers": ["Market", "Before committing", "Budget basis"],
+          "headers": [
+            "Market",
+            "Before committing",
+            "Budget basis"
+          ],
           "rows": [
-            ["United States", "Confirm H3 license eligibility first; the default agreement excludes the US and provides a separate-license contact path.", "Quote full-node hourly rate in USD, plus storage, egress and sales tax."],
-            ["United Kingdom", "Confirm separate H3 authorization; the default agreement excludes the UK.", "Quote in GBP; include VAT, cross-border charges and data-transfer fees."],
-            ["European Union", "Confirm separate H3 authorization; the default agreement excludes the EU.", "Check data-center region, euro quote, VAT and data-governance needs."],
-            ["Canada", "Canada is not in the listed exclusion set; still check current license, cloud availability and acceptable-use terms.", "Quote in CAD; include provincial taxes, storage and egress."]
+            [
+              "United States",
+              "Confirm H3 license eligibility first; the default agreement excludes the US and provides a separate-license contact path.",
+              "Quote full-node hourly rate in USD, plus storage, egress and sales tax."
+            ],
+            [
+              "United Kingdom",
+              "Confirm separate H3 authorization; the default agreement excludes the UK.",
+              "Quote in GBP; include VAT, cross-border charges and data-transfer fees."
+            ],
+            [
+              "European Union",
+              "Confirm separate H3 authorization; the default agreement excludes the EU.",
+              "Check data-center region, euro quote, VAT and data-governance needs."
+            ],
+            [
+              "Canada",
+              "Canada is not in the listed exclusion set; still check current license, cloud availability and acceptable-use terms.",
+              "Quote in CAD; include provincial taxes, storage and egress."
+            ]
           ]
         },
-        "sourceIds": [3, 5]
+        "sourceIds": [
+          3,
+          5
+        ]
       },
       {
         "heading": "Is TaoMate worth testing for your team?",
@@ -2438,14 +2709,18 @@
           "Get current local-currency cloud and hosted-service quotes; include taxes, egress, storage and reruns.",
           "Use our [AI workstation planner](/hardware/ai-workstation-planner) to compare more accessible creator-machine options if this cluster is beyond your workload."
         ],
-        "sourceIds": [3, 4, 5]
+        "sourceIds": [
+          3,
+          4,
+          5
+        ]
       }
     ],
     "publishedAt": "2026-09-26",
     "updatedAt": "2026-09-26",
     "sourceCheckedAt": "2026-09-26"
-  }
-  ,{
+  },
+  {
     "slug": "local-ai-pc-upgrade-vs-build-laptop-workstation",
     "category": "hardware",
     "title": "Upgrade your PC for local AI—or buy a laptop? A practical decision guide",
@@ -2499,36 +2774,76 @@
       {
         "heading": "Start with the job you need the computer to do",
         "content": "“Run AI locally” can mean chatting with a quantized language model, generating images, editing video, transcribing audio, or building software that calls models. Those jobs do not share one hardware requirement. Write down the exact application, model and revision, operating system, target context or image size, and whether you need interactive speed or can wait for a batch job. Check the model card and the application’s own hardware guidance before comparing machines. A parameter count by itself cannot tell you whether a model will load, what context will fit, or how quickly your workflow will run.",
-        "sourceIds": [1, 3, 4, 5]
+        "sourceIds": [
+          1,
+          3,
+          4,
+          5
+        ]
       },
       {
         "heading": "VRAM is a fit constraint, not a complete performance score",
         "content": "For GPU inference, model weights occupy only part of available memory. The runtime also needs memory for the working context and other buffers; increasing context length can increase that demand. Quantization stores values at lower precision and can reduce memory use, but methods make different quality and compatibility trade-offs. NVIDIA’s NIM profile documentation makes the distinction concrete: a profile can be compatible, low-memory, or incompatible, and a low-memory profile can run with reduced context. Use the target application’s profile or a documented memory estimate as a starting point, then test the exact model and settings on the machine you plan to use. Do not treat a GPU’s advertised memory capacity as a promise that every model or context will fit.",
-        "sourceIds": [1, 3, 5]
+        "sourceIds": [
+          1,
+          3,
+          5
+        ]
       },
       {
         "heading": "Check the software path before choosing a GPU",
         "content": "A GPU can have enough memory and still be a poor purchase for a particular app if its driver, operating system, inference backend, or model kernel is unsupported. NVIDIA lists GPU models verified for specific NIM profiles and separately documents architecture and minimum-memory requirements; other GPUs may be technically compatible but unverified. Ollama documents GPU support by vendor and backend, while AMD’s ROCm matrix is specific to GPU, operating system, and software versions. Check the current compatibility page for your exact card and intended stack; a vendor-wide label such as “AMD supported” is not enough to establish that your specific workflow works. Software support changes, so save the link and version you used when you make the decision.",
-        "sourceIds": [2, 4, 7]
+        "sourceIds": [
+          2,
+          4,
+          7
+        ]
       },
       {
         "heading": "Desktop upgrade, new build, laptop, or workstation?",
         "content": "Compare the whole system and the way you work. An existing desktop is often the first option to investigate because a targeted upgrade may preserve usable parts, but first verify the case, power supply, connectors, cooling, motherboard, operating system, and software support. A new desktop lets you choose those constraints together. A laptop trades upgrade flexibility for portability and may rely on a particular GPU or NPU software path. A workstation can offer a documented configuration and vendor support; the word “workstation” alone does not guarantee that an AI framework supports its accelerator.",
         "table": {
-          "headers": ["Path", "Consider it when", "Check before spending"],
+          "headers": [
+            "Path",
+            "Consider it when",
+            "Check before spending"
+          ],
           "rows": [
-            ["Upgrade desktop", "The current system is compatible and one identified part limits your target workload.", "GPU clearance, power supply capacity/connectors, cooling, memory fit, driver and backend support."],
-            ["Build desktop", "You need to choose memory, power, cooling, storage and upgrade room together.", "Exact app support, total system cost, component dimensions, power draw, warranty and local availability."],
-            ["Buy laptop", "Portability matters more than part replacement or future GPU upgrades.", "Exact GPU/NPU support in your app, shared-memory limits, thermal behavior, ports and warranty."],
-            ["Buy workstation", "Your work benefits from a validated configuration, service, or vendor support.", "The exact accelerator and software stack are listed as supported; confirm support terms and upgrade limits."]
+            [
+              "Upgrade desktop",
+              "The current system is compatible and one identified part limits your target workload.",
+              "GPU clearance, power supply capacity/connectors, cooling, memory fit, driver and backend support."
+            ],
+            [
+              "Build desktop",
+              "You need to choose memory, power, cooling, storage and upgrade room together.",
+              "Exact app support, total system cost, component dimensions, power draw, warranty and local availability."
+            ],
+            [
+              "Buy laptop",
+              "Portability matters more than part replacement or future GPU upgrades.",
+              "Exact GPU/NPU support in your app, shared-memory limits, thermal behavior, ports and warranty."
+            ],
+            [
+              "Buy workstation",
+              "Your work benefits from a validated configuration, service, or vendor support.",
+              "The exact accelerator and software stack are listed as supported; confirm support terms and upgrade limits."
+            ]
           ]
         },
-        "sourceIds": [2, 4, 6, 7]
+        "sourceIds": [
+          2,
+          4,
+          6,
+          7
+        ]
       },
       {
         "heading": "Treat NPU TOPS and GPU memory as different specifications",
         "content": "An NPU may be useful for supported, power-efficient on-device tasks, but a TOPS figure is not a substitute for GPU memory or proof that a model runs in your application. Windows ML can route supported workloads through execution providers for CPU, GPU, or NPU hardware. The provider, model format, drivers, and application determine what actually runs. Before paying extra for an NPU feature, confirm that the software you use supports it and that the expected task is compatible. For a local language-model workflow, verify the actual runtime path rather than comparing TOPS numbers across unlike accelerators.",
-        "sourceIds": [6]
+        "sourceIds": [
+          6
+        ]
       },
       {
         "heading": "Make a country-aware budget with current listings",
@@ -2541,7 +2856,15 @@
           "Compare full local-currency totals, including tax, shipping, replacement components, and return terms.",
           "Test the exact app and settings during the return window; record load success, memory use, speed, and output quality."
         ],
-        "sourceIds": [1, 2, 3, 4, 5, 6, 7]
+        "sourceIds": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
       }
     ],
     "faqs": [
