@@ -38,7 +38,8 @@ export const metadata: Metadata = {
     images: [{
       url: "/art/cover.png",
       width: 1200,
-      height: 750
+      height: 750,
+      alt: "FyreLinkz cover artwork with the words “Less noise. More making.” and an orange play symbol."
     }]
   },
   icons: {
@@ -47,7 +48,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/art/cover.png"]
+    images: [{ url: "/art/cover.png", alt: "FyreLinkz cover artwork with the words “Less noise. More making.” and an orange play symbol." }]
   },
   robots: {
     index: true,
