@@ -16,13 +16,22 @@ const {
   CATEGORIES,
   getPostBySlug
 } = require('../lib/posts.ts');
-const { faqPageSchema } = require('../lib/editorial.ts');
+const { faqPageSchema, articleCardImagePath, articleShareImagePath } = require('../lib/editorial.ts');
 assert.equal(new Set(POSTS.map(p => p.slug)).size, POSTS.length, 'Unique slugs');
 for (const p of POSTS) {
-  const cardImage = `${p.image}${p.image.endsWith('-photo') ? '.jpg' : '.webp'}`;
-  assert.ok(fs.existsSync(path.join(__dirname, '..', 'public', 'art', cardImage)), `${p.slug}: card image exists`);
-  const socialImage = `${p.image}${p.image.endsWith('-photo') ? '.jpg' : '.png'}`;
-  assert.ok(fs.existsSync(path.join(__dirname, '..', 'public', 'art', socialImage)), `${p.slug}: social image exists`);
+  const cardImage = articleCardImagePath(p.image).replace(/^\/art\//, '');
+  const socialImage = articleShareImagePath(p.image).replace(/^\/art\//, '');
+  const cardPath = path.join(__dirname, '..', 'public', 'art', cardImage);
+  const socialPath = path.join(__dirname, '..', 'public', 'art', socialImage);
+  assert.ok(fs.existsSync(cardPath), `${p.slug}: card image exists`);
+  assert.ok(fs.existsSync(socialPath), `${p.slug}: social image exists`);
+  if (p.image === 'ai-week-roundup-2026') {
+    const jpeg = fs.readFileSync(cardPath);
+    assert.equal(jpeg[0], 0xff, `${p.slug}: generated thumbnail has JPEG signature`);
+    assert.equal(jpeg[1], 0xd8, `${p.slug}: generated thumbnail has JPEG signature`);
+    assert.ok(jpeg.length < 250_000, `${p.slug}: generated thumbnail stays optimized`);
+    assert.equal(cardImage, socialImage, `${p.slug}: card and social metadata use the same image`);
+  }
   assert.ok(p.sources?.length, `${p.slug}: primary sources required`);
   assert.ok(CATEGORIES.some(c => c.slug === p.category));
   assert.ok(p.sources.every(s => s.url.startsWith('https://')));

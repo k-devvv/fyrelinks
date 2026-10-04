@@ -2896,5 +2896,270 @@
     "publishedAt": "2026-09-27",
     "updatedAt": "2026-09-27",
     "sourceCheckedAt": "2026-09-27"
+  },
+  {
+    "slug": "ai-weekly-roundup-models-agents-open-research-october-2026",
+    "category": "news",
+    "title": "AI news this week: new models, agents and open research",
+    "description": "From GPT-6.1 Sol and Claude Sonnet 5.5 to Comfy Agent and AstaBrief, here is what actually shipped, what remains a preview, and what the new AI tools cost.",
+    "topic": "AI industry",
+    "image": "ai-week-roundup-2026",
+    "imageAlt": "AI-generated editorial photograph of a researcher’s desk with code, model visualizations, notebooks and a workstation; illustrative scene, not a real launch or laboratory.",
+    "imageCaption": "A generated editorial image illustrating this week’s mix of frontier models, creative agents and open research.",
+    "imageCreditName": "FyreLinkz Editorial (AI-generated)",
+    "eventDate": "2026-10-02",
+    "featured": true,
+    "takeaway": "The week ending October 4, 2026 brought a limited Google frontier-model preview, generally available hosted models from OpenAI and Anthropic, and new creative and scientific workflows. The practical story is not a single benchmark winner: it is the widening gap between what is publicly usable, what is still access-controlled, and what is research infrastructure rather than a finished product.",
+    "sections": [
+      {
+        "heading": "The short answer",
+        "content": "Three announcements matter most to builders comparing AI tools this week: Google’s Gemini 4 Argon is a restricted preview for trusted cyber defenders; OpenAI’s GPT-6.1 Sol is a hosted API model priced at $2 per million input tokens and $10 per million output tokens at standard rates; and Anthropic’s Claude Sonnet 5.5 is available across its platforms at the same published token prices as its predecessor. Outside chat models, Comfy Agent brings workflow creation into Comfy Cloud, while Ai2 released AstaBrief, an 8B open-weights model for cited scientific reports. These are different product types and should not be ranked as if they were one contest.",
+        "sourceIds": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      {
+        "heading": "What launched—and who can actually use it",
+        "content": "Google announced Gemini 4 Argon on September 30 for complex professional and cybersecurity workflows. The launch post says access is rolling out to trusted cyber defenders through the Fairwind Program while Google conducts safety testing. That makes Argon a notable capability preview, not a model most developers can sign up and use today. OpenAI released GPT-6.1 Sol through its API on September 29, positioning it as a lower-cost option for complex coding and professional work. It also announced multi-agent support in beta and computer use through the Agents API. Claude Sonnet 5.5 arrived September 28 and is available on Anthropic’s platforms and cloud partners. Anthropic reports it is more than 30% faster and can cost up to 30% less per task than Sonnet 5; those are company-reported results, not an independent guarantee for every prompt.",
+        "sourceIds": [
+          1,
+          2,
+          4
+        ]
+      },
+      {
+        "heading": "The price comparison is useful—but only as a starting point",
+        "content": "At standard API rates, GPT-6.1 Sol lists $2 per million input tokens and $10 per million output tokens. Claude Sonnet 5.5 lists the same base rates. OpenAI separately prices cached input and cache writes; Anthropic separately lists cache-read pricing. Actual bills also depend on reasoning tokens, prompt length, retries, tools, batching and whether a product plan bundles usage. Compare the cost of completing the same real task—not just one million tokens—and check each provider’s current pricing page before purchasing.",
+        "table": {
+          "headers": [
+            "Service / model",
+            "Public status in this roundup",
+            "Published standard token price"
+          ],
+          "rows": [
+            [
+              "Gemini 4 Argon",
+              "Restricted Fairwind preview; not broadly available",
+              "No public price listed in launch post"
+            ],
+            [
+              "GPT-6.1 Sol API",
+              "Available through OpenAI API",
+              "$2 / million input; $10 / million output"
+            ],
+            [
+              "Claude Sonnet 5.5",
+              "Available on Anthropic and cloud platforms",
+              "$2 / million input; $10 / million output"
+            ],
+            [
+              "AstaBrief 8B",
+              "Open weights and available in Ai2 Asta",
+              "No single hosted token price in announcement"
+            ]
+          ]
+        },
+        "sourceIds": [
+          1,
+          2,
+          4,
+          7
+        ]
+      },
+      {
+        "heading": "Agents are becoming usable work surfaces",
+        "content": "Two announcements turn the model conversation toward completing tasks inside a workflow. Comfy Agent, introduced October 1, is available in Comfy Cloud: users describe a visual result and the agent plans, builds, runs and iterates on ComfyUI workflows. Comfy says desktop support is planned for a later release, so the current availability is cloud-based. Separately, OpenAI added computer use to the Agents API, letting an agent operate an OpenAI-hosted browser with website access approvals and sign-in handled by the application. OpenAI’s Dots are a different, always-on ChatGPT agent product powered by GPT-6 Astra; availability depends on plan and region, and the current help page excludes UK and EEA Pro rollouts. These products differ in where they run, what access they need and how much autonomy a user grants—review those controls before connecting accounts or letting agents act.",
+        "sourceIds": [
+          2,
+          3,
+          6
+        ]
+      },
+      {
+        "heading": "Open research: a report model, a training stack and a new visual direction",
+        "content": "Ai2 released AstaBrief 8B as an open-weights model for turning a research question plus retrieved literature into a cited report. Ai2 reports its Fast mode averaged 51.1 seconds per report versus 178.5 seconds for its Thinking mode in the Asta pipeline. The organization also cautions that most of the training and evaluation work was completed in 2025 and was not rerun against the current frontier. Treat the result as evidence about a particular model-and-pipeline design, not proof that an 8B model now beats frontier systems generally. Ai2’s Olmo-core 3 is not a new chat model: it is an open mixture-of-experts training system. Its trillion-parameter-scale throughput figures are systems measurements, not model-quality scores. NVIDIA researchers’ PixelUMM is a September 29 preprint on a unified pixel-space model for image/video understanding and generation; it is research, and its paper should not be confused with a widely available, production-ready creative service.",
+        "sourceIds": [
+          7,
+          8,
+          9
+        ]
+      },
+      {
+        "heading": "Audio and the smaller workflow wins",
+        "content": "ElevenLabs announced Eleven v4 and its low-latency v4 Turbo on September 28. The company describes stronger emotional direction, more consistent speaker identity and improved dialogue generation; it reports preference-test results on its own blog, so readers should listen to samples for their language, voice and use case rather than treat a vendor leaderboard as universal. For creators, the meaningful test is whether the release improves the actual sequence—draft, pronunciation fixes, retakes, editing and licensing—at a cost that fits the project.",
+        "sourceIds": [
+          5
+        ]
+      },
+      {
+        "heading": "What the hardware numbers do—and do not—tell you",
+        "content": "Most headline models in this roundup are hosted services, so their GPU requirements are handled by the provider; users choose access, latency and price rather than a local card. Open weights change that calculation. AstaBrief is an 8B model, but Ai2’s announcement does not prescribe one universal GPU configuration: memory use varies with precision, context length, runtime and the retrieval pipeline. IQuest-Q1’s model card lists 320B total parameters and BF16 weights. At two bytes per parameter, raw weights alone are roughly 640 GB in decimal units before runtime overhead (320 billion × 2 bytes); its 15B activated-per-token figure does not mean a single consumer GPU can hold the model. Check the latest model card and serving setup before buying hardware.",
+        "sourceIds": [
+          7,
+          10
+        ]
+      },
+      {
+        "heading": "A reality check on the names circulating online",
+        "content": "A fast-moving roundup can mix launches, model cards, preprints, infrastructure and unverified names. IQuest-Q1’s Hugging Face card describes a 320B-total-parameter mixture-of-experts model with 15B activated per token, but labels it early-stage and text-only; that is a demanding serving setup, not a small local-GPU download just because only part of the model activates per token. AREX-2 is a real 27B agent model, but its linked paper predates this week. SoL-Refiner is a research preprint, not evidence of a broadly released production product. I could not confirm dated primary announcements in this reporting window for “Whistle Phonon 2,” “DMAD/PDMD” as named products, or InSpatio World 1.5. They are left out of the launch list until a dated, first-party release or paper supports the claim. The threshold is simple: a model card’s existence does not establish that something launched this week.",
+        "sourceIds": [
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      {
+        "heading": "What to try first",
+        "content": "If you build software, compare GPT-6.1 Sol and Sonnet 5.5 on a small set of representative tasks and record quality, latency, input/output usage and the number of human corrections. If you make ComfyUI work, test Comfy Agent on a workflow you can inspect and reproduce. If you do literature synthesis, compare AstaBrief’s cited claims against the underlying papers before relying on a report. If you need an unrestricted public model endpoint, do not plan around Gemini 4 Argon until your organization actually receives access. For each tool, keep a human review step for consequential decisions and check license, data handling and regional availability before moving private work into it.",
+        "sourceIds": [
+          1,
+          4,
+          6,
+          7
+        ]
+      },
+      {
+        "heading": "Reporting notes",
+        "content": "This roundup covers primary announcements and research sources dated September 28 through October 4, 2026. Capabilities, benchmark figures and access statements are attributed to the organizations that published them; the editorial comparison is not an independent benchmark. Product access and prices can change. Thumbnail: AI-generated editorial image made for FyreLinkz; it is illustrative and does not depict a real person, lab, product or launch.",
+        "sourceIds": [
+          1,
+          2,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Which major AI models were announced this week?",
+        "answer": "The clearest dated frontier-model announcements were Google Gemini 4 Argon on September 30, OpenAI GPT-6.1 Sol on September 29, and Anthropic Claude Sonnet 5.5 on September 28, 2026. Their availability differs: Argon is restricted to a trusted cyber-defender program, while Sol and Sonnet 5.5 are available through their respective platforms."
+      },
+      {
+        "question": "Can I use Gemini 4 Argon now?",
+        "answer": "Not through a general public signup, according to Google’s September 30 announcement. Google says Argon is rolling out to trusted cyber defenders through its Fairwind Program while it continues safety testing."
+      },
+      {
+        "question": "How much does GPT-6.1 Sol cost?",
+        "answer": "OpenAI lists standard API pricing of $2 per million input tokens and $10 per million output tokens for GPT-6.1 Sol. Cached input, cache writes, tools and other usage may affect the final bill; check OpenAI’s live pricing before use."
+      },
+      {
+        "question": "How does Claude Sonnet 5.5 compare on price?",
+        "answer": "Anthropic lists Claude Sonnet 5.5 at $2 per million input tokens and $10 per million output tokens, the same base rates as GPT-6.1 Sol. Different caching, reasoning, tools and task success rates mean equal token prices do not guarantee equal total cost."
+      },
+      {
+        "question": "What is Comfy Agent and where is it available?",
+        "answer": "Comfy Agent is an agent for building and iterating on ComfyUI workflows from a natural-language description. Its October 1 launch says it is available in Comfy Cloud; desktop support was planned for a later release."
+      },
+      {
+        "question": "Is AstaBrief an open-source 8B model that runs locally?",
+        "answer": "Ai2 released AstaBrief 8B as an open-weights model and provides an example workflow for local use. The announcement does not give one minimum GPU requirement. At BF16, 8 billion parameters represent about 16 GB of raw weight data before runtime and context overhead; quantization can lower weight memory, while longer context and retrieval add their own needs."
+      },
+      {
+        "question": "Is Olmo-core 3 a new AI model?",
+        "answer": "No. Olmo-core 3 is an open training infrastructure stack for mixture-of-experts language models. Ai2’s large-scale throughput results measure systems performance and do not by themselves show the quality of a trained model."
+      },
+      {
+        "question": "Are the benchmark and speed claims independent?",
+        "answer": "Not all of them. The speed, cost and benchmark figures in company launch posts are vendor-reported unless the article explicitly identifies an independent evaluation. Results depend on model versions, settings, datasets and measurement procedures."
+      },
+      {
+        "question": "Can I run IQuest-Q1 on a normal gaming GPU?",
+        "answer": "Do not assume so. Its model card reports 320 billion total parameters and 15 billion activated per token. Mixture-of-experts activation does not remove the need to store or distribute the full model weights; consult the current model card and compatible serving requirements before planning hardware."
+      },
+      {
+        "question": "Why are some names from the viral roundup not listed as this week’s launches?",
+        "answer": "A weekly launch claim needs a dated primary announcement, release note, or research paper in the stated window. Some names refer to older research, preprints, model listings, or products without a verified first-party date in that window, so they are not presented as confirmed new launches."
+      },
+      {
+        "question": "Which GPU do I need to run the open models mentioned here?",
+        "answer": "There is no universal card recommendation from parameter count alone. AstaBrief is 8B; at BF16 its raw weights are about 16 GB before runtime overhead, and quantization/context affect fit. IQuest-Q1 is 320B total parameters: BF16 raw weights are roughly 640 GB, so its active-parameter count should not be mistaken for a single-GPU memory requirement. Use the model card and runtime documentation to size a real deployment."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "Google",
+        "title": "Gemini 4 Argon: our next era of frontier intelligence",
+        "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+        "publishedAt": "2026-09-30"
+      },
+      {
+        "publisher": "OpenAI",
+        "title": "OpenAI API changelog — GPT-6.1 Sol and computer use in the Agents API",
+        "url": "https://developers.openai.com/api/docs/changelog",
+        "publishedAt": "2026-09-29"
+      },
+      {
+        "publisher": "OpenAI Help Center",
+        "title": "Getting started with your dot",
+        "url": "https://help.openai.com/en/articles/20001530-getting-started-with-your-dot"
+      },
+      {
+        "publisher": "Anthropic",
+        "title": "Introducing Claude Sonnet 5.5",
+        "url": "https://www.anthropic.com/claude-sonnet-5-5",
+        "publishedAt": "2026-09-28"
+      },
+      {
+        "publisher": "ElevenLabs",
+        "title": "Introducing Eleven v4, our most emotive model",
+        "url": "https://elevenlabs.io/blog/eleven-v4",
+        "publishedAt": "2026-09-28"
+      },
+      {
+        "publisher": "ComfyUI",
+        "title": "Comfy Agent: The First Agent for Craft",
+        "url": "https://blog.comfy.org/p/comfy-agent-the-first-agent-for-craft",
+        "publishedAt": "2026-10-01"
+      },
+      {
+        "publisher": "Ai2",
+        "title": "Open-sourcing AstaBrief, the fast report-generation model in Asta",
+        "url": "https://allenai.org/blog/astabrief",
+        "publishedAt": "2026-10-02"
+      },
+      {
+        "publisher": "Ai2",
+        "title": "Introducing Olmo-core 3: Open, scalable training infrastructure for large MoEs",
+        "url": "https://allenai.org/blog/olmocore3",
+        "publishedAt": "2026-10-01"
+      },
+      {
+        "publisher": "arXiv / NVIDIA researchers",
+        "title": "PixelUMM: Encoder-Free Unified Image and Video Understanding and Generation",
+        "url": "https://arxiv.org/abs/2609.38597",
+        "publishedAt": "2026-09-29"
+      },
+      {
+        "publisher": "Hugging Face / IQuest",
+        "title": "IQuest-Q1 model card",
+        "url": "https://huggingface.co/IQuestLab/IQuest-Q1"
+      },
+      {
+        "publisher": "arXiv / BAAI",
+        "title": "AREX: Towards a Recursively Self-Improving Agent for Deep Research",
+        "url": "https://arxiv.org/abs/2607.21461",
+        "publishedAt": "2026-07-23"
+      },
+      {
+        "publisher": "arXiv",
+        "title": "SoL-Refiner: Speed-of-Light One-Step Refinement for High-Resolution Video",
+        "url": "https://arxiv.org/abs/2609.37969",
+        "publishedAt": "2026-09-29"
+      }
+    ],
+    "publishedAt": "2026-10-04",
+    "updatedAt": "2026-10-04",
+    "sourceCheckedAt": "2026-10-04"
   }
 ]

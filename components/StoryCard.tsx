@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { articlePath, formatDate, type EditorialPost } from "@/lib/editorial";
+import { articleCardImagePath, articlePath, formatDate, type EditorialPost } from "@/lib/editorial";
 
 export function StoryImage({
   post,
@@ -14,7 +14,7 @@ export function StoryImage({
   return (
     <Image
       className={`story-image ${className}`.trim()}
-      src={`/art/${post.image}${post.image.endsWith("-photo") ? ".jpg" : ".webp"}`}
+      src={articleCardImagePath(post.image)}
       alt={post.imageAlt || `FyreLinkz editorial illustration: ${post.title}`}
       width={1200}
       height={750}
