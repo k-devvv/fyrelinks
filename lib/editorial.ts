@@ -97,7 +97,12 @@ export function articleFromInput(p: ArticleInput): EditorialPost {
 export function articlePath(p: Pick<EditorialPost, 'category' | 'slug'>) {
   return `/${p.category}/${p.slug}`;
 }
+export function articleCardImagePath(image: string) {
+  if (image === 'ai-week-roundup-2026') return '/art/ai-week-roundup-2026.jpg';
+  return `/art/${image}${image.endsWith('-photo') ? '.jpg' : '.webp'}`;
+}
 export function articleShareImagePath(image: string) {
+  if (image === 'ai-week-roundup-2026') return articleCardImagePath(image);
   return `/art/${image}${image.endsWith('-photo') ? '.jpg' : '.png'}`;
 }
 export function sectionId(h: string) {
