@@ -33,6 +33,7 @@ for (const p of POSTS) {
     assert.equal(cardImage, socialImage, `${p.slug}: card and social metadata use the same image`);
   }
   assert.ok(p.sources?.length, `${p.slug}: primary sources required`);
+  assert.ok(typeof p.imageAlt === "string" && p.imageAlt.trim().length >= 20, `${p.slug}: descriptive image alt text is required`);
   assert.ok(CATEGORIES.some(c => c.slug === p.category));
   assert.ok(p.sources.every(s => s.url.startsWith('https://')));
   assert.ok(p.sourceCheckedAt);

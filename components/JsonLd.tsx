@@ -36,6 +36,9 @@ export default function JsonLd(props: Props) {
         image: {
           '@type': 'ImageObject',
           url: SITE_URL + articleShareImagePath(p.image),
+          contentUrl: SITE_URL + articleShareImagePath(p.image),
+          caption: p.imageCaption ?? p.imageAlt,
+          description: p.imageAlt,
           width: 1200,
           height: 750
         },

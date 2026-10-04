@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { category, slug } = await params;
   const p = getPostBySlug(category, slug);
   if (!p) return {};
-  const m = pageMetadata(p.title, p.metaDescription, articlePath(p), articleShareImagePath(p.image));
+  const m = pageMetadata(p.title, p.metaDescription, articlePath(p), articleShareImagePath(p.image), p.imageAlt);
   return {
     ...m,
     openGraph: {
@@ -74,11 +74,10 @@ export default async function ArticlePage({ params }: Props) {
       <figure className="article-figure">
         <StoryImage post={p} priority />
         <figcaption>
-          {p.imageCreditName && p.imageCreditUrl
-            ? <>{p.imageCaption ?? p.imageAlt} Photo: <a href={p.imageCreditUrl} target="_blank" rel="noopener noreferrer">{p.imageCreditName} / Unsplash ↗</a></>
-            : p.image.endsWith("-photo")
-              ? "Editorial photograph. Illustrative only; not a product screenshot or test evidence."
-              : <>Illustration by FyreLinkz. {p.category === "news" ? "Reporting based on the linked announcement." : "A conceptual illustration, not a benchmark result."}</>}
+          {p.imageCaption ?? (p.image.endsWith("-photo")
+            ? "Editorial photograph. Illustrative only; not a product screenshot or test evidence."
+            : <>Illustration by FyreLinkz. {p.category === "news" ? "Reporting based on the linked announcement." : "A conceptual illustration, not a benchmark result."}</>)}
+          {p.imageCreditName && p.imageCreditUrl && <> Photo: <a href={p.imageCreditUrl} target="_blank" rel="noopener noreferrer">{p.imageCreditName} / Unsplash ↗</a></>}
         </figcaption>
       </figure>
       <div className="article-grid">
