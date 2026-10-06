@@ -3161,5 +3161,142 @@
     "publishedAt": "2026-10-04",
     "updatedAt": "2026-10-04",
     "sourceCheckedAt": "2026-10-04"
+  },
+  {
+    "slug": "reflection-beam-gpu-requirements-open-weights",
+    "category": "news",
+    "title": "Reflection Beam GPU requirements: 501B total, 23B active",
+    "description": "Reflection Beam has 501B total and 23B active parameters. See raw GPU-memory estimates, current access, reported benchmarks, and what local AI builders should wait for.",
+    "topic": "Open models & hardware",
+    "image": "reflection-beam-hardware",
+    "imageAlt": "AI-generated editorial photograph of an engineer installing a large triple-fan graphics card in a workstation; illustrative, not a Reflection Beam product image.",
+    "imageCaption": "AI-generated editorial photograph illustrating GPU installation. It does not show Reflection’s Beam model or a tested configuration.",
+    "eventDate": "2026-10-05",
+    "featured": true,
+    "takeaway": "Reflection has announced a 501-billion-parameter mixture-of-experts model with 23 billion parameters active per token. That smaller active count can reduce computation, but it does not mean a 23B checkpoint: raw BF16 weights are about 1.0 TB before runtime overhead. Beam is currently waitlist-only; weights are planned later in October.",
+    "sections": [
+      {
+        "heading": "What Reflection announced",
+        "content": "Reflection introduced Beam on October 5 as its first open-weight model, aimed at coding, reasoning and agentic workloads. The company describes a sparse mixture-of-experts (MoE) model with 501 billion total parameters and 23 billion active for each token. As of October 6, Reflection says selected users can request early access; it plans to publish the weights, model card, technical report and developer tools later this month under Apache 2.0. That means readers cannot yet inspect a public checkpoint or verify its final runtime requirements.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "Why 23B active does not mean a 23B model download",
+        "content": "An MoE model routes each token through some of its expert networks rather than computing through every expert at once. This can lower the computation used for a token compared with a dense model of the same total size. The checkpoint still contains the experts: a 2025 ACL paper on MoE compression explains that fewer active parameters do not reduce total parameter count, and that expert weights create substantial memory pressure. Runtime strategies can shard weights across GPUs or offload them to system memory, but those choices need supported software and trade off speed, complexity or both.",
+        "sourceIds": [
+          2
+        ]
+      },
+      {
+        "heading": "How much memory could Beam’s weights take?",
+        "content": "A simple lower-bound estimate multiplies parameter count by bytes per weight. For 501 billion parameters, BF16 at two bytes per weight works out to about 1,002 GB (roughly 933 GiB) for the weights alone. FP8 at one byte is about 501 GB; four-bit storage at half a byte is about 251 GB before scales and metadata. These are arithmetic estimates, not a tested Beam build: Reflection has not yet published the weight files or documented supported precisions. Real inference also needs memory for the runtime, activations, cache and other buffers.",
+        "table": {
+          "headers": [
+            "Illustrative storage format",
+            "Raw weight estimate for 501B parameters",
+            "What this does—and does not—tell you"
+          ],
+          "rows": [
+            [
+              "BF16 · 2 bytes/parameter",
+              "About 1,002 GB",
+              "A raw-weight lower bound; not a complete serving requirement."
+            ],
+            [
+              "FP8 · about 1 byte/parameter",
+              "About 501 GB",
+              "A hypothetical estimate; Beam’s supported format is not published."
+            ],
+            [
+              "4-bit · about 0.5 byte/parameter",
+              "About 251 GB",
+              "A hypothetical estimate before quantization metadata and runtime memory."
+            ]
+          ]
+        },
+        "sourceIds": [
+          1,
+          2
+        ]
+      },
+      {
+        "heading": "Can one consumer GPU run Reflection Beam?",
+        "content": "Not as a conventional, fully resident BF16 model on one card. NVIDIA lists 32 GB of memory for the GeForce RTX 5090 and 141 GB for the data-center H200; both are below even the rough 4-bit weight-only estimate above. A multi-GPU server, aggressive offload or a future compressed checkpoint could change the deployment options, but the launch post does not specify a supported inference configuration. The reported 6,144-GB300 pretraining cluster and 10,500-GPU reinforcement-learning run describe Reflection’s training work, not the hardware a user needs to serve Beam.",
+        "sourceIds": [
+          1,
+          3,
+          4
+        ]
+      },
+      {
+        "heading": "What do Beam’s benchmark numbers show?",
+        "content": "Reflection’s launch post reports Beam at 80.1 on Terminal-Bench v2.1. Its table lists Kimi K3 at 88.3 and Qwen 3.8 Max at 86.6 on the same benchmark, while Beam leads some other entries or sits close to them. Those are company-published results, not an independent evaluation of Beam. Reflection also presents estimated inference-compute comparisons and explicitly excludes prompt-prefill, context-dependent attention and serving overhead from that estimate. Treat the table as an early vendor report: the model card, harness settings, model versions and independent reruns will matter before calling a winner.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "What local AI builders should do now",
+        "content": "Do not buy a GPU based on the 23B active number alone. Wait for Reflection’s checkpoint and model card, then check the actual quantized files, supported inference engines, memory measurements at your intended context length, license text and download source. If Beam is available only through a hosted endpoint at first, compare its live price and usage limits before planning a local build. For hardware choices you can make today, start with your actual workload and current software support in our [AI workstation planner](/hardware/ai-workstation-planner), and use our [local LLM VRAM guide](/workflow/reduce-local-llm-vram-quantization-offloading-guide) to understand the memory trade-offs.",
+        "sourceIds": [
+          1
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What is Reflection Beam?",
+        "answer": "Beam is Reflection’s announced open-weight language model for coding, reasoning and agentic tasks. Reflection describes it as a sparse mixture-of-experts model with 501 billion total parameters and 23 billion active per token."
+      },
+      {
+        "question": "Why does Beam have 501B total parameters but 23B active?",
+        "answer": "The model routes each token through a subset of its expert networks, so fewer parameters are used for that token’s computation. The total checkpoint still includes the experts, so active parameters do not equal the full model’s storage requirement."
+      },
+      {
+        "question": "Can I run Reflection Beam on an RTX 5090?",
+        "answer": "There is no published supported build yet. The RTX 5090 has 32 GB of memory, while simple weight-only arithmetic estimates about 251 GB even at four bits for 501 billion parameters, before metadata and runtime memory. Wait for Reflection’s model card and supported quantized files before planning a deployment."
+      },
+      {
+        "question": "Can I download Beam now?",
+        "answer": "Reflection says selected users can request early access. The public weights, model card, technical report and developer artifacts are planned for later in October 2026; they were not available in the October 5 announcement."
+      },
+      {
+        "question": "Has Beam independently beaten Kimi K3 or Qwen 3.8 Max?",
+        "answer": "The October 5 announcement provides Reflection’s own benchmark table, not an independent evaluation. In its Terminal-Bench v2.1 row, Reflection lists Beam at 80.1, Kimi K3 at 88.3 and Qwen 3.8 Max at 86.6. Independent tests with published settings are still needed."
+      },
+      {
+        "question": "Does Reflection publish Beam API pricing?",
+        "answer": "The launch announcement does not list a public API price. Check Reflection’s current platform information when early access or public distribution opens."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "Reflection",
+        "title": "Introducing Beam: Reflection’s 501B open-weight model",
+        "url": "https://reflection.ai/blog/introducing-beam",
+        "publishedAt": "2026-10-05"
+      },
+      {
+        "publisher": "Association for Computational Linguistics",
+        "title": "EAC-MoE: Expert-Selection Aware Compressor for Mixture-of-Experts Large Language Models",
+        "url": "https://aclanthology.org/2025.acl-long.633/",
+        "publishedAt": "2025-07-27"
+      },
+      {
+        "publisher": "NVIDIA",
+        "title": "GeForce RTX 5090 specifications",
+        "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5090/"
+      },
+      {
+        "publisher": "NVIDIA",
+        "title": "NVIDIA H200 Tensor Core GPU",
+        "url": "https://www.nvidia.com/en-us/data-center/h200/"
+      }
+    ],
+    "publishedAt": "2026-10-06",
+    "updatedAt": "2026-10-06",
+    "sourceCheckedAt": "2026-10-06"
   }
 ]

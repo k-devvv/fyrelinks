@@ -99,10 +99,11 @@ export function articlePath(p: Pick<EditorialPost, 'category' | 'slug'>) {
 }
 export function articleCardImagePath(image: string) {
   if (image === 'ai-week-roundup-2026') return '/art/ai-week-roundup-2026.jpg';
+  if (image === 'reflection-beam-hardware') return '/art/reflection-beam-2026.png';
   return `/art/${image}${image.endsWith('-photo') ? '.jpg' : '.webp'}`;
 }
 export function articleShareImagePath(image: string) {
-  if (image === 'ai-week-roundup-2026') return articleCardImagePath(image);
+  if (image === 'ai-week-roundup-2026' || image === 'reflection-beam-hardware') return articleCardImagePath(image);
   return `/art/${image}${image.endsWith('-photo') ? '.jpg' : '.png'}`;
 }
 export function sectionId(h: string) {
