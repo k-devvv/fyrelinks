@@ -25,6 +25,13 @@ for (const p of POSTS) {
   const socialPath = path.join(__dirname, '..', 'public', 'art', socialImage);
   assert.ok(fs.existsSync(cardPath), `${p.slug}: card image exists`);
   assert.ok(fs.existsSync(socialPath), `${p.slug}: social image exists`);
+  if (p.image === 'reflection-beam-hardware') {
+    const png = fs.readFileSync(cardPath);
+    assert.equal(png[0], 0x89, `${p.slug}: generated thumbnail has PNG signature`);
+    assert.equal(png[1], 0x50, `${p.slug}: generated thumbnail has PNG signature`);
+    assert.ok(png.length < 2_500_000, `${p.slug}: generated thumbnail stays optimized`);
+    assert.equal(cardImage, socialImage, `${p.slug}: card and social metadata use the same image`);
+  }
   if (p.image === 'ai-week-roundup-2026') {
     const jpeg = fs.readFileSync(cardPath);
     assert.equal(jpeg[0], 0xff, `${p.slug}: generated thumbnail has JPEG signature`);
