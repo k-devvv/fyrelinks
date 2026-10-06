@@ -3166,7 +3166,7 @@
     "slug": "reflection-beam-gpu-requirements-open-weights",
     "category": "news",
     "title": "Reflection Beam GPU requirements: 501B total, 23B active",
-    "description": "Reflection Beam has 501B total and 23B active parameters. See raw GPU-memory estimates, current access, reported benchmarks, and what local AI builders should wait for.",
+    "description": "Reflection says Beam has 501B total parameters and 23B active. See what that means for GPU memory, access and its company-reported benchmarks.",
     "topic": "Open models & hardware",
     "image": "reflection-beam-hardware",
     "imageAlt": "AI-generated editorial photograph of an engineer installing a large triple-fan graphics card in a workstation; illustrative, not a Reflection Beam product image.",
