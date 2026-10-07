@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { linkPolicy } from "@/lib/link-policy";
 
 export interface SmartLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string;
@@ -13,34 +14,30 @@ export default function SmartLink({
   isAffiliate = false,
   children,
   className = "",
+  rel,
+  target,
   ...props
 }: SmartLinkProps) {
   // Treat /go/ affiliate redirects as outbound affiliate links
-  const isGoRedirect = href.startsWith("/go/");
-  const isInternal =
-    (href.startsWith("/") || href.startsWith("#") || href.includes("fyrelinkz.com")) &&
-    !isGoRedirect;
+  const policy = linkPolicy(href, isAffiliate, rel, target);
 
-  if (isInternal) {
+  if (policy.internal) {
     return (
-      <Link href={href} className={className} {...props}>
+      <Link href={href} className={className} {...props} rel={policy.rel} target={policy.target}>
         {children}
       </Link>
     );
   }
 
   // Determine rel tags for external links
-  const relAttribute = isAffiliate || isGoRedirect
-    ? "nofollow sponsored noopener noreferrer"
-    : "noopener noreferrer";
 
   return (
     <a
       href={href}
-      target="_blank"
-      rel={relAttribute}
       className={className}
       {...props}
+      target={policy.target}
+      rel={policy.rel}
     >
       {children}
     </a>
