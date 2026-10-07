@@ -1,4 +1,5 @@
 import Link from "next/link";
+import SmartLink from "@/components/SmartLink";
 import { notFound } from "next/navigation";
 import { POSTS, getPostBySlug, getCategoryBySlug, getRelatedPosts } from "@/lib/posts";
 import { SITE_URL, articlePath, articleShareImagePath, sectionId, formatDate } from "@/lib/editorial";
@@ -40,7 +41,7 @@ function renderInlineText(text: string) {
     const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
     if (!match) return part;
     const [, label, href] = match;
-    if (href.startsWith("/") && !href.startsWith("//")) return <Link key={idx} href={href}>{label}</Link>;
+    if (href.startsWith("/") && !href.startsWith("//")) return <SmartLink key={idx} href={href}>{label}</SmartLink>;
     if (!/^https?:\/\//i.test(href)) return label;
     return <a key={idx} href={href} target="_blank" rel="noopener noreferrer">{label} ↗</a>;
   });
