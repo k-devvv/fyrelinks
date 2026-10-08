@@ -1196,14 +1196,72 @@
         ]
       },
       {
+        "heading": "Extraction architecture comparison: Scrapling vs Firecrawl vs Playwright",
+        "content": "When engineering an ingestion pipeline for retrieval-augmented generation (RAG), choosing between an HTTP parser (such as Scrapling), a managed extraction API (Firecrawl), and a full browser automation suite (Playwright) depends on where JavaScript execution and anti-bot handling sit in your stack.",
+        "table": {
+          "headers": [
+            "Dimension",
+            "Scrapling / HTTP Parsers",
+            "Firecrawl (Managed API)",
+            "Playwright (Self-Hosted)"
+          ],
+          "rows": [
+            [
+              "Execution model",
+              "Direct HTTP request + CSS/XPath parsing",
+              "Managed cloud headless browser queue",
+              "Local or remote headless Chromium instance"
+            ],
+            [
+              "JavaScript rendering",
+              "No (static HTML only)",
+              "Yes (fully rendered DOM to markdown)",
+              "Yes (complete browser runtime & interaction)"
+            ],
+            [
+              "Compute overhead",
+              "Minimal (<50MB RAM per process)",
+              "Zero local compute (API credit-based)",
+              "High (500MB–1GB+ RAM per active tab)"
+            ],
+            [
+              "Proxy & bot handling",
+              "Manual proxy rotation required",
+              "Included in managed service tier",
+              "Manual residential/datacenter proxy pool"
+            ],
+            [
+              "Ideal workload",
+              "High-volume documentation & news feeds",
+              "Direct LLM markdown ingestion at scale",
+              "Complex multi-step logins & custom flows"
+            ]
+          ]
+        }
+      },
+      {
         "heading": "Try this next",
         "content": "Once extraction works, define how you will evaluate the database that retrieves those documents. Read [Qdrant vs Weaviate vs Milvus vs Pinecone: what to compare](/stack/self-hosted-vector-db-pricing-and-latency-benchmarks)."
       }
     ],
     "publishedAt": "2026-09-08",
-    "updatedAt": "2026-09-22",
-    "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "Generated editorial photograph: Data engineer reviewing a web research pipeline at a desktop workstation."
+    "updatedAt": "2026-10-08",
+    "sourceCheckedAt": "2026-10-08",
+    "imageAlt": "Generated editorial photograph: Data engineer reviewing a web research pipeline at a desktop workstation.",
+    "faqs": [
+      {
+        "question": "How does Scrapling compare to Firecrawl for web data extraction?",
+        "answer": "Scrapling focuses on lightweight, high-performance HTML parsing and HTTP-level extraction without browser overhead, making it fast and low-cost for static or server-rendered pages. Firecrawl is a managed extraction service that runs headless browser rendering, proxy rotation, and automated markdown conversion for LLM pipelines. If pages require JavaScript execution or managed anti-bot handling, a managed browser service or Playwright is needed; for static markup, HTTP-level parsers are dramatically faster and cheaper."
+      },
+      {
+        "question": "When should I use Playwright instead of a managed scraping API like Firecrawl?",
+        "answer": "Use Playwright when you require bespoke multi-step interactions (such as multi-factor login, custom canvas or shadow DOM extraction, or session-based workflows) and have the infrastructure to manage headless browser processes and proxies. Use a managed service like Firecrawl when your primary goal is converting clean web pages directly into LLM-ready markdown without maintaining browser infrastructure, proxy rotation, or extraction heuristics."
+      },
+      {
+        "question": "How can I test whether dynamic rendering is actually needed for my RAG pipeline?",
+        "answer": "Fetch a sample of 20 target URLs using a simple curl or HTTP GET request and inspect whether the required article text is present in the raw initial HTML payload. If the text exists in the raw HTML, headless browser rendering (Playwright/Puppeteer) adds unnecessary latency and compute overhead. Only route URLs through headless browsers if client-side JavaScript is strictly necessary to populate the body text."
+      }
+    ]
   },
   {
     "slug": "cursor-vs-windsurf-vs-copilot-developer-benchmarks",
@@ -1263,14 +1321,72 @@
         "content": "Repeat with a documentation task or a small feature after the initial bug fix. A tool can be strong at one type of work and awkward at another. This page replaces unsupported autocomplete-latency and model-ranking claims with a reproducible evaluation method."
       },
       {
+        "heading": "Architectural comparison: inline completion vs agentic editor",
+        "content": "Evaluating an AI code editor requires separating low-latency typing completion from multi-file agentic task execution. Different engineering teams need different control levels depending on repository security policies and review workflows.",
+        "table": {
+          "headers": [
+            "Evaluation Factor",
+            "GitHub Copilot",
+            "Cursor",
+            "Windsurf (Codeium)"
+          ],
+          "rows": [
+            [
+              "Editor architecture",
+              "VS Code / JetBrains extension",
+              "Dedicated VS Code fork",
+              "Dedicated VS Code fork"
+            ],
+            [
+              "Primary agent mode",
+              "Copilot Chat / Workspace agent",
+              "Composer (multi-file diff & terminal)",
+              "Cascade (flow-based agent execution)"
+            ],
+            [
+              "Codebase indexing",
+              "GitHub remote repository index & local files",
+              "Local embeddings + codebase index",
+              "Local indexing + Supercomplete cache"
+            ],
+            [
+              "Terminal command execution",
+              "Optional agent terminal suggestions",
+              "Built-in direct terminal execution with approval",
+              "Built-in terminal execution with step triage"
+            ],
+            [
+              "Model selection flexibility",
+              "OpenAI / Anthropic selection in supported tiers",
+              "User-selectable Claude, GPT-4o, and custom keys",
+              "Configurable Cascade model baselines"
+            ]
+          ]
+        }
+      },
+      {
         "heading": "Try this next",
         "content": "Keep the decision useful: record the task, evidence and reason for your choice in a short decision note. Read [A simple Notion system for decisions that stay findable](/workflow/async-engineering-notion-architecture)."
       }
     ],
     "publishedAt": "2026-09-08",
-    "updatedAt": "2026-09-21",
-    "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "Generated editorial photograph: Developer working on a coding task at a laptop and external monitor."
+    "updatedAt": "2026-10-08",
+    "sourceCheckedAt": "2026-10-08",
+    "imageAlt": "Generated editorial photograph: Developer working on a coding task at a laptop and external monitor.",
+    "faqs": [
+      {
+        "question": "What is the key workflow difference between Cursor, Windsurf, and GitHub Copilot?",
+        "answer": "GitHub Copilot focuses heavily on inline code completion and GitHub ecosystem integration (PR summaries, repository search). Cursor and Windsurf (Codeium) operate as standalone VS Code forks designed for agentic multi-file edits (Cursor Composer and Windsurf Cascade), allowing models to read project structures, generate unified diffs across multiple files, and execute terminal commands."
+      },
+      {
+        "question": "Does one AI code editor have definitively higher benchmark accuracy?",
+        "answer": "Public benchmarks and social claims vary widely depending on the underlying model (e.g., Claude 3.5 Sonnet vs GPT-4o), prompt engineering, and codebase context retrieval. No single editor has universally higher accuracy across all software stacks. The most reliable comparison is testing a single bounded bug fix or feature task on your own repository across all three tools."
+      },
+      {
+        "question": "How do context windows and codebase indexing differ between these tools?",
+        "answer": "Rather than stuffing entire codebases into a model's context window, all three tools use retrieval mechanisms (embeddings, symbol indexing, and file trees) to select relevant files. Cursor and Windsurf allow explicit file and documentation mentions (such as @-symbols), while Copilot integrates with GitHub's remote repository semantic search. Review current subscription terms for context token limits and rate limits before deciding."
+      }
+    ]
   },
   {
     "slug": "async-engineering-notion-architecture",
@@ -1771,8 +1887,8 @@
     "image": "rtx-4050-laptop-photo",
     "featured": true,
     "publishedAt": "2026-09-22",
-    "updatedAt": "2026-09-22",
-    "sourceCheckedAt": "2026-09-22",
+    "updatedAt": "2026-10-08",
+    "sourceCheckedAt": "2026-10-08",
     "takeaway": "Direct Answer: An RTX 4050 laptop GPU provides strictly 6GB of GDDR6 VRAM, with roughly 4.8GB usable after Windows display overhead. It runs 3B models (Llama 3.2 3B, Qwen 2.5 3B) entirely in GPU memory at over 45 tokens per second. An 8B model at Q4_K_M fits only with a constrained 2,048 context; larger contexts spill into system RAM, dropping generation speed below 10 tokens per second.",
     "sources": [
       {
@@ -1880,11 +1996,68 @@
         "content": "An RTX 4050 laptop is ideal for terminal assistants, local code completion, and drafting emails privately. It is not suitable for running 14B or 70B parameter models, continuous multi-turn RAG over hundreds of PDFs, or local fine-tuning. If your task requires a 70B reasoning model or extensive batch evaluation, rented GPU instances (such as RunPod or Vast.ai) or hosted API endpoints remain vastly more economical than upgrading a laptop chassis."
       },
       {
+        "heading": "VRAM budget worksheet: 6GB physical capacity breakdown",
+        "content": "Before downloading a model, calculate the combined footprint of weights, KV cache at your target context length, and system overhead. On a 6GB laptop GPU, memory is tightly partitioned.",
+        "table": {
+          "headers": [
+            "Model & Quantization",
+            "Weight VRAM",
+            "KV Cache (2K Context)",
+            "KV Cache (8K Context)",
+            "6GB GPU Outcome"
+          ],
+          "rows": [
+            [
+              "Llama 3.2 3B (Q4_K_M)",
+              "~2.0 GB",
+              "~0.25 GB",
+              "~1.0 GB",
+              "Fits completely in GPU memory with headroom"
+            ],
+            [
+              "Qwen 2.5 7B (Q4_K_M)",
+              "~4.4 GB",
+              "~0.45 GB",
+              "~1.8 GB",
+              "Fits at 2K context; overflows at 8K context"
+            ],
+            [
+              "Llama 3.1 8B (Q4_K_M)",
+              "~4.9 GB",
+              "~0.50 GB",
+              "~2.0 GB",
+              "Fits only at <=2K context; requires CPU offload at 8K"
+            ],
+            [
+              "Mistral 7B (Q5_K_M)",
+              "~5.1 GB",
+              "~0.45 GB",
+              "~1.8 GB",
+              "Severe CPU offloading; low token/s performance"
+            ]
+          ]
+        }
+      },
+      {
         "heading": "Try this next",
         "content": "Want to optimize memory further? Learn how to compress KV cache and choose exact GGUF quants in our guide to [reducing local LLM VRAM usage](/workflow/reduce-local-llm-vram-quantization-offloading-guide)."
       }
     ],
-    "imageAlt": "Generated editorial photograph: Technician inspecting cooling hardware inside a portable AI workstation."
+    "imageAlt": "Generated editorial photograph: Technician inspecting cooling hardware inside a portable AI workstation.",
+    "faqs": [
+      {
+        "question": "Can an RTX 4050 6GB laptop GPU run an 8B parameter model like Llama 3.1?",
+        "answer": "An 8B model quantized to 4 bits (Q4_K_M) requires approximately 4.5GB to 4.9GB for weights alone. On a 6GB VRAM laptop GPU, this leaves less than 1.5GB for the KV cache and display buffers. You can run it locally only by clamping the context window to 2,048 tokens or offloading 2 to 4 layers to system RAM (which reduces generation speed). For full-speed GPU generation with long contexts (4K–8K tokens), 3B models like Llama 3.2 3B or Qwen 2.5 3B are far more stable."
+      },
+      {
+        "question": "Why does my local LLM suddenly slow down after a few prompts on a laptop?",
+        "answer": "Two primary factors cause mid-session slowdowns on laptops: context growth and thermal throttling. As conversation history expands, the KV cache consumes remaining VRAM; once VRAM overflows, Ollama or llama.cpp offloads buffers to system RAM via PCIe, dropping token generation speed by 70% to 90%. Additionally, continuous GPU loads trigger thermal limits on compact laptops, causing clock frequencies to throttle down."
+      },
+      {
+        "question": "Does Ollama automatically fit models into available VRAM?",
+        "answer": "Ollama calculates how many model layers can fit into physical VRAM upon loading, offloading remaining layers to CPU RAM. However, Ollama's initial calculation reserves space based on the configured context length (num_ctx). If num_ctx defaults to 8,192 tokens, the reserved KV cache will force layer offloading to CPU. Setting num_ctx 2048 in your Modelfile allows more layers to remain on the 6GB GPU."
+      }
+    ]
   },
   {
     "slug": "reduce-local-llm-vram-quantization-offloading-guide",
@@ -2663,8 +2836,22 @@
       }
     ],
     "publishedAt": "2026-09-26",
-    "updatedAt": "2026-09-26",
-    "sourceCheckedAt": "2026-09-26"
+    "updatedAt": "2026-10-08",
+    "sourceCheckedAt": "2026-10-08",
+    "faqs": [
+      {
+        "question": "What is the difference between Jev and Needle 3?",
+        "answer": "Jev and Needle 3 solve different problems with different operational architectures. Jev is a hosted, API-billed constrained decision model designed to select discrete options based on input rubrics at high token throughput. Needle 3 is a tiny on-device model architecture designed for local execution without API dependency. Jev requires paying per input token to an external endpoint, whereas Needle 3 runs on local hardware with zero per-token API cost."
+      },
+      {
+        "question": "Can small language models under 3B parameters reliably replace frontier LLMs?",
+        "answer": "For narrow, highly structured classification, routing, or constrained extraction tasks, small models (such as MiniCPM, Needle, or Qwen 2.5 1.5B/3B) can achieve high accuracy at dramatically lower latency and compute cost. However, for open-ended reasoning, complex synthesis, multi-turn dialogue, or diverse code generation, small models exhibit higher error and hallucination rates than frontier models."
+      },
+      {
+        "question": "How should I calculate the total cost of running local 2B–3B models versus using an API?",
+        "answer": "For local models, factor in upfront GPU/hardware cost, electricity, and local runtime memory (2GB–4GB VRAM for 4-bit quantizations). For hosted APIs like Jev or frontier providers, multiply expected daily input/output token volume by published pricing. High-concurrency or continuous evaluation workloads often reach breakeven on local hardware within months, whereas low-volume bursty workloads are cheaper on pay-per-token APIs."
+      }
+    ]
   },
   {
     "slug": "taomate-h3-benchmark-gpu-requirements-license",
