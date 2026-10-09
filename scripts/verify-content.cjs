@@ -16,7 +16,26 @@ const {
   CATEGORIES,
   getPostBySlug
 } = require('../lib/posts.ts');
-const { faqPageSchema, articleCardImagePath, articleShareImagePath } = require('../lib/editorial.ts');
+const { faqPageSchema, articleCardImagePath, articleShareImagePath, articleImageDimensions, articlePath, sectionId } = require('../lib/editorial.ts');
+const localRoutes = new Set(['/', '/about', '/contact', '/privacy', '/terms', '/ai-video-models', '/hardware/ai-workstation-planner', ...CATEGORIES.map(c => '/' + c.slug), ...POSTS.map(articlePath)]);
+function rasterDimensions(filename) {
+  const bytes = fs.readFileSync(filename);
+  if (bytes[0] === 0x89 && bytes.toString('ascii', 1, 4) === 'PNG') {
+    return { width: bytes.readUInt32BE(16), height: bytes.readUInt32BE(20) };
+  }
+  assert.equal(bytes.readUInt16BE(0), 0xffd8, `${filename}: expected PNG or JPEG`);
+  for (let offset = 2; offset < bytes.length;) {
+    assert.equal(bytes[offset], 0xff, `${filename}: JPEG marker`);
+    while (bytes[offset] === 0xff) offset++;
+    const marker = bytes[offset++];
+    const length = bytes.readUInt16BE(offset);
+    if ([0xc0, 0xc1, 0xc2].includes(marker)) {
+      return { width: bytes.readUInt16BE(offset + 5), height: bytes.readUInt16BE(offset + 3) };
+    }
+    offset += length;
+  }
+  throw new Error(`${filename}: JPEG dimensions missing`);
+}
 assert.equal(new Set(POSTS.map(p => p.slug)).size, POSTS.length, 'Unique slugs');
 for (const p of POSTS) {
   const cardImage = articleCardImagePath(p.image).replace(/^\/art\//, '');
@@ -25,6 +44,16 @@ for (const p of POSTS) {
   const socialPath = path.join(__dirname, '..', 'public', 'art', socialImage);
   assert.ok(fs.existsSync(cardPath), `${p.slug}: card image exists`);
   assert.ok(fs.existsSync(socialPath), `${p.slug}: social image exists`);
+  assert.deepEqual(articleImageDimensions(p.image), rasterDimensions(socialPath), `${p.slug}: social and schema dimensions match the asset`);
+  if (/\.(png|jpe?g)$/.test(cardPath)) assert.deepEqual(articleImageDimensions(p.image), rasterDimensions(cardPath), `${p.slug}: rendered dimensions match the asset`);
+  const sectionIds = p.sections.map(s => sectionId(s.heading));
+  assert.ok(sectionIds.every(Boolean), `${p.slug}: nonempty section anchors`);
+  assert.equal(new Set(sectionIds).size, sectionIds.length, `${p.slug}: unique section anchors`);
+  for (const [, href] of JSON.stringify(p).matchAll(/\]\((\/[^)]+)\)/g)) {
+    const target = href.split(/[?#]/)[0];
+    if (!target.startsWith('/go/')) assert.ok(localRoutes.has(target), `${p.slug}: local link ${href} exists`);
+  }
+  if (p.faqs.length) assert.deepEqual(faqPageSchema(p.faqs).mainEntity.map(q => [q.name, q.acceptedAnswer.text]), p.faqs.map(f => [f.question, f.answer]), `${p.slug}: FAQ schema mirrors visible questions and answers`);
   if (p.image === 'reflection-beam-hardware') {
     const png = fs.readFileSync(cardPath);
     assert.equal(png[0], 0x89, `${p.slug}: generated thumbnail has PNG signature`);

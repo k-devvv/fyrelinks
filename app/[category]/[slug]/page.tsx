@@ -2,7 +2,7 @@ import Link from "next/link";
 import SmartLink from "@/components/SmartLink";
 import { notFound } from "next/navigation";
 import { POSTS, getPostBySlug, getCategoryBySlug, getRelatedPosts } from "@/lib/posts";
-import { SITE_URL, articlePath, articleShareImagePath, sectionId, formatDate } from "@/lib/editorial";
+import { SITE_URL, articlePath, articleShareImagePath, articleImageDimensions, sectionId, formatDate } from "@/lib/editorial";
 import { pageMetadata } from "@/lib/metadata";
 import JsonLd from "@/components/JsonLd";
 import StoryCard, { StoryImage } from "@/components/StoryCard";
@@ -27,6 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       ...m.openGraph,
       type: "article",
+      images: [{ url: SITE_URL + articleShareImagePath(p.image), alt: p.imageAlt, ...articleImageDimensions(p.image) }],
       publishedTime: p.publishedAt + "T12:00:00+05:30",
       modifiedTime: p.updatedAt + "T12:00:00+05:30",
       authors: [SITE_URL + "/about"]
@@ -88,7 +89,7 @@ export default async function ArticlePage({ params }: Props) {
             {p.faqs.length > 0 && <a href="#faq">Frequently asked questions</a>}
             <a href="#sources">Sources & further reading</a>
           </nav>
-          <Link href="/create" className="contents-tool">Explore AI creator guides ↗</Link>
+          <Link href={"/" + p.category} className="contents-tool">Explore {category.name.toLowerCase()} ↗</Link>
         </div></aside>
         <div className="article-body">
           <div className="takeaway"><span className="eyebrow">QUICK ANSWER</span><p>{p.verdict}</p></div>
