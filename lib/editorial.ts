@@ -106,6 +106,12 @@ export function articleShareImagePath(image: string) {
   if (image === 'ai-week-roundup-2026' || image === 'reflection-beam-hardware') return articleCardImagePath(image);
   return `/art/${image}${image.endsWith('-photo') ? '.jpg' : '.png'}`;
 }
+export function articleImageDimensions(image: string) {
+  if (image === 'reflection-beam-hardware') return { width: 1586, height: 992 };
+  if (image === 'ai-week-roundup-2026') return { width: 1200, height: 800 };
+  if (image === 'jev-needle-small-models-photo' || image === 'taomate-h3-streaming-photo') return { width: 1200, height: 630 };
+  return { width: 1200, height: 750 };
+}
 export function sectionId(h: string) {
   return h.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 }

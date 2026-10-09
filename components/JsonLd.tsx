@@ -1,5 +1,5 @@
 import type { EditorialPost } from "@/lib/editorial";
-import { SITE_URL, articleShareImagePath, sectionId, faqPageSchema } from "@/lib/editorial";
+import { SITE_URL, articleShareImagePath, articleImageDimensions, sectionId, faqPageSchema } from "@/lib/editorial";
 import { getCategoryBySlug } from "@/lib/posts";
 type Props = {
   post: EditorialPost;
@@ -39,8 +39,7 @@ export default function JsonLd(props: Props) {
           contentUrl: SITE_URL + articleShareImagePath(p.image),
           caption: p.imageCaption ?? p.imageAlt,
           description: p.imageAlt,
-          width: 1200,
-          height: 750
+          ...articleImageDimensions(p.image)
         },
         author: {
           "@type": "Organization",
