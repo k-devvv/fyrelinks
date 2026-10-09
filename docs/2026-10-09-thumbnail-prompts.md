@@ -1,0 +1,9 @@
+# Thumbnail prompts — 9 October 2026
+
+Built-in image generator. Outputs 1586×992; JPEG encoding preserves composition. Generated illustrations, not documentary evidence.
+
+Samsung prompt: Photorealistic-natural editorial thumbnail, landscape 1200x750. A restrained candid photograph inside a contemporary data center: server cabinets, practical cooling pipes and a technician inspecting equipment at a distance. Realistic materials, neutral daylight, no dramatic neon, no floating holograms, no visible logos or readable text. Illustration for Samsung AI infrastructure investment coverage; do not depict an actual Samsung or Helix facility, no branded products. Professional technology publication photography, believable proportions and cable routing.
+
+Robotics prompt: Photorealistic-natural editorial thumbnail, landscape 1200x750. A small industrial robot arm with a realistic two-finger gripper handling a closed sample holder on a clean laboratory instrument bench, a scientist out of focus observing in the background. Restrained realistic research-lab photo, soft neutral light, brushed metal and practical wires, no humanoid robots, no holograms, no readable labels, no logos. Illustrative generic autonomous-science research facility, not a photograph of any named national laboratory. Believable mechanical joints and gripper contact.
+
+Genomics prompt: Photorealistic-natural editorial thumbnail, landscape 1200x750. A quiet genomic research desk, scientist reviewing abstract colored sequencing read tracks on a monitor beside a closed sample rack and notebook, shot from behind at an oblique angle. No readable patient information, no real patient, no diagnosis claim, no DNA floating in air, no logos or readable text. Natural window light, restrained professional research photography. Illustrative generic research scene, not Vanderbilt or NIH actual facility.

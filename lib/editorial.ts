@@ -107,6 +107,7 @@ export function articleShareImagePath(image: string) {
   return `/art/${image}${image.endsWith('-photo') ? '.jpg' : '.png'}`;
 }
 export function articleImageDimensions(image: string) {
+  if (['samsung-ai-infrastructure-photo', 'autonomous-science-robotics-photo', 'ai-genomics-clinical-research-photo'].includes(image)) return { width: 1586, height: 992 };
   if (image === 'reflection-beam-hardware') return { width: 1586, height: 992 };
   if (image === 'ai-week-roundup-2026') return { width: 1200, height: 800 };
   if (image === 'jev-needle-small-models-photo' || image === 'taomate-h3-streaming-photo') return { width: 1200, height: 630 };
