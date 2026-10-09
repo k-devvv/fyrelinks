@@ -77,7 +77,7 @@ export default function Analytics() {
   },[consent]);
   useEffect(()=>{
     if (!ready||consent!=="yes"||privateMode()) return;
-    window.gtag?.("event","page_view",{page_title:document.title,page_location:cleanPageLocation()});
+    window.gtag?.("event","page_view",{send_to:id,page_title:document.title,page_location:cleanPageLocation()});
   },[pathname,ready,consent]);
   useEffect(()=>{
     if (!ready||consent!=="yes") return;
@@ -94,16 +94,16 @@ export default function Analytics() {
           if (plannerEvent ? plannerValues[key]?.has(value) : true) fields[key]=value;
         }
       }
-      window.gtag?.("event",detail.name,fields);
+      window.gtag?.("event",detail.name,{...fields,send_to:id});
     };
     const click=(e:MouseEvent)=>{
       if (privateMode()) return;
       const link=(e.target as Element)?.closest?.("a[href]") as HTMLAnchorElement|null;
       if (!link) return;
       const url=new URL(link.href);
-      if (["/feed.xml","/rss"].includes(url.pathname)&&url.origin===location.origin) window.gtag?.("event","rss_subscribe",{placement:"site"});
-      else if (link.closest(".sources-box,.inline-sources")&&url.protocol==="https:") window.gtag?.("event","source_visit",{source_domain:url.hostname});
-      else if (link.closest(".related-section")&&url.origin===location.origin) window.gtag?.("event","related_read",{article_path:url.pathname});
+      if (["/feed.xml","/rss"].includes(url.pathname)&&url.origin===location.origin) window.gtag?.("event","rss_subscribe",{send_to:id,placement:"site"});
+      else if (link.closest(".sources-box,.inline-sources")&&url.protocol==="https:") window.gtag?.("event","source_visit",{send_to:id,source_domain:url.hostname});
+      else if (link.closest(".related-section")&&url.origin===location.origin) window.gtag?.("event","related_read",{send_to:id,article_path:url.pathname});
     };
     window.addEventListener("fyre:measure",event);document.addEventListener("click",click);
     return ()=>{window.removeEventListener("fyre:measure",event);document.removeEventListener("click",click);};
