@@ -56,7 +56,7 @@ const routes = ['/', '/news', '/create', '/workflow', '/hardware', '/hardware/ai
   const browserFeed = await fetch(base + '/feed.xml', { headers: {Accept:'text/html'}, redirect:'manual' });
   assert.equal(browserFeed.status, 307, 'Browser feed opens subscription page');
   assert.equal(browserFeed.headers.get('location'), origin + '/rss');
-  assert.equal(browserFeed.headers.get('vary'), 'Accept');
+  assert.ok((browserFeed.headers.get('vary') ?? '').toLowerCase().split(',').map(value => value.trim()).includes('accept'), 'Feed cache varies by Accept alongside framework headers');
   for (const accept of ['application/xml, text/html;q=0.1', 'text/html;q=0', 'application/rss+xml,text/html']) {
     const reader = await fetch(base + '/feed.xml', {headers:{Accept:accept},redirect:'manual'});
     assert.equal(reader.status, 200, 'XML-compatible request stays XML: ' + accept);
