@@ -20,7 +20,7 @@ export async function generateMetadata({
 }) {
   const c = getCategoryBySlug((await params).category);
   if (!c) return {};
-  return pageMetadata(c.name, c.description, "/" + c.slug);
+  return pageMetadata(c.metaTitle, c.description, "/" + c.slug);
 }
 export default async function CategoryPage({
   params

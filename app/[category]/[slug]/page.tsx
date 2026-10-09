@@ -44,7 +44,7 @@ function renderInlineText(text: string) {
     const [, label, href] = match;
     if (href.startsWith("/") && !href.startsWith("//")) return <SmartLink key={idx} href={href}>{label}</SmartLink>;
     if (!/^https?:\/\//i.test(href)) return label;
-    return <a key={idx} href={href} target="_blank" rel="noopener noreferrer">{label} ↗</a>;
+    return <SmartLink key={idx} href={href}>{label} ↗</SmartLink>;
   });
 }
 

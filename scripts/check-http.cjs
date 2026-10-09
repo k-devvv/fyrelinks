@@ -5,12 +5,29 @@ const base = process.env.FYRE_TEST_URL || 'http://127.0.0.1:3092';
 const origin = 'https://www.fyrelinkz.com';
 const routes = ['/', '/news', '/create', '/workflow', '/hardware', '/hardware/ai-workstation-planner', '/stack', '/about', '/contact', '/privacy', '/terms', '/ai-video-models', ...data.map(p => '/' + p.category + '/' + p.slug)];
 (async () => {
-  const links = new Set(); let schemas = 0;
+  const links = new Set(), titles = new Set(), descriptions = new Set(); let schemas = 0, images = 0;
   for (const route of routes) {
     const response = await fetch(base + route);
     assert.equal(response.status, 200, route);
     assert.equal(response.headers.get('x-content-type-options'), 'nosniff');
     const html = await response.text();
+    const title = html.match(/<title>([^<]+)<\/title>/)?.[1];
+    const description = html.match(/<meta name="description" content="([^"]+)"/ )?.[1];
+    assert.ok(title && title.trim(), route + ': nonempty title');
+    assert.ok(description && description.trim(), route + ': nonempty description');
+    assert.ok(!titles.has(title), route + ': unique title'); titles.add(title);
+    assert.ok(!descriptions.has(description), route + ': unique description'); descriptions.add(description);
+    assert.ok(html.includes('type="application/rss+xml" href="' + origin + '/feed.xml"'), route + ': RSS discovery');
+    for (const [, attrs] of html.matchAll(/<img\s([^>]+)>/g)) {
+      assert.ok(/\balt="[^"]*"/.test(attrs), route + ': image alt attribute'); images++;
+    }
+    for (const [, attrs] of html.matchAll(/<a\s([^>]+)>/g)) {
+      const href = attrs.match(/\bhref="([^"]*)"/)?.[1] ?? '';
+      const rel = (attrs.match(/\brel="([^"]*)"/)?.[1] ?? '').split(/\s+/);
+      assert.ok(!rel.includes('dofollow'), route + ': no invented dofollow relationship');
+      if (href.startsWith('/go/') || /^https?:\/\/(?:www\.)?fyrelinkz\.com\/go\//.test(href)) assert.ok(rel.includes('sponsored'), route + ': paid link qualification');
+      if (/\btarget="_blank"/.test(attrs)) assert.ok(rel.includes('noopener'), route + ': safe new-tab link');
+    }
     assert.equal((html.match(/<h1(?:\s|>)/g) || []).length, 1, route + ': H1');
     assert.ok(html.includes('rel="canonical" href="' + origin + (route === '/' ? '' : route) + '"'), route + ': canonical');
     assert.ok(html.includes('property="og:image"'), route + ': social image');
@@ -36,7 +53,7 @@ const routes = ['/', '/news', '/create', '/workflow', '/hardware', '/hardware/ai
   assert.equal((rss.match(/<item>/g)||[]).length, data.length);
   const robots = await (await fetch(base + '/robots.txt')).text();
   assert.ok(robots.includes(origin + '/sitemap.xml')); assert.ok(!robots.includes('Disallow: /_next/'));
-  const report = {routes:routes.length,internalLinks:links.size,schemas,invalidRoutes:6,redirects:'passed',sitemapUrls:routes.length,rssItems:data.length,metadata:'passed',headers:'passed'};
+  const report = {routes:routes.length,internalLinks:links.size,schemas,images,uniqueTitles:titles.size,uniqueDescriptions:descriptions.size,linkRelationships:'passed',altAttributes:'passed',rssDiscovery:'passed',invalidRoutes:6,redirects:'passed',sitemapUrls:routes.length,rssItems:data.length,metadata:'passed',headers:'passed'};
   if (process.env.FYRE_TEST_REPORT) fs.writeFileSync(process.env.FYRE_TEST_REPORT, JSON.stringify(report,null,2));
   console.log(JSON.stringify(report));
 })().catch(error => {console.error(error);process.exit(1);});

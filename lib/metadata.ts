@@ -6,10 +6,12 @@ export function pageMetadata(title: string, description: string, path: string, i
     title: cleanTitle,
     description,
     alternates: {
-      canonical: SITE_URL + path
+      canonical: SITE_URL + path,
+      types: { "application/rss+xml": SITE_URL + "/feed.xml" }
     },
     openGraph: {
       siteName: "FyreLinkz",
+      locale: "en_US",
       title,
       description,
       url: SITE_URL + path,

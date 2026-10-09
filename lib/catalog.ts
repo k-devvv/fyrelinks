@@ -3,22 +3,27 @@ import { articleFromInput, type ArticleInput } from './editorial';
 export const CATEGORIES = [{
   slug: 'news',
   name: 'News',
+  metaTitle: 'AI news: model releases, research and practical implications',
   description: 'What changed in creative AI, why it matters, and where to read the original announcement.'
 }, {
   slug: 'create',
   name: 'AI video & images',
+  metaTitle: 'AI video and image guides: models, prompts and ComfyUI',
   description: 'Understand video models, diffusion workflows and the work behind a usable result.'
 }, {
   slug: 'workflow',
   name: 'Guides',
+  metaTitle: 'AI workflow guides: ComfyUI, coding tools and local LLMs',
   description: 'Clear starting points for ComfyUI, coding tools and creative workflows. Practical steps, with sources you can inspect.'
 }, {
   slug: 'hardware',
   name: 'Hardware',
+  metaTitle: 'Local AI hardware: GPU memory, laptops and PC builds',
   description: 'Plan a local AI workstation around your models, memory requirements and actual workload.'
 }, {
   slug: 'stack',
   name: 'Comparisons',
+  metaTitle: 'AI tool comparisons: RAG, vector databases and data workflows',
   description: 'Compare tools by workflow, operating costs and requirements. Make a shortlist that fits your project.'
 }];
 export const POSTS = (data as ArticleInput[]).map(articleFromInput);
