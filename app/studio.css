@@ -188,6 +188,8 @@ a:hover { color: var(--accent); }
 .article-body h2 { font-family: var(--serif); font-weight: 500; font-size: clamp(28px, 3.2vw, 38px); letter-spacing: -.045em; }
 .article-body p,.article-body li { color: #39362f; font-size: 17px; line-height: 1.85; }
 .article-body a,.info-page a { color: #b44425; text-decoration-color: #d6a28b; text-underline-offset: 3px; }
+.info-page a.button-dark,.info-page a.button-primary { color: #fffaf3; background: #bc3e21; }
+[data-theme="dark"] .info-page a:not(.button-dark):not(.button-primary) { color: #ff916b; }
 .sources-box,.related-section { border-color: #ded8ce; background: #fffcf6; }
 .sources-box a { color: #9b4127; }
 .table-wrap { background: #fffcf6; border-color: #dcd5c9; border-radius: 3px; }
