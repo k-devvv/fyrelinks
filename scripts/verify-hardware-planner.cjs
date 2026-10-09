@@ -16,6 +16,7 @@ const { HARDWARE_CANDIDATES } = require('../lib/hardware-planner/catalog.ts');
 const { recommendHardware, MARKET_BUDGET_LIMITS } = require('../lib/hardware-planner/recommend.ts');
 
 const CLOCK = new Date('2026-09-26T00:00:00Z');
+const CATALOG_CLOCK = new Date();
 const MARKET_CURRENCIES = { us: 'USD', uk: 'GBP', ca: 'CAD', de: 'EUR' };
 const MARKETS = Object.keys(MARKET_CURRENCIES);
 const WORKLOADS = ['comfyui-image', 'comfyui-video', 'local-llm', 'mixed'];
@@ -42,7 +43,7 @@ function assertPrice(price, market) {
   assert.ok(ISO_DATE.test(price.checkedAt), `ISO check date for ${market} price`);
   assert.equal(new Date(`${price.checkedAt}T00:00:00Z`).toISOString().slice(0, 10), price.checkedAt,
     `Real calendar date for ${market} price`);
-  assert.ok(new Date(`${price.checkedAt}T00:00:00Z`) <= CLOCK, `No future ${market} price date`);
+  assert.ok(new Date(`${price.checkedAt}T00:00:00Z`) <= CATALOG_CLOCK, `No future ${market} price date`);
   assert.ok(price.source && typeof price.source.label === 'string' && price.source.label.length > 5,
     `Identifiable ${market} source label`);
   assert.ok(/^https:\/\//.test(price.source.url), `HTTPS ${market} price source`);
@@ -120,6 +121,13 @@ const priceCount = HARDWARE_CANDIDATES.reduce((count, candidate) => count + MARK
 ).length, 0);
 assert.ok(priceCount > 0, 'Starter catalogue has at least one verified market price example');
 
+// Catalog evidence uses today's clock; rule tests use isolated dated quote fixtures.
+const catalogPrices = HARDWARE_CANDIDATES.map(candidate => candidate.prices);
+for (const candidate of HARDWARE_CANDIDATES) {
+  candidate.prices = Object.fromEntries(MARKETS.map(market => [market, { ...candidate.prices[market], checkedAt: candidate.prices[market].amount === null ? null : '2026-09-26' }]));
+}
+HARDWARE_CANDIDATES.find(item => item.id === 'desktop-upgrade-16gb-gpu').prices.us = { amount: 799.99, currency: 'USD', checkedAt: '2026-09-26', source: { label: 'Deterministic retail quote fixture', url: 'https://www.newegg.com/p/N82E16814137957' } };
+
 const invalid = recommendHardware({ market: 'us', budget: 0, workload: 'comfyui-image', path: 'desktop-upgrade' }, CLOCK);
 assert.match(invalid.error, /greater than zero/);
 assert.equal(invalid.recommendations.length, 0);
@@ -156,6 +164,38 @@ const staleGermany = recommendHardware({ market: 'de', budget: 2000, workload: '
 assert.equal(staleGermany.stalePriceCount, 1, 'Germany retailer price is stale under injected clock');
 assert.equal(staleGermany.recommendations[0].estimatedTotal, null, 'Stale Germany price cannot drive affordability');
 
+
+const highMemoryUpgrade = recommendHardware({ market: 'us', budget: 2000, workload: 'local-llm', path: 'desktop-upgrade' }, CLOCK).recommendations.find(item => item.id === 'desktop-upgrade-32gb-gpu');
+assert.ok(highMemoryUpgrade);
+assert.ok(!highMemoryUpgrade.caveats.some(text => /falls below.*threshold/i.test(text)), 'Unknown host RAM must not imply inadequate GPU memory');
+assert.ok(highMemoryUpgrade.caveats.some(text => /system memory.*unknown/i.test(text)), 'Unknown RAM requires an explicit verification caveat');
+
+const hostCandidate = HARDWARE_CANDIDATES.find(item => item.id === 'desktop-upgrade-32gb-gpu');
+const originalRam = hostCandidate.systemRamGb;
+try {
+  hostCandidate.systemRamGb = 16;
+  const lowRam = recommendHardware({ market: 'us', budget: 2000, workload: 'local-llm', path: 'desktop-upgrade' }, CLOCK).recommendations.find(item => item.id === hostCandidate.id);
+  assert.equal(lowRam.fit, 'constrained');
+  assert.ok(lowRam.caveats.some(text => /system memory is below/i.test(text)));
+  assert.ok(!lowRam.caveats.some(text => /falls below.*threshold/i.test(text)), 'Low host RAM does not change adequate VRAM evidence');
+  hostCandidate.systemRamGb = 32;
+  assert.equal(recommendHardware({ market: 'us', budget: 2000, workload: 'local-llm', path: 'desktop-upgrade' }, CLOCK).recommendations.find(item => item.id === hostCandidate.id).fit, 'strong');
+} finally { hostCandidate.systemRamGb = originalRam; }
+
+const quoteCandidate = HARDWARE_CANDIDATES.find(item => item.id === 'desktop-upgrade-16gb-gpu');
+const originalQuote = quoteCandidate.prices.us;
+try {
+  for (const patch of [{ amount: -1 }, { amount: Number.NaN }, { checkedAt: 'not-a-date' }, { checkedAt: '2026-02-30' }, { checkedAt: '2026-09-27' }, { source: null }, { source: { label: 'Bad URL', url: 'javascript:alert(1)' } }]) {
+    quoteCandidate.prices.us = { ...originalQuote, ...patch };
+    const guarded = recommendHardware({ market: 'us', budget: 900, workload: 'comfyui-image', path: 'desktop-upgrade' }, CLOCK);
+    assert.equal(guarded.recommendations[0].estimatedTotal, null, `Invalid quote excluded: ${JSON.stringify(patch)}`);
+  }
+  quoteCandidate.prices.us = { ...originalQuote, checkedAt: '2026-08-27' };
+  assert.equal(recommendHardware({ market: 'us', budget: 900, workload: 'comfyui-image', path: 'desktop-upgrade' }, CLOCK).recommendations[0].estimatedTotal, 799.99, 'Exact 30-day quote usable');
+  quoteCandidate.prices.us = { ...originalQuote, checkedAt: '2026-08-26' };
+  assert.equal(recommendHardware({ market: 'us', budget: 900, workload: 'comfyui-image', path: 'desktop-upgrade' }, CLOCK).recommendations[0].estimatedTotal, null, '31-day quote excluded');
+} finally { quoteCandidate.prices.us = originalQuote; }
+
 const analyticsSource = fs.readFileSync(require.resolve('../components/Analytics.tsx'), 'utf8');
 const measurementSource = fs.readFileSync(require.resolve('../lib/measurement.ts'), 'utf8');
 const plannerUiSource = fs.readFileSync(require.resolve('../components/HardwarePlanner.tsx'), 'utf8');
@@ -163,12 +203,22 @@ for (const eventName of ['planner_start', 'planner_complete', 'planner_market', 
   assert.ok(analyticsSource.includes(`"${eventName}"`), `Analytics event ${eventName} is allowlisted`);
   assert.ok(measurementSource.includes(`"${eventName}"`), `Measurement type includes ${eventName}`);
 }
-assert.match(analyticsSource, /plannerEvent\?\["market","workload","path","placement"\]/,
-  'Planner analytics forwards only fixed categorical dimensions');
-assert.match(analyticsSource, /market:new Set\(\["us","uk","ca","de"\]\)/,
-  'Planner markets are enum validated');
+const { sanitizePlannerFields, plannerOutcome } = require('../lib/planner-measurement.ts');
+assert.deepEqual(sanitizePlannerFields({ market: 'us', workload: 'local-llm', path: 'laptop', placement: 'planner', outcome: 'unpriced', source_kind: 'spec', budget: 1500, query: 'private text', url: 'https://example.com' }),
+  { market: 'us', workload: 'local-llm', path: 'laptop', placement: 'planner', outcome: 'unpriced', source_kind: 'spec' }, 'Only bounded categorical fields survive');
+for (const input of [null, [], 'private text', 1500, { market: 'india', outcome: 'private text', source_kind: 'https://example.com', budget: 1000 }]) {
+  assert.deepEqual(sanitizePlannerFields(input), {}, 'Invalid/free-text measurement input discarded');
+}
+assert.deepEqual(sanitizePlannerFields({ outcome: 'priced-over-budget', source_kind: 'retailer' }), { outcome: 'priced-over-budget', source_kind: 'retailer' });
+assert.equal(plannerOutcome([], 1000), 'no-match');
+assert.equal(plannerOutcome([{ estimatedTotal: null }], 1000), 'unpriced');
+assert.equal(plannerOutcome([{ estimatedTotal: null }, { estimatedTotal: 1000 }], 1000), 'priced-within-budget');
+assert.equal(plannerOutcome([{ estimatedTotal: null }, { estimatedTotal: 1001 }], 1000), 'priced-over-budget');
+assert.match(analyticsSource, /sanitizePlannerFields\(detail.properties\)/, 'Runtime planner analytics uses tested sanitizer');
 assert.doesNotMatch(plannerUiSource, /measure\("planner_(?:start|complete|market|guide_click|source_click)"\s*,\s*\{[^}]*budget/s,
   'Planner event payloads never include budget');
+
+HARDWARE_CANDIDATES.forEach((candidate, index) => { candidate.prices = catalogPrices[index]; });
 
 console.log(`Hardware planner catalog verified: ${HARDWARE_CANDIDATES.length} candidates across 4 markets.`);
 console.log('Hardware planner rules verified: validation, ranking, stale prices, and no-fit cases.');
