@@ -1,5 +1,289 @@
 [
   {
+    "slug": "samsung-helix-ai-infrastructure-investment",
+    "category": "news",
+    "title": "Samsung’s $1 billion Helix investment: AI infrastructure, not a new model",
+    "description": "Samsung affiliates announced a $1 billion Helix investment. What the infrastructure strategy means, and what it does not prove about AI capacity or cost.",
+    "topic": "AI infrastructure",
+    "image": "samsung-ai-infrastructure-photo",
+    "imageAlt": "AI-generated editorial photograph of server cabinets and cooling pipes with a person inspecting equipment in a data-center aisle.",
+    "featured": false,
+    "takeaway": "Samsung announced a combined $1 billion Helix investment on September 29, with Samsung Electronics contributing $500 million. This is an infrastructure commitment, not a new AI model or a demonstrated improvement in inference cost. Buyers still need operational capacity, service terms and workload evidence.",
+    "sources": [
+      {
+        "publisher": "Samsung Global Newsroom",
+        "title": "Samsung To Invest USD 1 Billion in AI Infrastructure Company Helix",
+        "url": "https://news.samsung.com/global/samsung-to-invest-usd-1-billion-in-ai-infrastructure-company-helix",
+        "publishedAt": "2026-09-29"
+      },
+      {
+        "publisher": "Samsung Global Newsroom",
+        "title": "Samsung Electronics Completes Acquisition of HVAC Company FläktGroup",
+        "url": "https://news.samsung.com/global/samsung-electronics-completes-acquisition-of-hvac-company-flaktgroup",
+        "publishedAt": "2025-11-06"
+      },
+      {
+        "publisher": "Samsung SDS",
+        "title": "Samsung SDS Launches GPU Computing Services for National AI Research",
+        "url": "https://www.samsungsds.com/us/news/1295233_5933.html",
+        "publishedAt": "2026-08-11"
+      },
+      {
+        "publisher": "Samsung SDS",
+        "title": "Samsung SDS Signs MOU with Gyeongsangbuk-do and Gumi to Establish AI Data Center in Gumi",
+        "url": "https://www.samsungsds.com/eu/newsroom/gumi-260112.html",
+        "publishedAt": "2026-01-12"
+      }
+    ],
+    "sections": [
+      {
+        "heading": "What Samsung announced",
+        "content": "Samsung’s September 29 announcement names six investing businesses: Samsung Electronics, Samsung C&T, Samsung SDS, Samsung SDI, Samsung Life Insurance and Samsung Fire & Marine Insurance. Together they announced $1 billion for Helix Digital Infrastructure, established by KKR. Samsung Electronics supplies $500 million; the other five supply the remainder. Samsung describes Helix as combining data-center development and operation with electricity infrastructure and fiber networks. It lists KKR, Kuwait Investment Authority, NVIDIA and Vistra as other founding investors. These are Samsung’s reported transaction details and description of the venture, rather than independently verified operating results.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "An investment is one stage of the infrastructure story",
+        "content": "Our reading is that the useful question is what becomes available to customers, and when. Treat funding, construction, commissioning and a purchasable service as separate milestones. A dollar figure cannot tell a developer whether a particular model will fit, whether an endpoint is available in the required region, or whether a production queue will meet a deadline. Before changing a deployment plan, look for an actual service offering and test its constraints. Infrastructure strategy can be relevant without being a buying signal today. Keep a record of announced plans separately from resources your team can access."
+      },
+      {
+        "heading": "Cooling provides context for Samsung’s broader strategy",
+        "content": "The investment follows a separate expansion into cooling. Samsung said on November 6, 2025 that it had completed its acquisition of FläktGroup. That announcement describes central air-conditioning and precision-cooling products and says Samsung intends to grow in AI data centers. It also says FläktGroup will remain an independent subsidiary with its name and existing organization retained. This gives context for Samsung’s infrastructure interest, but the acquisition announcement does not establish a specific Helix supply contract. Our editorial distinction is between owning relevant capabilities and demonstrating that a particular facility has integrated them. Buyers should ask for project-specific cooling and operating evidence.",
+        "sourceIds": [
+          2
+        ]
+      },
+      {
+        "heading": "Existing cloud services are a separate claim",
+        "content": "Samsung SDS’s August 11, 2026 release says it was selected to supply GPU resources for Korea’s AI Research Computing Support Project, with services running from July 2026 through March 2027. It identifies B300 and H100 GPUs and says its B300 GPU-as-a-Service offering launched on Samsung Cloud Platform in March. That is evidence of an announced service activity, not proof of Helix capacity. For a prospective customer, the next question is eligibility: a research-support program is not automatically a generally available rental offer. Check the actual product, access route, region and contract before comparing it with another cloud. No workload speed ranking follows from the listed hardware.",
+        "sourceIds": [
+          3
+        ]
+      },
+      {
+        "heading": "A planned data center shows why dates matter",
+        "content": "A January 12 Samsung SDS release reports an agreement signed on January 7 to establish a 60 MW AI data center in Gumi. Samsung SDS schedules operations for March 2029 and describes a hybrid approach using air and liquid cooling. Those details belong to that separate project; they are not a Helix capacity announcement. The distinction matters when reading company-wide infrastructure headlines. A future operating target should not enter a spreadsheet as capacity available today. Our suggested procurement record includes announcement date, target opening date, commissioning evidence and service availability, with unknown fields left unknown rather than filled from an unrelated project.",
+        "sourceIds": [
+          4
+        ]
+      },
+      {
+        "heading": "What builders should check next",
+        "content": "Keep infrastructure announcements on a watchlist, then make purchasing decisions from the service you can actually use. Ask for supported runtimes, memory limits, data location, queue behavior, failure handling and a complete quote. Run the same representative workload on each candidate and include setup, storage, transfer and reruns in the comparison. These are our evaluation steps, not Samsung performance findings. If your immediate decision is a local machine, use the [local AI workstation guide](/hardware/best-local-ai-workstation-build-guide-2026) to write the workload first. For enterprise serving, the [OpenShift AI deployment checks](/workflow/deploy-llm-red-hat-openshift-ai-vllm-kserve) provide a separate infrastructure checklist."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is Samsung’s Helix announcement a new AI model?",
+        "answer": "No. Samsung describes an investment in AI infrastructure, not a model release."
+      },
+      {
+        "question": "Does the investment prove cheaper AI inference?",
+        "answer": "No. A buyer needs a current service quote and comparable workload measurements; the investment amount alone cannot establish savings."
+      },
+      {
+        "question": "Is the planned Gumi data center Helix capacity?",
+        "answer": "The cited Samsung SDS announcement concerns a separate Gumi project with a March 2029 operating target. Do not combine the two announcements."
+      },
+      {
+        "question": "Should I postpone a local AI PC purchase?",
+        "answer": "Decide from your current workload and accessible alternatives. An infrastructure announcement does not establish that a suitable cloud service is available to you."
+      }
+    ],
+    "eventDate": "2026-09-29",
+    "publishedAt": "2026-10-09",
+    "updatedAt": "2026-10-09",
+    "sourceCheckedAt": "2026-10-09",
+    "imageCaption": "AI-generated editorial illustration. Generic research or infrastructure scene; not a photograph of the named organization, project or facility."
+  },
+  {
+    "slug": "doe-selects-four-robotics-testbeds-autonomous-science",
+    "category": "news",
+    "title": "DOE selects four national-lab projects to test autonomous science",
+    "description": "DOE selected four national-lab robotics projects for negotiations. What the scientific testbeds aim to evaluate, and what remains unproven.",
+    "topic": "AI robotics",
+    "image": "autonomous-science-robotics-photo",
+    "imageAlt": "AI-generated editorial photograph of a laboratory robot arm gripping a closed sample holder while a person observes.",
+    "eventDate": "2026-10-08",
+    "featured": true,
+    "takeaway": "DOE selected four national-lab robotics projects for award negotiations on October 8. The plans concern scientific automation, not demonstrated general-purpose autonomy. Selection does not guarantee an award.",
+    "sections": [
+      {
+        "heading": "What DOE announced—and what it did not",
+        "content": "DOE selected projects led by Argonne, Brookhaven, Oak Ridge and SLAC. Their proposed testbeds address learning, reliability, connected experiments and scientific-facility operations. This is a development announcement. It does not establish that the selected systems have completed their proposed experiments. For readers, the distinction is practical: a research roadmap tells you what questions teams intend to investigate; an operating result needs methods, measurements and conditions that others can inspect.",
+        "sourceIds": [
+          1,
+          3
+        ]
+      },
+      {
+        "heading": "Four projects tackle different links in the lab loop",
+        "content": "MAESTRO targets reusable capabilities; DART targets reliability and transfer; TRACE targets connected, reproducible workflows; SPIRE targets photon-science operations. These names describe complementary research directions, not a ranking of autonomous robots. Our reading is that the important output would be reusable evaluation infrastructure. A striking demonstration can attract attention, but it becomes more useful when another team can repeat the task, diagnose a failure and explain which boundaries still require supervision.",
+        "sourceIds": [
+          1,
+          2
+        ]
+      },
+      {
+        "heading": "Autonomy is a spectrum, not an on/off switch",
+        "content": "A robot repeating one carefully bounded movement is different from a system that interprets an experimental goal, chooses a measurement, changes instrument settings and checks whether the result is scientifically valid. SLAC’s SPIRE description makes that distinction explicit: existing equipment already performs constrained tasks such as mounting samples, while the new project proposes broader adaptation across varied samples and instruments. SLAC also reports earlier machine-learning and agent-assisted workflows at selected facilities, including beam tuning and monitoring; those examples are separate from the newly selected SPIRE program and retain researcher oversight. They show why headlines about a “self-driving lab” need specifics: what steps are automated, which safeguards remain, and who verifies the scientific conclusion?",
+        "sourceIds": [
+          1,
+          2
+        ]
+      },
+      {
+        "heading": "The hard problem is trustworthy transfer",
+        "content": "A robot can succeed in a clean simulation yet fail when sample shape, lighting, calibration or instrument behavior changes. A completed motion also does not prove that the sample was handled correctly or that the measurement answers the research question. DOE’s call specifically asks for benchmarkable, reproducible performance, including measures such as task success, time-to-result, provenance, reproducibility and how often a person must intervene. Provenance is more than a log: it helps reconstruct which model, calibration, sample and decision led to a measurement, making a failed result diagnosable. A meaningful benchmark should also count safe stops and recoveries, not only completed tasks. These are useful engineering targets, but they are not guarantees. Real progress will require published methods, clear failure reporting, safety boundaries, independent scrutiny and evidence that results hold across tasks and sites.",
+        "sourceIds": [
+          1,
+          3
+        ]
+      },
+      {
+        "heading": "What to watch next",
+        "content": "The program anticipates $30 million, with later support subject to appropriations. Its funding notice is a planning document, not evidence of completed systems. Next, look for award terms, evaluation protocols and results that identify the robot, instrument, software version, sample conditions and failure rate. Our suggested reading checklist asks three questions: did another facility reproduce the workflow, were unsuccessful attempts counted, and could an operator stop or recover the system safely? Keep those questions separate from predictions about household robots. A scientific testbed and a general-purpose home assistant face different tasks and constraints. The useful future of robotics is one supported by inspectable performance, not a forecast inferred from a funding headline.",
+        "sourceIds": [
+          3
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What are the four DOE autonomous-science robotics projects?",
+        "answer": "The projects are MAESTRO at Argonne, DART at Brookhaven, TRACE at Oak Ridge and SPIRE at SLAC."
+      },
+      {
+        "question": "Has DOE funded the four projects already?",
+        "answer": "Selection starts award negotiations and does not guarantee an award. Future program funding depends on appropriations."
+      },
+      {
+        "question": "Can these robots run scientific labs without people?",
+        "answer": "No. These proposed scientific testbeds still need evaluation."
+      },
+      {
+        "question": "How will researchers know whether lab robots are reliable?",
+        "answer": "DOE’s solicitation calls for reproducible benchmarks and measures such as task success, time-to-result, provenance, repeatability and human-intervention rates. Cross-task and cross-site tests can reveal whether a system works beyond its original demonstration."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "U.S. Department of Energy, Office of Science",
+        "title": "DOE Announces Four National Laboratory-Led Selections to Advance Robotics and Automation for Autonomous Scientific Discovery",
+        "url": "https://www.energy.gov/science/articles/doe-announces-four-national-laboratory-led-selections-advance-robotics-and",
+        "publishedAt": "2026-10-08"
+      },
+      {
+        "publisher": "SLAC National Accelerator Laboratory",
+        "title": "SLAC leads new project to build the self-driving laboratory of the future",
+        "url": "https://www6.slac.stanford.edu/news/2026-10-08-slac-leads-new-project-build-self-driving-laboratory-future",
+        "publishedAt": "2026-10-08"
+      },
+      {
+        "publisher": "U.S. Department of Energy, Office of Science",
+        "title": "Robotics and Automation Testbeds for Autonomous Scientific Discovery (LAB 26-3601)",
+        "url": "https://science.osti.gov/-/media/grants/pdf/lab-announcements/2026/LAB-26-3601.pdf",
+        "publishedAt": "2026-05-14"
+      }
+    ],
+    "publishedAt": "2026-10-09",
+    "updatedAt": "2026-10-09",
+    "sourceCheckedAt": "2026-10-09",
+    "imageCaption": "AI-generated editorial illustration. Generic research or infrastructure scene; not a photograph of the named organization, project or facility."
+  },
+  {
+    "slug": "vanderbilt-magen-ai-genomics-grants-clinical-translation",
+    "category": "news",
+    "title": "Vanderbilt’s MAGen AI genomics research: funding, validation and patient limits",
+    "description": "Vanderbilt announced phased funding for AI genomics research. Understand MAGen’s aims, cross-validation requirements and why it is not a patient-ready tool.",
+    "topic": "AI in healthcare",
+    "image": "ai-genomics-clinical-research-photo",
+    "imageAlt": "AI-generated editorial photograph of a researcher viewing colored data tracks on a monitor beside a sample rack and notebook.",
+    "eventDate": "2026-10-06",
+    "publishedAt": "2026-10-09",
+    "updatedAt": "2026-10-09",
+    "sourceCheckedAt": "2026-10-09",
+    "featured": false,
+    "takeaway": "Vanderbilt’s October 6 announcement concerns phased genomic AI research funding. It does not report a patient-ready product or proven improvements in care. MAGen aims to develop and evaluate tools before any future clinical implementation.",
+    "sections": [
+      {
+        "heading": "What Vanderbilt announced",
+        "content": "Vanderbilt reports two NIH grants projected to total $12.8 million over five years. It will lead a coordinating center and one MAGen development site. Initial two-year amounts are $1.2 million and $3.2 million; a further $3.6 million and $4.8 million are projected for later years, conditional on milestones. The announcement is about research organization and support, not a completed clinical evaluation. Our reading is that the dollar figure should remain attached to those conditions: funding a question is different from answering it.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "What MAGen is trying to predict",
+        "content": "NHGRI describes MAGen as exploring whether machine learning can improve predictions of how people with pathogenic genetic variants manifest disease. The tools would combine existing genomic and non-genomic data and undergo cross-validation. A coordinating center supports shared research activities. Clinical implementation is described as a long-term possibility for successful tools. That is a narrower claim than saying AI can interpret anyone’s genome or recommend treatment. For a reader evaluating a future result, the relevant question is exactly what outcome was predicted, for which population, using which information available at the time.",
+        "sourceIds": [
+          2
+        ]
+      },
+      {
+        "heading": "Validation must travel beyond the development dataset",
+        "content": "The NIH development-site notice calls for cross-validation with distinct datasets and users, along with assessment of robustness and generalizability. The phased program separates initial planning and feasibility from later development work. These are evaluation requirements, not achieved accuracy figures. Our suggested reading checklist asks whether a paper identifies its training data, independent evaluation cohort, missing-data handling and uncertainty. An average score alone cannot explain how a model behaves for an underrepresented group or an unfamiliar clinical setting. A useful report should make those limits visible rather than turn a laboratory metric into a promise of individual benefit.",
+        "sourceIds": [
+          3
+        ]
+      },
+      {
+        "heading": "Privacy and bias remain research questions",
+        "content": "NHGRI makes ethical, legal and social implications part of the consortium’s design. The funding notice identifies concerns including biased data, privacy loss, overreliance and health disparities. Their inclusion does not demonstrate that those risks are solved. For future coverage, we will distinguish an intended safeguard from evidence of its effectiveness. Readers can ask who may access the records, whether consent and data use are explained, which groups participated in evaluation, and what happens when a prediction is uncertain. These are questions for reviewing research governance, not a claim that any particular MAGen tool currently meets those standards.",
+        "sourceIds": [
+          2,
+          3
+        ]
+      },
+      {
+        "heading": "What this means for patients and clinicians now",
+        "content": "The cited funding opportunity excludes clinical trials, and the current announcement supplies no patient-facing tool or treatment result. Our editorial conclusion is to follow the research without treating it as a new service available in a clinic. Future milestones worth covering include public protocols, reproducible evaluations and clearly defined intended uses. This article cannot interpret a personal genetic result. Questions about an individual finding or care decision belong with a qualified clinician or genetics professional. For another example of separating a biological observation from a medical application, read our [Anthropic wet-lab evidence report](/news/anthropic-claude-wet-lab-art-enzyme-system).",
+        "sourceIds": [
+          3
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What is MAGen?",
+        "answer": "MAGen is an NIH research consortium developing and evaluating machine-learning tools for genomic translation. Clinical implementation remains a longer-term aim."
+      },
+      {
+        "question": "Is the full funding amount guaranteed?",
+        "answer": "No. Vanderbilt describes projected later-phase funding conditional on milestones."
+      },
+      {
+        "question": "Has MAGen AI improved patient care yet?",
+        "answer": "The cited announcement reports no such clinical result. Research plans must not be presented as proven benefit."
+      },
+      {
+        "question": "Can I use MAGen to interpret my genetic test?",
+        "answer": "No patient-ready tool is described here. Discuss personal genetic findings with a qualified clinician or genetics professional."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "Vanderbilt University Medical Center",
+        "title": "$12.8M grant to lead initiative to get genomics toward the clinic via machine learning and AI",
+        "url": "https://news.vumc.org/2026/10/06/12-8m-grant-to-lead-initiative-to-get-genomics-toward-the-clinic-via-machine-learning-and-ai/",
+        "publishedAt": "2026-10-06"
+      },
+      {
+        "publisher": "National Human Genome Research Institute",
+        "title": "ML/AI Tools to Advance Genomic Translational Research (MAGen)",
+        "url": "https://www.genome.gov/research-funding/Funded-Programs-Projects/ML-AI-tools-to-advance-genomic-translational-research-MAGen"
+      },
+      {
+        "publisher": "National Institutes of Health",
+        "title": "MAGen development-site funding notice, RFA-HG-24-004 (expired; program background)",
+        "url": "https://grants.nih.gov/grants/guide/rfa-files/RFA-HG-24-004.html",
+        "publishedAt": "2024-05-10"
+      }
+    ],
+    "imageCaption": "AI-generated editorial illustration. Generic research or infrastructure scene; not a photograph of the named organization, project or facility."
+  },
+  {
     "slug": "anthropic-claude-wet-lab-art-enzyme-system",
     "category": "news",
     "title": "Anthropic’s AI flags phage DNA repeats: what lab tests show",
