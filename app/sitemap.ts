@@ -7,7 +7,7 @@ function latestUpdate(posts: typeof POSTS) {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticUrls = ["about", "contact", "privacy", "terms", "ai-video-models", "hardware/ai-workstation-planner"];
+  const staticUrls = ["about", "contact", "privacy", "terms", "rss", "ai-video-models", "hardware/ai-workstation-planner"];
   const homeLastModified = latestUpdate(POSTS);
   return [
     {

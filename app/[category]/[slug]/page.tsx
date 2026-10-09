@@ -110,7 +110,7 @@ export default async function ArticlePage({ params }: Props) {
             <p>Primary sources checked {formatDate(p.sourceCheckedAt)}. Vendor statements are attributed; editorial advice is our own.</p>
             <ol>{p.sources.map((s, i) => <li key={s.url}><span className="source-number">{i + 1}</span><div><a href={s.url} rel="noopener noreferrer" target="_blank">{s.title} ↗</a><small>{s.publisher}{s.publishedAt && " · " + formatDate(s.publishedAt)}</small></div></li>)}</ol>
           </section>
-          <div className="correction-link"><strong>Something changed?</strong><p>Help us keep this useful. <Link href="/contact">Send a correction or a primary source →</Link></p></div>
+          <div className="correction-link"><strong>Something changed?</strong><p>Help us keep this useful. <Link href="/contact">Check contact availability →</Link></p></div>
         </div>
       </div>
       <section className="related-section"><div className="section-heading"><h2>Keep following the thread<span>.</span></h2></div><div className="guide-grid">{bottomRelated.map(r => <StoryCard post={r} key={r.slug} />)}</div></section>

@@ -385,11 +385,12 @@ kbd {
   color: var(--accent)
 }
 .middle-grid {
-  display: grid;
-  grid-template-columns: minmax(0,1fr) 322px;
+  display: block;
+  grid-template-columns: minmax(0,1fr);
   gap: 65px;
   margin-top: 45px
 }
+.rss-address { display: block; margin-block: 12px; overflow-wrap: anywhere; }
 .section-heading {
   display: flex;
   justify-content: space-between;

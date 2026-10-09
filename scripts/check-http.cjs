@@ -3,7 +3,7 @@ const fs = require('node:fs');
 const data = require('../lib/content/articles.json');
 const base = process.env.FYRE_TEST_URL || 'http://127.0.0.1:3092';
 const origin = 'https://www.fyrelinkz.com';
-const routes = ['/', '/news', '/create', '/workflow', '/hardware', '/hardware/ai-workstation-planner', '/stack', '/about', '/contact', '/privacy', '/terms', '/ai-video-models', ...data.map(p => '/' + p.category + '/' + p.slug)];
+const routes = ['/', '/news', '/create', '/workflow', '/hardware', '/hardware/ai-workstation-planner', '/stack', '/about', '/contact', '/privacy', '/terms', '/rss', '/ai-video-models', ...data.map(p => '/' + p.category + '/' + p.slug)];
 (async () => {
   const links = new Set(), titles = new Set(), descriptions = new Set(); let schemas = 0, images = 0;
   for (const route of routes) {
@@ -11,6 +11,8 @@ const routes = ['/', '/news', '/create', '/workflow', '/hardware', '/hardware/ai
     assert.equal(response.status, 200, route);
     assert.equal(response.headers.get('x-content-type-options'), 'nosniff');
     const html = await response.text();
+    assert.ok(!html.includes('editorial@fyrelinkz.com'), route + ': no nonexistent mailbox');
+    if (route === '/') assert.ok(!html.includes('class="field-note"'), 'Home: no stretched filler panel');
     const title = html.match(/<title>([^<]+)<\/title>/)?.[1];
     const description = html.match(/<meta name="description" content="([^"]+)"/ )?.[1];
     assert.ok(title && title.trim(), route + ': nonempty title');
@@ -51,6 +53,18 @@ const routes = ['/', '/news', '/create', '/workflow', '/hardware', '/hardware/ai
   assert.equal((sitemap.match(/<url>/g)||[]).length, routes.length);
   const rss = await (await fetch(base + '/feed.xml')).text();
   assert.equal((rss.match(/<item>/g)||[]).length, data.length);
+  const browserFeed = await fetch(base + '/feed.xml', { headers: {Accept:'text/html'}, redirect:'manual' });
+  assert.equal(browserFeed.status, 307, 'Browser feed opens subscription page');
+  assert.equal(browserFeed.headers.get('location'), origin + '/rss');
+  assert.equal(browserFeed.headers.get('vary'), 'Accept');
+  for (const accept of ['application/xml, text/html;q=0.1', 'text/html;q=0', 'application/rss+xml,text/html']) {
+    const reader = await fetch(base + '/feed.xml', {headers:{Accept:accept},redirect:'manual'});
+    assert.equal(reader.status, 200, 'XML-compatible request stays XML: ' + accept);
+    assert.ok(reader.headers.get('content-type').includes('application/rss+xml'));
+  }
+  const rawFeed = await fetch(base + '/feed.xml?format=xml', {headers:{Accept:'text/html'}});
+  assert.ok(rawFeed.headers.get('content-type').includes('application/rss+xml'));
+  assert.equal(((await rawFeed.text()).match(/<item>/g)||[]).length, data.length);
   const robots = await (await fetch(base + '/robots.txt')).text();
   assert.ok(robots.includes(origin + '/sitemap.xml')); assert.ok(!robots.includes('Disallow: /_next/'));
   const report = {routes:routes.length,internalLinks:links.size,schemas,images,uniqueTitles:titles.size,uniqueDescriptions:descriptions.size,linkRelationships:'passed',altAttributes:'passed',rssDiscovery:'passed',invalidRoutes:6,redirects:'passed',sitemapUrls:routes.length,rssItems:data.length,metadata:'passed',headers:'passed'};
