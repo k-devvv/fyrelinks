@@ -101,7 +101,7 @@ export default function Analytics() {
       const link=(e.target as Element)?.closest?.("a[href]") as HTMLAnchorElement|null;
       if (!link) return;
       const url=new URL(link.href);
-      if (url.pathname==="/feed.xml"&&url.origin===location.origin) window.gtag?.("event","rss_subscribe",{placement:"site"});
+      if (["/feed.xml","/rss"].includes(url.pathname)&&url.origin===location.origin) window.gtag?.("event","rss_subscribe",{placement:"site"});
       else if (link.closest(".sources-box,.inline-sources")&&url.protocol==="https:") window.gtag?.("event","source_visit",{source_domain:url.hostname});
       else if (link.closest(".related-section")&&url.origin===location.origin) window.gtag?.("event","related_read",{article_path:url.pathname});
     };

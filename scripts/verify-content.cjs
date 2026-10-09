@@ -17,7 +17,7 @@ const {
   getPostBySlug
 } = require('../lib/posts.ts');
 const { faqPageSchema, articleCardImagePath, articleShareImagePath, articleImageDimensions, articlePath, sectionId } = require('../lib/editorial.ts');
-const localRoutes = new Set(['/', '/about', '/contact', '/privacy', '/terms', '/ai-video-models', '/hardware/ai-workstation-planner', ...CATEGORIES.map(c => '/' + c.slug), ...POSTS.map(articlePath)]);
+const localRoutes = new Set(['/', '/about', '/contact', '/privacy', '/terms', '/rss', '/ai-video-models', '/hardware/ai-workstation-planner', ...CATEGORIES.map(c => '/' + c.slug), ...POSTS.map(articlePath)]);
 function rasterDimensions(filename) {
   const bytes = fs.readFileSync(filename);
   if (bytes[0] === 0x89 && bytes.toString('ascii', 1, 4) === 'PNG') {

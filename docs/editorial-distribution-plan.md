@@ -108,7 +108,7 @@ This 30-day plan outlines realistic, high-intent topic briefs, community contrib
 - [ ] Measure social and community referral traffic from educational posts.
 - [ ] Inspect mobile performance and Core Web Vitals on real mobile viewports.
 - [ ] Update any model pricing or version changes in the AI video models directory.
-- [ ] Review incoming reader emails or correction requests via `editorial@fyrelinkz.com`.
+- [ ] Review incoming reader emails or correction requests via `a verified publisher contact address (not configured yet)`.
 
 ### Day 28 Check:
 - [ ] Comprehensive review of organic impressions, clicks, and top landing pages.
