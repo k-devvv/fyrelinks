@@ -37,6 +37,8 @@ function rasterDimensions(filename) {
   throw new Error(`${filename}: JPEG dimensions missing`);
 }
 assert.equal(new Set(POSTS.map(p => p.slug)).size, POSTS.length, 'Unique slugs');
+assert.equal(new Set(POSTS.map(p => p.title.trim().toLowerCase())).size, POSTS.length, 'Unique article titles');
+assert.equal(new Set(POSTS.map(p => p.metaDescription.trim().toLowerCase())).size, POSTS.length, 'Unique article descriptions');
 for (const p of POSTS) {
   const cardImage = articleCardImagePath(p.image).replace(/^\/art\//, '');
   const socialImage = articleShareImagePath(p.image).replace(/^\/art\//, '');
@@ -69,6 +71,7 @@ for (const p of POSTS) {
     assert.equal(cardImage, socialImage, `${p.slug}: card and social metadata use the same image`);
   }
   assert.ok(p.sources?.length, `${p.slug}: primary sources required`);
+  assert.ok(p.title.trim() && p.metaDescription.trim(), `${p.slug}: title and description required`);
   assert.ok(typeof p.imageAlt === "string" && p.imageAlt.trim().length >= 20, `${p.slug}: descriptive image alt text is required`);
   assert.ok(CATEGORIES.some(c => c.slug === p.category));
   assert.ok(p.sources.every(s => s.url.startsWith('https://')));

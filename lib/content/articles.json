@@ -212,7 +212,7 @@
   {
     "slug": "runway-adobe-premiere-after-effects-plugins",
     "category": "news",
-    "title": "Runway moves into your editing timeline",
+    "title": "Runway plugins for Premiere Pro and After Effects: credits and workflow",
     "description": "New plugins bring AI generation to Premiere Pro and After Effects. What changes for editors—and what still uses credits.",
     "topic": "AI video",
     "image": "runway-timeline-photo",
@@ -727,7 +727,7 @@
     "publishedAt": "2026-09-08",
     "updatedAt": "2026-09-22",
     "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "Generated editorial photograph: Digital artist refining a portrait on a pen display in a home studio."
+    "imageAlt": "AI-generated editorial photograph of an artist using a pen display beside a monitor in a home studio."
   },
   {
     "slug": "best-local-ai-workstation-build-guide-2026",
@@ -1203,7 +1203,7 @@
     "publishedAt": "2026-09-08",
     "updatedAt": "2026-09-22",
     "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "Generated editorial photograph: Data engineer reviewing a web research pipeline at a desktop workstation."
+    "imageAlt": "AI-generated editorial photograph of a person viewing web pages and text on two desktop monitors."
   },
   {
     "slug": "cursor-vs-windsurf-vs-copilot-developer-benchmarks",
@@ -1333,7 +1333,7 @@
     "publishedAt": "2026-09-08",
     "updatedAt": "2026-09-21",
     "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "Generated editorial photograph: Small product team reviewing decisions together around a shared notebook."
+    "imageAlt": "AI-generated editorial photograph of a team gathered around an open laptop at a table."
   },
   {
     "slug": "top-b2b-data-enrichment-platforms",
@@ -1457,7 +1457,7 @@
     "publishedAt": "2026-09-08",
     "updatedAt": "2026-09-21",
     "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "Generated editorial photograph: Developer using a large high-resolution monitor at a tidy desk."
+    "imageAlt": "AI-generated editorial photograph of a developer viewing code on a large desktop monitor."
   },
   {
     "slug": "ai-video-prompt-guide-examples",
@@ -2271,8 +2271,8 @@
   {
     "slug": "deploy-llm-red-hat-openshift-ai-vllm-kserve",
     "category": "workflow",
-    "title": "Deploy LLMs on Red Hat OpenShift AI with vLLM and KServe",
-    "description": "Architectural guide: configuring Red Hat OpenShift AI with vLLM, KServe, and the NVIDIA GPU Operator to serve production LLMs with predictable latency.",
+    "title": "OpenShift AI LLM serving: vLLM, KServe and deployment checks",
+    "description": "Review OpenShift AI LLM serving prerequisites, vLLM and KServe runtime choices, storage, TLS ingress and production checks.",
     "topic": "Enterprise infrastructure",
     "image": "deploy-llm-red-hat-openshift-ai-photo",
     "featured": false,
@@ -2469,7 +2469,7 @@
         "content": "Need to understand how generative media tools handle verification? Check our breakdown of [AI video model pricing and architectures](/ai-video-models)."
       }
     ],
-    "imageAlt": "Generated editorial photograph: Developer and compliance lead reviewing a synthetic-media disclosure checklist."
+    "imageAlt": "AI-generated editorial photograph of two people reviewing printed pages and a tablet at a desk."
   },
   {
     "slug": "jev-needle3-small-ai-models-gpu-cost",
@@ -2669,7 +2669,7 @@
   {
     "slug": "taomate-h3-benchmark-gpu-requirements-license",
     "category": "news",
-    "title": "TaoMate H3: 10.6× faster first video, but what does it really take?",
+    "title": "TaoMate H3: reported 10.6× speedup, GPU requirements and license",
     "description": "What the reported 10.6× speedup, eight-GPU setup, cloud cost and US, UK and EU licensing mean for TaoMate H3.",
     "topic": "AI video",
     "image": "taomate-h3-streaming-photo",
