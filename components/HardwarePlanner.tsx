@@ -3,6 +3,7 @@
 import { FormEvent, useRef, useState } from "react";
 import Link from "next/link";
 import { measure } from "@/lib/measurement";
+import { plannerOutcome, type PlannerSourceKind } from "@/lib/planner-measurement";
 import { MARKET_BUDGET_LIMITS, recommendHardware } from "@/lib/hardware-planner/recommend";
 import type { MarketId, Recommendation, SystemPath, WorkloadId } from "@/lib/hardware-planner/types";
 
@@ -51,7 +52,7 @@ export default function HardwarePlanner() {
   const start = () => {
     if (started.current) return;
     started.current = true;
-    measure("planner_start", { placement: "planner" });
+    measure("planner_start", { market, workload, path, placement: "planner" });
   };
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -61,7 +62,10 @@ export default function HardwarePlanner() {
     setError(response.error ?? "");
     setResult(response.error ? null : response.recommendations);
     setStalePriceCount(response.stalePriceCount);
-    if (!response.error) measure("planner_complete", { market, workload, path });
+    if (!response.error) {
+      const outcome = plannerOutcome(response.recommendations, Number(budget));
+      measure("planner_complete", { market, workload, path, outcome });
+    }
   };
 
   const onMarketChange = (next: MarketId) => {
@@ -72,7 +76,7 @@ export default function HardwarePlanner() {
   };
 
   const onGuideClick = () => measure("planner_guide_click", { market, workload, path, placement: "result-card" });
-  const onSourceClick = () => measure("planner_source_click", { market, workload, path, placement: "result-card" });
+  const onSourceClick = (sourceKind: PlannerSourceKind) => measure("planner_source_click", { market, workload, path, placement: "result-card", source_kind: sourceKind });
   const maxBudget = MARKET_BUDGET_LIMITS[market];
 
   return (
@@ -148,7 +152,7 @@ function RecommendationCard({ candidate, market, onGuideClick, onSourceClick }: 
   candidate: Recommendation;
   market: MarketId;
   onGuideClick: () => void;
-  onSourceClick: () => void;
+  onSourceClick: (sourceKind: PlannerSourceKind) => void;
 }) {
   const price = candidate.prices[market];
   const spec = candidate.specificationSources[0];
@@ -175,8 +179,8 @@ function RecommendationCard({ candidate, market, onGuideClick, onSourceClick }: 
     <section><h4>Check before buying</h4><ul><li>{candidate.platformNote}</li>{candidate.caveats.filter(note => note !== candidate.platformNote).map(note => <li key={note}>{note}</li>)}</ul></section>
     <details className="planner-parts"><summary>Parts or configuration scope</summary><ul>{candidate.requiredParts.map(part => <li key={part}>{part}</li>)}</ul></details>
     <div className="planner-card-links">
-      {spec && <a href={spec.url} target="_blank" rel="noopener noreferrer" onClick={onSourceClick}>Check specification source: {spec.label} ↗</a>}
-      {price.source && <a href={price.source.url} target="_blank" rel="noopener noreferrer" onClick={onSourceClick}>Check local price listing ↗</a>}
+      {spec && <a href={spec.url} target="_blank" rel="noopener noreferrer" onClick={() => onSourceClick("spec")}>Check specification source: {spec.label} ↗</a>}
+      {price.source && <a href={price.source.url} target="_blank" rel="noopener noreferrer" onClick={() => onSourceClick("retailer")}>Check local price listing ↗</a>}
       <Link href="/hardware/best-local-ai-workstation-build-guide-2026" onClick={onGuideClick}>Read the workstation guide ↗</Link>
     </div>
   </article>;

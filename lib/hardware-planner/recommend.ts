@@ -1,5 +1,5 @@
 import { HARDWARE_CANDIDATES } from "./catalog";
-import type { HardwareCandidate, MarketId, Recommendation, SystemPath, WorkloadId } from "./types";
+import type { HardwareCandidate, MarketId, MarketPrice, Recommendation, SystemPath, WorkloadId } from "./types";
 
 export type PlannerInput = {
   market: MarketId;
@@ -35,31 +35,50 @@ function expectedGpuMemory(workload: WorkloadId): { strong: number; constrained:
 function assess(candidate: HardwareCandidate, workload: WorkloadId): { fit: "strong" | "constrained"; reasons: string[]; caveats: string[] } {
   const memory = expectedGpuMemory(workload);
   const vram = candidate.gpuMemoryGb;
-  const sufficientRam = workload === "local-llm" ? (candidate.systemRamGb ?? 0) >= 32 : true;
-  const strong = vram !== null && vram >= memory.strong && sufficientRam;
-  const constrained = vram !== null && vram >= memory.constrained && sufficientRam;
+  const hostRamRequired = workload === "local-llm";
+  const hostRamKnown = candidate.systemRamGb !== null;
+  const sufficientRam = !hostRamRequired || (hostRamKnown && candidate.systemRamGb! >= 32);
+  const strongGpu = vram !== null && vram >= memory.strong;
+  const constrainedGpu = vram !== null && vram >= memory.constrained;
+  const strong = strongGpu && sufficientRam;
   const reasons: string[] = [];
   const caveats = [candidate.platformNote];
 
   if (vram === null) {
     reasons.push("Dedicated GPU memory is unknown, so workload fit cannot be assessed confidently.");
-  } else if (strong) {
+  } else if (strongGpu) {
     reasons.push(`${vram} GB of listed GPU memory meets this planner's ${memory.strong} GB strong-fit heuristic for this workload.`);
-  } else if (constrained) {
+  } else if (constrainedGpu) {
     reasons.push(`${vram} GB of listed GPU memory reaches the planner's constrained-fit range; larger models or workflows may not fit.`);
   } else {
     reasons.push(`${vram} GB of listed GPU memory is below this planner's ${memory.constrained} GB starting heuristic.`);
   }
 
-  if (workload === "local-llm" && !sufficientRam) {
-    reasons.push("Listed system memory is below the planner's 32 GB local-LLM planning target or is unknown.");
+  if (hostRamRequired && !hostRamKnown) {
+    caveats.push("System memory is unknown; verify the existing computer has at least the planner's 32 GB local-LLM planning target. GPU memory alone does not establish system fit.");
+  } else if (hostRamRequired && !sufficientRam) {
+    caveats.push("Listed system memory is below the planner's 32 GB local-LLM planning target; verify host memory separately from GPU memory.");
   }
   if ((workload === "comfyui-video" || workload === "mixed") && vram !== null && vram < memory.strong) {
     caveats.push("Video and mixed workflows vary considerably; a workflow's actual model, resolution, and node memory use may need more GPU memory.");
   }
-  if (vram !== null && !constrained) caveats.push("This profile falls below the selected workload's planning threshold; consider a smaller model or workload.");
+  if (vram !== null && !constrainedGpu) caveats.push("This profile falls below the selected workload's planning threshold; consider a smaller model or workload.");
 
   return { fit: strong ? "strong" : "constrained", reasons, caveats };
+}
+
+function quoteState(price: MarketPrice, now: Date): "unknown" | "invalid" | "stale" | "current" {
+  if (price.amount === null) return "unknown";
+  if (!Number.isFinite(price.amount) || price.amount <= 0 || !price.checkedAt
+      || !/^\d{4}-\d{2}-\d{2}$/.test(price.checkedAt) || !price.source?.label?.trim()) return "invalid";
+  const checked = new Date(`${price.checkedAt}T00:00:00Z`);
+  if (!Number.isFinite(checked.getTime()) || checked.toISOString().slice(0, 10) !== price.checkedAt
+      || !Number.isFinite(now.getTime()) || checked.getTime() > now.getTime()) return "invalid";
+  try {
+    const source = new URL(price.source.url);
+    if (source.protocol !== "https:" || !source.hostname.includes(".") || source.username || source.password) return "invalid";
+  } catch { return "invalid"; }
+  return now.getTime() - checked.getTime() > FRESHNESS_MS ? "stale" : "current";
 }
 
 function invalidInput(input: PlannerInput): string | null {
@@ -80,24 +99,22 @@ export function recommendHardware(input: PlannerInput, now = new Date()): Planne
   const matching = HARDWARE_CANDIDATES.filter(candidate =>
     candidate.path === input.path && candidate.supportedWorkloads.includes(input.workload),
   );
-  const stalePriceCount = matching.filter(candidate => {
-    const price = candidate.prices[input.market].amount !== null ? candidate.prices[input.market] : null;
-    return price?.checkedAt !== null && price?.checkedAt !== undefined
-      && now.getTime() - new Date(`${price.checkedAt}T00:00:00Z`).getTime() > FRESHNESS_MS;
-  }).length;
+  const stalePriceCount = matching.filter(candidate => quoteState(candidate.prices[input.market], now) === "stale").length;
 
   const recommendations = matching.map(candidate => {
     const { fit: workloadFit, reasons, caveats } = assess(candidate, input.workload);
     const marketPrice = candidate.prices[input.market];
-    const hasPrice = marketPrice.amount !== null && marketPrice.checkedAt !== null;
-    const stale = hasPrice && now.getTime() - new Date(`${marketPrice.checkedAt}T00:00:00Z`).getTime() > FRESHNESS_MS;
-    const currentPrice = hasPrice && !stale ? marketPrice.amount : null;
+    const state = quoteState(marketPrice, now);
+    const stale = state === "stale";
+    const currentPrice = state === "current" ? marketPrice.amount : null;
     const fit = currentPrice !== null && currentPrice > input.budget ? "over-budget" : workloadFit;
 
     if (currentPrice !== null) {
       reasons.push(`Dated price example: ${currentPrice.toLocaleString(undefined, { style: "currency", currency: marketPrice.currency })}; compare it with your entered budget.`);
     } else if (stale) {
       caveats.push("The listed price example is older than 30 days and is excluded from budget ranking; check the retailer for a current price.");
+    } else if (state === "invalid") {
+      caveats.push("The price example has incomplete or invalid evidence and is excluded from budget ranking; verify the retailer quote and its check date.");
     } else {
       caveats.push("No verified current price example is available for this market, so this option is not ranked against your budget.");
     }

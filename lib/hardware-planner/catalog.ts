@@ -31,10 +31,11 @@ const marketPrice = (
   amount: number,
   label: string,
   url: string,
+  checkedAt: string,
 ): MarketPrice => ({
   amount,
   currency: MARKET_CURRENCY[market],
-  checkedAt: "2026-09-26",
+  checkedAt,
   source: { label, url },
 });
 
@@ -152,12 +153,14 @@ export const HARDWARE_CANDIDATES: HardwareCandidate[] = [
         799.99,
         "Newegg US: MSI RTX 5060 Ti Ventus 3X 16 GB (graphics card only; sold by Newegg)",
         "https://www.newegg.com/msi-rtx-5060-ti-16g-ventus-3x-oc-geforce-rtx-5060-ti-16gb-graphics-card-triple-fans/p/N82E16814137957",
+        "2026-10-09",
       ),
       uk: marketPrice(
         "uk",
         699.98,
-        "Scan UK: ASUS Dual RTX 5060 Ti OC 16 GB example (graphics card only)",
+        "Scan UK: ASUS Dual RTX 5060 Ti OC 16 GB example (graphics card only; VAT included, confirm delivery)",
         "https://www.scan.co.uk/products/asus-nvidia-geforce-rtx-5060-ti-dual-oc-16gb-gddr7-ray-tracing-graphics-card-dlss-4-4608-core-2632-m",
+        "2026-10-09",
       ),
       ca: noPrice("ca"),
       de: marketPrice(
@@ -165,6 +168,7 @@ export const HARDWARE_CANDIDATES: HardwareCandidate[] = [
         759,
         "Mindfactory Germany: Palit RTX 5060 Ti Infinity 3 16 GB (graphics card only; incl. 19% VAT, plus shipping)",
         "https://www.mindfactory.de/product_info.php/16GB-Palit-GeForce-RTX-5060-Ti-Infinity-3-Aktiv-PCIe-5-0-x16--x8--1xHDM_1616342.html",
+        "2026-09-26",
       ),
     },
     specificationSources: [nvidia5060Ti],
