@@ -1644,7 +1644,7 @@
       },
       {
         "heading": "A reproducible RAG extraction protocol",
-        "content": "This is our proposed worksheet. No tool executions, paid requests or hardware measurements were performed for this article. Start with ten pages you own or are permitted to process: five static articles, three JavaScript-rendered pages and two pages with important tables. Keep authenticated pages in a separate, authorized test. Preserve the same expected content and evaluation rules for every tool.",
+        "content": "This is our proposed worksheet. No Scrapling, Firecrawl or Playwright executions, paid API requests or hardware measurements were performed for this comparison. The separate HTTP check below is narrower. Start with ten pages you own or are permitted to process: five static articles, three JavaScript-rendered pages and two pages with important tables. Keep authenticated pages in a separate, authorized test. Preserve the same expected content and evaluation rules for every tool.",
         "checklist": [
           "Create a manifest with URL, page type, required headings, expected table cells, expected links and capture date.",
           "Pin package/API versions and record mode, browser version, concurrency, retry limit, timeout, location, language and cache settings.",
@@ -1655,6 +1655,25 @@
           "Keep raw outputs for reproducibility where permitted. Redact credentials and sensitive content before sharing.",
           "Publish failed examples and limits. A small sample does not establish universal performance or access success."
         ]
+      },
+      {
+        "heading": "Original evidence: a basic check on our own pages",
+        "content": "On 10 October 2026 we ran a sequential Node.js v22.16.0 HTTP check on ten of our own non-news articles, three requests per page. All 30 responses passed five HTML checks: HTTP 200, a nonempty title, the expected canonical URL, one H1 and the source URLs listed in our catalog. This confirms those markers were present in returned HTML, not that extraction, citations or article claims are correct. Elapsed time covers request start through complete decoded HTML and includes connection and network effects. The no-cache request header does not guarantee an uncached CDN or origin response. This is not a Scrapling/Firecrawl/Playwright ranking, browser rendering test, Core Web Vitals result or GPU benchmark. Network location was not recorded. [Raw runs and methodology](https://raw.githubusercontent.com/k-devvv/fyrelinks/main/docs/evidence/owned-pages-http-2026-10-10.json) and [reusable Node script](https://github.com/k-devvv/fyrelinks/blob/main/scripts/benchmark-owned-pages.cjs) are public.",
+        "table": {
+          "headers": ["Owned article", "HTML checks passed", "Median / range (ms, 3 requests)"],
+          "rows": [
+            ["Video tool comparison", "3/3", "465.2 / 116.9–956"],
+            ["FLUX workflow", "3/3", "117.4 / 100–345.4"],
+            ["Workstation build guide", "3/3", "100.2 / 81.9–378.6"],
+            ["SDXL comparison", "3/3", "77.8 / 72.9–674.9"],
+            ["Model switching checklist", "3/3", "168.1 / 89.3–333.7"],
+            ["Vector database comparison", "3/3", "83.2 / 78.1–368.4"],
+            ["Scraping comparison", "3/3", "403.8 / 77.1–468.8"],
+            ["Coding tool comparison", "3/3", "99.2 / 79.5–476.1"],
+            ["Notion decision log", "3/3", "89.6 / 86.2–363.6"],
+            ["Data enrichment comparison", "3/3", "89.1 / 69.6–414"]
+          ]
+        }
       },
       {
         "heading": "Preserve citations and reject misleading success",
@@ -1678,7 +1697,7 @@
       }
     ],
     "publishedAt": "2026-09-08",
-    "updatedAt": "2026-10-09",
+    "updatedAt": "2026-10-10",
     "sourceCheckedAt": "2026-10-09",
     "imageAlt": "AI-generated editorial photograph of a person viewing web pages and text on two desktop monitors.",
     "faqs": [

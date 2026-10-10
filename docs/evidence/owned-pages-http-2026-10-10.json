@@ -1,0 +1,585 @@
+{
+  "kind": "owned-page-http-check",
+  "startedAt": "2026-10-10T06:24:55.838Z",
+  "finishedAt": "2026-10-10T06:25:03.171Z",
+  "runtime": {
+    "node": "v22.16.0",
+    "platform": "win32",
+    "architecture": "x64"
+  },
+  "methodology": {
+    "selection": "First ten non-news articles in the versioned articles.json catalog",
+    "origin": "https://www.fyrelinkz.com",
+    "concurrency": 1,
+    "repeats": 3,
+    "timeoutMs": 20000,
+    "requestCacheControl": "no-cache",
+    "cacheLimit": "Request header does not guarantee an uncached CDN or origin response. Cache header is recorded when exposed.",
+    "elapsedDefinition": "Fetch start through complete decoded HTML body; includes connection and network effects.",
+    "acceptance": [
+      "HTTP 200",
+      "nonempty title",
+      "expected canonical",
+      "one H1",
+      "all catalog source URLs present in HTML"
+    ],
+    "limits": "Not a browser rendering, visual quality, extraction-tool comparison, retrieval accuracy, origin-only latency, Core Web Vitals or GPU inference benchmark. HTML checks do not establish content accuracy."
+  },
+  "summary": {
+    "pages": 10,
+    "requests": 30,
+    "accepted": 30
+  },
+  "rows": [
+    {
+      "url": "https://www.fyrelinkz.com/create/ai-video-generation-matrix-minimax-higgsfield-seedance",
+      "title": "MiniMax vs Seedance vs Higgsfield: compare tools for your shot",
+      "runs": [
+        {
+          "repeat": 1,
+          "status": 200,
+          "elapsedMs": 956,
+          "decodedHtmlBytes": 115520,
+          "vercelCache": "HIT",
+          "checks": {
+            "http200": true,
+            "titlePresent": true,
+            "canonicalMatches": true,
+            "singleH1": true,
+            "sourceLinksPresent": true
+          },
+          "accepted": true
+        },
+        {
+          "repeat": 2,
+          "status": 200,
+          "elapsedMs": 116.9,
+          "decodedHtmlBytes": 115520,
+          "vercelCache": "HIT",
+          "checks": {
+            "http200": true,
+            "titlePresent": true,
+            "canonicalMatches": true,
+            "singleH1": true,
+            "sourceLinksPresent": true
+          },
+          "accepted": true
+        },
+        {
+          "repeat": 3,
+          "status": 200,
+          "elapsedMs": 465.2,
+          "decodedHtmlBytes": 115520,
+          "vercelCache": "HIT",
+          "checks": {
+            "http200": true,
+            "titlePresent": true,
+            "canonicalMatches": true,
+            "singleH1": true,
+            "sourceLinksPresent": true
+          },
+          "accepted": true
+        }
+      ],
+      "accepted": 3,
+      "medianMs": 465.2,
+      "minMs": 116.9,
+      "maxMs": 956
+    },
+    {
+      "url": "https://www.fyrelinkz.com/create/comfyui-flux-lora-training-and-inference-guide",
+      "title": "FLUX in ComfyUI: a practical workflow and LoRA checklist",
+      "runs": [
+        {
+          "repeat": 1,
+          "status": 200,
+          "elapsedMs": 345.4,
+          "decodedHtmlBytes": 102643,
+          "vercelCache": "HIT",
+          "checks": {
+            "http200": true,
+            "titlePresent": true,
+            "canonicalMatches": true,
+            "singleH1": true,
+            "sourceLinksPresent": true
+          },
+          "accepted": true
+        },
+        {
+          "repeat": 2,
+          "status": 200,
+          "elapsedMs": 117.4,
+          "decodedHtmlBytes": 102643,
+          "vercelCache": "HIT",
+          "checks": {
+            "http200": true,
+            "titlePresent": true,
+            "canonicalMatches": true,
+            "singleH1": true,
+            "sourceLinksPresent": true
+          },
+          "accepted": true
+        },
+        {
+          "repeat": 3,
+          "status": 200,
+          "elapsedMs": 100,
+          "decodedHtmlBytes": 102643,
+          "vercelCache": "HIT",
+          "checks": {
+            "http200": true,
+            "titlePresent": true,
+            "canonicalMatches": true,
+            "singleH1": true,
+            "sourceLinksPresent": true
+          },
+          "accepted": true
+        }
+      ],
+      "accepted": 3,
+      "medianMs": 117.4,
+      "minMs": 100,
+      "maxMs": 345.4
+    },
+    {
+      "url": "https://www.fyrelinkz.com/hardware/best-local-ai-workstation-build-guide-2026",
+      "title": "Local AI workstation build guide: choose a GPU for your workload",
+      "runs": [
+        {
+          "repeat": 1,
+          "status": 200,
+          "elapsedMs": 378.6,
+          "decodedHtmlBytes": 109525,
+          "vercelCache": "HIT",
+          "checks": {
+            "http200": true,
+            "titlePresent": true,
+            "canonicalMatches": true,
+            "singleH1": true,
+            "sourceLinksPresent": true
+          },
+          "accepted": true
+        },
+        {
+          "repeat": 2,
+          "status": 200,
+          "elapsedMs": 100.2,
+          "decodedHtmlBytes": 109525,
+          "vercelCache": "HIT",
+          "checks": {
+            "http200": true,
+            "titlePresent": true,
+            "canonicalMatches": true,
+            "singleH1": true,
+            "sourceLinksPresent": true
+          },
+          "accepted": true
+        },
+        {
+          "repeat": 3,
+          "status": 200,
+          "elapsedMs": 81.9,
+          "decodedHtmlBytes": 109525,
+          "vercelCache": "HIT",
+          "checks": {
+            "http200": true,
+            "titlePresent": true,
+            "canonicalMatches": true,
+            "singleH1": true,
+            "sourceLinksPresent": true
+          },
+          "accepted": true
+        }
+      ],
+      "accepted": 3,
+      "medianMs": 100.2,
+      "minMs": 81.9,
+      "maxMs": 378.6
+    },
+    {
+      "url": "https://www.fyrelinkz.com/create/civitai-sdxl-photorealism-checkpoint-matrix",
+      "title": "Choosing an SDXL checkpoint: a fair comparison checklist",
+      "runs": [
+        {
+          "repeat": 1,
+          "status": 200,
+          "elapsedMs": 674.9,
+          "decodedHtmlBytes": 80652,
+          "vercelCache": "HIT",
+          "checks": {
+            "http200": true,
+            "titlePresent": true,
+            "canonicalMatches": true,
+            "singleH1": true,
+            "sourceLinksPresent": true
+          },
+          "accepted": true
+        },
+        {
+          "repeat": 2,
+          "status": 200,
+          "elapsedMs": 77.8,
+          "decodedHtmlBytes": 80652,
+          "vercelCache": "HIT",
+          "checks": {
+            "http200": true,
+            "titlePresent": true,
+            "canonicalMatches": true,
+            "singleH1": true,
+            "sourceLinksPresent": true
+          },
+          "accepted": true
+        },
+        {
+          "repeat": 3,
+          "status": 200,
+          "elapsedMs": 72.9,
+          "decodedHtmlBytes": 80652,
+          "vercelCache": "HIT",
+          "checks": {
+            "http200": true,
+            "titlePresent": true,
+            "canonicalMatches": true,
+            "singleH1": true,
+            "sourceLinksPresent": true
+          },
+          "accepted": true
+        }
+      ],
+      "accepted": 3,
+      "medianMs": 77.8,
+      "minMs": 72.9,
+      "maxMs": 674.9
+    },
+    {
+      "url": "https://www.fyrelinkz.com/create/frontier-ai-tools-benchmark-matrix-2026",
+      "title": "Is a new AI model worth switching to? A practical checklist",
+      "runs": [
+        {
+          "repeat": 1,
+          "status": 200,
+          "elapsedMs": 333.7,
+          "decodedHtmlBytes": 81476,
+          "vercelCache": "HIT",
+          "checks": {
+            "http200": true,
+            "titlePresent": true,
+            "canonicalMatches": true,
+            "singleH1": true,
+            "sourceLinksPresent": true
+          },
+          "accepted": true
+        },
+        {
+          "repeat": 2,
+          "status": 200,
+          "elapsedMs": 89.3,
+          "decodedHtmlBytes": 81476,
+          "vercelCache": "HIT",
+          "checks": {
+            "http200": true,
+            "titlePresent": true,
+            "canonicalMatches": true,
+            "singleH1": true,
+            "sourceLinksPresent": true
+          },
+          "accepted": true
+        },
+        {
+          "repeat": 3,
+          "status": 200,
+          "elapsedMs": 168.1,
+          "decodedHtmlBytes": 81476,
+          "vercelCache": "HIT",
+          "checks": {
+            "http200": true,
+            "titlePresent": true,
+            "canonicalMatches": true,
+            "singleH1": true,
+            "sourceLinksPresent": true
+          },
+          "accepted": true
+        }
+      ],
+      "accepted": 3,
+      "medianMs": 168.1,
+      "minMs": 89.3,
+      "maxMs": 333.7
+    },
+    {
+      "url": "https://www.fyrelinkz.com/stack/self-hosted-vector-db-pricing-and-latency-benchmarks",
+      "title": "Qdrant vs Weaviate vs Milvus vs Pinecone: what to compare",
+      "runs": [
+        {
+          "repeat": 1,
+          "status": 200,
+          "elapsedMs": 368.4,
+          "decodedHtmlBytes": 84904,
+          "vercelCache": "HIT",
+          "checks": {
+            "http200": true,
+            "titlePresent": true,
+            "canonicalMatches": true,
+            "singleH1": true,
+            "sourceLinksPresent": true
+          },
+          "accepted": true
+        },
+        {
+          "repeat": 2,
+          "status": 200,
+          "elapsedMs": 83.2,
+          "decodedHtmlBytes": 84904,
+          "vercelCache": "HIT",
+          "checks": {
+            "http200": true,
+            "titlePresent": true,
+            "canonicalMatches": true,
+            "singleH1": true,
+            "sourceLinksPresent": true
+          },
+          "accepted": true
+        },
+        {
+          "repeat": 3,
+          "status": 200,
+          "elapsedMs": 78.1,
+          "decodedHtmlBytes": 84904,
+          "vercelCache": "HIT",
+          "checks": {
+            "http200": true,
+            "titlePresent": true,
+            "canonicalMatches": true,
+            "singleH1": true,
+            "sourceLinksPresent": true
+          },
+          "accepted": true
+        }
+      ],
+      "accepted": 3,
+      "medianMs": 83.2,
+      "minMs": 78.1,
+      "maxMs": 368.4
+    },
+    {
+      "url": "https://www.fyrelinkz.com/stack/ai-web-scraping-pipelines-firecrawl-playwright-rag",
+      "title": "Scrapling vs Firecrawl vs Playwright: which fits your RAG pipeline?",
+      "runs": [
+        {
+          "repeat": 1,
+          "status": 200,
+          "elapsedMs": 468.8,
+          "decodedHtmlBytes": 122518,
+          "vercelCache": "HIT",
+          "checks": {
+            "http200": true,
+            "titlePresent": true,
+            "canonicalMatches": true,
+            "singleH1": true,
+            "sourceLinksPresent": true
+          },
+          "accepted": true
+        },
+        {
+          "repeat": 2,
+          "status": 200,
+          "elapsedMs": 77.1,
+          "decodedHtmlBytes": 122518,
+          "vercelCache": "HIT",
+          "checks": {
+            "http200": true,
+            "titlePresent": true,
+            "canonicalMatches": true,
+            "singleH1": true,
+            "sourceLinksPresent": true
+          },
+          "accepted": true
+        },
+        {
+          "repeat": 3,
+          "status": 200,
+          "elapsedMs": 403.8,
+          "decodedHtmlBytes": 122518,
+          "vercelCache": "HIT",
+          "checks": {
+            "http200": true,
+            "titlePresent": true,
+            "canonicalMatches": true,
+            "singleH1": true,
+            "sourceLinksPresent": true
+          },
+          "accepted": true
+        }
+      ],
+      "accepted": 3,
+      "medianMs": 403.8,
+      "minMs": 77.1,
+      "maxMs": 468.8
+    },
+    {
+      "url": "https://www.fyrelinkz.com/workflow/cursor-vs-windsurf-vs-copilot-developer-benchmarks",
+      "title": "Cursor vs Windsurf vs Copilot: compare one real coding task",
+      "runs": [
+        {
+          "repeat": 1,
+          "status": 200,
+          "elapsedMs": 476.1,
+          "decodedHtmlBytes": 82960,
+          "vercelCache": "HIT",
+          "checks": {
+            "http200": true,
+            "titlePresent": true,
+            "canonicalMatches": true,
+            "singleH1": true,
+            "sourceLinksPresent": true
+          },
+          "accepted": true
+        },
+        {
+          "repeat": 2,
+          "status": 200,
+          "elapsedMs": 79.5,
+          "decodedHtmlBytes": 82960,
+          "vercelCache": "HIT",
+          "checks": {
+            "http200": true,
+            "titlePresent": true,
+            "canonicalMatches": true,
+            "singleH1": true,
+            "sourceLinksPresent": true
+          },
+          "accepted": true
+        },
+        {
+          "repeat": 3,
+          "status": 200,
+          "elapsedMs": 99.2,
+          "decodedHtmlBytes": 82960,
+          "vercelCache": "HIT",
+          "checks": {
+            "http200": true,
+            "titlePresent": true,
+            "canonicalMatches": true,
+            "singleH1": true,
+            "sourceLinksPresent": true
+          },
+          "accepted": true
+        }
+      ],
+      "accepted": 3,
+      "medianMs": 99.2,
+      "minMs": 79.5,
+      "maxMs": 476.1
+    },
+    {
+      "url": "https://www.fyrelinkz.com/workflow/async-engineering-notion-architecture",
+      "title": "A simple Notion decision log your team can actually use",
+      "runs": [
+        {
+          "repeat": 1,
+          "status": 200,
+          "elapsedMs": 363.6,
+          "decodedHtmlBytes": 81017,
+          "vercelCache": "HIT",
+          "checks": {
+            "http200": true,
+            "titlePresent": true,
+            "canonicalMatches": true,
+            "singleH1": true,
+            "sourceLinksPresent": true
+          },
+          "accepted": true
+        },
+        {
+          "repeat": 2,
+          "status": 200,
+          "elapsedMs": 86.2,
+          "decodedHtmlBytes": 81017,
+          "vercelCache": "HIT",
+          "checks": {
+            "http200": true,
+            "titlePresent": true,
+            "canonicalMatches": true,
+            "singleH1": true,
+            "sourceLinksPresent": true
+          },
+          "accepted": true
+        },
+        {
+          "repeat": 3,
+          "status": 200,
+          "elapsedMs": 89.6,
+          "decodedHtmlBytes": 81017,
+          "vercelCache": "HIT",
+          "checks": {
+            "http200": true,
+            "titlePresent": true,
+            "canonicalMatches": true,
+            "singleH1": true,
+            "sourceLinksPresent": true
+          },
+          "accepted": true
+        }
+      ],
+      "accepted": 3,
+      "medianMs": 89.6,
+      "minMs": 86.2,
+      "maxMs": 363.6
+    },
+    {
+      "url": "https://www.fyrelinkz.com/stack/top-b2b-data-enrichment-platforms",
+      "title": "Apollo vs Clay: compare the records you can actually use",
+      "runs": [
+        {
+          "repeat": 1,
+          "status": 200,
+          "elapsedMs": 414,
+          "decodedHtmlBytes": 81540,
+          "vercelCache": "HIT",
+          "checks": {
+            "http200": true,
+            "titlePresent": true,
+            "canonicalMatches": true,
+            "singleH1": true,
+            "sourceLinksPresent": true
+          },
+          "accepted": true
+        },
+        {
+          "repeat": 2,
+          "status": 200,
+          "elapsedMs": 89.1,
+          "decodedHtmlBytes": 81540,
+          "vercelCache": "HIT",
+          "checks": {
+            "http200": true,
+            "titlePresent": true,
+            "canonicalMatches": true,
+            "singleH1": true,
+            "sourceLinksPresent": true
+          },
+          "accepted": true
+        },
+        {
+          "repeat": 3,
+          "status": 200,
+          "elapsedMs": 69.6,
+          "decodedHtmlBytes": 81540,
+          "vercelCache": "HIT",
+          "checks": {
+            "http200": true,
+            "titlePresent": true,
+            "canonicalMatches": true,
+            "singleH1": true,
+            "sourceLinksPresent": true
+          },
+          "accepted": true
+        }
+      ],
+      "accepted": 3,
+      "medianMs": 89.1,
+      "minMs": 69.6,
+      "maxMs": 414
+    }
+  ]
+}

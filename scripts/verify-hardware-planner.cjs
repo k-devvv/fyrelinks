@@ -25,7 +25,7 @@ const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 const PRICE_SOURCE_RULES = {
   us: { host: 'www.newegg.com', productPath: /\/p\/N82E\d+$/ },
   uk: { host: 'www.scan.co.uk', productPath: /\/products\/.+/ },
-  ca: null,
+  ca: { host: 'www.canadacomputers.com', productPath: /^\/en\/powered-by-nvidia\/\d+\/.+\.html$/ },
   de: { host: 'www.mindfactory.de', productPath: /\/product_info\.php\/.+\.html$/ },
 };
 
