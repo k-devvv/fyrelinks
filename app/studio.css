@@ -218,9 +218,6 @@ a:hover { color: var(--accent); }
 .provider-tabs button[aria-selected="true"] { background: #eee3d5; border-color: #cf9272; }
 .tool-methodology { border-color: #ded8ce; }
 .ad-slot { min-height: 0; }
-.pointer-accent-ring { position:fixed; top:0; left:0; width:30px; height:30px; margin:-15px 0 0 -15px; border:1px solid #e66d43a8; border-radius:50%; pointer-events:none; opacity:0; z-index:1001; will-change:transform,opacity; background:radial-gradient(circle, #f1784b10 0 42%, transparent 72%); box-shadow:0 0 0 4px #f1784b0b, inset 0 0 8px #f1784b0a; transition:opacity .16s ease,width .2s cubic-bezier(.2,.8,.2,1),height .2s cubic-bezier(.2,.8,.2,1),margin .2s cubic-bezier(.2,.8,.2,1),border-color .2s ease,box-shadow .2s ease; }
-.pointer-accent-ring.is-over-control { width:38px; height:38px; margin:-19px 0 0 -19px; border-color:#e66d43d9; box-shadow:0 0 0 5px #f1784b12, inset 0 0 10px #f1784b12; }
-@media(hover:none),(pointer:coarse),(prefers-reduced-motion:reduce) { .pointer-accent-ring { display:none!important; } }
 .reading-progress-bar { background: var(--accent); }
 .reveal-pending { opacity: 0; transform: translateY(14px); }
 .reveal-settled { opacity: 1; transform: translateY(0); }
