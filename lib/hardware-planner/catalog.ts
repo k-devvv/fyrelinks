@@ -59,11 +59,6 @@ const laptop5090: SourceRef = {
   url: "https://www.dell.com/en-us/shop/dell-laptops/alienware-18-area-51-gaming-laptop/spd/alienware-area-51-aa18250-gaming-laptop/useaa18250wmlkcto03",
 };
 
-const thinkpadP16: SourceRef = {
-  label: "Lenovo ThinkPad P16 Gen 3 product specifications",
-  url: "https://www.lenovo.com/us/en/p/laptops/thinkpad/thinkpadp/lenovo-thinkpad-p16-gen-3-16-inch-intel-mobile-workstation/21rqcto1wwus1",
-};
-
 /**
  * Small source-first catalogue. Desktop-build entries are planning profiles,
  * not purchasable bundles: their RAM/storage values are suggested targets and
@@ -162,13 +157,19 @@ export const HARDWARE_CANDIDATES: HardwareCandidate[] = [
         "https://www.scan.co.uk/products/asus-nvidia-geforce-rtx-5060-ti-dual-oc-16gb-gddr7-ray-tracing-graphics-card-dlss-4-4608-core-2632-m",
         "2026-10-09",
       ),
-      ca: noPrice("ca"),
+      ca: marketPrice(
+        "ca",
+        1179.99,
+        "Canada Computers: ZOTAC RTX 5060 Ti Twin Edge OC 16 GB (graphics card only; before applicable tax; shipping and availability depend on location)",
+        "https://www.canadacomputers.com/en/powered-by-nvidia/290519/zotac-gaming-geforce-rtx-5060-ti-16gb-twin-edge-oc-gddr7-zt-b50620h-10a.html?keyword=5060ti+16gb",
+        "2026-10-10",
+      ),
       de: marketPrice(
         "de",
-        759,
+        849,
         "Mindfactory Germany: Palit RTX 5060 Ti Infinity 3 16 GB (graphics card only; incl. 19% VAT, plus shipping)",
         "https://www.mindfactory.de/product_info.php/16GB-Palit-GeForce-RTX-5060-Ti-Infinity-3-Aktiv-PCIe-5-0-x16--x8--1xHDM_1616342.html",
-        "2026-09-26",
+        "2026-10-10",
       ),
     },
     specificationSources: [nvidia5060Ti],
@@ -202,20 +203,5 @@ export const HARDWARE_CANDIDATES: HardwareCandidate[] = [
     requiredParts: ["Complete laptop configuration and its supplied power adapter"],
     prices: unpricedEverywhere(),
     specificationSources: [laptop5090],
-  },
-  {
-    id: "laptop-thinkpad-p16g3-rtxpro5000",
-    name: "ThinkPad P16 Gen 3 with RTX PRO 5000 Laptop GPU",
-    path: "laptop",
-    priceScope: "full-system",
-    supportedWorkloads: ["comfyui-image", "comfyui-video", "local-llm", "mixed"],
-    gpuMemoryGb: 24,
-    systemRamGb: 128,
-    storageTb: 12,
-    platformNote:
-      "Lenovo lists these as configurable maximums: 24 GB RTX PRO 5000 Laptop GPU, up to 128 GB ECC RAM, and up to 12 TB storage. They may not coexist in every regional SKU; verify the exact build, power/cooling limits, software support, and price before purchase.",
-    requiredParts: ["Complete laptop configuration and its supplied power adapter"],
-    prices: unpricedEverywhere(),
-    specificationSources: [thinkpadP16],
   },
 ];
