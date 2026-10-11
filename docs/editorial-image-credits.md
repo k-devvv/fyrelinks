@@ -1,5 +1,12 @@
 # Editorial image credits
 
+## AI weekly roundup — 11 October 2026
+
+- Built-in imagegen editorial illustration, created for FyreLinkz; no external photograph is represented as our reporting.
+- Asset: `public/art/ai-week-oct11-research-photo.jpg`, 1200 × 800, 125,065 bytes.
+- Alt text and caption explicitly identify generated artwork and exclude product-test/lab evidence claims.
+- Full prompt and processing notes: [11 October editorial release](2026-10-11-editorial-release.md).
+
 ## Local AI PC upgrade guide
 
 - Photo: “gray and green computer processor” by Roman Spiridonov, via [Unsplash](https://unsplash.com/photos/gray-and-green-computer-processor-FemeYrbdMWE).
