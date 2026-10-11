@@ -1660,18 +1660,62 @@
         "heading": "Original evidence: a basic check on our own pages",
         "content": "On 10 October 2026 we ran a sequential Node.js v22.16.0 HTTP check on ten of our own non-news articles, three requests per page. All 30 responses passed five HTML checks: HTTP 200, a nonempty title, the expected canonical URL, one H1 and the source URLs listed in our catalog. This confirms those markers were present in returned HTML, not that extraction, citations or article claims are correct. Elapsed time covers request start through complete decoded HTML and includes connection and network effects. The no-cache request header does not guarantee an uncached CDN or origin response. This is not a Scrapling/Firecrawl/Playwright ranking, browser rendering test, Core Web Vitals result or GPU benchmark. Network location was not recorded. [Raw runs and methodology](https://raw.githubusercontent.com/k-devvv/fyrelinks/main/docs/evidence/owned-pages-http-2026-10-10.json) and [reusable Node script](https://github.com/k-devvv/fyrelinks/blob/main/scripts/benchmark-owned-pages.cjs) are public.",
         "table": {
-          "headers": ["Owned article", "HTML checks passed", "Median / range (ms, 3 requests)"],
+          "headers": [
+            "Owned article",
+            "HTML checks passed",
+            "Median / range (ms, 3 requests)"
+          ],
           "rows": [
-            ["Video tool comparison", "3/3", "465.2 / 116.9–956"],
-            ["FLUX workflow", "3/3", "117.4 / 100–345.4"],
-            ["Workstation build guide", "3/3", "100.2 / 81.9–378.6"],
-            ["SDXL comparison", "3/3", "77.8 / 72.9–674.9"],
-            ["Model switching checklist", "3/3", "168.1 / 89.3–333.7"],
-            ["Vector database comparison", "3/3", "83.2 / 78.1–368.4"],
-            ["Scraping comparison", "3/3", "403.8 / 77.1–468.8"],
-            ["Coding tool comparison", "3/3", "99.2 / 79.5–476.1"],
-            ["Notion decision log", "3/3", "89.6 / 86.2–363.6"],
-            ["Data enrichment comparison", "3/3", "89.1 / 69.6–414"]
+            [
+              "Video tool comparison",
+              "3/3",
+              "465.2 / 116.9–956"
+            ],
+            [
+              "FLUX workflow",
+              "3/3",
+              "117.4 / 100–345.4"
+            ],
+            [
+              "Workstation build guide",
+              "3/3",
+              "100.2 / 81.9–378.6"
+            ],
+            [
+              "SDXL comparison",
+              "3/3",
+              "77.8 / 72.9–674.9"
+            ],
+            [
+              "Model switching checklist",
+              "3/3",
+              "168.1 / 89.3–333.7"
+            ],
+            [
+              "Vector database comparison",
+              "3/3",
+              "83.2 / 78.1–368.4"
+            ],
+            [
+              "Scraping comparison",
+              "3/3",
+              "403.8 / 77.1–468.8"
+            ],
+            [
+              "Coding tool comparison",
+              "3/3",
+              "99.2 / 79.5–476.1"
+            ],
+            [
+              "Notion decision log",
+              "3/3",
+              "89.6 / 86.2–363.6"
+            ],
+            [
+              "Data enrichment comparison",
+              "3/3",
+              "89.1 / 69.6–414"
+            ]
           ]
         }
       },
@@ -3019,197 +3063,156 @@
   {
     "slug": "jev-needle3-small-ai-models-gpu-cost",
     "category": "news",
-    "title": "Jev and Needle 3: tiny AI models, local GPUs and token costs",
-    "description": "A practical read of this week’s AI model chatter: Jev’s hosted decision API, Needle 3’s tiny on-device jobs, and what a 2B local model needs.",
+    "title": "Needle 3 vs Jev: local tools, API costs and limits",
+    "description": "Compare Needle 3 and TypeSafe Jev for tool calling, extraction and typed decisions. See local versus hosted deployment, GPU needs, API costs and limitations.",
     "topic": "AI models",
     "image": "jev-needle-small-models-photo",
-    "imageAlt": "AI-generated editorial photograph of a tiny edge-computing board and desktop GPU beside a laptop, illustrating local AI models and hardware costs.",
-    "eventDate": "2026-09-20",
+    "imageAlt": "AI-generated editorial photograph of an edge-computing board and desktop GPU beside a laptop, illustrating different AI deployment choices.",
+    "imageCaption": "AI-generated editorial illustration. Not a tested FyreLinkz system or a photograph of either model running.",
     "featured": true,
-    "takeaway": "The models in AI Search’s September roundup are not interchangeable. Jev is a hosted, typed decision service billed on input tokens; Needle 3 is a tiny on-device tool, extraction and embedding model; MiniCPM5-2B is a general text generator you can run locally with a suitable runtime. Pick by task, then test quality and total cost on your own workload.",
+    "publishedAt": "2026-09-26",
+    "updatedAt": "2026-10-11",
+    "sourceCheckedAt": "2026-10-11",
+    "takeaway": "Needle 3 is an on-device specialist for tool calls, structured extraction and embeddings. TypeSafe Jev is a hosted API for typed decisions. Choose local processing when your supported device and workload justify it; choose hosted decisions when that output contract fits. Neither is a general chat substitute or a demonstrated accuracy winner in this comparison.",
     "sources": [
       {
-        "publisher": "AI Search on X",
-        "title": "Weekly AI roundup, September 20, 2026",
-        "url": "https://x.com/aisearchio/status/2101514853999677735",
-        "publishedAt": "2026-09-20"
-      },
-      {
-        "publisher": "Hugging Face",
-        "title": "Trending text-generation models",
-        "url": "https://huggingface.co/models?pipeline_tag=text-generation&sort=trending"
-      },
-      {
-        "publisher": "Cactus Compute · Hugging Face",
-        "title": "Needle 3 model card and benchmark methodology",
+        "publisher": "Cactus Compute — Hugging Face",
+        "title": "Needle 3 model card, tasks and license",
         "url": "https://huggingface.co/Cactus-Compute/needle3"
       },
       {
         "publisher": "TypeSafe",
-        "title": "Jev model documentation and current pricing",
+        "title": "Jev model versions, input pricing and aliases",
         "url": "https://docs.typesafe.ai/models"
       },
       {
         "publisher": "TypeSafe",
-        "title": "Introducing System One models and Jev",
-        "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
-        "publishedAt": "2026-09-15"
+        "title": "System One and typed decision outputs",
+        "url": "https://docs.typesafe.ai/introduction"
       },
       {
-        "publisher": "OpenBMB · Hugging Face",
-        "title": "MiniCPM5-2B model card and reported evaluations",
-        "url": "https://huggingface.co/openbmb/MiniCPM5-2B"
-      },
-      {
-        "publisher": "OpenBMB · Hugging Face",
-        "title": "MiniCPM5-2B GGUF quantizations and llama.cpp setup",
-        "url": "https://huggingface.co/openbmb/MiniCPM5-2B-GGUF"
-      },
-      {
-        "publisher": "Yu Sun et al. · arXiv preprint",
-        "title": "Type-Safe Is Not Error-Free: A Constrained Decision Head Follows the Option Name, Not the Rubric Bound to It",
-        "url": "https://arxiv.org/abs/2609.26758",
-        "publishedAt": "2026-09-22"
-      },
-      {
-        "publisher": "Delip Rao and co-author · arXiv preprint",
-        "title": "JEV vs. LLMs as Rubric Judges: Cheaper, Faster, and Wrong in the Same Places",
-        "url": "https://arxiv.org/abs/2609.29769",
-        "publishedAt": "2026-09-24"
-      },
-      {
-        "publisher": "Liquid AI · Hugging Face",
-        "title": "Deploy local agents everywhere with LFM2.5-2.6B",
-        "url": "https://huggingface.co/blog/LiquidAI/lfm2-5-2-6b",
-        "publishedAt": "2026-08-04"
+        "publisher": "TypeSafe",
+        "title": "Jev 1.13 task-specific limitations",
+        "url": "https://docs.typesafe.ai/model-jaggedness/jev-1.13"
       }
     ],
     "sections": [
       {
-        "heading": "The small-model story is really three different stories",
-        "content": "AI Search’s September 20 roundup placed Jev and Needle 3 alongside a wave of new models. Hugging Face’s live trending page is a useful discovery signal, but rank and download counts change; popularity does not prove accuracy or fit. The more useful pattern is that “small AI” now covers very different products: hosted decision APIs, tiny embedded specialists, and compact generative models. Compare them by what they do, what evidence supports them, and what your actual workload costs.",
-        "sourceIds": [
-          1,
-          2
-        ]
-      },
-      {
-        "heading": "Needle 3: tiny specialist for local structured work",
-        "content": "Cactus describes Needle 3 as an on-device model for tool selection, structured extraction, classification and text embeddings. Its model card reports a single 8–29 MB model file and a 121M-parameter full model; Cactus says the architecture’s effective arithmetic is closer to 50M parameters. It is not a general-purpose chat replacement. The intended benefit is handling narrow, schema-shaped jobs on phones, wearables, robots and other constrained devices without sending every request to a cloud API.",
-        "subpoints": [
-          "Hardware: designed for device-side runtimes; the model card does not prescribe a discrete GPU. CPU, mobile accelerator or supported embedded runtime may fit, depending on platform and latency target.",
-          "Price: no per-token hosted inference price is listed on the model card. Local inference avoids a provider token bill, while still using device power and engineering time.",
-          "Evidence: the reported exact-match tool-call and field-level extraction results are Cactus’s own full-split evaluations, not an independent FyreLinkz benchmark."
-        ],
-        "sourceIds": [
-          3
-        ]
-      },
-      {
-        "heading": "Jev: pay-per-input-token decision model, not a tiny local LLM",
-        "content": "TypeSafe documents Jev 1.13 as a hosted System One model that returns calibrated, structured decisions. It accepts text, not image, audio or video input. Current listed price is $0.042 per million input tokens; output tokens are free. This makes cost estimation straightforward: 100 million input tokens cost $4.20; one billion cost $42, before any applicable tax or account-specific terms. For one million requests averaging 1,000 input tokens, that is also one billion input tokens, or $42 at the published rate. Token batching and repeated state affect the count, so use actual request payloads to estimate.",
-        "subpoints": [
-          "Use it when a workflow needs typed choices or rubric-style classification and you have checked its decisions on representative examples.",
-          "Do not compare its price directly with local generation: Jev sells a hosted decision service; a local model has hardware, energy and maintenance costs instead of a provider token charge.",
-          "Pin a version for evaluations. TypeSafe says aliases can move as releases change."
-        ],
-        "sourceIds": [
-          4,
-          5
-        ]
-      },
-      {
-        "heading": "MiniCPM5-2B: a local generator with a small-model footprint",
-        "content": "OpenBMB positions MiniCPM5-2B as a dense 2B text model for local and resource-constrained use, with tool-use and long-context goals. In OpenBMB’s own comparison table, it reports a 53.9 average against 33.2 for LiquidAI LFM2.5-2.6B and 28.0 for Qwen3.5-2B; on LiveCodeBench v6, it reports 69.1 against 42.1 for LFM2.5. These are the model maker’s selected evaluation results, not an independent or universal ranking, and it does not lead every individual test. Hugging Face lists Apache-2.0 for the model. A GGUF build lets compatible llama.cpp, Ollama or LM Studio setups load a quantized version; the repository documents a Q4_K_M quick start.",
-        "subpoints": [
-          "GPU: no single GPU is required if you run on CPU, but GPU offload can improve speed when your runtime supports your card. Start with the quantized file size, then reserve extra RAM or VRAM for runtime, context/KV cache and other processes.",
-          "Cost: local runs have no per-token provider fee. Estimate power as device watts × hours ÷ 1,000 × your electricity price per kWh; include the hardware purchase only if you are comparing total ownership cost.",
-          "Benchmark honestly: test your own prompts, language, context length and tool calls. Measure quality, peak memory and tokens per second on your hardware."
-        ],
-        "sourceIds": [
-          6,
-          7
-        ]
-      },
-      {
-        "heading": "Benchmarks need a reliability and task-fit check",
-        "content": "Two September arXiv preprints add a useful caution to Jev’s “typed” output story. One reports that, in its controlled rubric experiment, changing semantically loaded option names affected decisions even while the output remained type-valid. A second study comparing Jev with several LLM judges reports mixed outcomes across rubric panels, rather than one winner for every grading task. These are new preprints, not settled consensus and not proof that Jev fails in every use. They do show why schema-valid output must not be mistaken for a correct judgment. Use neutral option labels, blind spot checks and a human escalation path for consequential decisions.",
-        "sourceIds": [
-          8,
-          9
-        ]
-      },
-      {
-        "heading": "Which one should you try first?",
-        "content": "Use this shortlist to choose a first experiment; it is FyreLinkz editorial guidance, not a claim that we independently benchmarked the models.",
+        "heading": "Needle 3 vs Jev: the difference in one table",
+        "content": "The useful distinction is deployment and output, not which model has the loudest launch claim. This is a documentation-based comparison; FyreLinkz has not executed a head-to-head benchmark. Confirm the exact runtime or API version before building around either.",
         "table": {
           "headers": [
-            "Need",
-            "Starting point",
-            "Hardware or spend",
-            "What to verify"
+            "Decision",
+            "Needle 3",
+            "TypeSafe Jev"
           ],
           "rows": [
             [
-              "Route local app tools; extract fields on a constrained device",
-              "Needle 3",
-              "On-device runtime; no published token rate",
-              "Exact-match tool calls, field F1, confidence calibration"
+              "Main job",
+              "Local tool calls, extraction and embeddings",
+              "Hosted typed decisions"
             ],
             [
-              "Classify or score text with a typed decision output",
-              "Jev 1.13",
-              "Hosted API; $0.042 per million input tokens, output free",
-              "Accuracy by class, option-name bias, current token volume"
+              "Deployment",
+              "Supported on-device engine",
+              "TypeSafe API"
             ],
             [
-              "Generate and edit text locally; explore tool use",
-              "MiniCPM5-2B GGUF",
-              "CPU or supported GPU; quantized model plus runtime/context memory",
-              "Task quality, peak memory, speed, license and deployment fit"
+              "Your own inference GPU",
+              "Not a universal discrete-GPU requirement",
+              "Not required for hosted calls"
             ],
             [
-              "Compare another compact local agent model",
-              "LiquidAI LFM2.5-2.6B",
-              "Local device; vendor reports under 2.5 GB memory for its setup",
-              "Reproduce results on your own device and prompts"
+              "Price basis",
+              "Device/runtime resources; no token tariff on card",
+              "$0.042 per million input tokens; output free"
+            ],
+            [
+              "Access/rights",
+              "Apache 2.0 model-card license; check dependencies",
+              "Hosted account and service terms"
+            ],
+            [
+              "What still needs testing",
+              "Field and tool-call correctness on your device",
+              "Decision correctness on your exact task"
             ]
           ]
         },
         "sourceIds": [
-          3,
-          4,
-          6,
-          7,
-          10
+          1,
+          2,
+          3
         ]
       },
       {
-        "heading": "Build a small evaluation you can reproduce",
-        "content": "Create a small private test set from the task you actually plan to ship. Give every candidate the same inputs, freeze model versions and record answers before looking at aggregate scores. For each local run, note device, runtime, quantization, context length, peak memory and median/p95 latency. For Jev, count input tokens and apply the published rate; check the current docs before budgeting because prices and rate limits can change. Keep failures in the report. A model that costs less but causes expensive review or correction may not be cheaper overall.",
-        "checklist": [
-          "Write 30–100 representative examples, including ambiguous and out-of-scope cases.",
-          "Define success before running: exact match, field-level F1, grounded answer, or human-rated quality.",
-          "Log version, prompt, runtime, quantization, hardware, latency and memory for each run.",
-          "Calculate cloud input-token cost and local energy separately; include human correction time.",
-          "Check confidence calibration and route uncertain or high-impact results to a person."
-        ],
+        "heading": "When Needle 3 is worth evaluating",
+        "content": "Cactus describes tool selection, schema-shaped extraction and embeddings running on the device. Its card lists Apache 2.0. That makes it a candidate for a local app workflow, rather than a general-purpose conversational model. Check the supported engine and exact artifact for your platform; model-file size is not total runtime memory. We do not infer a universal RAM requirement or speed from the card. Treat locally processed data as a system-design choice: surrounding app telemetry and connected tools can still transmit information.",
         "sourceIds": [
-          4,
-          6,
-          7,
-          8,
-          9
+          1
         ]
       },
       {
-        "heading": "What this week’s trend means for buyers and builders",
-        "content": "The model-count race is less useful than the task-fit shift. Needle 3 shows why a model can be tiny by specializing; Jev shows a hosted decision product can price input tokens rather than output prose; MiniCPM5-2B and LFM2.5 show continuing investment in capable local agents. None removes evaluation work. Choose the narrowest system that passes your test set, then compare its whole operating cost. For local AI planning, use our [AI workstation planner](/hardware/ai-workstation-planner) to shortlist parts by country, budget and workload; for creators choosing hosted media tools, see our [AI video model comparison](/ai-video-models)."
+        "heading": "When Jev fits: typed decisions through an API",
+        "content": "TypeSafe's System One documentation describes decision outputs rather than generated prose. Its current model listing names jev-1.13.0 and accepts text input. You do not install a local Jev GPU checkpoint for these hosted calls. Define the decision you need, its allowed outputs and how your application handles a wrong result before choosing it. A typed result is an output-format property; it does not certify the underlying judgment.",
+        "sourceIds": [
+          2,
+          3
+        ]
+      },
+      {
+        "heading": "Jev pricing: two worked input-token examples",
+        "content": "TypeSafe lists $0.042 per million input tokens and no output-token charge. At that rate, 100 million input tokens cost $4.20. One million requests averaging 1,000 input tokens total one billion input tokens, or $42. These are arithmetic examples, not measured usage or an account quote; taxes and other operating costs are excluded. Log actual payload/token usage and recheck current pricing. Local inference has no provider token bill, but hardware, electricity, deployment and review effort remain separate costs.",
+        "sourceIds": [
+          2
+        ]
+      },
+      {
+        "heading": "Correct format is not the same as a correct answer",
+        "content": "TypeSafe documents uneven Jev performance across tasks, including difficulties with numerical precision, counting and dates. Those limitations are a reason to test representative failures, not a universal rejection of the model. For either candidate, define correctness before running, retain mistaken outputs and test ambiguous or out-of-scope inputs. For consequential decisions, use review and escalation rather than treating a confidence value or valid schema as approval.",
+        "sourceIds": [
+          4
+        ]
+      },
+      {
+        "heading": "A small evaluation before a deployment decision",
+        "content": "This is our proposed worksheet, not an executed benchmark. Give each system an appropriate version of the same underlying task; do not score a text-generating model, a tool router and a decision API as though they offer identical outputs.",
+        "checklist": [
+          "Write 30–100 representative cases, including ambiguity and requests outside the supported task.",
+          "Record exact artifact/API version, input contract and expected fields or decisions.",
+          "Separate output parsing from decision or extraction correctness.",
+          "Log retries, latency, local peak memory where measurable and human correction time.",
+          "Count actual hosted input tokens; keep local power and ownership costs separate.",
+          "Keep failure examples and confirm behavior before automatically acting on outputs."
+        ]
+      },
+      {
+        "heading": "Next: local memory checks or retrieval design",
+        "content": "If local deployment is your goal, use our [RTX 4050 memory guide](/hardware/run-local-llm-rtx-4050-laptop-guide) to distinguish download size from runtime allocation. The [hardware planner](/hardware/ai-workstation-planner) offers dated regional examples, not certification that Needle fits every device. For an embedding workflow, continue with the [vector database comparison guide](/stack/self-hosted-vector-db-pricing-and-latency-benchmarks). Those are separate decisions from choosing a hosted decision API."
       }
     ],
-    "publishedAt": "2026-09-26",
-    "updatedAt": "2026-09-26",
-    "sourceCheckedAt": "2026-09-26"
+    "faqs": [
+      {
+        "question": "What is the difference between Needle 3 and Jev?",
+        "answer": "Needle 3 is an on-device model for local tool calls, structured extraction and embeddings. Jev is TypeSafe's hosted typed-decision API. Compare the deployment and output contract needed by your application, then evaluate correctness."
+      },
+      {
+        "question": "Does Jev require my own GPU?",
+        "answer": "No for the documented hosted API. Your application sends text requests to TypeSafe; the provider runs inference. This is different from downloading and running a local model."
+      },
+      {
+        "question": "How much does Jev cost?",
+        "answer": "The model documentation checked October 11 lists $0.042 per million input tokens, with output tokens free. Rates and account conditions can change. Count actual input-token usage rather than treating request count as token count."
+      },
+      {
+        "question": "Can Needle 3 replace a general chatbot?",
+        "answer": "Its documented tasks are narrow structured work and embeddings. Do not assume those capabilities establish general conversational quality. Evaluate the exact outputs your app requires."
+      },
+      {
+        "question": "Which is more accurate, Needle 3 or Jev?",
+        "answer": "This article does not establish an accuracy winner. Their output contracts differ, and no FyreLinkz head-to-head test was run. Evaluate a representative task set and retain failures."
+      }
+    ]
   },
   {
     "slug": "taomate-h3-benchmark-gpu-requirements-license",
@@ -3941,5 +3944,458 @@
     "publishedAt": "2026-10-06",
     "updatedAt": "2026-10-06",
     "sourceCheckedAt": "2026-10-06"
+  },
+  {
+    "slug": "ai-news-week-oct11-2026-gpt6-haiku-worldplay2",
+    "category": "news",
+    "title": "AI this week: GPT-6 UI, Haiku 5.5 and WorldPlay2",
+    "description": "October 5–11 AI roundup: GPT-6 Intelligent UI, Haiku 5.5 pricing, WorldPlay2, Kandinsky 6 and Iris-3B. Check release dates, access, licenses and hardware limits.",
+    "topic": "AI research",
+    "image": "ai-week-oct11-research-photo",
+    "imageAlt": "AI-generated editorial illustration of a laptop displaying a room wireframe beside an unbranded robotic gripper and experiment notes.",
+    "imageCaption": "AI-generated editorial illustration. Not a photograph of a named research lab, product test or benchmark.",
+    "featured": true,
+    "publishedAt": "2026-10-11",
+    "updatedAt": "2026-10-11",
+    "sourceCheckedAt": "2026-10-11",
+    "takeaway": "The October 5–11 updates span interactive ChatGPT answers, lower-cost hosted inference, local embeddings and visual research models. They have different access and license conditions. Below, dated developments are separated from older research, and vendor or author results are not presented as FyreLinkz benchmarks.",
+    "sources": [
+      {
+        "publisher": "OpenAI",
+        "title": "GPT-6 and Intelligent UI for everyone",
+        "url": "https://openai.com/index/gpt-6-for-everyone/",
+        "publishedAt": "2026-10-07"
+      },
+      {
+        "publisher": "Anthropic",
+        "title": "Introducing Claude Haiku 5.5",
+        "url": "https://www.anthropic.com/claude-haiku-5-5",
+        "publishedAt": "2026-10-07"
+      },
+      {
+        "publisher": "Google DeepMind",
+        "title": "EmbeddingGemma 2: an open, lightweight multimodal embedding model",
+        "url": "https://blog.google/innovation-and-ai/technology/developers-tools/embeddinggemma-2/",
+        "publishedAt": "2026-10-06"
+      },
+      {
+        "publisher": "WorldPlay2 authors",
+        "title": "Official WorldPlay2 release notes, inference and license",
+        "url": "https://github.com/WorldPlay2/WorldPlay2"
+      },
+      {
+        "publisher": "Kandinsky Lab",
+        "title": "Kandinsky 6.0 Video implementation and model links",
+        "url": "https://github.com/kandinskylab/kandinsky-6"
+      },
+      {
+        "publisher": "Kandinsky Lab",
+        "title": "Official lab release announcements",
+        "url": "https://kandinskylab.ai/"
+      },
+      {
+        "publisher": "Google DeepMind",
+        "title": "Nano Banana 2.1 model card",
+        "url": "https://deepmind.google/models/model-cards/nano-banana-2-1/"
+      },
+      {
+        "publisher": "Google AI for Developers",
+        "title": "Gemini Nano Banana 2.1 API model documentation",
+        "url": "https://ai.google.dev/gemini-api/docs/models/gemini-nano-banana-2.1"
+      },
+      {
+        "publisher": "Speridlabs",
+        "title": "Iris-3B research and implementation links",
+        "url": "https://speridlabs.com/research/iris"
+      },
+      {
+        "publisher": "Speridlabs — Hugging Face",
+        "title": "Iris-3B model card and dependencies",
+        "url": "https://huggingface.co/speridlabs/iris-3b"
+      },
+      {
+        "publisher": "Meta research authors",
+        "title": "GenIA implementation, setup and license",
+        "url": "https://github.com/facebookresearch/GenIA"
+      },
+      {
+        "publisher": "GenIA authors — arXiv",
+        "title": "Generative Reconstruction with Test-Time Input Alignment",
+        "url": "https://arxiv.org/abs/2610.12388",
+        "publishedAt": "2026-10-08"
+      },
+      {
+        "publisher": "OpenAI",
+        "title": "Sharing AI progress in mathematics",
+        "url": "https://openai.com/index/sharing-ai-progress-in-mathematics/",
+        "publishedAt": "2026-10-06"
+      },
+      {
+        "publisher": "OpenAI",
+        "title": "Math repository correction and revision history",
+        "url": "https://github.com/openai/math/blob/main/history.md"
+      },
+      {
+        "publisher": "MotionSpaceFlow authors",
+        "title": "MSFlow project page",
+        "url": "https://yu1ut.com/MSFlow-HP/"
+      },
+      {
+        "publisher": "MotionSpaceFlow authors — arXiv",
+        "title": "MotionSpaceFlow research paper",
+        "url": "https://arxiv.org/abs/2609.34190",
+        "publishedAt": "2026-09-28"
+      },
+      {
+        "publisher": "Amazon — Hugging Face",
+        "title": "ALoDLM-8B model card",
+        "url": "https://huggingface.co/amazon/ALoDLM-8B"
+      },
+      {
+        "publisher": "ALoDLM authors — arXiv",
+        "title": "Adaptively Looped Diffusion Language Models",
+        "url": "https://arxiv.org/abs/2610.04198",
+        "publishedAt": "2026-10-03"
+      },
+      {
+        "publisher": "Google DeepMind",
+        "title": "AlphaProtein Novo official repository and terms",
+        "url": "https://github.com/google-deepmind/alphaprotein-novo"
+      },
+      {
+        "publisher": "AlphaProtein Novo authors — bioRxiv",
+        "title": "Designing enzymes with AlphaProtein Novo",
+        "url": "https://www.biorxiv.org/content/10.64898/2026.10.01.756017v1"
+      },
+      {
+        "publisher": "Google DeepMind",
+        "title": "Living Models pairs Gemma 4 with BOTANIC-1 to help decode plant DNA",
+        "url": "https://deepmind.google/models/gemma/gemmaverse/living-models/"
+      },
+      {
+        "publisher": "Vals AI",
+        "title": "Two Room-Temperature Antiferromagnetic Semiconductor Candidates",
+        "url": "https://www.vals.ai/blogs/room-temperature-magnetic-semiconductors",
+        "publishedAt": "2026-10-04"
+      },
+      {
+        "publisher": "FlashDexRetarget authors — arXiv",
+        "title": "Multi-Motion Retargeting research paper",
+        "url": "https://arxiv.org/abs/2610.01849",
+        "publishedAt": "2026-10-01"
+      },
+      {
+        "publisher": "EPFL TERRA researchers",
+        "title": "Terrain-aware musculoskeletal locomotion project",
+        "url": "https://cnai.epfl.ch/terra/"
+      },
+      {
+        "publisher": "TERRA authors — arXiv",
+        "title": "Terrain-Aware Reconstruction, Retargeting and Control for Musculoskeletal Locomotion",
+        "url": "https://arxiv.org/abs/2609.38653",
+        "publishedAt": "2026-09-29"
+      },
+      {
+        "publisher": "CoDimRecon authors",
+        "title": "Simulation-ready scene reconstruction project",
+        "url": "https://shuzhaoxie.github.io/CoDimRecon/"
+      },
+      {
+        "publisher": "CoDimRecon authors — arXiv",
+        "title": "Agentic Reconstruction of Sim-Ready 3D Scenes",
+        "url": "https://arxiv.org/abs/2609.36024",
+        "publishedAt": "2026-09-28"
+      },
+      {
+        "publisher": "DistScene authors",
+        "title": "Object-to-scene distillation project and release status",
+        "url": "https://coolbeam.github.io/DistScene/"
+      },
+      {
+        "publisher": "DistScene authors — arXiv",
+        "title": "Object-to-Scene Distillation for 3D Scene Generation",
+        "url": "https://arxiv.org/abs/2610.06960",
+        "publishedAt": "2026-10-03"
+      },
+      {
+        "publisher": "Speridlabs authors — arXiv",
+        "title": "Iris-3B pixel-space diffusion preprint",
+        "url": "https://arxiv.org/abs/2610.09450",
+        "publishedAt": "2026-10-07"
+      },
+      {
+        "publisher": "Living Models researchers — bioRxiv",
+        "title": "Plant-genome research linked by Google DeepMind",
+        "url": "https://www.biorxiv.org/content/10.64898/2026.09.04.749355v1"
+      }
+    ],
+    "sections": [
+      {
+        "heading": "What changed this week? A dated release checklist",
+        "content": "This edition covers October 5–11, 2026 and checks the supplied project leads against primary sources. A paper date, code release and product rollout are different events. Nine entries below have a dated development in that window; nine older or incompletely dated research items follow in a separate watchlist. Availability and pricing can change after publication.",
+        "table": {
+          "headers": [
+            "Development",
+            "Dated event",
+            "What to check first"
+          ],
+          "rows": [
+            [
+              "GPT-6 Intelligent UI",
+              "Oct 7: ChatGPT rollout announcement",
+              "Account rollout; Chat scope"
+            ],
+            [
+              "Claude Haiku 5.5",
+              "Oct 7: model announcement",
+              "Prompt-length pricing tier"
+            ],
+            [
+              "EmbeddingGemma 2",
+              "Oct 6: Google launch post",
+              "Encoder configuration and retrieval quality"
+            ],
+            [
+              "WorldPlay2",
+              "Oct 6: weights/code; Oct 7: Reactor integration",
+              "GPU setup and noncommercial terms"
+            ],
+            [
+              "Kandinsky 6.0 Video",
+              "Oct 6: lab code/checkpoint release",
+              "Lite versus Pro, offload and dependencies"
+            ],
+            [
+              "Nano Banana 2.1",
+              "Oct 6: dated model card",
+              "Hosted access; conflicting lineage descriptions"
+            ],
+            [
+              "Iris-3B",
+              "Oct 7: research preprint",
+              "Separate text encoder and full memory footprint"
+            ],
+            [
+              "GenIA",
+              "Oct 8: research preprint",
+              "Noncommercial terms and gated dependency"
+            ],
+            [
+              "OpenAI mathematics",
+              "Oct 6: release post; Oct 7: corrections",
+              "Verification and withdrawal history"
+            ]
+          ]
+        },
+        "sourceIds": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          9,
+          12,
+          13,
+          14,
+          30
+        ]
+      },
+      {
+        "heading": "GPT-6 Intelligent UI: a ChatGPT interface update",
+        "content": "OpenAI's October 7 announcement adds interactive response formats to ChatGPT Chat: graphics, buttons, forms and charts can accompany text. Rollout began with paid tiers, followed by Free and Go; workplace settings can affect access. The announcement explicitly leaves Work and Codex model versions unchanged. Our practical test suggestion is to check whether a generated calculator or comparison exposes its assumptions and handles changed inputs correctly. An interactive answer is not automatically a verified application.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "Haiku 5.5 pricing: count input, output and prompt length",
+        "content": "Anthropic positions Haiku 5.5 for narrow, high-volume tasks. Its launch pricing has two prompt-length tiers, shown below in US dollars per million tokens. The illustrative totals assume one million uncached input tokens and one million output tokens accumulated across requests that all fall in the stated tier; they are arithmetic, not a provider quote. Cache charges, taxes and other service costs are excluded. Compare cost per accepted task after retries and human correction, rather than relying on a blanket percentage-saving claim.",
+        "table": {
+          "headers": [
+            "Prompt length per request",
+            "Input / output per million tokens",
+            "Illustrative 1M input + 1M output"
+          ],
+          "rows": [
+            [
+              "Up to 100,000 tokens",
+              "$0.10 / $0.50",
+              "$0.60"
+            ],
+            [
+              "Over 100,000 tokens",
+              "$0.50 / $2.50",
+              "$3.00"
+            ]
+          ]
+        },
+        "sourceIds": [
+          2
+        ]
+      },
+      {
+        "heading": "EmbeddingGemma 2: retrieval, not a chatbot",
+        "content": "Google's 740-million-parameter model puts text, image, audio and video representations in a shared embedding space. Google lists Apache 2.0 licensing and an 8K-token context. It reports quantized active-RAM figures of about 191 MB for text-only weights and 567 MB for the full multimodal model on a Pixel 11 Pro. Those numbers describe Google's configuration, not every device's complete application footprint. For a useful trial, measure whether the correct item appears in your top search results before comparing storage or latency. Our [vector database comparison guide](/stack/self-hosted-vector-db-pricing-and-latency-benchmarks) separates retrieval quality from infrastructure choices.",
+        "sourceIds": [
+          3
+        ]
+      },
+      {
+        "heading": "WorldPlay2 and Kandinsky 6: different visual-AI jobs",
+        "content": "WorldPlay2 is an interactive world-model project. Its repository dates weights and inference code to October 6 and Reactor integration to October 7. It requires CUDA/NVIDIA infrastructure; launchers default to eight GPUs but document a single-GPU path, while the Reactor preset uses four B200s. No general consumer-VRAM minimum is established. Its CC BY-NC terms and underlying model dependencies matter for commercial work. Kandinsky 6.0 Video instead targets synchronized video and audio generation, with Lite and Pro variants. The lab dates its MIT code/checkpoint release to October 6. Its Pro setup example uses CPU offload with an 80GB GPU; that is not a minimum specification or evidence that every consumer setup works. For a creator, the useful comparison is an accepted shot or controlled interaction under one exact configuration, not a parameter-count ranking. Start with our [video-tool comparison checklist](/create/ai-video-generation-matrix-minimax-higgsfield-seedance).",
+        "sourceIds": [
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "heading": "Nano Banana 2.1: hosted image generation with a documentation caveat",
+        "content": "Google's dated model card describes an image-generation and editing service offered through its products. The API identifier is gemini-nano-banana-2.1; public local weights were not found in the reviewed sources. Google's pages disagree on lineage: the API documentation refers to Gemini 3.1 Flash Image, while the model card refers to Gemini 3.6 Flash. We leave that discrepancy visible instead of selecting a lineage. Hosted use does not require your own inference GPU. Check current account access, prices and output rights before building a workflow around it; we have not independently tested its image quality.",
+        "sourceIds": [
+          7,
+          8
+        ]
+      },
+      {
+        "heading": "Iris-3B: pixel-space generation still has dependencies",
+        "content": "Speridlabs' October 7 preprint describes a 3B flow-matching image model that generates RGB pixels without a VAE, with related depth and restoration fine-tunes. Code and weights are linked publicly under Apache 2.0. The deployment also uses a separate Qwen3-VL-4B-Instruct text encoder, so '3B' is not the complete system size. The project's comparison figures use reported evaluation conditions rather than one uniform independent test of every model. Neither parameter count nor a sample gallery establishes your GPU memory requirement. Log the full pipeline, resolution and peak memory before buying hardware.",
+        "sourceIds": [
+          9,
+          10,
+          30
+        ]
+      },
+      {
+        "heading": "GenIA: reconstruction access is not the same as unrestricted use",
+        "content": "GenIA's October 8 paper studies generative 3D reconstruction with test-time input alignment. Its implementation requires CUDA/NVIDIA setup and separately gated SAM 3D Objects weights. GenIA is CC BY-NC 4.0, with additional dependency terms. A repository link therefore does not make every component commercially usable. For a trial, distinguish reconstruction quality from setup time, dependency access and whether your intended output use is allowed.",
+        "sourceIds": [
+          11,
+          12
+        ]
+      },
+      {
+        "heading": "OpenAI mathematics: read corrections as well as results",
+        "content": "OpenAI's October 6 mathematics release includes model-produced research material and some formalizations at different verification stages. Its repository history on October 7 records three withdrawn manuscripts after a sign error invalidated an argument and affected dependent work, alongside other revisions. This is evidence of an ongoing checking process, not proof that every released manuscript is correct. Read the exact version, formalization status and correction history before describing a result as a solved problem. We have not independently checked these proofs.",
+        "sourceIds": [
+          13,
+          14
+        ]
+      },
+      {
+        "heading": "Research watch: older papers and dates that need qualification",
+        "content": "These supplied leads are relevant, but the reviewed evidence does not make them all new October 5–11 launches. Paper dates below identify the primary artifact; a later repository edit is not automatically a new research release. In particular, computational biology and materials findings should not be described as clinical or device validation.",
+        "table": {
+          "headers": [
+            "Research lead",
+            "Date or release status",
+            "What it actually adds; main limit"
+          ],
+          "rows": [
+            [
+              "MSFlow / MotionSpaceFlow",
+              "Sep 28 preprint",
+              "Text-conditioned human motion, not video generation. Implementation/checkpoints linked; benchmark and memory claims require reproduction."
+            ],
+            [
+              "Amazon ALoDLM-8B",
+              "Oct 3 preprint",
+              "Adaptive recurrence in diffusion language models. Noncommercial terms; B200 throughput does not establish consumer-GPU speed."
+            ],
+            [
+              "AlphaProtein Novo",
+              "Oct 1 in cited preprint DOI",
+              "Computational enzyme-design pipeline. Code, parameters and outputs have separate terms; no clinical benefit inferred."
+            ],
+            [
+              "BOTANIC-1 with Gemma 4",
+              "Story date not displayed; cited preprint DOI Sep 4",
+              "Plant-variant prioritization with retrospective evidence. Scientist follow-up remains necessary; no crop-yield trial inferred."
+            ],
+            [
+              "Room-temperature magnetic semiconductor candidates",
+              "Oct 4 Vals post",
+              "New computational property predictions. One candidate was synthesized in 1999, but the newly discussed semiconductor properties remain unmeasured."
+            ],
+            [
+              "FlashDexRetarget",
+              "Oct 1 preprint; revised Oct 4",
+              "Multi-motion dexterous retargeting. Project access and code/license unresolved in this audit; paper results are not universal robot reliability."
+            ],
+            [
+              "TERRA",
+              "Sep 29 preprint",
+              "Terrain-aware musculoskeletal simulation. Parkour examples use specialized fine-tuning; no clinical or physical-robot validation inferred."
+            ],
+            [
+              "CoDimRecon",
+              "Sep 28 preprint; revised Oct 3",
+              "Reconstructs simulation-ready rigid and deformable objects. Effective simulation parameters are not measured material properties; code marked soon."
+            ],
+            [
+              "DistScene",
+              "Oct 3 preprint",
+              "Compositional object/environment generation. Project marks code, checkpoints and dataset as coming soon."
+            ]
+          ]
+        },
+        "sourceIds": [
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          31
+        ]
+      },
+      {
+        "heading": "A useful first experiment, without buying the wrong GPU",
+        "content": "Our editorial recommendation is to pick one task and define a pass condition before testing. For hosted models, save the exact model ID, prompt length, billed token totals, rejected outputs and correction time. For local models, save the complete component list, license, runtime, resolution or context, peak RAM/VRAM and failures. A launch post or attractive gallery cannot answer all of those questions. Use the [hardware planner](/hardware/ai-workstation-planner) for dated regional examples and the [RTX 4050 local-model guide](/hardware/run-local-llm-rtx-4050-laptop-guide) for memory checks. Those tools do not certify fit for every new research model.",
+        "checklist": [
+          "Freeze the model/version and write representative success and failure cases.",
+          "Check rights for code, weights, encoders, datasets and outputs separately.",
+          "Measure accepted results and total correction effort; keep unsuccessful runs.",
+          "For research claims, distinguish author evaluation, independent reproduction and real-world validation."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Which AI developments are dated October 5–11, 2026?",
+        "answer": "The reviewed sources date GPT-6 Intelligent UI, Haiku 5.5, EmbeddingGemma 2, WorldPlay2 code/weights, Kandinsky 6 code/checkpoints, Nano Banana 2.1's model card, Iris-3B, GenIA and OpenAI's mathematics release or corrections to that window. The article distinguishes product rollouts, artifact releases and research submissions."
+      },
+      {
+        "question": "How much does Claude Haiku 5.5 cost?",
+        "answer": "Anthropic's published rates are $0.10 input and $0.50 output per million tokens for prompts up to 100,000 tokens; above that prompt length, $0.50 input and $2.50 output. Cache charges and other costs are separate. Check current pricing before budgeting."
+      },
+      {
+        "question": "Can WorldPlay2 run on one consumer GPU?",
+        "answer": "The repository documents a single-GPU execution path, but that does not establish that an arbitrary consumer card has enough memory or useful speed. Its launchers default to multiple GPUs and the Reactor preset uses four B200 GPUs. No general minimum VRAM is claimed here."
+      },
+      {
+        "question": "Are all these models commercially usable open source?",
+        "answer": "No. Hosted services, noncommercial research licenses, gated dependencies and not-yet-released checkpoints all appear in this list. Check the exact code, weight, dataset, dependency and output terms for the artifact you plan to use."
+      },
+      {
+        "question": "Is EmbeddingGemma 2 a generative chatbot?",
+        "answer": "No. It maps supported inputs into embeddings for search and retrieval. A system that generates answers needs additional components and its own retrieval-quality evaluation."
+      },
+      {
+        "question": "Do these research papers prove medical or materials breakthroughs?",
+        "answer": "A computational prediction, retrospective evaluation or simulated interaction does not by itself establish clinical benefit, field performance or a validated device. This roundup attributes reported findings and keeps their experimental limits visible."
+      }
+    ]
   }
 ]
