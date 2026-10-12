@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import JsonLd, { generateBreadcrumbSchema } from "@/components/JsonLd";
-import { SITE_URL, faqPageSchema } from "@/lib/editorial";
+import { SITE_URL } from "@/lib/editorial";
 import { wildWeightsFaqs } from "@/lib/wildweights-content";
 import WildWeightsDirectory from "./WildWeightsDirectory";
 
@@ -57,7 +57,12 @@ export default function WildWeightsPage() {
       <JsonLd
         data={{
           "@context": "https://schema.org",
-          ...faqPageSchema(wildWeightsFaqs.map((faq) => ({ question: faq.q, answer: faq.a }))),
+          "@type": "FAQPage",
+          mainEntity: wildWeightsFaqs.map((faq) => ({
+            "@type": "Question",
+            name: faq.q,
+            acceptedAnswer: { "@type": "Answer", text: faq.a },
+          })),
         }}
       />
       <JsonLd
