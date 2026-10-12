@@ -216,7 +216,7 @@ export default function WildWeightsDirectory() {
           use. Adults only; content is non-explicit. Preview thumbnails are AI-generated
           editorial images of adults, not outputs from the listed models.
         </p>
-      </main>
+      </div>
 
       <AgeGate accepted={ageAccepted} onAccept={handleAgeAccept} />
     </div>
