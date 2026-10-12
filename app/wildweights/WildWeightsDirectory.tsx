@@ -144,6 +144,7 @@ export default function WildWeightsDirectory() {
             Qwen-Image GGUF quantization and an Anime consistency LoRA, with links
             to each source.
           </p>
+          <p><a href="/workflow/comfyui-beginner-first-workflow-guide">New to ComfyUI? Read our first-image setup guide →</a></p>
           <p className={styles.answerNote}>
             Check model files, compatible loaders and license terms at the source.
             Memory figures are publisher estimates unless marked as independently tested.
