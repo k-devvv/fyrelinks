@@ -18,7 +18,7 @@ for (const unit of Object.values(AD_UNITS)) {
   const html=adFrameHtml(unit);
   assert.ok(html.includes(`https://bauval.org/22/${unit.key}`));
   assert.ok(html.includes(`"width":${unit.width}`));
-  assert.equal((html.match(/<script/g)||[]).length,2);
+  assert.equal((html.match(/<script/g)||[]).length,3);
 }
 const client=fs.readFileSync('components/Advertising.tsx','utf8');
 assert.ok(!client.includes('allow-same-origin'));

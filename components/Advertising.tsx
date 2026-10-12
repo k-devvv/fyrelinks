@@ -39,6 +39,8 @@ export default function Advertising({ placement }: { placement: AdPlacement }) {
   const choice = useAdChoice();
   const pathname = usePathname();
   const host = useRef<HTMLElement>(null);
+  const frame = useRef<HTMLIFrameElement>(null);
+  const [unfilled, setUnfilled] = useState(false);
   const [width, setWidth] = useState(0);
   const [desktop, setDesktop] = useState(false);
   useEffect(() => {
@@ -48,6 +50,14 @@ export default function Advertising({ placement }: { placement: AdPlacement }) {
     return () => { observer.disconnect(); window.removeEventListener('resize', update); };
   }, [choice]);
   const unit = selectAdUnit(placement, width, desktop);
+  useEffect(() => {
+    setUnfilled(false);
+    const receive = (event: MessageEvent) => {
+      if (event.source === frame.current?.contentWindow && event.data?.type === 'fyre-ad-unfilled' && event.data?.key === unit?.key) setUnfilled(true);
+    };
+    window.addEventListener('message', receive);
+    return () => window.removeEventListener('message', receive);
+  }, [pathname, unit?.key, choice]);
   if (choice === 'no') return null;
-  return <aside ref={host} className={`network-ad network-ad-${placement}`} aria-label="Advertisement"><span className="eyebrow">ADVERTISEMENT</span>{choice === 'yes' && unit ? <iframe key={`${pathname}-${unit.key}`} title={`Adsterra ${unit.width} by ${unit.height} advertisement`} width={unit.width} height={unit.height} srcDoc={adFrameHtml(unit)} sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox" referrerPolicy="strict-origin-when-cross-origin" /> : <div className="ad-opt-in"><p>Optional advertising supports FyreLinkz.</p><button type="button" onClick={() => window.dispatchEvent(new Event('fyre-open-ad-preferences'))}>Ad choices</button></div>}</aside>;
+  return <aside ref={host} className={`network-ad network-ad-${placement}${unfilled ? ' network-ad-unfilled' : ''}`} aria-label="Advertisement"><span className="eyebrow">ADVERTISEMENT</span>{unfilled ? <p className="ad-opt-in">No advertisement available.</p> : choice === 'yes' && unit ? <iframe ref={frame} key={`${pathname}-${unit.key}`} title={`Adsterra ${unit.width} by ${unit.height} advertisement`} width={unit.width} height={unit.height} srcDoc={adFrameHtml(unit)} sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox" referrerPolicy="strict-origin-when-cross-origin" /> : <div className="ad-opt-in"><p>Optional advertising supports FyreLinkz.</p><button type="button" onClick={() => window.dispatchEvent(new Event('fyre-open-ad-preferences'))}>Ad choices</button></div>}</aside>;
 }
