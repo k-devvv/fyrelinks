@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Advertising from "./Advertising";
 
 const PLACEMENTS = {
   home: process.env.FYRE_HOME_SPONSOR_URL,
@@ -8,9 +9,9 @@ const PLACEMENTS = {
 export default function AdSlot({
   placement
 }: {
-  placement: "home" | "article";
+  placement: "home" | "article" | "sidebar";
 }) {
-  const sponsorUrl = PLACEMENTS[placement];
+  const sponsorUrl = placement === "sidebar" ? undefined : PLACEMENTS[placement];
   const sponsorTitle = process.env.FYRE_SPONSOR_TITLE;
   // 1. Direct sponsor link if explicitly configured with verified HTTPS
   if (sponsorUrl && sponsorTitle && sponsorUrl.startsWith("https://")) {
@@ -25,7 +26,6 @@ export default function AdSlot({
     );
   }
 
-  // Network-ad rendering stays disabled until a real CMP and ad loader are integrated.
-  // A configured AdSense <ins> alone is inert and would appear as a misleading blank slot.
-  return null;
+  // Network placements use an independent opt-in and isolated per-unit frame.
+  return <Advertising placement={placement} />;
 }
