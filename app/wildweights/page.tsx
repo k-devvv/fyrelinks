@@ -8,7 +8,7 @@ const description =
   "Compare local AI image models, ComfyUI workflows, GGUF quantizations and LoRAs. See source links, setup notes and GPU memory caveats before you download.";
 
 export const metadata: Metadata = {
-  title: { absolute: "Local AI Image Models, GGUF & ComfyUI | WildWeights" },
+  title: { absolute: "Qwen-Image 2.1 ComfyUI, GGUF & LoRA | WildWeights" },
   description,
   alternates: { canonical },
   openGraph: {
