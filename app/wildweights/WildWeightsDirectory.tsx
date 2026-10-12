@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import styles from "./wildweights.module.css";
+import WildWeightsExoclickAd from "./WildWeightsExoclickAd";
 
 const entries = [
   {
@@ -62,6 +63,8 @@ const faqs = [
 ];
 
 export default function WildWeightsDirectory() {
+  const [ageAccepted, setAgeAccepted] = useState(false);
+  const handleAgeAccept = useCallback(() => setAgeAccepted(true), []);
   const [query, setQuery] = useState("");
   const [kind, setKind] = useState("All entries");
   const visibleEntries = useMemo(
@@ -172,6 +175,8 @@ export default function WildWeightsDirectory() {
           )}
         </section>
 
+        {ageAccepted && <WildWeightsExoclickAd />}
+
         <section className={styles.faq} aria-labelledby="faq-title">
           <p className={styles.kicker}>CLEAR ANSWERS</p>
           <h2 id="faq-title">Before you download.</h2>
@@ -193,16 +198,15 @@ export default function WildWeightsDirectory() {
         </p>
       </main>
 
-      <AgeGate />
+      <AgeGate accepted={ageAccepted} onAccept={handleAgeAccept} />
     </div>
   );
 }
 
-function AgeGate() {
-  const [accepted, setAccepted] = useState(false);
+function AgeGate({ accepted, onAccept }: { accepted: boolean; onAccept: () => void }) {
   useEffect(() => {
-    setAccepted(window.sessionStorage.getItem("wildweights-age") === "adult");
-  }, []);
+    if (window.sessionStorage.getItem("wildweights-age") === "adult") onAccept();
+  }, [onAccept]);
 
   if (accepted) return null;
   return (
@@ -220,7 +224,7 @@ function AgeGate() {
           className={styles.primary}
           onClick={() => {
             window.sessionStorage.setItem("wildweights-age", "adult");
-            setAccepted(true);
+            onAccept();
           }}
         >
           I am 18 or older <span aria-hidden="true">→</span>
