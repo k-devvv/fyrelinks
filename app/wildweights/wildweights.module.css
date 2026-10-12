@@ -30,8 +30,12 @@
 .selected { border-color: var(--ww-accent); color: var(--ww-accent); }
 .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
 .card { overflow: hidden; border: 1px solid var(--ww-line); border-radius: 5px; background: color-mix(in srgb, var(--ww-ink) 3%, var(--ww-paper)); }
-.art { min-height: 130px; display: flex; align-items: end; justify-content: space-between; padding: 18px; color: #fff; background: linear-gradient(135deg, #b34a30, #382c2a); }
+.art { position: relative; min-height: 164px; display: flex; align-items: end; justify-content: space-between; overflow: hidden; padding: 18px; color: #fff; background: linear-gradient(135deg, #b34a30, #382c2a); isolation: isolate; }
+.art::after { position: absolute; z-index: 1; inset: 0; background: linear-gradient(180deg, #100d1208 15%, #100d126e 100%); content: ""; pointer-events: none; }
+.artImage { z-index: 0; object-fit: cover; filter: blur(1.2px) saturate(.84); transform: scale(1.035); transition: filter 220ms ease, transform 350ms ease; }
+.card:hover .artImage, .card:focus-within .artImage { filter: blur(.35px) saturate(.94); transform: scale(1.065); }
 .art span { align-self: start; font: 12px Consolas, monospace; opacity: .8; }
+.art span, .art strong { position: relative; z-index: 2; text-shadow: 0 1px 10px #0008; }
 .art strong { font: 16px Georgia, serif; }
 .violet { background: linear-gradient(135deg, #765493, #2c273c); }
 .green { background: linear-gradient(135deg, #667d4d, #28362c); }
@@ -75,5 +79,5 @@
 
 @media (prefers-reduced-motion: reduce) {
   .site { scroll-behavior: auto; }
+  .artImage { transition: none; }
 }
-
