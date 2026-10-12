@@ -17,6 +17,10 @@ export interface ArticleSection {
   table?: ArticleTable;
   checklist?: string[];
 }
+export interface HowToStep {
+  name: string;
+  text: string;
+}
 export interface ArticleInput {
   slug: string;
   category: ReviewPost['category'] | 'news';
@@ -31,6 +35,7 @@ export interface ArticleInput {
   takeaway: string;
   sections: ArticleSection[];
   faqs?: FAQItem[];
+  howToSteps?: HowToStep[];
   sources: Source[];
   eventDate?: string;
   publishedAt: string;
@@ -51,6 +56,7 @@ export interface EditorialPost extends Omit<ReviewPost, 'category' | 'sections'>
   sourceCheckedAt: string;
   featured: boolean;
   sections: ArticleSection[];
+  howToSteps?: HowToStep[];
 }
 export const SITE_URL = 'https://www.fyrelinkz.com';
 export const SOURCE_CHECK_DATE = '2026-09-12';
@@ -127,6 +133,40 @@ export function faqPageSchema(faqs: FAQItem[]) {
       name: faq.question,
       acceptedAnswer: { "@type": "Answer", text: faq.answer }
     }))
+  };
+}
+export function techArticleSchema(input: { headline: string; description: string; url: string; datePublished: string; dateModified: string }) {
+  return {
+    "@type": "TechArticle",
+    headline: input.headline,
+    description: input.description,
+    url: input.url,
+    mainEntityOfPage: input.url,
+    datePublished: input.datePublished,
+    dateModified: input.dateModified
+  };
+}
+export function howToSchema(name: string, description: string, steps: HowToStep[]) {
+  if (!steps.length) return undefined;
+  return {
+    "@type": "HowTo",
+    name,
+    description,
+    step: steps.map((step, index) => ({
+      "@type": "HowToStep",
+      position: index + 1,
+      name: step.name,
+      text: step.text
+    }))
+  };
+}
+export function softwareApplicationSchema(input: { name: string; url: string; operatingSystem: string; applicationCategory: string }) {
+  return {
+    "@type": "SoftwareApplication",
+    name: input.name,
+    url: input.url,
+    operatingSystem: input.operatingSystem,
+    applicationCategory: input.applicationCategory
   };
 }
 export function formatDate(d: string) {
