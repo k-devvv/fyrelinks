@@ -7,14 +7,17 @@ function latestUpdate(posts: typeof POSTS) {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticUrls = ["about", "contact", "privacy", "terms", "rss", "ai-video-models", "hardware/ai-workstation-planner", "wildweights", "wildweights/privacy", "wildweights/standards", "wildweights/models/qwen-image-comfyui", "wildweights/models/qwen-image-gguf", "wildweights/models/qwen-anime-consistency-lora"];
+  const staticUrls = ["about", "contact", "privacy", "terms", "rss", "ai-video-models", "hardware/ai-workstation-planner", "wildweights"];
   const homeLastModified = latestUpdate(POSTS);
   return [
     {
       url: SITE_URL,
       ...(homeLastModified ? { lastModified: new Date(homeLastModified) } : {})
     },
-    ...staticUrls.map(path => ({ url: SITE_URL + "/" + path })),
+    ...staticUrls.map(path => ({
+      url: SITE_URL + "/" + path,
+      ...(path === "wildweights" ? { lastModified: new Date("2026-10-13T00:00:00Z") } : {})
+    })),
     ...CATEGORIES.map(category => {
       const lastModified = latestUpdate(POSTS.filter(post => post.category === category.slug));
       return {
