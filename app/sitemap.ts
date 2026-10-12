@@ -7,7 +7,7 @@ function latestUpdate(posts: typeof POSTS) {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticUrls = ["about", "contact", "privacy", "terms", "rss", "ai-video-models", "hardware/ai-workstation-planner"];
+  const staticUrls = ["about", "contact", "privacy", "terms", "rss", "ai-video-models", "hardware/ai-workstation-planner", "wildweights", "wildweights/privacy", "wildweights/standards", "wildweights/models/qwen-image-comfyui", "wildweights/models/qwen-image-gguf", "wildweights/models/qwen-anime-consistency-lora"];
   const homeLastModified = latestUpdate(POSTS);
   return [
     {
