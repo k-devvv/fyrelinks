@@ -5,14 +5,14 @@ import WildWeightsDirectory from "./WildWeightsDirectory";
 
 const canonical = "https://www.fyrelinkz.com/wildweights";
 const description =
-  "Find local AI image models, ComfyUI workflows, GGUF quantizations and LoRAs. Check setup notes, GPU memory caveats and source licenses before downloading.";
+  "Compare local AI image models, ComfyUI workflows, GGUF quantizations and LoRAs. See source links, setup notes and GPU memory caveats before you download.";
 
 export const metadata: Metadata = {
-  title: { absolute: "Local AI Image Models & ComfyUI Guides | WildWeights" },
+  title: { absolute: "Local AI Image Models, GGUF & ComfyUI | WildWeights" },
   description,
   alternates: { canonical },
   openGraph: {
-    title: "Local AI Image Models & ComfyUI Guides | WildWeights",
+    title: "Local AI Image Models, GGUF & ComfyUI | WildWeights",
     description,
     url: canonical,
     type: "website",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Local AI Image Models & ComfyUI Guides | WildWeights",
+    title: "Local AI Image Models, GGUF & ComfyUI | WildWeights",
     description,
     images: ["/art/wildweights/image-workflow.jpg"],
   },
@@ -56,7 +56,6 @@ export default function WildWeightsPage() {
       <JsonLd
         data={generateBreadcrumbSchema([
           { name: "Home", url: SITE_URL },
-          { name: "Hardware", url: SITE_URL + "/hardware" },
           { name: "WildWeights", url: canonical },
         ])}
       />
