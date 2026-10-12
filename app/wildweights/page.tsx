@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import JsonLd, { generateBreadcrumbSchema } from "@/components/JsonLd";
-import { SITE_URL } from "@/lib/editorial";
+import { SITE_URL, faqPageSchema } from "@/lib/editorial";
+import { wildWeightsFaqs } from "@/lib/wildweights-content";
 import WildWeightsDirectory from "./WildWeightsDirectory";
 
 const canonical = "https://www.fyrelinkz.com/wildweights";
@@ -51,6 +52,12 @@ export default function WildWeightsPage() {
             { "@type": "Thing", name: "ComfyUI workflows" },
             { "@type": "Thing", name: "Model quantization and LoRA adapters" },
           ],
+        }}
+      />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          ...faqPageSchema(wildWeightsFaqs.map((faq) => ({ question: faq.q, answer: faq.a }))),
         }}
       />
       <JsonLd
