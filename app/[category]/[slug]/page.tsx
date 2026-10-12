@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { category, slug } = await params;
   const p = getPostBySlug(category, slug);
   if (!p) return {};
-  const m = pageMetadata(p.title, p.metaDescription, articlePath(p), articleShareImagePath(p.image), p.imageAlt);
+  const m = pageMetadata(p.metaTitle || p.title, p.metaDescription, articlePath(p), articleShareImagePath(p.image), p.imageAlt);
   return {
     ...m,
     openGraph: {
@@ -92,7 +92,8 @@ export default async function ArticlePage({ params }: Props) {
           <Link href={"/" + p.category} className="contents-tool">Explore {category.name.toLowerCase()} ↗</Link>
         </div><AdSlot placement="sidebar" /></aside>
         <div className="article-body">
-          <div className="takeaway"><span className="eyebrow">QUICK ANSWER</span><p>{p.verdict}</p></div>
+          <div className="takeaway"><span className="eyebrow">QUICK ANSWER</span><p>{renderInlineText(p.verdict)}</p></div>
+          {p.howToSteps?.length ? <div className="article-checklist" aria-label="First image workflow steps"><span className="checklist-badge">FIRST IMAGE / 5 STEPS</span><ol>{p.howToSteps.map((step, index) => <li key={step.name}><span className="check-box" aria-hidden="true">{index + 1}</span><span><strong>{step.name}.</strong> {renderInlineText(step.text)}</span></li>)}</ol></div> : null}
           {p.sections.map((s, i) => <section id={sectionId(s.heading)} key={s.heading}>
             <h2>{s.heading}</h2><p>{renderInlineText(s.content)}</p>
             {s.subpoints && <ul>{s.subpoints.map(b => <li key={b}>{renderInlineText(b)}</li>)}</ul>}
