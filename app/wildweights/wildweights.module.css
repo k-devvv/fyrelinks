@@ -47,6 +47,20 @@
 .memory span { color: var(--ww-muted); }
 .cardBody > a { display: inline-block; margin-top: 18px; color: var(--ww-accent); font-size: 13px; font-weight: 700; text-decoration: none; }
 .empty { padding: 24px; border: 1px dashed var(--ww-line); color: var(--ww-muted); }
+
+.adPanel { margin: 44px 0 0; border: 1px solid var(--ww-line); border-left: 3px solid var(--ww-accent); border-radius: 5px; padding: 22px; background: color-mix(in srgb, var(--ww-ink) 3%, var(--ww-paper)); }
+.adHeader { display: flex; align-items: start; justify-content: space-between; gap: 16px; }
+.adHeader h2 { margin: 0 0 14px; font: clamp(23px, 3vw, 30px)/1.2 Georgia, serif; }
+.adChoice { max-width: 760px; color: var(--ww-muted); font-size: 13px; line-height: 1.65; }
+.adActions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+.adAllow, .adDecline, .adRevoke { border: 1px solid var(--ww-line); border-radius: 3px; padding: 10px 15px; background: transparent; color: var(--ww-ink); font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; }
+.adAllow { border-color: var(--ww-accent); background: var(--ww-accent); color: #fff; }
+.adAllow:hover, .adDecline:hover, .adRevoke:hover { filter: brightness(.92); }
+.adFrame { display: block; width: min(100%, 300px); height: 250px; margin: 12px 0 4px; border: 0; background: transparent; }
+.adFootnote { margin: 14px 0 0; color: var(--ww-muted); font-size: 11px; line-height: 1.6; }
+.adFootnote a { color: var(--ww-accent); }
+.adPanel button:focus-visible { outline: 3px solid var(--ww-accent); outline-offset: 3px; }
+
 .faq { display: grid; grid-template-columns: .7fr 1.3fr; gap: 32px; border-top: 1px solid var(--ww-line); margin-top: 70px; padding-top: 32px; }
 .faq h2 { margin-top: 0; }
 .faq details { border-bottom: 1px solid var(--ww-line); padding: 17px 0; }
