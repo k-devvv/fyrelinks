@@ -1,0 +1,13 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    {
+      "source": "/wildweights",
+      "destination": "https://wildweights.vercel.app/wildweights/"
+    },
+    {
+      "source": "/wildweights/:path*",
+      "destination": "https://wildweights.vercel.app/wildweights/:path*"
+    }
+  ]
+}
