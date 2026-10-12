@@ -49,36 +49,44 @@ const entries = [
 
 const faqs = [
   {
-    q: "What local AI models are listed on WildWeights?",
-    a: "The current directory has three image entries: a Qwen-Image 2.1 ComfyUI workflow, a Qwen-Image GGUF quantization and a community Anime consistency LoRA. Text, audio and video collections are not published yet.",
+    q: "What local AI image models are listed on WildWeights?",
+    a: "WildWeights currently lists a Qwen-Image 2.1 ComfyUI workflow, a Qwen-Image GGUF quantization and a community Anime consistency LoRA. Text, audio and video model collections are not published yet.",
   },
   {
-    q: "How much GPU memory does Qwen-Image GGUF need?",
-    a: "The linked repository estimates 6–8 GB of VRAM for one quantization. WildWeights has not independently benchmarked it. Resolution, loader, text encoder, VAE, other workflow nodes and offloading can change the total.",
+    q: "How much VRAM does Qwen-Image GGUF need?",
+    a: "The linked repository estimates 6–8 GB of VRAM for one quantization; WildWeights has not independently benchmarked it. The text encoder, VAE, image resolution, loader and offloading can change total memory use.",
     link: "https://huggingface.co/Abiray/Qwen-Image-2.1-GGUF",
     linkLabel: "Check the quantization source",
   },
   {
-    q: "Can I run these image models on my PC?",
-    a: "It depends on the exact model files, GPU memory, image resolution, software loader and whether components can be offloaded. No minimum has been independently tested here, so check each source card against your setup before downloading.",
+    q: "Can I run Qwen-Image GGUF with 8 GB VRAM?",
+    a: "Possibly, but 8 GB is not a guarantee. The 6–8 GB figure is a publisher estimate for one quantization, and the complete workflow needs additional memory. Check the current source instructions and leave headroom for your resolution and other loaded components.",
+    link: "https://huggingface.co/Abiray/Qwen-Image-2.1-GGUF",
+    linkLabel: "Review the model files and notes",
   },
   {
-    q: "What is the difference between a GGUF model and a LoRA?",
-    a: "GGUF is a model-file format used here for a quantized Qwen-Image checkpoint; use a compatible loader and companion files. A LoRA is an adapter that modifies a compatible base model and is not a complete model by itself.",
+    q: "What do I need for the Qwen-Image 2.1 ComfyUI workflow?",
+    a: "The linked Comfy-Org workflow covers the diffusion model, text encoder, VAE and first-run checks. Follow its current file and loader instructions; the full pipeline can use more memory than the model weights alone.",
+    link: "https://huggingface.co/Comfy-Org/Qwen-Image-2.1",
+    linkLabel: "Open the Comfy-Org workflow source",
+  },
+  {
+    q: "What is the difference between GGUF and a LoRA?",
+    a: "The listed GGUF is a quantized Qwen-Image checkpoint that needs a compatible loader and companion files. A LoRA is an adapter for a compatible base model; it is not a complete model by itself.",
     link: "https://huggingface.co/WarmBloodAban/Qwen-Image-2.1-LoRAs",
     linkLabel: "Check the LoRA source",
   },
   {
-    q: "Does model file size equal the GPU memory needed?",
-    a: "No. The full workflow may also load text encoders, a VAE and intermediate image data. Resolution, batch size and offloading matter too. Treat untested memory figures as estimates, not guarantees.",
+    q: "Does WildWeights host or test these AI models?",
+    a: "No. WildWeights links to publisher and community repositories; it does not host model files or run inference. Memory notes are identified as publisher estimates unless independent testing is explicitly stated.",
   },
   {
-    q: "Does WildWeights host models or generate images?",
-    a: "No. WildWeights is a directory with short setup notes and links to the original model repositories. Files stay on those services, and image generation runs in your own software and hardware.",
+    q: "Can I use a listed model commercially?",
+    a: "Check the current license for the model, adapter, base model and workflow components before commercial use. Their terms can differ. WildWeights links to sources but does not grant usage rights or provide legal advice.",
   },
   {
-    q: "How do I check a model’s license before use?",
-    a: "Read the model card, the license for the model and any required base model or workflow components. Check commercial-use, redistribution and attribution terms. WildWeights links sources but does not independently verify their claims or grant usage rights.",
+    q: "How do I choose a local AI image model for my PC?",
+    a: "Start with the exact model files and intended workflow, then check GPU memory, system RAM, resolution, loader compatibility and license. Treat untested memory numbers as estimates and compare them with the publisher’s current setup notes.",
   },
 ];
 
@@ -125,6 +133,22 @@ export default function WildWeightsDirectory() {
             </p>
             <small>Source review: 12 October 2026</small>
           </aside>
+        </section>
+
+        <section className={styles.answer} aria-labelledby="answer-title">
+          <p className={styles.kicker}>QUICK ANSWER / DIRECTORY SCOPE</p>
+          <h2 id="answer-title">What is WildWeights?</h2>
+          <p>
+            WildWeights is a curated directory for people running AI image models
+            locally. It currently covers a Qwen-Image 2.1 ComfyUI workflow, a
+            Qwen-Image GGUF quantization and an Anime consistency LoRA, with links
+            to each source.
+          </p>
+          <p className={styles.answerNote}>
+            Check model files, compatible loaders and license terms at the source.
+            Memory figures are publisher estimates unless marked as independently tested.
+            WildWeights does not host files or claim unmeasured benchmarks.
+          </p>
         </section>
 
         <section id="directory" className={styles.directory} aria-labelledby="directory-title">
@@ -200,12 +224,12 @@ export default function WildWeightsDirectory() {
         <section className={styles.faq} aria-labelledby="faq-title">
           <p className={styles.kicker}>CLEAR ANSWERS</p>
           <h2 id="faq-title">Before you download.</h2>
-          <div>
+          <div className={styles.faqList}>
             {faqs.map((item) => (
-              <details key={item.q}>
-                <summary>{item.q}</summary>
+              <article key={item.q} className={styles.faqItem}>
+                <h3>{item.q}</h3>
                 <p>{item.a}{item.link && <> <a href={item.link} target="_blank" rel="noreferrer">{item.linkLabel}</a>.</>}</p>
-              </details>
+              </article>
             ))}
           </div>
         </section>
