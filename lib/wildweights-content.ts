@@ -1,4 +1,11 @@
-export const wildWeightsFaqs = [
+export interface WildWeightsFaq {
+  q: string;
+  a: string;
+  link?: string;
+  linkLabel?: string;
+}
+
+export const wildWeightsFaqs: WildWeightsFaq[] = [
   {
     q: "What local AI image models are listed on WildWeights?",
     a: "WildWeights currently lists a Qwen-Image 2.1 ComfyUI workflow, a Qwen-Image GGUF quantization and a community Anime consistency LoRA. Text, audio and video model collections are not published yet."
@@ -39,4 +46,4 @@ export const wildWeightsFaqs = [
     q: "How do I choose a local AI image model for my PC?",
     a: "Start with the exact model files and intended workflow, then check GPU memory, system RAM, resolution, loader compatibility and license. Treat untested memory numbers as estimates and compare them with the publisher’s current setup notes."
   }
-] as const;
+];
