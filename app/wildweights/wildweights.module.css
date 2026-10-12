@@ -61,11 +61,17 @@
 .adFootnote a { color: var(--ww-accent); }
 .adPanel button:focus-visible { outline: 3px solid var(--ww-accent); outline-offset: 3px; }
 
+.answer { max-width: 920px; margin: 0 0 70px; border: 1px solid var(--ww-line); border-left: 3px solid var(--ww-accent); padding: 22px 26px; background: color-mix(in srgb, var(--ww-ink) 3%, var(--ww-paper)); }
+.answer h2 { margin: 0 0 12px; font: clamp(25px, 3vw, 34px)/1.15 Georgia, serif; }
+.answer p:not(.kicker) { max-width: 780px; margin: 10px 0; line-height: 1.7; }
+.answerNote { color: var(--ww-muted); font-size: 13px; }
 .faq { display: grid; grid-template-columns: .7fr 1.3fr; gap: 32px; border-top: 1px solid var(--ww-line); margin-top: 70px; padding-top: 32px; }
 .faq h2 { margin-top: 0; }
-.faq details { border-bottom: 1px solid var(--ww-line); padding: 17px 0; }
-.faq summary { cursor: pointer; font-weight: 700; }
-.faq details p { color: var(--ww-muted); line-height: 1.65; }
+.faqList { display: grid; }
+.faqItem { border-bottom: 1px solid var(--ww-line); padding: 17px 0; }
+.faqItem h3 { margin: 0 0 8px; font-size: 15px; line-height: 1.45; }
+.faqItem p { margin: 0; color: var(--ww-muted); line-height: 1.65; }
+.faqItem a { color: var(--ww-accent); }
 .disclosure { border-left: 2px solid var(--ww-accent); margin: 50px 0 0; padding: 8px 18px; color: var(--ww-muted); font-size: 13px; line-height: 1.7; }
 .gate { position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center; overflow: auto; padding: 24px; background: #100d13f5; color: #f7f1fb; }
 .gateCard { width: min(100%, 560px); padding: 38px; border: 1px solid #594667; background: #1b1520; box-shadow: 0 16px 80px #0008; }
