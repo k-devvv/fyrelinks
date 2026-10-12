@@ -49,16 +49,36 @@ const entries = [
 
 const faqs = [
   {
-    q: "Can I run these models on my own computer?",
-    a: "The directory focuses on local workflows. Check the linked model card, supported loader, GPU memory and licence before installing anything.",
+    q: "What local AI models are listed on WildWeights?",
+    a: "The current directory has three image entries: a Qwen-Image 2.1 ComfyUI workflow, a Qwen-Image GGUF quantization and a community Anime consistency LoRA. Text, audio and video collections are not published yet.",
   },
   {
-    q: "Does WildWeights host or generate AI images?",
-    a: "No. WildWeights provides model references and setup guidance. Generation runs in your own software and hardware.",
+    q: "How much GPU memory does Qwen-Image GGUF need?",
+    a: "The linked repository estimates 6–8 GB of VRAM for one quantization. WildWeights has not independently benchmarked it. Resolution, loader, text encoder, VAE, other workflow nodes and offloading can change the total.",
+    link: "https://huggingface.co/Abiray/Qwen-Image-2.1-GGUF",
+    linkLabel: "Check the quantization source",
   },
   {
-    q: "Does a model file’s size equal its GPU memory requirement?",
-    a: "No. Encoders, VAEs, intermediate tensors and the application also use memory. Treat publisher figures as estimates unless independently tested.",
+    q: "Can I run these image models on my PC?",
+    a: "It depends on the exact model files, GPU memory, image resolution, software loader and whether components can be offloaded. No minimum has been independently tested here, so check each source card against your setup before downloading.",
+  },
+  {
+    q: "What is the difference between a GGUF model and a LoRA?",
+    a: "GGUF is a model-file format used here for a quantized Qwen-Image checkpoint; use a compatible loader and companion files. A LoRA is an adapter that modifies a compatible base model and is not a complete model by itself.",
+    link: "https://huggingface.co/WarmBloodAban/Qwen-Image-2.1-LoRAs",
+    linkLabel: "Check the LoRA source",
+  },
+  {
+    q: "Does model file size equal the GPU memory needed?",
+    a: "No. The full workflow may also load text encoders, a VAE and intermediate image data. Resolution, batch size and offloading matter too. Treat untested memory figures as estimates, not guarantees.",
+  },
+  {
+    q: "Does WildWeights host models or generate images?",
+    a: "No. WildWeights is a directory with short setup notes and links to the original model repositories. Files stay on those services, and image generation runs in your own software and hardware.",
+  },
+  {
+    q: "How do I check a model’s license before use?",
+    a: "Read the model card, the license for the model and any required base model or workflow components. Check commercial-use, redistribution and attribution terms. WildWeights links sources but does not independently verify their claims or grant usage rights.",
   },
 ];
 
@@ -79,7 +99,7 @@ export default function WildWeightsDirectory() {
 
   return (
     <div className={styles.site}>
-      <main className={styles.main}>
+      <div className={styles.main}>
         <section className={styles.hero} aria-labelledby="wildweights-title">
           <div>
             <p className={styles.kicker}>WILDWEIGHTS / LOCAL AI DIRECTORY</p>
@@ -100,7 +120,7 @@ export default function WildWeightsDirectory() {
             <span className={styles.kicker}>FIELD NOTES / 001</span>
             <strong>Less hype. More runnable.</strong>
             <p>
-              Three sourced image workflows to start. Text, audio and video
+              Three sourced image entries to start. Text, audio and video
               collections are planned, not published yet.
             </p>
             <small>Source review: 12 October 2026</small>
@@ -184,7 +204,7 @@ export default function WildWeightsDirectory() {
             {faqs.map((item) => (
               <details key={item.q}>
                 <summary>{item.q}</summary>
-                <p>{item.a}</p>
+                <p>{item.a}{item.link && <> <a href={item.link} target="_blank" rel="noreferrer">{item.linkLabel}</a>.</>}</p>
               </details>
             ))}
           </div>
