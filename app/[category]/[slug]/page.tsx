@@ -90,7 +90,7 @@ export default async function ArticlePage({ params }: Props) {
             <a href="#sources">Sources & further reading</a>
           </nav>
           <Link href={"/" + p.category} className="contents-tool">Explore {category.name.toLowerCase()} ↗</Link>
-        </div></aside>
+        </div><AdSlot placement="sidebar" /></aside>
         <div className="article-body">
           <div className="takeaway"><span className="eyebrow">QUICK ANSWER</span><p>{p.verdict}</p></div>
           {p.sections.map((s, i) => <section id={sectionId(s.heading)} key={s.heading}>
