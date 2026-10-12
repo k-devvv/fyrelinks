@@ -23,6 +23,9 @@ export const metadata: Metadata = {
     template: "%s | FyreLinkz"
   },
   description: "Less noise. More making. Sourced AI news, ComfyUI guides and local hardware advice for people creating with technology.",
+  other: {
+    "6a97888e-site-verification": "14aa077fca096a80e9aa0512a4ef46c2"
+  },
   alternates: {
     canonical: SITE_URL,
     types: {
