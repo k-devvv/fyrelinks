@@ -1,0 +1,2 @@
+# Entry update — 12 October 2026
+User requested notice before entering and purple/red accent. Implement full-screen neon purple entry check, inert underlying page, focus containment, tab-session self-declaration and external exit. Privacy and terms bypass notice. No verified-age claim or ad consent. Neutral non-explicit content remains server-rendered. Check build, entry acceptance, deep-link gate and policy access.
