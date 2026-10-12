@@ -3,11 +3,11 @@
   "rewrites": [
     {
       "source": "/wildweights",
-      "destination": "https://wildweights.vercel.app/wildweights/"
+      "destination": "https://wildweights.vercel.app/"
     },
     {
       "source": "/wildweights/:path*",
-      "destination": "https://wildweights.vercel.app/wildweights/:path*"
+      "destination": "https://wildweights.vercel.app/:path*"
     }
   ]
 }
