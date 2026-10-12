@@ -5,14 +5,14 @@ import WildWeightsDirectory from "./WildWeightsDirectory";
 
 const canonical = "https://www.fyrelinkz.com/wildweights";
 const description =
-  "Compare local AI image models, ComfyUI workflows, GGUF quantizations and LoRAs. See source links, setup notes and GPU memory caveats before you download.";
+  "Local AI image models: Qwen-Image 2.1 ComfyUI workflow, GGUF and LoRA. Check source files, reported VRAM, setup notes and licenses before use.";
 
 export const metadata: Metadata = {
   title: { absolute: "Qwen-Image 2.1 ComfyUI, GGUF & LoRA | WildWeights" },
   description,
   alternates: { canonical },
   openGraph: {
-    title: "Local AI Image Models, GGUF & ComfyUI | WildWeights",
+    title: "Qwen-Image 2.1 ComfyUI, GGUF & LoRA | WildWeights",
     description,
     url: canonical,
     type: "website",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Local AI Image Models, GGUF & ComfyUI | WildWeights",
+    title: "Qwen-Image 2.1 ComfyUI, GGUF & LoRA | WildWeights",
     description,
     images: ["/art/wildweights/image-workflow.jpg"],
   },
