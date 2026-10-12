@@ -10,7 +10,7 @@ export default function Home() {
       <div className="home-intro-main">
         <span className="eyebrow"><i className="signal-dot"/> INDEPENDENT FIELD NOTES FOR CREATIVE AI</span>
         <h1>Choose better AI tools.<br/><span>Skip costly guesswork.</span></h1>
-        <p>Source-linked guides for AI video, ComfyUI and local hardware—so you know what to try, what it takes and where it can fail before spending time or credits.</p>
+        <p>Source-linked guides for local AI image models, ComfyUI, AI video and hardware—so you know what to try, what it takes and where it can fail before spending time or credits.</p>
         <div className="home-intro-actions">
           <Link href="/create" className="button-primary">Explore practical guides <ArrowUpRight size={18}/></Link>
           <Link href="/ai-video-models" className="intro-secondary">Compare video models <ArrowRight size={16}/></Link>
@@ -18,11 +18,12 @@ export default function Home() {
         <div className="hero-proof" aria-label="Editorial standards"><span>Primary sources linked</span><span>No paid rankings</span><span>Practical next steps</span></div>
       </div>
       <aside className="hero-pathways" aria-label="Choose a starting point">
-        <div className="pathways-heading"><span className="eyebrow">START WITH WHAT YOU’RE MAKING</span><span className="pathways-count">FIELD GUIDE · 01—03</span></div>
+        <div className="pathways-heading"><span className="eyebrow">START WITH WHAT YOU’RE MAKING</span><span className="pathways-count">FIELD GUIDE · 01—04</span></div>
         <div className="pathways-list">
           <Link className="pathway-link" href="/create/ai-video-prompt-guide-examples"><span className="pathway-number">01</span><span className="pathway-copy"><small>CREATE</small><strong>Plan an AI video shot</strong><span>Prompt structure · model choice · usable takes</span></span><ArrowUpRight aria-hidden="true" size={18}/></Link>
           <Link className="pathway-link" href="/workflow/comfyui-beginner-first-workflow-guide"><span className="pathway-number">02</span><span className="pathway-copy"><small>BUILD</small><strong>Start a local ComfyUI workflow</strong><span>First graph · model files · common fixes</span></span><ArrowUpRight aria-hidden="true" size={18}/></Link>
           <Link className="pathway-link" href="/hardware/best-local-ai-workstation-build-guide-2026"><span className="pathway-number">03</span><span className="pathway-copy"><small>CHOOSE</small><strong>Size hardware for your workload</strong><span>VRAM needs · GPU trade-offs · total cost</span></span><ArrowUpRight aria-hidden="true" size={18}/></Link>
+          <Link className="pathway-link" href="/wildweights"><span className="pathway-number">04</span><span className="pathway-copy"><small>EXPLORE</small><strong>Compare local image models</strong><span>ComfyUI · GGUF · adapters · setup limits</span></span><ArrowUpRight aria-hidden="true" size={18}/></Link>
         </div>
         <div className="pathways-foot"><span className="pathways-pulse" aria-hidden="true"/>Follow sources. Understand trade-offs. Make your call.</div>
       </aside>
