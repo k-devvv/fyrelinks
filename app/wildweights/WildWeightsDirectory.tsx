@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import Image from "next/image";
 import styles from "./wildweights.module.css";
 
 const entries = [
@@ -14,6 +15,8 @@ const entries = [
     source: "https://huggingface.co/Comfy-Org/Qwen-Image-2.1",
     sourceLabel: "Comfy-Org model files",
     tone: "orange",
+    image: "/art/wildweights/image-workflow.jpg",
+    imageAlt: "AI-generated editorial portrait of a fully clothed adult artist viewing an image workflow in a warm studio.",
   },
   {
     name: "Qwen-Image GGUF",
@@ -25,6 +28,8 @@ const entries = [
     source: "https://huggingface.co/Abiray/Qwen-Image-2.1-GGUF",
     sourceLabel: "Quantization repository",
     tone: "violet",
+    image: "/art/wildweights/quantization-workstation.jpg",
+    imageAlt: "AI-generated editorial photo of a fully clothed adult comparing image-model output beside a GPU workstation.",
   },
   {
     name: "Anime consistency LoRA",
@@ -36,6 +41,8 @@ const entries = [
     source: "https://huggingface.co/WarmBloodAban/Qwen-Image-2.1-LoRAs",
     sourceLabel: "Adapter card and files",
     tone: "green",
+    image: "/art/wildweights/character-consistency.jpg",
+    imageAlt: "AI-generated, non-explicit portrait of a clearly adult fictional character with consistent image studies on a monitor.",
   },
 ];
 
@@ -134,8 +141,15 @@ export default function WildWeightsDirectory() {
             <div className={styles.cards}>
               {visibleEntries.map((entry, index) => (
                 <article className={styles.card} key={entry.name}>
-                  <div className={`${styles.art} ${styles[entry.tone]}`} aria-hidden="true">
-                    <span>0{index + 1}</span>
+                  <div className={`${styles.art} ${styles[entry.tone]}`}>
+                    <Image
+                      className={styles.artImage}
+                      src={entry.image}
+                      alt={entry.imageAlt}
+                      fill
+                      sizes="(max-width: 800px) 100vw, 33vw"
+                    />
+                    <span>0{index + 1} / AI EDITORIAL</span>
                     <strong>{entry.kind}</strong>
                   </div>
                   <div className={styles.cardBody}>
@@ -174,7 +188,8 @@ export default function WildWeightsDirectory() {
         <p className={styles.disclosure}>
           WildWeights is an independent directory. It does not host models, provide
           inference or verify publisher claims. Review each source and licence before
-          use. Adults only; content is non-explicit.
+          use. Adults only; content is non-explicit. Preview thumbnails are AI-generated
+          editorial images of adults, not outputs from the listed models.
         </p>
       </main>
 
@@ -223,4 +238,3 @@ function AgeGate() {
     </section>
   );
 }
-
