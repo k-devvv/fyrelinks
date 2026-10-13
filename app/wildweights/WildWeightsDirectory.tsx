@@ -103,7 +103,6 @@ export default function WildWeightsDirectory() {
             to each source.
           </p>
           <p><a href="/workflow/comfyui-beginner-first-workflow-guide">New to ComfyUI? Read our first-image setup guide →</a></p>
-          <p><a href="/workflow/comfyui-beginner-first-workflow-guide">New to ComfyUI? Read our first-image setup guide →</a></p>
           <p className={styles.answerNote}>
             Check model files, compatible loaders and license terms at the source.
             Memory figures are publisher estimates unless marked as independently tested.
@@ -239,8 +238,8 @@ function AgeGate({ accepted, onAccept }: { accepted: boolean; onAccept: () => vo
           Remembered for this tab session.
         </small>
         <nav aria-label="WildWeights policies">
-          <a href="https://wildweights.fyrelinkz.com/privacy">Privacy</a>
-          <a href="https://wildweights.fyrelinkz.com/standards">Content &amp; terms</a>
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms of use</a>
         </nav>
       </div>
     </section>
