@@ -2,8 +2,8 @@
   {
     "slug": "samsung-littlebit-sub-1-bit-llm-compression",
     "category": "news",
-    "title": "Samsung LittleBit and LittleBit-2: sub-1-bit LLM compression explained",
-    "description": "Explore SamsungLabs’ LittleBit research: binary low-rank factors, LittleBit-2 initialization, reported model-size savings, GPU limits and the noncommercial license.",
+    "title": "Samsung LittleBit-2: size savings & GPU limits",
+    "description": "Explore LittleBit and LittleBit-2: reported model-size savings, GPU limits and noncommercial license terms.",
     "topic": "Local AI research",
     "image": "samsung-littlebit-photo",
     "imageAlt": "AI-generated editorial photograph of a graphics card, motherboard and memory modules beside a monitor displaying abstract colored blocks.",
@@ -129,7 +129,7 @@
   {
     "slug": "samsung-helix-ai-infrastructure-investment",
     "category": "news",
-    "title": "Samsung’s $1 billion Helix investment: AI infrastructure, not a new model",
+    "title": "Samsung Helix: $1B AI infrastructure explained",
     "description": "Samsung affiliates announced a $1 billion Helix investment. What the infrastructure strategy means, and what it does not prove about AI capacity or cost.",
     "topic": "AI infrastructure",
     "image": "samsung-ai-infrastructure-photo",
@@ -227,7 +227,7 @@
   {
     "slug": "doe-selects-four-robotics-testbeds-autonomous-science",
     "category": "news",
-    "title": "DOE selects four national-lab projects to test autonomous science",
+    "title": "DOE robotics testbeds: what autonomous science tests",
     "description": "DOE selected four national-lab robotics projects for negotiations. What the scientific testbeds aim to evaluate, and what remains unproven.",
     "topic": "AI robotics",
     "image": "autonomous-science-robotics-photo",
@@ -322,8 +322,8 @@
   {
     "slug": "vanderbilt-magen-ai-genomics-grants-clinical-translation",
     "category": "news",
-    "title": "Vanderbilt’s MAGen AI genomics research: funding, validation and patient limits",
-    "description": "Vanderbilt announced phased funding for AI genomics research. Understand MAGen’s aims, cross-validation requirements and why it is not a patient-ready tool.",
+    "title": "MAGen AI genomics: funding, validation & limits",
+    "description": "Vanderbilt's MAGen AI genomics work: funding, validation plans and why it is not a patient-ready test.",
     "topic": "AI in healthcare",
     "image": "ai-genomics-clinical-research-photo",
     "imageAlt": "AI-generated editorial photograph of a researcher viewing colored data tracks on a monitor beside a sample rack and notebook.",
@@ -525,7 +525,7 @@
     "slug": "google-ai-video-codirector-long-form-continuity",
     "category": "news",
     "title": "Google’s AI co-director tackles long-video continuity",
-    "description": "Google Research outlined four systems for planning shots, preserving characters and refining long AI videos—what creators can use and what remains research.",
+    "description": "Google Research's four video systems plan shots, preserve characters and refine long clips. See what creators can use and what remains research.",
     "topic": "AI video",
     "image": "google-ai-video-codirector-photo",
     "eventDate": "2026-09-24",
@@ -623,7 +623,7 @@
   {
     "slug": "runway-adobe-premiere-after-effects-plugins",
     "category": "news",
-    "title": "Runway plugins for Premiere Pro and After Effects: credits and workflow",
+    "title": "Runway plugins for Premiere & After Effects: guide",
     "description": "New plugins bring AI generation to Premiere Pro and After Effects. What changes for editors—and what still uses credits.",
     "topic": "AI video",
     "image": "runway-timeline-photo",
@@ -814,7 +814,7 @@
   {
     "slug": "ai-video-generation-matrix-minimax-higgsfield-seedance",
     "category": "create",
-    "title": "MiniMax vs Seedance vs Higgsfield: compare tools for your shot",
+    "title": "MiniMax vs Seedance vs Higgsfield: shot test",
     "description": "Compare MiniMax, Seedance and Higgsfield using one shot brief, pass/fail checks and cost per accepted minute. Includes a practical comparison worksheet.",
     "topic": "AI video",
     "image": "ai-video-matrix-photo",
@@ -1143,7 +1143,7 @@
   {
     "slug": "best-local-ai-workstation-build-guide-2026",
     "category": "hardware",
-    "title": "Local AI workstation build guide: choose a GPU for your workload",
+    "title": "Local AI workstation GPU guide: workload checklist",
     "description": "Plan a local AI PC around models, VRAM and turnaround needs. Use a workload worksheet to evaluate offloading, multi-GPU support and build compatibility.",
     "topic": "Local AI",
     "image": "local-ai-workstation-photo",
@@ -1499,7 +1499,7 @@
   {
     "slug": "ai-web-scraping-pipelines-firecrawl-playwright-rag",
     "category": "stack",
-    "title": "Scrapling vs Firecrawl vs Playwright: which fits your RAG pipeline?",
+    "title": "Scrapling vs Firecrawl vs Playwright for RAG",
     "description": "Compare Scrapling, Firecrawl and Playwright for RAG: structured extraction, managed Markdown, browser control, real costs and a reproducible evaluation.",
     "topic": "Developer tools",
     "image": "web-scraping-rag-photo",
@@ -2164,15 +2164,15 @@
   {
     "slug": "comfyui-beginner-first-workflow-guide",
     "category": "workflow",
-    "title": "ComfyUI beginner guide: your first image and common fixes",
-    "description": "Follow a simple ComfyUI learning path: load an official workflow, find the required model, understand the graph and troubleshoot common first-run problems.",
+    "title": "ComfyUI First Image: Official Workflow & Fixes",
+    "description": "Run ComfyUI’s official SD1.5 workflow, install the right checkpoint, check node connections and fix missing-model errors. Includes source workflow JSON.",
     "topic": "ComfyUI",
     "image": "comfyui-first-workflow-photo",
-    "takeaway": "Direct Answer: Load ComfyUI’s default text-to-image template, place one standard SDXL or SD 1.5 checkpoint in ComfyUI/models/checkpoints/, verify the 5 core connections (Loader -> Encoders -> Empty Latent -> KSampler -> VAE Decode), and run one test image at default resolution (1024x1024 for SDXL, 512x512 for SD1.5) before touching custom extensions.",
+    "takeaway": "To make your first image, open ComfyUI’s official text-to-image workflow, install the checkpoint named by that workflow, refresh the model list, confirm the checkpoint is selected, then queue one run. Treat the official SD1.5 example as a learning baseline, not a universal setting. [Download the example workflow JSON](https://raw.githubusercontent.com/Comfy-Org/docs/refs/heads/main/public/text-to-image.json). For more local image-model setup notes, browse the [WildWeights directory](/wildweights).",
     "featured": true,
     "publishedAt": "2026-09-20",
-    "updatedAt": "2026-09-22",
-    "sourceCheckedAt": "2026-09-20",
+    "updatedAt": "2026-10-13",
+    "sourceCheckedAt": "2026-10-13",
     "sources": [
       {
         "publisher": "Comfy Org",
@@ -2192,142 +2192,190 @@
     ],
     "sections": [
       {
-        "heading": "Start here",
-        "content": "Intended reader: Beginners setting up ComfyUI who want to avoid red-node errors and dependency nightmares. Practical outcome: A working, crash-free image generation within 10 minutes and a repeatable mental model of data flow. An unfamiliar canvas, missing model files and a row of connected boxes can make the first image feel harder than it needs to be. Give yourself one small goal: run an official example, save the result and understand the path to the output."
-      },
-      {
-        "heading": "Set a small, useful first goal",
-        "content": "Your first goal is a saved image from a workflow you understand well enough to run again. It is not a giant graph that combines every popular extension. Choose a simple subject, such as a blue teapot on a kitchen shelf, and use it throughout your first session. Keeping the subject constant makes it easier to notice which setting changed the result. The checkpoints and folders below refer to the official basic example; other model families can require different loaders, encoders and files."
-      },
-      {
-        "heading": "Load an official example and its required model",
-        "content": "Comfy Org's first-generation guide explains loading example workflows from templates, JSON files or images containing workflow metadata. Follow the model link provided with the selected example. A workflow file describes the graph; it does not contain the model weights. For the basic checkpoint example, the guide places the model in the checkpoints folder under ComfyUI/models, then refreshes or restarts the application. Use the instructions for your actual installation because desktop and portable locations differ.",
+        "heading": "Start with one working image",
+        "content": "ComfyUI is a node-based interface for building image workflows. Your first goal is to load one official text-to-image example, use the model it names, and save one output. This confirms that the app, model file and graph work together. It does not prove that another model family, resolution or custom-node workflow will fit the same computer.",
         "sourceIds": [
-          1
-        ],
-        "subpoints": [
-          "Choose the example before downloading a collection of unrelated models.",
-          "Wait for downloads to finish; confirm the expected filename.",
-          "Select the matching file in the loader before running the graph."
+          1,
+          2
         ]
       },
       {
-        "heading": "Read the graph from inputs to output",
-        "content": "In the documented basic text-to-image graph, the checkpoint supplies model components, text encoding produces conditioning, and a latent input gives the sampler an image space to work with. The sampled result is decoded before it becomes an image that can be saved. Following these connections is more useful than memorizing where boxes appear on the canvas: layouts can move while the data flow stays the same.",
+        "heading": "Open the official workflow",
+        "content": "ComfyUI usually opens with a default text-to-image graph. You can also load an exported workflow JSON from the Workflows menu. The workflow describes node settings and connections; it does not include model weights. Use Comfy Org’s [example workflow JSON](https://raw.githubusercontent.com/Comfy-Org/docs/refs/heads/main/public/text-to-image.json), which its official guide pairs with an SD1.5 checkpoint. Keep a copy of the untouched file as your baseline.",
+        "sourceIds": [
+          1,
+          2
+        ]
+      },
+      {
+        "heading": "Install the checkpoint named by the workflow",
+        "content": "Most ComfyUI installs do not ship with base model weights. Read the missing-model prompt or the guide for the workflow you chose, then download that exact checkpoint from its publisher. For the official SD1.5 example, the documented checkpoint belongs in the `models/checkpoints` folder under your ComfyUI installation. Portable and desktop installs can put that folder in different places. After installation, press `R` to refresh model lists or restart ComfyUI, then select the file in the Load Checkpoint node. A workflow JSON and a checkpoint are separate files.",
+        "sourceIds": [
+          1,
+          2
+        ],
+        "checklist": [
+          "Follow the exact model link shown by the selected workflow.",
+          "Place the file in the model folder for your installation.",
+          "Refresh with `R` or restart ComfyUI.",
+          "Confirm the Load Checkpoint field shows a model name, not `null`."
+        ]
+      },
+      {
+        "heading": "Follow data from model to saved image",
+        "content": "The basic SD1.5 example connects a checkpoint loader, prompt encoders, an empty latent canvas, a sampler, a VAE decoder and a save node. The table describes that example; other architectures can use different loaders, encoders or graph layouts.",
         "sourceIds": [
           2
         ],
-        "subpoints": [
-          "Find the model input and identify the exact selected file.",
-          "Locate the prompt input and the image-size settings.",
-          "Follow the sampler output to decoding and saving."
-        ],
         "table": {
           "headers": [
-            "Node Name",
-            "Inputs",
-            "Outputs",
-            "Role in Pipeline",
-            "Common Beginner Trap"
+            "Node",
+            "What it supplies or does",
+            "Check first"
           ],
           "rows": [
             [
               "Load Checkpoint",
-              "None (Selects model)",
-              "MODEL, CLIP, VAE",
-              "Unpacks neural weights into RAM/VRAM",
-              "Placing UNet-only or LoRA files in the checkpoints folder"
+              "Model, CLIP and VAE components",
+              "Select the checkpoint named by this workflow"
             ],
             [
               "CLIP Text Encode",
-              "CLIP from Loader + Text String",
-              "CONDITIONING",
-              "Converts words into latent vector embeddings",
-              "Using negative weights without setting appropriate CFG"
+              "Turns prompt text into conditioning",
+              "Confirm both prompt nodes receive CLIP"
             ],
             [
               "Empty Latent Image",
-              "Width, Height, Batch size",
-              "LATENT",
-              "Creates uncompressed latent pixel canvas",
-              "Requesting non-standard resolutions that distort aspect ratio"
+              "Sets starting canvas dimensions and batch",
+              "Use workflow-provided values for first run"
             ],
             [
               "KSampler",
-              "MODEL, CONDITIONING (+ / -), LATENT",
-              "LATENT (Denoised)",
-              "Executes iterative diffusion denoising steps",
-              "Setting steps > 50 on Euler or Euler a (wastes compute)"
+              "Uses model, conditioning and latent input",
+              "Keep the example settings unchanged initially"
             ],
             [
               "VAE Decode",
-              "LATENT from KSampler, VAE from Loader",
-              "IMAGE",
-              "Translates math tensors back into RGB pixels",
-              "Connecting incompatible external VAE to checkpoint"
+              "Converts sampled latent into an image",
+              "Use the compatible VAE from the workflow"
+            ],
+            [
+              "Save Image",
+              "Writes completed output",
+              "Look for the result after the queue finishes"
             ]
           ]
         }
       },
       {
-        "heading": "Run once before you customize",
-        "content": "Keep the example's remaining settings intact for the first attempt. Once an image appears, save the workflow and output together as a baseline. Write a tiny project note: what you expected, what appeared and whether anything failed. This is our recommended learning method, not a requirement imposed by ComfyUI. A plain but repeatable result is more useful at this stage than a polished image produced by a graph you cannot explain. Do not treat a successful basic example as proof that every larger model will fit your hardware."
-      },
-      {
-        "heading": "Make a controlled comparison",
-        "content": "Duplicate the working graph before editing. Keep the starting seed and other settings unchanged where the workflow allows it, then make one deliberate change to the prompt or another setting. Compare the two outputs at the same display size and write down the visible difference. This reduces ambiguity, but it does not promise identical results across different software versions or devices. Label the experiment with the change you made, not only a generic filename such as final-final.",
+        "heading": "Run the untouched baseline",
+        "content": "With the matching checkpoint selected, leave the example’s settings as provided and queue one run with `Ctrl+Enter`. Wait for the Save Image node to finish, then save the output and workflow together. The purpose is diagnosis: if the sample fails, you have fewer changed settings to investigate. Do not copy one model’s resolution, sampler or step count into SDXL, FLUX, Qwen-Image or another family without checking that model’s own instructions.",
+        "sourceIds": [
+          2
+        ],
         "subpoints": [
-          "Baseline: the complete working example.",
-          "Experiment 01: change only the subject or material description.",
-          "Experiment 02: restore the baseline and change one other setting.",
-          "Keep a short note explaining which version you prefer and why."
+          "Save the exact workflow JSON you ran.",
+          "Record ComfyUI version and checkpoint filename.",
+          "Change one setting only after the baseline succeeds."
         ]
       },
       {
-        "heading": "Missing model, incompatible file or memory error?",
-        "content": "A missing entry in a model dropdown is a different problem from an out-of-memory failure after execution starts. Comfy Org's troubleshooting guide covers incorrect placement, incompatible models and insufficient resources. Read the first relevant error before installing more extensions or repeatedly downloading large files. Our triage approach is to identify the stage that failed, then verify the smallest set of assumptions at that stage.",
+        "heading": "Fix the error at the stage where it appears",
+        "content": "A missing model in a dropdown usually points to file placement, refresh or a mismatched workflow. A red node after loading a graph can mean a required custom node is unavailable; the basic official graph is a better starting point for isolating that issue. An out-of-memory error is different: check the selected model’s current requirements and reduce workload only using that model’s documented options. Comfy Org’s troubleshooting page covers model-loading cases. Save the exact error before changing several parts of the setup.",
         "sourceIds": [
           3
         ],
-        "subpoints": [
-          "Missing file: compare the required filename and model folder with the example instructions.",
-          "Incompatible workflow: check that the model family matches the loader and supporting components.",
-          "Memory failure: return to the documented baseline, reduce unnecessary workload and check the model's requirements.",
-          "Unclear failure: save the exact error and workflow version before changing the environment."
-        ],
-        "checklist": [
-          "Confirm checkpoint is located inside \"ComfyUI/models/checkpoints/\" and ends in .safetensors.",
-          "Click \"Refresh\" on the ComfyUI floating menu if the newly downloaded model does not appear.",
-          "Check KSampler denoise is set to 1.0 for standard text-to-image generation.",
-          "Set Empty Latent dimensions to 1024x1024 for SDXL / FLUX or 512x512 for SD 1.5.",
-          "If red outline appears on a node, check ComfyUI Manager for missing custom node packs."
+        "table": {
+          "headers": [
+            "Symptom",
+            "First checks",
+            "Avoid"
+          ],
+          "rows": [
+            [
+              "Checkpoint shows `null`",
+              "File path, filename, refresh/restart",
+              "Downloading unrelated model files"
+            ],
+            [
+              "Red or missing custom node",
+              "Whether workflow requires that node; source and install steps",
+              "Installing a bundle before identifying dependency"
+            ],
+            [
+              "Out-of-memory error",
+              "Model-specific memory guidance and active workload",
+              "Assuming one VRAM number fits every model"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "Keep comparisons reproducible",
+        "content": "Duplicate the working graph and change one variable at a time. Record the model file, prompt, seed behavior, dimensions and any setting changed. A fixed seed helps compare runs when the workflow supports it, but different software versions or components can still alter output. This is a practical comparison method, not an independent benchmark.",
+        "sourceIds": [
+          2
         ]
       },
       {
-        "heading": "Add complexity only when it solves a problem",
-        "content": "After the baseline works, define a reason for each new component. A LoRA might be part of a specific creative experiment; an upscaler might be needed for a final delivery size. Adding both while also changing the base model creates several possible explanations for any new failure. Keep a separate copy of the original graph and introduce one addition at a time. Before installing custom nodes, inspect their origin and maintenance instructions. They are software running in your environment, not passive artwork. Once your baseline image generation is reliable, advance to our [ComfyUI FLUX and LoRA guide](/create/comfyui-flux-lora-training-and-inference-guide) to customize model weights."
+        "heading": "Save a useful project handoff",
+        "content": "Keep the workflow JSON, a representative output and a short note together. List the checkpoint name, source and license; do not redistribute model weights unless their terms allow it. If asking for help, share the smallest reproducible graph and exact error. For model choices, see our [local AI workstation guide](/hardware/best-local-ai-workstation-build-guide-2026); for additional image models, see [WildWeights](/wildweights). When ready to add custom nodes, read our [ComfyUI FLUX and LoRA guide](/create/comfyui-flux-lora-training-and-inference-guide)."
       },
       {
-        "heading": "Save a project another person can understand",
-        "content": "Create a project folder containing the workflow, a few representative outputs and a plain-language note. List the required models, relevant versions and the reason for unusual settings. Keep licensed assets and private reference images out of public workflow shares unless you have permission to distribute them. When asking for help, share the smallest reproducible graph and the actual error, rather than an entire private client folder. Good project notes also help you restart work after an update or a long break.",
-        "subpoints": [
-          "Record model filenames and where their licenses are published.",
-          "Keep the original baseline alongside later revisions.",
-          "Describe the intended result and the current failure in separate sentences.",
-          "Reopen the saved workflow to confirm your handoff is complete."
-        ]
-      },
-      {
-        "heading": "Try this next",
-        "content": "Once the first workflow works, move on to a controlled FLUX and LoRA experiment. Read [FLUX in ComfyUI: a practical workflow and LoRA checklist](/create/comfyui-flux-lora-training-and-inference-guide)."
+        "heading": "Next: add one capability",
+        "content": "Once the official baseline works, add one feature for a clear reason, such as a compatible LoRA or an image-to-image step. Keep the original graph unchanged so you can return to a known-good setup. For local workflow automation, read [ComfyUI and Comfy MCP workflows](/news/comfy-mcp-local-workflows)."
       }
     ],
-    "imageAlt": "Generated editorial photograph: Beginner creator reviewing an AI-generated landscape beside a laptop."
+    "imageAlt": "AI-generated editorial photograph of a beginner reviewing a ComfyUI text-to-image workflow on a laptop in a home studio.",
+    "faqs": [
+      {
+        "question": "Does a ComfyUI workflow JSON contain the model?",
+        "answer": "No. The workflow stores graph structure and settings; model weights are separate files that you obtain from the listed publisher."
+      },
+      {
+        "question": "Where do I put a checkpoint?",
+        "answer": "For the official basic example, Comfy Org documents the `models/checkpoints` folder under the ComfyUI installation. Desktop and portable installs may use different paths."
+      },
+      {
+        "question": "Why does my checkpoint dropdown show `null`?",
+        "answer": "Check that the exact file is in the correct model folder, then press `R` to refresh model lists or restart ComfyUI. Confirm the workflow expects that model type."
+      },
+      {
+        "question": "Can I use the SD1.5 example settings with FLUX or Qwen-Image?",
+        "answer": "No. Treat each model’s published workflow and hardware guidance as authoritative. Loader, encoder, resolution and memory requirements can differ."
+      },
+      {
+        "question": "Has FyreLinkz tested this workflow on every GPU?",
+        "answer": "No. This guide follows Comfy Org’s published example and troubleshooting documentation; it does not claim independent hardware benchmarks."
+      }
+    ],
+    "howToSteps": [
+      {
+        "name": "Open the official workflow",
+        "text": "Load ComfyUI’s default text-to-image graph or open the example workflow JSON from the Workflows menu."
+      },
+      {
+        "name": "Install the required checkpoint",
+        "text": "Download the checkpoint named by that workflow and place it in the model folder for your ComfyUI installation."
+      },
+      {
+        "name": "Refresh and select the model",
+        "text": "Press R or restart ComfyUI, then confirm the Load Checkpoint node shows the expected filename."
+      },
+      {
+        "name": "Run one unchanged test",
+        "text": "Keep the example settings, queue one run with Ctrl+Enter, and wait for the Save Image node."
+      },
+      {
+        "name": "Save workflow and result",
+        "text": "Save the workflow JSON with the output and note the checkpoint filename and ComfyUI version."
+      }
+    ]
   },
   {
     "slug": "run-local-llm-rtx-4050-laptop-guide",
     "category": "hardware",
-    "title": "RTX 4050 laptop for local AI: what 6GB VRAM really tells you",
+    "title": "RTX 4050 laptop for local LLMs: 6GB VRAM guide",
     "description": "Can an RTX 4050 laptop run local LLMs? Compare 6GB VRAM limits, model download sizes, context settings and a repeatable Ollama GPU check.",
     "topic": "Local AI",
     "image": "rtx-4050-laptop-photo",
@@ -2740,7 +2788,7 @@
   {
     "slug": "stateful-agents-vs-simple-rag-workflow-guide",
     "category": "workflow",
-    "title": "Stateful agents versus a simple RAG workflow: when complexity helps",
+    "title": "RAG vs stateful agents: latency, cost & failure modes",
     "description": "Architectural guide: comparing single-turn deterministic RAG pipelines with multi-turn autonomous agent loops. Latency, cost and reliability.",
     "topic": "Developer tools",
     "image": "rag-vs-stateful-agents-photo",
@@ -2860,7 +2908,7 @@
   {
     "slug": "deploy-llm-red-hat-openshift-ai-vllm-kserve",
     "category": "workflow",
-    "title": "OpenShift AI LLM serving: vLLM, KServe and deployment checks",
+    "title": "OpenShift AI LLM serving: vLLM & KServe checklist",
     "description": "Review OpenShift AI LLM serving prerequisites, vLLM and KServe runtime choices, storage, TLS ingress and production checks.",
     "topic": "Enterprise infrastructure",
     "image": "deploy-llm-red-hat-openshift-ai-photo",
@@ -2964,7 +3012,7 @@
   {
     "slug": "eu-ai-act-obligations-developers-guide",
     "category": "workflow",
-    "title": "EU AI Act for developers: GPAI, risk tiers and synthetic media",
+    "title": "EU AI Act developer guide: GPAI, risk & labeling",
     "description": "A practical technical breakdown of Regulation (EU) 2024/1689: transparency rules, GPAI model governance, and synthetic media labeling.",
     "topic": "AI governance",
     "image": "eu-ai-act-developer-obligations-photo",
@@ -3064,7 +3112,7 @@
     "slug": "jev-needle3-small-ai-models-gpu-cost",
     "category": "news",
     "title": "Needle 3 vs Jev: local tools, API costs and limits",
-    "description": "Compare Needle 3 and TypeSafe Jev for tool calling, extraction and typed decisions. See local versus hosted deployment, GPU needs, API costs and limitations.",
+    "description": "Compare Needle 3 and TypeSafe Jev for tool calls, extraction and typed decisions. See deployment, GPU costs and limits.",
     "topic": "AI models",
     "image": "jev-needle-small-models-photo",
     "imageAlt": "AI-generated editorial photograph of an edge-computing board and desktop GPU beside a laptop, illustrating different AI deployment choices.",
@@ -3217,7 +3265,7 @@
   {
     "slug": "taomate-h3-benchmark-gpu-requirements-license",
     "category": "news",
-    "title": "TaoMate H3: reported 10.6× speedup, GPU requirements and license",
+    "title": "TaoMate H3: 10.6× speedup, GPU & license checks",
     "description": "What the reported 10.6× speedup, eight-GPU setup, cloud cost and US, UK and EU licensing mean for TaoMate H3.",
     "topic": "AI video",
     "image": "taomate-h3-streaming-photo",
@@ -3369,7 +3417,7 @@
   {
     "slug": "local-ai-pc-upgrade-vs-build-laptop-workstation",
     "category": "hardware",
-    "title": "Local AI PC or laptop? Compare upgrades, builds and workstations",
+    "title": "Local AI PC or laptop? Upgrade vs build guide",
     "description": "Compare a desktop upgrade, custom PC, laptop or workstation for local AI using workload, GPU memory, software support and total cost.",
     "topic": "Local AI hardware",
     "image": "local-ai-pc-upgrade-photo",
@@ -3547,7 +3595,7 @@
     "slug": "ai-weekly-roundup-models-agents-open-research-october-2026",
     "category": "news",
     "title": "AI news this week: new models, agents and open research",
-    "description": "From GPT-6.1 Sol and Claude Sonnet 5.5 to Comfy Agent and AstaBrief, here is what actually shipped, what remains a preview, and what the new AI tools cost.",
+    "description": "GPT-6.1 Sol, Claude Sonnet 5.5, Comfy Agent and AstaBrief: verify releases, previews and announced costs.",
     "topic": "AI industry",
     "image": "ai-week-roundup-2026",
     "imageAlt": "AI-generated editorial photograph of a researcher’s desk with code, model visualizations, notebooks and a workstation; illustrative scene, not a real launch or laboratory.",
@@ -3949,7 +3997,7 @@
     "slug": "ai-news-week-oct11-2026-gpt6-haiku-worldplay2",
     "category": "news",
     "title": "AI this week: GPT-6 UI, Haiku 5.5 and WorldPlay2",
-    "description": "October 5–11 AI roundup: GPT-6 Intelligent UI, Haiku 5.5 pricing, WorldPlay2, Kandinsky 6 and Iris-3B. Check release dates, access, licenses and hardware limits.",
+    "description": "AI news from Oct 5–11: GPT-6 UI, Haiku 5.5, WorldPlay2, Kandinsky 6 and Iris-3B. Dates, access and hardware limits.",
     "topic": "AI research",
     "image": "ai-week-oct11-research-photo",
     "imageAlt": "AI-generated editorial illustration of a laptop displaying a room wireframe beside an unbranded robotic gripper and experiment notes.",
@@ -4779,7 +4827,7 @@
   {
     "slug": "copilotkit-opendots-intelligence-dependencies",
     "category": "news",
-    "title": "CopilotKit OpenDots: the template and the services behind it",
+    "title": "OpenDots: template dependencies & service guide",
     "description": "CopilotKit OpenDots needs conversation infrastructure and a model. Understand its template, evaluation limits, data inventory and optional tool services.",
     "topic": "AI agents",
     "image": "rag-vs-stateful-agents-photo",
@@ -5119,7 +5167,7 @@
   {
     "slug": "gemini4-argon-access-fairwind-introductory-pricing",
     "category": "news",
-    "title": "Gemini 4 Argon: restricted access and introductory API prices",
+    "title": "Gemini 4 Argon access & API pricing",
     "description": "Gemini 4 Argon’s phased Fairwind access and announced introductory rates explained, with careful output-limit wording and a bounded evaluation plan.",
     "topic": "AI models",
     "image": "frontier-ai-benchmark-photo",
@@ -5186,7 +5234,7 @@
   {
     "slug": "elevenlabs-v4-turbo-speech-workflow",
     "category": "news",
-    "title": "ElevenLabs v4 and Turbo: expressive audio versus live response",
+    "title": "ElevenLabs v4 vs Turbo: audio workflow test",
     "description": "Compare Eleven v4 and v4 Turbo workflows, API identifiers, pronunciation review and full conversation latency versus vendor inference figures.",
     "topic": "AI audio",
     "image": "4k-coding-monitor-photo",
@@ -5259,8 +5307,8 @@
   {
     "slug": "whistle-local-speech-recognition-limits",
     "category": "news",
-    "title": "Whistle speech recognition: tiny download, bounded audio tasks",
-    "description": "Whistle offers compact local transcription. Review supported languages, short-clip limits, device-specific timing and safeguards before speech triggers tools.",
+    "title": "Whistle local speech: language & clip limits",
+    "description": "Whistle offers local speech transcription. Check languages, clip limits, device timing and safety before connecting output to tools.",
     "topic": "Local AI audio",
     "image": "small-language-models-edge-photo",
     "imageAlt": "Generated editorial photograph: Engineer measuring a compact edge-computing board and camera sensor.",
@@ -5387,7 +5435,7 @@
   {
     "slug": "comfy-agent-cloud-workflow-beta",
     "category": "news",
-    "title": "Comfy Agent: inspect the workflow, not only the generated result",
+    "title": "Comfy Agent: workflow review & access guide",
     "description": "Comfy Agent builds and iterates on creative graphs. Check Cloud beta access, future Desktop wording, workflow reproducibility and controlled batch review.",
     "topic": "AI creative workflows",
     "image": "comfy-mcp-agent-photo",
@@ -5454,8 +5502,8 @@
   {
     "slug": "amazon-alodlm-8b-diffusion-inference-license",
     "category": "news",
-    "title": "Amazon ALoDLM-8B: diffusion decoding, GPU setup and license limits",
-    "description": "ALoDLM-8B uses adaptive recurrence for text generation. Learn which decoder to use, why B200 throughput is not a consumer-GPU promise and what its license permits.",
+    "title": "Amazon ALoDLM-8B: GPU setup & license guide",
+    "description": "ALoDLM-8B uses adaptive recurrence for text generation. Review decoder setup, B200 benchmark limits and model terms.",
     "topic": "Diffusion language models",
     "image": "llm-vram-quantization-photo",
     "imageAlt": "Generated editorial photograph: Graphics card and memory chips on a hardware workbench.",
@@ -5615,7 +5663,7 @@
     "slug": "botanic1-gemma-plant-genomics-evidence",
     "category": "news",
     "title": "BOTANIC-1 and Gemma: plant DNA research, explained",
-    "description": "BOTANIC-1 pairs plant-genomics analysis with a Gemma orchestrator. Learn what the evidence supports, how to assess a variant claim and what remains unvalidated.",
+    "description": "BOTANIC-1 pairs plant-genomics analysis with a Gemma orchestrator. See what its evidence supports and what remains unvalidated.",
     "topic": "AI genomics",
     "image": "ai-genomics-clinical-research-photo",
     "imageAlt": "AI-generated editorial photograph of a researcher viewing colored data tracks on a monitor beside a sample rack and notebook.",
@@ -5684,8 +5732,8 @@
   {
     "slug": "openai-math-results-lean-withdrawals-review",
     "category": "news",
-    "title": "OpenAI math results: how to read Lean proofs and withdrawals",
-    "description": "OpenAI’s mathematics repository includes proofs, revisions and withdrawals. Learn how to check a result’s status without treating every AI claim as an accepted theorem.",
+    "title": "OpenAI math proofs: Lean revisions & status",
+    "description": "Check OpenAI math proofs, revisions and withdrawals. Verify result status before treating an AI claim as an accepted theorem.",
     "topic": "AI mathematics",
     "image": "rag-vs-stateful-agents-photo",
     "imageAlt": "Generated editorial photograph: Researcher cross-checking source documents against a computer search result.",
@@ -5759,8 +5807,8 @@
   {
     "slug": "vals-room-temperature-magnetic-semiconductor-candidates",
     "category": "news",
-    "title": "AI magnetic semiconductor candidates: what Vals actually found",
-    "description": "Vals reports two room-temperature antiferromagnetic semiconductor candidates. Separate computation, historical synthesis and missing material measurements.",
+    "title": "AI magnetic semiconductor candidates: Vals' evidence",
+    "description": "Vals reports two room-temperature antiferromagnetic semiconductor candidates. Separate computational predictions from material measurements.",
     "topic": "AI materials research",
     "image": "ai-week-oct11-research-photo",
     "imageAlt": "AI-generated editorial illustration of a laptop displaying a room wireframe beside an unbranded robotic gripper and experiment notes.",
@@ -5829,7 +5877,7 @@
   {
     "slug": "flashdexretarget-robot-hand-retargeting-benchmark",
     "category": "news",
-    "title": "FlashDexRetarget: robot-hand data and the 100× compute claim",
+    "title": "FlashDexRetarget: benchmark & robot-hand setup",
     "description": "Read FlashDexRetarget’s reported robot-hand retargeting results, the benchmark behind the compute claim and what remains unverified for deployment.",
     "topic": "Robotics research",
     "image": "ai-week-oct11-research-photo",
@@ -5893,7 +5941,7 @@
   {
     "slug": "terra-terrain-musculoskeletal-locomotion-research",
     "category": "news",
-    "title": "TERRA: terrain-aware muscle simulation, not a clinical result",
+    "title": "TERRA: terrain-aware muscle simulation explained",
     "description": "EPFL’s TERRA reconstructs terrain for musculoskeletal motion. Understand the pipeline, separate parkour policies and limits of simulation evidence.",
     "topic": "Robotics and biomechanics",
     "image": "ai-week-oct11-research-photo",
@@ -5969,7 +6017,7 @@
   {
     "slug": "grad-conjecture-counterexamples-lean-plasma",
     "category": "news",
-    "title": "Grad’s conjecture: plasma counterexamples and the Lean record",
+    "title": "Grad's plasma conjecture: counterexample & Lean checks",
     "description": "Read the Grad-conjecture counterexample claim, what its Lean companion checks and why a mathematical equilibrium is not a working fusion reactor.",
     "topic": "AI and formal mathematics",
     "image": "rag-vs-stateful-agents-photo",
@@ -6038,8 +6086,8 @@
   {
     "slug": "napoleon-marmont-cipher-ai-reproducibility",
     "category": "news",
-    "title": "Napoleon-era cipher and AI: how to inspect the Marmont reading",
-    "description": "Carter Church reports an AI-assisted reading of a Marmont cipher. Examine the source scan, reproducible key and unresolved signs rather than the headline alone.",
+    "title": "AI reads a Napoleon-era cipher: evidence checklist",
+    "description": "Carter Church reports an AI-assisted Marmont cipher reading. Inspect the source scan, reproducible key and unresolved signs.",
     "topic": "AI cipher research",
     "image": "rag-vs-stateful-agents-photo",
     "imageAlt": "Generated editorial photograph: Researcher cross-checking source documents against a computer search result.",
@@ -6102,7 +6150,7 @@
   {
     "slug": "astabrief-8b-cited-research-reports-evaluation",
     "category": "news",
-    "title": "AstaBrief 8B: cited research reports, speed and verification",
+    "title": "AstaBrief 8B: citations, speed & evaluation",
     "description": "Ai2’s AstaBrief writes reports from retrieved literature. Learn what its reported speed measures, why 2025 comparisons matter and how to audit citations.",
     "topic": "AI research reports",
     "image": "rag-vs-stateful-agents-photo",
@@ -6178,7 +6226,7 @@
     "slug": "olmo-core3-moe-training-benchmarks-budget",
     "category": "news",
     "title": "Olmo-core 3: MoE training benchmarks and what they cost",
-    "description": "Ai2’s Olmo-core 3 scales mixture-of-experts training. Understand the B300 comparisons, short capacity tests and why this is infrastructure rather than a chatbot.",
+    "description": "Ai2's Olmo-core 3 scales mixture-of-experts training. See B300 comparisons and why this is infrastructure, not a chatbot.",
     "topic": "AI training infrastructure",
     "image": "llm-vram-quantization-photo",
     "imageAlt": "Generated editorial photograph: Graphics card and memory chips on a hardware workbench.",
@@ -6242,7 +6290,7 @@
     "slug": "iquest-q1-moe-coding-context-deployment-license",
     "category": "news",
     "title": "IQuest-Q1: 320B MoE, coding agents and deployment limits",
-    "description": "IQuest-Q1 activates about 15B of 320B parameters per token. Check context, deployment examples, tool permissions and its modified MIT terms before integration.",
+    "description": "IQuest-Q1 activates about 15B of 320B parameters per token. Check context, deployment examples, tool permissions and license.",
     "topic": "AI coding agents",
     "image": "llm-vram-quantization-photo",
     "imageAlt": "Generated editorial photograph: Graphics card and memory chips on a hardware workbench.",
@@ -6314,7 +6362,7 @@
     "slug": "arex2-27b-reflective-agents-budget-feedback",
     "category": "news",
     "title": "AREX-2: 27B reflective agents, feedback and compute budgets",
-    "description": "BAAI’s AREX-2 refines solutions across test-time rounds. Understand what self-improvement means, benchmark limits, 27B serving considerations and tool boundaries.",
+    "description": "BAAI's AREX-2 refines solutions across test-time rounds. Review benchmark limits, serving needs and tool boundaries.",
     "topic": "Reflective AI agents",
     "image": "llm-vram-quantization-photo",
     "imageAlt": "Generated editorial photograph: Graphics card and memory chips on a hardware workbench.",
@@ -6384,8 +6432,8 @@
   {
     "slug": "landreman-analytic-3d-equilibria-ai-plasma",
     "category": "news",
-    "title": "Analytic 3D plasma equilibria: Landreman’s formulas and AI record",
-    "description": "Landreman publishes analytic MHD equilibria, numerical checks and an AI chat record. Understand what the formulas establish and what a reproducible review should test.",
+    "title": "3D plasma equilibria: Landreman formula guide",
+    "description": "Landreman's analytic MHD equilibria: what formulas and numerical checks establish, and what remains to reproduce.",
     "topic": "AI and formal mathematics",
     "image": "rag-vs-stateful-agents-photo",
     "imageAlt": "Generated editorial photograph: Researcher cross-checking source documents against a computer search result.",
@@ -6453,8 +6501,8 @@
   {
     "slug": "worldplay2-interactive-world-model-controls-gpu-license",
     "category": "news",
-    "title": "WorldPlay2: interactive controls, GPU setup and license limits",
-    "description": "WorldPlay2 adds camera actions, semantic events and compressed history to interactive video worlds. Read the public setup, hardware caveats and noncommercial terms.",
+    "title": "WorldPlay2 setup: GPU needs & license limits",
+    "description": "WorldPlay2 adds controls for interactive video worlds. Check setup, GPU caveats and noncommercial license terms.",
     "topic": "Visual AI research",
     "image": "ai-week-oct11-research-photo",
     "imageAlt": "AI-generated editorial illustration of a laptop displaying a room wireframe beside an unbranded robotic gripper and experiment notes.",
@@ -6547,8 +6595,8 @@
   {
     "slug": "msflow-motion-space-flow-text-motion-control",
     "category": "news",
-    "title": "MSFlow: text-to-motion controls without a motion autoencoder",
-    "description": "MotionSpaceFlow generates human motion directly. Understand its two representations, pretrained demos, temporary code release and animation evaluation checklist.",
+    "title": "MSFlow motion generation: setup & evaluation",
+    "description": "MotionSpaceFlow generates human motion directly. Review representations, pretrained demos and evaluation limits.",
     "topic": "Visual AI research",
     "image": "comfyui-3d-graph-photo",
     "imageAlt": "Generated editorial photograph: Digital sculptor inspecting a detailed 3D character model at a workstation.",
@@ -6642,7 +6690,7 @@
     "slug": "kandinsky6-video-audio-lite-pro-hardware",
     "category": "news",
     "title": "Kandinsky 6 Video: Lite vs Pro, audio and GPU planning",
-    "description": "Kandinsky 6.0 combines video and audio generation. Compare Lite and Pro roles, public artifacts, offload examples and what a useful creator trial should measure.",
+    "description": "Compare Kandinsky 6 Lite and Pro, public files, offload examples and what a creator trial should measure.",
     "topic": "Visual AI research",
     "image": "runway-timeline-photo",
     "imageAlt": "Generated editorial photograph: Video editor reviewing a sequence of generated clips on a large editing monitor.",
@@ -6735,7 +6783,7 @@
     "slug": "genia-3d-reconstruction-test-time-alignment",
     "category": "news",
     "title": "GenIA: 3D reconstruction, input alignment and access limits",
-    "description": "GenIA adapts a generative 3D prior to observed images. Understand input alignment, gated dependencies, noncommercial terms and checks before using reconstructed assets.",
+    "description": "GenIA adapts a generative 3D prior to images. Check input alignment, gated dependencies and noncommercial terms.",
     "topic": "Visual AI research",
     "image": "comfyui-3d-graph-photo",
     "imageAlt": "Generated editorial photograph: Digital sculptor inspecting a detailed 3D character model at a workstation.",
@@ -6828,7 +6876,7 @@
     "slug": "iris3b-pixel-image-generation-text-encoder",
     "category": "news",
     "title": "Iris-3B: pixel-space images and the missing memory question",
-    "description": "Iris-3B generates RGB pixels without a VAE. Read the separate text-encoder dependency, public model terms and a useful image-quality and memory evaluation plan.",
+    "description": "Iris-3B generates RGB pixels without a VAE. Review its text encoder dependency, license and memory evaluation plan.",
     "topic": "Visual AI research",
     "image": "comfyui-flux-lora-photo",
     "imageAlt": "AI-generated editorial photograph of an artist using a pen display beside a monitor in a home studio.",
@@ -6921,7 +6969,7 @@
     "slug": "codimrecon-deformable-scene-reconstruction-simulation",
     "category": "news",
     "title": "CoDimRecon: deformable scenes, agents and simulation limits",
-    "description": "CoDimRecon reconstructs curves, surfaces and volumes for simulation. Learn why fitted physics is not measured material data and what to inspect before reproduction.",
+    "description": "CoDimRecon reconstructs deformable 3D scenes for simulation. See why fitted physics is not measured material data.",
     "topic": "Visual AI research",
     "image": "autonomous-science-robotics-photo",
     "imageAlt": "AI-generated editorial photograph of a laboratory robot arm gripping a closed sample holder while a person observes.",
@@ -7018,7 +7066,7 @@
     "slug": "distscene-object-scene-generation-release-status",
     "category": "news",
     "title": "DistScene: object-to-scene generation and release status",
-    "description": "DistScene combines object generation with scene assembly and refinement. Review its research pipeline, compressed previews and forthcoming code and checkpoint status.",
+    "description": "DistScene generates objects and assembles scenes. Check current code and checkpoint availability before planning a run.",
     "topic": "Visual AI research",
     "image": "comfyui-3d-graph-photo",
     "imageAlt": "Generated editorial photograph: Digital sculptor inspecting a detailed 3D character model at a workstation.",
@@ -7103,7 +7151,7 @@
     "slug": "inspatio-world15-camera-controlled-generation",
     "category": "news",
     "title": "InSpatio World 1.5: camera paths, inputs and local setup",
-    "description": "InSpatio World 1.5 turns images or video into camera-controlled views. Review its input modes, depth preparation, coordinate conventions and code-license boundary.",
+    "description": "InSpatio World 1.5 creates camera-controlled views from images or video. See inputs, depth preparation and license limits.",
     "topic": "Visual AI research",
     "image": "google-ai-video-codirector-photo",
     "imageAlt": "Generated editorial photograph: Storyboard sheets and a filmmaker reviewing continuity between video shots.",
@@ -7195,8 +7243,8 @@
   {
     "slug": "sol-refiner-one-step-video-upscaling-speed",
     "category": "news",
-    "title": "SoL-Refiner: one-step video refinement and the speedup caveat",
-    "description": "SoL-Refiner refines a low-resolution draft in one denoising step. Understand the GB200 comparison, output-fidelity checks and why speedup is configuration-specific.",
+    "title": "SoL-Refiner: speedup & output fidelity checks",
+    "description": "SoL-Refiner uses one denoising step for video refinement. Review the GB200 comparison and output-fidelity checks.",
     "topic": "Visual AI research",
     "image": "ai-video-matrix-photo",
     "imageAlt": "Generated editorial photograph: Filmmaker comparing alternate generated video shots on a studio monitor.",
@@ -7290,7 +7338,7 @@
     "slug": "pixelumm-encoder-free-image-video-model",
     "category": "news",
     "title": "PixelUMM: raw pixels, unified tasks and patch artifacts",
-    "description": "PixelUMM combines image and video understanding with generation. Read its encoder-free architecture, documented patch artifacts and sensible evaluation boundaries.",
+    "description": "PixelUMM combines image and video understanding with generation. Review its encoder-free design and patch artifacts.",
     "topic": "Visual AI research",
     "image": "comfy-mcp-agent-photo",
     "imageAlt": "Generated editorial photograph: Creator working with a local AI workflow across two computer monitors.",
@@ -7384,7 +7432,7 @@
     "slug": "dmad-adversarial-distillation-video-image-licenses",
     "category": "news",
     "title": "DMAD: fast visual distillation and mixed code licenses",
-    "description": "DMAD studies adversarial distribution matching for few-step generation. Review its published examples, inference artifacts and the code-license exception for image training.",
+    "description": "DMAD studies adversarial distribution matching for few-step generation. Review examples, inference artifacts and image-training license limits.",
     "topic": "Visual AI research",
     "image": "runway-timeline-photo",
     "imageAlt": "Generated editorial photograph: Video editor reviewing a sequence of generated clips on a large editing monitor.",
@@ -7477,7 +7525,7 @@
     "slug": "pdmd-video-distillation-24gb-host-ram",
     "category": "news",
     "title": "PDMD: four-step video and the 24GB GPU setup caveat",
-    "description": "PDMD changes the distillation update and releases few-step adapters. Read the documented 24GB GPU plus 128GB RAM path and why low VRAM does not mean quick generation.",
+    "description": "PDMD releases few-step video adapters. Review the documented 24GB GPU and 128GB RAM setup and generation trade-offs.",
     "topic": "Visual AI research",
     "image": "ai-video-matrix-photo",
     "imageAlt": "Generated editorial photograph: Filmmaker comparing alternate generated video shots on a studio monitor.",
@@ -7570,7 +7618,7 @@
     "slug": "pami-human-object-motion-contact-generation",
     "category": "news",
     "title": "PAMI: human–object motion and the contact problem",
-    "description": "PAMI couples human motion with object trajectories through body-part anchors. Learn what its contact evaluation means and how to review interaction animations.",
+    "description": "PAMI couples human motion with object paths through body-part anchors. See its contact evaluation and interaction checks.",
     "topic": "Visual AI research",
     "image": "comfyui-3d-graph-photo",
     "imageAlt": "Generated editorial photograph: Digital sculptor inspecting a detailed 3D character model at a workstation.",
@@ -7655,7 +7703,7 @@
     "slug": "point2part-point-prompts-3d-partition-release",
     "category": "news",
     "title": "Point2Part: point-prompted 3D parts and release status",
-    "description": "Point2Part divides a whole shape into jointly predicted parts. Understand point prompts, partitioning versus segmentation and the planned code and checkpoint release.",
+    "description": "Point2Part uses point prompts to divide shapes into parts. Check the method and code or checkpoint release status.",
     "topic": "Visual AI research",
     "image": "comfyui-3d-graph-photo",
     "imageAlt": "Generated editorial photograph: Digital sculptor inspecting a detailed 3D character model at a workstation.",
@@ -7749,7 +7797,7 @@
     "slug": "tactilestep-humanoid-foot-pressure-soft-landings",
     "category": "news",
     "title": "TactileStep: foot-pressure sensing and humanoid landings",
-    "description": "TactileStep uses sole pressure in humanoid locomotion. Review its reported G1 tests, peak-force comparison, forthcoming code and the limits of a safety conclusion.",
+    "description": "TactileStep uses sole pressure for humanoid locomotion. Review reported G1 trials, force comparisons and safety limits.",
     "topic": "Visual AI research",
     "image": "autonomous-science-robotics-photo",
     "imageAlt": "AI-generated editorial photograph of a laboratory robot arm gripping a closed sample holder while a person observes.",
@@ -7842,7 +7890,7 @@
     "slug": "humanoid-badminton-racket-skills-research",
     "category": "news",
     "title": "Humanoid badminton: learned racket skills and demo limits",
-    "description": "Researchers demonstrate forehand, backhand and jump returns using hierarchical learning. Read what the rallies show and what robustness and safety questions remain.",
+    "description": "Researchers demonstrate humanoid badminton returns. See what rallies show and which robustness questions remain.",
     "topic": "Visual AI research",
     "image": "autonomous-science-robotics-photo",
     "imageAlt": "AI-generated editorial photograph of a laboratory robot arm gripping a closed sample holder while a person observes.",

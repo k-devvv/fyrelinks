@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
 import JsonLd, { generateBreadcrumbSchema } from "@/components/JsonLd";
 import { SITE_URL } from "@/lib/editorial";
+import { wildWeightsFaqs } from "@/lib/wildweights-content";
 import WildWeightsDirectory from "./WildWeightsDirectory";
 
 const canonical = "https://www.fyrelinkz.com/wildweights";
 const description =
-  "Find local AI image models, ComfyUI workflows, GGUF quantizations and LoRAs. Check setup notes, GPU memory caveats and source licenses before downloading.";
+  "Local AI image models: Qwen-Image 2.1 ComfyUI workflow, GGUF and LoRA. Check source files, reported VRAM, setup notes and licenses before use.";
 
 export const metadata: Metadata = {
-  title: { absolute: "Local AI Image Models & ComfyUI Guides | WildWeights" },
+  title: { absolute: "Qwen-Image 2.1 ComfyUI, GGUF & LoRA | WildWeights" },
   description,
   alternates: { canonical },
   openGraph: {
-    title: "Local AI Image Models & ComfyUI Guides | WildWeights",
+    title: "Qwen-Image 2.1 ComfyUI, GGUF & LoRA | WildWeights",
     description,
     url: canonical,
     type: "website",
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Local AI Image Models & ComfyUI Guides | WildWeights",
+    title: "Qwen-Image 2.1 ComfyUI, GGUF & LoRA | WildWeights",
     description,
     images: ["/art/wildweights/image-workflow.jpg"],
   },
@@ -54,9 +55,19 @@ export default function WildWeightsPage() {
         }}
       />
       <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: wildWeightsFaqs.map((faq) => ({
+            "@type": "Question",
+            name: faq.q,
+            acceptedAnswer: { "@type": "Answer", text: faq.a },
+          })),
+        }}
+      />
+      <JsonLd
         data={generateBreadcrumbSchema([
           { name: "Home", url: SITE_URL },
-          { name: "Hardware", url: SITE_URL + "/hardware" },
           { name: "WildWeights", url: canonical },
         ])}
       />
