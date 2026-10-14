@@ -3,7 +3,6 @@ import {ArrowUpRight, ArrowRight, Rss, Layers3, Monitor, BookOpen} from "lucide-
 import {NEWS, GUIDES} from "@/lib/posts";
 import {articlePath, formatDate} from "@/lib/editorial";
 import StoryCard from "@/components/StoryCard";
-import AdSlot from "@/components/AdSlot";
 export default function Home() {
   return <div className="wrap home">
     <section className="home-intro">
@@ -31,7 +30,6 @@ export default function Home() {
     <div className="section-heading compact-heading"><h2>On the radar</h2><Link href="/news">All news <ArrowRight size={16}/></Link></div>
     <section className="hero-grid" aria-label="Featured stories"><StoryCard post={NEWS[0]} variant="lead" priority/><div className="hero-side">{NEWS.slice(1,3).map(p=><StoryCard key={p.slug} post={p} variant="compact"/>)}</div></section>
     <nav className="discovery-grid" aria-label="Explore FyreLinkz core pillars"><Link href="/create/ai-video-prompt-guide-examples"><Layers3/><div><strong>AI Video Direction</strong><span>Six reproducible prompt structures & shot economics.</span></div><ArrowUpRight/></Link><Link href="/hardware/best-local-ai-workstation-build-guide-2026"><Monitor/><div><strong>Local AI Hardware</strong><span>Workload-first VRAM thresholds & multi-GPU sizing.</span></div><ArrowUpRight/></Link><Link href="/workflow/comfyui-beginner-first-workflow-guide"><BookOpen/><div><strong>ComfyUI Graph Workflows</strong><span>Crash-free node baselines & step-by-step triage.</span></div><ArrowUpRight/></Link></nav>
-    <AdSlot placement="home"/>
     <section className="guide-section"><div className="section-heading"><div><span className="eyebrow">FROM RESEARCH TO YOUR NEXT RENDER</span><h2>Learn something. Make something.</h2></div><Link href="/create">Explore guides <ArrowRight size={16}/></Link></div><div className="guide-grid">{GUIDES.map(p=><StoryCard key={p.slug} post={p}/>)}</div></section>
     <div className="middle-grid"><section className="latest"><div className="section-heading"><h2>Latest dispatches</h2><Link href="/news">Newsroom ↗</Link></div>{NEWS.map((p,i)=><article className="news-row" key={p.slug}><span className="news-number">0{i+1}</span><div><div className="story-meta"><span className="eyebrow topic">{p.topic}</span><time dateTime={p.publishedAt}>{formatDate(p.publishedAt)}</time></div><h3><Link href={articlePath(p)}>{p.title}</Link></h3><p>{p.metaDescription}</p></div><Link href={articlePath(p)} className="row-arrow" aria-label={`Read: ${p.title}`}>↗</Link></article>)}</section></div>
     <section className="rss-banner"><Rss size={30}/><div><span className="eyebrow">KEEP YOUR EDGE</span><h2>Good reads. Straight to your feed.</h2><p>Follow the next release, useful guide and source-backed update in your RSS reader.</p></div><a href="/rss" className="button-secondary">Follow FyreLinkz <ArrowUpRight size={17}/></a></section>
