@@ -121,11 +121,11 @@
     "image": "frontier-ai-benchmark-photo",
     "imageAlt": "AI-generated editorial photograph of researchers reviewing notes at a generic AI evaluation workspace.",
     "eventDate": "2026-10-12",
-    "takeaway": "Meta announced Muse Wonder and Muse Wonder Full on October 12. Its launch names the Meta Model API and Muse Code for Wonder, and Muse Code subscribers for Full. The access distinction matters more than a family name when deciding which model you can actually evaluate.",
+    "takeaway": "Meta's Muse Wonder and Wonder Full have different launch access routes. Confirm the model exposed by your product before evaluating memory, tool permissions or quality.",
     "sections": [
       {
         "heading": "Wonder and Wonder Full have different access paths",
-        "content": "Meta's launch announcement describes Wonder through the Meta Model API and Muse Code, while Full is available to Muse Code subscribers. It also describes a later subscriber-first rollout into Muse. Do not turn that future-facing rollout language into universal availability. This article does not quote unverified API prices or claim downloadable weights.",
+        "content": "Meta's October 12 launch names the Meta Model API and Muse Code for Wonder, and Muse Code subscribers for Full. A subscriber-first Muse rollout is described as forthcoming. Our planning rule is to verify present access rather than treating a future rollout as a feature already in your account. No unverified API price or downloadable-weight claim is included here.",
         "table": {
           "headers": [
             "Model",
@@ -156,7 +156,7 @@
       },
       {
         "heading": "What Active Memory and Active Focus mean for evaluation",
-        "content": "Meta describes Active Memory as retaining relevant information across conversations and Active Focus as persisting through difficult work. These are vendor feature descriptions. Our evaluation question is whether a remembered detail is correct, relevant and still authorized for the new task. Persistence is useful only when the agent also recognizes a changed instruction or a reason to stop.",
+        "content": "Meta describes Active Memory for relevant information across conversations and Active Focus for persistence on difficult tasks. Our evaluation question is whether a remembered detail is correct, relevant and still authorized for the new task. Persistence is useful only when the agent also recognizes a changed instruction or a reason to stop.",
         "sourceIds": [
           1
         ]
