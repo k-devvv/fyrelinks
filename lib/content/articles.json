@@ -5167,69 +5167,209 @@
   {
     "slug": "gemini4-argon-access-fairwind-introductory-pricing",
     "category": "news",
-    "title": "Gemini 4 Argon access & API pricing",
-    "description": "Gemini 4 Argon’s phased Fairwind access and announced introductory rates explained, with careful output-limit wording and a bounded evaluation plan.",
+    "title": "Gemini 4 Argon: access, API pricing & what changed",
+    "description": "Gemini 4 Argon is rolling out beyond Fairwind. Compare Gemini app, API and Antigravity access, token prices, caching and practical migration checks.",
     "topic": "AI models",
     "image": "frontier-ai-benchmark-photo",
     "imageAlt": "Generated editorial photograph: Researchers comparing generated image samples and evaluation notes.",
     "publishedAt": "2026-10-12",
-    "updatedAt": "2026-10-12",
-    "sourceCheckedAt": "2026-10-11",
+    "updatedAt": "2026-10-14",
+    "sourceCheckedAt": "2026-10-14",
     "featured": false,
-    "takeaway": "Gemini 4 Argon’s announcement describes a phased release, not universal consumer access. Separate access status, announced introductory pricing and independently measured workload value before planning adoption.",
+    "takeaway": "Google expanded Gemini 4 Argon access on October 13, 2026. Gemini app access includes Google AI Pro and Ultra; developer use follows separate paid API terms. Introductory API rates are $2 per million input tokens and $10 per million output tokens through November 30. Check your product and account before buying.",
     "sections": [
       {
-        "heading": "What Google announced on September 30",
-        "content": "Google describes Argon as a frontier model for sustained professional workflows, initially rolling out to trusted cyber defenders through the Fairwind Program. It announces an introductory $2 input and $10 output per million tokens, with cached input 95% below the input rate. Its later September recap describes a one-million-token output limit. Do not silently substitute context-window terminology or describe those rates as a generally available billing offer for every account.",
+        "heading": "What changed: Argon moves beyond the Fairwind rollout",
+        "content": "The important update is access. Google's October 13 developer announcement opens the paid Gemini API to builders, while its app announcement includes Pro and Ultra subscribers. Our October 12 version described the earlier limited rollout; this update replaces that access guidance. Google positions Argon for demanding coding and knowledge work. That is a product claim, not a FyreLinkz performance result. We have not independently benchmarked the model.",
         "sourceIds": [
           1,
           2
         ]
       },
       {
-        "heading": "A rollout is not an integration plan",
-        "content": "Our first planning question is whether the intended organization and workflow can actually obtain access. Record the access path, approved use and applicable terms before estimating deployment dates. A public article and a marketing demo are evidence of an announcement, not evidence of an API credential in your account. If access remains unavailable, build an evaluation packet that can be run later rather than presenting a mock connection as a working system."
+        "heading": "How can you access Gemini 4 Argon?",
+        "content": "The Gemini app, developer API and Antigravity are different entry points. An app subscription should not be treated as an API credit balance or a promise of identical tools. Google's developer documentation also says Argon is unavailable on the API Free tier and refers to restrictions on the Pro plan; its app announcement separately includes Pro. Read those statements in their product context rather than assuming one plan unlocks everything.",
+        "table": {
+          "headers": [
+            "Entry point",
+            "Access described by Google",
+            "Check before starting"
+          ],
+          "rows": [
+            [
+              "Gemini app",
+              "Google AI Pro and Ultra",
+              "Account rollout and app usage limits"
+            ],
+            [
+              "Gemini API",
+              "Paid tier",
+              "Billing, quotas and supported model ID"
+            ],
+            [
+              "Google Antigravity",
+              "Google AI Ultra in the rollout announcement",
+              "Product eligibility and available usage"
+            ]
+          ]
+        },
+        "sourceIds": [
+          1,
+          2,
+          3
+        ]
       },
       {
-        "heading": "Long outputs need a review strategy",
-        "content": "A large output ceiling can be useful for extended work, but length is not a quality metric. Our recommendation is to divide an investigation into inspectable deliverables: evidence inventory, analysis, proposed change and verification record. Review conflicts before asking for an expanded report. A very long response can make mistakes harder to locate if its sources and assumptions are not organized. Define an acceptance condition for each deliverable instead of rewarding the largest output."
+        "heading": "Gemini 4 Argon API pricing: introductory versus December rates",
+        "content": "Prices below are USD per million tokens, as checked October 14. Google's pricing documentation lists a temporary introduction period. Do not turn that offer into an undated evergreen price. Output billing includes thinking tokens. API costs and consumer subscription prices are separate.",
+        "table": {
+          "headers": [
+            "Token category",
+            "Through November 30, 2026",
+            "Starting December 1, 2026"
+          ],
+          "rows": [
+            [
+              "Standard input",
+              "$2.00",
+              "$4.00"
+            ],
+            [
+              "Cached input on eligible cache hits",
+              "$0.10",
+              "$0.20"
+            ],
+            [
+              "Output, including thinking",
+              "$10.00",
+              "$20.00"
+            ]
+          ]
+        },
+        "sourceIds": [
+          4
+        ]
       },
       {
-        "heading": "Interpret introductory rates as a scenario",
-        "content": "Using the announced standard rates, 100,000 input and 10,000 output tokens would imply $0.30 in a simplified calculation before other charges. That is arithmetic based on the announcement, not a verified invoice or commitment about future pricing. Our suggested budget keeps access status and rate validity beside the estimate. Actual request behavior, caching, retries, tools and review effort still need measurement before a production forecast can be trusted."
+        "heading": "A worked budget: $0.30 is a scenario, not a complete task bill",
+        "content": "Our arithmetic example uses 100,000 uncached input tokens and 10,000 billable output tokens. At the introductory rates, input costs $0.20 and output costs $0.10, for $0.30. At the December rates the same quantities total $0.60. This is calculated from published rates, not an observed invoice. Extra attempts, additional thinking, tools and grounding can change the bill. Keep their charges outside this simplified token-only estimate.",
+        "checklist": [
+          "Record actual input, cached input and billable output for each attempt.",
+          "Count unsuccessful runs and retries, not just the accepted answer.",
+          "Compare total spend divided by accepted tasks.",
+          "Add the human review time needed to correct mistakes."
+        ],
+        "sourceIds": [
+          4
+        ]
       },
       {
-        "heading": "Choose a bounded professional task",
-        "content": "For a lawful software-maintenance trial, provide an existing issue, a small repository and checks that detect the reported failure. Require a reviewable patch and explain any missing evidence. Do not grant broad execution permissions solely because a model is described as frontier. We have not evaluated Argon. Compare the [GPT-6.1 Sol cost worksheet](/news/gpt61-sol-api-cache-costs) on equivalent tasks only after access and evaluation conditions are understood; similar token rates cannot establish equal completion quality. Retain failed attempts in that comparison rather than publishing only the cleanest result."
+        "heading": "Context, long output and generation limits are different",
+        "content": "The model page specifies a unified 1,048,576-token input-and-output window, a default synchronous maximum output of 65,536 tokens and longer decode up to 1,048,576. Those are ceilings with execution conditions, not a promise that maximum input and maximum output fit together. The same page lists multimodal inputs and text output; it does not list native image or audio generation. Do not confuse reasoning about a video with generating a finished video.",
+        "sourceIds": [
+          5
+        ]
+      },
+      {
+        "heading": "Moving an integration: check caching and thinking first",
+        "content": "Use the model ID gemini-4-argon. Google's migration guide describes low, medium and high thinking settings, implicit caching and changes to supported request parameters. Explicit context caching is not supported. Our recommendation is to migrate one staging workflow before changing production: inventory the old request, compare it with the current guide, then record failures and costs. Keep API keys on the server and avoid pasting them into prompts.",
+        "checklist": [
+          "Confirm the model is available in the intended billing project.",
+          "Review explicit caching calls before switching model IDs.",
+          "Test the three thinking levels on the same acceptance criteria.",
+          "Check background execution requirements for long responses.",
+          "Retain a rollback path to the previous working configuration."
+        ],
+        "sourceIds": [
+          3
+        ]
+      },
+      {
+        "heading": "What the coding, robotics and safety claims actually establish",
+        "content": "Google's broader launch report describes engineering and robotics demonstrations, including a video-to-simulation-to-robot workflow. These are reported demonstrations under particular conditions; they do not establish that any robot can safely learn an arbitrary physical task. Google's safety report discusses safeguards and prompt injection resistance. Neither a benchmark nor a safety report removes the need for bounded permissions. For a first trial, use a small software issue, require a reviewable patch and run checks you control. Ask for confirmation before external publishing, spending or destructive actions.",
+        "sourceIds": [
+          6,
+          7
+        ]
+      },
+      {
+        "heading": "Should you switch today? Run a small, repeatable comparison",
+        "content": "Start with five representative tasks and define success before testing. Give each candidate the same evidence and budget, then record correctness, completion time, retries and reviewer effort. Keep a simple baseline: your current workflow may remain cheaper for routine work. Compare our [GPT-6.1 Sol cost guide](/news/gpt61-sol-api-cache-costs) and [Claude Haiku 5.5 pricing guide](/news/claude-haiku55-api-pricing-prompt-length) for related evaluation questions, but recheck each provider's current billing terms. Similar token prices do not prove equal results. The useful decision is which workflow produces acceptable work at an affordable total cost."
       }
     ],
     "sources": [
       {
-        "publisher": "Google DeepMind / Google Blog",
-        "title": "Introducing Gemini 4 Argon",
-        "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/"
+        "publisher": "Google Blog",
+        "title": "Gemini 4 Argon is now available for developers",
+        "url": "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-4-argon/",
+        "publishedAt": "2026-10-13"
       },
       {
         "publisher": "Google Blog",
-        "title": "September AI updates",
-        "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-september-2026/"
+        "title": "Gemini 4 Argon comes to the Gemini app",
+        "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-4-argon-availability/",
+        "publishedAt": "2026-10-13"
+      },
+      {
+        "publisher": "Google AI for Developers",
+        "title": "What's new in Gemini 4 Argon",
+        "url": "https://ai.google.dev/gemini-api/docs/latest-model"
+      },
+      {
+        "publisher": "Google AI for Developers",
+        "title": "Gemini Developer API pricing",
+        "url": "https://ai.google.dev/gemini-api/docs/pricing"
+      },
+      {
+        "publisher": "Google AI for Developers",
+        "title": "Gemini 4 Argon model specifications",
+        "url": "https://ai.google.dev/gemini-api/docs/models/gemini-4-argon"
+      },
+      {
+        "publisher": "Google Blog",
+        "title": "Gemini 4 Argon: Built to solve your hardest problems",
+        "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+        "publishedAt": "2026-10-13"
+      },
+      {
+        "publisher": "Google Blog",
+        "title": "Developing Gemini 4 Argon responsibly and safely",
+        "url": "https://blog.google/innovation-and-ai/technology/safety-security/gemini-4-model-safety-security/",
+        "publishedAt": "2026-10-13"
       }
     ],
     "faqs": [
       {
-        "question": "Is Argon universally available according to the announcement?",
-        "answer": "No. Google describes an initial trusted-defender rollout and phased expansion."
+        "question": "Is Gemini 4 Argon available now?",
+        "answer": "Google announced broader access on October 13, 2026. It lists paid API access and Gemini app availability for Google AI Pro and Ultra subscribers. Check the intended product and your account."
       },
       {
-        "question": "Should I call the stated million-token limit a context window?",
-        "answer": "The cited recap describes an output limit; preserve that wording rather than inventing an equivalence."
+        "question": "Is Gemini 4 Argon free?",
+        "answer": "The developer documentation says Argon is not on the API Free tier. The app announcement names paid Pro and Ultra subscriptions. App access and API billing are separate."
       },
       {
-        "question": "How should I use the announced prices?",
-        "answer": "Treat them as a dated scenario until access and the applicable current billing terms are verified."
+        "question": "How much does the Gemini 4 Argon API cost?",
+        "answer": "Through November 30, 2026, published standard rates are $2 per million input tokens and $10 per million output tokens, including thinking. They become $4 and $20 respectively on December 1. Eligible cached input has a separate lower rate."
+      },
+      {
+        "question": "Does Google AI Pro include Argon API usage?",
+        "answer": "Do not assume that. Google announces Pro access in the Gemini app; the developer route uses separate paid API terms. Confirm eligibility and billing for the product you intend to use."
+      },
+      {
+        "question": "Can Gemini 4 Argon generate images or audio?",
+        "answer": "The model specification lists text output and says image generation and audio generation are not supported. Understanding image, audio or video inputs is different from generating those media."
+      },
+      {
+        "question": "Does the million-token limit mean unlimited input plus output?",
+        "answer": "No. Google specifies a unified input-and-output limit. Default synchronous output and long decode also have different limits and execution requirements."
+      },
+      {
+        "question": "Has FyreLinkz tested Gemini 4 Argon?",
+        "answer": "No independent benchmark is claimed. This article combines Google's current primary sources with our own budget arithmetic and suggested evaluation checklist."
       }
     ],
-    "imageCaption": "AI-generated editorial illustration of a generic workspace. Not a product screenshot, provider facility or benchmark from the model discussed."
+    "imageCaption": "AI-generated editorial illustration of a generic workspace. Not a product screenshot, provider facility or benchmark from the model discussed.",
+    "eventDate": "2026-10-13"
   },
   {
     "slug": "elevenlabs-v4-turbo-speech-workflow",
