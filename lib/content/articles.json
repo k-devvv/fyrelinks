@@ -4,14 +4,14 @@
     "updatedAt": "2026-10-14",
     "sourceCheckedAt": "2026-10-14",
     "featured": false,
-    "imageCaption": "AI-generated editorial photograph of a generic workspace. Illustrative only; not a product photograph, provider facility or test result.",
+    "imageCaption": "Illustrative laptop image, not an RTX Spark product photograph or a FyreLinkz test result.",
     "slug": "rtx-spark-laptops-local-ai-buying-checklist",
     "category": "hardware",
     "title": "RTX Spark laptops: local AI buying checks before launch",
     "description": "RTX Spark laptops arrive October 16. Check unified memory, software compatibility, sustained performance and total costs before choosing a local AI PC.",
     "topic": "Local AI hardware",
     "image": "rtx-4050-laptop-photo",
-    "imageAlt": "AI-generated editorial photograph of a generic laptop workstation; not an RTX Spark product image.",
+    "imageAlt": "Illustrative laptop computer with a discrete graphics processor; not an RTX Spark product photograph or benchmark setup.",
     "eventDate": "2026-10-13",
     "takeaway": "NVIDIA says RTX Spark laptops launch October 16, with configurations offering up to 128GB unified memory. That capacity is a reason to investigate larger local models, not proof of fast inference. Before buying, verify your exact model, runtime, sustained performance and the configuration actually being sold.",
     "sections": [
@@ -408,14 +408,14 @@
     "updatedAt": "2026-10-14",
     "sourceCheckedAt": "2026-10-14",
     "featured": false,
-    "imageCaption": "AI-generated editorial photograph of a generic workspace. Illustrative only; not a product photograph, provider facility or test result.",
+    "imageCaption": "Illustrative hardware photography, not a tested FyreLinkz build.",
     "slug": "local-vs-cloud-ai-cost-per-accepted-task",
     "category": "stack",
     "title": "Local vs cloud AI costs: a worksheet for small teams",
     "description": "Compare local hardware and hosted AI using cost per accepted task. Include retries, energy, subscriptions and review time with a clearly labeled example.",
     "topic": "AI business costs",
     "image": "local-ai-pc-upgrade-photo",
-    "imageAlt": "AI-generated editorial photograph of a generic desktop computer workspace illustrating an AI budget comparison.",
+    "imageAlt": "Close-up photograph of a processor seated in a desktop motherboard socket.",
     "takeaway": "Compare local and cloud AI by total cost per accepted task, not by an isolated token price or GPU specification. Include hardware allocation, electricity, service fees, retries and human review. The arithmetic example below uses invented inputs to show the method; it is not a market quote or benchmark.",
     "sections": [
       {
@@ -532,7 +532,9 @@
         "question": "Does local AI always cost less than an API?",
         "answer": "No. Utilization, hardware, energy, output quality, retries and review effort can change the result."
       }
-    ]
+    ],
+    "imageCreditName": "Roman Spiridonov",
+    "imageCreditUrl": "https://unsplash.com/photos/gray-and-green-computer-processor-FemeYrbdMWE"
   },
   {
     "slug": "samsung-littlebit-sub-1-bit-llm-compression",
