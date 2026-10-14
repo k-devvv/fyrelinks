@@ -182,3 +182,6 @@
 .cardBody>p:not(.kicker) { font-size:12px; min-height:60px; }
 @media(min-width:1400px) { .cards { grid-template-columns:repeat(3,minmax(0,1fr)); max-width:1180px; } }
 @media(max-width:620px) { .main { padding-inline:16px; } .brandbar { position:static; } .hero { grid-template-columns:1fr; } .hero h1 { font-size:32px; } .note strong br { display:none; } }
+
+/* Non-explicit editorial thumbnails are visible without a reveal step. */
+.artImage { filter: none; }
