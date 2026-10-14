@@ -15,7 +15,6 @@ export default function WildWeightsDirectory() {
   const [kind, setKind] = useState("All models");
   const [memory, setMemory] = useState("All memory notes");
   const [sort, setSort] = useState("Curated order");
-  const [blurred, setBlurred] = useState(true);
   const [saved, setSaved] = useState<string[]>([]);
   const [savedOnly, setSavedOnly] = useState(false);
   const visibleEntries = useMemo(() => {
@@ -44,7 +43,6 @@ export default function WildWeightsDirectory() {
       </section>
       <section id="directory" className={styles.directory} aria-labelledby="directory-title">
         <div className={styles.sectionHead}><div><p className={styles.kicker}>THE COLLECTION</p><h2 id="directory-title">Explore local models</h2></div>
-          <button type="button" className={styles.filter} aria-pressed={!blurred} disabled={!ageAccepted} onClick={() => setBlurred(!blurred)}>{blurred ? "◉ Previews blurred" : "◎ Previews visible"}</button>
         </div>
         <div className={styles.toolbar}>
           <label className={styles.search}><span>Search the collection</span><input type="search" value={query} onChange={e=>setQuery(e.target.value)} placeholder="Search Qwen, GGUF, LoRA…"/></label>
@@ -54,10 +52,9 @@ export default function WildWeightsDirectory() {
         <div className={styles.filterrow}><div className={styles.filters} aria-label="Model type">{["All models","Base model","Quantization","Adapter"].map(filter=><button type="button" key={filter} aria-pressed={kind===filter} className={kind===filter?styles.selected:styles.filter} onClick={()=>setKind(filter)}>{filter}</button>)}</div><span aria-live="polite">{visibleEntries.length} of {entries.length} entries{savedOnly ? " · Saved" : ""}</span></div>
         {visibleEntries.length ? <div className={styles.cards}>{visibleEntries.map(entry=><article className={styles.card} key={entry.slug}>
           <div className={styles.art}>
-            <Image className={blurred?styles.blurredImage:styles.artImage} src={entry.image} alt={entry.imageAlt} fill sizes="(max-width: 620px) 100vw, (max-width: 1000px) 50vw, 33vw"/>
+            <Image className={styles.artImage} src={entry.image} alt={entry.imageAlt} fill sizes="(max-width: 620px) 100vw, (max-width: 1000px) 50vw, 33vw"/>
             <span className={styles.artLabel}>AI EDITORIAL · NON-EXPLICIT</span>
             <button type="button" className={styles.save} aria-label={(saved.includes(entry.slug)?"Unsave ":"Save ")+entry.name} aria-pressed={saved.includes(entry.slug)} onClick={()=>setSaved(prev=>prev.includes(entry.slug)?prev.filter(id=>id!==entry.slug):[...prev,entry.slug])}>{saved.includes(entry.slug)?"♥":"♡"}</button>
-            {blurred && <span className={styles.blurLabel}>PREVIEW HIDDEN<br/><small>Use the preview control to reveal</small></span>}
             <span className={styles.typeBadge}>{entry.kind}</span>
           </div>
           <div className={styles.cardBody}><p className={styles.kicker}>QWEN-IMAGE FAMILY</p><h3><Link href={"/wildweights/"+entry.slug}>{entry.name}</Link></h3><p>{entry.summary}</p><div className={styles.memory}><strong>{entry.kind==="Quantization"?"6–8 GB · publisher estimate":"VRAM · not independently measured"}</strong><span>License: check source and dependencies</span></div><Link href={"/wildweights/"+entry.slug}>View model & setup ↗</Link></div>
