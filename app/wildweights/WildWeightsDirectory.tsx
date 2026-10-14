@@ -40,7 +40,7 @@ export default function WildWeightsDirectory() {
           <p className={styles.intro}>Local AI image models, GGUF weights and LoRA adapters. Explore the look. Understand the files. Make it yours.</p>
           <a className={styles.primary} href="#directory">Explore models ↘</a>
         </div>
-        <aside className={styles.note}><span className={styles.kicker}>THE SMALL PRINT, UP FRONT</span><strong>Creative freedom.<br/>Clear boundaries.</strong><p>Three sourced entries. Non-explicit editorial previews. No hosted generation or community uploads.</p><small>Source review · 12 October 2026</small></aside>
+        <aside className={styles.note}><span className={styles.kicker}>THE SMALL PRINT, UP FRONT</span><strong>Creative freedom.<br/>Clear boundaries.</strong><p>Three sourced entries. Non-explicit previews only: clothed adult portraits, creative tools and character studies.</p><small>Source review · 12 October 2026</small></aside>
       </section>
       <section id="directory" className={styles.directory} aria-labelledby="directory-title">
         <div className={styles.sectionHead}><div><p className={styles.kicker}>THE COLLECTION</p><h2 id="directory-title">Explore local models</h2></div>
@@ -67,7 +67,7 @@ export default function WildWeightsDirectory() {
       <section className={styles.answer} aria-labelledby="answer-title"><p className={styles.kicker}>START WITH THE WORKFLOW</p><h2 id="answer-title">What is WildWeights?</h2><p>A curated directory for running AI image models locally: Qwen-Image 2.1 in ComfyUI, a GGUF quantization and an anime-consistency LoRA. Check the source, loader and license before downloading.</p><Link href="/workflow/comfyui-beginner-first-workflow-guide">Your first ComfyUI image: setup guide →</Link><p className={styles.answerNote}>Memory figures are publisher estimates unless explicitly independently tested. We do not host weights or provide inference.</p></section>
       {ageAccepted && <WildWeightsExoclickAd/>}
       <section className={styles.faq} aria-labelledby="faq-title"><div><p className={styles.kicker}>BEFORE YOU DOWNLOAD</p><h2 id="faq-title">A little context.<br/>A better first run.</h2></div><div className={styles.faqList}>{faqs.map(item=><article key={item.q} className={styles.faqItem}><h3>{item.q}</h3><p>{item.a}{item.link && <> <a href={item.link} target="_blank" rel="noreferrer">{item.linkLabel}</a>.</>}</p></article>)}</div></section>
-      <p className={styles.disclosure}>Independent directory. Adults only; non-explicit content. Review publisher terms. AI-generated editorial previews are not model performance evidence. Age self-declaration does not grant advertising consent.</p>
+      <p className={styles.disclosure}>Non-explicit collection only. No nudity, sexual acts, sexualized minors or exploitative imagery. Model inclusion does not endorse every possible output or every image on an external source. Preview images are original AI-generated editorial illustrations, not model performance evidence. Review publisher terms. Age self-declaration does not grant advertising consent.</p>
     </div><AgeGate accepted={ageAccepted} onAccept={handleAgeAccept}/>
   </div>;
 }
