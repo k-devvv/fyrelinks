@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { galleryEntries } from "@/lib/wildweights-gallery";
 import { POSTS, CATEGORIES } from "@/lib/posts";
 import { SITE_URL, articlePath } from "@/lib/editorial";
 
@@ -18,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: SITE_URL + "/" + path,
       ...(path === "wildweights" ? { lastModified: new Date("2026-10-13T00:00:00Z") } : {})
     })),
+    ...galleryEntries.map(entry => ({ url: SITE_URL + "/wildweights/" + entry.slug, lastModified: new Date("2026-10-13T00:00:00Z") })),
     ...CATEGORIES.map(category => {
       const lastModified = latestUpdate(POSTS.filter(post => post.category === category.slug));
       return {
