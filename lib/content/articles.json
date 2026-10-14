@@ -1,5 +1,540 @@
 [
   {
+    "publishedAt": "2026-10-14",
+    "updatedAt": "2026-10-14",
+    "sourceCheckedAt": "2026-10-14",
+    "featured": false,
+    "imageCaption": "AI-generated editorial photograph of a generic workspace. Illustrative only; not a product photograph, provider facility or test result.",
+    "slug": "rtx-spark-laptops-local-ai-buying-checklist",
+    "category": "hardware",
+    "title": "RTX Spark laptops: local AI buying checks before launch",
+    "description": "RTX Spark laptops arrive October 16. Check unified memory, software compatibility, sustained performance and total costs before choosing a local AI PC.",
+    "topic": "Local AI hardware",
+    "image": "rtx-4050-laptop-photo",
+    "imageAlt": "AI-generated editorial photograph of a generic laptop workstation; not an RTX Spark product image.",
+    "eventDate": "2026-10-13",
+    "takeaway": "NVIDIA says RTX Spark laptops launch October 16, with configurations offering up to 128GB unified memory. That capacity is a reason to investigate larger local models, not proof of fast inference. Before buying, verify your exact model, runtime, sustained performance and the configuration actually being sold.",
+    "sections": [
+      {
+        "heading": "What NVIDIA has announced—and what is still a buying question",
+        "content": "NVIDIA's October 7 announcement gives an October 16 laptop availability date and November timing for compact desktops. Its October 13 software update describes ecosystem readiness. These are vendor announcements ahead of the laptop launch, not our review of a shipping retail system. We have not tested RTX Spark. Confirm delivery dates, regional stock and the specification of the exact device you are considering.",
+        "sourceIds": [
+          1,
+          2
+        ]
+      },
+      {
+        "heading": "Unified memory: capacity is only the first check",
+        "content": "Our recommendation is to separate three questions: will the workload fit, will the runtime support it, and will it finish quickly enough? A memory figure cannot answer all three. Leave room for the operating system, application buffers and context growth. Ask for a demonstration using the intended model and quantization, rather than a smaller model presented under a similar family name.",
+        "table": {
+          "headers": [
+            "Buying question",
+            "Useful evidence",
+            "Weak substitute"
+          ],
+          "rows": [
+            [
+              "Will my workload fit?",
+              "Peak memory for the full workflow",
+              "Weight-file size alone"
+            ],
+            [
+              "Will it run?",
+              "Exact runtime and dependency versions",
+              "A broad compatibility logo"
+            ],
+            [
+              "Is it fast enough?",
+              "Repeated tasks at the chosen settings",
+              "Peak compute specification"
+            ],
+            [
+              "Is it portable?",
+              "Measured battery use for that workload",
+              "An idle battery-life claim"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "Software readiness is workload-specific",
+        "content": "NVIDIA lists tools including PyTorch, Python and CUDA among the supported developer stack. Treat that as a starting point for checking your own dependencies. A Python application may also rely on compiled extensions, particular wheels, plugins or external services. Save the version list and installation instructions that produced the demonstration. Avoid assuming a successful chat-model run proves an entire video workflow is ready.",
+        "sourceIds": [
+          2
+        ]
+      },
+      {
+        "heading": "Ask for sustained tests, not a single impressive response",
+        "content": "For your own comparison, repeat a representative task several times and record warm-up, time to first output, total completion time and failures. Use the same prompt or input asset, output size and acceptance criteria on the alternatives. Watch for quality changes hidden behind a speed claim. If you need quiet operation or battery use, request those measurements under load. These are suggested evaluation methods, not measurements we have collected.",
+        "checklist": [
+          "Name the model, quantization, runtime and context length.",
+          "Record the complete workload, including encoders and post-processing.",
+          "Check whether cloud calls are still required.",
+          "Compare actual retailer configurations and return terms."
+        ]
+      },
+      {
+        "heading": "When waiting is the cheaper decision",
+        "content": "If your current system already finishes the work within your budget, a launch is not a reason to replace it. Keep a list of jobs that genuinely fail because of memory or latency, then evaluate a new machine against that list. Start with our [workload-first workstation guide](/hardware/best-local-ai-workstation-build-guide-2026) and [local-versus-cloud cost worksheet](/stack/local-vs-cloud-ai-cost-per-accepted-task). Regional prices, tax and warranty can change the decision; this article does not provide verified retailer quotes."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "NVIDIA",
+        "title": "RTX Spark and Microsoft Windows announcement",
+        "url": "https://blogs.nvidia.com/blog/local-ai-rtx-spark-microsoft-windows-event/",
+        "publishedAt": "2026-10-07"
+      },
+      {
+        "publisher": "NVIDIA",
+        "title": "RTX Spark software ecosystem updates",
+        "url": "https://blogs.nvidia.com/blog/local-ai-rtx-spark-laptops-software-updates/",
+        "publishedAt": "2026-10-13"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "When are RTX Spark laptops due?",
+        "answer": "NVIDIA announced October 16, 2026 availability. Check regional retailers and the exact configuration; an announced date is not a stock guarantee."
+      },
+      {
+        "question": "Does 128GB unified memory guarantee fast AI?",
+        "answer": "No. Capacity, runtime compatibility, sustained speed and output quality are separate questions."
+      },
+      {
+        "question": "Has FyreLinkz reviewed RTX Spark hardware?",
+        "answer": "No. This is a source-based buying checklist, not a hands-on hardware review."
+      }
+    ]
+  },
+  {
+    "publishedAt": "2026-10-14",
+    "updatedAt": "2026-10-14",
+    "sourceCheckedAt": "2026-10-14",
+    "featured": false,
+    "imageCaption": "AI-generated editorial photograph of a generic workspace. Illustrative only; not a product photograph, provider facility or test result.",
+    "slug": "meta-muse-wonder-full-access-memory-agent-checks",
+    "category": "news",
+    "title": "Meta Muse Wonder vs Wonder Full: access and agent checks",
+    "description": "Meta launched Muse Wonder and Wonder Full on October 12. Compare announced access paths and learn what to check before trusting memory-enabled agents.",
+    "topic": "AI agents",
+    "image": "frontier-ai-benchmark-photo",
+    "imageAlt": "AI-generated editorial photograph of researchers reviewing notes at a generic AI evaluation workspace.",
+    "eventDate": "2026-10-12",
+    "takeaway": "Meta announced Muse Wonder and Muse Wonder Full on October 12. Its launch names the Meta Model API and Muse Code for Wonder, and Muse Code subscribers for Full. The access distinction matters more than a family name when deciding which model you can actually evaluate.",
+    "sections": [
+      {
+        "heading": "Wonder and Wonder Full have different access paths",
+        "content": "Meta's launch announcement describes Wonder through the Meta Model API and Muse Code, while Full is available to Muse Code subscribers. It also describes a later subscriber-first rollout into Muse. Do not turn that future-facing rollout language into universal availability. This article does not quote unverified API prices or claim downloadable weights.",
+        "table": {
+          "headers": [
+            "Model",
+            "Announced route",
+            "Planning implication"
+          ],
+          "rows": [
+            [
+              "Muse Wonder",
+              "Meta Model API and Muse Code",
+              "Check API eligibility and applicable terms"
+            ],
+            [
+              "Muse Wonder Full",
+              "Muse Code subscribers",
+              "Do not assume identical API availability"
+            ],
+            [
+              "Future Muse experiences",
+              "Subscriber-first rollout described",
+              "Verify the feature in your own account"
+            ]
+          ]
+        },
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "What Active Memory and Active Focus mean for evaluation",
+        "content": "Meta describes Active Memory as retaining relevant information across conversations and Active Focus as persisting through difficult work. These are vendor feature descriptions. Our evaluation question is whether a remembered detail is correct, relevant and still authorized for the new task. Persistence is useful only when the agent also recognizes a changed instruction or a reason to stop.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "A practical memory test using fictional data",
+        "content": "Use a made-up project with a budget, a deadline and two conflicting drafts. Ask the assistant to summarize what it believes is current, then change one constraint. On the next task, inspect whether it uses the update or an outdated assumption. Ask it to identify uncertainty instead of filling a gap with a plausible detail. This is a proposed test; we have not run it on Muse Wonder.",
+        "checklist": [
+          "Use fictional names and documents during the first trial.",
+          "Record the remembered facts before changing a requirement.",
+          "Introduce one explicit correction and inspect the next result.",
+          "Check available memory controls and deletion documentation before real data."
+        ]
+      },
+      {
+        "heading": "Evaluate actions separately from answers",
+        "content": "A helpful draft and a successful action are different outcomes. In a staging workflow, ask for a document draft first. Add a reversible tool action only after you can inspect its inputs and destination. Keep financial, legal and health decisions with an appropriate human reviewer. A model's ability to discuss those domains does not establish professional qualifications or permission to make consequential decisions."
+      },
+      {
+        "heading": "How to compare it with your current agent",
+        "content": "Use identical tasks, input evidence and action permissions. Score factual errors, missed constraints, unnecessary tool calls and time spent reviewing the result. Retain failures instead of selecting the most polished answer. For a related comparison framework, read our [stateful agents versus RAG guide](/workflow/stateful-agents-vs-simple-rag-workflow-guide). Check the [Gemini Argon access guide](/news/gemini4-argon-access-fairwind-introductory-pricing) before assuming competing subscriptions offer equivalent capabilities. No independent performance ranking is claimed here."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "Meta Newsroom",
+        "title": "Introducing Muse Wonder and Muse Wonder Full",
+        "url": "https://about.fb.com/news/2026/10/introducing-muse-wonder-models/",
+        "publishedAt": "2026-10-12"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Are Muse Wonder and Wonder Full the same product?",
+        "answer": "No. Meta names separate models and different launch access routes. Check which model your product actually exposes."
+      },
+      {
+        "question": "Can I download Wonder weights from this announcement?",
+        "answer": "This article does not establish downloadable-weight availability. The cited launch names hosted product access."
+      },
+      {
+        "question": "Are the memory tests in this article benchmark results?",
+        "answer": "No. They are proposed evaluation steps using fictional data, not completed FyreLinkz tests."
+      }
+    ]
+  },
+  {
+    "publishedAt": "2026-10-14",
+    "updatedAt": "2026-10-14",
+    "sourceCheckedAt": "2026-10-14",
+    "featured": false,
+    "imageCaption": "AI-generated editorial photograph of a generic workspace. Illustrative only; not a product photograph, provider facility or test result.",
+    "slug": "comfyui-nvidia-vfx-upscaling-frame-generation-hdr-guide",
+    "category": "create",
+    "title": "ComfyUI NVIDIA VFX nodes: upscale, interpolate and HDR",
+    "description": "Understand ComfyUI's NVIDIA VFX nodes, the recommended processing order and practical checks for frame timing, HDR exports and image quality.",
+    "topic": "ComfyUI video",
+    "image": "ai-video-matrix-photo",
+    "imageAlt": "AI-generated editorial photograph of a generic video-editing workstation; not a ComfyUI interface screenshot.",
+    "eventDate": "2026-10-13",
+    "takeaway": "ComfyUI's October 13 release brings NVIDIA RTX video effects into custom nodes. The publisher recommends upscaling, then frame generation, then HDR conversion. Start with a short clip and inspect motion, timing and color metadata before processing a full project.",
+    "sections": [
+      {
+        "heading": "What the three VFX nodes do",
+        "content": "Comfy describes nodes for Super Resolution, Frame Generation and SDR-to-HDR conversion on NVIDIA RTX hardware. These transform an existing source; they should not be confused with a text-to-video model. Read the current node requirements before installing. We have not measured runtime, GPU memory or image quality for this release.",
+        "table": {
+          "headers": [
+            "Stage",
+            "Purpose",
+            "Our review question"
+          ],
+          "rows": [
+            [
+              "Super Resolution",
+              "Upscale or clean source frames",
+              "Did it invent or erase important details?"
+            ],
+            [
+              "Frame Generation",
+              "Insert intermediate frames",
+              "Do cuts, hands and fast motion remain coherent?"
+            ],
+            [
+              "HDR",
+              "Convert SDR material to HDR data",
+              "Does the exported file signal the intended color space?"
+            ]
+          ]
+        },
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "Begin with the supplied example workflow",
+        "content": "The publisher's getting-started steps are to update ComfyUI, install the NVIDIA VFX custom nodes through Manager and load example templates. Make a copy of a working environment before updates. Use a short clip containing a cut, fine text and motion so you can inspect the failure cases quickly. Save the graph and a version record alongside the output; do not rely on a screenshot of the canvas as your only reproducibility record.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "Frame interpolation changes the timing decision",
+        "content": "The announcement supports frame-rate multiplication and specific-timestep insertion. When preserving duration, it says to encode at the source rate multiplied by the frame multiplier. Our additional check is to compare audio sync and the first and last frame timestamps after export. Decide whether the goal is smoother playback or slow motion before rendering; more frames alone do not answer that creative question.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "HDR output needs a color-managed export",
+        "content": "Comfy warns that the HDR node's image output lacks color-space metadata, so downstream video nodes need the appropriate HDR setting. Our recommendation is to inspect the encoded file in the intended playback environment and confirm the signaling with your delivery specification. A bright browser preview cannot validate a final HDR deliverable. Keep an SDR reference and inspect dark gradients, highlights and skin tones.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "A review checklist before processing the full timeline",
+        "content": "Use identical crops and playback speeds when comparing the source with the result. Inspect frame boundaries around cuts, not only the middle of a stable shot. Make one change at a time so an improvement or artifact can be traced to a node. For first-time users, our [ComfyUI workflow guide](/workflow/comfyui-beginner-first-workflow-guide) explains the graph basics. Keep a clean reference output rather than overwriting your only copy.",
+        "checklist": [
+          "Confirm duration, frame count and audio synchronization.",
+          "Review text, edges, faces and occluded objects at full size.",
+          "Check gradients and highlights after encoding.",
+          "Store the original, workflow JSON, settings and export separately."
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "Comfy Org",
+        "title": "NVIDIA VFX nodes for upscaling, frame generation and SDR-to-HDR",
+        "url": "https://blog.comfy.org/p/nvidia-vfx-nodes-for-video-upscaling",
+        "publishedAt": "2026-10-13"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is this a new text-to-video generator?",
+        "answer": "No. These nodes apply video effects to existing inputs."
+      },
+      {
+        "question": "What processing order does Comfy recommend?",
+        "answer": "Super Resolution, then Frame Generation, then HDR. Verify the result and export settings for your specific project."
+      },
+      {
+        "question": "Can a browser preview prove my HDR file is correct?",
+        "answer": "No. Validate the encoded file, metadata and intended playback environment."
+      }
+    ]
+  },
+  {
+    "publishedAt": "2026-10-14",
+    "updatedAt": "2026-10-14",
+    "sourceCheckedAt": "2026-10-14",
+    "featured": false,
+    "imageCaption": "AI-generated editorial photograph of a generic workspace. Illustrative only; not a product photograph, provider facility or test result.",
+    "slug": "gemini-app-tasks-antigravity-permission-checklist",
+    "category": "workflow",
+    "title": "Gemini app tasks: permissions to check before delegating",
+    "description": "Gemini's Argon rollout adds task and coding workflows. Use a practical checklist for connected apps, drafts, approvals and verification before delegating.",
+    "topic": "Agent workflows",
+    "image": "ai-code-editors-photo",
+    "imageAlt": "AI-generated editorial photograph of a generic developer workstation used to illustrate reviewing an agent's work.",
+    "eventDate": "2026-10-13",
+    "takeaway": "Google's October 13 Gemini app announcement describes Argon access for Pro and Ultra subscribers, task delegation and Antigravity coding in the macOS app. Start with drafts and limited permissions. A connected application is an access path, not blanket permission to send, buy or publish.",
+    "sections": [
+      {
+        "heading": "What the Gemini app rollout adds",
+        "content": "Google announces a chat-to-tasks toggle, connections to more than 40 apps and Antigravity's coding interface in the Gemini macOS app. The cited post names Pro and Ultra subscribers for Argon app access. These are app features; they do not establish API credits or identical tools across every account and device. Confirm the feature in the product you intend to use.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "Write the delegation brief before connecting more tools",
+        "content": "Our suggested brief has four parts: the desired result, the evidence the agent may read, actions it may take and the point where it must stop. For example, ask for a comparison draft using a named folder, allow no messages to be sent and require a list of unresolved facts. This makes it easier to inspect the result and to notice when the agent has wandered beyond the original request.",
+        "table": {
+          "headers": [
+            "Boundary",
+            "Example instruction",
+            "Evidence to review"
+          ],
+          "rows": [
+            [
+              "Reading",
+              "Use only the approved project folder",
+              "List of source documents"
+            ],
+            [
+              "Writing",
+              "Prepare a draft in the review folder",
+              "Document and change summary"
+            ],
+            [
+              "External action",
+              "Ask before sending or publishing",
+              "Recipient, destination and exact content"
+            ],
+            [
+              "Stopping",
+              "Report missing access rather than finding a workaround",
+              "Blocker and proposed next step"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "Use an action ladder instead of broad autonomy",
+        "content": "Begin with read-only summaries. Move next to a draft you can inspect, then to a reversible staging action. Keep a separate approval for an external or consequential step. This ladder is our operational recommendation, not a claim about a guaranteed product enforcement mechanism. If the interface cannot express the boundary you need, reduce connected access rather than depending on a sentence in a prompt alone."
+      },
+      {
+        "heading": "Check what a completed task actually means",
+        "content": "Ask for the deliverable location, changes made, failed steps and remaining uncertainty. Open the document or inspect the resulting state yourself. A message saying done is not proof that a file was sent, a test passed or the correct version was published. In a coding task, run appropriate checks outside the agent's narrative. In a research task, open the sources supporting the important claims."
+      },
+      {
+        "heading": "Keep app plans and API economics separate",
+        "content": "Before moving a useful app workflow into your own website, check the developer access path, quotas and billing independently. Read our [Argon access and pricing article](/news/gemini4-argon-access-fairwind-introductory-pricing) and [cost-per-accepted-task worksheet](/stack/local-vs-cloud-ai-cost-per-accepted-task). We have not tested the newly announced app tasks. The checklist here is designed to help a reader run a bounded trial without implying that any service is error-free.",
+        "checklist": [
+          "Use fictional or low-sensitivity data for the first trial.",
+          "Remove connections that the task does not need.",
+          "Review the final destination before any external action.",
+          "Record failures and revoke unnecessary access after testing."
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "Google Blog",
+        "title": "Gemini 4 Argon comes to the Gemini app",
+        "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-4-argon-availability/",
+        "publishedAt": "2026-10-13"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Does Gemini app access include API usage?",
+        "answer": "Do not assume it does. Consumer app access and developer API billing are separate product questions."
+      },
+      {
+        "question": "Should I let an agent send messages on its first trial?",
+        "answer": "Start with a reviewable draft. Inspect the recipient, destination and content before authorizing an external action."
+      },
+      {
+        "question": "Has FyreLinkz tested these new app features?",
+        "answer": "No. This is source-based reporting combined with our suggested permission and verification checklist."
+      }
+    ]
+  },
+  {
+    "publishedAt": "2026-10-14",
+    "updatedAt": "2026-10-14",
+    "sourceCheckedAt": "2026-10-14",
+    "featured": false,
+    "imageCaption": "AI-generated editorial photograph of a generic workspace. Illustrative only; not a product photograph, provider facility or test result.",
+    "slug": "local-vs-cloud-ai-cost-per-accepted-task",
+    "category": "stack",
+    "title": "Local vs cloud AI costs: a worksheet for small teams",
+    "description": "Compare local hardware and hosted AI using cost per accepted task. Include retries, energy, subscriptions and review time with a clearly labeled example.",
+    "topic": "AI business costs",
+    "image": "local-ai-pc-upgrade-photo",
+    "imageAlt": "AI-generated editorial photograph of a generic desktop computer workspace illustrating an AI budget comparison.",
+    "takeaway": "Compare local and cloud AI by total cost per accepted task, not by an isolated token price or GPU specification. Include hardware allocation, electricity, service fees, retries and human review. The arithmetic example below uses invented inputs to show the method; it is not a market quote or benchmark.",
+    "sections": [
+      {
+        "heading": "Why the cheapest token is not always the cheapest result",
+        "content": "A low-priced request can become expensive if it needs repeated corrections. A purchased computer can be poor value if it spends most of the month idle. Our accounting unit is an accepted task: a result that meets criteria written before the run. Define that unit first, such as a tested code change or a correctly labeled product image. Do not compare a rough draft from one system with an approved deliverable from another."
+      },
+      {
+        "heading": "Build a comparable monthly cost sheet",
+        "content": "Use one currency and one billing period. Separate money already spent from new purchases you would make for this decision. Do not call a local workload free because the computer is already on the desk; record incremental electricity and the time it displaces. Equally, do not charge a whole workstation to a single small experiment if it has other useful work.",
+        "table": {
+          "headers": [
+            "Cost item",
+            "Local workflow",
+            "Hosted workflow"
+          ],
+          "rows": [
+            [
+              "Fixed allocation",
+              "Chosen share of hardware and maintenance",
+              "Subscriptions or reserved capacity"
+            ],
+            [
+              "Variable usage",
+              "Electricity and consumables",
+              "Tokens, jobs, tools and storage"
+            ],
+            [
+              "Failures",
+              "Re-runs and debugging",
+              "Retries and failed billable requests"
+            ],
+            [
+              "Human time",
+              "Setup, review and corrections",
+              "Integration, review and corrections"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "Worked example: make the assumptions visible",
+        "content": "These numbers are invented teaching inputs, not measured costs. Suppose a local workflow has $80 in monthly allocated costs and produces 400 accepted tasks. That is $0.20 per accepted task. Suppose a hosted workflow spends $36 across 600 attempts but only 300 results are accepted. Its usage cost is $0.12 per accepted task, not $0.06. If it also requires $30 of review time, the total becomes $66 divided by 300, or $0.22. Changing the acceptance count can reverse the apparent winner.",
+        "table": {
+          "headers": [
+            "Illustrative scenario",
+            "Monthly included cost",
+            "Accepted tasks",
+            "Cost per accepted task"
+          ],
+          "rows": [
+            [
+              "Local allocation only",
+              "$80",
+              "400",
+              "$0.20"
+            ],
+            [
+              "Hosted usage only",
+              "$36",
+              "300",
+              "$0.12"
+            ],
+            [
+              "Hosted usage plus example review cost",
+              "$66",
+              "300",
+              "$0.22"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "Insert dated provider prices rather than guessed rates",
+        "content": "Google's Argon API pricing currently distinguishes input, cached input and output including thinking, with introductory rates ending November 30. NVIDIA's RTX Spark announcement gives hardware capabilities, not a universal retail cost. These sources illustrate why a budget needs dated inputs. Obtain a regional hardware quote and the provider's applicable billing rates, then replace every example number in this worksheet. Check taxes and currency conversion separately.",
+        "sourceIds": [
+          1,
+          2
+        ]
+      },
+      {
+        "heading": "Measure a pilot before calculating a break-even point",
+        "content": "Use a representative mix of easy and difficult tasks. Record attempts, accepted results, total elapsed time and review effort for each route. If one route cannot complete a required task, do not hide that failure by averaging only successful jobs. A simple break-even formula uses extra fixed cost divided by per-task savings; it is meaningful only when outputs are comparable and the savings remain positive. Read the [hardware planner](/hardware/ai-workstation-planner) and our [RTX Spark buying checklist](/hardware/rtx-spark-laptops-local-ai-buying-checklist) before treating memory capacity as a business return.",
+        "checklist": [
+          "Use an explicit acceptance rubric and keep failed attempts.",
+          "Track the same scope on both routes.",
+          "Label quoted, measured and assumed inputs separately.",
+          "Recalculate when pricing, utilization or quality changes."
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "Google AI for Developers",
+        "title": "Gemini Developer API pricing",
+        "url": "https://ai.google.dev/gemini-api/docs/pricing"
+      },
+      {
+        "publisher": "NVIDIA",
+        "title": "RTX Spark Windows PC announcement",
+        "url": "https://blogs.nvidia.com/blog/local-ai-rtx-spark-microsoft-windows-event/",
+        "publishedAt": "2026-10-07"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Are the worksheet numbers real service prices?",
+        "answer": "No. They are invented teaching inputs. Replace them with your own dated quotes, invoices and pilot measurements."
+      },
+      {
+        "question": "What is cost per accepted task?",
+        "answer": "The included cost divided by the number of results meeting your predefined acceptance criteria. State which costs you include."
+      },
+      {
+        "question": "Does local AI always cost less than an API?",
+        "answer": "No. Utilization, hardware, energy, output quality, retries and review effort can change the result."
+      }
+    ]
+  },
+  {
     "slug": "samsung-littlebit-sub-1-bit-llm-compression",
     "category": "news",
     "title": "Samsung LittleBit-2: size savings & GPU limits",
