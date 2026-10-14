@@ -8,7 +8,7 @@ function latestUpdate(posts: typeof POSTS) {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticUrls = ["about", "contact", "privacy", "terms", "rss", "ai-video-models", "hardware/ai-workstation-planner", "wildweights"];
+  const staticUrls = ["about", "contact", "privacy", "terms", "rss", "ai-video-models", "hardware/ai-workstation-planner", "finance"];
   const homeLastModified = latestUpdate(POSTS);
   return [
     {
@@ -19,7 +19,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: SITE_URL + "/" + path,
       ...(path === "wildweights" ? { lastModified: new Date("2026-10-13T00:00:00Z") } : {})
     })),
-    ...galleryEntries.map(entry => ({ url: SITE_URL + "/wildweights/" + entry.slug, lastModified: new Date("2026-10-13T00:00:00Z") })),
     ...CATEGORIES.map(category => {
       const lastModified = latestUpdate(POSTS.filter(post => post.category === category.slug));
       return {
