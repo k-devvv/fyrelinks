@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { galleryEntries } from "@/lib/wildweights-gallery";
 import JsonLd, { generateBreadcrumbSchema } from "@/components/JsonLd";
 import { SITE_URL } from "@/lib/editorial";
 import { wildWeightsFaqs } from "@/lib/wildweights-content";
@@ -71,6 +72,14 @@ export default function WildWeightsPage() {
           { name: "WildWeights", url: canonical },
         ])}
       />
+      <JsonLd data={{
+        "@context": "https://schema.org", "@type": "ItemList",
+        name: "WildWeights local image model collection",
+        itemListElement: galleryEntries.map((entry, index) => ({
+          "@type": "ListItem", position: index + 1, name: entry.name,
+          url: canonical + "/" + entry.slug
+        }))
+      }} />
       <WildWeightsDirectory />
     </>
   );
