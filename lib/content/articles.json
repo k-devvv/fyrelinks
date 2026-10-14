@@ -217,7 +217,7 @@
     "image": "ai-video-matrix-photo",
     "imageAlt": "AI-generated editorial photograph of a generic video-editing workstation; not a ComfyUI interface screenshot.",
     "eventDate": "2026-10-13",
-    "takeaway": "ComfyUI's October 13 release brings NVIDIA RTX video effects into custom nodes. The publisher recommends upscaling, then frame generation, then HDR conversion. Start with a short clip and inspect motion, timing and color metadata before processing a full project.",
+    "takeaway": "ComfyUI's new NVIDIA VFX nodes process existing footage. Start with a short clip, then inspect motion, timing and color before processing a full project.",
     "sections": [
       {
         "heading": "What the three VFX nodes do",
@@ -259,7 +259,7 @@
       },
       {
         "heading": "Frame interpolation changes the timing decision",
-        "content": "The announcement supports frame-rate multiplication and specific-timestep insertion. When preserving duration, it says to encode at the source rate multiplied by the frame multiplier. Our additional check is to compare audio sync and the first and last frame timestamps after export. Decide whether the goal is smoother playback or slow motion before rendering; more frames alone do not answer that creative question.",
+        "content": "Decide whether the goal is smoother playback or slow motion before rendering. Our timing check is to compare audio sync and the first and last frame timestamps after export. Review the node's current encoding guidance rather than guessing the output rate. A higher frame count alone does not establish better motion or the intended duration.",
         "sourceIds": [
           1
         ]
