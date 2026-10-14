@@ -163,3 +163,22 @@
 @media(max-width:1000px) { .toolbar { grid-template-columns:1fr 1fr; } .toolbar .search { grid-column:1/-1; } .hero { gap:25px; } .brand small { display:none; } .cards { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 @media(max-width:620px) { .main { padding:0 18px 44px; } .brandbar { align-items:start; flex-direction:column; gap:17px; } .brandbar nav { width:100%; justify-content:space-between; } .hero { grid-template-columns:1fr; padding:34px 0; gap:24px; } .hero h1 { letter-spacing:-1.6px; } .note { padding:19px; } .cards { grid-template-columns:1fr; } .sectionHead { display:flex; align-items:start; gap:10px; } .sectionHead h2 { font-size:22px; } .sectionHead>button { max-width:130px; } .filterrow { align-items:start; flex-direction:column; gap:0; margin-bottom:16px; } .filters { margin-bottom:12px; } .faq { grid-template-columns:1fr; } .art { aspect-ratio:4/3.5; } }
 @media(prefers-reduced-motion:reduce) { .card,.artImage,.blurredImage { transition:none; } .card:hover { transform:none; } }
+
+/* Compact discovery layout informed by the inspected reference. */
+.main { max-width:1600px; padding-inline:24px; }
+.brandbar { padding:16px 0; position:sticky; top:0; z-index:20; background:#101014f5; backdrop-filter:blur(12px); }
+.hero { padding:24px 0; gap:24px; grid-template-columns:1.7fr 1fr; }
+.hero h1 { font-size:clamp(28px,3vw,42px); letter-spacing:-1.4px; }
+.hero h1 br { display:none; }
+.intro { margin:12px 0; max-width:760px; font-size:14px; }
+.note { padding:16px 20px; }
+.note strong { font-size:20px; margin:8px 0; }
+.note p { margin:8px 0; }
+.directory { padding-top:20px; }
+.cards { gap:14px; }
+.art { aspect-ratio:3/4; }
+.cardBody { padding:15px; }
+.cardBody h3 { font-size:18px; }
+.cardBody>p:not(.kicker) { font-size:12px; min-height:60px; }
+@media(min-width:1400px) { .cards { grid-template-columns:repeat(3,minmax(0,1fr)); max-width:1180px; } }
+@media(max-width:620px) { .main { padding-inline:16px; } .brandbar { position:static; } .hero { grid-template-columns:1fr; } .hero h1 { font-size:32px; } .note strong br { display:none; } }
