@@ -7,7 +7,7 @@ function latestUpdate(posts: typeof POSTS) {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticUrls = ["about", "contact", "privacy", "terms", "rss", "ai-video-models", "hardware/ai-workstation-planner", "finance"];
+  const staticUrls = ["about", "contact", "privacy", "terms", "rss", "ai-video-models", "hardware/ai-workstation-planner"];
   const homeLastModified = latestUpdate(POSTS);
   return [
     {
@@ -16,7 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...staticUrls.map(path => ({
       url: SITE_URL + "/" + path,
-      ...(path === "finance" ? { lastModified: new Date("2026-10-14T00:00:00Z") } : {})
+
     })),
     ...CATEGORIES.map(category => {
       const lastModified = latestUpdate(POSTS.filter(post => post.category === category.slug));
