@@ -5308,11 +5308,11 @@
     "imageCaption": "AI-generated editorial photograph illustrating GPU installation. It does not show Reflection’s Beam model or a tested configuration.",
     "eventDate": "2026-10-05",
     "featured": true,
-    "takeaway": "Reflection has announced a 501-billion-parameter mixture-of-experts model with 23 billion parameters active per token. That smaller active count can reduce computation, but it does not mean a 23B checkpoint: raw BF16 weights are about 1.0 TB before runtime overhead. Beam is currently waitlist-only; weights are planned later in October.",
+    "takeaway": "Reflection describes Beam as a 501B-total, 23B-active mixture-of-experts model. The active count does not mean a 23B checkpoint: raw BF16 weight storage is about 1,002GB before runtime overhead. At launch, Reflection offered early access and planned public weights later in October; verify current distribution before planning hardware.",
     "sections": [
       {
         "heading": "How much memory could Beam’s weights take?",
-        "content": "A simple lower-bound estimate multiplies parameter count by bytes per weight. For 501 billion parameters, BF16 at two bytes per weight works out to about 1,002 GB (roughly 933 GiB) for the weights alone. FP8 at one byte is about 501 GB; four-bit storage at half a byte is about 251 GB before scales and metadata. These are arithmetic estimates, not a tested Beam build: Reflection has not yet published the weight files or documented supported precisions. Real inference also needs memory for the runtime, activations, cache and other buffers.",
+        "content": "A simple lower-bound estimate multiplies parameter count by bytes per weight. For 501 billion parameters, BF16 at two bytes per weight works out to about 1,002 GB (roughly 933 GiB) for the weights alone. FP8 at one byte is about 501 GB; four-bit storage at half a byte is about 251 GB before scales and metadata. These are arithmetic estimates, not a tested Beam build: the launch post does not document supported precisions or a tested serving configuration. Real inference also needs memory for the runtime, activations, cache and other buffers.",
         "table": {
           "headers": [
             "Illustrative storage format",
@@ -5344,7 +5344,7 @@
       },
       {
         "heading": "What Reflection announced",
-        "content": "Reflection introduced Beam on October 5 as its first open-weight model, aimed at coding, reasoning and agentic workloads. The company describes a sparse mixture-of-experts (MoE) model with 501 billion total parameters and 23 billion active for each token. As of October 6, Reflection says selected users can request early access; it plans to publish the weights, model card, technical report and developer tools later this month under Apache 2.0. That means readers cannot yet inspect a public checkpoint or verify its final runtime requirements. Access information in this paragraph is the dated October 6 account; the benchmark discussion below was rechecked October 15. We have not independently confirmed a public checkpoint release.",
+        "content": "Reflection introduced Beam on October 5 as its first open-weight model, aimed at coding, reasoning and agentic workloads. The company describes a sparse mixture-of-experts (MoE) model with 501 billion total parameters and 23 billion active for each token. As of October 6, Reflection says selected users can request early access; it plans to publish the weights, model card, technical report and developer tools later this month under Apache 2.0. That launch-stage account did not establish final runtime requirements. Access information in this paragraph is the dated October 6 account; the benchmark discussion below was rechecked October 15. We have not independently confirmed a public checkpoint release.",
         "sourceIds": [
           1
         ]
@@ -5391,11 +5391,11 @@
       },
       {
         "question": "Can I run Reflection Beam on an RTX 5090?",
-        "answer": "There is no published supported build yet. The RTX 5090 has 32 GB of memory, while simple weight-only arithmetic estimates about 251 GB even at four bits for 501 billion parameters, before metadata and runtime memory. Wait for Reflection’s model card and supported quantized files before planning a deployment."
+        "answer": "This article does not establish a supported RTX 5090 build. Its 32GB memory is below the hypothetical 251GB raw weight estimate at four bits, before metadata and runtime memory. Verify current model-card and runtime requirements."
       },
       {
         "question": "Can I download Beam now?",
-        "answer": "Reflection says selected users can request early access. The public weights, model card, technical report and developer artifacts are planned for later in October 2026; they were not available in the October 5 announcement."
+        "answer": "The October 5 launch announcement offered early access and planned public weights later in October. This article has not independently confirmed current checkpoint distribution; check Reflection's official model and platform links."
       },
       {
         "question": "Has Beam independently beaten Kimi K3 or Qwen 3.8 Max?",
