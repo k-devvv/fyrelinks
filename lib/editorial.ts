@@ -23,7 +23,7 @@ export interface HowToStep {
 }
 export interface ArticleInput {
   slug: string;
-  category: ReviewPost['category'] | 'news';
+  category: ReviewPost['category'] | 'news' | 'finance';
   title: string;
   description: string;
   topic: string;
@@ -92,7 +92,7 @@ export function articleFromInput(p: ArticleInput): EditorialPost {
     updatedAt: p.updatedAt,
     author: {
       name: 'FyreLinkz Editorial',
-      role: 'AI & creative technology'
+      role: p.category === 'finance' ? 'Financial education & business costs' : 'AI & creative technology'
     },
     keySpecs: [],
     tableData: [],
