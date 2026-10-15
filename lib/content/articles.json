@@ -1,5 +1,149 @@
 [
   {
+    "category": "news",
+    "slug": "mistral-ai-altair1-satellite-earth-orbit",
+    "title": "Mistral AI in orbit: what Altair-1 actually runs",
+    "description": "Altair-1 runs Mistral models on NVIDIA hardware in Earth orbit. Understand the launch, onboard AI, 50-satellite plan and limits of speed claims.",
+    "topic": "AI in space",
+    "image": "mistral-altair-orbit-photo",
+    "imageAlt": "AI-generated illustration of a generic gold-insulated satellite with blue solar panels above Earth's curved horizon.",
+    "imageCaption": "AI-generated editorial illustration of a generic Earth-observation satellite. Not a photograph or an exact depiction of Altair-1.",
+    "takeaway": "Mistral models are running aboard Altair-1, according to Loft Orbital and NVIDIA. The spacecraft launched October 1, 2026; an October 12 update detailed its onboard AI. This is an early deployed satellite, not confirmation that the planned 50-satellite network is complete.",
+    "eventDate": "2026-10-12",
+    "publishedAt": "2026-10-15",
+    "updatedAt": "2026-10-15",
+    "sourceCheckedAt": "2026-10-15",
+    "featured": false,
+    "sections": [
+      {
+        "heading": "Did Mistral launch its own satellite?",
+        "content": "No. Orbitworks built Altair-1 in Abu Dhabi, and Loft Orbital integrated it. Orbitworks is a joint venture between Marlan Space and Loft Orbital. Mistral supplies AI models within this wider partnership; describing the spacecraft as Mistral's own satellite obscures those roles. NVIDIA's October 12 update confirms that Altair-1 reached orbit and carries Jetson AGX Orin modules running Mistral models.",
+        "sourceIds": [
+          2,
+          3
+        ]
+      },
+      {
+        "heading": "The launch and AI announcement happened on different dates",
+        "content": "Orbitworks' October 2 release reports the October 1 launch aboard SpaceX's Transporter-18 rideshare mission from California. It says the satellite deployed, established contact and entered commissioning. Loft Orbital's October 12 announcement subsequently described the onboard model stack. This timeline matters: a fresh report about AI capabilities is not a fresh launch, and commissioning is distinct from proving every planned customer service.",
+        "sourceIds": [
+          1,
+          3
+        ],
+        "table": {
+          "headers": [
+            "Date",
+            "Milestone",
+            "What it establishes"
+          ],
+          "rows": [
+            [
+              "September 9, 2026",
+              "Altair-Next Gen consortium announced",
+              "A $1 billion programme with a planned 50-satellite initial phase"
+            ],
+            [
+              "October 1, 2026",
+              "Altair-1 launch",
+              "One spacecraft deployed; commissioning reported next day"
+            ],
+            [
+              "October 12, 2026",
+              "Onboard AI update",
+              "Loft Orbital detailed the installed compute and models"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "What models and hardware are onboard?",
+        "content": "Loft Orbital lists two NVIDIA Jetson AGX Orin modules and Ministral 3 in 3B and 8B versions, used to summarize acquisition data and answer operator queries. It also describes specialist models for tasks including ship detection, cloud masking and wildfire or flood mapping. These are complementary functions: a language-model summary should not be confused with the sensor or detector that produced the underlying observation.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "Why process satellite observations in orbit?",
+        "content": "Our architectural reading is that onboard filtering can change what needs to cross a communication link. A system might send a compact event record rather than requiring an analyst to inspect every complete image first. That creates a useful distinction between collecting a scene, detecting something, interpreting it and delivering a notification. It does not remove the need to validate the original observation or preserve enough evidence to investigate a false alarm. This explanation is editorial analysis, not an independently measured result."
+      },
+      {
+        "heading": "Ten satellites or fifty? Keep the programmes distinct",
+        "content": "Orbitworks describes Altair as a ten-satellite programme, with the other nine scheduled through 2027 in its launch release. The September consortium announcement describes Altair-Next Gen's initial phase as fifty satellites. These are programme scopes and future commitments, not a count of operational spacecraft. Readers should not add the figures together or assume one launch establishes continuous global coverage.",
+        "sourceIds": [
+          3,
+          4
+        ]
+      },
+      {
+        "heading": "Do claims of alerts in seconds prove end-to-end speed?",
+        "content": "Loft Orbital promotes alerts arriving within seconds; Orbitworks' earlier launch release describes analysis-ready intelligence within minutes. Those statements should not be treated as interchangeable, independently benchmarked latency figures. Our evaluation question is: when does the clock start and stop? Time waiting for a suitable observation, onboard processing, communications and customer delivery are different parts of the workflow. The linked announcements do not give us a reproducible, common test that settles performance across locations and conditions.",
+        "sourceIds": [
+          1,
+          3
+        ]
+      },
+      {
+        "heading": "What should customers ask before relying on orbital AI?",
+        "content": "Our suggested evaluation starts with one real operational question, such as whether an alert can identify an event in the customer's area with sufficient evidence for review. Ask for measured performance under the intended conditions rather than a general claim about AI speed. We have not operated this satellite, tested detection accuracy or verified a customer service-level agreement.",
+        "checklist": [
+          "Define the area, observation conditions and required revisit interval.",
+          "Request latency measurements with clear start and end points.",
+          "Ask for missed-event and false-alert rates on representative data.",
+          "Check how alerts link to source observations, timestamps and location uncertainty.",
+          "Confirm access, pricing, data rights and human-review procedures in writing."
+        ]
+      },
+      {
+        "heading": "The next milestone is evidence, not a bigger constellation headline",
+        "content": "The practical story is a shift toward inference near the sensor. Future reporting should follow operational coverage, independently inspectable results and usable customer interfaces. For a related ground-level example of constrained compute, see [small models on edge devices](/stack/small-language-models-edge-devices-guide). For the distinction between model output and an accountable workflow, read [agents versus RAG](/workflow/stateful-agents-vs-simple-rag-workflow-guide). Neither guide establishes satellite performance."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "Loft Orbital",
+        "title": "October 12 update: onboard Mistral models and NVIDIA edge AI",
+        "url": "https://loftorbital.com/orbitworks-launches-first-spacecraft-of-the-largest-ai-powered-satellite-constellation-with-nvidia-edge-ai-onboard/",
+        "publishedAt": "2026-10-12"
+      },
+      {
+        "publisher": "NVIDIA",
+        "title": "France's ecosystem: Altair-1 reaches orbit with Mistral models",
+        "url": "https://blogs.nvidia.com/blog/france-ecosystem-agentic-computing/",
+        "publishedAt": "2026-10-12"
+      },
+      {
+        "publisher": "Orbitworks",
+        "title": "Altair-1 launch and commissioning announcement",
+        "url": "https://orbitworks.space/orbitworks-launches-altair-1-the-uaes-first-commercial-satellite/",
+        "publishedAt": "2026-10-02"
+      },
+      {
+        "publisher": "Orbitworks",
+        "title": "Altair-Next Gen consortium and planned fifty-satellite phase",
+        "url": "https://orbitworks.space/worlds-largest-ai-infrastructure-in-space-announced-by-the-president-of-the-french-republic/",
+        "publishedAt": "2026-09-09"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is Mistral AI running on a satellite in Earth orbit?",
+        "answer": "Yes, according to Loft Orbital and NVIDIA's October 12 reports about Altair-1. This is partner-reported deployment, not a FyreLinkz performance test."
+      },
+      {
+        "question": "When did Altair-1 launch?",
+        "answer": "Orbitworks reports an October 1, 2026 launch aboard SpaceX's Transporter-18 mission. Its October 2 release reported deployment, contact and commissioning."
+      },
+      {
+        "question": "Are all fifty AI satellites already operational?",
+        "answer": "No such conclusion is supported by these announcements. Fifty describes the planned initial phase of Altair-Next Gen, not a verified operational fleet."
+      },
+      {
+        "question": "Does orbital AI eliminate the need for ground systems?",
+        "answer": "No. Processing near the sensor can change what is transmitted, but customers still need delivery, validation, interpretation and operating procedures."
+      }
+    ]
+  },
+  {
     "publishedAt": "2026-10-15",
     "updatedAt": "2026-10-15",
     "sourceCheckedAt": "2026-10-15",
