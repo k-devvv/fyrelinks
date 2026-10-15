@@ -1,6 +1,11 @@
 import data from './content/articles.json';
 import { articleFromInput, type ArticleInput } from './editorial';
 export const CATEGORIES = [{
+  slug: 'finance',
+  name: 'Finance',
+  metaTitle: 'Finance, business costs and crypto safety guides',
+  description: 'Source-linked financial education: inflation, savings, investing costs, business planning and fraud awareness.'
+}, {
   slug: 'news',
   name: 'News',
   metaTitle: 'AI news: model releases, research and practical implications',

@@ -1,4 +1,7 @@
 import Link from "next/link";
+import StoryCard from "@/components/StoryCard";
+import { getPostsByCategory } from "@/lib/posts";
+
 import AdSlot from "@/components/AdSlot";
 import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata("Finance, Business & Crypto | FyreLinkz", "Understand business costs, financial decisions and crypto risks with primary-source resources and clear educational context.", "/finance");
@@ -7,6 +10,7 @@ export default function FinancePage() {
     <span className="eyebrow">MONEY, BUSINESS & DIGITAL ASSETS</span>
     <h1>Understand the cost.<br/>Question the promise.</h1>
     <p className="intro">A starting point for understanding money, business and crypto. Educational resources, with original publishers linked for current details.</p>
+    <section aria-labelledby="finance-guides-heading"><span className="eyebrow">SOURCE-LINKED FINANCIAL EDUCATION · 15 OCTOBER 2026</span><h2 id="finance-guides-heading">Understand your next money decision.</h2><p>US data and sources are labeled. Examples explain the arithmetic; they are not personalized investment, tax or legal advice.</p><div className="guide-grid">{getPostsByCategory("finance").map(post => <StoryCard key={post.slug} post={post} />)}</div></section>
     <section id="finance"><h2>Finance: begin with risk and fees</h2><p>Before comparing financial products, identify your time horizon, fees and potential losses. Product availability and protections depend on your country.</p><a href="https://www.investor.gov/introduction-investing" rel="noopener noreferrer" target="_blank">Investor.gov: introduction to investing ↗</a></section>
     <section id="business"><h2>Business: calculate the whole cost</h2><p>Separate one-time setup expenses from recurring subscriptions, operations and customer acquisition. An advertised price rarely captures your full operating cost.</p><a href="https://www.sba.gov/counseling/plan-your-business/" rel="noopener noreferrer" target="_blank">US Small Business Administration: business planning ↗</a><p><Link href="/stack/local-vs-cloud-ai-cost-per-accepted-task">Compare local and cloud AI business costs →</Link></p><p><Link href="/hardware/ai-workstation-planner">Explore our AI hardware cost planner →</Link></p></section>
     <AdSlot placement="article" />

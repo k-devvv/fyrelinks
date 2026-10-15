@@ -1,5 +1,480 @@
 [
   {
+    "category": "finance",
+    "publishedAt": "2026-10-15",
+    "updatedAt": "2026-10-15",
+    "sourceCheckedAt": "2026-10-15",
+    "featured": false,
+    "imageCaption": "AI-generated editorial photograph of a generic workspace. Illustrative only; not financial data, a product endorsement or evidence of investment returns.",
+    "slug": "us-inflation-september-2026-cpi-household-budget",
+    "title": "US inflation reaches 3.7%: September CPI explained",
+    "description": "September 2026 US CPI rose 3.7% annually. Understand headline versus core inflation, household budget implications and what the data cannot predict.",
+    "topic": "Inflation & budgets",
+    "image": "data-enrichment-waterfall-photo",
+    "imageAlt": "AI-generated editorial photograph of an analyst comparing records at a desk; illustrative, not an inflation chart.",
+    "eventDate": "2026-10-14",
+    "takeaway": "US headline CPI rose 3.7% over the year to September 2026, according to the October 14 BLS release. The monthly seasonally adjusted rise was 0.6%. These figures describe a national price index, not your personal spending increase or a confirmed Federal Reserve decision.",
+    "sections": [
+      {
+        "heading": "The September CPI numbers, with their time periods",
+        "content": "The Bureau of Labor Statistics reports a 3.7% annual increase in the all-items CPI-U and a 2.6% annual increase excluding food and energy. The monthly headline change is seasonally adjusted; the annual figures are not. Keeping those labels attached prevents an easy mistake: comparing a one-month rate with a twelve-month rate as if they measured the same thing.",
+        "table": {
+          "headers": [
+            "Measure",
+            "September 2026 result",
+            "Basis"
+          ],
+          "rows": [
+            [
+              "Headline CPI-U, monthly",
+              "+0.6%",
+              "Seasonally adjusted"
+            ],
+            [
+              "Headline CPI-U, annual",
+              "+3.7%",
+              "Not seasonally adjusted"
+            ],
+            [
+              "CPI excluding food and energy, annual",
+              "+2.6%",
+              "Not seasonally adjusted"
+            ]
+          ]
+        },
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "Why your household may experience a different increase",
+        "content": "A national index combines many categories. Your own mix of rent, transport, food and services may look different. Our practical approach is to compare like-for-like expenses over time: the same subscription, a similar grocery basket and comparable travel needs. Separate a higher price from buying more of something. A personal budget change can reflect both, and combining them makes it difficult to identify an adjustment you can actually make."
+      },
+      {
+        "heading": "A small purchasing-power example",
+        "content": "This is hypothetical arithmetic, not a forecast. If a basket costs $1,000 and its price rises exactly 3.7%, it would cost $1,037 after that increase. Applying the national CPI rate to your entire budget assumes your spending basket behaves like the index, which may be wrong. Use the example to understand percentages; use your own bills to estimate the cash you need. We are not recommending an investment or a particular response to inflation."
+      },
+      {
+        "heading": "What this release does not tell you",
+        "content": "One inflation release does not establish the next interest-rate decision, tomorrow's currency move or which investment will outperform. Keep reported data separate from market expectations and forecasts. For immediate planning, check the renewal terms of important bills and distinguish fixed commitments from flexible spending. Our [emergency savings guide](/finance/emergency-fund-savings-account-checklist) offers a worksheet for unexpected costs; our [investment fee guide](/finance/investment-fees-expense-ratio-cost-example) explains a different source of purchasing-power drag.",
+        "checklist": [
+          "Label every statistic with geography, date and measurement period.",
+          "Compare similar purchases rather than different quantities.",
+          "Use current bills to update a budget.",
+          "Check an official central-bank statement before describing a policy decision."
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "US Bureau of Labor Statistics",
+        "title": "Consumer Price Index — September 2026",
+        "url": "https://www.bls.gov/news.release/archives/cpi_10142026.htm",
+        "publishedAt": "2026-10-14"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Was September 2026 US inflation 3.7%?",
+        "answer": "Yes. BLS reports a 3.7% twelve-month increase in all-items CPI-U. The monthly seasonally adjusted increase was 0.6%."
+      },
+      {
+        "question": "Does 3.7% mean every household's costs rose by that amount?",
+        "answer": "No. A household's purchases and quantities can differ from the national index basket."
+      },
+      {
+        "question": "Does this report confirm a Federal Reserve rate change?",
+        "answer": "No. Inflation data and a monetary-policy decision are separate events. Verify an actual decision through an official statement."
+      }
+    ]
+  },
+  {
+    "category": "finance",
+    "publishedAt": "2026-10-15",
+    "updatedAt": "2026-10-15",
+    "sourceCheckedAt": "2026-10-15",
+    "featured": false,
+    "imageCaption": "AI-generated editorial photograph of a generic workspace. Illustrative only; not financial data, a product endorsement or evidence of investment returns.",
+    "slug": "emergency-fund-savings-account-checklist",
+    "title": "Emergency savings: a practical account and budget checklist",
+    "description": "Build an emergency savings worksheet around essential costs, access and fees. Learn what to compare without relying on a universal savings target.",
+    "topic": "Savings basics",
+    "image": "notion-decision-log-photo",
+    "imageAlt": "AI-generated editorial photograph of people reviewing a laptop around a table; illustrative planning scene.",
+    "takeaway": "An emergency fund is cash reserved for unplanned expenses or financial disruption. Choose a target from your own essential costs and likely risks, then compare account access, fees and applicable deposit protection. There is no single amount in this article that fits every household.",
+    "sections": [
+      {
+        "heading": "Start with an unexpected expense, not an intimidating target",
+        "content": "The CFPB describes emergency savings as a dedicated cash reserve and notes that the appropriate amount depends on your circumstances. Our starting worksheet is a list of essential bills, known upcoming costs and genuinely unexpected events. A planned annual insurance payment belongs in a separate planned-expense calculation; treating every irregular bill as an emergency can make the reserve difficult to maintain.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "Turn essential expenses into a transparent scenario",
+        "content": "Suppose essential monthly spending is $1,200. A scenario covering two months is $2,400; four months is $4,800. These are invented inputs to explain the calculation, not recommended targets. Adjust the time period for your circumstances and check the affordability of contributions. A smaller reserve built consistently may be more workable than a target that causes missed bills or expensive borrowing.",
+        "table": {
+          "headers": [
+            "Worksheet item",
+            "What to record"
+          ],
+          "rows": [
+            [
+              "Essential spending",
+              "Housing, utilities, food and other unavoidable commitments"
+            ],
+            [
+              "Disruption scenario",
+              "What event could interrupt income or create an urgent bill?"
+            ],
+            [
+              "Available resources",
+              "Cash already reserved and reliable support"
+            ],
+            [
+              "Contribution capacity",
+              "What remains after necessary payments"
+            ],
+            [
+              "Review date",
+              "When income, costs or household needs change"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "Compare access and fees before chasing a yield",
+        "content": "Our account comparison starts with how quickly you can access funds and what restrictions apply. Read minimum-balance, maintenance-fee and withdrawal terms. Check the institution and applicable deposit-protection scheme directly; protections differ by country and account type. A deposit account and an investment product are not interchangeable merely because both use the words money market. The CFPB distinguishes money market deposit accounts from money market mutual funds.",
+        "sourceIds": [
+          2
+        ]
+      },
+      {
+        "heading": "Make a contribution plan that survives a difficult month",
+        "content": "The CFPB discusses recurring transfers as one way to build savings. Our additional check is to align transfer dates with actual income and review the balance before an automated payment could trigger a shortfall. Write down when the reserve may be used and how it will be replenished. Revisit the plan after a move, job change or major expense. This is general education, not an assessment of your personal finances.",
+        "checklist": [
+          "Confirm the account's access conditions and fees.",
+          "Verify protection through the relevant official scheme.",
+          "Choose an affordable contribution schedule.",
+          "Keep planned annual bills visible separately from emergencies."
+        ],
+        "sourceIds": [
+          1
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "Consumer Financial Protection Bureau",
+        "title": "An essential guide to building an emergency fund",
+        "url": "https://www.consumerfinance.gov/an-essential-guide-to-building-an-emergency-fund/"
+      },
+      {
+        "publisher": "Consumer Financial Protection Bureau",
+        "title": "What is a money market account?",
+        "url": "https://www.consumerfinance.gov/ask-cfpb/what-is-a-money-market-account-en-1007/"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "How large should my emergency fund be?",
+        "answer": "It depends on essential costs, income stability, responsibilities and available resources. The examples here explain arithmetic, not a universal target."
+      },
+      {
+        "question": "Is a money market fund the same as a deposit account?",
+        "answer": "No. The CFPB distinguishes money market deposit accounts from money market mutual funds, which are investments."
+      },
+      {
+        "question": "Does this article list the best current savings rate?",
+        "answer": "No. It provides an account-comparison checklist, not live bank rates or product rankings."
+      }
+    ]
+  },
+  {
+    "category": "finance",
+    "publishedAt": "2026-10-15",
+    "updatedAt": "2026-10-15",
+    "sourceCheckedAt": "2026-10-15",
+    "featured": false,
+    "imageCaption": "AI-generated editorial photograph of a generic workspace. Illustrative only; not financial data, a product endorsement or evidence of investment returns.",
+    "slug": "investment-fees-expense-ratio-cost-example",
+    "title": "Investment fees explained: what a 1% charge really costs",
+    "description": "Understand ongoing investment fees, transaction charges and expense ratios with simple hypothetical arithmetic and a practical disclosure checklist.",
+    "topic": "Investing education",
+    "image": "frontier-ai-benchmark-photo",
+    "imageAlt": "AI-generated editorial photograph of people comparing notes at a generic workspace; not an investment performance chart.",
+    "takeaway": "Investment fees reduce the money available to grow, and different charges can apply at the same time. Compare ongoing costs, transaction charges and services on a like-for-like basis. A low fee does not remove investment risk or prove that a product suits your needs.",
+    "sections": [
+      {
+        "heading": "Separate ongoing fees from transaction charges",
+        "content": "The SEC's investor bulletin distinguishes charges paid when a transaction happens from ongoing fees and expenses. A product can have more than one layer of costs. Read the account agreement, fund disclosures and adviser fee schedule rather than relying on a single headline percentage. This US-source explanation is educational; disclosure rules and terminology can differ elsewhere.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "What 1% means in a simple dollar example",
+        "content": "For an unchanged $10,000 balance, a hypothetical annual charge of 1% equals $100; 0.25% equals $25. That is a $75 difference in this deliberately simplified one-year example. Real charges may use changing balances, different billing intervals and additional terms. The arithmetic does not show an expected return and is not a prediction of what an investment will be worth.",
+        "table": {
+          "headers": [
+            "Hypothetical annual percentage",
+            "Assumed unchanged balance",
+            "Simple annual dollar equivalent"
+          ],
+          "rows": [
+            [
+              "0.25%",
+              "$10,000",
+              "$25"
+            ],
+            [
+              "0.50%",
+              "$10,000",
+              "$50"
+            ],
+            [
+              "1.00%",
+              "$10,000",
+              "$100"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "Why the long-term effect is larger than a single bill",
+        "content": "The SEC explains that fees can reduce both the invested balance and the future return that money could have earned. Our comparison method is to hold the assumptions constant when reading projections: starting amount, contributions, time period and gross-return assumption. If those inputs differ, the fee effect cannot be isolated. Forecasts are uncertain even when a spreadsheet produces a precise number.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "Questions to ask before comparing products",
+        "content": "Ask what the charge pays for, whether it is recurring, which other costs apply and what happens when you transfer or close the account. Compare the service as well as the percentage; cheap access and personalized advice are not identical offerings. Never assume a historical return will repeat or that a product is appropriate solely because its fee is lower. For broader context, use [Investor.gov's introduction to investing](https://www.investor.gov/introduction-investing). This article does not recommend a security, account or allocation.",
+        "checklist": [
+          "Request the total cost in both percentages and dollars.",
+          "Check trading, currency-conversion and account charges.",
+          "Compare projections using the same assumptions.",
+          "Verify professional registration through the relevant official register."
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "SEC / Investor.gov",
+        "title": "How fees and expenses affect your investment portfolio",
+        "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/updated",
+        "publishedAt": "2025-07-23"
+      },
+      {
+        "publisher": "SEC / Investor.gov",
+        "title": "Introduction to investing",
+        "url": "https://www.investor.gov/introduction-investing"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What is 1% of $10,000?",
+        "answer": "$100. The article uses an unchanged balance to illustrate the percentage; actual billing can differ."
+      },
+      {
+        "question": "Does a lower fee guarantee a better investment?",
+        "answer": "No. Costs are one factor alongside risk, services, restrictions and suitability."
+      },
+      {
+        "question": "Are the table's figures performance projections?",
+        "answer": "No. They illustrate simple fee arithmetic and do not assume or predict investment returns."
+      }
+    ]
+  },
+  {
+    "category": "finance",
+    "publishedAt": "2026-10-15",
+    "updatedAt": "2026-10-15",
+    "sourceCheckedAt": "2026-10-15",
+    "featured": false,
+    "imageCaption": "AI-generated editorial photograph of a generic workspace. Illustrative only; not financial data, a product endorsement or evidence of investment returns.",
+    "slug": "small-business-break-even-fixed-variable-costs",
+    "title": "Business break-even: fixed costs, margins and a worked example",
+    "description": "Calculate break-even units using fixed and variable costs. Follow a hypothetical example, stress-test the margin and distinguish profit from cash flow.",
+    "topic": "Small business costs",
+    "image": "data-enrichment-waterfall-photo",
+    "imageAlt": "AI-generated editorial photograph of an analyst comparing records at a desk; illustrative business-planning scene.",
+    "takeaway": "For a simple single-product model, break-even units equal fixed costs divided by selling price minus variable cost per unit. Use the same time period throughout and round fractional units up. The formula is a planning tool, not proof that customers will buy enough to make the business viable.",
+    "sections": [
+      {
+        "heading": "The break-even formula and its assumptions",
+        "content": "The SBA's calculator uses fixed costs divided by price less variable costs. The basic model assumes a meaningful per-unit contribution and a consistent period. Businesses with multiple products, changing capacity costs or mixed margins need a more detailed model. If price minus variable cost is zero or negative, the simple formula does not give a viable positive break-even sales target.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "A hypothetical example: 100 sales to cover fixed costs",
+        "content": "Assume monthly fixed costs of $600, a $20 selling price and $14 variable cost per sale. Contribution is $6 per sale, so $600 divided by $6 equals 100 units. These are invented teaching inputs, not a real company's costs. At exactly 100 units, this simplified model covers the included costs; it does not include any expense you forgot to enter.",
+        "table": {
+          "headers": [
+            "Input",
+            "Hypothetical value"
+          ],
+          "rows": [
+            [
+              "Monthly fixed costs",
+              "$600"
+            ],
+            [
+              "Selling price per unit",
+              "$20"
+            ],
+            [
+              "Variable cost per unit",
+              "$14"
+            ],
+            [
+              "Contribution per unit",
+              "$6"
+            ],
+            [
+              "Break-even volume",
+              "100 units per month"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "Stress-test the margin before trusting the answer",
+        "content": "If variable cost rises to $15 while the other inputs stay unchanged, contribution falls to $5 and break-even rises to 120 units. If the selling price instead falls to $18 with a $14 variable cost, contribution is $4 and the target becomes 150 units. This sensitivity check shows why small margin changes matter. It still says nothing about actual demand or your capacity to deliver."
+      },
+      {
+        "heading": "Break-even profit is not the same as available cash",
+        "content": "Customers may pay after you have paid suppliers, and equipment purchases can create cash needs before sales arrive. Build a separate calendar of expected receipts and payments. Keep your owner compensation, taxes, financing terms and one-off costs visible rather than assuming the simple example covers them. For an AI-related business, our [local-versus-cloud cost worksheet](/stack/local-vs-cloud-ai-cost-per-accepted-task) helps identify usage and review costs that are easy to overlook.",
+        "checklist": [
+          "Use one currency and one time period.",
+          "Include payment, delivery and refund costs where applicable.",
+          "Round a fractional unit target up.",
+          "Compare the target with realistic demand and delivery capacity.",
+          "Model the timing of cash receipts separately."
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "US Small Business Administration",
+        "title": "Break-even point calculator",
+        "url": "https://legacy.sba.gov/business-guide/plan-your-business/calculate-your-startup-costs/break-even-point/calculate"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What is the basic break-even formula?",
+        "answer": "Fixed costs divided by selling price minus variable cost per unit, for a simple single-product model with positive contribution."
+      },
+      {
+        "question": "Does breaking even guarantee positive cash flow?",
+        "answer": "No. Payment timing and other cash movements can create a shortfall even when the model shows costs covered."
+      },
+      {
+        "question": "Are the example prices business recommendations?",
+        "answer": "No. They are invented inputs illustrating the calculation, not recommended prices or a revenue forecast."
+      }
+    ]
+  },
+  {
+    "category": "finance",
+    "publishedAt": "2026-10-15",
+    "updatedAt": "2026-10-15",
+    "sourceCheckedAt": "2026-10-15",
+    "featured": false,
+    "imageCaption": "AI-generated editorial photograph of a generic workspace. Illustrative only; not financial data, a product endorsement or evidence of investment returns.",
+    "slug": "crypto-investment-scams-wallet-recovery-fee-checklist",
+    "title": "Crypto scams: guaranteed returns and recovery-fee warnings",
+    "description": "Recognize crypto investment scams, fake balances and recovery-fee demands. Use an independent verification checklist before sending money or wallet access.",
+    "topic": "Crypto safety",
+    "image": "web-scraping-rag-photo",
+    "imageAlt": "AI-generated editorial photograph of a person reviewing web pages on two monitors; illustrative online-verification scene.",
+    "takeaway": "Guaranteed crypto returns, urgent transfers and demands to pay more to release supposed profits are warning signs. Verify claims through independent official channels. A website balance or testimonial is not proof that money exists or can be withdrawn.",
+    "sections": [
+      {
+        "heading": "Why a convincing website is not enough",
+        "content": "The FTC warns that cryptocurrency investment scams can use polished websites, endorsements and promises of guaranteed returns. A displayed account balance is controlled by the service showing it; it is not independent evidence of custody or recoverable value. This article explains warning signs, not how to choose a profitable asset.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "Check the demand, not just the branding",
+        "content": "Pause when a message asks you to move money urgently, install remote-access software or pay an extra charge to unlock withdrawals. Do not use the contact details supplied by the person demanding payment as your only verification route. Navigate independently to the institution or regulator's official website and check the claim there. A familiar logo, social profile or search advertisement can still be misleading.",
+        "table": {
+          "headers": [
+            "Claim or demand",
+            "Independent check"
+          ],
+          "rows": [
+            [
+              "Guaranteed or unusually easy returns",
+              "Ask what risk is being concealed; no return guarantee is established by a testimonial"
+            ],
+            [
+              "Money must move immediately",
+              "Verify through a known official channel before acting"
+            ],
+            [
+              "Pay another fee to release profits",
+              "Treat the request as a warning, not proof of a genuine balance"
+            ],
+            [
+              "Share a recovery phrase",
+              "Do not disclose wallet recovery secrets to a supposed helper"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "Recovery offers can create another loss",
+        "content": "The FTC's recovery-scam guidance warns about demands for upfront money or financial information from people claiming they can recover a loss. Do not treat a promise to retrieve crypto as a reason to send more. Preserve messages, website addresses, transaction identifiers and receipts for reporting. Keep private keys, recovery phrases and identity documents out of public posts; publish only the minimum needed to describe the issue.",
+        "sourceIds": [
+          2
+        ]
+      },
+      {
+        "heading": "If you think you have been targeted",
+        "content": "Stop engaging with the payment demand and use independently located reporting channels. Contact the payment provider or exchange involved promptly to ask about available options; recovery is not guaranteed. US readers can use the FTC reporting service linked in its guidance; readers elsewhere should use the appropriate local authority. This is general fraud-awareness information, not legal advice or an offer to recover assets.",
+        "checklist": [
+          "Do not send a further payment to a supposed recovery specialist.",
+          "Save evidence without exposing wallet secrets.",
+          "Verify support through the provider's official site.",
+          "Review account access and use official security-recovery steps.",
+          "Be cautious of unsolicited helpers responding to a public complaint."
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "Federal Trade Commission",
+        "title": "What to know about cryptocurrency and scams",
+        "url": "https://consumer.ftc.gov/articles/what-know-about-cryptocurrency-scams"
+      },
+      {
+        "publisher": "Federal Trade Commission",
+        "title": "Refund and recovery scams",
+        "url": "https://consumer.ftc.gov/articles/refund-and-recovery-scams"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Can a crypto website guarantee returns?",
+        "answer": "A website's promise does not establish a genuine guaranteed investment return. The FTC identifies guaranteed-profit claims as a scam warning."
+      },
+      {
+        "question": "Should I pay a recovery fee after losing crypto?",
+        "answer": "Be wary of unsolicited recovery promises and upfront fees. Verify independently; recovery is not guaranteed."
+      },
+      {
+        "question": "Does this article endorse a token or exchange?",
+        "answer": "No. It provides fraud-awareness checks and primary-source reporting guidance."
+      }
+    ]
+  },
+  {
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
     "sourceCheckedAt": "2026-10-14",
