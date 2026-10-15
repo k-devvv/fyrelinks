@@ -1,5 +1,271 @@
 [
   {
+    "publishedAt": "2026-10-15",
+    "updatedAt": "2026-10-15",
+    "sourceCheckedAt": "2026-10-15",
+    "featured": false,
+    "imageCaption": "AI-generated editorial photograph of a generic workspace. Illustration only; not a product screenshot or evidence of testing.",
+    "category": "finance",
+    "slug": "high-yield-savings-vs-cd-apy-access-penalties",
+    "title": "High-yield savings vs CDs: compare APY, access and penalties",
+    "description": "Compare savings accounts and CDs using a simple $5,000 example. Check APY, withdrawal penalties, maturity and access before choosing an account.",
+    "topic": "Savings comparison",
+    "image": "notion-decision-log-photo",
+    "imageAlt": "AI-generated photograph of people reviewing a laptop at a table, illustrating account comparison.",
+    "takeaway": "Compare access first, then yield. A CD generally commits money for a term and can impose an early-withdrawal penalty. A savings account has its own access and rate conditions. A higher advertised APY does not automatically make an account suitable for money you may need soon.",
+    "sections": [
+      {
+        "heading": "Savings vs CD: the decision starts with timing",
+        "content": "The CFPB explains that CDs have a specified term and that early withdrawals generally carry a penalty. Compare the term, rate and penalty together. This guide uses US account terminology; readers elsewhere should check their local product terms and protection scheme. It is an educational comparison, not a bank ranking.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "What does a half-point APY difference mean in dollars?",
+        "content": "Our hypothetical comparison uses $5,000 held for one full year, no deposits or withdrawals, no fees and unchanged annual percentage yields. At 4.0% APY, the end balance is $5,200. At 4.5%, it is $5,225: a $25 difference. These are invented rates, not current offers. The calculation uses APY directly because it already expresses the annualized yield; do not add a second compounding calculation. Taxes and any actual early-exit penalty are excluded.",
+        "table": {
+          "headers": [
+            "Illustrative APY",
+            "One-year interest",
+            "End balance"
+          ],
+          "rows": [
+            [
+              "4.0%",
+              "$200",
+              "$5,200"
+            ],
+            [
+              "4.5%",
+              "$225",
+              "$5,225"
+            ],
+            [
+              "Difference",
+              "$25",
+              "$25"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "Build a comparison sheet before opening an account",
+        "content": "Our worksheet separates the advertised return from the conditions needed to receive it. Record whether the rate can change, any promotional end date, required balance, fees, transfer timing and renewal instructions. For a CD, ask what happens at maturity and whether automatic renewal could lock funds for another term. Read the actual disclosure rather than assuming all CDs or all savings accounts behave alike.",
+        "checklist": [
+          "Write the date when you might need the money.",
+          "Record APY and the conditions attached to it.",
+          "Price the actual early-withdrawal rule against the extra interest.",
+          "Verify the institution and applicable deposit protection.",
+          "Set a reminder before any maturity or promotional end date."
+        ]
+      },
+      {
+        "heading": "Keep emergency access separate from yield shopping",
+        "content": "Our practical suggestion is to divide the decision into money needed unexpectedly and money assigned to a known later expense. This is a planning framework, not a prescribed allocation. An extra $25 in the example is not a complete reason to accept restrictions you cannot meet. Start with the [emergency savings worksheet](/finance/emergency-fund-savings-account-checklist), then compare real written offers on the same day. No personal suitability assessment or live rate survey was performed."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "Consumer Financial Protection Bureau",
+        "title": "What is a certificate of deposit (CD)?",
+        "url": "https://www.consumerfinance.gov/ask-cfpb/what-is-a-certificate-of-deposit-cd-en-917/"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is a CD always better than a high-yield savings account?",
+        "answer": "No. Compare access, term, yield, fees and early-withdrawal conditions against when you expect to need the money."
+      },
+      {
+        "question": "Are the 4% and 4.5% yields current bank offers?",
+        "answer": "No. They are hypothetical inputs used to show a $25 annual difference on $5,000."
+      },
+      {
+        "question": "What should I check before a CD matures?",
+        "answer": "Read maturity and renewal instructions, any grace period and the terms of a renewed account."
+      }
+    ]
+  },
+  {
+    "publishedAt": "2026-10-15",
+    "updatedAt": "2026-10-15",
+    "sourceCheckedAt": "2026-10-15",
+    "featured": false,
+    "imageCaption": "AI-generated editorial photograph of a generic workspace. Illustration only; not a product screenshot or evidence of testing.",
+    "category": "finance",
+    "slug": "credit-card-apr-daily-interest-example",
+    "title": "How credit card interest works: APR and a daily-cost example",
+    "description": "Understand credit card APR, daily interest and grace periods. Follow a transparent $1,000 example and learn which statement details to check.",
+    "topic": "Borrowing costs",
+    "image": "data-enrichment-waterfall-photo",
+    "imageAlt": "AI-generated editorial photograph of an analyst reviewing paper records at a desk.",
+    "takeaway": "Many credit cards calculate interest daily. APR is an annual rate, not the monthly charge. Your balance categories, payment timing and grace-period conditions determine the actual bill; paying the minimum does not mean the remaining balance is interest-free.",
+    "sections": [
+      {
+        "heading": "APR is not the amount charged each month",
+        "content": "The CFPB says many issuers use daily interest calculations based on average daily balances. Purchase, cash-advance and other balances can have different APRs. Read the categories on your statement before estimating the charge. This article addresses US credit-card terminology and provides general education, not a recommendation to borrow.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "A $1,000 balance at 24% APR: a simplified example",
+        "content": "Our invented example assumes a constant interest-bearing balance of $1,000, a 24% APR, a 365-day divisor and a 30-day period. The simple estimate is 1,000 × 0.24 ÷ 365 × 30 = $19.73. It excludes fees, daily compounding, transactions and payment changes. Your agreement may use a different method, so this is a teaching calculation, not a statement prediction.",
+        "table": {
+          "headers": [
+            "Input or step",
+            "Illustrative value"
+          ],
+          "rows": [
+            [
+              "Balance held constant",
+              "$1,000"
+            ],
+            [
+              "Annual rate",
+              "24%"
+            ],
+            [
+              "Daily-rate assumption",
+              "0.24 / 365"
+            ],
+            [
+              "Thirty-day simple estimate",
+              "$19.73"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "Grace periods and minimum payments answer different questions",
+        "content": "A grace period, when offered and applicable, can let you avoid purchase interest by paying the full required balance on time. Its conditions matter, especially if you already carry a balance. The CFPB also explains that amounts paid above the minimum generally go first to the highest-rate balance; the issuer generally chooses where the minimum portion goes. Check your own agreement rather than applying this purchase example to cash advances.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "Use the statement to replace assumptions with real inputs",
+        "content": "Our review worksheet is deliberately small: list each balance category, its APR, the billing dates, payment due date, minimum payment and the amount needed to preserve any applicable grace period. Compare those figures with transactions and payments. A forecast that ignores a new purchase or changing daily balance can be wrong even if its arithmetic is correct.",
+        "checklist": [
+          "Check separate APRs for purchases, transfers and cash advances.",
+          "Read the grace-period eligibility conditions.",
+          "Record payment dates rather than only monthly totals.",
+          "Include fees separately from the illustrative interest estimate.",
+          "Contact the issuer through its official channel if the statement is unclear."
+        ]
+      },
+      {
+        "heading": "Compare total cost before accepting a new offer",
+        "content": "Our additional comparison is to write down the borrowing amount, repayment schedule, promotional expiry and applicable fees before comparing headline APRs. No current card offers or approval odds were evaluated. For the broader distinction between recurring charges and headline prices, see [how investment fees change costs](/finance/investment-fees-expense-ratio-cost-example). That article concerns investments; it is not a substitute for a credit-card agreement."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "Consumer Financial Protection Bureau",
+        "title": "How does my credit card company calculate the amount of interest I owe?",
+        "url": "https://www.consumerfinance.gov/ask-cfpb/how-does-my-credit-card-company-calculate-the-amount-of-interest-i-owe-en-51/"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Does 24% APR mean 24% interest every month?",
+        "answer": "No. APR is annual. The worked example estimates $19.73 over 30 days on a constant $1,000 interest-bearing balance using a 365-day divisor."
+      },
+      {
+        "question": "Does paying the minimum stop interest?",
+        "answer": "Not necessarily. The unpaid interest-bearing balance can continue accruing interest under the agreement."
+      },
+      {
+        "question": "Will the worked example match my statement exactly?",
+        "answer": "No. It excludes changes in balances, fees and compounding and assumes a particular calculation method."
+      }
+    ]
+  },
+  {
+    "publishedAt": "2026-10-15",
+    "updatedAt": "2026-10-15",
+    "sourceCheckedAt": "2026-10-15",
+    "featured": false,
+    "imageCaption": "AI-generated editorial photograph of a generic workspace. Illustration only; not a product screenshot or evidence of testing.",
+    "category": "workflow",
+    "slug": "download-ai-models-safetensors-pickle-security-checklist",
+    "title": "Are AI model downloads safe? Safetensors vs pickle explained",
+    "description": "Check AI model files, publisher identity and remote code before downloading. Learn what safetensors protects and what it cannot guarantee.",
+    "topic": "Local AI security",
+    "image": "web-scraping-rag-photo",
+    "imageAlt": "AI-generated editorial photograph of a person reviewing text on two desktop monitors.",
+    "takeaway": "Prefer a supported safetensors checkpoint from a verified publisher, but review the complete installation. A safer tensor format does not make Python scripts, custom nodes, dependencies or remote model code trustworthy. A scanner result is one signal, not a guarantee.",
+    "sections": [
+      {
+        "heading": "A checkpoint can be more than a collection of numbers",
+        "content": "Hugging Face warns that loading malicious pickle data can execute arbitrary code. Its safetensors format stores tensors without pickle's object-execution mechanism. That reduces a specific loading risk; it does not evaluate the entire repository or the behavior of the generated output. Do not treat a filename extension as proof of publisher identity.",
+        "sourceIds": [
+          1,
+          2
+        ]
+      },
+      {
+        "heading": "Separate the weights from the code that runs them",
+        "content": "Transformers documents custom models and loading repository code through trust_remote_code. Granting that option is a separate decision from selecting a weights format. Our review rule is to identify every executable step before following a tutorial: installation commands, downloaded scripts, custom nodes and launch arguments. Decline unexplained instructions instead of assuming a popular model name makes them necessary.",
+        "sourceIds": [
+          3
+        ]
+      },
+      {
+        "heading": "A practical pre-download worksheet",
+        "content": "Our proposed worksheet records repository owner, exact revision, license, required runtime and files. Navigate from the publisher's own documentation when possible. A checksum can help confirm a file matches an expected value, but a checksum supplied by an untrusted source does not establish trust. Popularity, a reassuring screenshot and a familiar model name are not substitutes for provenance.",
+        "checklist": [
+          "Confirm the repository owner and official project links.",
+          "Read the model card, license and runtime requirements.",
+          "Prefer the supported safetensors variant where available.",
+          "Inspect installation scripts and requests for remote code.",
+          "Record the exact revision and dependency versions.",
+          "Keep account secrets and private files out of the test environment."
+        ]
+      },
+      {
+        "heading": "Use a limited first-run environment",
+        "content": "Our operational recommendation is to test unfamiliar software in an isolated environment with only the files and permissions it needs. A Python virtual environment separates packages; it is not a security sandbox. Containers and virtual machines also need careful configuration, especially with mounted folders, network access or GPU devices. Do not add API keys or personal documents just to reproduce a public demonstration. We did not execute malicious samples or independently audit a model for this guide."
+      },
+      {
+        "heading": "Turn a successful download into a reproducible setup",
+        "content": "After reviewing trust, record the loader version, selected files, revision and a small non-sensitive test prompt. Preserve errors and compare outputs before adding extensions. This makes troubleshooting more useful than repeatedly downloading different files. Continue with the [ComfyUI first-workflow guide](/workflow/comfyui-beginner-first-workflow-guide) or [local GPU memory guide](/workflow/reduce-local-llm-vram-quantization-offloading-guide). Hardware fit and software trust are separate checks."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "Hugging Face",
+        "title": "Pickle scanning and loading risks",
+        "url": "https://huggingface.co/docs/hub/security-pickle"
+      },
+      {
+        "publisher": "Hugging Face",
+        "title": "Safetensors documentation",
+        "url": "https://huggingface.co/docs/safetensors/main/en/index"
+      },
+      {
+        "publisher": "Hugging Face",
+        "title": "Customizing models and remote code",
+        "url": "https://huggingface.co/docs/transformers/custom_models"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Does safetensors make an entire AI repository safe?",
+        "answer": "No. It addresses tensor serialization; scripts, dependencies, custom nodes and remote code still need separate review."
+      },
+      {
+        "question": "Is a Python virtual environment a security sandbox?",
+        "answer": "No. It separates package installations but does not isolate untrusted code from your files or permissions."
+      },
+      {
+        "question": "Does a clean scan guarantee a download is harmless?",
+        "answer": "No. Treat scanning as one signal alongside provenance, code review and a limited execution environment."
+      }
+    ]
+  },
+  {
     "category": "finance",
     "publishedAt": "2026-10-15",
     "updatedAt": "2026-10-15",
