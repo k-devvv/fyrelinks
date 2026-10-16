@@ -1,0 +1,2 @@
+run_id,laptop_model,os_version,nvidia_driver,ollama_version,model_tag,model_digest,context_tokens,prompt_id,load_state,processor_allocation,completion_seconds,peak_gpu_memory_mib,output_accepted,rejection_reason,notes
+example-template,,,,,llama3.2:3b,,,prompt-01,cold,,,,,,Replace this row with your own measurements; no measured result supplied
