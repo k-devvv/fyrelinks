@@ -3151,10 +3151,14 @@
       {
         "heading": "Next: evaluate retrieval after extraction",
         "content": "Once the expected source material survives extraction, compare retrieval independently using [our vector database evaluation guide](/stack/self-hosted-vector-db-pricing-and-latency-benchmarks). If you are building an answering workflow, distinguish retrieval from orchestration in [the agents vs RAG guide](/workflow/stateful-agents-vs-simple-rag-workflow-guide). Better extraction helps preserve evidence; it does not guarantee accurate generated answers."
+      },
+      {
+        "heading": "Follow the workflow from source capture to a reviewed answer",
+        "content": "Extraction is the first decision. After preserving permitted source material, use the [vector database comparison](/stack/self-hosted-vector-db-pricing-and-latency-benchmarks) to plan retrieval evaluation, then the [agents versus RAG guide](/workflow/stateful-agents-vs-simple-rag-workflow-guide) to decide whether orchestration is necessary. Keep each stage's acceptance checks separate: a successful download does not prove correct retrieval, and a retrieved passage does not prove a correct generated answer."
       }
     ],
     "publishedAt": "2026-09-08",
-    "updatedAt": "2026-10-10",
+    "updatedAt": "2026-10-16",
     "sourceCheckedAt": "2026-10-09",
     "imageAlt": "AI-generated editorial photograph of a person viewing web pages and text on two desktop monitors.",
     "faqs": [
@@ -3794,7 +3798,7 @@
     "image": "rtx-4050-laptop-photo",
     "featured": true,
     "publishedAt": "2026-09-22",
-    "updatedAt": "2026-10-15",
+    "updatedAt": "2026-10-16",
     "sourceCheckedAt": "2026-10-09",
     "takeaway": "NVIDIA specifies 6GB of GDDR6 for the RTX 4050 Laptop GPU. That capacity does not promise a particular model, context length, or generation speed: available memory depends on the running system and model runtime. Start with a small quantized model, keep Ollama’s context at its documented default, and check `ollama ps` to see whether the model is on the GPU, CPU, or split across them. Treat the result as system-specific and measure your own workload.",
     "sources": [
@@ -3886,6 +3890,18 @@
         }
       },
       {
+        "heading": "Download a run log and produce evidence from your laptop",
+        "content": "Use our [blank local LLM run log](/downloads/local-llm-run-log.csv) to record three runs of the same non-sensitive prompt. The CSV contains field names and one template row, not benchmark measurements. For a simple trial, ask the model to summarize a short public paragraph into three bullets; save that paragraph and identify it as prompt-01 so each run uses identical input. Record whether the model was already loaded, the allocated context and PROCESSOR value. Time the same start and finish events on every run. Leave memory fields blank unless you actually measured them; never substitute download size for peak VRAM. Compare accepted answers as well as completion time.",
+        "checklist": [
+          "Save a copy of the CSV for each configuration.",
+          "Record exact model tag and digest rather than model family alone.",
+          "Repeat three times; preserve failures and actual output.",
+          "Keep cold-load and warm-model results separate.",
+          "Change one setting at a time; record changes.",
+          "Do not publish private prompts, credentials or personal documents."
+        ]
+      },
+      {
         "heading": "Six gigabytes is a ceiling, not a promise",
         "content": "NVIDIA lists 6GB of GDDR6 memory for the GeForce RTX 4050 Laptop GPU. This is the card’s physical memory capacity, not a guaranteed amount available for model weights. The operating system, display, other GPU applications, and the inference runtime can all affect memory available during a run; the exact state changes from laptop to laptop and session to session. Do not subtract a fixed “Windows reserve” from the spec or infer a maximum model size from the GPU name alone. Ollama also needs memory for the active context and runtime allocations. The practical question is whether your exact model, context, and app can load together on your current system—and whether the resulting CPU/GPU split suits your task.",
         "sourceIds": [
@@ -3942,6 +3958,10 @@
           4,
           7
         ]
+      },
+      {
+        "heading": "Continue from memory fit to cost and safe installation",
+        "content": "Model fit is one part of the decision. Use the [VRAM reduction guide](/workflow/reduce-local-llm-vram-quantization-offloading-guide) for context and offload trade-offs, the [model download safety checklist](/workflow/download-ai-models-safetensors-pickle-security-checklist) before installing unfamiliar files, and the [local versus cloud cost worksheet](/stack/local-vs-cloud-ai-cost-per-accepted-task) when comparing operating costs. These guides do not establish a universal best model or a measured winner for this laptop."
       }
     ],
     "imageAlt": "Illustrative laptop computer with a discrete graphics processor, not a FyreLinkz benchmark setup.",
