@@ -2236,8 +2236,8 @@
   {
     "slug": "ai-video-generation-matrix-minimax-higgsfield-seedance",
     "category": "create",
-    "title": "MiniMax vs Seedance vs Higgsfield: shot test",
-    "description": "Compare MiniMax, Seedance and Higgsfield using one shot brief, pass/fail checks and cost per accepted minute. Includes a practical comparison worksheet.",
+    "title": "MiniMax vs Seedance vs Higgsfield: comparison checklist",
+    "description": "Compare model access, shot controls and cost per usable minute. Use a repeatable worksheet before buying AI video credits; no tested winner claimed.",
     "topic": "AI video",
     "image": "ai-video-matrix-photo",
     "featured": true,
@@ -2268,6 +2268,34 @@
       {
         "heading": "Start here",
         "content": "Intended reader: Video editors, creative directors and solo creators deciding where to spend generation credits for a multi-shot project. Practical outcome: A 4-step evaluation sheet to test tools against your actual creative brief before committing to monthly tiers. Three attractive demo reels do not tell you which service will finish your project. Start with the shot you need: a product turn, a character action or a moving background. This guide provides a reproducible selection framework, not a synthetic league table."
+      },
+      {
+        "heading": "MiniMax vs Seedance vs Higgsfield: what to compare",
+        "content": "Start with the exact model and workflow offered in your account. This table defines checks, not measured winners; each candidate still needs the same shot brief and acceptance rules.",
+        "table": {
+          "headers": [
+            "Candidate",
+            "What to verify before testing",
+            "What to record after testing"
+          ],
+          "rows": [
+            [
+              "MiniMax / Hailuo",
+              "Exact model, input mode, current controls and account terms",
+              "Accepted footage, observed failures and finishing effort"
+            ],
+            [
+              "Seedance",
+              "Exact version, supported reference inputs and access requirements",
+              "Whether output satisfies your storyboard and delivery checks"
+            ],
+            [
+              "Higgsfield",
+              "Selected underlying model, workflow, presets and plan limits",
+              "Usable results from the specific workflow tested"
+            ]
+          ]
+        }
       },
       {
         "heading": "Separate the platform from the model",
@@ -2358,45 +2386,8 @@
         "content": "This page previously presented sample clips and precise cost and quality claims without adequate provenance. Those benchmark claims have been withdrawn. This replacement is a decision framework informed by linked documentation. We have not established a universal winner among MiniMax, Seedance and Higgsfield."
       },
       {
-        "heading": "Use a shortlist with explicit pass and fail rules",
-        "content": "Build a small comparison sheet before you pay for several services. Give each candidate the same job and record whether it satisfies the essential requirements. Our suggested columns are: supported input, control needed, delivery format, rights check, observed failure and usable output. Mark unknown information as unknown. A feature mentioned in a platform announcement does not establish that it is included in your selected plan or available through the interface you intend to use.",
-        "subpoints": [
-          "For a product shot, prioritize stable shape and a usable opening and closing frame.",
-          "For a character scene, define which visible identity details must survive the motion.",
-          "For an atmospheric background, decide how much variation the edit can tolerate."
-        ],
-        "table": {
-          "headers": [
-            "Candidate",
-            "What to verify before testing",
-            "What to record after testing"
-          ],
-          "rows": [
-            [
-              "MiniMax / Hailuo",
-              "Exact model, input mode, current controls and account terms",
-              "Accepted footage, observed failures and finishing effort"
-            ],
-            [
-              "Seedance",
-              "Exact version, supported reference inputs and access requirements",
-              "Whether output satisfies your storyboard and delivery checks"
-            ],
-            [
-              "Higgsfield",
-              "Selected underlying model, workflow, presets and plan limits",
-              "Usable results from the specific workflow tested"
-            ]
-          ]
-        }
-      },
-      {
         "heading": "Example: plan a short product sequence",
         "content": "Suppose your edit needs an establishing shot, a close detail and a final hero view. Treat these as three jobs instead of one prompt asking for a complete commercial. Draft the camera position, subject action and desired cut for each shot. Then decide which shots actually need generation: a still with a simple editorial move may serve one of them. This example is a planning exercise, not a tested comparison. The point is to spend on the missing footage rather than paying to regenerate material your edit already has."
-      },
-      {
-        "heading": "Track the cost of finishing, not only generating",
-        "content": "Alongside generation charges, record time spent selecting takes, repairing defects, upscaling, creating audio and assembling the edit. These costs depend on your workflow; a public credit table cannot settle them. Keep subscription overhead separate from the marginal cost of another attempt. If the deadline is fixed, a tool that produces acceptable material earlier may be a better choice even when its listed clip price is higher. Revisit the decision after a real project using saved results, not a promotional output selected by the vendor."
       },
       {
         "heading": "Try this next",
@@ -2404,7 +2395,7 @@
       }
     ],
     "publishedAt": "2026-09-08",
-    "updatedAt": "2026-10-08",
+    "updatedAt": "2026-10-15",
     "sourceCheckedAt": "2026-09-12",
     "imageAlt": "Generated editorial photograph: Filmmaker comparing alternate generated video shots on a studio monitor.",
     "faqs": [
@@ -3797,13 +3788,13 @@
   {
     "slug": "run-local-llm-rtx-4050-laptop-guide",
     "category": "hardware",
-    "title": "RTX 4050 laptop for local LLMs: 6GB VRAM guide",
-    "description": "Can an RTX 4050 laptop run local LLMs? Compare 6GB VRAM limits, model download sizes, context settings and a repeatable Ollama GPU check.",
+    "title": "Run a local LLM on an RTX 4050 laptop: 6GB setup guide",
+    "description": "Start a small local LLM on an RTX 4050 laptop, check Ollama GPU use, and understand why a 4.9GB download does not guarantee a 6GB VRAM fit.",
     "topic": "Local AI",
     "image": "rtx-4050-laptop-photo",
     "featured": true,
     "publishedAt": "2026-09-22",
-    "updatedAt": "2026-10-09",
+    "updatedAt": "2026-10-15",
     "sourceCheckedAt": "2026-10-09",
     "takeaway": "NVIDIA specifies 6GB of GDDR6 for the RTX 4050 Laptop GPU. That capacity does not promise a particular model, context length, or generation speed: available memory depends on the running system and model runtime. Start with a small quantized model, keep Ollama’s context at its documented default, and check `ollama ps` to see whether the model is on the GPU, CPU, or split across them. Treat the result as system-specific and measure your own workload.",
     "sources": [
@@ -3850,6 +3841,51 @@
     ],
     "sections": [
       {
+        "heading": "First local-model check: run Ollama, then inspect GPU use",
+        "content": "Ollama supports native Windows use with NVIDIA GPUs when the required NVIDIA driver is installed; its current Windows guide lists driver 551.61 or newer. Install Ollama, open a terminal, and run `ollama run llama3.2:3b` to download and start a small example model. Ollama’s context documentation currently lists a 4k default for systems with less than 24 GiB VRAM; keep that baseline for the first check instead of increasing it immediately. A longer context increases memory demand, and concurrent requests can multiply context allocation. When the model is loaded, open another terminal and run `ollama ps`. Its PROCESSOR and CONTEXT columns show how the running model is allocated. If it reports a CPU/GPU split, it is not running entirely in VRAM; if it fails to load, reduce the workload or context and check the current compatibility and logs rather than forcing every layer onto the GPU.",
+        "checklist": [
+          "Record the laptop make and model, Windows version, NVIDIA driver, and `ollama --version`.",
+          "Use one exact model tag and note its listed download size; avoid switching quantizations mid-comparison.",
+          "Begin at the documented default context, with no parallel test prompts.",
+          "Run `ollama ps` while the model is loaded; save the PROCESSOR and CONTEXT values.",
+          "If you change context or model, record the new values and repeat the same prompt."
+        ],
+        "sourceIds": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "table": {
+          "headers": [
+            "Command or field",
+            "What to do or interpret"
+          ],
+          "rows": [
+            [
+              "ollama run llama3.2:3b",
+              "After installing Ollama, start this small example model."
+            ],
+            [
+              "ollama ps",
+              "Run in a second terminal while the model remains loaded."
+            ],
+            [
+              "PROCESSOR: 100% GPU",
+              "The running model is allocated to the GPU; this is not a speed benchmark."
+            ],
+            [
+              "PROCESSOR: CPU/GPU split",
+              "Some allocation is on the CPU; do not claim full-VRAM residency."
+            ],
+            [
+              "CONTEXT",
+              "Record the allocated context alongside model and runtime version."
+            ]
+          ]
+        }
+      },
+      {
         "heading": "Six gigabytes is a ceiling, not a promise",
         "content": "NVIDIA lists 6GB of GDDR6 memory for the GeForce RTX 4050 Laptop GPU. This is the card’s physical memory capacity, not a guaranteed amount available for model weights. The operating system, display, other GPU applications, and the inference runtime can all affect memory available during a run; the exact state changes from laptop to laptop and session to session. Do not subtract a fixed “Windows reserve” from the spec or infer a maximum model size from the GPU name alone. Ollama also needs memory for the active context and runtime allocations. The practical question is whether your exact model, context, and app can load together on your current system—and whether the resulting CPU/GPU split suits your task.",
         "sourceIds": [
@@ -3887,23 +3923,6 @@
         "sourceIds": [
           5,
           6
-        ]
-      },
-      {
-        "heading": "Start with Ollama’s documented path",
-        "content": "Ollama supports native Windows use with NVIDIA GPUs when the required NVIDIA driver is installed; its current Windows guide lists driver 551.61 or newer. Install Ollama, open a terminal, and run `ollama run llama3.2:3b` to download and start a small example model. Ollama’s context documentation currently lists a 4k default for systems with less than 24 GiB VRAM; keep that baseline for the first check instead of increasing it immediately. A longer context increases memory demand, and concurrent requests can multiply context allocation. When the model is loaded, open another terminal and run `ollama ps`. Its PROCESSOR and CONTEXT columns show how the running model is allocated. If it reports a CPU/GPU split, it is not running entirely in VRAM; if it fails to load, reduce the workload or context and check the current compatibility and logs rather than forcing every layer onto the GPU.",
-        "checklist": [
-          "Record the laptop make and model, Windows version, NVIDIA driver, and `ollama --version`.",
-          "Use one exact model tag and note its listed download size; avoid switching quantizations mid-comparison.",
-          "Begin at the documented default context, with no parallel test prompts.",
-          "Run `ollama ps` while the model is loaded; save the PROCESSOR and CONTEXT values.",
-          "If you change context or model, record the new values and repeat the same prompt."
-        ],
-        "sourceIds": [
-          2,
-          3,
-          4,
-          5
         ]
       },
       {
@@ -5281,33 +5300,19 @@
   {
     "slug": "reflection-beam-gpu-requirements-open-weights",
     "category": "news",
-    "title": "Reflection Beam GPU requirements: 501B total, 23B active",
-    "description": "Reflection says Beam has 501B total parameters and 23B active. See what that means for GPU memory, access and its company-reported benchmarks.",
+    "title": "Reflection Beam GPU memory: 501B total vs 23B active",
+    "description": "Estimate Reflection Beam's weight memory: about 1,002GB at BF16 or a hypothetical 251GB at 4-bit. Understand active parameters, access and runtime limits.",
     "topic": "Open models & hardware",
     "image": "reflection-beam-hardware",
     "imageAlt": "AI-generated editorial photograph of an engineer installing a large triple-fan graphics card in a workstation; illustrative, not a Reflection Beam product image.",
     "imageCaption": "AI-generated editorial photograph illustrating GPU installation. It does not show Reflection’s Beam model or a tested configuration.",
     "eventDate": "2026-10-05",
     "featured": true,
-    "takeaway": "Reflection has announced a 501-billion-parameter mixture-of-experts model with 23 billion parameters active per token. That smaller active count can reduce computation, but it does not mean a 23B checkpoint: raw BF16 weights are about 1.0 TB before runtime overhead. Beam is currently waitlist-only; weights are planned later in October.",
+    "takeaway": "Reflection describes Beam as a 501B-total, 23B-active mixture-of-experts model. The active count does not mean a 23B checkpoint: raw BF16 weight storage is about 1,002GB before runtime overhead. At launch, Reflection offered early access and planned public weights later in October; verify current distribution before planning hardware.",
     "sections": [
       {
-        "heading": "What Reflection announced",
-        "content": "Reflection introduced Beam on October 5 as its first open-weight model, aimed at coding, reasoning and agentic workloads. The company describes a sparse mixture-of-experts (MoE) model with 501 billion total parameters and 23 billion active for each token. As of October 6, Reflection says selected users can request early access; it plans to publish the weights, model card, technical report and developer tools later this month under Apache 2.0. That means readers cannot yet inspect a public checkpoint or verify its final runtime requirements.",
-        "sourceIds": [
-          1
-        ]
-      },
-      {
-        "heading": "Why 23B active does not mean a 23B model download",
-        "content": "An MoE model routes each token through some of its expert networks rather than computing through every expert at once. This can lower the computation used for a token compared with a dense model of the same total size. The checkpoint still contains the experts: a 2025 ACL paper on MoE compression explains that fewer active parameters do not reduce total parameter count, and that expert weights create substantial memory pressure. Runtime strategies can shard weights across GPUs or offload them to system memory, but those choices need supported software and trade off speed, complexity or both.",
-        "sourceIds": [
-          2
-        ]
-      },
-      {
         "heading": "How much memory could Beam’s weights take?",
-        "content": "A simple lower-bound estimate multiplies parameter count by bytes per weight. For 501 billion parameters, BF16 at two bytes per weight works out to about 1,002 GB (roughly 933 GiB) for the weights alone. FP8 at one byte is about 501 GB; four-bit storage at half a byte is about 251 GB before scales and metadata. These are arithmetic estimates, not a tested Beam build: Reflection has not yet published the weight files or documented supported precisions. Real inference also needs memory for the runtime, activations, cache and other buffers.",
+        "content": "A simple lower-bound estimate multiplies parameter count by bytes per weight. For 501 billion parameters, BF16 at two bytes per weight works out to about 1,002 GB (roughly 933 GiB) for the weights alone. FP8 at one byte is about 501 GB; four-bit storage at half a byte is about 251 GB before scales and metadata. These are arithmetic estimates, not a tested Beam build: the launch post does not document supported precisions or a tested serving configuration. Real inference also needs memory for the runtime, activations, cache and other buffers.",
         "table": {
           "headers": [
             "Illustrative storage format",
@@ -5338,6 +5343,20 @@
         ]
       },
       {
+        "heading": "What Reflection announced",
+        "content": "Reflection introduced Beam on October 5 as its first open-weight model, aimed at coding, reasoning and agentic workloads. The company describes a sparse mixture-of-experts (MoE) model with 501 billion total parameters and 23 billion active for each token. As of October 6, Reflection says selected users can request early access; it plans to publish the weights, model card, technical report and developer tools later this month under Apache 2.0. That launch-stage account did not establish final runtime requirements. Access information in this paragraph is the dated October 6 account; the benchmark discussion below was rechecked October 15. We have not independently confirmed a public checkpoint release.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "Why 23B active does not mean a 23B model download",
+        "content": "An MoE model routes each token through some of its expert networks rather than computing through every expert at once. This can lower the computation used for a token compared with a dense model of the same total size. The checkpoint still contains the experts: a 2025 ACL paper on MoE compression explains that fewer active parameters do not reduce total parameter count, and that expert weights create substantial memory pressure. Runtime strategies can shard weights across GPUs or offload them to system memory, but those choices need supported software and trade off speed, complexity or both.",
+        "sourceIds": [
+          2
+        ]
+      },
+      {
         "heading": "Can one consumer GPU run Reflection Beam?",
         "content": "Not as a conventional, fully resident BF16 model on one card. NVIDIA lists 32 GB of memory for the GeForce RTX 5090 and 141 GB for the data-center H200; both are below even the rough 4-bit weight-only estimate above. A multi-GPU server, aggressive offload or a future compressed checkpoint could change the deployment options, but the launch post does not specify a supported inference configuration. The reported 6,144-GB300 pretraining cluster and 10,500-GPU reinforcement-learning run describe Reflection’s training work, not the hardware a user needs to serve Beam.",
         "sourceIds": [
@@ -5348,7 +5367,7 @@
       },
       {
         "heading": "What do Beam’s benchmark numbers show?",
-        "content": "Reflection’s launch post reports Beam at 80.1 on Terminal-Bench v2.1. Its table lists Kimi K3 at 88.3 and Qwen 3.8 Max at 86.6 on the same benchmark, while Beam leads some other entries or sits close to them. Those are company-published results, not an independent evaluation of Beam. Reflection also presents estimated inference-compute comparisons and explicitly excludes prompt-prefill, context-dependent attention and serving overhead from that estimate. Treat the table as an early vendor report: the model card, harness settings, model versions and independent reruns will matter before calling a winner.",
+        "content": "Reflection marks its launch benchmark table as updated October 8. The current table reports Beam at 80.1 on Terminal-Bench v2.1. These are company-published results, not our independent evaluation. Its compute comparison excludes prompt prefill, context-dependent attention and serving overhead; it is not measured serving cost. Read the latest table and methodology directly before comparing models. This article's memory calculations are weight-only arithmetic, not benchmark results.",
         "sourceIds": [
           1
         ]
@@ -5372,11 +5391,11 @@
       },
       {
         "question": "Can I run Reflection Beam on an RTX 5090?",
-        "answer": "There is no published supported build yet. The RTX 5090 has 32 GB of memory, while simple weight-only arithmetic estimates about 251 GB even at four bits for 501 billion parameters, before metadata and runtime memory. Wait for Reflection’s model card and supported quantized files before planning a deployment."
+        "answer": "This article does not establish a supported RTX 5090 build. Its 32GB memory is below the hypothetical 251GB raw weight estimate at four bits, before metadata and runtime memory. Verify current model-card and runtime requirements."
       },
       {
         "question": "Can I download Beam now?",
-        "answer": "Reflection says selected users can request early access. The public weights, model card, technical report and developer artifacts are planned for later in October 2026; they were not available in the October 5 announcement."
+        "answer": "The October 5 launch announcement offered early access and planned public weights later in October. This article has not independently confirmed current checkpoint distribution; check Reflection's official model and platform links."
       },
       {
         "question": "Has Beam independently beaten Kimi K3 or Qwen 3.8 Max?",
@@ -5412,7 +5431,7 @@
       }
     ],
     "publishedAt": "2026-10-06",
-    "updatedAt": "2026-10-06",
+    "updatedAt": "2026-10-15",
     "sourceCheckedAt": "2026-10-06"
   },
   {
