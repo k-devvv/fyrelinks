@@ -3,6 +3,11 @@ const nextConfig = {
   reactStrictMode: true,
   outputFileTracingRoot: __dirname,
   poweredByHeader: false,
+  env: {
+    NEXT_PUBLIC_AD_FRAME_ORIGIN: process.env.CONTEXT === 'deploy-preview' && process.env.DEPLOY_URL
+      ? new URL(process.env.DEPLOY_URL).origin
+      : 'https://fyrelinkz.netlify.app',
+  },
   async redirects() {
     return [{ source: "/tools/video-cost", destination: "/create/ai-video-generation-matrix-minimax-higgsfield-seedance", permanent: true }];
   },

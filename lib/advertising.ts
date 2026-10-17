@@ -13,6 +13,12 @@ export function selectAdUnit(placement: AdPlacement, width: number, desktop: boo
   if (placement === 'article') return width >= 300 ? AD_UNITS.rectangle : null;
   return width >= 728 ? AD_UNITS.wide : width >= 468 ? AD_UNITS.medium : width >= 320 ? AD_UNITS.mobile : null;
 }
-export function adFrameHtml(unit: typeof AD_UNITS[keyof typeof AD_UNITS]) {
-  return `<!doctype html><html><head><meta charset="utf-8"><meta name="referrer" content="strict-origin-when-cross-origin"><style>html,body{margin:0;padding:0;width:${unit.width}px;height:${unit.height}px;overflow:hidden}</style></head><body><script>window.atOptions=${JSON.stringify({key:unit.key,format:'iframe',height:unit.height,width:unit.width,params:{}})};<\/script><script src="https://bauval.org/22/${unit.key}"><\/script><script>(()=>{let attempts=0;const timer=setInterval(()=>{const frame=document.querySelector('iframe');let filled=false;try{filled=!!frame?.contentDocument?.body?.querySelector('img,a,video,canvas,iframe')}catch{filled=!!frame}if(filled){clearInterval(timer)}else if(++attempts>=15){clearInterval(timer);parent.postMessage({type:'fyre-ad-unfilled',key:'${unit.key}'},'*')}},1000)})();<\/script></body></html>`;
+// A separate origin is required: never combine scripts and same-origin access
+// in a frame hosted on the reader's own page origin.
+export const AD_FRAME_ORIGIN = process.env.NEXT_PUBLIC_AD_FRAME_ORIGIN || 'https://fyrelinkz.netlify.app';
+export function adFrameUrl(key: string, pageOrigin: string) {
+  if (!pageOrigin || !Object.values(AD_UNITS).some(unit => unit.key === key)) return null;
+  const origin = new URL(AD_FRAME_ORIGIN).origin;
+  if (origin === pageOrigin || !/^https:\/\/(?:[a-z0-9-]+--)?fyrelinkz\.netlify\.app$/.test(origin)) return null;
+  return origin + '/ads/frame.html?key=' + encodeURIComponent(key);
 }
