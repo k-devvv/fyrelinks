@@ -1,0 +1,2 @@
+trial_id,tool,version,mode,repository_commit,task_id,attempt,elapsed_seconds,tests_passed,review_minutes,accepted,correction_notes,privacy_check
+template,,,,,task-01,1,,,,,Replace this row with measurements; no tool results supplied,
