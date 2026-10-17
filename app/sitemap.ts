@@ -19,7 +19,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     })),
     ...CATEGORIES.map(category => {
-      const lastModified = latestUpdate(POSTS.filter(post => post.category === category.slug));
+      // Reading paths and Finance hub content were substantially revised on this date.
+      const lastModified = [latestUpdate(POSTS.filter(post => post.category === category.slug)), "2026-10-17"].sort().pop()!;
       return {
         url: SITE_URL + "/" + category.slug,
         ...(lastModified ? { lastModified: new Date(lastModified) } : {})
