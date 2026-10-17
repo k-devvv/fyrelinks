@@ -296,3 +296,19 @@ a:hover { color: var(--accent); }
 @media(max-width:400px) { .wrap { padding-inline: 17px; } .masthead { gap: 8px; } .brand { gap: 8px; font-size: 20px; } .brand-icon-wrapper { width: 36px; height: 36px; } .home-intro h1 { font-size: 48px; } .home-intro-actions { align-items: flex-start; } .intro-secondary { line-height: 1.5; } .story-compact h2 { font-size: 18px; } .footer-links { grid-template-columns: 1fr 1fr; } .footer-links>div:last-child { grid-column: 1/-1; } }
 @media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } .reveal-pending,.reveal-settled { opacity: 1 !important; transform: none !important; } }
 .route-error{min-height:58vh;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:18px}.route-error>.eyebrow{color:#79543e;letter-spacing:.15em}.route-error h1{max-width:650px;font-family:var(--serif);font-size:clamp(40px,7vw,72px);font-weight:500;line-height:1;letter-spacing:-.055em}.route-error p{color:#625d55;line-height:1.7}.route-error button{margin-top:8px}
+
+/* Contextual starting guides rendered as ordinary HTML links. */
+.reading-paths { margin:40px 0; }
+.reading-paths .section-heading h2 { font-size:clamp(26px,3vw,36px); }
+.reading-paths-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); border:1px solid var(--line); }
+.reading-paths-link { min-width:0; display:flex; flex-direction:column; padding:24px; gap:12px; background:var(--surface); color:var(--ink); text-decoration:none; }
+.reading-paths-link + .reading-paths-link { border-left:1px solid var(--line); }
+.reading-paths-link h3 { margin:0; font-size:24px; line-height:1.2; }
+.reading-paths-link p { margin:0; color:var(--muted); font-size:15px; line-height:1.6; }
+.reading-paths-action { margin-top:auto; padding-top:12px; color:var(--accent); font-size:13px; font-weight:700; }
+.reading-paths-link:hover h3 { text-decoration:underline; text-underline-offset:4px; }
+.reading-paths-link:focus-visible { outline:2px solid var(--accent); outline-offset:-3px; }
+@media(max-width:720px) {
+  .reading-paths-grid { grid-template-columns:1fr; }
+  .reading-paths-link + .reading-paths-link { border-left:0; border-top:1px solid var(--line); }
+}
