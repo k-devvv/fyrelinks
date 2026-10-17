@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { AD_CONSENT_EVENT, AD_CONSENT_KEY, adFrameHtml, selectAdUnit, type AdPlacement } from '@/lib/advertising';
+import { AD_CONSENT_EVENT, AD_CONSENT_KEY, AD_FRAME_ORIGIN, adFrameUrl, selectAdUnit, type AdPlacement } from '@/lib/advertising';
 type Choice = 'yes' | 'no' | null;
 function restricted() {
   return navigator.doNotTrack === '1' || (navigator as Navigator & {globalPrivacyControl?: boolean}).globalPrivacyControl === true;
@@ -43,21 +43,23 @@ export default function Advertising({ placement }: { placement: AdPlacement }) {
   const [unfilled, setUnfilled] = useState(false);
   const [width, setWidth] = useState(0);
   const [desktop, setDesktop] = useState(false);
+  const [pageOrigin, setPageOrigin] = useState('');
   useEffect(() => {
     const node = host.current; if (!node) return;
-    const update = () => { setWidth(node.clientWidth); setDesktop(window.matchMedia('(min-width: 1100px)').matches); };
+    const update = () => { setPageOrigin(window.location.origin); setWidth(node.clientWidth); setDesktop(window.matchMedia('(min-width: 1100px)').matches); };
     const observer = new ResizeObserver(update); observer.observe(node); update(); window.addEventListener('resize', update);
     return () => { observer.disconnect(); window.removeEventListener('resize', update); };
   }, [choice]);
   const unit = selectAdUnit(placement, width, desktop);
+  const frameUrl = unit ? adFrameUrl(unit.key, pageOrigin) : null;
   useEffect(() => {
     setUnfilled(false);
     const receive = (event: MessageEvent) => {
-      if (event.source === frame.current?.contentWindow && event.data?.type === 'fyre-ad-unfilled' && event.data?.key === unit?.key) setUnfilled(true);
+      if (event.origin === new URL(AD_FRAME_ORIGIN).origin && event.source === frame.current?.contentWindow && event.data?.type === 'fyre-ad-unfilled' && event.data?.key === unit?.key) setUnfilled(true);
     };
     window.addEventListener('message', receive);
     return () => window.removeEventListener('message', receive);
   }, [pathname, unit?.key, choice]);
   if (choice === 'no') return null;
-  return <aside ref={host} className={`network-ad network-ad-${placement}${unfilled ? ' network-ad-unfilled' : ''}${choice !== 'yes' ? ' network-ad-pending' : ''}`} aria-label="Advertisement"><span className="eyebrow">ADVERTISEMENT</span>{unfilled ? <p className="ad-opt-in">No advertisement available.</p> : choice === 'yes' && unit ? <iframe ref={frame} key={`${pathname}-${unit.key}`} title={`Adsterra ${unit.width} by ${unit.height} advertisement`} width={unit.width} height={unit.height} srcDoc={adFrameHtml(unit)} sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox" referrerPolicy="strict-origin-when-cross-origin" /> : <div className="ad-opt-in"><p>Optional advertising supports FyreLinkz.</p><button type="button" onClick={() => window.dispatchEvent(new Event('fyre-open-ad-preferences'))}>Ad choices</button></div>}</aside>;
+  return <aside ref={host} className={`network-ad network-ad-${placement}${unfilled ? ' network-ad-unfilled' : ''}${choice !== 'yes' ? ' network-ad-pending' : ''}`} aria-label="Advertisement"><span className="eyebrow">ADVERTISEMENT</span>{unfilled ? <p className="ad-opt-in">No advertisement available.</p> : choice === 'yes' && unit && frameUrl ? <iframe ref={frame} key={`${pathname}-${unit.key}`} title={`Adsterra ${unit.width} by ${unit.height} advertisement`} width={unit.width} height={unit.height} src={frameUrl} sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" referrerPolicy="strict-origin-when-cross-origin" /> : <div className="ad-opt-in"><p>Optional advertising supports FyreLinkz.</p><button type="button" onClick={() => window.dispatchEvent(new Event('fyre-open-ad-preferences'))}>Ad choices</button></div>}</aside>;
 }
