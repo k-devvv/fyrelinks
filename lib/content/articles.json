@@ -2683,7 +2683,7 @@
     "slug": "civitai-sdxl-photorealism-checkpoint-matrix",
     "category": "create",
     "title": "Choosing an SDXL checkpoint: a fair comparison checklist",
-    "description": "A repeatable evaluation sheet for portrait and product workflows: fixed prompts, compatible settings and recorded failure cases.",
+    "description": "Compare SDXL checkpoints with a blank test sheet. Record prompts, seeds, samplers, adapters and rejected outputs for your portrait or product workflow.",
     "topic": "AI images",
     "image": "sdxl-checkpoint-matrix-photo",
     "takeaway": "Use the same brief and record every result. Community example images are inspiration, not a controlled comparison.",
@@ -2705,6 +2705,10 @@
         "sourceIds": [
           1
         ]
+      },
+      {
+        "heading": "Download a blank comparison sheet",
+        "content": "Download the [blank SDXL checkpoint comparison sheet](/downloads/sdxl-checkpoint-comparison.csv). Save one row for every attempted output, including rejects. Keep the first comparison's brief and compatible settings consistent, then document any model-specific recommendation separately. Define accept or reject rules for the task before generating. The CSV contains no benchmark images, scores or measured winner."
       },
       {
         "heading": "Make a small evaluation sheet",
@@ -3177,7 +3181,7 @@
     "slug": "cursor-vs-windsurf-vs-copilot-developer-benchmarks",
     "category": "workflow",
     "title": "Cursor vs Windsurf vs Copilot: compare one real coding task",
-    "description": "Evaluate coding agents on a real repository task, review effort and repeatability. Check current product documentation before choosing a plan.",
+    "description": "Compare Cursor, Windsurf and Copilot on the same coding task. Download a blank evaluation log for tests, review time, corrections and accepted changes.",
     "topic": "Developer tools",
     "image": "ai-code-editors-photo",
     "takeaway": "A tool that writes code quickly may still need extensive review. Measure the completed, verified change.",
@@ -3211,6 +3215,10 @@
           2,
           3
         ]
+      },
+      {
+        "heading": "Download a blank comparison sheet",
+        "content": "Download the [blank coding-assistant comparison log](/downloads/coding-assistant-comparison.csv). Give each tool the same starting commit and task, with the same permissions and acceptance rules. Record exact versions and modes, all attempts, test results, total elapsed time and your review effort. The template contains no measured tool results or winner. Keep private code and credentials out of anything you share."
       },
       {
         "heading": "Choose a bounded repository task",
