@@ -1,6 +1,659 @@
 [
   {
     "category": "news",
+    "slug": "ollama-local-only-mode-cloud-privacy-controls",
+    "title": "Ollama local-only mode: disable cloud features and check privacy",
+    "description": "Run Ollama in local-only mode, check cloud settings and separate model inference from connected tools. A practical privacy review before sharing data.",
+    "topic": "Local AI privacy",
+    "image": "local-only-oct17-photo",
+    "imageAlt": "AI-generated editorial scene of a laptop and network equipment on a quiet home desk.",
+    "takeaway": "Ollama documents a local-only switch, OLLAMA_NO_CLOUD=1, and an equivalent server setting. Restart after changing it. Treat this as one boundary in your setup: browser tools, extensions and other applications can have separate connections and policies.",
+    "sections": [
+      {
+        "heading": "What Ollama's local-only setting changes",
+        "content": "Ollama's current FAQ describes disabling cloud models and web search with OLLAMA_NO_CLOUD=1 or disable_ollama_cloud in its server configuration. Restart the application or service after the change; its documentation identifies an Ollama cloud disabled log entry as confirmation. This is a current documentation explainer, not a newly announced release or a FyreLinkz network audit.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "Map the whole route before entering private text",
+        "content": "Our suggested review starts with the interface you type into, then the server it calls, the selected model and any optional search or document connectors. Draw those as four separate boxes. A local model selection does not explain where a browser extension sends diagnostics or where a third-party chat interface stores conversation history. Record each application's actual settings rather than inferring them from the model name."
+      },
+      {
+        "heading": "A small privacy inventory you can copy",
+        "content": "Use a harmless made-up question for the first run. Record the settings and review logs without publishing prompts, credentials or personal documents. This table is an editorial checklist, not proof that a particular installation is offline.",
+        "table": {
+          "headers": [
+            "Layer",
+            "Question to record",
+            "Evidence to keep"
+          ],
+          "rows": [
+            [
+              "Chat interface",
+              "Which server receives the prompt?",
+              "Configured endpoint"
+            ],
+            [
+              "Model runtime",
+              "Are cloud features disabled?",
+              "Setting and restart log"
+            ],
+            [
+              "Optional tools",
+              "Can search or connectors transmit text?",
+              "Tool configuration"
+            ],
+            [
+              "History and backups",
+              "Where are conversations retained?",
+              "Retention and sync settings"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "Local-only does not mean your whole computer is disconnected",
+        "content": "We recommend separating three goals: keeping inference on your machine, preventing a particular tool from using a cloud feature, and enforcing complete network isolation. They are different tests. For sensitive work, involve whoever manages the device and its data rules. Do not change firewall or security settings merely to make a model run. No claim about your device's traffic can be made from a documentation setting alone."
+      },
+      {
+        "heading": "Keep a repeatable first-run record",
+        "content": "Start with a non-sensitive prompt you can reuse after updates. Record the runtime version, model identifier, interface and enabled tools. Repeat that check when you change an extension or switch a model. Keep download activity separate from the inference session in your notes; obtaining model files and generating an answer are distinct actions.",
+        "checklist": [
+          "List each application in the prompt path.",
+          "Record the local-only setting and restart confirmation.",
+          "Disable optional connected tools you do not need in that interface.",
+          "Use a harmless sample before handling real material.",
+          "Review the record after an update or configuration change."
+        ]
+      },
+      {
+        "heading": "Next: size the machine and inspect model files",
+        "content": "See our [small local model guide](/stack/small-language-models-edge-devices-guide) for workload selection and the [model download checklist](/workflow/download-ai-models-safetensors-pickle-security-checklist) before installing unfamiliar files. Those guides answer different questions from network privacy. This article does not certify a deployment or establish compliance with an employer's rules."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "Ollama",
+        "title": "FAQ: local data and disabling cloud features",
+        "url": "https://docs.ollama.com/faq"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "How do I disable Ollama cloud features?",
+        "answer": "Ollama documents OLLAMA_NO_CLOUD=1 or disable_ollama_cloud in server configuration. Restart and check the documented confirmation log."
+      },
+      {
+        "question": "Does local-only mode audit other applications?",
+        "answer": "No. Review the chat interface, tools, extensions and storage separately."
+      },
+      {
+        "question": "Is this a new Ollama launch?",
+        "answer": "No. This is an explanation of documented controls checked on October 17, 2026."
+      }
+    ],
+    "publishedAt": "2026-10-17",
+    "updatedAt": "2026-10-17",
+    "sourceCheckedAt": "2026-10-17",
+    "featured": false,
+    "imageCaption": "AI-generated editorial illustration. Not a product screenshot, actual test setup or evidence of measured results."
+  },
+  {
+    "category": "create",
+    "slug": "ai-image-upscaling-vs-img2img-preserve-details",
+    "title": "AI image upscaling vs img2img: preserve details before enlarging",
+    "description": "Choose resizing, upscaling or img2img using a detail-preservation checklist. Compare crops, text and texture before exporting an AI image.",
+    "topic": "Image upscaling",
+    "image": "upscaling-oct17-photo",
+    "imageAlt": "AI-generated editorial scene of small and large landscape prints with a magnifying loupe.",
+    "takeaway": "Choose the operation by what must remain unchanged. Enlarging an image and regenerating its details are different jobs. Keep the original, compare matched crops and reject altered lettering, identity or product details even when the larger version looks sharper.",
+    "sections": [
+      {
+        "heading": "What is the difference between upscaling and img2img?",
+        "content": "Diffusers documents separate super-resolution and image-to-image pipelines. Its img2img guide explains that strength changes how much the output departs from the input: higher settings allow more change. A particular upscaler has its own controls and model assumptions; do not transfer one pipeline's strength value to another as a universal preset.",
+        "sourceIds": [
+          1,
+          2
+        ]
+      },
+      {
+        "heading": "Write the preservation rule before choosing a tool",
+        "content": "Our proposed brief is one sentence: enlarge this image for a specified output while keeping these named details unchanged. For a product picture, name the logo placement, shape and material. For an illustration, name the silhouette, expression and line work. If inventing new surface texture is acceptable, say so explicitly. A sharper-looking result can still fail that brief."
+      },
+      {
+        "heading": "Choose a route by the job, not by the label",
+        "content": "This table is an editorial decision aid, not a quality ranking. Test your actual image because a useful result depends on the source and the model.",
+        "table": {
+          "headers": [
+            "Goal",
+            "Route to evaluate",
+            "Reject when"
+          ],
+          "rows": [
+            [
+              "Change output dimensions",
+              "Conventional resize",
+              "Edges or layout fail your delivery brief"
+            ],
+            [
+              "Add apparent detail",
+              "Super-resolution workflow",
+              "Texture or lettering changes meaning"
+            ],
+            [
+              "Reinterpret the image",
+              "Img2img workflow",
+              "Required identity or composition drifts"
+            ],
+            [
+              "Prepare a final asset",
+              "Crop and export review",
+              "Wrong dimensions or visible artifacts remain"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "Run a matched-crop comparison",
+        "content": "Keep an untouched original and name each output with the method and settings. Inspect the same regions at the same display scale: fine type, repeated edges, hair or foliage and flat gradients. Then inspect the complete composition at its final viewing size. Our suggested test uses one conservative variant before exploring more creative changes; it is not an endorsed numeric setting."
+      },
+      {
+        "heading": "Count pixels without calling them recovered evidence",
+        "content": "A 1024 by 1024 image has 1,048,576 pixels. Enlarging both dimensions by two produces 2048 by 2048, or 4,194,304 pixels: four times the pixel count. That arithmetic does not establish four times the authentic detail. For documentary or evidentiary material, preserve the source and disclose edits rather than presenting generated detail as an observation."
+      },
+      {
+        "heading": "A repeatable export checklist",
+        "content": "Record the model version and processing choices alongside the image. For a repeatable local review, use our [SDXL comparison worksheet](/create/civitai-sdxl-photorealism-checkpoint-matrix) and [ComfyUI first workflow](/workflow/comfyui-beginner-first-workflow-guide). We have not measured a winning upscaler in this article.",
+        "checklist": [
+          "Save the original separately.",
+          "Define final dimensions and intended viewing size.",
+          "Compare the same crops across variants.",
+          "Check text, anatomy, edges and product identity.",
+          "Record settings and disclose generative edits when relevant."
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "Hugging Face",
+        "title": "Diffusers image-to-image guide",
+        "url": "https://huggingface.co/docs/diffusers/main/en/using-diffusers/img2img"
+      },
+      {
+        "publisher": "Hugging Face",
+        "title": "Diffusers super-resolution pipeline",
+        "url": "https://huggingface.co/docs/diffusers/main/api/pipelines/stable_diffusion/upscale"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Does a larger AI image contain more authentic detail?",
+        "answer": "Not necessarily. More pixels can include invented or altered detail; compare with the original."
+      },
+      {
+        "question": "What img2img strength preserves an image perfectly?",
+        "answer": "No universal value guarantees preservation. Evaluate the exact model, image and settings."
+      },
+      {
+        "question": "Did FyreLinkz benchmark these upscalers?",
+        "answer": "No. This is a sourced workflow and original review checklist, not a measured ranking."
+      }
+    ],
+    "publishedAt": "2026-10-17",
+    "updatedAt": "2026-10-17",
+    "sourceCheckedAt": "2026-10-17",
+    "featured": false,
+    "imageCaption": "AI-generated editorial illustration. Not a product screenshot, actual test setup or evidence of measured results."
+  },
+  {
+    "category": "workflow",
+    "slug": "comfyui-missing-models-nodes-shape-errors-fix",
+    "title": "ComfyUI missing models or nodes? Diagnose the right error first",
+    "description": "Fix ComfyUI workflow failures by separating missing files, missing nodes, architecture mismatches and memory errors. Includes a triage table and recovery log.",
+    "topic": "ComfyUI troubleshooting",
+    "image": "comfy-fixes-oct17-photo",
+    "imageAlt": "AI-generated editorial scene of a developer reviewing an abstract node graph at a desk.",
+    "takeaway": "Read the first relevant error before downloading anything. Missing model files, unknown node types, incompatible model components and exhausted memory are different failures. Save a working baseline, change one item and rerun the same workflow.",
+    "sections": [
+      {
+        "heading": "Start with the failure category",
+        "content": "ComfyUI's troubleshooting documentation distinguishes missing models, loading problems and architecture mismatches. A model absent from a loader list calls for a different investigation from a tensor-shape error. Installing more custom nodes is not a general solution for either.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "Use this triage table before changing the environment",
+        "content": "This is our diagnostic order, not a replacement for the complete traceback. Save the exact message and the workflow version first.",
+        "table": {
+          "headers": [
+            "Observed failure",
+            "First check",
+            "Avoid initially"
+          ],
+          "rows": [
+            [
+              "Model name absent from loader",
+              "File, directory and search path",
+              "Renaming unrelated model files"
+            ],
+            [
+              "Unknown custom node type",
+              "Node's official project and compatibility",
+              "Installing every suggested pack"
+            ],
+            [
+              "Tensor shape mismatch",
+              "Checkpoint, encoder and VAE family",
+              "Repeatedly downloading the same file"
+            ],
+            [
+              "Out of memory",
+              "Resolution, batch and available memory",
+              "Changing multiple settings together"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "If a model is missing, check the loader's expected files",
+        "content": "The official model guide lists model directories and supports additional paths through extra_model_paths.yaml. It also describes compatible component families. Check the workflow author's file requirements and the loader type together; a filename extension alone does not identify the role or architecture. A file that is present on disk can still be the wrong component.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "If a custom node is missing, find its real source",
+        "content": "Comfy's support page explains that custom nodes can be installed in local and Desktop environments. Our recommendation is to verify the project's author, installation instructions and required version before making a change. A custom node is software, not merely a visual block. Keep a copy of the working environment and review dependency changes rather than treating a suggested pack as automatically trustworthy.",
+        "sourceIds": [
+          2
+        ]
+      },
+      {
+        "heading": "Restore a small known-good workflow",
+        "content": "Use an official example that matches your installed model family and attempt one small output. If it works, add the failing workflow's components gradually. If it fails, retain that smaller reproduction for the bug report. This approach reduces the number of variables; it does not promise that every third-party workflow is compatible. For memory-specific diagnosis, follow the [VRAM and offloading guide](/workflow/reduce-local-llm-vram-quantization-offloading-guide) for concepts, then use settings documented for your actual image runtime."
+      },
+      {
+        "heading": "Keep a recovery log you can share safely",
+        "content": "Our suggested log records what changed, the first error and whether the original baseline still works. Remove usernames, paths that reveal private projects, tokens and personal prompts before sharing it publicly. Start from the [ComfyUI beginner workflow](/workflow/comfyui-beginner-first-workflow-guide) and check [model download safety](/workflow/download-ai-models-safetensors-pickle-security-checklist) before adding unfamiliar files.",
+        "checklist": [
+          "Record ComfyUI and custom-node versions.",
+          "Save the workflow and exact first error.",
+          "List required model components and their sources.",
+          "Change one dependency or setting at a time.",
+          "Confirm whether the known-good workflow still runs."
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "Comfy",
+        "title": "Troubleshoot model issues",
+        "url": "https://docs.comfy.org/troubleshooting/model-issues"
+      },
+      {
+        "publisher": "Comfy",
+        "title": "Installing custom nodes",
+        "url": "https://support.comfy.org/articles/9321608144-installing-custom-nodes"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Will installing custom nodes fix a missing checkpoint?",
+        "answer": "Not by itself. Verify the required model file, location and loader."
+      },
+      {
+        "question": "Why does a workflow show tensor shape errors?",
+        "answer": "One documented cause is mixing incompatible model components. Check the exact traceback and architecture requirements."
+      },
+      {
+        "question": "Should I update everything at once?",
+        "answer": "Our recommendation is to preserve a baseline and change one item so the result can be traced."
+      }
+    ],
+    "publishedAt": "2026-10-17",
+    "updatedAt": "2026-10-17",
+    "sourceCheckedAt": "2026-10-17",
+    "featured": false,
+    "imageCaption": "AI-generated editorial illustration. Not a product screenshot, actual test setup or evidence of measured results."
+  },
+  {
+    "category": "hardware",
+    "slug": "unified-memory-vs-vram-local-ai-buying-guide",
+    "title": "Unified memory vs VRAM for local AI: compare capacity and fit",
+    "description": "Compare shared memory and discrete GPU VRAM for local AI without equating capacity with speed. Use a software, context and workload checklist before buying.",
+    "topic": "Local AI memory",
+    "image": "unified-memory-oct17-photo",
+    "imageAlt": "AI-generated editorial scene of a compact computer beside desktop graphics and memory hardware.",
+    "takeaway": "Unified memory and discrete GPU VRAM describe different memory arrangements. Compare whether your complete workload fits, whether the runtime supports the machine and how quickly it completes your task. The same advertised capacity does not establish equivalent AI performance.",
+    "sections": [
+      {
+        "heading": "What does unified memory mean?",
+        "content": "Apple's Metal documentation defines unified memory as GPU memory shared with the CPU. In a buying comparison, that means the shared pool must be considered alongside the rest of the system's needs. It is not a dedicated graphics-memory number that can be substituted into every discrete GPU requirement.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "Separate three questions in the buying decision",
+        "content": "Our framework asks: can the software run, can the complete task fit, and is the turnaround acceptable? Answer them in that order. A large memory configuration cannot fix an unsupported runtime. A supported runtime that can load a model does not establish useful interactive speed. Ask for results on the exact workflow rather than comparing a memory figure in isolation."
+      },
+      {
+        "heading": "A comparison sheet for two real machines",
+        "content": "Fill this table with the actual configurations you can buy. Leave unknown cells blank and request evidence; do not convert an absent measurement into a score.",
+        "table": {
+          "headers": [
+            "Decision",
+            "Machine A",
+            "Machine B"
+          ],
+          "rows": [
+            [
+              "Runtime and model compatibility",
+              "Record verified support",
+              "Record verified support"
+            ],
+            [
+              "Memory available during the task",
+              "Measure with usual apps open",
+              "Measure with usual apps open"
+            ],
+            [
+              "Prompt/context and output size",
+              "Use the same test",
+              "Use the same test"
+            ],
+            [
+              "Time to accepted result",
+              "Record repeated runs",
+              "Record repeated runs"
+            ],
+            [
+              "Full ownership cost",
+              "Include necessary peripherals",
+              "Include necessary peripherals"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "Context and concurrency belong in the memory budget",
+        "content": "Ollama's context documentation says increasing context increases memory demand and shows ollama ps for inspecting allocation and offloading. Its FAQ also describes extra memory pressure from parallel requests. These runtime details illustrate why a model's download size is not a complete capacity plan. Check the documentation for the runtime you intend to use rather than applying Ollama settings to every tool.",
+        "sourceIds": [
+          2,
+          3
+        ]
+      },
+      {
+        "heading": "Measure the work you actually do",
+        "content": "Our suggested comparison has a short interaction, a representative long input and a repeated task with your normal applications open. Keep model version, quantization, context and output target fixed where the runtimes allow it. Record failures as well as successes. We have not compared machines in a lab here, and this guide contains no tokens-per-second or purchase winner claims."
+      },
+      {
+        "heading": "Plan an upgrade around the missing constraint",
+        "content": "If your present machine already completes the task, identify what is unacceptable before replacing it: waiting time, capacity, portability or software access. Our [workstation checklist](/hardware/best-local-ai-workstation-build-guide-2026) and [upgrade versus build guide](/hardware/local-ai-pc-upgrade-vs-build-laptop-workstation) help turn that constraint into a shortlist. Record the date and country of any quote; this article does not contain live regional prices."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "Apple Developer",
+        "title": "MTLDevice hasUnifiedMemory",
+        "url": "https://developer.apple.com/documentation/metal/mtldevice/hasunifiedmemory"
+      },
+      {
+        "publisher": "Ollama",
+        "title": "Context length",
+        "url": "https://docs.ollama.com/context-length"
+      },
+      {
+        "publisher": "Ollama",
+        "title": "FAQ: concurrent requests",
+        "url": "https://docs.ollama.com/faq"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is 32 GB unified memory the same as 32 GB dedicated VRAM?",
+        "answer": "No. The arrangement and competing system demands differ; compare the complete workload."
+      },
+      {
+        "question": "Does more memory always make local AI faster?",
+        "answer": "No. Capacity, software support and measured task time are separate criteria."
+      },
+      {
+        "question": "Can model download size determine required memory?",
+        "answer": "Not alone. Include context, runtime allocations and concurrent work."
+      }
+    ],
+    "publishedAt": "2026-10-17",
+    "updatedAt": "2026-10-17",
+    "sourceCheckedAt": "2026-10-17",
+    "featured": false,
+    "imageCaption": "AI-generated editorial illustration. Not a product screenshot, actual test setup or evidence of measured results."
+  },
+  {
+    "category": "stack",
+    "slug": "gemini-batch-api-vs-standard-cost-deadlines",
+    "title": "Gemini Batch API vs standard: when cheaper jobs can wait",
+    "description": "Compare Gemini batch and interactive requests using deadlines, retries and cost per accepted result. Includes a hypothetical budget and job-review checklist.",
+    "topic": "API cost comparison",
+    "image": "batch-api-oct17-photo",
+    "imageAlt": "AI-generated editorial scene of a developer workspace with an abstract job queue on a monitor.",
+    "takeaway": "Google documents Gemini batch requests at half the standard equivalent API cost with a 24-hour target turnaround. Choose batch for work that can wait, and budget retries and review separately. A target is not a promise that a time-critical task will finish when you need it.",
+    "sections": [
+      {
+        "heading": "What does Gemini Batch API offer?",
+        "content": "Google describes asynchronous processing for non-urgent jobs and a target turnaround of 24 hours. Its documentation lists pricing at 50% of the standard interactive equivalent and says support depends on the model. Verify the selected model and current price page before a production estimate.",
+        "sourceIds": [
+          1,
+          2
+        ]
+      },
+      {
+        "heading": "Decide by the deadline before calculating the discount",
+        "content": "Our proposed first question is whether someone is waiting for the response. An interactive help flow and a nightly evaluation run have different deadlines. If delayed completion would block a customer or miss a publication window, a cheaper token rate alone is insufficient. Separate urgent and deferrable work into different queues rather than asking one mode to serve every task."
+      },
+      {
+        "heading": "A hypothetical cost comparison",
+        "content": "Suppose the same eligible workload would cost $20 at a standard rate and $10 at a batch rate. If either path yields 80 accepted outputs, that is $0.25 versus $0.125 per accepted output before other costs. These are invented totals, not current model prices or a measured result. Add the actual cost of retries, storage and human review before comparing budgets.",
+        "table": {
+          "headers": [
+            "Illustrative input",
+            "Standard route",
+            "Batch route"
+          ],
+          "rows": [
+            [
+              "API cost assumed",
+              "$20",
+              "$10"
+            ],
+            [
+              "Accepted outputs assumed",
+              "80",
+              "80"
+            ],
+            [
+              "API cost per accepted output",
+              "$0.25",
+              "$0.125"
+            ],
+            [
+              "Deadline suitability",
+              "Evaluate for the application",
+              "Evaluate for deferred work"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "Keep job identity separate from output acceptance",
+        "content": "Our operational checklist assigns a stable input ID and records submission time, status and the accepted result. Do not infer that an entire collection succeeded from the existence of a completed job alone; inspect the individual results according to the service response. Define how you will detect missing outputs before building a workflow around them."
+      },
+      {
+        "heading": "Plan retries without duplicating your downstream action",
+        "content": "A report-generation retry and a customer email retry have different consequences. Our recommendation is to retain a result ledger and make publishing or other side effects a separate reviewed step. When a request's state is unclear, investigate before resubmitting the whole collection. This is a design suggestion, not a claim that a provider guarantees exactly-once processing.",
+        "checklist": [
+          "Confirm model eligibility and dated prices.",
+          "Define an acceptable completion deadline.",
+          "Give every input a stable identifier.",
+          "Review per-request outcomes and missing records.",
+          "Budget review and retries, then approve downstream actions."
+        ]
+      },
+      {
+        "heading": "Compare the whole stack",
+        "content": "Use our [local versus cloud cost framework](/stack/local-vs-cloud-ai-cost-per-accepted-task) to include review time and deployment costs. For a retrieval workflow, compare [RAG with stateful agents](/workflow/stateful-agents-vs-simple-rag-workflow-guide) before adding background jobs. This article is a documented comparison, not a throughput benchmark or service-level guarantee."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "Google AI for Developers",
+        "title": "Gemini Batch API",
+        "url": "https://ai.google.dev/gemini-api/docs/batch-api"
+      },
+      {
+        "publisher": "Google AI for Developers",
+        "title": "Gemini API pricing",
+        "url": "https://ai.google.dev/gemini-api/docs/pricing"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is Gemini batch always suitable for live chat?",
+        "answer": "No. Its asynchronous turnaround makes deadline suitability a separate decision from token price."
+      },
+      {
+        "question": "Does a 50% API discount halve the entire project cost?",
+        "answer": "No. Review, retries, storage and other operating costs can remain."
+      },
+      {
+        "question": "Are the $20 and $10 examples current prices?",
+        "answer": "No. They are hypothetical totals illustrating cost per accepted output."
+      }
+    ],
+    "publishedAt": "2026-10-17",
+    "updatedAt": "2026-10-17",
+    "sourceCheckedAt": "2026-10-17",
+    "featured": false,
+    "imageCaption": "AI-generated editorial illustration. Not a product screenshot, actual test setup or evidence of measured results."
+  },
+  {
+    "category": "finance",
+    "slug": "zero-percent-balance-transfer-fee-payoff-example",
+    "title": "0% balance transfers: fees, payoff maths and purchase interest",
+    "description": "Calculate a balance-transfer fee and monthly payoff target, then check purchase APR and promotional deadlines. US educational example, with no card rankings.",
+    "topic": "Credit card costs",
+    "image": "balance-transfer-oct17-photo",
+    "imageAlt": "AI-generated editorial scene of blank bank cards, a calculator and a household budgeting notebook.",
+    "takeaway": "A 0% balance-transfer offer can still charge a transfer fee, and purchases can follow different interest rules. Compare the written fee, promotion deadline, purchase terms and repayment plan. A headline rate alone does not establish savings or suitability.",
+    "sections": [
+      {
+        "heading": "Does zero percent mean no transfer fee?",
+        "content": "No. The CFPB explains that an issuer may charge a balance-transfer fee even with a zero-percent promotional rate. Read the actual offer rather than assuming the headline covers every cost. This guide uses US consumer-credit terminology and is educational, not a recommendation to apply for a card.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "Calculate the fee before comparing offers",
+        "content": "Our hypothetical example transfers $3,000 with a 3% fee: $90. If the fee is added to the transferred balance, the starting amount to repay is $3,090. Dividing that amount across 15 equal payments gives $206 per payment. This simplified arithmetic assumes no interest, new purchases, other fees or missed payments throughout the example; it does not establish any lender's minimum payment or actual billing schedule.",
+        "table": {
+          "headers": [
+            "Illustrative item",
+            "Calculation",
+            "Amount"
+          ],
+          "rows": [
+            [
+              "Transferred balance",
+              "Assumed input",
+              "$3,000"
+            ],
+            [
+              "Transfer fee",
+              "$3,000 × 0.03",
+              "$90"
+            ],
+            [
+              "Balance including fee",
+              "$3,000 + $90",
+              "$3,090"
+            ],
+            [
+              "Equal-payment target",
+              "$3,090 ÷ 15",
+              "$206"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "Why can purchases still accrue interest?",
+        "content": "The CFPB warns that carrying a promotional transferred balance can affect the grace period on new purchases. The transfer rate and purchase rate must therefore be read separately. Ask the issuer how purchases, fees and payments are treated in your specific agreement before combining everyday spending with a transfer.",
+        "sourceIds": [
+          2
+        ]
+      },
+      {
+        "heading": "Compare a dated offer, not a general card name",
+        "content": "Our worksheet records the transfer deadline, promotional expiry, fee formula, any minimum fee, post-promotion rate and the rules for purchases. Add when the transfer is expected to reach the old account and verify both accounts' statements. Keep required payments current according to the issuers' instructions; submitting a transfer request is not evidence that an existing balance has already been paid."
+      },
+      {
+        "heading": "Build room for the calendar, not just the division",
+        "content": "The 15-payment illustration is a planning number, not a promise that a 15-month promotion provides 15 convenient statement dates. Write the actual due dates and expiry date from the agreement. Recalculate if the approved transfer is smaller, the fee differs or your repayment budget changes. An offer that requires a payment you cannot sustain deserves further review before you rely on it.",
+        "checklist": [
+          "Record the exact transfer fee and promotional expiry.",
+          "Separate transfer APR from purchase APR.",
+          "Confirm the balance actually transferred.",
+          "Map payments to real due dates.",
+          "Check the remaining balance before the promotion ends."
+        ]
+      },
+      {
+        "heading": "Keep the wider debt plan visible",
+        "content": "Compare the offer with your existing borrowing cost and the repayment amount you can maintain, rather than with a marketing headline. Our [APR explanation](/finance/credit-card-apr-daily-interest-example) shows why rate and timing matter; the [emergency savings checklist](/finance/emergency-fund-savings-account-checklist) covers a different planning goal. No live offers, eligibility decisions, personalized advice or guaranteed savings are provided here."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "Consumer Financial Protection Bureau",
+        "title": "Balance-transfer fees on zero-percent offers",
+        "url": "https://www.consumerfinance.gov/ask-cfpb/what-is-a-balance-transfer-fee-can-a-balance-transfer-fee-be-charged-on-a-zero-percent-interest-rate-offer-en-53/"
+      },
+      {
+        "publisher": "Consumer Financial Protection Bureau",
+        "title": "Purchase interest after a balance transfer",
+        "url": "https://www.consumerfinance.gov/ask-cfpb/do-i-pay-interest-on-new-purchases-after-i-get-a-zero-or-low-rate-balance-transfer-en-49/"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Can a 0% balance transfer have a fee?",
+        "answer": "Yes. Check the fee formula and any minimum in the written offer."
+      },
+      {
+        "question": "What is 3% of a $3,000 transfer?",
+        "answer": "$90. If added to the balance, that makes $3,090 before other charges."
+      },
+      {
+        "question": "Is $206 the lender's minimum payment?",
+        "answer": "No. It is an illustrative equal-payment target: $3,090 divided by 15."
+      },
+      {
+        "question": "Does this article recommend a specific credit card?",
+        "answer": "No. It explains costs and questions to check using hypothetical inputs."
+      }
+    ],
+    "publishedAt": "2026-10-17",
+    "updatedAt": "2026-10-17",
+    "sourceCheckedAt": "2026-10-17",
+    "featured": false,
+    "imageCaption": "AI-generated editorial illustration. Not a product screenshot, actual test setup or evidence of measured results."
+  },
+  {
+    "category": "news",
     "slug": "mistral-ai-altair1-satellite-earth-orbit",
     "title": "Mistral AI in orbit: what Altair-1 actually runs",
     "description": "Altair-1 runs Mistral models on NVIDIA hardware in Earth orbit. Understand the launch, onboard AI, 50-satellite plan and limits of speed claims.",
