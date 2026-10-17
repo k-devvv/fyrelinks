@@ -74,7 +74,7 @@ export default function JsonLd(props: Props) {
       }, {
         name: p.title,
         url: props.url!
-      }]), ...(faqPageSchema(p.faqs) ? [faqPageSchema(p.faqs)] : []), ...(howTo ? [howTo] : []), ...(appSchema ? [appSchema] : [])]
+      }]), ...(p.faqs.length ? [{ ...faqPageSchema(p.faqs), "@id": props.url + "#faq", url: props.url + "#faq", inLanguage: "en", mainEntity: p.faqs.map(faq => ({ "@type": "Question", "@id": props.url + "#faq-" + sectionId(faq.question), name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })) }] : []), ...(howTo ? [howTo] : []), ...(appSchema ? [appSchema] : [])]
     };
   }
   return <script type="application/ld+json" dangerouslySetInnerHTML={{

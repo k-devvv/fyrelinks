@@ -2038,9 +2038,19 @@
       }
     ],
     "publishedAt": "2026-09-26",
-    "updatedAt": "2026-09-26",
+    "updatedAt": "2026-10-17",
     "sourceCheckedAt": "2026-09-26",
-    "imageAlt": "Generated editorial photograph: Storyboard sheets and a filmmaker reviewing continuity between video shots."
+    "imageAlt": "Generated editorial photograph: Storyboard sheets and a filmmaker reviewing continuity between video shots.",
+    "faqs": [
+      {
+        "question": "Is Google's co-director a publicly available video app?",
+        "answer": "The cited report describes research systems, not a generally available creator product. It does not announce public pricing or a creator-facing API."
+      },
+      {
+        "question": "How can I check continuity across AI video shots?",
+        "answer": "Keep a storyboard and a record of the character, setting and objects that must remain consistent. Review transitions between shots as well as each clip; this is an editorial checklist, not a test of Google's systems."
+      }
+    ]
   },
   {
     "slug": "runway-adobe-premiere-after-effects-plugins",
@@ -2107,9 +2117,19 @@
       }
     ],
     "publishedAt": "2026-09-12",
-    "updatedAt": "2026-09-21",
+    "updatedAt": "2026-10-17",
     "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "Generated editorial photograph: Video editor reviewing a sequence of generated clips on a large editing monitor."
+    "imageAlt": "Generated editorial photograph: Video editor reviewing a sequence of generated clips on a large editing monitor.",
+    "faqs": [
+      {
+        "question": "Does the free Runway plugin include free generation?",
+        "answer": "The download and generation costs are separate. The announcement says generation uses the user's Runway plan and credits; check the selected model and current plan before a production session."
+      },
+      {
+        "question": "What should I test before using the plugin on a deadline?",
+        "answer": "Test sign-in, one generation, import into the intended sequence or composition, and the final export. Save the settings and credit use so the handoff can be repeated."
+      }
+    ]
   },
   {
     "slug": "comfyui-native-trellis2-pixal3d",
@@ -2168,9 +2188,19 @@
       }
     ],
     "publishedAt": "2026-09-12",
-    "updatedAt": "2026-09-21",
+    "updatedAt": "2026-10-17",
     "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "Generated editorial photograph: Digital sculptor inspecting a detailed 3D character model at a workstation."
+    "imageAlt": "Generated editorial photograph: Digital sculptor inspecting a detailed 3D character model at a workstation.",
+    "faqs": [
+      {
+        "question": "Does native 3D support guarantee a production-ready asset?",
+        "answer": "No. Inspect the exported mesh in its destination application. A useful preview does not establish acceptable topology, materials or cleanup effort."
+      },
+      {
+        "question": "What is a sensible first 3D workflow test?",
+        "answer": "Use a simple object with an obvious front and back, export it, and check it in the application where it will be used. Keep the input, workflow and mesh together."
+      }
+    ]
   },
   {
     "slug": "comfy-mcp-local-workflows",
@@ -2229,9 +2259,19 @@
       }
     ],
     "publishedAt": "2026-09-12",
-    "updatedAt": "2026-09-21",
+    "updatedAt": "2026-10-17",
     "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "Generated editorial photograph: Creator working with a local AI workflow across two computer monitors."
+    "imageAlt": "Generated editorial photograph: Creator working with a local AI workflow across two computer monitors.",
+    "faqs": [
+      {
+        "question": "What does the local Comfy MCP connection expose?",
+        "answer": "The cited announcement describes access to local installation context, including hardware, installed models and loaded nodes, to help agents build, edit and run workflows."
+      },
+      {
+        "question": "Should I let an agent rewrite an entire unfamiliar workflow first?",
+        "answer": "Start with a workflow that already works. Request one small change, inspect the graph and compare the output with the baseline before expanding the task."
+      }
+    ]
   },
   {
     "slug": "ai-video-generation-matrix-minimax-higgsfield-seedance",
@@ -2417,141 +2457,60 @@
     "slug": "comfyui-flux-lora-training-and-inference-guide",
     "category": "create",
     "title": "FLUX in ComfyUI: a practical workflow and LoRA checklist",
-    "description": "Choose a FLUX.1 starting point, understand the graph and introduce LoRAs after a reproducible baseline works.",
+    "description": "Start FLUX.1 in ComfyUI with the official workflow. Check model files, precision, memory and LoRA compatibility before changing the graph.",
     "topic": "ComfyUI",
     "image": "comfyui-flux-lora-photo",
     "featured": true,
-    "takeaway": "Direct Answer: To run FLUX.1 without CUDA out-of-memory errors on 12GB–16GB consumer GPUs, load FLUX.1 dev in FP8 (or GGUF Q4_K_M / Q8_0) using ComfyUI’s native UNETLoader and DualCLIPLoader, offload CLIP and T5 to CPU RAM, and clamp inference to 20–25 steps with Euler sampler. Only introduce LoRA nodes after validating this baseline.",
+    "takeaway": "Start with ComfyUI's official FLUX.1 workflow for the exact model variant. Confirm its files and loaders, generate a baseline, then add a compatible LoRA. Precision and offloading change memory use; this guide does not establish a universal minimum VRAM or an out-of-memory-proof setup.",
     "sources": [
       {
-        "publisher": "Black Forest Labs",
-        "title": "FLUX.1 dev model card",
-        "url": "https://huggingface.co/black-forest-labs/FLUX.1-dev"
-      },
-      {
-        "publisher": "Black Forest Labs",
-        "title": "FLUX.1 schnell model card",
-        "url": "https://huggingface.co/black-forest-labs/FLUX.1-schnell"
-      },
-      {
         "publisher": "Comfy Org",
-        "title": "FLUX.1 text-to-image workflow",
+        "title": "FLUX.1 text-to-image workflow examples",
         "url": "https://docs.comfy.org/tutorials/flux/flux-1-text-to-image"
       }
     ],
     "sections": [
       {
-        "heading": "Start here",
-        "content": "Intended reader: Creators running local RTX 3060/4070/4080 GPUs seeking photorealistic outputs from FLUX.1. Practical outcome: A crash-free node setup that loads weights efficiently and accepts LoRAs without breaking latent dimensions. Your base image looks promising, but the moment you add a LoRA, several other things change too. Was it the model, the prompt or the new component? Build a baseline you can return to, then make one deliberate change."
-      },
-      {
-        "heading": "Choose the model deliberately",
-        "content": "Black Forest Labs identifies FLUX.1 dev as a 12-billion-parameter model. Its model card links a specific non-commercial model license and separately describes permitted output uses. FLUX.1 schnell lists Apache 2.0. Treat model licensing and output usage as separate checks; read the terms for the exact files you download.",
-        "sourceIds": [
-          1,
-          2
-        ]
-      },
-      {
-        "heading": "Begin with the official inference example",
-        "content": "ComfyUI's FLUX.1 tutorial supplies a workflow and explains the model components. Follow its file placement instructions, load the graph and confirm that selected files match the example. An inference workflow generates an image from existing weights; it does not train a new LoRA.",
-        "sourceIds": [
-          3
-        ]
-      },
-      {
-        "heading": "Save a reproducible baseline",
-        "content": "Use one prompt and fixed settings until a complete image succeeds. Store the graph alongside a short environment note. This makes it easier to separate a missing file from a creative change or incompatible custom node.",
-        "subpoints": [
-          "Record ComfyUI version and selected model filenames.",
-          "Save prompt, seed, dimensions and sampling settings.",
-          "Record peak memory and elapsed time on your own hardware.",
-          "Keep the first working output as a reference."
-        ],
-        "checklist": [
-          "Download clip_l.safetensors and t5xxl_fp8_e4m3fn.safetensors into ComfyUI/models/clip/.",
-          "Download flux1-dev.safetensors into ComfyUI/models/unet/ or models/checkpoints/.",
-          "Download ae.safetensors into ComfyUI/models/vae/.",
-          "Connect DualCLIPLoader (clip_l + t5xxl) to CLIPTextEncode with clip_type set to \"flux\".",
-          "Set KSampler: steps=20, cfg=1.0, sampler_name=euler, scheduler=simple.",
-          "Run a single test generation at 1024x1024 to verify VRAM allocation before loading LoRA weights."
-        ]
-      },
-      {
-        "heading": "Add a LoRA as one controlled change",
-        "content": "Add one compatible LoRA, compare it with the baseline and record its strength. Check the author's base-model requirements. Avoid stacking unfamiliar adapters while debugging. For training, treat dataset preparation, trainer compatibility and evaluation images as a separate project. A working generation graph does not validate a training configuration."
-      },
-      {
-        "heading": "Memory savings need a measured trade-off",
-        "content": "The FLUX.1 dev example demonstrates CPU offloading to reduce GPU memory use. That does not establish a universal minimum VRAM figure. Dimensions, extra nodes, precision and other resident workloads change what fits. Compare a small fixed job before and after a memory-saving change; preserve its output and timing.",
+        "heading": "Start with the matching official workflow",
+        "content": "ComfyUI documents full and FP8 FLUX.1 examples. Use the template for your chosen variant; different packages need different files. Check the listed download and license requirements before installation.",
         "sourceIds": [
           1
-        ],
-        "table": {
-          "headers": [
-            "Model Variant",
-            "File Size / Precision",
-            "Min VRAM Required",
-            "System RAM Requirement",
-            "Licensing & Best Fit"
-          ],
-          "rows": [
-            [
-              "FLUX.1 [schnell]",
-              "~23.8 GB (FP16) or ~12 GB (FP8)",
-              "12 GB VRAM (FP8)",
-              "32 GB DDR4/DDR5",
-              "Apache 2.0 (Commercial allowed) · Fast 4-step preview"
-            ],
-            [
-              "FLUX.1 [dev]",
-              "~23.8 GB (FP16) or ~11.9 GB (FP8)",
-              "16 GB VRAM (FP8/NF4)",
-              "32–64 GB DDR5",
-              "Non-commercial research · High-fidelity 20-30 steps"
-            ],
-            [
-              "FLUX.1 GGUF (Q4_K_M)",
-              "~6.5 GB (4-bit quantized)",
-              "8–10 GB VRAM",
-              "24 GB System RAM",
-              "Community quantized · Budget GPUs (RTX 3060/4060)"
-            ],
-            [
-              "FLUX.1 [pro]",
-              "Cloud API Only",
-              "N/A (Managed API)",
-              "N/A",
-              "Commercial paid API · When local hardware is unavailable"
-            ]
-          ]
-        }
+        ]
       },
       {
-        "heading": "A useful stopping point",
-        "content": "Your first milestone is a saved graph that another person can reopen with the same files and understand. Add a short note describing what each extra adapter contributes. Only then scale dimensions, batch size or training complexity. This guide is documentation-based; it does not claim a tested speedup on a particular GPU."
+        "heading": "Verify files before adding adapters",
+        "content": "For the documented full workflow, check the diffusion model, text encoders and VAE against the official guide. Confirm that each loader selects the intended file. Do not assume a community quantization uses the same loader as the official package.",
+        "sourceIds": [
+          1
+        ]
       },
       {
-        "heading": "Keep an experiment card beside the workflow",
-        "content": "Our suggested experiment card has six fields: model files, workflow version, input or prompt, changed setting, expected effect and observed result. Fill it in before introducing a LoRA. This makes it harder to mistake a different prompt, seed or resolution for the effect of the LoRA itself. A fixed seed is helpful within a controlled setup, but does not guarantee identical outputs after hardware or software changes. Preserve the complete baseline rather than only a screenshot of the nodes."
+        "heading": "Measure the complete pipeline",
+        "content": "Record model files, precision, resolution, batch size, ComfyUI version and offload settings. Save a baseline output and peak memory measurement. If a run fails, change one setting and preserve the error log. No hardware benchmark is reported here."
       },
       {
-        "heading": "Separate inference from a training decision",
-        "content": "Using an existing LoRA and training your own are different projects. Before training, define the visual behavior you cannot obtain from your current workflow and collect example material you have permission to use. Reserve some examples for evaluation rather than treating every pleasing result as proof of generalization. This is a planning recommendation; the exact data preparation and training settings belong to the selected training tool and model license. Do not start with a promised universal rank or step count."
+        "heading": "Add one compatible LoRA after the baseline",
+        "content": "Save the working graph, confirm adapter compatibility, then compare the same input with and without the adapter. Follow the adapter's instructions and license. Training a new LoRA is a separate workflow; these inference checks do not establish training-memory requirements."
       },
       {
-        "heading": "Choose the next change by the problem you can see",
-        "content": "If the image is compositionally wrong, investigate the input and conditioning before optimizing memory. If the workflow fails to load, verify required files and component compatibility before rewriting the prompt. If the result changes after an update, compare the saved baseline on the new environment before adding more nodes. Solve one category of failure at a time. The useful milestone is not the longest graph: it is an output you can explain, reproduce closely enough for the project and hand off with clear notes."
-      },
-      {
-        "heading": "Try this next",
-        "content": "If the graph still feels unfamiliar, start with the first-image walkthrough. Read [ComfyUI beginner guide: your first image and common fixes](/workflow/comfyui-beginner-first-workflow-guide)."
+        "heading": "Continue with safe installation",
+        "content": "Use the [model download safety checklist](/workflow/download-ai-models-safetensors-pickle-security-checklist) before installing unfamiliar files, and the [ComfyUI first-image guide](/workflow/comfyui-beginner-first-workflow-guide) when troubleshooting a basic graph."
       }
     ],
     "publishedAt": "2026-09-08",
-    "updatedAt": "2026-09-22",
-    "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "AI-generated editorial photograph of an artist using a pen display beside a monitor in a home studio."
+    "updatedAt": "2026-10-17",
+    "sourceCheckedAt": "2026-10-17",
+    "imageAlt": "AI-generated editorial photograph of an artist using a pen display beside a monitor in a home studio.",
+    "faqs": [
+      {
+        "question": "Is there one minimum VRAM figure for every FLUX workflow?",
+        "answer": "No. Model precision, text encoders, output size, batch size, runtime and offloading affect memory use. A checkpoint's download size is not the complete pipeline's memory requirement."
+      },
+      {
+        "question": "When should I add a LoRA to a FLUX workflow?",
+        "answer": "First save a working base workflow and its output. Check that the adapter matches the model and loader, then add one LoRA and compare using the same input and settings."
+      }
+    ]
   },
   {
     "slug": "best-local-ai-workstation-build-guide-2026",
@@ -2771,9 +2730,19 @@
       }
     ],
     "publishedAt": "2026-09-08",
-    "updatedAt": "2026-09-21",
+    "updatedAt": "2026-10-17",
     "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "Generated editorial photograph: Artist comparing two printed fantasy landscape images at a desk."
+    "imageAlt": "Generated editorial photograph: Artist comparing two printed fantasy landscape images at a desk.",
+    "faqs": [
+      {
+        "question": "Are community example images a fair checkpoint benchmark?",
+        "answer": "No. Prompts, seeds, samplers, adapters and post-processing may differ. Examples can suggest a style, but they do not establish which checkpoint performs best under the same conditions."
+      },
+      {
+        "question": "How should I compare two SDXL checkpoints?",
+        "answer": "Use the same brief and recorded settings, keep rejected outputs, and define acceptance criteria before generating. Review several examples rather than choosing a winner from one attractive image."
+      }
+    ]
   },
   {
     "slug": "frontier-ai-tools-benchmark-matrix-2026",
@@ -2832,9 +2801,19 @@
       }
     ],
     "publishedAt": "2026-09-08",
-    "updatedAt": "2026-09-21",
+    "updatedAt": "2026-10-17",
     "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "Generated editorial photograph: Researchers comparing generated image samples and evaluation notes."
+    "imageAlt": "Generated editorial photograph: Researchers comparing generated image samples and evaluation notes.",
+    "faqs": [
+      {
+        "question": "Does a launch benchmark prove I should switch models?",
+        "answer": "No. The announced task, evaluation conditions and available product may differ from your workflow. Test the exact model and access path on representative tasks before migrating."
+      },
+      {
+        "question": "What should count as a successful model trial?",
+        "answer": "An answer that passes your acceptance criteria at an acceptable total cost and turnaround time. Include retries, review effort and failed runs rather than measuring generation speed alone."
+      }
+    ]
   },
   {
     "slug": "self-hosted-vector-db-pricing-and-latency-benchmarks",
@@ -2905,9 +2884,19 @@
       }
     ],
     "publishedAt": "2026-09-08",
-    "updatedAt": "2026-09-21",
+    "updatedAt": "2026-10-17",
     "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "Generated editorial photograph: Engineer inspecting server hardware and notes in a small data room."
+    "imageAlt": "Generated editorial photograph: Engineer inspecting server hardware and notes in a small data room.",
+    "faqs": [
+      {
+        "question": "Which vector database has the lowest latency?",
+        "answer": "This guide does not name a universal winner. Dataset, filters, index settings, hardware and retrieval-quality targets must be comparable before latency measurements are useful."
+      },
+      {
+        "question": "What costs belong in a self-hosted vector database comparison?",
+        "answer": "Include infrastructure, storage, backups, upgrades and incident response. Compare those costs with the managed service's current billed units for the same expected workload."
+      }
+    ]
   },
   {
     "slug": "ai-web-scraping-pipelines-firecrawl-playwright-rag",
@@ -3247,9 +3236,19 @@
       }
     ],
     "publishedAt": "2026-09-08",
-    "updatedAt": "2026-09-21",
+    "updatedAt": "2026-10-17",
     "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "Generated editorial photograph: Developer working on a coding task at a laptop and external monitor."
+    "imageAlt": "Generated editorial photograph: Developer working on a coding task at a laptop and external monitor.",
+    "faqs": [
+      {
+        "question": "How can I compare coding assistants fairly?",
+        "answer": "Give each tool the same bounded repository task from the same starting commit. Record the diff, required checks, corrections and review time before accepting the change."
+      },
+      {
+        "question": "Is faster code generation the same as a faster completed task?",
+        "answer": "No. Generated code may still need debugging, tests and review. Measure the completed, verified change rather than the time until the first suggestion appears."
+      }
+    ]
   },
   {
     "slug": "async-engineering-notion-architecture",
@@ -3310,9 +3309,19 @@
       }
     ],
     "publishedAt": "2026-09-08",
-    "updatedAt": "2026-09-21",
+    "updatedAt": "2026-10-17",
     "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "AI-generated editorial photograph of a team gathered around an open laptop at a table."
+    "imageAlt": "AI-generated editorial photograph of a team gathered around an open laptop at a table.",
+    "faqs": [
+      {
+        "question": "What belongs in a useful Notion decision log?",
+        "answer": "Record the problem, options, decision, owner, consequences and a link to the evidence. Add a review date or convention so readers can judge whether the record remains current."
+      },
+      {
+        "question": "Do I need relations and rollups before starting a decision log?",
+        "answer": "No. Start with a few real decisions and test whether a teammate can find the owner and reasoning. Add database relations only when they solve a demonstrated navigation need."
+      }
+    ]
   },
   {
     "slug": "top-b2b-data-enrichment-platforms",
@@ -3372,9 +3381,19 @@
       }
     ],
     "publishedAt": "2026-09-08",
-    "updatedAt": "2026-09-21",
+    "updatedAt": "2026-10-17",
     "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "Generated editorial photograph: Analyst comparing two sample customer records to find missing company details."
+    "imageAlt": "Generated editorial photograph: Analyst comparing two sample customer records to find missing company details.",
+    "faqs": [
+      {
+        "question": "Is a returned enrichment record necessarily usable?",
+        "answer": "No. Define required fields, validation rules and missing-field behavior first. A returned value counts as useful only when it passes the rules of your workflow."
+      },
+      {
+        "question": "How do Apollo and Clay differ in this comparison?",
+        "answer": "The linked product pages describe Apollo's enrichment of records and Clay's waterfall across providers. Those workflow differences do not establish a universal winner or your dataset's match rate."
+      }
+    ]
   },
   {
     "slug": "best-4k-144hz-monitors-for-programming",
@@ -3434,9 +3453,19 @@
       }
     ],
     "publishedAt": "2026-09-08",
-    "updatedAt": "2026-09-21",
+    "updatedAt": "2026-10-17",
     "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "AI-generated editorial photograph of a developer viewing code on a large desktop monitor."
+    "imageAlt": "AI-generated editorial photograph of a developer viewing code on a large desktop monitor.",
+    "faqs": [
+      {
+        "question": "Should I reduce a 4K monitor's resolution to make code larger?",
+        "answer": "Start at the display's recommended resolution, then adjust operating-system scale or text size. Test your actual applications at your normal viewing distance."
+      },
+      {
+        "question": "Does a higher refresh rate guarantee better coding readability?",
+        "answer": "No. Compare text size, scaling, screen dimensions and your applications as well as scrolling. This guide makes no measured readability, medical or eye-fatigue claim."
+      }
+    ]
   },
   {
     "slug": "ai-video-prompt-guide-examples",
@@ -3445,10 +3474,10 @@
     "description": "Write clearer AI video prompts with six original shot examples, a troubleshooting checklist and a practical method for comparing takes.",
     "topic": "AI video",
     "image": "ai-video-prompt-shot-photo",
-    "takeaway": "Direct Answer: Structure AI video prompts as a 4-part physical brief: [Subject State] + [Camera Trajectory] + [Physical Action/Light Change] + [Framing/Lens Type]. Omit subjective filler words like \"hyperrealistic\" or \"8k cinematic\"; specify direction, speed, and focal length to achieve predictable, non-morphing takes.",
+    "takeaway": "Start an AI video prompt with a clear subject, one action, camera direction and lighting or framing. Adapt the brief to the selected model's instructions, change one variable at a time and judge the complete clip. These are original planning examples, not tested outputs or a guarantee against visual artifacts.",
     "featured": true,
     "publishedAt": "2026-09-20",
-    "updatedAt": "2026-09-22",
+    "updatedAt": "2026-10-17",
     "sourceCheckedAt": "2026-09-20",
     "sources": [
       {
@@ -3576,7 +3605,17 @@
         "content": "Have a clear shot brief? Use it to compare platforms instead of choosing from their demo reels. Read [MiniMax vs Seedance vs Higgsfield: choose for your next shot](/create/ai-video-generation-matrix-minimax-higgsfield-seedance). For the latest research on maintaining continuity across longer AI videos, see [Google’s four-system approach to long-form video](/news/google-ai-video-codirector-long-form-continuity)."
       }
     ],
-    "imageAlt": "Generated editorial photograph: Filmmaker positioning a handmade ceramic mug for a close-up video shot."
+    "imageAlt": "Generated editorial photograph: Filmmaker positioning a handmade ceramic mug for a close-up video shot.",
+    "faqs": [
+      {
+        "question": "What should a basic AI video prompt describe?",
+        "answer": "Start with a subject, one clear action, camera movement and lighting or framing. Adapt the brief to the selected model; no prompt formula guarantees an artifact-free clip."
+      },
+      {
+        "question": "How do text-to-video and image-to-video prompts differ?",
+        "answer": "A reference image already supplies much of a scene's appearance. Image-to-video guidance often emphasizes motion, while text-to-video must also describe the scene. Follow the selected model's own instructions."
+      }
+    ]
   },
   {
     "slug": "comfyui-beginner-first-workflow-guide",
@@ -3988,586 +4027,338 @@
     "slug": "reduce-local-llm-vram-quantization-offloading-guide",
     "category": "workflow",
     "title": "Reduce local LLM VRAM: quantization, context and offloading",
-    "description": "Optimize local LLM memory: 4-bit GGUF quantization, FP8 KV cache compression, context window budgeting and GPU layer offloading.",
+    "description": "Reduce local LLM memory by testing quantization, context limits and offloading. Measure VRAM and answer quality without assuming fixed savings.",
     "topic": "Local AI",
     "image": "llm-vram-quantization-photo",
     "featured": true,
     "publishedAt": "2026-09-22",
-    "updatedAt": "2026-09-22",
-    "sourceCheckedAt": "2026-09-22",
-    "takeaway": "Direct Answer: To minimize local LLM VRAM consumption without degrading reasoning, combine three techniques: quantize model weights to 4-bit GGUF (Q4_K_M) to cut memory by ~68%, compress the KV cache to FP8 or Q4_0 using runtime flags to halve context overhead, and explicitly clamp context length to your real workload need rather than accepting default 128k allocations.",
+    "updatedAt": "2026-10-17",
+    "sourceCheckedAt": "2026-10-17",
+    "takeaway": "To reduce local LLM memory, test a smaller supported quantization, limit context to the actual task and consider CPU/GPU offloading. Measure the exact configuration and answer quality after each change. No fixed memory saving, quality retention or universal best quantization is established here.",
     "sources": [
       {
         "publisher": "llama.cpp",
-        "title": "llama.cpp GGUF Quantization Overview and Benchmarks",
-        "url": "https://github.com/ggerganov/llama.cpp/blob/master/examples/quantize/README.md"
-      },
-      {
-        "publisher": "Hugging Face",
-        "title": "Hugging Face Transformers Quantization Guide",
-        "url": "https://huggingface.co/docs/transformers/main/en/quantization/overview"
-      },
-      {
-        "publisher": "vLLM",
-        "title": "vLLM PagedAttention and Memory Architecture",
-        "url": "https://docs.vllm.ai/en/latest/dev/kernel/paged_attention.html"
+        "title": "Model quantization tooling",
+        "url": "https://github.com/ggml-org/llama.cpp/blob/master/tools/quantize/README.md"
       }
     ],
     "sections": [
       {
-        "heading": "Start here",
-        "content": "Intended reader: Developers and AI engineers running local models on 8GB, 12GB, or 16GB consumer GPUs who encounter CUDA out-of-memory errors. Practical outcome: A concrete methodology to reduce model VRAM footprints by 60%–75%, allowing larger models to run entirely within existing GPU memory. Many developers assume model size equals VRAM usage; in practice, KV cache and runtime overhead often consume more memory than the weights themselves."
+        "heading": "Separate weights, context and runtime memory",
+        "content": "Model weights are only part of inference memory. The running process also allocates context/KV-cache and working buffers. Display use and other applications affect available GPU memory. File size is not a peak-VRAM measurement."
       },
       {
-        "heading": "The three components of LLM memory: weights, KV cache and runtime",
-        "content": "Every local LLM inference session allocates memory across three distinct buckets: static model weights, dynamic key-value (KV) activation cache, and CUDA runtime scratch buffers (~0.5 GB–1.0 GB). Formula: Total VRAM = (Parameter Count × Bits per Param / 8) + KV Cache + CUDA Overhead. Optimizing only the model file leaves the dynamic KV cache unmanaged, which is the primary cause of out-of-memory crashes mid-conversation.",
+        "heading": "Compare quantizations on your own task",
+        "content": "llama.cpp provides model quantization tools and formats. Compatibility and quality depend on the exact model and runtime. Keep the prompt, context and evaluation rules fixed when comparing artifacts. Do not transfer a perplexity result from another model to your own workload.",
         "sourceIds": [
-          1,
-          3
+          1
         ]
       },
       {
-        "heading": "Weight quantization: choosing the right GGUF format",
-        "content": "Quantization reduces the numerical precision of weight matrices from 16-bit floating point down to 8-bit, 4-bit, or even 2-bit integers. In llama.cpp’s k-quant system, \"Q4_K_M\" applies 4-bit quantization to most layers while keeping critical attention and normalization tensors at higher precision, preserving 99%+ of baseline accuracy while cutting memory by over 65%.",
+        "heading": "Treat context and offloading as separate controls",
+        "content": "Start with the context your application needs. Check your runtime's current help before changing cache formats or GPU-layer allocation: flags and support differ. CPU/GPU offloading can change memory use and latency; measure both rather than assuming a fixed penalty."
+      },
+      {
+        "heading": "Record a reproducible result",
+        "content": "Save the model digest, runtime version, driver, context, prompt and allocation. Run the same task more than once, distinguish cold and warm starts, and retain rejected answers. Use the [laptop guide and blank run log](/hardware/run-local-llm-rtx-4050-laptop-guide) for a recording template.",
         "table": {
           "headers": [
-            "Quantization Format",
-            "Bits / Weight",
-            "Memory vs FP16",
-            "Perplexity Impact",
-            "Production Recommendation"
+            "Change",
+            "Record",
+            "Accept only if"
           ],
           "rows": [
             [
-              "FP16 (Half Precision)",
-              "16.0 bits",
-              "Baseline (100%)",
-              "0.00 (Reference)",
-              "Cloud training and multi-GPU clusters only"
+              "Weight quantization",
+              "Exact artifact and output quality",
+              "Required answers remain useful"
             ],
             [
-              "Q8_0 (8-bit Quant)",
-              "8.5 bits",
-              "-47% reduction",
-              "&lt; 0.01 delta",
-              "Archival quality when VRAM is plentiful"
+              "Context limit",
+              "Allocated context and task length",
+              "Required inputs still fit"
             ],
             [
-              "Q5_K_M (5-bit Quant)",
-              "5.5 bits",
-              "-65% reduction",
-              "&lt; 0.03 delta",
-              "Excellent fidelity for coding and math"
-            ],
-            [
-              "Q4_K_M (4-bit Quant)",
-              "4.5 bits",
-              "-71% reduction",
-              "&lt; 0.08 delta",
-              "Universal sweet spot: best speed/memory ratio"
-            ],
-            [
-              "Q3_K_M (3-bit Quant)",
-              "3.4 bits",
-              "-78% reduction",
-              "0.20–0.40 delta",
-              "Use only when 8B model must fit in 6GB VRAM"
-            ],
-            [
-              "Q2_K (2-bit Quant)",
-              "2.6 bits",
-              "-83% reduction",
-              "&gt; 1.0 delta",
-              "Severe degradation: avoid for production reasoning"
+              "CPU/GPU allocation",
+              "Memory, completion time and allocation",
+              "Turnaround remains acceptable"
             ]
           ]
-        },
-        "sourceIds": [
-          1,
-          2
-        ]
-      },
-      {
-        "heading": "Compressing the KV cache with FP8 and Q4_0",
-        "content": "In transformer models, the KV cache stores past key and value vectors to avoid recomputing attention across previous tokens. For Llama 3 8B with Grouped Query Attention (GQA), each 1,000 tokens of context requires ~131 MB of FP16 memory. At 8k context, that is over 1.05 GB; at 32k context, it consumes 4.2 GB! Using runtime flags like \"--cache-type-k q4_0 --cache-type-v q4_0\" compresses KV vectors down to 4-bit, cutting context VRAM requirements by up to 75% with negligible perplexity difference.",
-        "sourceIds": [
-          1,
-          3
-        ]
-      },
-      {
-        "heading": "Context length budgeting: the hidden memory killer",
-        "content": "Modern open models advertise 32k or 128k context windows. Many runtimes pre-allocate or dynamically expand context buffers to match these maximum limits. If your application only generates 500-word summaries or completes functions, allocating a 128k context buffer silently consumes gigabytes of VRAM. Explicitly clamp context length in your configuration: set \"num_ctx: 4096\" unless your specific workload requires multi-document ingestion."
-      },
-      {
-        "heading": "GPU layer offloading: avoiding the PCIe bus penalty",
-        "content": "When a model exceeds VRAM by just 500MB, tools like llama.cpp allow offloading a specific number of layers to GPU (\"-ngl\") while running the remaining layers on CPU/system RAM. While functional, passing activation tensors across the PCIe bus between every layer creates a severe bottleneck. Follow this optimization checklist before settling on partial offloading:",
-        "checklist": [
-          "Calculate exact layer offload count: start with -ngl 99 and decrease until peak VRAM fits within physical GPU limits.",
-          "Enable Flash Attention (--flash-attn) to reduce activation memory and increase prompt evaluation speed.",
-          "Enable memory mapping (mmap) to keep model weights read-only from NVMe storage.",
-          "Downgrade from Q5_K_M to Q4_K_M to fit 100% of layers on GPU rather than running 80% on GPU and 20% on CPU.",
-          "Measure tokens/sec: 100% GPU execution at Q4 is almost always 3x to 5x faster than hybrid GPU/CPU execution at Q5."
-        ]
-      },
-      {
-        "heading": "Try this next",
-        "content": "Running on mobile hardware? See how these quantization techniques apply to budget GPUs in our [RTX 4050 laptop LLM guide](/hardware/run-local-llm-rtx-4050-laptop-guide)."
+        }
       }
     ],
-    "imageAlt": "Generated editorial photograph: Graphics card and memory chips on a hardware workbench."
+    "imageAlt": "Generated editorial photograph: Graphics card and memory chips on a hardware workbench.",
+    "faqs": [
+      {
+        "question": "Does a 4-bit model always preserve the original model's quality?",
+        "answer": "No. Quantization changes numerical precision and can affect output quality. Evaluate the exact model, quantization and task; there is no universal quality-retention percentage."
+      },
+      {
+        "question": "Why can a model download fit on disk but exceed GPU memory?",
+        "answer": "Inference also needs context/KV-cache allocations and runtime buffers. Other applications use memory too. Measure the complete running workload rather than treating file size as peak VRAM."
+      }
+    ]
   },
   {
     "slug": "small-language-models-edge-devices-guide",
     "category": "stack",
     "title": "Choose a small language model for an edge device",
-    "description": "Compare leading sub-4B models for edge hardware: Qwen 2.5, Llama 3.2, Phi-3.5 Mini and Gemma 2 on Raspberry Pi and Apple Silicon.",
+    "description": "Choose an edge LLM by task, runtime, license and complete memory use. Compare small-model candidates without assuming universal speed or RAM limits.",
     "topic": "Developer tools",
     "image": "small-language-models-edge-photo",
     "featured": false,
     "publishedAt": "2026-09-22",
-    "updatedAt": "2026-09-22",
-    "sourceCheckedAt": "2026-09-22",
-    "takeaway": "Direct Answer: For edge hardware with 4GB to 8GB of memory, choose Qwen 2.5 3B for programming and structured data extraction, Llama 3.2 3B for general reasoning and multilingual dialog, or Llama 3.2 1B for low-power 4GB devices like the Raspberry Pi 5. Choose Microsoft Phi-3.5 Mini when your edge pipeline requires long 128k context.",
+    "updatedAt": "2026-10-17",
+    "sourceCheckedAt": "2026-10-17",
+    "takeaway": "Choose an edge language model by testing the exact model artifact on the target device. Compare task accuracy, runtime support, context, license, complete memory use and sustained operation. A model's parameter count or advertised context window does not prove that it fits or runs fast enough.",
     "sources": [
       {
-        "publisher": "Meta AI",
-        "title": "Meta Llama 3.2 Model Card and Specifications",
+        "publisher": "Meta",
+        "title": "Llama 3.2 3B Instruct model card",
         "url": "https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct"
       },
       {
-        "publisher": "Qwen Team",
-        "title": "Qwen 2.5 Technical Overview and Benchmarks",
+        "publisher": "Qwen",
+        "title": "Qwen2.5 3B Instruct model card",
         "url": "https://huggingface.co/Qwen/Qwen2.5-3B-Instruct"
-      },
-      {
-        "publisher": "Microsoft",
-        "title": "Microsoft Phi-3.5 Mini Technical Report",
-        "url": "https://huggingface.co/microsoft/Phi-3.5-mini-instruct"
       }
     ],
     "sections": [
       {
-        "heading": "Start here",
-        "content": "Intended reader: Embedded developers, IoT engineers, and creators building local AI appliances on ARM, Raspberry Pi, Apple Silicon, or mobile NPUs. Practical outcome: A comparative selection sheet matching sub-4B models to memory envelopes, compute power, and task requirements. Advances in distillation and synthetic pre-training in 2026 mean small language models (SLMs) can now execute structured extraction, classification, and conversational reasoning that previously required 13B+ parameter weights."
-      },
-      {
-        "heading": "The rise of capable sub-4B models: parameters versus utility",
-        "content": "Large frontier models provide broad world knowledge, but edge devices rarely need encyclopedic recall. They need deterministic JSON output, fast classification, and reliable local query answering. A 3B parameter model quantized to 4-bit requires under 2.2GB of memory and executes on modest 15W–30W hardware without an active datacenter connection.",
+        "heading": "Make a task-specific shortlist",
+        "content": "The linked Llama and Qwen cards describe small instruction-tuned models and their use conditions. Treat them as candidates, not measured winners. Check the exact model version and artifact rather than assuming all derivatives share the base model's behavior or terms.",
         "sourceIds": [
           1,
           2
         ]
       },
       {
-        "heading": "Model evaluation matrix: Qwen 2.5 vs Llama 3.2 vs Phi-3.5 vs Gemma 2",
-        "content": "We evaluated the four leading open sub-4B model families based on official model cards, memory footprints, and practical edge task suitability:",
-        "table": {
-          "headers": [
-            "Model",
-            "Parameters",
-            "Q4 Size",
-            "Min RAM Required",
-            "Max Context",
-            "Primary Edge Sweet Spot"
-          ],
-          "rows": [
-            [
-              "Qwen 2.5 3B",
-              "3.09B",
-              "~2.0 GB",
-              "4 GB (8 GB ideal)",
-              "32,768 tokens",
-              "Code generation, structured JSON, tool-calling APIs"
-            ],
-            [
-              "Llama 3.2 1B",
-              "1.23B",
-              "~1.3 GB",
-              "2 GB–4 GB",
-              "128,000 tokens",
-              "Raspberry Pi 5 4GB, embedded controllers, lightweight classification"
-            ],
-            [
-              "Llama 3.2 3B",
-              "3.21B",
-              "~2.2 GB",
-              "4 GB–8 GB",
-              "128,000 tokens",
-              "Multilingual customer support, conversational dialog, creative writing"
-            ],
-            [
-              "Phi-3.5 Mini",
-              "3.82B",
-              "~2.4 GB",
-              "8 GB (16 GB ideal)",
-              "128,000 tokens",
-              "Complex reasoning, multi-document synthesis, scientific QA"
-            ],
-            [
-              "Gemma 2 2B",
-              "2.61B",
-              "~1.7 GB",
-              "4 GB",
-              "8,192 tokens",
-              "Conversational quality, low memory mobile deployments"
-            ]
-          ]
-        },
-        "sourceIds": [
-          1,
-          2,
-          3
-        ]
+        "heading": "Budget for the whole device",
+        "content": "A local application shares memory and compute with the operating system and other processes. Record the artifact, runtime, context and background workload. Advertised maximum context does not establish what your device can sustain."
       },
       {
-        "heading": "Hardware constraints: unified memory, bandwidth and cooling",
-        "content": "On edge devices without dedicated GDDR VRAM, the LLM shares system RAM with the OS and graphics pipeline. Memory bandwidth is the primary governor of generation speed. A Raspberry Pi 5 with LPDDR4X provides ~17 GB/s bandwidth, yielding 12–15 tokens/sec on Qwen 2.5 3B. In contrast, an Apple Silicon M4 with unified LPDDR5X (120 GB/s) exceeds 50 tokens/sec on the identical model file."
+        "heading": "Test useful outputs and sustained operation",
+        "content": "Create a small permitted evaluation set with explicit acceptance rules. For structured extraction, validate fields and unsupported answers. Repeat after the device has been running, and record failures, completion time and memory. This guide publishes no measured Raspberry Pi or Apple Silicon speed figures."
       },
       {
-        "heading": "Pre-flight deployment checklist for edge devices",
-        "content": "Deploying SLMs on edge devices requires proactive thermal and resource budgeting. Follow this pre-flight verification checklist:",
-        "checklist": [
-          "Check memory headroom: ensure OS and system daemons leave at least 1.5x the model Q4 weight size free.",
-          "Use llama.cpp or Ollama with ARM NEON / Metal acceleration enabled.",
-          "Ensure passive or active heatsink is installed: edge SoC throttling cuts generation speed by up to 50%.",
-          "Clamp context length strictly to expected request lengths (e.g. 2,048 tokens).",
-          "Store models on high-speed NVMe or A2-rated micro-SD cards to minimize initial model load latency."
-        ]
-      },
-      {
-        "heading": "Edge limitations: when cloud offload remains necessary",
-        "content": "Sub-4B models exhibit higher sensitivity to prompt phrasing and lack deep contextual nuance for multi-step legal or medical reasoning. If a task requires unbounded general knowledge or zero-shot novel tool synthesis, implement an edge-to-cloud hybrid routing pattern: use the local SLM to triage, classify, and redact sensitive data, escalating only complex queries to cloud frontier models."
-      },
-      {
-        "heading": "Try this next",
-        "content": "Building a retrieval system around your edge model? Learn how to evaluate vector databases in our [self-hosted vector DB comparison](/stack/self-hosted-vector-db-pricing-and-latency-benchmarks)."
+        "heading": "Keep deployment boundaries explicit",
+        "content": "Document where data is processed and whether any fallback sends it to another service. A local first stage does not make a cloud fallback private. See the [local versus cloud cost guide](/stack/local-vs-cloud-ai-cost-per-accepted-task) and [VRAM reduction checklist](/workflow/reduce-local-llm-vram-quantization-offloading-guide) before scaling the workload."
       }
     ],
-    "imageAlt": "Generated editorial photograph: Engineer measuring a compact edge-computing board and camera sensor."
+    "imageAlt": "Generated editorial photograph: Engineer measuring a compact edge-computing board and camera sensor.",
+    "faqs": [
+      {
+        "question": "Can I choose an edge model from parameter count alone?",
+        "answer": "No. Compare the exact artifact, supported runtime, context, license, available device memory and results on your task. Parameter count does not establish speed or answer quality."
+      },
+      {
+        "question": "Does a model's advertised context window fit on every edge device?",
+        "answer": "No. Context support is not a memory guarantee. Start with the context your task needs and measure the complete process, including the operating system and other applications."
+      }
+    ]
   },
   {
     "slug": "stateful-agents-vs-simple-rag-workflow-guide",
     "category": "workflow",
     "title": "RAG vs stateful agents: latency, cost & failure modes",
-    "description": "Architectural guide: comparing single-turn deterministic RAG pipelines with multi-turn autonomous agent loops. Latency, cost and reliability.",
+    "description": "Compare RAG workflows and stateful agents by task needs, retrieval quality, tool permissions, latency and cost. No universal speed or cost multiplier claimed.",
     "topic": "Developer tools",
     "image": "rag-vs-stateful-agents-photo",
     "featured": false,
     "publishedAt": "2026-09-22",
-    "updatedAt": "2026-09-22",
-    "sourceCheckedAt": "2026-09-22",
-    "takeaway": "Direct Answer: Use a simple RAG workflow when user queries can be resolved from reference documents in a single retrieval step; it delivers sub-second latency, predictable costs, and deterministic evaluation. Introduce stateful agent loops only when tasks demand multi-step planning, dynamic tool execution, intermediate self-correction, or iterative state mutations that a single retrieval pass cannot satisfy.",
+    "updatedAt": "2026-10-17",
+    "sourceCheckedAt": "2026-10-17",
+    "takeaway": "Start with a predictable retrieval workflow when reference material and a fixed sequence can solve the task. Consider an agent when intermediate results must determine the next action. Compare accepted outcomes, total time, cost and failure modes; neither architecture guarantees accuracy or a fixed latency.",
     "sources": [
       {
         "publisher": "Anthropic",
-        "title": "Anthropic Research: Building Effective Agents",
-        "url": "https://www.anthropic.com/research/building-effective-agents"
-      },
-      {
-        "publisher": "LangChain",
-        "title": "LangGraph Stateful Agent Architecture",
-        "url": "https://langchain-ai.github.io/langgraph/"
-      },
-      {
-        "publisher": "OpenAI",
-        "title": "OpenAI Function Calling & Structured Outputs Guide",
-        "url": "https://platform.openai.com/docs/guides/function-calling"
+        "title": "Building effective agents",
+        "url": "https://www.anthropic.com/engineering/building-effective-agents"
       }
     ],
     "sections": [
       {
-        "heading": "Start here",
-        "content": "Intended reader: Software architects, engineering leads, and AI developers deciding whether to build a deterministic retrieval pipeline or a multi-turn agentic framework. Practical outcome: A clear architectural decision framework separating genuine agent use cases from unnecessary orchestration complexity. In 2026, many engineering teams default to complex multi-agent frameworks when a well-indexed, single-turn RAG pipeline would deliver higher accuracy at 10% of the latency and cost."
-      },
-      {
-        "heading": "The simple RAG architecture: fast, cheap and deterministic",
-        "content": "A classic Retrieval-Augmented Generation pipeline follows a straight line: User Query → Embed Query → Vector Similarity Search → Retrieve Top-K Chunks → Synthesize Answer. Because the pipeline executes in one linear pass, latency is predictable (typically 800ms–1.8s), token costs are fixed (1x), and failures can be diagnosed immediately by inspecting the retrieved document chunks.",
+        "heading": "Distinguish a workflow from an agent",
+        "content": "Anthropic distinguishes predefined workflows from systems where models direct their own process and tool use. Retrieval can be part of either. RAG is a technique for supplying reference context, not a guarantee that the output is deterministic or correct.",
         "sourceIds": [
           1
         ]
       },
       {
-        "heading": "Stateful agents: autonomous loops, tool execution and memory",
-        "content": "A stateful agent introduces an iterative while-loop governed by an LLM planner. The agent decomposes goals, selects and executes external tools (calculators, SQL queries, web scrapers, APIs), inspects output observations, updates internal memory state, and determines whether to loop again or finalize an answer. This autonomy provides flexibility, but turns every user query into multiple sequential LLM inference calls.",
-        "sourceIds": [
-          1,
-          2,
-          3
-        ]
+        "heading": "Begin with the simplest useful baseline",
+        "content": "Test a fixed retrieval-and-answer sequence before adding dynamic orchestration. Inspect retrieved material and answer support separately. A missing source passage may require a retrieval fix rather than another planning loop."
       },
       {
-        "heading": "Comparison matrix: latency, cost multiplier and failure modes",
-        "content": "Before adopting an agentic framework like LangGraph or AutoGen, evaluate the operational trade-offs against a deterministic RAG baseline:",
+        "heading": "Add autonomy only for a defined need",
+        "content": "An agent can decide which step to take after observing results, but that also adds operational decisions and possible failures. Define allowed tools, stopping conditions, budgets and human approval for consequential actions. A read/write tool can also be used in a predefined workflow; an agent is not required merely because an API changes state."
+      },
+      {
+        "heading": "Measure both architectures on the same tasks",
+        "content": "Record the complete request, tools used, retries, review effort, latency and cost per accepted result. This page reports no universal sub-second response time, accuracy improvement or token multiplier.",
         "table": {
           "headers": [
-            "Dimension",
-            "Simple RAG Pipeline",
-            "Stateful Agent Loop",
-            "Architectural Recommendation"
+            "Question",
+            "Fixed workflow",
+            "Agent loop"
           ],
           "rows": [
             [
-              "End-to-End Latency",
-              "800ms – 1.8 seconds",
-              "5 – 35+ seconds",
-              "RAG for interactive user chat; Agents for async background jobs"
+              "How is the next step chosen?",
+              "Predetermined orchestration",
+              "Model-directed choices within limits"
             ],
             [
-              "Token Consumption",
-              "1x (Single prompt & response)",
-              "3x – 10x token multiplier",
-              "Agents significantly increase LLM API bills"
+              "What needs evaluation?",
+              "Retrieval and answer support",
+              "Those checks plus decisions and tool actions"
             ],
             [
-              "Determinism & Testing",
-              "High (Eval via ground-truth chunks)",
-              "Low (Non-deterministic branching)",
-              "RAG pipelines are vastly easier to unit test and benchmark"
-            ],
-            [
-              "Tool & API Execution",
-              "Read-only document lookup",
-              "Read/Write external API actions",
-              "Agents required if system must mutate state or call tools"
-            ],
-            [
-              "Failure Modes",
-              "Irrelevant chunk retrieval",
-              "Infinite loops, hallucinated arguments",
-              "Agents require strict recursion limits and schema validation"
+              "What limits are needed?",
+              "Timeouts, permissions and failure handling",
+              "Those controls plus explicit loop and spending bounds"
             ]
           ]
-        },
-        "sourceIds": [
-          1,
-          2
-        ]
+        }
       },
       {
-        "heading": "The diagnostic checklist: five questions before adopting agents",
-        "content": "Ask these five diagnostic questions before migrating a production pipeline from simple RAG to an autonomous agent loop:",
-        "checklist": [
-          "Does the task require external state mutation (e.g. creating a calendar event, writing to a database)? If no, stick with RAG.",
-          "Does the user expect sub-2-second conversational responses? If yes, agent loops will fail SLA expectations.",
-          "Can all necessary context be retrieved in a single vector/hybrid search pass? If yes, an agent adds zero retrieval benefit.",
-          "Is your team prepared to monitor multi-turn execution traces and tool failure rates in production?",
-          "Does the prompt have strict schema output enforcement (OpenAI Structured Outputs / Pydantic)?"
-        ]
-      },
-      {
-        "heading": "Common agent anti-patterns and mitigation",
-        "content": "The most frequent failure mode in production agents is unconstrained self-reflection loops, where the model queries tools repeatedly without converging on a final answer. Mitigate this by enforcing a hard step ceiling (e.g. maximum 4 tool calls per request), requiring strict JSON schema validation on every tool argument, and maintaining a fallback rule that routes the query back to simple RAG when an agentic step times out."
-      },
-      {
-        "heading": "Try this next",
-        "content": "Need to feed dynamic web data into your retrieval pipeline? Read our comprehensive guide on [Firecrawl vs Playwright for RAG](/stack/ai-web-scraping-pipelines-firecrawl-playwright-rag)."
+        "heading": "Connect extraction to retrieval quality",
+        "content": "Follow the [web extraction comparison](/stack/ai-web-scraping-pipelines-firecrawl-playwright-rag) and [vector database evaluation guide](/stack/self-hosted-vector-db-pricing-and-latency-benchmarks) to test the data path before adding orchestration."
       }
     ],
-    "imageAlt": "Generated editorial photograph: Researcher cross-checking source documents against a computer search result."
+    "imageAlt": "Generated editorial photograph: Researcher cross-checking source documents against a computer search result.",
+    "faqs": [
+      {
+        "question": "When is a simple RAG workflow a useful starting point?",
+        "answer": "When a question can be answered from retrieved reference material through a predictable sequence of steps. Evaluate retrieval relevance, answer support and total response time before adding orchestration."
+      },
+      {
+        "question": "When should I consider a stateful agent?",
+        "answer": "When the task needs decisions about intermediate results or a changing sequence of tools. Bound the steps, validate inputs and require appropriate approval before external actions; compare against a simpler baseline."
+      }
+    ]
   },
   {
     "slug": "deploy-llm-red-hat-openshift-ai-vllm-kserve",
     "category": "workflow",
     "title": "OpenShift AI LLM serving: vLLM & KServe checklist",
-    "description": "Review OpenShift AI LLM serving prerequisites, vLLM and KServe runtime choices, storage, TLS ingress and production checks.",
+    "description": "Plan an OpenShift AI model endpoint with a supported runtime, accelerator, storage and security checks. Validate capacity before serving production traffic.",
     "topic": "Enterprise infrastructure",
     "image": "deploy-llm-red-hat-openshift-ai-photo",
     "featured": false,
     "publishedAt": "2026-09-22",
-    "updatedAt": "2026-09-22",
-    "sourceCheckedAt": "2026-09-22",
-    "takeaway": "Direct Answer: Deploying open-source LLMs on Red Hat OpenShift AI replaces manual Docker scripts with Kubernetes-native autoscaling and automated hardware discovery. Pair KServe's SingleModelServing architecture with the vLLM serving runtime and the NVIDIA GPU Operator to achieve continuous batching, PagedAttention memory optimization, and enterprise-grade TLS ingress.",
+    "updatedAt": "2026-10-17",
+    "sourceCheckedAt": "2026-10-17",
+    "takeaway": "Use the model-serving platform and runtime supported by your installed OpenShift AI release. Check accelerator enablement, model compatibility, storage access and endpoint security, then measure a representative workload. A GPU resource request does not guarantee model fit, throughput or zero-downtime operation.",
     "sources": [
       {
         "publisher": "Red Hat",
-        "title": "Red Hat OpenShift AI Documentation: Serving Models",
-        "url": "https://docs.redhat.com/en/documentation/red_hat_openshift_ai/"
-      },
-      {
-        "publisher": "KServe Project",
-        "title": "KServe vLLM Runtime Guidelines & API Specifications",
-        "url": "https://kserve.github.io/website/latest/modelserving/v1beta1/llm/vllm/"
-      },
-      {
-        "publisher": "NVIDIA",
-        "title": "NVIDIA GPU Operator on OpenShift Container Platform",
-        "url": "https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/openshift/steps.html"
+        "title": "OpenShift AI 3.4: deploying models with KServe RawDeployment",
+        "url": "https://docs.redhat.com/en/documentation/red_hat_openshift_ai_self-managed/3.4/html/deploying_models/deploying_models"
       }
     ],
     "sections": [
       {
-        "heading": "Start here",
-        "content": "Intended reader: Platform engineers, MLOps specialists, and enterprise architects hosting LLMs on Kubernetes. Practical outcome: A fully configured, reproducible OpenShift AI deployment serving 8B–14B parameter models with vLLM and KServe. As enterprise data sovereignty mandates move models into private clouds, OpenShift AI provides a declarative control plane that automates GPU driver lifecycle, vLLM continuous batching, and secure API ingress."
-      },
-      {
-        "heading": "Prerequisites: Node Feature Discovery and the NVIDIA GPU Operator",
-        "content": "Before provisioning serving pods, OpenShift worker nodes must expose GPU hardware as schedulable Kubernetes resources. Install Node Feature Discovery (NFD) to scan PCIe buses and label worker nodes with GPU family tags. Follow with the NVIDIA GPU Operator, which automatically compiles and deploys NVIDIA driver containers, container toolkits, and DCGM monitoring pods without manual host configuration.",
-        "sourceIds": [
-          1,
-          3
-        ]
-      },
-      {
-        "heading": "Serving runtime: KServe with vLLM PagedAttention",
-        "content": "OpenShift AI supports two serving paradigms: ModelMesh (for dense multi-model CPU workloads) and SingleModelServing via KServe (the standard for LLMs). Within your Data Science Project, select the vLLM Serving Runtime template. vLLM implements PagedAttention, which partitions KV cache memory into non-contiguous blocks, virtually eliminating memory fragmentation and enabling continuous batching across concurrent client queries.",
-        "sourceIds": [
-          1,
-          2
-        ]
-      },
-      {
-        "heading": "Cluster configuration: storage mount, resources and TLS route",
-        "content": "Connect an S3-compatible object store (such as Ceph, AWS S3, or MinIO) containing model weights in SafeTensors format. Allocate dedicated GPU slices in the ServingRuntime manifest:",
-        "table": {
-          "headers": [
-            "Deployment Parameter",
-            "Recommended Specification",
-            "Operational Impact"
-          ],
-          "rows": [
-            [
-              "Resource Limits",
-              "nvidia.com/gpu: 1, memory: 32Gi",
-              "Guarantees dedicated VRAM allocation for 8B models without pod eviction"
-            ],
-            [
-              "Serving Engine",
-              "vLLM v0.6+ Container Image",
-              "Delivers 2.5x–4x higher throughput via continuous request scheduling"
-            ],
-            [
-              "Model Weight Source",
-              "S3 Bucket / Internal MinIO",
-              "Enables rapid pod cold starts and zero-downtime rolling weight rollouts"
-            ],
-            [
-              "Ingress Protocol",
-              "OpenShift Route (Edge TLS)",
-              "Terminates HTTPS at router layer and exposes standard OpenAI-compatible API"
-            ]
-          ]
-        },
-        "sourceIds": [
-          1,
-          2
-        ]
-      },
-      {
-        "heading": "Production checklist: day-two operations and autoscaling",
-        "content": "Verify these four operational checkpoints before routing customer traffic to your inference cluster:",
-        "checklist": [
-          "Configure Horizontal Pod Autoscaler (HPA) targeting Prometheus metric 'vllm:num_requests_waiting'.",
-          "Enable dedicated node taints (e.g. 'nvidia.com/gpu=present:NoSchedule') to prevent non-AI workloads from scheduling on GPU nodes.",
-          "Set '--gpu-memory-utilization 0.90' in vLLM args to reserve 10% VRAM for peak context activation surges.",
-          "Verify readiness probes are mapped to the '/health' endpoint to prevent traffic routing during model weight loading."
-        ]
-      },
-      {
-        "heading": "Try this next",
-        "content": "Evaluating local vs edge model performance? Compare quantization tradeoffs in our guide on [Reduce Local LLM VRAM Usage](/workflow/reduce-local-llm-vram-quantization-offloading-guide)."
-      }
-    ],
-    "imageAlt": "Generated editorial photograph: Platform engineer monitoring GPU servers in an enterprise data center."
-  },
-  {
-    "slug": "eu-ai-act-obligations-developers-guide",
-    "category": "workflow",
-    "title": "EU AI Act developer guide: GPAI, risk & labeling",
-    "description": "A practical technical breakdown of Regulation (EU) 2024/1689: transparency rules, GPAI model governance, and synthetic media labeling.",
-    "topic": "AI governance",
-    "image": "eu-ai-act-developer-obligations-photo",
-    "featured": false,
-    "publishedAt": "2026-09-22",
-    "updatedAt": "2026-09-22",
-    "sourceCheckedAt": "2026-09-22",
-    "takeaway": "Direct Answer: The EU AI Act (Regulation 2024/1689) imposes strict compliance obligations on software developers based on their role and risk classification. If you build user-facing AI applications, Article 50 mandates clear transparency disclosures informing users they are interacting with AI, alongside machine-readable watermarking (such as C2PA) for synthetic audio, image, and video outputs.",
-    "sources": [
-      {
-        "publisher": "Official Journal of the European Union",
-        "title": "Regulation (EU) 2024/1689 of the European Parliament and of the Council (Artificial Intelligence Act)",
-        "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689"
-      },
-      {
-        "publisher": "European Commission",
-        "title": "European AI Office: Implementation Guidelines and GPAI Code of Practice",
-        "url": "https://digital-strategy.ec.europa.eu/en/policies/ai-office"
-      }
-    ],
-    "sections": [
-      {
-        "heading": "Start here",
-        "content": "Intended reader: Engineering leads, product managers, and software developers integrating LLMs and generative models into European products. Practical outcome: A clear breakdown of legal risk tiers, required user-facing disclosures, and technical watermarking mandates under Regulation (EU) 2024/1689. Unlike GDPR, the EU AI Act enforces technical product safety standards with fines up to €35 million or 7% of worldwide annual turnover."
-      },
-      {
-        "heading": "Provider versus deployer: determining your legal status",
-        "content": "The regulation establishes a critical distinction between upstream 'Providers' and downstream 'Deployers'. If you fine-tune an open-source model (like Llama or Mistral) with proprietary data or substantially modify its intended purpose, European regulators may classify your organization as an upstream Provider, triggering comprehensive technical documentation and copyright policy obligations. If you query third-party APIs (OpenAI, Anthropic) via standard API keys, you operate primarily as a Deployer.",
-        "sourceIds": [
-          1,
-          2
-        ]
-      },
-      {
-        "heading": "Risk tiers: what is banned, regulated or permitted",
-        "content": "The EU AI Act categorizes systems across four operational risk tiers with proportional compliance burdens:",
-        "table": {
-          "headers": [
-            "Risk Tier",
-            "System Examples",
-            "Developer Obligation"
-          ],
-          "rows": [
-            [
-              "Unacceptable Risk",
-              "Social scoring, biometric categorization for sensitive attributes, subliminal manipulation",
-              "Strictly prohibited across the EU as of February 2025"
-            ],
-            [
-              "High Risk",
-              "Recruitment CV screening, critical infrastructure, credit scoring, legal evaluation",
-              "Exhaustive conformity assessments, continuous logging, human oversight, and CE marking"
-            ],
-            [
-              "General-Purpose AI (GPAI)",
-              "Foundation models (GPT-4, Claude 3.5, Llama 3) with >10^25 FLOPs training compute",
-              "Model cards, copyright transparency, and red-teaming evaluations supervised by the AI Office"
-            ],
-            [
-              "Specific / Minimal Risk",
-              "Customer support chatbots, generative content generation, internal code assistants",
-              "Article 50 transparency notices and synthetic media watermarking"
-            ]
-          ]
-        },
+        "heading": "Match instructions to the installed release",
+        "content": "Red Hat's deployment guide lists prerequisites and supported accelerator runtimes. Check the documentation for your installed release rather than copying an old container tag or a manifest from another platform version.",
         "sourceIds": [
           1
         ]
       },
       {
-        "heading": "Article 50: transparency notices and synthetic media labeling",
-        "content": "Most commercial software developers fall into the 'Specific Risk' tier. Under Article 50, developers must satisfy two core engineering requirements: first, conversational bots must explicitly notify users in plain language that they are interacting with an AI system; second, any generative pipeline that outputs synthetic audio, image, video, or realistic text must embed machine-readable metadata (e.g. C2PA provenance headers) enabling automated detection of generated media.",
+        "heading": "Verify resources and model access",
+        "content": "Confirm accelerator support, the selected model's runtime compatibility and authorized access to its files. Set resource requests from your measured workload. A Kubernetes memory limit is not the same as available GPU VRAM."
+      },
+      {
+        "heading": "Test the endpoint before routing traffic",
+        "content": "Verify authentication, network exposure, storage permissions and representative requests. Record model precision, context, concurrency, memory, errors and response times. These are proposed acceptance checks, not a claimed FyreLinkz cluster benchmark."
+      },
+      {
+        "heading": "Plan recovery and capacity changes",
+        "content": "Test a restart and model reload, decide how failures are detected, and document rollback. Load testing should include queued and failed requests. This guide does not establish a throughput multiplier or promise that a storage connection prevents downtime."
+      },
+      {
+        "heading": "Continue with workload sizing",
+        "content": "Use the [local LLM memory guide](/workflow/reduce-local-llm-vram-quantization-offloading-guide) to separate weight size from runtime demand. Follow the release-specific Red Hat documentation for implementation details."
+      }
+    ],
+    "imageAlt": "Generated editorial photograph: Platform engineer monitoring GPU servers in an enterprise data center.",
+    "faqs": [
+      {
+        "question": "Does one allocated GPU guarantee an LLM will fit?",
+        "answer": "No. Model precision, context, concurrency and runtime allocations determine memory demand. Kubernetes GPU resource allocation alone does not establish sufficient VRAM."
+      },
+      {
+        "question": "Which OpenShift AI serving runtime should I choose?",
+        "answer": "Use the supported runtime and accelerator configuration for your installed OpenShift AI release. Validate the exact model, storage connection, endpoint security and representative workload before production use."
+      }
+    ]
+  },
+  {
+    "slug": "eu-ai-act-obligations-developers-guide",
+    "category": "workflow",
+    "title": "EU AI Act developer guide: GPAI, risk & labeling",
+    "description": "Understand EU AI Act role, scope and transparency checks. Read Article 50 and distinguish general-purpose models from systemic-risk classification.",
+    "topic": "AI governance",
+    "image": "eu-ai-act-developer-obligations-photo",
+    "featured": false,
+    "publishedAt": "2026-09-22",
+    "updatedAt": "2026-10-17",
+    "sourceCheckedAt": "2026-10-17",
+    "takeaway": "EU AI Act obligations depend on your role, system, use and the applicable provisions. Article 50 includes transparency and synthetic-content obligations with qualifications and exceptions. It does not prescribe C2PA for every output. Check current consolidated law and implementation guidance for your deployment; this is a reading checklist, not a compliance determination.",
+    "sources": [
+      {
+        "publisher": "European Commission AI Act Service Desk",
+        "title": "Article 50: transparency obligations",
+        "url": "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-50"
+      },
+      {
+        "publisher": "European Commission AI Act Service Desk",
+        "title": "Article 51: general-purpose AI models with systemic risk",
+        "url": "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-51"
+      }
+    ],
+    "sections": [
+      {
+        "heading": "Identify the role and use before applying a rule",
+        "content": "Document who supplies the model, who provides the system and how it is deployed. An API integration or fine-tuning step alone is not enough to settle every legal role. Review the applicable definitions, scope and current implementation guidance with qualified advice where needed."
+      },
+      {
+        "heading": "Read Article 50 as separate obligations",
+        "content": "Article 50 addresses direct interaction notices, marking and detectability of certain synthetic outputs, and disclosures for specified uses. Its provisions have different subjects, qualifications and exceptions. Do not replace that analysis with a blanket rule that every AI application needs the same notice or watermark.",
         "sourceIds": [
-          1,
+          1
+        ]
+      },
+      {
+        "heading": "C2PA is not named as a universal mandatory format",
+        "content": "Article 50's text describes machine-readable marking and detectability requirements for relevant providers. It does not name C2PA as the required format for all generated content. Technical implementation needs to be assessed against the applicable rule and current guidance.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "Separate general-purpose models from systemic-risk classification",
+        "content": "Article 51 concerns classification of general-purpose AI models with systemic risk. Its training-compute presumption is not the definition of every general-purpose model. Keep model-level obligations separate from the assessment of a particular AI system or use.",
+        "sourceIds": [
           2
         ]
       },
       {
-        "heading": "Developer compliance checklist: implementation steps",
-        "content": "Review this compliance checklist before releasing AI features to users residing in the European Economic Area:",
-        "checklist": [
-          "Include an upfront disclaimer on AI chat interfaces: 'You are interacting with an artificial intelligence assistant.'",
-          "Implement C2PA cryptographic provenance metadata headers on exported synthetic imagery and video files.",
-          "Establish an audit trail logging model inputs, outputs, and system errors with 6-month retention.",
-          "Verify your model vendor complies with EU copyright opt-out protocols (TDM reservation under Directive 2019/790).",
-          "Implement human override controls allowing operators to halt or correct automated decision workflows."
-        ]
-      },
-      {
-        "heading": "Try this next",
-        "content": "Need to understand how generative media tools handle verification? Check our breakdown of [AI video model pricing and architectures](/ai-video-models)."
+        "heading": "Keep an evidence record for the assessment",
+        "content": "Record the system's purpose, roles, applicable provisions, assessment date, disclosures and unresolved questions. Use the consolidated legal text linked by the Commission's service desk and check applicable timing. This guide does not certify a product as compliant."
       }
     ],
-    "imageAlt": "AI-generated editorial photograph of two people reviewing printed pages and a tablet at a desk."
+    "imageAlt": "AI-generated editorial photograph of two people reviewing printed pages and a tablet at a desk.",
+    "faqs": [
+      {
+        "question": "Does the EU AI Act require C2PA specifically for every AI output?",
+        "answer": "Article 50 describes marking and detectability obligations with qualifications and exceptions. It does not name C2PA as the mandatory format for every output. Check the applicable provision and current implementation guidance."
+      },
+      {
+        "question": "Does a training-compute threshold define every general-purpose AI model?",
+        "answer": "No. Article 51's compute presumption concerns general-purpose AI models with systemic risk. It is not the definition of all general-purpose AI models; scope and obligations require separate analysis."
+      }
+    ]
   },
   {
     "slug": "jev-needle3-small-ai-models-gpu-cost",
@@ -4872,8 +4663,18 @@
       }
     ],
     "publishedAt": "2026-09-26",
-    "updatedAt": "2026-09-26",
-    "sourceCheckedAt": "2026-09-26"
+    "updatedAt": "2026-10-17",
+    "sourceCheckedAt": "2026-09-26",
+    "faqs": [
+      {
+        "question": "Does TaoMate's reported 10.6× speedup apply to a gaming GPU?",
+        "answer": "The cited benchmark uses eight H20 96 GB GPUs under specific output and timing conditions. It does not establish the same speedup or compatibility on a single consumer graphics card."
+      },
+      {
+        "question": "Are X post views the same as Google Search impressions?",
+        "answer": "No. The cited X count is a dated public post-view count. Google Search impressions are a separate metric reported in Search Console; neither count proves website visits or buying intent."
+      }
+    ]
   },
   {
     "slug": "local-ai-pc-upgrade-vs-build-laptop-workstation",

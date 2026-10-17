@@ -32,11 +32,11 @@ export default async function CategoryPage({
   const c = getCategoryBySlug((await params).category);
   if (!c) notFound();
   const posts = getPostsByCategory(c.slug);
-  return <div className="wrap category-page"><JsonLd data={generateBreadcrumbSchema([{
+  return <div className="wrap category-page"><JsonLd data={[{ "@context": "https://schema.org", "@type": "CollectionPage", "@id": SITE_URL + "/" + c.slug + "#webpage", url: SITE_URL + "/" + c.slug, name: c.metaTitle, description: c.description, inLanguage: "en", isPartOf: { "@id": SITE_URL + "/#website" }, mainEntity: { "@type": "ItemList", numberOfItems: posts.length, itemListElement: posts.map((post, index) => ({ "@type": "ListItem", position: index + 1, name: post.title, url: SITE_URL + "/" + post.category + "/" + post.slug })) } }, generateBreadcrumbSchema([{
       name: "Home",
       url: SITE_URL
     }, {
       name: c.name,
       url: SITE_URL + "/" + c.slug
-    }])} /><nav className="breadcrumbs" aria-label="Breadcrumb"><Link href="/">Home</Link><span>/</span><span aria-current="page">{c.name}</span></nav><header className="category-header"><span className="eyebrow">THE FYRELINKZ FIELD GUIDE</span><h1>{c.name}<span>.</span></h1><p>{c.description}</p><small>{posts.length} {posts.length === 1 ? "story" : "stories"} · Sources included</small></header>{c.slug === "hardware" && <section className="hardware-planner-promo"><div><span className="eyebrow">FREE PLANNING TOOL</span><h2>Choose a local AI machine by budget and country.</h2><p>Compare desktop builds, upgrades, and laptops for your workload.</p></div><Link className="button-primary" href="/hardware/ai-workstation-planner">Open the workstation planner ↗</Link></section>}<div className="category-grid">{posts.map((p, i) => <StoryCard key={p.slug} post={p} priority={i === 0} />)}</div></div>;
+    }])]} /><nav className="breadcrumbs" aria-label="Breadcrumb"><Link href="/">Home</Link><span>/</span><span aria-current="page">{c.name}</span></nav><header className="category-header"><span className="eyebrow">THE FYRELINKZ FIELD GUIDE</span><h1>{c.name}<span>.</span></h1><p>{c.description}</p><small>{posts.length} {posts.length === 1 ? "story" : "stories"} · Sources included</small></header>{c.slug === "hardware" && <section className="hardware-planner-promo"><div><span className="eyebrow">FREE PLANNING TOOL</span><h2>Choose a local AI machine by budget and country.</h2><p>Compare desktop builds, upgrades, and laptops for your workload.</p></div><Link className="button-primary" href="/hardware/ai-workstation-planner">Open the workstation planner ↗</Link></section>}<div className="category-grid">{posts.map((p, i) => <StoryCard key={p.slug} post={p} priority={i === 0} />)}</div></div>;
 }
