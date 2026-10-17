@@ -36,9 +36,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 function renderInlineText(text: string) {
-  if (!text || !text.includes("[")) return text;
-  const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
+  if (!text || (!text.includes("[") && !text.includes("`"))) return text;
+  const parts = text.split(/(\[[^\]]+\]\([^)]+\)|`[^`]+`)/g);
   return parts.map((part, idx) => {
+    if (part.startsWith("`") && part.endsWith("`")) return <code key={idx}>{part.slice(1, -1)}</code>;
     const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
     if (!match) return part;
     const [, label, href] = match;
@@ -85,6 +86,7 @@ export default async function ArticlePage({ params }: Props) {
       <div className="article-grid">
         <aside className="article-contents"><div><span className="eyebrow">IN THIS STORY</span>
           <nav aria-label="Table of contents">
+            <a href="#quick-answer">Quick answer</a>
             {p.sections.map(s => <a href={"#" + sectionId(s.heading)} key={s.heading}>{s.heading}</a>)}
             {p.faqs.length > 0 && <a href="#faq">Frequently asked questions</a>}
             <a href="#sources">Sources & further reading</a>
@@ -92,12 +94,12 @@ export default async function ArticlePage({ params }: Props) {
           <Link href={"/" + p.category} className="contents-tool">Explore {category.name.toLowerCase()} ↗</Link>
         </div><AdSlot placement="sidebar" /></aside>
         <div className="article-body">
-          <div className="takeaway"><span className="eyebrow">QUICK ANSWER</span><p>{renderInlineText(p.verdict)}</p></div>
+          <div className="takeaway" id="quick-answer"><span className="eyebrow">QUICK ANSWER</span><p>{renderInlineText(p.verdict)}</p></div>
           {p.howToSteps?.length ? <div className="article-checklist" aria-label="First image workflow steps"><span className="checklist-badge">FIRST IMAGE / 5 STEPS</span><ol>{p.howToSteps.map((step, index) => <li key={step.name}><span className="check-box" aria-hidden="true">{index + 1}</span><span><strong>{step.name}.</strong> {renderInlineText(step.text)}</span></li>)}</ol></div> : null}
           {p.sections.map((s, i) => <section id={sectionId(s.heading)} key={s.heading}>
             <h2>{s.heading}</h2><p>{renderInlineText(s.content)}</p>
             {s.subpoints && <ul>{s.subpoints.map(b => <li key={b}>{renderInlineText(b)}</li>)}</ul>}
-            {s.table && <div className="table-wrap"><table className="article-table"><thead><tr>{s.table.headers.map((h, hIdx) => <th key={hIdx}>{h}</th>)}</tr></thead><tbody>{s.table.rows.map((row, rIdx) => <tr key={rIdx}>{row.map((cell, cIdx) => <td key={cIdx}>{renderInlineText(cell)}</td>)}</tr>)}</tbody></table></div>}
+            {s.table && <div className="table-wrap"><table className="article-table"><thead><tr>{s.table.headers.map((h, hIdx) => <th scope="col" key={hIdx}>{h}</th>)}</tr></thead><tbody>{s.table.rows.map((row, rIdx) => <tr key={rIdx}>{row.map((cell, cIdx) => <td key={cIdx}>{renderInlineText(cell)}</td>)}</tr>)}</tbody></table></div>}
             {s.checklist && <div className="article-checklist"><span className="checklist-badge">REPRODUCIBLE CHECKLIST</span><ul>{s.checklist.map(item => <li key={item}><span className="check-box" aria-hidden="true">✓</span><span>{renderInlineText(item)}</span></li>)}</ul></div>}
             {s.sourceIds && <div className="inline-sources">Source: {s.sourceIds.map((id, j) => <span key={id}>{j > 0 && " · "}<a href={p.sources[id - 1].url} rel="noopener noreferrer" target="_blank">{p.sources[id - 1].publisher} [{id}] ↗</a></span>)}</div>}
             {i === 2 && nextRead && <aside className="article-next-read" aria-label="Related reading"><Link href={articlePath(nextRead)}><StoryImage post={nextRead} /><span><small className="eyebrow">READ NEXT</small><strong>{nextRead.title}</strong><span>{nextRead.metaDescription}</span></span></Link></aside>}
@@ -105,7 +107,7 @@ export default async function ArticlePage({ params }: Props) {
           </section>)}
           {p.faqs.length > 0 && <section className="article-faq" id="faq" aria-labelledby="faq-heading">
             <span className="eyebrow">CLEAR ANSWERS</span><h2 id="faq-heading">Frequently asked questions</h2>
-            {p.faqs.map(faq => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}
+            {p.faqs.map(faq => <details id={"faq-" + sectionId(faq.question)} key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}
           </section>}
           <section className="sources-box" id="sources"><span className="eyebrow">FOLLOW THE SOURCE</span><h2>Sources & further reading</h2>
             <p>Primary sources checked {formatDate(p.sourceCheckedAt)}. Vendor statements are attributed; editorial advice is our own.</p>
