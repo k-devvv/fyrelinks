@@ -12,7 +12,7 @@ export function pageMetadata(title: string, description: string, path: string, i
     openGraph: {
       siteName: "FyreLinkz",
       locale: "en_US",
-      title,
+      title: cleanTitle,
       description,
       url: SITE_URL + path,
       type: "website",
@@ -25,7 +25,7 @@ export function pageMetadata(title: string, description: string, path: string, i
     },
     twitter: {
       card: "summary_large_image",
-      title,
+      title: cleanTitle,
       description,
       images: [{ url: SITE_URL + image, alt: imageAlt }]
     }
