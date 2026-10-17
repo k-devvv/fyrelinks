@@ -6,12 +6,12 @@
     "description": "Run Ollama in local-only mode, check cloud settings and separate model inference from connected tools. A practical privacy review before sharing data.",
     "topic": "Local AI privacy",
     "image": "local-only-oct17-photo",
-    "imageAlt": "AI-generated editorial scene of a laptop and network equipment on a quiet home desk.",
-    "takeaway": "Ollama documents a local-only switch, OLLAMA_NO_CLOUD=1, and an equivalent server setting. Restart after changing it. Treat this as one boundary in your setup: browser tools, extensions and other applications can have separate connections and policies.",
+    "imageAlt": "AI-generated editorial scene of a laptop on a quiet home desk in warm natural light.",
+    "takeaway": "Ollama documents a local-only switch, `OLLAMA_NO_CLOUD=1`, and an equivalent server setting. Restart after changing it. Treat this as one boundary in your setup: browser tools, extensions and other applications can have separate connections and policies.",
     "sections": [
       {
         "heading": "What Ollama's local-only setting changes",
-        "content": "Ollama's current FAQ describes disabling cloud models and web search with OLLAMA_NO_CLOUD=1 or disable_ollama_cloud in its server configuration. Restart the application or service after the change; its documentation identifies an Ollama cloud disabled log entry as confirmation. This is a current documentation explainer, not a newly announced release or a FyreLinkz network audit.",
+        "content": "Ollama's current FAQ describes disabling cloud models and web search with `OLLAMA_NO_CLOUD=1` or `disable_ollama_cloud` in its server configuration. Restart the application or service after the change; its documentation identifies an Ollama cloud disabled log entry as confirmation. This is a current documentation explainer, not a newly announced release or a FyreLinkz network audit.",
         "sourceIds": [
           1
         ]
@@ -259,7 +259,7 @@
       },
       {
         "heading": "If a model is missing, check the loader's expected files",
-        "content": "The official model guide lists model directories and supports additional paths through extra_model_paths.yaml. It also describes compatible component families. Check the workflow author's file requirements and the loader type together; a filename extension alone does not identify the role or architecture. A file that is present on disk can still be the wrong component.",
+        "content": "The official model guide lists model directories and supports additional paths through `extra_model_paths.yaml`. It also describes compatible component families. Check the workflow author's file requirements and the loader type together; a filename extension alone does not identify the role or architecture. A file that is present on disk can still be the wrong component.",
         "sourceIds": [
           1
         ]
@@ -326,7 +326,7 @@
     "description": "Compare shared memory and discrete GPU VRAM for local AI without equating capacity with speed. Use a software, context and workload checklist before buying.",
     "topic": "Local AI memory",
     "image": "unified-memory-oct17-photo",
-    "imageAlt": "AI-generated editorial scene of a compact computer beside desktop graphics and memory hardware.",
+    "imageAlt": "AI-generated editorial scene of a silver laptop beside an open desktop computer and memory modules.",
     "takeaway": "Unified memory and discrete GPU VRAM describe different memory arrangements. Compare whether your complete workload fits, whether the runtime supports the machine and how quickly it completes your task. The same advertised capacity does not establish equivalent AI performance.",
     "sections": [
       {
@@ -380,7 +380,7 @@
       },
       {
         "heading": "Context and concurrency belong in the memory budget",
-        "content": "Ollama's context documentation says increasing context increases memory demand and shows ollama ps for inspecting allocation and offloading. Its FAQ also describes extra memory pressure from parallel requests. These runtime details illustrate why a model's download size is not a complete capacity plan. Check the documentation for the runtime you intend to use rather than applying Ollama settings to every tool.",
+        "content": "Ollama's context documentation says increasing context increases memory demand and shows `ollama ps` for inspecting allocation and offloading. Its FAQ also describes extra memory pressure from parallel requests. These runtime details illustrate why a model's download size is not a complete capacity plan. Check the documentation for the runtime you intend to use rather than applying Ollama settings to every tool.",
         "sourceIds": [
           2,
           3
