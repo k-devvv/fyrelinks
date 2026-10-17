@@ -8,7 +8,8 @@ import { SITE_URL } from "@/lib/editorial";
 import { pageMetadata } from "@/lib/metadata";
 export const dynamicParams = false;
 export function generateStaticParams() {
-  return CATEGORIES.map(c => ({
+  // Finance has a dedicated page; do not prerender a competing generic route.
+  return CATEGORIES.filter(c => c.slug !== "finance").map(c => ({
     category: c.slug
   }));
 }
