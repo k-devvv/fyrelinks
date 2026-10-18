@@ -1,6 +1,1524 @@
 [
   {
     "category": "news",
+    "slug": "fish-audio-drama3-voice-direction-preview",
+    "title": "Fish Audio Drama 3: direct voices word by word in preview",
+    "description": "Drama 3 adds natural-language delivery directions, sounds and scoped word effects. Check preview limits, voice permissions and cost per usable take.",
+    "topic": "AI voice",
+    "image": "speech-oct18-photo",
+    "imageAlt": "AI-generated editorial illustration of a microphone, headphones and script in a recording studio.",
+    "imageCaption": "AI-generated editorial illustration of generic equipment. Not an output from the named model, a photograph of the researchers' system or evidence of a test.",
+    "takeaway": "Fish Audio's Drama 3 Preview offers line-level performance direction and scoped effects. Evaluate whether the intended delivery survives repeated takes; expressive demos do not establish consistent production performance.",
+    "publishedAt": "2026-10-18",
+    "updatedAt": "2026-10-18",
+    "sourceCheckedAt": "2026-10-18",
+    "featured": false,
+    "sections": [
+      {
+        "heading": "What Drama 3 actually reports",
+        "content": "Fish Audio describes directions written alongside a script, optional sounds and pauses, and paired tags affecting selected words. Its page supports multi-speaker scenes and documents API access with the drama-3 model header. The vendor labels it Preview and notes that takes can vary.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "What this changes for the reader",
+        "content": "The useful distinction is between changing what a speaker says and changing how the line is delivered. Our suggested production brief lists the words that must remain exact, the emotional intention and the maximum duration. Give a reviewer the script without the prompt so they can assess the actual audio rather than the promised direction."
+      },
+      {
+        "heading": "A practical evaluation before adoption",
+        "content": "Create an original two-line exchange with voices you are authorized to use. Request a neutral reading and one restrained change in delivery. Compare intelligibility, timing, pronunciation and unintended non-speech sounds. Save every take, including rejected ones, and calculate spend per accepted clip rather than per generated clip.",
+        "checklist": [
+          "Keep the script identical across takes.",
+          "Check the scope of each word-level effect.",
+          "Confirm voice permissions and current service terms."
+        ]
+      },
+      {
+        "heading": "Limits and availability to keep in view",
+        "content": "This article contains no listening benchmark or endorsement of a cloned identity. The preview page does not establish that your account has the same limits as its demos. Check current pricing and access before planning a large narration job."
+      },
+      {
+        "heading": "Where to go next",
+        "content": "Read our [speech generation workflow](/news/elevenlabs-v4-turbo-speech-workflow) for the adjacent workflow decision. Keep this project's conditions separate from other models' results. If a dependency, artifact or service limit is unclear, leave it unresolved in the comparison rather than filling the gap with an assumption."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "Fish Audio",
+        "title": "Drama 3 — primary source and release details",
+        "url": "https://fish.audio/drama-3/"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is Drama 3 a finished local model release?",
+        "answer": "The linked Fish Audio page calls it Preview and describes hosted editor/API access; do not infer downloadable weights."
+      },
+      {
+        "question": "Can directions affect only selected words?",
+        "answer": "Fish Audio documents scoped paired tags for selected words, alongside line-level directions."
+      },
+      {
+        "question": "Has FyreLinkz independently tested Drama 3?",
+        "answer": "No. This article reports the linked primary source and proposes an editorial evaluation; it contains no independent performance benchmark."
+      }
+    ]
+  },
+  {
+    "category": "news",
+    "slug": "matrix-game4-engine-grounded-world-model-preview",
+    "title": "Matrix-Game 4.0: game rules and AI rendering are separate",
+    "description": "Understand Matrix-Game 4.0's engine, coding agent and video renderer. Read the preview status and test state consistency before comparing latency claims.",
+    "topic": "World models",
+    "image": "world-oct18-photo",
+    "imageAlt": "AI-generated editorial illustration of a game-design desk with a detailed world and simplified geometry on monitors.",
+    "imageCaption": "AI-generated editorial illustration of generic equipment. Not an output from the named model, a photograph of the researchers' system or evidence of a test.",
+    "takeaway": "Matrix-Game 4.0 keeps game state in an engine while an AI model renders its appearance. Its project page is labelled a preview, so separate architecture evidence from release and performance assumptions.",
+    "publishedAt": "2026-10-18",
+    "updatedAt": "2026-10-18",
+    "sourceCheckedAt": "2026-10-18",
+    "featured": false,
+    "sections": [
+      {
+        "heading": "What Matrix-Game 4.0 actually reports",
+        "content": "The project describes a rule-based engine producing a low-poly proxy, a coding agent adapting rules and prompts, and a causal video renderer. Reference frames and camera-linked memory help condition output. The page explicitly says its content will be updated at release.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "What this changes for the reader",
+        "content": "An attractive frame is not proof that an object still exists outside the camera view. Our proposed evaluation separates the authoritative engine record from the generated picture. A collision, inventory change or return to an earlier location should agree in both. This also makes visual defects easier to distinguish from incorrect gameplay rules."
+      },
+      {
+        "heading": "A practical evaluation before adoption",
+        "content": "Use a short action trace: approach a landmark, move away, then return by the same route. Record engine positions, actions and the rendered view with timestamps. Ask whether a repeated state produces a recognizable scene and whether a rule change actually appears. Do not interpret uninitialized counters in a static page capture as measured zero latency.",
+        "checklist": [
+          "Record engine state separately from rendered frames.",
+          "Replay the same route and actions.",
+          "Verify released assets and hardware before reproduction."
+        ]
+      },
+      {
+        "heading": "Limits and availability to keep in view",
+        "content": "The visible demonstrations are author-selected. We have not reproduced the renderer or established minimum VRAM, interactive latency or session stability. A coding-agent component also needs review boundaries before it can modify a real game project."
+      },
+      {
+        "heading": "Where to go next",
+        "content": "Read our [WorldPlay2 controls and deployment checks](/news/worldplay2-interactive-world-model-controls-gpu-license) for the adjacent workflow decision. Keep this project's conditions separate from other models' results. If a dependency, artifact or service limit is unclear, leave it unresolved in the comparison rather than filling the gap with an assumption."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "Matrix-Game 4.0 project",
+        "title": "Matrix-Game 4.0 — primary source and release details",
+        "url": "https://matrix-game-v4-0.github.io/page/"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is Matrix-Game 4.0 only a video generator?",
+        "answer": "Its described design combines a stateful game engine, coding agent and video renderer."
+      },
+      {
+        "question": "Does the project page prove a complete release?",
+        "answer": "No. It labels itself a project-page preview and says content will change at release."
+      },
+      {
+        "question": "Has FyreLinkz independently tested Matrix-Game 4.0?",
+        "answer": "No. This article reports the linked primary source and proposes an editorial evaluation; it contains no independent performance benchmark."
+      }
+    ]
+  },
+  {
+    "category": "news",
+    "slug": "gaussianimate-skelebones-rigging-4d-gaussians",
+    "title": "GaussiAnimate: skeleton control for deforming 4D characters",
+    "description": "GaussiAnimate combines a kinematic scaffold with deforming surface controls. Understand required reconstructed sequences and evaluate animation fidelity.",
+    "topic": "3D animation",
+    "image": "geometry-oct18-photo",
+    "imageAlt": "AI-generated editorial illustration of a 3D artist's desk with a digital mannequin and architectural model.",
+    "imageCaption": "AI-generated editorial illustration of generic equipment. Not an output from the named model, a photograph of the researchers' system or evidence of a test.",
+    "takeaway": "GaussiAnimate studies controllable reanimation of reconstructed moving subjects. Its skeleton-plus-surface approach targets deformation, not a promise to rig any isolated picture automatically.",
+    "publishedAt": "2026-10-18",
+    "updatedAt": "2026-10-18",
+    "sourceCheckedAt": "2026-10-18",
+    "featured": false,
+    "sections": [
+      {
+        "heading": "What GaussiAnimate actually reports",
+        "content": "The authors describe skelebones: an inner kinematic structure coupled to free-form outer bones. Partwise Motion Matching retrieves and blends observed motion. Inputs include temporally consistent reconstructed Gaussian or mesh sequences, with examples covering clothed humans, animals and garments.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "What this changes for the reader",
+        "content": "For an animation team, the first question is what evidence the reconstruction contains. Loose cloth can move independently of the underlying limb, so matching a joint pose alone may not recover the expected surface motion. Our suggested review checks control usability and deformation together instead of judging a single attractive turntable."
+      },
+      {
+        "heading": "A practical evaluation before adoption",
+        "content": "Choose a sequence with a visible bend, an occlusion and a return to rest. Hold back part of the motion when evaluating a rig. Inspect joints, cloth silhouette and contact regions at equal playback speed, then review the controls an animator must use. Record preprocessing time separately from the final animation step.",
+        "checklist": [
+          "Confirm temporal consistency of the input reconstruction.",
+          "Compare held-out poses and surface motion.",
+          "Review code availability and research-use conditions."
+        ]
+      },
+      {
+        "heading": "Limits and availability to keep in view",
+        "content": "The project reports its own comparisons. We have not run them, and its abstract's promise of code availability is not itself evidence that every asset or license is ready for production. Check the linked repository at the time of use."
+      },
+      {
+        "heading": "Where to go next",
+        "content": "Read our [image preservation and output review](/create/ai-image-upscaling-vs-img2img-preserve-details) for the adjacent workflow decision. Keep this project's conditions separate from other models' results. If a dependency, artifact or service limit is unclear, leave it unresolved in the comparison rather than filling the gap with an assumption."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "GaussiAnimate project",
+        "title": "GaussiAnimate — primary source and release details",
+        "url": "https://cookmaker.cn/gaussianimate/"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Does GaussiAnimate start from an arbitrary single photo?",
+        "answer": "The project describes reconstructed consistent 4D Gaussian or mesh sequences as input."
+      },
+      {
+        "question": "What does Partwise Motion Matching do?",
+        "answer": "It uses observed motion to retrieve and blend part-level deformations for the rig."
+      },
+      {
+        "question": "Has FyreLinkz independently tested GaussiAnimate?",
+        "answer": "No. This article reports the linked primary source and proposes an editorial evaluation; it contains no independent performance benchmark."
+      }
+    ]
+  },
+  {
+    "category": "news",
+    "slug": "uniforge3d-sparse-views-reconstruction-generation",
+    "title": "UniForge3D: complete 3D shapes without losing observed geometry",
+    "description": "UniForge3D joins reconstruction and generation from sparse unposed views. Separate observed surfaces from inferred geometry before using an asset.",
+    "topic": "3D reconstruction",
+    "image": "geometry-oct18-photo",
+    "imageAlt": "AI-generated editorial illustration of a 3D artist's desk with a digital mannequin and architectural model.",
+    "imageCaption": "AI-generated editorial illustration of generic equipment. Not an output from the named model, a photograph of the researchers' system or evidence of a test.",
+    "takeaway": "UniForge3D combines reconstruction and shape generation in a shared coordinate system. Treat unseen surfaces as inferred completion, even when the finished asset looks plausible.",
+    "publishedAt": "2026-10-18",
+    "updatedAt": "2026-10-18",
+    "sourceCheckedAt": "2026-10-18",
+    "featured": false,
+    "sections": [
+      {
+        "heading": "What UniForge3D actually reports",
+        "content": "The project uses an anchor-guided space to connect reconstruction and generation branches. It predicts point maps and a complete sparse structure, then selects informative input views for individual voxels. Its stated goal is to preserve observed detail while completing regions absent from the images.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "What this changes for the reader",
+        "content": "A clean model can hide an important distinction: some surfaces are constrained by photographs, others are generated from learned priors. Our editorial recommendation is to label that distinction in asset review. For a decorative object, plausible completion may be enough; for dimensions or manufacturing references, visual plausibility is not a measurement."
+      },
+      {
+        "heading": "A practical evaluation before adoption",
+        "content": "Photograph a permitted object from a few views and keep another view for inspection. Compare silhouette, visible markings and rear-side structure against that held-out image. Add one more input view and see whether the inferred region changes. Keep camera setup, crop choices and input count in the review log.",
+        "checklist": [
+          "Separate observed geometry from generated completion.",
+          "Compare with a held-out view.",
+          "Check scale, topology and export suitability independently."
+        ]
+      },
+      {
+        "heading": "Limits and availability to keep in view",
+        "content": "Author-reported benchmark leadership is not a FyreLinkz measurement. We have not verified a complete inference environment, hardware floor or downstream asset compatibility. Read the current code and asset terms before adopting the pipeline."
+      },
+      {
+        "heading": "Where to go next",
+        "content": "Read our [image preservation and output review](/create/ai-image-upscaling-vs-img2img-preserve-details) for the adjacent workflow decision. Keep this project's conditions separate from other models' results. If a dependency, artifact or service limit is unclear, leave it unresolved in the comparison rather than filling the gap with an assumption."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "UniForge3D project",
+        "title": "UniForge3D — primary source and release details",
+        "url": "https://xishuxishu.github.io/uniforge3d-project/"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What problem does UniForge3D address?",
+        "answer": "It connects sparse-view reconstruction with complete-shape generation in an anchor-guided space."
+      },
+      {
+        "question": "Are unseen surfaces verified measurements?",
+        "answer": "No. Generated completion should not be treated as observed geometry."
+      },
+      {
+        "question": "Has FyreLinkz independently tested UniForge3D?",
+        "answer": "No. This article reports the linked primary source and proposes an editorial evaluation; it contains no independent performance benchmark."
+      }
+    ]
+  },
+  {
+    "category": "news",
+    "slug": "google-willow-magic-state-cultivation-quantum-evidence",
+    "title": "Google Willow's magic-state result: what the 40× claim means",
+    "description": "Google reports magic-state cultivation on Willow. Understand the measured error reduction, logical-state fidelity and remaining scaling questions.",
+    "topic": "Quantum computing",
+    "image": "quantum-oct18-photo",
+    "imageAlt": "AI-generated editorial illustration of gold-colored quantum laboratory equipment and instrument cables.",
+    "imageCaption": "AI-generated editorial illustration of generic equipment. Not an output from the named model, a photograph of the researchers' system or evidence of a test.",
+    "takeaway": "Google reports a hardware demonstration of magic-state cultivation on Willow. The reported improvement concerns a specific quantum-state preparation task, not a blanket 40-fold acceleration of AI or ordinary computing.",
+    "publishedAt": "2026-10-18",
+    "updatedAt": "2026-10-18",
+    "sourceCheckedAt": "2026-10-18",
+    "featured": false,
+    "sections": [
+      {
+        "heading": "What Google quantum cultivation actually reports",
+        "content": "Google's October 15 report describes roughly forty-fold lower errors relative to uncultivated states and 99.99% logical fidelity for T-states. It also discusses transferring states between color-code and surface-code encodings. Google says larger-scale demonstrations are still needed for practical quantum computing.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "What this changes for the reader",
+        "content": "The useful reading method is to name the object being improved before repeating a multiplier. Here the story concerns preparing specialized resources for fault-tolerant operations. It does not supply an end-to-end runtime for a useful commercial algorithm. A milestone in a required subsystem can matter greatly without establishing a finished general-purpose machine."
+      },
+      {
+        "heading": "A practical evaluation before adoption",
+        "content": "When comparing coverage, write three columns: prepared resource, measured quantity and baseline. Put the quoted error reduction in that row only. Ask what yield, resource overhead and scale would be required for a complete computation, and whether those quantities are reported in the paper. Keep theoretical projections separate from hardware observations.",
+        "checklist": [
+          "Attach every percentage to its measured quantity.",
+          "Read the experimental baseline and protocol.",
+          "Separate subsystem progress from practical application claims."
+        ]
+      },
+      {
+        "heading": "Limits and availability to keep in view",
+        "content": "This is a report on Google's explanation, not an independent laboratory replication. The result does not justify claims that encryption has been broken, that AI training has become forty times faster, or that commercial fault-tolerant computing is already solved."
+      },
+      {
+        "heading": "Where to go next",
+        "content": "Read our [mathematical claims and verification](/news/openai-math-results-lean-withdrawals-review) for the adjacent workflow decision. Keep this project's conditions separate from other models' results. If a dependency, artifact or service limit is unclear, leave it unresolved in the comparison rather than filling the gap with an assumption."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "Google Quantum AI",
+        "title": "Google quantum cultivation — primary source and release details",
+        "url": "https://blog.google/innovation-and-ai/models-and-research/quantum-computing/magic-state-cultivation-quantum-computing/"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Did Willow make ordinary computers forty times faster?",
+        "answer": "No. Google's multiplier concerns errors in a specific magic-state cultivation comparison."
+      },
+      {
+        "question": "Does this finish the scaling problem?",
+        "answer": "No. Google explicitly identifies larger-scale cultivation as further work."
+      },
+      {
+        "question": "Has FyreLinkz independently tested Google quantum cultivation?",
+        "answer": "No. This article reports the linked primary source and proposes an editorial evaluation; it contains no independent performance benchmark."
+      }
+    ]
+  },
+  {
+    "category": "news",
+    "slug": "mosaichunk-video-memory-router-revisit-consistency",
+    "title": "MosaiChunk: helping video models remember objects after a cut",
+    "description": "MosaiChunk routes selected historical memory into video generation. Learn what stays frozen and how to test details that disappear and reappear.",
+    "topic": "Video memory",
+    "image": "world-oct18-photo",
+    "imageAlt": "AI-generated editorial illustration of a game-design desk with a detailed world and simplified geometry on monitors.",
+    "imageCaption": "AI-generated editorial illustration of generic equipment. Not an output from the named model, a photograph of the researchers' system or evidence of a test.",
+    "takeaway": "MosaiChunk studies retrieval of compact historical memory for autoregressive video. Its central question is whether fine visual details survive after leaving the active context.",
+    "publishedAt": "2026-10-18",
+    "updatedAt": "2026-10-18",
+    "sourceCheckedAt": "2026-10-18",
+    "featured": false,
+    "sections": [
+      {
+        "heading": "What MosaiChunk actually reports",
+        "content": "The authors keep the video generator fixed and train a lightweight descriptor encoder for memory routing. Historical key-value sections are stored in CPU memory and selected within an active budget. The project links code, weights and evaluation material, including revisit-focused tests.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "What this changes for the reader",
+        "content": "A fixed active cache should not be confused with zero storage growth. Our suggested systems review tracks the history bank, retrieval overhead and generated output separately. The creator-facing review is different: does a small object keep its color, shape and markings after it has been absent for several seconds?"
+      },
+      {
+        "heading": "A practical evaluation before adoption",
+        "content": "Use an original scene with a distinctive marked object. Hide it behind a cover or turn the camera away, then reveal it without redescribing every mark. Compare the first and returning views and log the duration of absence. Repeat with a second object so a correct return cannot be explained by always drawing the same familiar shape.",
+        "checklist": [
+          "Test identity after absence, not just adjacent frames.",
+          "Measure CPU history and active cache separately.",
+          "Keep backbone and router versions in the run log."
+        ]
+      },
+      {
+        "heading": "Limits and availability to keep in view",
+        "content": "We have not reproduced the authors' tests. Their selected demonstrations do not guarantee arbitrary-length consistency or establish the complete deployment cost. A project link to weights also leaves underlying model licenses and dependencies to review."
+      },
+      {
+        "heading": "Where to go next",
+        "content": "Read our [WorldPlay2 controls and deployment checks](/news/worldplay2-interactive-world-model-controls-gpu-license) for the adjacent workflow decision. Keep this project's conditions separate from other models' results. If a dependency, artifact or service limit is unclear, leave it unresolved in the comparison rather than filling the gap with an assumption."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "MosaiChunk project",
+        "title": "MosaiChunk — primary source and release details",
+        "url": "https://mosaichunk.github.io/"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Does MosaiChunk retrain the entire video backbone?",
+        "answer": "The project describes a frozen generator with training focused on a lightweight memory descriptor encoder."
+      },
+      {
+        "question": "Does a fixed active-memory budget mean no historical storage?",
+        "answer": "No. The described system keeps historical memory sections in CPU memory."
+      },
+      {
+        "question": "Has FyreLinkz independently tested MosaiChunk?",
+        "answer": "No. This article reports the linked primary source and proposes an editorial evaluation; it contains no independent performance benchmark."
+      }
+    ]
+  },
+  {
+    "category": "news",
+    "slug": "multics-multiplayer-world-model-shared-view-consistency",
+    "title": "Multics: one generated world across multiple player views",
+    "description": "Multics coordinates generated views with hierarchical communication. Check cross-player consistency and distinguish demonstrations from playable networking.",
+    "topic": "Multiplayer world models",
+    "image": "world-oct18-photo",
+    "imageAlt": "AI-generated editorial illustration of a game-design desk with a detailed world and simplified geometry on monitors.",
+    "imageCaption": "AI-generated editorial illustration of generic equipment. Not an output from the named model, a photograph of the researchers' system or evidence of a test.",
+    "takeaway": "Multics researches consistent video generation for multiple independently controlled viewpoints. Synchronized generated views are a research capability, not proof of a production multiplayer game server.",
+    "publishedAt": "2026-10-18",
+    "updatedAt": "2026-10-18",
+    "sourceCheckedAt": "2026-10-18",
+    "featured": false,
+    "sections": [
+      {
+        "heading": "What Multics actually reports",
+        "content": "The project describes player-to-group-to-global communication and dynamic grouping from camera trajectories. It reports training with four players and inference demonstrations with six, eight and ten. Some comparison panels on the project page are explicitly marked as pending.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "What this changes for the reader",
+        "content": "Two views of the same event provide a stronger consistency test than one attractive video. Our review would ask whether an action seen by one player appears in the right place and time for another, while unrelated activity stays independent. Networking, authoritative state and recovery after disconnection remain separate engineering questions."
+      },
+      {
+        "heading": "A practical evaluation before adoption",
+        "content": "Choose two intersecting camera paths and one visible interaction. Give each participant a distinct control trace. Compare overlapping views at matching timestamps and inspect what happens when one participant moves elsewhere. Preserve mismatches rather than editing the demonstration down to the successful overlap.",
+        "checklist": [
+          "Review shared events across synchronized views.",
+          "Check independent controls for cross-event interference.",
+          "Distinguish available comparisons from pending panels."
+        ]
+      },
+      {
+        "heading": "Limits and availability to keep in view",
+        "content": "The page's scaling and efficiency figures are author-reported and are not equivalent to our measured concurrent-user capacity. We have not run the release, verified multiplayer hosting requirements or measured end-to-end input latency."
+      },
+      {
+        "heading": "Where to go next",
+        "content": "Read our [WorldPlay2 controls and deployment checks](/news/worldplay2-interactive-world-model-controls-gpu-license) for the adjacent workflow decision. Keep this project's conditions separate from other models' results. If a dependency, artifact or service limit is unclear, leave it unresolved in the comparison rather than filling the gap with an assumption."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "Multics project",
+        "title": "Multics — primary source and release details",
+        "url": "https://karine-huang.github.io/Multics/"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "How many players were used for training?",
+        "answer": "The project describes four-player training and demonstrations with more players at inference."
+      },
+      {
+        "question": "Does Multics establish website concurrent-user capacity?",
+        "answer": "No. Research player-count demonstrations are not a hosted service load test."
+      },
+      {
+        "question": "Has FyreLinkz independently tested Multics?",
+        "answer": "No. This article reports the linked primary source and proposes an editorial evaluation; it contains no independent performance benchmark."
+      }
+    ]
+  },
+  {
+    "category": "news",
+    "slug": "kling4-audio-video-production-evaluation",
+    "title": "Kling 4: evaluate audio and motion before buying more credits",
+    "description": "Kling's site now presents Kling 4.0 audio-visual generation. Use a shot-level review for sound, motion, identity and accepted-output cost.",
+    "topic": "AI video",
+    "image": "world-oct18-photo",
+    "imageAlt": "AI-generated editorial illustration of a game-design desk with a detailed world and simplified geometry on monitors.",
+    "imageCaption": "AI-generated editorial illustration of generic equipment. Not an output from the named model, a photograph of the researchers' system or evidence of a test.",
+    "takeaway": "Kling's official site presents Kling 4.0 as an audio-visual generation product. Evaluate the current account's actual controls and costs rather than assigning features from neighboring image or Canvas products to the model.",
+    "publishedAt": "2026-10-18",
+    "updatedAt": "2026-10-18",
+    "sourceCheckedAt": "2026-10-18",
+    "featured": false,
+    "sections": [
+      {
+        "heading": "What Kling 4 actually reports",
+        "content": "The official landing page identifies Kling 4.0 and emphasizes dynamic motion and audio-visual results. It separately presents Kling Image 3.0, Canvas and agent-oriented integrations. Those adjacent product descriptions do not automatically establish the specifications of every Kling 4 mode.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "What this changes for the reader",
+        "content": "A production comparison needs a usable shot, not merely a compelling sample. Our suggested brief states camera movement, subject action, spoken or environmental audio and the exact delivery format. Mark each requirement as pass or fail before generating alternatives; otherwise a visually impressive take can distract from missing dialogue or broken continuity."
+      },
+      {
+        "heading": "A practical evaluation before adoption",
+        "content": "Use a short permitted scene with one moving subject and an identifiable sound cue. Inspect synchronization, cuts, object identity and whether unwanted background speech appears. Compare the same brief across a few takes and divide the actual spend by the accepted seconds, including discarded outputs in the accounting.",
+        "checklist": [
+          "Record the exact product mode and account region.",
+          "Review sound and picture together.",
+          "Count rejected takes in the budget."
+        ]
+      },
+      {
+        "heading": "Limits and availability to keep in view",
+        "content": "This is not a latency, quality or pricing benchmark. The landing page alone does not establish a stable duration limit, universal availability or open weights. Verify the current interface, terms and written price schedule before purchasing credits."
+      },
+      {
+        "heading": "Where to go next",
+        "content": "Read our [WorldPlay2 controls and deployment checks](/news/worldplay2-interactive-world-model-controls-gpu-license) for the adjacent workflow decision. Keep this project's conditions separate from other models' results. If a dependency, artifact or service limit is unclear, leave it unresolved in the comparison rather than filling the gap with an assumption."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "Kling 4 project",
+        "title": "Kling 4 — primary source and release details",
+        "url": "https://kling.ai/"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is Kling Image 3.0 the same product as Kling 4.0 video?",
+        "answer": "The official site presents them separately; do not transfer specifications between them."
+      },
+      {
+        "question": "Does this article recommend a paid plan?",
+        "answer": "No. It provides an evaluation brief and makes no purchase or performance guarantee."
+      },
+      {
+        "question": "Has FyreLinkz independently tested Kling 4?",
+        "answer": "No. This article reports the linked primary source and proposes an editorial evaluation; it contains no independent performance benchmark."
+      }
+    ]
+  },
+  {
+    "category": "news",
+    "slug": "krea3-image-editing-reference-consistency-pricing",
+    "title": "Krea 3: fast image edits still need a preservation check",
+    "description": "Krea 3 promises fast reference-based edits. Review its announced pricing, unchanged-region fidelity and how to measure cost per accepted image.",
+    "topic": "AI image editing",
+    "image": "geometry-oct18-photo",
+    "imageAlt": "AI-generated editorial illustration of a 3D artist's desk with a digital mannequin and architectural model.",
+    "imageCaption": "AI-generated editorial illustration of generic equipment. Not an output from the named model, a photograph of the researchers' system or evidence of a test.",
+    "takeaway": "Krea 3 targets fast image editing with reference consistency. Its advertised speed and price are vendor statements; test whether the details you did not ask to change remain intact.",
+    "publishedAt": "2026-10-18",
+    "updatedAt": "2026-10-18",
+    "sourceCheckedAt": "2026-10-18",
+    "featured": false,
+    "sections": [
+      {
+        "heading": "What Krea 3 actually reports",
+        "content": "Krea's announcement describes native 2K edits, up to six reference images and availability on Krea and named partner services. It quotes $0.06 per 2K image and $0.03 at 1K, with most edits under eight seconds. Those are announcement terms, not our measured latency or a universal partner price.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "What this changes for the reader",
+        "content": "Our evaluation starts by naming the protected region. For a product image, preserve the label, proportions and material before changing the setting. For a character, preserve identity and costume details. A fast edit that requires manual restoration may be more expensive than a slower first result that meets the brief."
+      },
+      {
+        "heading": "A practical evaluation before adoption",
+        "content": "Use your own product photo and ask for one background change. Save matching crops of the label, edges and distinctive marks before and after. Repeat the same instruction, record time to completion and count acceptable outputs. Avoid changing several reference roles at once, because it becomes harder to tell which instruction caused drift.",
+        "checklist": [
+          "Name what must remain unchanged.",
+          "Assign a clear role to every reference.",
+          "Check current service prices and rejected-output cost."
+        ]
+      },
+      {
+        "heading": "Limits and availability to keep in view",
+        "content": "We have not benchmarked Krea 3 or verified every distribution partner's limits. An announcement price can change and may differ from a plan's credit accounting. This article does not claim local weights or perfect preservation."
+      },
+      {
+        "heading": "Where to go next",
+        "content": "Read our [image preservation and output review](/create/ai-image-upscaling-vs-img2img-preserve-details) for the adjacent workflow decision. Keep this project's conditions separate from other models' results. If a dependency, artifact or service limit is unclear, leave it unresolved in the comparison rather than filling the gap with an assumption."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "Krea",
+        "title": "Krea 3 — primary source and release details",
+        "url": "https://www.krea.ai/blog/introducing-krea-3"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "How many references does Krea's announcement describe?",
+        "answer": "It describes up to six reference images per edit."
+      },
+      {
+        "question": "Are the quoted prices a live price guarantee?",
+        "answer": "No. They are attributed announcement figures; verify the chosen service before use."
+      },
+      {
+        "question": "Has FyreLinkz independently tested Krea 3?",
+        "answer": "No. This article reports the linked primary source and proposes an editorial evaluation; it contains no independent performance benchmark."
+      }
+    ]
+  },
+  {
+    "category": "news",
+    "slug": "flux3-image-klein-open-weights-layout-license",
+    "title": "FLUX 3 Image Klein: open weights, layouts and commercial terms",
+    "description": "FLUX 3 Image Klein combines generation, editing and references. Check distilled versus undistilled weights, bounding boxes and commercial-use terms.",
+    "topic": "Open image models",
+    "image": "geometry-oct18-photo",
+    "imageAlt": "AI-generated editorial illustration of a 3D artist's desk with a digital mannequin and architectural model.",
+    "imageCaption": "AI-generated editorial illustration of generic equipment. Not an output from the named model, a photograph of the researchers' system or evidence of a test.",
+    "takeaway": "FLUX 3 Image Klein is BFL's open-weight image model, with generation and editing in the same family. Download access and commercial-product permission are separate checks.",
+    "publishedAt": "2026-10-18",
+    "updatedAt": "2026-10-18",
+    "sourceCheckedAt": "2026-10-18",
+    "featured": false,
+    "sections": [
+      {
+        "heading": "What FLUX 3 Image Klein actually reports",
+        "content": "BFL describes a 5.6B model with distilled and undistilled versions, multi-reference editing and bounding-box layouts. Its page documents a normalized 0-to-1000 canvas with boxes ordered y-min, x-min, y-max, x-max. It directs commercial-product users to commercial licensing terms.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "What this changes for the reader",
+        "content": "Layout control reduces one kind of ambiguity while introducing another: a box can have the right shape but the wrong coordinate convention. Our suggested first test uses a deliberately simple composition and checks the rendered location against the intended region. Keep license selection separate from technical success; a working download is not a commercial clearance."
+      },
+      {
+        "heading": "A practical evaluation before adoption",
+        "content": "Place two original objects in opposite corners of a blank composition, then swap only their boxes. Record the selected weights, canvas aspect ratio, box convention and prompt. For editing, change one object while reviewing the untouched region. Measure memory with the actual pipeline rather than inferring it from parameter count.",
+        "checklist": [
+          "Record distilled or undistilled variant.",
+          "Verify coordinate order and normalized scale.",
+          "Read the selected weight license and product-use terms."
+        ]
+      },
+      {
+        "heading": "Limits and availability to keep in view",
+        "content": "BFL's single-consumer-GPU description is not a FyreLinkz minimum-VRAM measurement. API features and local-weight capabilities can differ. We have not run a fidelity benchmark or interpreted a commercial agreement for your deployment."
+      },
+      {
+        "heading": "Where to go next",
+        "content": "Read our [image preservation and output review](/create/ai-image-upscaling-vs-img2img-preserve-details) for the adjacent workflow decision. Keep this project's conditions separate from other models' results. If a dependency, artifact or service limit is unclear, leave it unresolved in the comparison rather than filling the gap with an assumption."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "Black Forest Labs",
+        "title": "FLUX 3 Image Klein — primary source and release details",
+        "url": "https://bfl.ai/models/flux-3-image-klein"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Are open weights automatically unrestricted commercial weights?",
+        "answer": "No. BFL's page directs commercial-product use to its licensing terms."
+      },
+      {
+        "question": "What bounding-box order is documented?",
+        "answer": "The page describes y-min, x-min, y-max, x-max on a 0-to-1000 canvas."
+      },
+      {
+        "question": "Has FyreLinkz independently tested FLUX 3 Image Klein?",
+        "answer": "No. This article reports the linked primary source and proposes an editorial evaluation; it contains no independent performance benchmark."
+      }
+    ]
+  },
+  {
+    "category": "news",
+    "slug": "moss-image-native-layout-json-base-sft",
+    "title": "MOSS-Image: JSON layouts, Base versus SFT and first-run checks",
+    "description": "MOSS-Image adds structured layout prompts to image generation. Compare Base and SFT, coordinate formats and pipeline requirements before installation.",
+    "topic": "Image layout control",
+    "image": "geometry-oct18-photo",
+    "imageAlt": "AI-generated editorial illustration of a 3D artist's desk with a digital mannequin and architectural model.",
+    "imageCaption": "AI-generated editorial illustration of generic equipment. Not an output from the named model, a photograph of the researchers' system or evidence of a test.",
+    "takeaway": "MOSS-Image combines ordinary prompts with structured layout input. Its weights, code and third-party dependencies need separate checks before a local workflow is ready.",
+    "publishedAt": "2026-10-18",
+    "updatedAt": "2026-10-18",
+    "sourceCheckedAt": "2026-10-18",
+    "featured": false,
+    "sections": [
+      {
+        "heading": "What MOSS-Image actually reports",
+        "content": "OpenMOSS describes a 5B image-model family with Base and SFT checkpoints and prompts up to 4K tokens. Its JSON layout example specifies text, objects and bounding boxes. The page lists Apache-2.0 for weights while preserving separate terms for code and other components.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "What this changes for the reader",
+        "content": "A structured prompt is valuable when the brief depends on where an element appears, but valid JSON does not guarantee correct rendered text. Our review separates syntax, spatial placement and final visual fidelity. Keep the exact layout file with the output so a wrong box or a misspelled heading can be traced without reconstructing the prompt later."
+      },
+      {
+        "heading": "A practical evaluation before adoption",
+        "content": "Start with a simple original poster containing one short title and one object. Verify the documented coordinate space and ordering before adding more elements. Compare Base and SFT using the same layout and inspect spelling, placement and unwanted changes. Keep environment and pipeline versions in the record.",
+        "checklist": [
+          "Validate the layout JSON independently.",
+          "Use the documented box coordinate convention.",
+          "Review custom pipeline code before execution."
+        ]
+      },
+      {
+        "heading": "Limits and availability to keep in view",
+        "content": "The published setup uses a custom pipeline and remote code; inspect it in an isolated environment before running unfamiliar components. We have not measured minimum VRAM, text accuracy or speed. A 5B backbone is not a complete memory requirement."
+      },
+      {
+        "heading": "Where to go next",
+        "content": "Read our [image preservation and output review](/create/ai-image-upscaling-vs-img2img-preserve-details) for the adjacent workflow decision. Keep this project's conditions separate from other models' results. If a dependency, artifact or service limit is unclear, leave it unresolved in the comparison rather than filling the gap with an assumption."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "MOSS-Image project",
+        "title": "MOSS-Image — primary source and release details",
+        "url": "https://openmoss.ai/MOSS-Image/"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Does MOSS-Image accept layouts?",
+        "answer": "The project describes JSON prompts specifying objects, rendered text and bounding boxes."
+      },
+      {
+        "question": "Are weights and pipeline code necessarily under identical terms?",
+        "answer": "No. The project distinguishes weight licensing from code and third-party components."
+      },
+      {
+        "question": "Has FyreLinkz independently tested MOSS-Image?",
+        "answer": "No. This article reports the linked primary source and proposes an editorial evaluation; it contains no independent performance benchmark."
+      }
+    ]
+  },
+  {
+    "category": "news",
+    "slug": "meta-muse-spark-open-deployment-tools-license",
+    "title": "Muse Spark Open: open deployment still needs an agent harness",
+    "description": "Meta positions Muse Spark Open for coding, multimodal inputs and agent workflows. Separate weights, runtime support and tool execution before deploying.",
+    "topic": "Open AI agents",
+    "image": "models-oct18-photo",
+    "imageAlt": "AI-generated editorial illustration of an AI workstation with an abstract evaluation dashboard and compact server.",
+    "imageCaption": "AI-generated editorial illustration of generic equipment. Not an output from the named model, a photograph of the researchers' system or evidence of a test.",
+    "takeaway": "Muse Spark Open is a separate deployment choice from Muse Wonder. Meta highlights coding, multimodal perception and agent workflows, but real actions still require a configured execution environment.",
+    "publishedAt": "2026-10-18",
+    "updatedAt": "2026-10-18",
+    "sourceCheckedAt": "2026-10-18",
+    "featured": false,
+    "sections": [
+      {
+        "heading": "What Muse Spark Open actually reports",
+        "content": "Meta's model page describes coding capabilities, perception of images, video and documents, and an intent-reporting commentary channel. It lists deployment partners and links documentation. Meta says the release adds safety post-training for standalone use without its product-level guardrails.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "What this changes for the reader",
+        "content": "Our deployment review separates the model from the program granting it tools. A model that proposes a file change is not the same as a harness that can write to a repository, run commands and publish results. Define those permissions and review checkpoints before comparing agent success rates."
+      },
+      {
+        "heading": "A practical evaluation before adoption",
+        "content": "Use a small disposable repository with a failing test and a bounded change request. Require a visible patch, the exact checks run and a record of tool failures. Run the same task without granting network or deployment access first. Add privileges only when the intended operation needs them and the result remains reviewable.",
+        "checklist": [
+          "Verify the exact model and runtime package.",
+          "Review weight and provider terms separately.",
+          "Keep tool permissions and approval boundaries explicit."
+        ]
+      },
+      {
+        "heading": "Limits and availability to keep in view",
+        "content": "Vendor benchmark tables are not our independent coding evaluation. We have not verified a minimum self-hosting configuration or every partner's service limits. Do not infer that Wonder weights are available merely because Spark Open is named open."
+      },
+      {
+        "heading": "Where to go next",
+        "content": "Read our [local versus hosted task costs](/stack/local-vs-cloud-ai-cost-per-accepted-task) for the adjacent workflow decision. Keep this project's conditions separate from other models' results. If a dependency, artifact or service limit is unclear, leave it unresolved in the comparison rather than filling the gap with an assumption."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "Meta",
+        "title": "Muse Spark Open — primary source and release details",
+        "url": "https://dev.meta.ai/models/muse-spark-open"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is Muse Spark Open the same release as Muse Wonder?",
+        "answer": "No. Meta presents them as distinct models and deployment choices."
+      },
+      {
+        "question": "Does the model alone execute tools?",
+        "answer": "A surrounding application must provide, validate and execute tool operations."
+      },
+      {
+        "question": "Has FyreLinkz independently tested Muse Spark Open?",
+        "answer": "No. This article reports the linked primary source and proposes an editorial evaluation; it contains no independent performance benchmark."
+      }
+    ]
+  },
+  {
+    "category": "news",
+    "slug": "atas-world-state-agentic-video-scene-event-memory",
+    "title": "ATAS: separate scene memory from events in AI video",
+    "description": "Any Time, Any Space keeps spatial and timed event evidence for video generation. Understand validation, revisits and why a delivered clip may not enter memory.",
+    "topic": "Agentic video",
+    "image": "world-oct18-photo",
+    "imageAlt": "AI-generated editorial illustration of a game-design desk with a detailed world and simplified geometry on monitors.",
+    "imageCaption": "AI-generated editorial illustration of generic equipment. Not an output from the named model, a photograph of the researchers' system or evidence of a test.",
+    "takeaway": "ATAS organizes agentic video around persistent world state. A generated clip can be delivered without being admitted as evidence for future shots.",
+    "publishedAt": "2026-10-18",
+    "updatedAt": "2026-10-18",
+    "sourceCheckedAt": "2026-10-18",
+    "featured": false,
+    "sections": [
+      {
+        "heading": "What ATAS actually reports",
+        "content": "The project compiles screenplays into requests with scene, camera and time references. It keeps registered static geometry separate from dynamic event observations. Memory is updated only after review and state checks, while film delivery is a separate decision.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "What this changes for the reader",
+        "content": "This distinction helps explain why a sequence can look acceptable now yet damage later continuity if every generated detail is treated as authoritative. Our proposed review marks which observations are accepted into state and why. Rejected evidence should remain visible in the log even when the shot itself stays in an edit."
+      },
+      {
+        "heading": "A practical evaluation before adoption",
+        "content": "Write three original shots: establish a room, show one event, then revisit the event from another angle. Record location, event identity and time interval for each request. Inspect whether static landmarks remain stable while the event is replayed at the intended moment. Compare delivery decisions with memory-admission decisions.",
+        "checklist": [
+          "Record spatial anchors and event times.",
+          "Track memory admission separately from delivered clips.",
+          "Inspect revisits from a different camera."
+        ]
+      },
+      {
+        "heading": "Limits and availability to keep in view",
+        "content": "This is research reporting, not a guarantee of feature-length coherence. We have not reproduced the pipeline, measured state growth or established generator-specific costs. Generated reconstructions should not be presented as measurements of a real location."
+      },
+      {
+        "heading": "Where to go next",
+        "content": "Read our [WorldPlay2 controls and deployment checks](/news/worldplay2-interactive-world-model-controls-gpu-license) for the adjacent workflow decision. Keep this project's conditions separate from other models' results. If a dependency, artifact or service limit is unclear, leave it unresolved in the comparison rather than filling the gap with an assumption."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "ATAS project",
+        "title": "ATAS — primary source and release details",
+        "url": "https://lhmd.top/atas/"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What does ATAS stand for?",
+        "answer": "Any Time, Any Space, a world-state-centric framework for agentic video generation."
+      },
+      {
+        "question": "Does every generated shot become memory?",
+        "answer": "No. The project separates film delivery from validated admission to persistent state."
+      },
+      {
+        "question": "Has FyreLinkz independently tested ATAS?",
+        "answer": "No. This article reports the linked primary source and proposes an editorial evaluation; it contains no independent performance benchmark."
+      }
+    ]
+  },
+  {
+    "category": "news",
+    "slug": "infinisplat2-feed-forward-3dgs-arbitrary-views",
+    "title": "InfiniSplat v2: inspect unseen views before trusting a 3D scene",
+    "description": "InfiniSplat v2 reconstructs Gaussian scenes from varied views. Check posed versus unposed input, camera changes and artifact suppression.",
+    "topic": "Gaussian reconstruction",
+    "image": "geometry-oct18-photo",
+    "imageAlt": "AI-generated editorial illustration of a 3D artist's desk with a digital mannequin and architectural model.",
+    "imageCaption": "AI-generated editorial illustration of generic equipment. Not an output from the named model, a photograph of the researchers' system or evidence of a test.",
+    "takeaway": "InfiniSplat v2 studies feed-forward Gaussian reconstruction from arbitrary views. The important practical check is how the scene behaves from a camera not represented in the inputs.",
+    "publishedAt": "2026-10-18",
+    "updatedAt": "2026-10-18",
+    "sourceCheckedAt": "2026-10-18",
+    "featured": false,
+    "sections": [
+      {
+        "heading": "What InfiniSplat v2 actually reports",
+        "content": "The project accepts views with or without camera poses. It describes a dual-branch design with frozen geometry and learned Gaussian attributes, using opacity to suppress inconsistent points. Its page includes scene comparisons and a large-scale reconstruction demonstration.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "What this changes for the reader",
+        "content": "A good input-view rendering can conceal floating geometry or missing surfaces elsewhere. Our review would separate appearance fidelity from geometric usefulness. If the intended asset needs collision, measurement or mesh editing, an attractive Gaussian visualization does not establish those capabilities."
+      },
+      {
+        "heading": "A practical evaluation before adoption",
+        "content": "Reserve several input photographs for evaluation rather than reconstruction. Move the review camera through wide angles and examine edges, thin structures, transparent regions and newly revealed surfaces. Log whether camera poses were supplied. Keep a point-cloud view beside the rendered result to investigate suspicious patches.",
+        "checklist": [
+          "Hold out views for inspection.",
+          "Record whether camera poses were supplied.",
+          "Review geometry and appearance independently."
+        ]
+      },
+      {
+        "heading": "Limits and availability to keep in view",
+        "content": "The authors' demonstrations are not a FyreLinkz hardware benchmark. We have not verified a deployment memory floor, reconstruction scale accuracy or a turnkey mesh-export workflow. Confirm the current repository and asset terms before production use."
+      },
+      {
+        "heading": "Where to go next",
+        "content": "Read our [image preservation and output review](/create/ai-image-upscaling-vs-img2img-preserve-details) for the adjacent workflow decision. Keep this project's conditions separate from other models' results. If a dependency, artifact or service limit is unclear, leave it unresolved in the comparison rather than filling the gap with an assumption."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "InfiniSplat v2 project",
+        "title": "InfiniSplat v2 — primary source and release details",
+        "url": "https://zju3dv.github.io/InfiniSplat2/"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Does InfiniSplat v2 require known camera poses?",
+        "answer": "The project describes input with or without camera poses."
+      },
+      {
+        "question": "Does a clean render prove accurate geometry?",
+        "answer": "No. Inspect held-out views and the underlying reconstruction separately."
+      },
+      {
+        "question": "Has FyreLinkz independently tested InfiniSplat v2?",
+        "answer": "No. This article reports the linked primary source and proposes an editorial evaluation; it contains no independent performance benchmark."
+      }
+    ]
+  },
+  {
+    "category": "news",
+    "slug": "streamrender-h3-realtime-world-render-gb200-hardware",
+    "title": "StreamRender-H3: read the GPU count behind real-time rendering",
+    "description": "NVIDIA's StreamRender-H3 separates coded world state from streaming video. Understand component latency, eight-GB200 results and deployment scope.",
+    "topic": "Real-time rendering",
+    "image": "world-oct18-photo",
+    "imageAlt": "AI-generated editorial illustration of a game-design desk with a detailed world and simplified geometry on monitors.",
+    "imageCaption": "AI-generated editorial illustration of generic equipment. Not an output from the named model, a photograph of the researchers' system or evidence of a test.",
+    "takeaway": "StreamRender-H3 reports a real-time streaming-rendering stack on substantial datacenter hardware. Its component timings should not be advertised as consumer-GPU performance or complete input-to-display latency.",
+    "publishedAt": "2026-10-18",
+    "updatedAt": "2026-10-18",
+    "sourceCheckedAt": "2026-10-18",
+    "featured": false,
+    "sections": [
+      {
+        "heading": "What StreamRender-H3 actually reports",
+        "content": "The project combines a coded game engine with a two-step streaming model built on MiniMax-H3. It reports roughly 218 ms diffusion rendering per streaming step on eight GB200 GPUs and a separate fast VAE measurement. Those are distinct components and configurations.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "What this changes for the reader",
+        "content": "Our main reading rule is to keep the timing boundary attached to every number. Rendering, decoding, control input, synchronization and display can have different clocks. A speedup against one baseline implementation does not reveal how much an entire interactive application improves."
+      },
+      {
+        "heading": "A practical evaluation before adoption",
+        "content": "Before attempting reproduction, inventory model assets, GPU topology and the full inference stack. For a latency review, record action arrival, engine update, render completion, decode and displayed frame. Report both steady operation and startup behavior. Use a simple repeatable control trace rather than a visually chosen highlight reel.",
+        "checklist": [
+          "Keep GPU count beside component timings.",
+          "Separate diffusion, VAE and end-to-end delay.",
+          "Confirm the released assets and underlying model license."
+        ]
+      },
+      {
+        "heading": "Limits and availability to keep in view",
+        "content": "We have not run the eight-GPU configuration or measured concurrent sessions. The project does not establish that a laptop can reproduce its timing. A video showcase and a deployable runtime package answer different readiness questions."
+      },
+      {
+        "heading": "Where to go next",
+        "content": "Read our [WorldPlay2 controls and deployment checks](/news/worldplay2-interactive-world-model-controls-gpu-license) for the adjacent workflow decision. Keep this project's conditions separate from other models' results. If a dependency, artifact or service limit is unclear, leave it unresolved in the comparison rather than filling the gap with an assumption."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "StreamRender-H3 project",
+        "title": "StreamRender-H3 — primary source and release details",
+        "url": "https://nvlabs.github.io/Sana/Sol-Engine/StreamRender-H3/"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Were the headline diffusion timings measured on one consumer GPU?",
+        "answer": "The cited project figure uses eight GB200 GPUs."
+      },
+      {
+        "question": "Is VAE decode time the same as full interactive latency?",
+        "answer": "No. Decode is one stage of the complete input-to-display path."
+      },
+      {
+        "question": "Has FyreLinkz independently tested StreamRender-H3?",
+        "answer": "No. This article reports the linked primary source and proposes an editorial evaluation; it contains no independent performance benchmark."
+      }
+    ]
+  },
+  {
+    "category": "news",
+    "slug": "streaming-code-world-model-h200-not-realtime",
+    "title": "Streaming Code World Model: causal output is not real-time output",
+    "description": "The open project reports 5.1 seconds to generate a 0.71-second chunk on H200. Understand causal streaming, memory requirements and dependencies.",
+    "topic": "Streaming world models",
+    "image": "world-oct18-photo",
+    "imageAlt": "AI-generated editorial illustration of a game-design desk with a detailed world and simplified geometry on monitors.",
+    "imageCaption": "AI-generated editorial illustration of generic equipment. Not an output from the named model, a photograph of the researchers' system or evidence of a test.",
+    "takeaway": "Streaming Code World Model generates causally, but its repository explicitly says the reported implementation is not yet real time. Compare generation time with playback duration before repeating the word live.",
+    "publishedAt": "2026-10-18",
+    "updatedAt": "2026-10-18",
+    "sourceCheckedAt": "2026-10-18",
+    "featured": false,
+    "sections": [
+      {
+        "heading": "What Streaming Code World Model actually reports",
+        "content": "The repository describes a four-step model producing a roughly 0.71-second chunk in about 5.1 seconds on one H200. It reports a 141 GB H200 configuration and says 80 GB GPUs are not yet supported. Its released adapters depend on an underlying Code World Model/MiniMax-H3 stack.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "What this changes for the reader",
+        "content": "Using the repository's figures, 5.1 divided by 0.71 is about 7.2: that generation interval is several times longer than playback. This is editorial arithmetic from reported inputs, not a new benchmark. Causality means future frames are not required; it does not imply the machine keeps pace with a player."
+      },
+      {
+        "heading": "A practical evaluation before adoption",
+        "content": "Keep chunk playback duration and wall-clock generation duration in separate columns. Compare the initial chunk with later chunks as history grows. Record precision, peak device memory and the complete model dependency set. If evaluating a modified implementation, label it separately instead of treating the original timing as inherited performance.",
+        "checklist": [
+          "Calculate generation-to-playback ratio.",
+          "Record exact H200 configuration and precision.",
+          "Verify base assets as well as adapter files."
+        ]
+      },
+      {
+        "heading": "Limits and availability to keep in view",
+        "content": "We have not reproduced the reported timing or peak memory. The repository's sampled clips and limited evaluation are not proof of arbitrary scene reliability. Public source code also requires a separate review of every model dependency's terms."
+      },
+      {
+        "heading": "Where to go next",
+        "content": "Read our [WorldPlay2 controls and deployment checks](/news/worldplay2-interactive-world-model-controls-gpu-license) for the adjacent workflow decision. Keep this project's conditions separate from other models' results. If a dependency, artifact or service limit is unclear, leave it unresolved in the comparison rather than filling the gap with an assumption."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "Streaming Code World Model project",
+        "title": "Streaming Code World Model — primary source and release details",
+        "url": "https://github.com/TingtingLiao/streaming-code-world-model"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is this project already real time?",
+        "answer": "The repository explicitly describes it as not yet real time."
+      },
+      {
+        "question": "Can its published recipe run on an 80 GB GPU?",
+        "answer": "The repository says 80 GB GPUs are not yet supported."
+      },
+      {
+        "question": "Has FyreLinkz independently tested Streaming Code World Model?",
+        "answer": "No. This article reports the linked primary source and proposes an editorial evaluation; it contains no independent performance benchmark."
+      }
+    ]
+  },
+  {
+    "category": "news",
+    "slug": "roboparty-rp1-open-humanoid-stack-hardware-software",
+    "title": "RoboParty RP1: an open humanoid stack, not one software download",
+    "description": "RP1 links hardware, firmware, robot descriptions and learning tools. Review configuration compatibility, physical build costs and subsystem licenses.",
+    "topic": "Open robotics",
+    "image": "robotics-oct18-photo",
+    "imageAlt": "AI-generated editorial illustration of a research robot at an indoor table-tennis table.",
+    "imageCaption": "AI-generated editorial illustration of generic equipment. Not an output from the named model, a photograph of the researchers' system or evidence of a test.",
+    "takeaway": "RoboParty RP1 is an overview of a connected humanoid hardware and software platform. A public repository is a starting point for engineering, not a free physical robot or a universally compatible controller.",
+    "publishedAt": "2026-10-18",
+    "updatedAt": "2026-10-18",
+    "sourceCheckedAt": "2026-10-18",
+    "featured": false,
+    "sections": [
+      {
+        "heading": "What RoboParty RP1 actually reports",
+        "content": "The overview links mechanical and electrical design, joint firmware, robot descriptions, deployment and training repositories. It names multiple degrees-of-freedom configurations and asks contributors to work in the relevant subsystem repository. It also directs users to each sub-repository's license.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "What this changes for the reader",
+        "content": "Our suggested starting point is one subsystem and one supported configuration. Mixing a robot description from one build with firmware or joint assumptions from another can hide errors until integration. Establish a versioned bill of materials and interface map before treating the ecosystem as a single installable package."
+      },
+      {
+        "heading": "A practical evaluation before adoption",
+        "content": "Begin with documentation and simulation review: identify the intended joint layout, matching robot model, communication interfaces and supported deployment software. Record which components are actually available and which demonstrations remain pending. Hardware motion tests belong in a controlled setting with qualified supervision and verified stop procedures.",
+        "checklist": [
+          "Pin one supported robot configuration.",
+          "Match mechanical, firmware and description versions.",
+          "Review each subsystem's license and physical test requirements."
+        ]
+      },
+      {
+        "heading": "Limits and availability to keep in view",
+        "content": "We have not assembled RP1, audited the hardware or established a safe build cost. Open files do not certify mechanical safety, availability of parts or readiness for unsupervised operation. Avoid treating a policy demonstration as a complete product specification."
+      },
+      {
+        "heading": "Where to go next",
+        "content": "Read our [robot racket-sport research](/news/humanoid-badminton-racket-skills-research) for the adjacent workflow decision. Keep this project's conditions separate from other models' results. If a dependency, artifact or service limit is unclear, leave it unresolved in the comparison rather than filling the gap with an assumption."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "RoboParty RP1 project",
+        "title": "RoboParty RP1 — primary source and release details",
+        "url": "https://github.com/Roboparty/RP1"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Does cloning RP1 give you a working physical humanoid?",
+        "answer": "No. The overview connects hardware and software projects that still require compatible parts and integration."
+      },
+      {
+        "question": "Is one license necessarily sufficient for the whole stack?",
+        "answer": "The overview explicitly directs readers to the applicable sub-repository licenses."
+      },
+      {
+        "question": "Has FyreLinkz independently tested RoboParty RP1?",
+        "answer": "No. This article reports the linked primary source and proposes an editorial evaluation; it contains no independent performance benchmark."
+      }
+    ]
+  },
+  {
+    "category": "news",
+    "slug": "pingpongduo-humanoid-doubles-coordination-research",
+    "title": "PingpongDuo: humanoid doubles is a coordination problem",
+    "description": "PingpongDuo separates team planning, footwork and striking. Read the research setting and why simulated return rates differ from real-match reliability.",
+    "topic": "Robot table tennis",
+    "image": "robotics-oct18-photo",
+    "imageAlt": "AI-generated editorial illustration of a research robot at an indoor table-tennis table.",
+    "imageCaption": "AI-generated editorial illustration of generic equipment. Not an output from the named model, a photograph of the researchers' system or evidence of a test.",
+    "takeaway": "PingpongDuo studies two humanoids sharing a constrained table-tennis workspace. Its contribution includes coordination and transitions between moving and striking, not just hitting a stationary ball.",
+    "publishedAt": "2026-10-18",
+    "updatedAt": "2026-10-18",
+    "sourceCheckedAt": "2026-10-18",
+    "featured": false,
+    "sections": [
+      {
+        "heading": "What PingpongDuo actually reports",
+        "content": "The authors describe a team planner filtering risky positioning proposals, individual footwork and striking skills, and a residual controller refined with return feedback. The paper reports simulation comparisons and separate real-world movement and alternating-strike demonstrations.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "What this changes for the reader",
+        "content": "Doubles creates a conflict between reaching a ball and leaving room for a teammate. Our suggested interpretation distinguishes the planner's target selection, the robot's ability to reach it and the quality of the resulting strike. A return-rate improvement in simulation should stay attached to that simulator and baseline."
+      },
+      {
+        "heading": "A practical evaluation before adoption",
+        "content": "For a paper review, record which claims come from simulation and which have real-robot evidence. Track alternation, clearance and recovery rather than counting only successful returns. Ask how failed transitions, near collisions and interrupted rallies were recorded, and whether the tested layout matches the proposed use.",
+        "checklist": [
+          "Separate simulated results from physical demonstrations.",
+          "Inspect strict alternation and teammate clearance.",
+          "Keep failures and reset conditions in the evaluation."
+        ]
+      },
+      {
+        "heading": "Limits and availability to keep in view",
+        "content": "We have not operated these robots or verified general match performance. A controlled demonstration does not establish safety around bystanders or robustness to arbitrary opponents. The original supplied project URL did not yield usable text, so this report cites the authors' arXiv paper."
+      },
+      {
+        "heading": "Where to go next",
+        "content": "Read our [robot racket-sport research](/news/humanoid-badminton-racket-skills-research) for the adjacent workflow decision. Keep this project's conditions separate from other models' results. If a dependency, artifact or service limit is unclear, leave it unresolved in the comparison rather than filling the gap with an assumption."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "PingpongDuo authors",
+        "title": "PingpongDuo — primary source and release details",
+        "url": "https://arxiv.org/abs/2610.20579"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is PingpongDuo only a single-robot striking policy?",
+        "answer": "No. It explicitly studies team coordination and individual movement/striking skills for doubles."
+      },
+      {
+        "question": "Are simulation improvements automatically real-match results?",
+        "answer": "No. Keep simulated comparisons and physical demonstrations separate."
+      },
+      {
+        "question": "Has FyreLinkz independently tested PingpongDuo?",
+        "answer": "No. This article reports the linked primary source and proposes an editorial evaluation; it contains no independent performance benchmark."
+      }
+    ]
+  },
+  {
+    "category": "news",
+    "slug": "step5-preview-architecture-agent-tool-boundaries",
+    "title": "Step 5 Preview: long agent runs need more than a large context",
+    "description": "StepFun details Step 5 Preview's deep architecture and agentic training. Review context, tool boundaries and deployment artifacts before integration.",
+    "topic": "Agent models",
+    "image": "models-oct18-photo",
+    "imageAlt": "AI-generated editorial illustration of an AI workstation with an abstract evaluation dashboard and compact server.",
+    "imageCaption": "AI-generated editorial illustration of generic equipment. Not an output from the named model, a photograph of the researchers' system or evidence of a test.",
+    "takeaway": "Step 5 Preview targets long, tool-heavy tasks. Its architecture and training report explain design choices, but a reliable agent still needs controlled tools, state handling and verification.",
+    "publishedAt": "2026-10-18",
+    "updatedAt": "2026-10-18",
+    "sourceCheckedAt": "2026-10-18",
+    "featured": false,
+    "sections": [
+      {
+        "heading": "What Step 5 Preview actually reports",
+        "content": "StepFun's October 15 technical post describes a 92-block narrow-but-deep architecture with interleaved sliding-window and sparse full attention. It discusses agent-native data construction and long-context training. Its product site now links model weights; verify the selected artifact and governing license before deployment.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "What this changes for the reader",
+        "content": "A larger context does not decide which facts should persist or which action should be allowed. Our proposed integration review names the stored task state, the compaction policy and the permission boundary for every tool. A model capable of proposing many steps can still fail if an early incorrect observation becomes permanent context."
+      },
+      {
+        "heading": "A practical evaluation before adoption",
+        "content": "Use one bounded repository task with a clear expected change and a fixed time or token budget. Require a diff and tests before accepting the result. Add an irrelevant document to see whether the agent can keep the intended goal in focus. Record retries and tool errors instead of counting only the final successful run.",
+        "checklist": [
+          "Record exact model identifier and artifact.",
+          "Set tool permissions and termination conditions.",
+          "Evaluate final work independently of the agent's explanation."
+        ]
+      },
+      {
+        "heading": "Limits and availability to keep in view",
+        "content": "We have not reproduced StepFun's training or benchmarks. Preview behavior, provider access and price schedules can change. Do not infer that a high context limit makes every long input accurate or affordable."
+      },
+      {
+        "heading": "Where to go next",
+        "content": "Read our [local versus hosted task costs](/stack/local-vs-cloud-ai-cost-per-accepted-task) for the adjacent workflow decision. Keep this project's conditions separate from other models' results. If a dependency, artifact or service limit is unclear, leave it unresolved in the comparison rather than filling the gap with an assumption."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "StepFun",
+        "title": "Step 5 Preview — primary source and release details",
+        "url": "https://platform.stepfun.ai/blog/inside-step-5-preview"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What does the architecture report emphasize?",
+        "answer": "A deep model with mixed attention mechanisms designed around long, agentic workloads."
+      },
+      {
+        "question": "Does context length replace tool validation?",
+        "answer": "No. The surrounding application still needs input checks, execution controls and result verification."
+      },
+      {
+        "question": "Has FyreLinkz independently tested Step 5 Preview?",
+        "answer": "No. This article reports the linked primary source and proposes an editorial evaluation; it contains no independent performance benchmark."
+      }
+    ]
+  },
+  {
+    "category": "news",
+    "slug": "nemotron35-super-vl-total-active-parameters-memory",
+    "title": "Nemotron 3.5 Super VL: 12B active does not mean 12B to load",
+    "description": "NVIDIA's 120B-A12B vision-language model separates active compute from stored weights. Check precision, vision components and context memory.",
+    "topic": "Multimodal models",
+    "image": "models-oct18-photo",
+    "imageAlt": "AI-generated editorial illustration of an AI workstation with an abstract evaluation dashboard and compact server.",
+    "imageCaption": "AI-generated editorial illustration of generic equipment. Not an output from the named model, a photograph of the researchers' system or evidence of a test.",
+    "takeaway": "Nemotron 3.5 Super VL lists 120B total and 12B active parameters. Use total stored weights, precision and runtime allocations when planning memory; active parameters alone are not a hardware requirement.",
+    "publishedAt": "2026-10-18",
+    "updatedAt": "2026-10-18",
+    "sourceCheckedAt": "2026-10-18",
+    "featured": false,
+    "sections": [
+      {
+        "heading": "What Nemotron 3.5 Super VL actually reports",
+        "content": "NVIDIA's BF16 model card describes a hybrid Mamba-2, attention and mixture-of-experts design with a C-RADIO vision encoder. It supports text, document and video understanding and context up to one million tokens. The card distinguishes full-precision weights from an optimized NVFP4 release.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "What this changes for the reader",
+        "content": "An active-parameter figure describes routed work, while deployment must manage the complete model representation. Our suggested budget separates weights, vision inputs, cache and runtime overhead. A small active fraction may make compute efficient without making the unmodified model a small laptop download."
+      },
+      {
+        "heading": "A practical evaluation before adoption",
+        "content": "Pick one document with a table and one short permitted video. Ask questions whose answers can be checked against a specific page or timestamp. Record the exact weight precision, input processing and context allocation. Treat tool-use evaluation as another layer: the model's proposed action needs a harness and independently checked results.",
+        "checklist": [
+          "Budget total weights and precision.",
+          "Keep visual preprocessing and cache in the estimate.",
+          "Inspect page- or timestamp-grounded answers."
+        ]
+      },
+      {
+        "heading": "Limits and availability to keep in view",
+        "content": "We have not measured GPU memory, quality or throughput. The model card's maximum context is not evidence of identical performance at that length. Verify runtime support and the release's current terms before exposing a service."
+      },
+      {
+        "heading": "Where to go next",
+        "content": "Read our [local versus hosted task costs](/stack/local-vs-cloud-ai-cost-per-accepted-task) for the adjacent workflow decision. Keep this project's conditions separate from other models' results. If a dependency, artifact or service limit is unclear, leave it unresolved in the comparison rather than filling the gap with an assumption."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "NVIDIA",
+        "title": "Nemotron 3.5 Super VL — primary source and release details",
+        "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Does A12B mean the model has only 12B total parameters?",
+        "answer": "No. NVIDIA lists 120B total parameters and 12B active."
+      },
+      {
+        "question": "Are BF16 and NVFP4 the same deployment artifact?",
+        "answer": "No. The card distinguishes reference BF16 weights from the optimized lower-precision release."
+      },
+      {
+        "question": "Has FyreLinkz independently tested Nemotron 3.5 Super VL?",
+        "answer": "No. This article reports the linked primary source and proposes an editorial evaluation; it contains no independent performance benchmark."
+      }
+    ]
+  },
+  {
+    "category": "news",
+    "slug": "ling31-flash-hosted-context-open-weight-hardware",
+    "title": "Ling-3.1-flash: advertised context and hosted limits differ",
+    "description": "Ling-3.1-flash combines sparse activation with long-context claims. Check the official service window and multi-GPU recipes before choosing a runtime.",
+    "topic": "Open language models",
+    "image": "models-oct18-photo",
+    "imageAlt": "AI-generated editorial illustration of an AI workstation with an abstract evaluation dashboard and compact server.",
+    "imageCaption": "AI-generated editorial illustration of generic equipment. Not an output from the named model, a photograph of the researchers' system or evidence of a test.",
+    "takeaway": "Ling-3.1-flash separates a model's advertised maximum context from the window exposed by a hosted service. Check both before comparing document capacity or deployment cost.",
+    "publishedAt": "2026-10-18",
+    "updatedAt": "2026-10-18",
+    "sourceCheckedAt": "2026-10-18",
+    "featured": false,
+    "sections": [
+      {
+        "heading": "What Ling-3.1-flash actually reports",
+        "content": "inclusionAI describes around 560B total parameters with roughly 25B active per token. Its official developer documentation lists a maximum context up to one million tokens but a currently exposed 256K service window. The model card includes large multi-GPU SGLang recipes.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "What this changes for the reader",
+        "content": "Our evaluation would treat the model artifact, serving configuration and account endpoint as three records. A context figure copied from the architecture does not establish what a particular API accepts. Likewise, sparse activation does not mean the complete model fits wherever a dense 25B model fits."
+      },
+      {
+        "heading": "A practical evaluation before adoption",
+        "content": "Use a small public document set with known answers distributed across it. Record exact endpoint, effective context and truncation behavior before increasing input length. If self-hosting, verify the documented configuration and precision first. Compare accepted answers and tool outcomes under a fixed budget rather than a single favorable reasoning trace.",
+        "checklist": [
+          "Record the endpoint's exposed context.",
+          "Distinguish total weights from active parameters.",
+          "Review the exact serving recipe and dependencies."
+        ]
+      },
+      {
+        "heading": "Limits and availability to keep in view",
+        "content": "We have not run the multi-GPU recipe or independently checked benchmark results. Do not rely on a dated free-trial claim as current access or pricing. The service may expose different limits from the downloadable model."
+      },
+      {
+        "heading": "Where to go next",
+        "content": "Read our [local versus hosted task costs](/stack/local-vs-cloud-ai-cost-per-accepted-task) for the adjacent workflow decision. Keep this project's conditions separate from other models' results. If a dependency, artifact or service limit is unclear, leave it unresolved in the comparison rather than filling the gap with an assumption."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "inclusionAI",
+        "title": "Ling-3.1-flash — primary source and release details",
+        "url": "https://huggingface.co/inclusionAI/Ling-3.1-flash"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Does a one-million-token model claim establish the hosted window?",
+        "answer": "No. The official developer page currently distinguishes it from a 256K exposed service window."
+      },
+      {
+        "question": "Is the published serving example a laptop recipe?",
+        "answer": "No. The model card includes datacenter multi-GPU configurations."
+      },
+      {
+        "question": "Has FyreLinkz independently tested Ling-3.1-flash?",
+        "answer": "No. This article reports the linked primary source and proposes an editorial evaluation; it contains no independent performance benchmark."
+      }
+    ]
+  },
+  {
+    "category": "news",
+    "slug": "lfm25-24b-a2b-local-agents-context-memory",
+    "title": "LFM2.5-24B-A2B: local agents, context and the 2B-active caveat",
+    "description": "Liquid AI's 24B sparse reasoning model targets on-device agents. Check full-weight memory, reasoning output and workload-specific performance.",
+    "topic": "On-device agents",
+    "image": "models-oct18-photo",
+    "imageAlt": "AI-generated editorial illustration of an AI workstation with an abstract evaluation dashboard and compact server.",
+    "imageCaption": "AI-generated editorial illustration of generic equipment. Not an output from the named model, a photograph of the researchers' system or evidence of a test.",
+    "takeaway": "LFM2.5-24B-A2B targets local agent workloads with a small active parameter count. Its full model, context and runtime still need to fit; reported speed on named hardware is not a universal device guarantee.",
+    "publishedAt": "2026-10-18",
+    "updatedAt": "2026-10-18",
+    "sourceCheckedAt": "2026-10-18",
+    "featured": false,
+    "sections": [
+      {
+        "heading": "What LFM2.5-24B-A2B actually reports",
+        "content": "Liquid AI's October 13 announcement describes 24B total parameters, 2B active and a 131,072-token context window. It identifies a reasoning-only post-trained model and a separate Base release. The architecture combines short convolutions, attention and routed experts.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "What this changes for the reader",
+        "content": "For a local assistant, faster token generation only matters when the entire task is useful. Our suggested evaluation includes how much reasoning output the runtime produces, whether tool arguments are valid and how long a human needs to verify the final work. Keep generated-token speed separate from time to an accepted result."
+      },
+      {
+        "heading": "A practical evaluation before adoption",
+        "content": "Choose a local task that can be checked without granting broad permissions: classify a few public files or propose a patch in a disposable project. Pin model, quantization and context, then compare correct outputs under the same budget. Record memory with ordinary applications open and include failed tool calls in the log.",
+        "checklist": [
+          "Identify Base or post-trained weights.",
+          "Budget all stored parameters and context.",
+          "Measure accepted task completion, not only decode speed."
+        ]
+      },
+      {
+        "heading": "Limits and availability to keep in view",
+        "content": "The announcement's hardware results are vendor measurements. We have not reproduced them or established a minimum device configuration. Check the model card, runtime support and actual license before embedding it in a product."
+      },
+      {
+        "heading": "Where to go next",
+        "content": "Read our [local versus hosted task costs](/stack/local-vs-cloud-ai-cost-per-accepted-task) for the adjacent workflow decision. Keep this project's conditions separate from other models' results. If a dependency, artifact or service limit is unclear, leave it unresolved in the comparison rather than filling the gap with an assumption."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "Liquid AI",
+        "title": "LFM2.5-24B-A2B — primary source and release details",
+        "url": "https://www.liquid.ai/blog/lfm2-5-24b-a2b"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Does 2B active make this a 2B total model?",
+        "answer": "No. Liquid AI describes 24B total parameters with 2B active per token."
+      },
+      {
+        "question": "Is the post-trained model the same as Base?",
+        "answer": "No. The announcement distinguishes the reasoning post-trained model from Base."
+      },
+      {
+        "question": "Has FyreLinkz independently tested LFM2.5-24B-A2B?",
+        "answer": "No. This article reports the linked primary source and proposes an editorial evaluation; it contains no independent performance benchmark."
+      }
+    ]
+  },
+  {
+    "category": "news",
+    "slug": "next-concept-modeling-parallel-text-generation-evidence",
+    "title": "Next-Concept Modeling: coarse-to-fine text beyond next tokens",
+    "description": "Stanford's NCM generates a hierarchy of text codes in parallel. Read the speed baselines, task scope and limits before treating it as a chat replacement.",
+    "topic": "Language model research",
+    "image": "models-oct18-photo",
+    "imageAlt": "AI-generated editorial illustration of an AI workstation with an abstract evaluation dashboard and compact server.",
+    "imageCaption": "AI-generated editorial illustration of generic equipment. Not an output from the named model, a photograph of the researchers' system or evidence of a test.",
+    "takeaway": "Next-Concept Modeling explores parallel coarse-to-fine text generation. Its reported speedups are benchmark comparisons in a research setting, not evidence that every current assistant can be made that much faster.",
+    "publishedAt": "2026-10-18",
+    "updatedAt": "2026-10-18",
+    "sourceCheckedAt": "2026-10-18",
+    "featured": false,
+    "sections": [
+      {
+        "heading": "What Next-Concept Modeling actually reports",
+        "content": "Hazy Research describes a multiscale tokenizer followed by a transformer that predicts progressively finer levels, with codes within a level generated in parallel. The October 12 post compares against diffusion-language-model baselines and reports task-specific wall-clock results on an H100.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "What this changes for the reader",
+        "content": "The interesting trade is between global structure and fine token detail. Our reading separates representation learning, generation steps and the final text decoder. Counting fewer steps is not enough: each step can have a different cost, and fluent output can still miss an instruction or factual constraint."
+      },
+      {
+        "heading": "A practical evaluation before adoption",
+        "content": "For a research comparison, fix the task, output length, device and quality criterion before examining speed. Compare summaries with a reference checklist and translations with bilingual review where available. Keep unconditional text generation separate from instruction-following or tool use; a result on one does not establish the others.",
+        "checklist": [
+          "Keep baseline and task beside every speedup.",
+          "Compare wall-clock time at matched output quality.",
+          "Distinguish research generation from a production assistant."
+        ]
+      },
+      {
+        "heading": "Limits and availability to keep in view",
+        "content": "We have not reproduced NCM or tested a conversational deployment. The post identifies further scaling and representation work as open directions. Its results do not establish arbitrary-length factual reliability or compatibility with an existing chat application."
+      },
+      {
+        "heading": "Where to go next",
+        "content": "Read our [local versus hosted task costs](/stack/local-vs-cloud-ai-cost-per-accepted-task) for the adjacent workflow decision. Keep this project's conditions separate from other models' results. If a dependency, artifact or service limit is unclear, leave it unresolved in the comparison rather than filling the gap with an assumption."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "Stanford Hazy Research",
+        "title": "Next-Concept Modeling — primary source and release details",
+        "url": "https://hazyresearch.stanford.edu/blog/2026-10-12-ncm"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Does NCM generate strictly one token at a time?",
+        "answer": "Its described method predicts coarse-to-fine code levels, with each level generated in parallel."
+      },
+      {
+        "question": "Are its speedups against every frontier chat model?",
+        "answer": "No. The cited comparisons are specific research tasks and diffusion-model baselines."
+      },
+      {
+        "question": "Has FyreLinkz independently tested Next-Concept Modeling?",
+        "answer": "No. This article reports the linked primary source and proposes an editorial evaluation; it contains no independent performance benchmark."
+      }
+    ]
+  },
+  {
+    "category": "news",
     "slug": "ollama-local-only-mode-cloud-privacy-controls",
     "title": "Ollama local-only mode: disable cloud features and check privacy",
     "description": "Run Ollama in local-only mode, check cloud settings and separate model inference from connected tools. A practical privacy review before sharing data.",
@@ -1647,8 +3165,8 @@
   },
   {
     "publishedAt": "2026-10-14",
-    "updatedAt": "2026-10-14",
-    "sourceCheckedAt": "2026-10-14",
+    "updatedAt": "2026-10-18",
+    "sourceCheckedAt": "2026-10-18",
     "featured": false,
     "imageCaption": "AI-generated editorial photograph of a generic workspace. Illustrative only; not a product photograph, provider facility or test result.",
     "slug": "meta-muse-wonder-full-access-memory-agent-checks",
@@ -1716,6 +3234,13 @@
       {
         "heading": "How to compare it with your current agent",
         "content": "Use identical tasks, input evidence and action permissions. Score factual errors, missed constraints, unnecessary tool calls and time spent reviewing the result. Retain failures instead of selecting the most polished answer. For a related comparison framework, read our [stateful agents versus RAG guide](/workflow/stateful-agents-vs-simple-rag-workflow-guide). Check the [Gemini Argon access guide](/news/gemini4-argon-access-fairwind-introductory-pricing) before assuming competing subscriptions offer equivalent capabilities. No independent performance ranking is claimed here."
+      },
+      {
+        "heading": "October 18 update: Spark Open is a separate deployment choice",
+        "content": "Meta now presents Muse Spark Open separately, with coding, multimodal and agent-workflow capabilities. That is not evidence that Wonder or Wonder Full weights have been released under the same terms. Read the [Spark Open deployment guide](/news/meta-muse-spark-open-deployment-tools-license) and identify the exact model, license, provider and tool harness before comparing an open deployment with the hosted Wonder product.",
+        "sourceIds": [
+          2
+        ]
       }
     ],
     "sources": [
@@ -1724,6 +3249,11 @@
         "title": "Introducing Muse Wonder and Muse Wonder Full",
         "url": "https://about.fb.com/news/2026/10/introducing-muse-wonder-models/",
         "publishedAt": "2026-10-12"
+      },
+      {
+        "publisher": "Meta",
+        "title": "Muse Spark Open model and deployment overview",
+        "url": "https://dev.meta.ai/models/muse-spark-open"
       }
     ],
     "faqs": [
@@ -1738,6 +3268,10 @@
       {
         "question": "Are the memory tests in this article benchmark results?",
         "answer": "No. They are proposed evaluation steps using fictional data, not completed FyreLinkz tests."
+      },
+      {
+        "question": "Does Muse Spark Open mean Wonder weights are open?",
+        "answer": "No. Spark Open and Wonder are distinct releases; verify the exact model and its terms."
       }
     ]
   },
@@ -7096,8 +8630,8 @@
     "image": "frontier-ai-benchmark-photo",
     "imageAlt": "Generated editorial photograph: Researchers comparing generated image samples and evaluation notes.",
     "publishedAt": "2026-10-12",
-    "updatedAt": "2026-10-14",
-    "sourceCheckedAt": "2026-10-14",
+    "updatedAt": "2026-10-18",
+    "sourceCheckedAt": "2026-10-18",
     "featured": false,
     "takeaway": "Google expanded Gemini 4 Argon access on October 13, 2026. Gemini app access includes Google AI Pro and Ultra; developer use follows separate paid API terms. Introductory API rates are $2 per million input tokens and $10 per million output tokens through November 30. Check your product and account before buying.",
     "sections": [
@@ -7218,6 +8752,13 @@
       {
         "heading": "Should you switch today? Run a small, repeatable comparison",
         "content": "Start with five representative tasks and define success before testing. Give each candidate the same evidence and budget, then record correctness, completion time, retries and reviewer effort. Keep a simple baseline: your current workflow may remain cheaper for routine work. Compare our [GPT-6.1 Sol cost guide](/news/gpt61-sol-api-cache-costs) and [Claude Haiku 5.5 pricing guide](/news/claude-haiku55-api-pricing-prompt-length) for related evaluation questions, but recheck each provider's current billing terms. Similar token prices do not prove equal results. The useful decision is which workflow produces acceptable work at an affordable total cost."
+      },
+      {
+        "heading": "October 18 check: compare the job mode as well as the model",
+        "content": "The current Gemini pricing page distinguishes Standard and Batch rates. A quoted interactive rate should not be applied to a deferred batch job without checking the selected mode, and a discounted batch rate does not establish an immediate-response deadline. Use our [Gemini batch versus standard guide](/stack/gemini-batch-api-vs-standard-cost-deadlines) to separate token charges, retries and accepted outputs. Record the provider, model identifier, billing currency and price-effective date alongside a budget.",
+        "sourceIds": [
+          4
+        ]
       }
     ],
     "sources": [
