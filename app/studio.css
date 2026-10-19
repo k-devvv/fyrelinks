@@ -312,3 +312,18 @@ a:hover { color: var(--accent); }
   .reading-paths-grid { grid-template-columns:1fr; }
   .reading-paths-link + .reading-paths-link { border-left:0; border-top:1px solid var(--line); }
 }
+
+/* Put the editorial answer ahead of the illustrative hero and advertising. */
+.article-answer-first { max-width:940px; margin:0 auto 28px; }
+.article-answer-first .takeaway { margin:0; }
+.article-answer-first .takeaway p { font-size:clamp(17px,1.8vw,20px); line-height:1.65; }
+.article-jump-links { display:flex; flex-wrap:wrap; gap:12px 24px; padding-top:16px; font-size:14px; }
+.article-jump-links a { color:var(--accent); text-underline-offset:4px; }
+.article-jump-links a:focus-visible { outline:2px solid var(--accent); outline-offset:4px; }
+.article-page .article-header { margin-bottom:28px; }
+.article-page .article-header h1 { font-size:clamp(34px,4.6vw,58px); }
+.article-page .article-figure { margin-top:28px; }
+@media(max-width:600px) {
+  .article-page .article-header h1 { font-size:clamp(32px,8.5vw,43px); }
+  .article-answer-first .takeaway { padding:20px; }
+}
