@@ -5367,11 +5367,11 @@
   {
     "slug": "cursor-vs-windsurf-vs-copilot-developer-benchmarks",
     "category": "workflow",
-    "title": "Cursor vs Windsurf vs Copilot: compare one real coding task",
-    "description": "Compare Cursor, Windsurf and Copilot on the same coding task. Download a blank evaluation log for tests, review time, corrections and accepted changes.",
+    "title": "Cursor vs Windsurf vs Copilot: features and workflow",
+    "description": "Compare Cursor, Windsurf/Cascade and GitHub Copilot by workflow, code review and execution location. Includes a feature table and downloadable test sheet.",
     "topic": "Developer tools",
     "image": "ai-code-editors-photo",
-    "takeaway": "A tool that writes code quickly may still need extensive review. Measure the completed, verified change.",
+    "takeaway": "Evaluate Cursor for an editor-centered coding workflow, Windsurf/Cascade for its Code and Chat workflow (now documented under Devin Desktop), and GitHub Copilot for GitHub-native repository and pull-request work. These products overlap and offer multiple surfaces. Compare the exact mode, permissions and verified outcome you need; this guide reports documented features, not a tested performance winner.",
     "sources": [
       {
         "publisher": "Cursor",
@@ -5380,8 +5380,8 @@
       },
       {
         "publisher": "GitHub",
-        "title": "About Copilot cloud agent",
-        "url": "https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent"
+        "title": "GitHub Copilot on GitHub.com: chat, agents and code review",
+        "url": "https://docs.github.com/en/copilot/concepts/copilot-surfaces/copilot-on-github"
       },
       {
         "publisher": "Devin",
@@ -5391,14 +5391,67 @@
     ],
     "sections": [
       {
-        "heading": "Start here",
-        "content": "A coding demo ends when the generated code appears. Your job continues through review, tests and maintenance. Give each candidate the same bounded task in a repository you understand, then count the work needed to accept the change. This is an evaluation method, not a claim that we have benchmarked the current releases."
+        "heading": "Cursor vs Windsurf vs Copilot: which workflow fits?",
+        "content": "Start with where you want to work, then verify which mode your plan includes. Cursor's documentation describes editor and agent workflows. The former Windsurf Cascade documentation now lives under Devin Desktop. GitHub's documentation separates chat, cloud agent work and pull-request review. This table compares documented surfaces, not every feature or a measured speed ranking.",
+        "sourceIds": [
+          1,
+          2,
+          3
+        ],
+        "table": {
+          "headers": [
+            "Decision",
+            "Cursor",
+            "Windsurf / Cascade",
+            "GitHub Copilot"
+          ],
+          "rows": [
+            [
+              "Starting workflow",
+              "Editor-centered repository work, with agent and cloud options",
+              "Cascade Code/Chat inside Devin Desktop; check current product naming",
+              "IDE options plus GitHub.com chat, agents and pull-request workflows"
+            ],
+            [
+              "Changes and verification",
+              "Inspect the proposed diff and checks in the mode you choose",
+              "Code mode can modify files; Chat mode proposes code and answers questions",
+              "Cloud agent can edit files and run tests in a cloud development environment"
+            ],
+            [
+              "Review and recovery",
+              "Review the actual change before accepting it",
+              "Checkpoints and reverts are documented; inspect their current limits",
+              "Pull-request code review can identify issues and suggest fixes"
+            ],
+            [
+              "Before sharing code",
+              "Confirm execution location, data terms and permissions",
+              "Confirm selected agent, model, workspace trust and account settings",
+              "Confirm repository access, organization policy and IDE/cloud surface"
+            ],
+            [
+              "Who wins?",
+              "No universal winner established",
+              "No universal winner established",
+              "No universal winner established"
+            ]
+          ]
+        }
       },
       {
         "heading": "Check the current product first",
         "content": "Cursor documents its agent tooling, GitHub describes its cloud agent, and the Windsurf Cascade documentation now redirects to Devin Desktop's Cascade pages. Product naming, available modes and plans change. Check the current official docs for the exact tool you are evaluating.",
         "sourceIds": [
           1,
+          2,
+          3
+        ]
+      },
+      {
+        "heading": "Windsurf vs Copilot: local editor work or a GitHub task?",
+        "content": "If your task begins inside an editor, evaluate Cascade's Code/Chat behavior against the Copilot IDE mode available to you. If it begins with an issue or pull request, evaluate Copilot's GitHub.com workflow. A cloud task runs in a different environment from your local repository: record available dependencies, permissions and checks before comparing the outcome. Do not compare an editor suggestion with an autonomous cloud task as though their scope were identical.",
+        "sourceIds": [
           2,
           3
         ]
@@ -5431,10 +5484,18 @@
       }
     ],
     "publishedAt": "2026-09-08",
-    "updatedAt": "2026-10-17",
-    "sourceCheckedAt": "2026-09-12",
+    "updatedAt": "2026-10-19",
+    "sourceCheckedAt": "2026-10-19",
     "imageAlt": "Generated editorial photograph: Developer working on a coding task at a laptop and external monitor.",
     "faqs": [
+      {
+        "question": "What is the main difference between Cursor, Windsurf and Copilot?",
+        "answer": "The useful starting distinction is workflow: Cursor is editor-centered, Cascade provides Code/Chat in Devin Desktop, and Copilot also offers GitHub.com repository and pull-request workflows. Their capabilities overlap. Check the exact product surface, plan and mode rather than choosing from a universal ranking."
+      },
+      {
+        "question": "Why do Windsurf documentation links open Devin Desktop?",
+        "answer": "The Cascade documentation used for this comparison now lives on docs.devin.ai and describes Cascade as a Devin Desktop agent. Check current product names and migration instructions before following an older Windsurf tutorial."
+      },
       {
         "question": "How can I compare coding assistants fairly?",
         "answer": "Give each tool the same bounded repository task from the same starting commit. Record the diff, required checks, corrections and review time before accepting the change."

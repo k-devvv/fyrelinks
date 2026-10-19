@@ -74,8 +74,16 @@ export default async function ArticlePage({ params }: Props) {
         </div>
         {p.eventDate && <p className="event-date">Announcement date: <time dateTime={p.eventDate}>{formatDate(p.eventDate)}</time> · Reported from the original source</p>}
       </header>
+      <div className="article-answer-first">
+        <div className="takeaway" id="quick-answer"><span className="eyebrow">QUICK ANSWER</span><p>{renderInlineText(p.verdict)}</p></div>
+        <nav className="article-jump-links" aria-label="Article shortcuts">
+          <a href={"#" + sectionId(p.sections[0].heading)}>Start the guide ↓</a>
+          {p.faqs.length > 0 && <a href="#faq">FAQs ↓</a>}
+          <a href="#sources">Check sources ↓</a>
+        </nav>
+      </div>
       <figure className="article-figure">
-        <StoryImage post={p} priority />
+        <StoryImage post={p} />
         <figcaption>
           {p.imageCaption ?? (p.image.endsWith("-photo")
             ? "Editorial photograph. Illustrative only; not a product screenshot or test evidence."
@@ -94,7 +102,6 @@ export default async function ArticlePage({ params }: Props) {
           <Link href={"/" + p.category} className="contents-tool">Explore {category.name.toLowerCase()} ↗</Link>
         </div><AdSlot placement="sidebar" /></aside>
         <div className="article-body">
-          <div className="takeaway" id="quick-answer"><span className="eyebrow">QUICK ANSWER</span><p>{renderInlineText(p.verdict)}</p></div>
           {p.howToSteps?.length ? <div className="article-checklist" aria-label="First image workflow steps"><span className="checklist-badge">FIRST IMAGE / 5 STEPS</span><ol>{p.howToSteps.map((step, index) => <li key={step.name}><span className="check-box" aria-hidden="true">{index + 1}</span><span><strong>{step.name}.</strong> {renderInlineText(step.text)}</span></li>)}</ol></div> : null}
           {p.sections.map((s, i) => <section id={sectionId(s.heading)} key={s.heading}>
             <h2>{s.heading}</h2><p>{renderInlineText(s.content)}</p>

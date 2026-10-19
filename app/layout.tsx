@@ -94,5 +94,5 @@ export default function RootLayout({
         href: articlePath(p),
         topic: p.topic,
         description: p.metaDescription
-      }))]} /><main id="main-content" tabIndex={-1}><div className="wrap"><AdSlot placement="home" /></div>{children}</main><Footer /><Analytics /><AdvertisingPreferences /><ScrollReveal /></body></html>;
+      }))]} /><main id="main-content" tabIndex={-1}>{children}<div className="wrap"><AdSlot placement="home" /></div></main><Footer /><Analytics /><AdvertisingPreferences /><ScrollReveal /></body></html>;
 }
