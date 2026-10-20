@@ -4617,12 +4617,47 @@
         "content": "Suppose your edit needs an establishing shot, a close detail and a final hero view. Treat these as three jobs instead of one prompt asking for a complete commercial. Draft the camera position, subject action and desired cut for each shot. Then decide which shots actually need generation: a still with a simple editorial move may serve one of them. This example is a planning exercise, not a tested comparison. The point is to spend on the missing footage rather than paying to regenerate material your edit already has."
       },
       {
+        "heading": "A three-shot test with clear acceptance rules",
+        "content": "Use this original test brief to make the comparison actionable. It is a proposed protocol, not generated footage or a measured league table. Keep the same brief across services and record differences in supported inputs. Adapt our [six AI video prompt examples](/create/ai-video-prompt-guide-examples) rather than asking each candidate to invent a different scene.",
+        "table": {
+          "headers": [
+            "Shot",
+            "Brief",
+            "Pass rule set before generation"
+          ],
+          "rows": [
+            [
+              "Product detail",
+              "One static object, slow camera move, fixed background",
+              "Shape and visible details remain stable throughout"
+            ],
+            [
+              "Character action",
+              "One subject performs one simple movement",
+              "Identity, anatomy and action remain coherent"
+            ],
+            [
+              "Continuity",
+              "Two short shots using the same reference where supported",
+              "Subject, lighting and intended cut match the edit"
+            ]
+          ]
+        },
+        "checklist": [
+          "Pick a target duration and aspect ratio supported by all candidates.",
+          "Record exact model, input mode, prompt, reference and generation date.",
+          "Keep rejected takes in the log and record why each failed.",
+          "Record credits actually charged; do not substitute the advertised price of one successful take.",
+          "Calculate accepted seconds and finishing time separately; zero accepted footage is a failed trial, not free output."
+        ]
+      },
+      {
         "heading": "Try this next",
         "content": "Put your shortlist to work: choose one of six original shot prompts and adapt it to your brief. Read [AI video prompts: six examples and a repeatable workflow](/create/ai-video-prompt-guide-examples)."
       }
     ],
     "publishedAt": "2026-09-08",
-    "updatedAt": "2026-10-15",
+    "updatedAt": "2026-10-20",
     "sourceCheckedAt": "2026-09-12",
     "imageAlt": "Generated editorial photograph: Filmmaker comparing alternate generated video shots on a studio monitor.",
     "faqs": [
@@ -4839,12 +4874,50 @@
         "content": "Check the seller's return terms and the physical compatibility of the whole build before ordering. List case clearance, power connectors, cooling space and the expansion slots your actual configuration will use. Plan where models, project inputs and backups will live. After assembly, run the smallest known working workflow, then your everyday workload, before adding the demanding one. Record failures and actual operating costs during this trial so the next upgrade follows evidence rather than a specification headline."
       },
       {
+        "heading": "Upgrade or keep the machine? Use this decision path",
+        "content": "A successful small model does not establish that a larger purchase is necessary. Diagnose the limiting resource before replacing the machine. Use the [RTX 4050 local LLM setup](/hardware/run-local-llm-rtx-4050-laptop-guide) for a small-model starting point, then the [VRAM reduction guide](/workflow/reduce-local-llm-vram-quantization-offloading-guide) for context and offloading trade-offs.",
+        "table": {
+          "headers": [
+            "Your result",
+            "Next decision",
+            "Evidence needed before buying"
+          ],
+          "rows": [
+            [
+              "Workload loads and finishes within your limit",
+              "Keep the current machine",
+              "Repeatable acceptable outputs"
+            ],
+            [
+              "Workload does not fit",
+              "Test supported quantization, shorter context or offload",
+              "Exact configuration and measured memory where available"
+            ],
+            [
+              "Workload fits but runs too slowly",
+              "Compare the same job on candidate hardware",
+              "Separate loading and warm-run timing"
+            ],
+            [
+              "You need multiple simultaneous users",
+              "Evaluate the intended serving runtime and concurrency",
+              "Load test with the required request mix"
+            ],
+            [
+              "Usage is occasional",
+              "Compare ownership with hosted use",
+              "Real monthly volume and total operating cost"
+            ]
+          ]
+        }
+      },
+      {
         "heading": "Try this next",
         "content": "Complete the workstation around the work you do every day: check monitor readability before chasing refresh-rate numbers. Read [A 4K monitor for coding: check text before refresh rate](/hardware/best-4k-144hz-monitors-for-programming)."
       }
     ],
     "publishedAt": "2026-09-08",
-    "updatedAt": "2026-10-08",
+    "updatedAt": "2026-10-20",
     "sourceCheckedAt": "2026-09-12",
     "imageAlt": "Generated editorial photograph: PC builder checking the graphics card and cooling inside an open workstation.",
     "faqs": [
@@ -6093,7 +6166,7 @@
     "image": "rtx-4050-laptop-photo",
     "featured": true,
     "publishedAt": "2026-09-22",
-    "updatedAt": "2026-10-16",
+    "updatedAt": "2026-10-20",
     "sourceCheckedAt": "2026-10-09",
     "takeaway": "NVIDIA specifies 6GB of GDDR6 for the RTX 4050 Laptop GPU. That capacity does not promise a particular model, context length, or generation speed: available memory depends on the running system and model runtime. Start with a small quantized model, keep Ollama’s context at its documented default, and check `ollama ps` to see whether the model is on the GPU, CPU, or split across them. Treat the result as system-specific and measure your own workload.",
     "sources": [
@@ -6252,6 +6325,44 @@
           1,
           4,
           7
+        ]
+      },
+      {
+        "heading": "RTX 4050 troubleshooting: choose the next check from the symptom",
+        "content": "Start with the smallest supported example already described above. Change one setting per attempt so a successful retry explains something. These are diagnostic checks, not measurements from our own RTX 4050.",
+        "table": {
+          "headers": [
+            "Observed symptom",
+            "Next check",
+            "What to record"
+          ],
+          "rows": [
+            [
+              "Model fails to load",
+              "Close other GPU workloads; retry the small example at baseline context; inspect runtime logs",
+              "Exact error, model tag, context and free memory"
+            ],
+            [
+              "Model loads with CPU/GPU split",
+              "Check ollama ps; compare a smaller model or shorter context",
+              "PROCESSOR and CONTEXT before and after the change"
+            ],
+            [
+              "Model runs but answers are poor",
+              "Keep the same prompt and compare answer correctness before changing hardware",
+              "Saved outputs and a written acceptance rule"
+            ],
+            [
+              "Model works but waiting is unacceptable",
+              "Separate cold loading from warm runs; time the same prompt three times",
+              "Runtime version, power state and repeated-run timings"
+            ]
+          ]
+        },
+        "sourceIds": [
+          2,
+          3,
+          4
         ]
       },
       {
@@ -6627,7 +6738,7 @@
     "imageCaption": "AI-generated editorial illustration. Not a tested FyreLinkz system or a photograph of either model running.",
     "featured": true,
     "publishedAt": "2026-09-26",
-    "updatedAt": "2026-10-11",
+    "updatedAt": "2026-10-20",
     "sourceCheckedAt": "2026-10-11",
     "takeaway": "Needle 3 is an on-device specialist for tool calls, structured extraction and embeddings. TypeSafe Jev is a hosted API for typed decisions. Choose local processing when your supported device and workload justify it; choose hosted decisions when that output contract fits. Neither is a general chat substitute or a demonstrated accuracy winner in this comparison.",
     "sources": [
@@ -6740,6 +6851,49 @@
           "Log retries, latency, local peak memory where measurable and human correction time.",
           "Count actual hosted input tokens; keep local power and ownership costs separate.",
           "Keep failure examples and confirm behavior before automatically acting on outputs."
+        ]
+      },
+      {
+        "heading": "Needle or Jev? Decide from the output contract",
+        "content": "Choose the task before comparing the deployment bill. A local tool router and a hosted decision service are not interchangeable simply because both can be small. If you need prose generation, first confirm that the selected product actually offers that output. For a wider cost comparison, use the [local versus cloud cost worksheet](/stack/local-vs-cloud-ai-cost-per-accepted-task).",
+        "table": {
+          "headers": [
+            "Requirement",
+            "Evaluation direction",
+            "Acceptance check"
+          ],
+          "rows": [
+            [
+              "On-device extraction or tool selection",
+              "Evaluate Needle with its supported engine",
+              "Expected fields and correct tool choice"
+            ],
+            [
+              "Typed decisions through a hosted API",
+              "Evaluate Jev against the decision contract",
+              "Correct permitted output, including ambiguous cases"
+            ],
+            [
+              "General conversational writing",
+              "Recheck product fit before choosing either",
+              "Supported output type matches the application"
+            ],
+            [
+              "Sensitive inputs",
+              "Review the complete application data path",
+              "Telemetry, connected tools and provider handling"
+            ],
+            [
+              "Lowest operating cost",
+              "Compare accepted tasks rather than token price alone",
+              "Retries, correction time and actual usage"
+            ]
+          ]
+        },
+        "sourceIds": [
+          1,
+          2,
+          3
         ]
       },
       {
@@ -7450,6 +7604,17 @@
         ]
       },
       {
+        "heading": "Beam GPU planning: what evidence would change the answer?",
+        "content": "The arithmetic above is a capacity check, not proof of a runnable configuration. A supported compressed checkpoint could change the storage calculation; an active-parameter number alone cannot. Before planning an upgrade, follow the [workstation purchase checklist](/hardware/best-local-ai-workstation-build-guide-2026) and distinguish total weights from runtime memory in the [VRAM guide](/workflow/reduce-local-llm-vram-quantization-offloading-guide).",
+        "checklist": [
+          "Find the exact public checkpoint and its license before treating an announcement as a download.",
+          "Record its actual file sizes and supported precision instead of assuming a hypothetical 4-bit package exists.",
+          "Find a supported runtime configuration, including hardware, context and concurrency.",
+          "Require a reproducible loading result and measured peak memory before recommending a build.",
+          "Keep hosted API costs separate from the cost of owning inference hardware."
+        ]
+      },
+      {
         "heading": "What local AI builders should do now",
         "content": "Do not buy a GPU based on the 23B active number alone. Wait for Reflection’s checkpoint and model card, then check the actual quantized files, supported inference engines, memory measurements at your intended context length, license text and download source. If Beam is available only through a hosted endpoint at first, compare its live price and usage limits before planning a local build. For hardware choices you can make today, start with your actual workload and current software support in our [AI workstation planner](/hardware/ai-workstation-planner), and use our [local LLM VRAM guide](/workflow/reduce-local-llm-vram-quantization-offloading-guide) to understand the memory trade-offs.",
         "sourceIds": [
@@ -7508,7 +7673,7 @@
       }
     ],
     "publishedAt": "2026-10-06",
-    "updatedAt": "2026-10-15",
+    "updatedAt": "2026-10-20",
     "sourceCheckedAt": "2026-10-06"
   },
   {
