@@ -662,66 +662,173 @@
   {
     "category": "news",
     "slug": "moss-image-native-layout-json-base-sft",
-    "title": "MOSS-Image: JSON layouts, Base versus SFT and first-run checks",
-    "description": "MOSS-Image adds structured layout prompts to image generation. Compare Base and SFT, coordinate formats and pipeline requirements before installation.",
+    "title": "MOSS-Image guide: ComfyUI setup, JSON layouts and Base vs SFT",
+    "description": "Set up MOSS-Image in ComfyUI, understand Base vs SFT and avoid JSON coordinate mistakes. Includes a worked layout example and first-run checks.",
     "topic": "Image layout control",
-    "image": "geometry-oct18-photo",
-    "imageAlt": "AI-generated editorial illustration of a 3D artist's desk with a digital mannequin and architectural model.",
-    "imageCaption": "AI-generated editorial illustration of generic equipment. Not an output from the named model, a photograph of the researchers' system or evidence of a test.",
-    "takeaway": "MOSS-Image combines ordinary prompts with structured layout input. Its weights, code and third-party dependencies need separate checks before a local workflow is ready.",
+    "image": "moss-layout-oct21-photo",
+    "imageAlt": "AI-generated editorial illustration of a mountain poster beside a structured layout sheet with orange bounding-box markers.",
+    "imageCaption": "Original AI-generated editorial illustration. Not a MOSS-Image output, interface screenshot or benchmark.",
+    "takeaway": "MOSS-Image is OpenMOSS's 5B text-to-image family with Base and SFT checkpoints, natural-language prompts and experimental JSON layout control. For ComfyUI, choose the current native workflow or the separate repository plugin; do not mix their sampling nodes. Layout coordinates use centered pixels in yxyx order. No minimum VRAM or speed is independently measured here.",
     "publishedAt": "2026-10-18",
-    "updatedAt": "2026-10-18",
-    "sourceCheckedAt": "2026-10-18",
-    "featured": false,
+    "updatedAt": "2026-10-21",
+    "sourceCheckedAt": "2026-10-21",
+    "featured": true,
     "sections": [
       {
-        "heading": "What MOSS-Image actually reports",
-        "content": "OpenMOSS describes a 5B image-model family with Base and SFT checkpoints and prompts up to 4K tokens. Its JSON layout example specifies text, objects and bounding boxes. The page lists Apache-2.0 for weights while preserving separate terms for code and other components.",
+        "heading": "What is MOSS-Image, and who should try it?",
+        "content": "OpenMOSS describes a 5B text-to-image family that accepts ordinary descriptions and structured layouts. Base and SFT share a sampling interface; SFT is fine-tuned on curated data. The project lists Apache-2.0 for weights, with separate terms for pipeline code and third-party components. Consider it when a poster, diagram or visual brief depends on where text and objects sit. This is a source-based guide, not a hands-on quality ranking.",
+        "sourceIds": [
+          1,
+          2
+        ]
+      },
+      {
+        "heading": "Base vs SFT: compare your actual design brief",
+        "content": "Start with one brief and keep canvas, seed and sampling settings recorded. Do not assume fine-tuning makes one checkpoint universally better. Our suggested comparison separates text accuracy, placement and visual quality so one impressive image cannot hide a repeated failure.",
+        "table": {
+          "headers": [
+            "Choice",
+            "What the project describes",
+            "What you should check"
+          ],
+          "rows": [
+            [
+              "Base",
+              "Foundation text-to-image checkpoint",
+              "Whether it follows your subject, text and layout"
+            ],
+            [
+              "SFT",
+              "Curated-data fine-tuning of Base",
+              "Whether its changes help your intended design"
+            ],
+            [
+              "Either checkpoint",
+              "Same sampling interface",
+              "Exact artifact, settings, license and output review"
+            ]
+          ]
+        },
         "sourceIds": [
           1
         ]
       },
       {
-        "heading": "What this changes for the reader",
-        "content": "A structured prompt is valuable when the brief depends on where an element appears, but valid JSON does not guarantee correct rendered text. Our review separates syntax, spatial placement and final visual fidelity. Keep the exact layout file with the output so a wrong box or a misspelled heading can be traced without reconstructing the prompt later."
-      },
-      {
-        "heading": "A practical evaluation before adoption",
-        "content": "Start with a simple original poster containing one short title and one object. Verify the documented coordinate space and ordering before adding more elements. Compare Base and SFT using the same layout and inspect spelling, placement and unwanted changes. Keep environment and pipeline versions in the record.",
+        "heading": "ComfyUI setup: choose native support or the plugin",
+        "content": "The repository recommends native ComfyUI support containing commit e087d8f6 or later. Its documentation says v0.41.3 lacked this support as of October 19; check your installed revision rather than assuming every stable release includes it. Native files go in models/diffusion_models, models/text_encoders and models/vae. Use Load Diffusion Model, CLIP Loader with moss_image type, and Load VAE. Import a native example workflow when migrating. The older repository plugin loads a local Hugging Face/Diffusers directory and uses different nodes. In particular, carrying ModelSamplingSD3 unchanged from the plugin graph into a native graph is incorrect; the documentation specifies ModelSamplingAuraFlow for adjusting native shift. Save your working graph before changing environments.",
+        "sourceIds": [
+          4
+        ],
         "checklist": [
-          "Validate the layout JSON independently.",
-          "Use the documented box coordinate convention.",
-          "Review custom pipeline code before execution."
+          "Record ComfyUI revision and dependency versions.",
+          "Choose one documented workflow path.",
+          "Match each downloaded component to that path.",
+          "Load the supplied example before adding custom nodes or LoRAs.",
+          "Keep a copy of the graph and exact model files used."
         ]
       },
       {
-        "heading": "Limits and availability to keep in view",
-        "content": "The published setup uses a custom pipeline and remote code; inspect it in an isolated environment before running unfamiliar components. We have not measured minimum VRAM, text accuracy or speed. A 5B backbone is not a complete memory requirement."
+        "heading": "JSON layout coordinates: a worked conversion",
+        "content": "The user guide calls layout control experimental. Its boxes use [y_min, x_min, y_max, x_max] and absolute pixel coordinates centered on the canvas. For our original 1024 × 1024 example, a conventional top-left box with x=100 to 900 and y=100 to 220 becomes [-412, -412, -292, 388]: subtract 512 from each coordinate, then put y first. A valid box only specifies intent; it does not prove correct output. Check both syntax and visual placement before increasing complexity.",
+        "table": {
+          "headers": [
+            "Field",
+            "Meaning",
+            "Common mistake"
+          ],
+          "rows": [
+            [
+              "bbox_format: yxyx",
+              "Vertical bounds precede horizontal bounds",
+              "Using xyxy order"
+            ],
+            [
+              "bbox_coord_space: abs_centralized",
+              "Pixel origin at canvas center",
+              "Using normalized 0–1 values"
+            ],
+            [
+              "items[].text",
+              "Literal text to render",
+              "Describing the title without supplying its text"
+            ],
+            [
+              "summary.caption",
+              "Whole-scene description",
+              "Contradicting the individual items"
+            ]
+          ]
+        },
+        "sourceIds": [
+          3
+        ]
       },
       {
-        "heading": "Where to go next",
-        "content": "Read our [image preservation and output review](/create/ai-image-upscaling-vs-img2img-preserve-details) for the adjacent workflow decision. Keep this project's conditions separate from other models' results. If a dependency, artifact or service limit is unclear, leave it unresolved in the comparison rather than filling the gap with an assumption."
+        "heading": "First-run settings and memory expectations",
+        "content": "The user guide recommends Euler, shift 5 and a CFG default of 3, with at least 50 steps for its preferred results. It requires manually entered dimensions to be positive multiples of 16. These are publisher recommendations, not our measured optimum. The project quick start uses Python 3.10+ and an NVIDIA GPU. We have no independently verified minimum VRAM figure: the 5B backbone excludes other pipeline components and working allocations. Keep the documented graph intact for your first run, then change one variable at a time.",
+        "sourceIds": [
+          1,
+          3
+        ]
+      },
+      {
+        "heading": "A useful output test before adopting it",
+        "content": "Create a fictional event poster with a short title, one object and one date. Before generating, write down the expected spelling, box placement and essential visual details. Compare Base and SFT on that same brief, retaining rejected outputs. Test plain language separately from JSON so you can tell whether layout control helped. This protocol is editorial advice, not an executed benchmark.",
+        "checklist": [
+          "Check title and date character by character.",
+          "Inspect whether objects remain inside intended regions.",
+          "Record model revision, seed, graph and canvas dimensions.",
+          "Separate generation time from loading time.",
+          "Count accepted outputs and manual correction effort."
+        ]
+      },
+      {
+        "heading": "Continue with safer downloads and detail preservation",
+        "content": "Use the [model download safety checklist](/workflow/download-ai-models-safetensors-pickle-security-checklist) before installing unfamiliar code. Read our [upscaling versus img2img guide](/create/ai-image-upscaling-vs-img2img-preserve-details) before changing an accepted image. For hardware planning, distinguish checkpoint size from full workflow memory in the [local AI workstation guide](/hardware/best-local-ai-workstation-build-guide-2026)."
       }
     ],
     "sources": [
       {
-        "publisher": "MOSS-Image project",
-        "title": "MOSS-Image — primary source and release details",
+        "publisher": "OpenMOSS",
+        "title": "MOSS-Image project and model checkpoints",
         "url": "https://openmoss.ai/MOSS-Image/"
+      },
+      {
+        "publisher": "OpenMOSS",
+        "title": "MOSS-Image official repository",
+        "url": "https://github.com/OpenMOSS/MOSS-Image"
+      },
+      {
+        "publisher": "OpenMOSS",
+        "title": "User guide: parameters and experimental layouts",
+        "url": "https://github.com/OpenMOSS/MOSS-Image/blob/main/USERGUIDE.md"
+      },
+      {
+        "publisher": "OpenMOSS",
+        "title": "ComfyUI native and plugin workflow instructions",
+        "url": "https://github.com/OpenMOSS/MOSS-Image/blob/main/comfyui/README.md"
       }
     ],
     "faqs": [
       {
-        "question": "Does MOSS-Image accept layouts?",
-        "answer": "The project describes JSON prompts specifying objects, rendered text and bounding boxes."
+        "question": "What is MOSS-Image?",
+        "answer": "A 5B text-to-image model family from OpenMOSS, with Base and SFT checkpoints and support for natural-language prompts and experimental JSON layouts."
       },
       {
-        "question": "Are weights and pipeline code necessarily under identical terms?",
-        "answer": "No. The project distinguishes weight licensing from code and third-party components."
+        "question": "Does MOSS-Image work in ComfyUI?",
+        "answer": "The official repository documents native ComfyUI support and a separate local-directory plugin. Use a compatible revision and the matching example workflow; their sampling nodes are not interchangeable."
       },
       {
-        "question": "Has FyreLinkz independently tested MOSS-Image?",
-        "answer": "No. This article reports the linked primary source and proposes an editorial evaluation; it contains no independent performance benchmark."
+        "question": "How are MOSS-Image bounding boxes written?",
+        "answer": "The documented layout uses centered absolute pixel coordinates in yxyx order: y minimum, x minimum, y maximum, x maximum."
+      },
+      {
+        "question": "How much VRAM does MOSS-Image need?",
+        "answer": "We have not independently established a minimum. A 5B backbone is not the memory footprint of the full pipeline; test the exact components, precision, canvas and runtime."
+      },
+      {
+        "question": "Is the article thumbnail a MOSS-Image sample?",
+        "answer": "No. It is an original AI-generated editorial illustration, not a model output or test result."
       }
     ]
   },
@@ -3057,109 +3164,165 @@
   },
   {
     "publishedAt": "2026-10-14",
-    "updatedAt": "2026-10-14",
-    "sourceCheckedAt": "2026-10-14",
-    "featured": false,
-    "imageCaption": "Illustrative laptop image, not an RTX Spark product photograph or a FyreLinkz test result.",
+    "updatedAt": "2026-10-21",
+    "sourceCheckedAt": "2026-10-21",
+    "featured": true,
+    "imageCaption": "Original AI-generated editorial concept. Devices are illustrative, not NVIDIA product photographs or measured benchmark systems.",
     "slug": "rtx-spark-laptops-local-ai-buying-checklist",
     "category": "hardware",
-    "title": "RTX Spark laptops: local AI buying checks before launch",
-    "description": "RTX Spark laptops arrive October 16. Check unified memory, software compatibility, sustained performance and total costs before choosing a local AI PC.",
+    "title": "NVIDIA's 1-petaflop AI PCs: RTX Spark vs DGX Spark explained",
+    "description": "NVIDIA RTX Spark laptops are available. Understand the FP4 petaflop claim, unified memory and DGX Spark differences before buying a local AI computer.",
     "topic": "Local AI hardware",
-    "image": "rtx-4050-laptop-photo",
-    "imageAlt": "Illustrative laptop computer with a discrete graphics processor; not an RTX Spark product photograph or benchmark setup.",
+    "image": "spark-petaflop-oct21-photo",
+    "imageAlt": "AI-generated conceptual illustration of a laptop, compact desktop and green processor beside the words 1 PETAFLOP.",
     "eventDate": "2026-10-13",
-    "takeaway": "NVIDIA says RTX Spark laptops launch October 16, with configurations offering up to 128GB unified memory. That capacity is a reason to investigate larger local models, not proof of fast inference. Before buying, verify your exact model, runtime, sustained performance and the configuration actually being sold.",
+    "takeaway": "NVIDIA's October 16 announcement says RTX Spark laptops are available with configurations offering up to 128GB unified memory and up to 1 petaflop of FP4 AI performance. DGX Spark is a separate desktop platform. A peak low-precision compute figure does not establish tokens per second, sustained speed or whether your full workflow fits. Verify the exact system and runtime before buying.",
     "sections": [
       {
-        "heading": "What NVIDIA has announced—and what is still a buying question",
-        "content": "NVIDIA's October 7 announcement gives an October 16 laptop availability date and November timing for compact desktops. Its October 13 software update describes ecosystem readiness. These are vendor announcements ahead of the laptop launch, not our review of a shipping retail system. We have not tested RTX Spark. Confirm delivery dates, regional stock and the specification of the exact device you are considering.",
+        "heading": "What changed: RTX Spark laptops have launched",
+        "content": "Our earlier version described a pending launch. NVIDIA's October 16 release now announces laptop availability through ASUS, Dell, HP, Lenovo, Microsoft and MSI, with more systems to follow. It advertises up to 128GB unified memory and up to one petaflop of FP4 AI compute. Those are vendor platform claims, not specifications guaranteed on every retail configuration. Check regional stock, memory, storage, warranty and delivery date on the device you can actually order. We have not tested a retail RTX Spark system.",
         "sourceIds": [
-          1,
-          2
+          1
         ]
       },
       {
-        "heading": "Unified memory: capacity is only the first check",
-        "content": "Our recommendation is to separate three questions: will the workload fit, will the runtime support it, and will it finish quickly enough? A memory figure cannot answer all three. Leave room for the operating system, application buffers and context growth. Ask for a demonstration using the intended model and quantization, rather than a smaller model presented under a similar family name.",
+        "heading": "What does one petaflop mean for local AI?",
+        "content": "A petaflop denotes one quadrillion floating-point operations per second. Here, the precision qualifier matters: NVIDIA specifies FP4, not a universal rate for every numeric format or application. Do not convert the headline directly into language-model tokens per second, image generation time or a guaranteed speedup over your current GPU. Our buying rule is to treat peak compute as a specification to investigate, then ask for a repeatable run of the workload you need.",
+        "sourceIds": [
+          1,
+          2,
+          3
+        ],
         "table": {
           "headers": [
-            "Buying question",
-            "Useful evidence",
-            "Weak substitute"
+            "Headline",
+            "What to verify",
+            "What it cannot establish alone"
           ],
           "rows": [
             [
-              "Will my workload fit?",
-              "Peak memory for the full workflow",
-              "Weight-file size alone"
+              "Up to 1 petaflop FP4",
+              "Precision and conditions of the published rating",
+              "Your application's sustained throughput"
             ],
             [
-              "Will it run?",
-              "Exact runtime and dependency versions",
-              "A broad compatibility logo"
+              "Up to 128GB unified memory",
+              "Memory installed in the exact system",
+              "Available memory after all allocations"
             ],
             [
-              "Is it fast enough?",
-              "Repeated tasks at the chosen settings",
-              "Peak compute specification"
+              "Local AI support",
+              "Model, runtime and dependency compatibility",
+              "Every plugin or extension will run"
             ],
             [
-              "Is it portable?",
-              "Measured battery use for that workload",
-              "An idle battery-life claim"
+              "Portable computer",
+              "Workload-specific power and noise measurements",
+              "Battery life under your inference load"
             ]
           ]
         }
       },
       {
-        "heading": "Software readiness is workload-specific",
-        "content": "NVIDIA lists tools including PyTorch, Python and CUDA among the supported developer stack. Treat that as a starting point for checking your own dependencies. A Python application may also rely on compiled extensions, particular wheels, plugins or external services. Save the version list and installation instructions that produced the demonstration. Avoid assuming a successful chat-model run proves an entire video workflow is ready.",
+        "heading": "RTX Spark vs DGX Spark: distinguish the systems",
+        "content": "RTX Spark targets Windows PCs, including laptops. NVIDIA positions DGX Spark as a compact local AI desktop built on the GB10 Grace Blackwell platform. Its product page lists 64GB or 128GB unified memory options, with 64GB supplied through participating OEMs. These product families should not be collapsed into one buying recommendation because a compute headline looks similar. Confirm operating environment, hardware interfaces and supported software for the actual machine.",
         "sourceIds": [
+          1,
           2
-        ]
+        ],
+        "table": {
+          "headers": [
+            "Decision",
+            "RTX Spark",
+            "DGX Spark"
+          ],
+          "rows": [
+            [
+              "Form factor to investigate",
+              "Partner Windows laptops and PCs",
+              "Compact desktop AI system"
+            ],
+            [
+              "Memory claim",
+              "Up to 128GB; check retail configuration",
+              "64GB or 128GB options on the current product page"
+            ],
+            [
+              "Main practical check",
+              "Your Windows apps and portable workflow",
+              "Your desktop inference/development stack"
+            ],
+            [
+              "Fair comparison",
+              "Same model, precision, context and task",
+              "Same model, precision, context and task"
+            ]
+          ]
+        }
       },
       {
-        "heading": "Ask for sustained tests, not a single impressive response",
-        "content": "For your own comparison, repeat a representative task several times and record warm-up, time to first output, total completion time and failures. Use the same prompt or input asset, output size and acceptance criteria on the alternatives. Watch for quality changes hidden behind a speed claim. If you need quiet operation or battery use, request those measurements under load. These are suggested evaluation methods, not measurements we have collected.",
+        "heading": "Memory fit and speed require separate evidence",
+        "content": "Suppose a model file fits within advertised system memory. That still leaves runtime buffers, context, encoders, the operating system and concurrent applications. Start with a complete workload specification rather than parameter count alone. The [unified memory versus VRAM guide](/hardware/unified-memory-vs-vram-local-ai-buying-guide) explains the capacity distinction; the [RTX 4050 setup guide](/hardware/run-local-llm-rtx-4050-laptop-guide) provides a smaller-system baseline. Neither guide establishes a measured Spark comparison."
+      },
+      {
+        "heading": "Request this test before spending",
+        "content": "Our proposed evaluation uses one everyday task and one demanding task you genuinely expect to run. Save exact inputs, expected output and acceptance rules. Ask for cold-load time and repeated warm-run time separately. If comparing systems, preserve model revision, precision and context instead of accepting a smaller model as equivalent. A fast wrong answer or damaged image is not a successful trial.",
         "checklist": [
-          "Name the model, quantization, runtime and context length.",
-          "Record the complete workload, including encoders and post-processing.",
-          "Check whether cloud calls are still required.",
-          "Compare actual retailer configurations and return terms."
+          "Record system model, installed memory, OS, driver and runtime.",
+          "Confirm required compiled extensions and plugins work.",
+          "Use identical inputs and output requirements on alternatives.",
+          "Record failures, peak memory where measurable and correction time.",
+          "Check sustained behavior rather than one short demonstration.",
+          "Check power and battery use under the intended workload if portability matters."
         ]
       },
       {
-        "heading": "When waiting is the cheaper decision",
-        "content": "If your current system already finishes the work within your budget, a launch is not a reason to replace it. Keep a list of jobs that genuinely fail because of memory or latency, then evaluate a new machine against that list. Start with our [workload-first workstation guide](/hardware/best-local-ai-workstation-build-guide-2026) and [local-versus-cloud cost worksheet](/stack/local-vs-cloud-ai-cost-per-accepted-task). Regional prices, tax and warranty can change the decision; this article does not provide verified retailer quotes."
+        "heading": "Does buying a new AI PC save money?",
+        "content": "Compare the complete local purchase with your actual hosted usage. Include electricity, storage, maintenance, failed outputs and time spent keeping software working. If current hardware already completes acceptable work, a launch is not itself a reason to replace it. Use our [local versus cloud cost worksheet](/stack/local-vs-cloud-ai-cost-per-accepted-task) and [workstation purchase checklist](/hardware/best-local-ai-workstation-build-guide-2026). We provide no verified retailer quote or universal payback period."
+      },
+      {
+        "heading": "What remains unverified",
+        "content": "This article explains current vendor announcements and a buying method. It contains no independent Spark tokens-per-second result, battery measurement or image-generation timing. Public peak specifications cannot fill those evidence gaps. Keep results tied to the exact hardware, software and workload that produced them. This update preserves the original article URL and replaces stale pre-launch wording."
       }
     ],
     "sources": [
       {
         "publisher": "NVIDIA",
-        "title": "RTX Spark and Microsoft Windows announcement",
-        "url": "https://blogs.nvidia.com/blog/local-ai-rtx-spark-microsoft-windows-event/",
-        "publishedAt": "2026-10-07"
+        "title": "RTX Spark PCs available: October 16 announcement",
+        "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-RTX-Spark-PCs-Available-Today--A-New-Beginning-for-Windows-PCs/default.aspx",
+        "publishedAt": "2026-10-16"
       },
       {
         "publisher": "NVIDIA",
-        "title": "RTX Spark software ecosystem updates",
-        "url": "https://blogs.nvidia.com/blog/local-ai-rtx-spark-laptops-software-updates/",
-        "publishedAt": "2026-10-13"
+        "title": "DGX Spark product specifications",
+        "url": "https://www.nvidia.com/en-us/products/workstations/dgx-spark/"
+      },
+      {
+        "publisher": "NVIDIA",
+        "title": "RTX Spark platform overview",
+        "url": "https://perspectives.nvidia.com/rtx-spark"
       }
     ],
     "faqs": [
       {
-        "question": "When are RTX Spark laptops due?",
-        "answer": "NVIDIA announced October 16, 2026 availability. Check regional retailers and the exact configuration; an announced date is not a stock guarantee."
+        "question": "Are NVIDIA RTX Spark laptops available?",
+        "answer": "NVIDIA announced availability on October 16, 2026. Check your country, retailer and exact configuration; the announcement does not guarantee local stock."
       },
       {
-        "question": "Does 128GB unified memory guarantee fast AI?",
-        "answer": "No. Capacity, runtime compatibility, sustained speed and output quality are separate questions."
+        "question": "What does NVIDIA's one-petaflop claim mean?",
+        "answer": "It is an up-to FP4 AI compute rating. It does not directly tell you language-model tokens per second, image generation time or sustained application performance."
       },
       {
-        "question": "Has FyreLinkz reviewed RTX Spark hardware?",
-        "answer": "No. This is a source-based buying checklist, not a hands-on hardware review."
+        "question": "Are RTX Spark and DGX Spark the same product?",
+        "answer": "No. RTX Spark targets Windows PCs including laptops; DGX Spark is a separate compact GB10 desktop AI platform. Compare the exact system and software environment."
+      },
+      {
+        "question": "Does 128GB unified memory guarantee that a model runs?",
+        "answer": "No. Installed capacity, runtime support and full workload allocations must all be checked. Model-file size alone is insufficient."
+      },
+      {
+        "question": "Has FyreLinkz benchmarked these systems?",
+        "answer": "No. This article attributes specifications to NVIDIA and provides a proposed evaluation checklist; it is not a hands-on review."
       }
     ]
   },
