@@ -69,14 +69,30 @@ export function getRelatedPosts(slug: string, limit = 3, excludeSlugs: string[] 
     const isCLocal = cTopic.includes('local') || cTopic.includes('hardware') || cSlug.includes('vram') || cSlug.includes('workstation') || cSlug.includes('laptop') || cSlug.includes('gpu');
     if (isPLocal && isCLocal) score += 80;
 
+    // Connect release coverage to practical image workflows across categories.
+    const imageTopic = /(?:^|[\s-])(?:image|images|sdxl|flux|ideogram|diffusion|img2img|lora)(?:[\s-]|$)/;
+    if (imageTopic.test(pSlug + ' ' + pTopic) && imageTopic.test(cSlug + ' ' + cTopic)) {
+      score += 85;
+      if (p.category === 'news' && candidate.category !== 'news') score += 30;
+    }
+
+    const roboticsTopic = /robot|humanoid|tactile/;
+    if (roboticsTopic.test(pSlug + ' ' + pTopic) && roboticsTopic.test(cSlug + ' ' + cTopic)) score += 85;
+
+    const biologyTopic = /protein|genom|healthcare|clinical|biology/;
+    if (biologyTopic.test(pSlug + ' ' + pTopic) && biologyTopic.test(cSlug + ' ' + cTopic)) score += 85;
+
+    // Financial education should lead to other financial education.
+    if (p.category === 'finance' && candidate.category === 'finance') score += 150;
+
     // Enterprise infrastructure & governance
     const isPGov = pTopic.includes('governance') || pTopic.includes('enterprise') || pSlug.includes('eu-ai-act') || pSlug.includes('openshift');
     const isCGov = cTopic.includes('governance') || cTopic.includes('enterprise') || cSlug.includes('eu-ai-act') || cSlug.includes('openshift');
     if (isPGov && isCGov) score += 90;
 
     // Data pipelines, RAG, scraping & agents
-    const isPRag = pSlug.includes('rag') || pSlug.includes('agent') || pSlug.includes('vector') || pSlug.includes('scraping');
-    const isCRag = cSlug.includes('rag') || cSlug.includes('agent') || cSlug.includes('vector') || cSlug.includes('scraping');
+    const isPRag = /(?:^|-)rag(?:-|$)/.test(pSlug) || pSlug.includes('agent') || pSlug.includes('vector') || pSlug.includes('scraping');
+    const isCRag = /(?:^|-)rag(?:-|$)/.test(cSlug) || cSlug.includes('agent') || cSlug.includes('vector') || cSlug.includes('scraping');
     if (isPRag && isCRag) score += 70;
 
     // General developer tools / engineering stack
