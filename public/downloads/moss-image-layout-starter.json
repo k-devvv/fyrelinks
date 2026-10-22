@@ -1,0 +1,34 @@
+{
+  "summary": {
+    "meta": [
+      "poster"
+    ],
+    "canvas": "single",
+    "caption": "An original fictional nature journal poster on ivory paper. FIELD NOTES appears above a simple teal leaf illustration."
+  },
+  "items": [
+    {
+      "label": "text",
+      "caption": "Dark teal uppercase journal title in the upper part of the poster.",
+      "text": "FIELD NOTES",
+      "bbox": [
+        -412,
+        -412,
+        -292,
+        388
+      ]
+    },
+    {
+      "label": "object",
+      "caption": "A single flat teal leaf with a delicate orange stem, centered below the title.",
+      "bbox": [
+        -160,
+        -220,
+        340,
+        220
+      ]
+    }
+  ],
+  "bbox_coord_space": "abs_centralized",
+  "bbox_format": "yxyx"
+}

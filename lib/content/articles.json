@@ -670,7 +670,7 @@
     "imageCaption": "Original AI-generated editorial illustration. Not a MOSS-Image output, interface screenshot or benchmark.",
     "takeaway": "MOSS-Image is OpenMOSS's 5B text-to-image family with Base and SFT checkpoints, natural-language prompts and experimental JSON layout control. For ComfyUI, choose the current native workflow or the separate repository plugin; do not mix their sampling nodes. Layout coordinates use centered pixels in yxyx order. No minimum VRAM or speed is independently measured here.",
     "publishedAt": "2026-10-18",
-    "updatedAt": "2026-10-21",
+    "updatedAt": "2026-10-22",
     "sourceCheckedAt": "2026-10-21",
     "featured": true,
     "sections": [
@@ -761,6 +761,42 @@
         },
         "sourceIds": [
           3
+        ]
+      },
+      {
+        "heading": "Download an editable layout prompt",
+        "content": "Use our [original MOSS-Image layout prompt](/downloads/moss-image-layout-starter.json) for a fictional FIELD NOTES poster at 1024 × 1024. This is a prompt JSON file, not a ComfyUI node graph or a tested model output. Load a compatible example workflow first, then use the JSON as layout input through the documented interface. Keep the canvas dimensions unchanged while checking coordinates. Replace only the title and scene description for your first variation; preserve a copy of the starting file so you can compare intent with output.",
+        "table": {
+          "headers": [
+            "If you see this",
+            "Check this first"
+          ],
+          "rows": [
+            [
+              "moss_image is missing from CLIP Loader",
+              "Installed ComfyUI revision and dependencies; use a native-supporting build"
+            ],
+            [
+              "Native graph fails after migrating from the plugin",
+              "Import a native example graph; do not swap only the loader"
+            ],
+            [
+              "Model files do not appear",
+              "Component folder and loader type; refresh or restart the app"
+            ],
+            [
+              "Layout appears misplaced",
+              "Centered pixel coordinates, yxyx order and the requested canvas"
+            ],
+            [
+              "Text is misspelled",
+              "Exact literal text and line breaks; inspect output rather than trusting valid JSON"
+            ]
+          ]
+        },
+        "sourceIds": [
+          3,
+          4
         ]
       },
       {
