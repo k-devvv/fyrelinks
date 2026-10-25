@@ -18,6 +18,12 @@ const {
 } = require('../lib/posts.ts');
 const { faqPageSchema, articleCardImagePath, articleShareImagePath, articleImageDimensions, articlePath, sectionId } = require('../lib/editorial.ts');
 const localRoutes = new Set(['/', '/about', '/contact', '/privacy', '/terms', '/rss', '/ai-video-models', '/hardware/ai-workstation-planner', ...CATEGORIES.map(c => '/' + c.slug), ...POSTS.map(articlePath)]);
+const downloadsRoot = path.join(__dirname, '..', 'public', 'downloads');
+if (fs.existsSync(downloadsRoot)) {
+  for (const name of fs.readdirSync(downloadsRoot)) {
+    if (fs.statSync(path.join(downloadsRoot, name)).isFile()) localRoutes.add('/downloads/' + name);
+  }
+}
 function rasterDimensions(filename) {
   const bytes = fs.readFileSync(filename);
   if (bytes[0] === 0x89 && bytes.toString('ascii', 1, 4) === 'PNG') {

@@ -8,6 +8,7 @@ import JsonLd from "@/components/JsonLd";
 import StoryCard, { StoryImage } from "@/components/StoryCard";
 import AdSlot from "@/components/AdSlot";
 import ReadingProgress from "@/components/ReadingProgress";
+import VideoCostCalculator from "@/components/VideoCostCalculator";
 import type { Metadata } from "next";
 
 type Props = { params: Promise<{ category: string; slug: string }> };
@@ -102,6 +103,7 @@ export default async function ArticlePage({ params }: Props) {
           <Link href={"/" + p.category} className="contents-tool">Explore {category.name.toLowerCase()} ↗</Link>
         </div><AdSlot placement="sidebar" /></aside>
         <div className="article-body">
+          {p.slug === "ai-video-generation-matrix-minimax-higgsfield-seedance" && <VideoCostCalculator />}
           {p.howToSteps?.length ? <div className="article-checklist" aria-label="First image workflow steps"><span className="checklist-badge">FIRST IMAGE / 5 STEPS</span><ol>{p.howToSteps.map((step, index) => <li key={step.name}><span className="check-box" aria-hidden="true">{index + 1}</span><span><strong>{step.name}.</strong> {renderInlineText(step.text)}</span></li>)}</ol></div> : null}
           {p.sections.map((s, i) => <section id={sectionId(s.heading)} key={s.heading}>
             <h2>{s.heading}</h2><p>{renderInlineText(s.content)}</p>
