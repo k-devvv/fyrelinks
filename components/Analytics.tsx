@@ -3,6 +3,7 @@
 import {useEffect, useState} from "react";
 import {usePathname} from "next/navigation";
 import Link from "next/link";
+import {readerLinkEvent, type ReaderLinkContext} from "@/lib/reader-measurement";
 import {sanitizePlannerFields} from "@/lib/planner-measurement";
 
 declare global {
@@ -93,13 +94,17 @@ export default function Analytics() {
       if (privateMode()) return;
       const link=(e.target as Element)?.closest?.("a[href]") as HTMLAnchorElement|null;
       if (!link) return;
-      const url=new URL(link.href);
-      if (["/feed.xml","/rss"].includes(url.pathname)&&url.origin===location.origin) window.gtag?.("event","rss_subscribe",{send_to:id,placement:"site"});
-      else if (link.closest(".sources-box,.inline-sources")&&url.protocol==="https:") window.gtag?.("event","source_visit",{send_to:id,source_domain:url.hostname});
-      else if (link.closest(".related-section")&&url.origin===location.origin) window.gtag?.("event","related_read",{send_to:id,article_path:url.pathname});
+      const context:ReaderLinkContext=link.pathname.startsWith("/downloads/")?"download":["/feed.xml","/rss"].includes(link.pathname)?"rss":link.closest(".sources-box,.inline-sources")?"source":link.closest(".related-section,.article-next-steps,.article-next-read")?"related":"other";
+      const measured=readerLinkEvent(link.href,location.origin,context);
+      if (measured) window.gtag?.("event",measured.name,{...measured.fields,send_to:id});
     };
-    window.addEventListener("fyre:measure",event);document.addEventListener("click",click);
-    return ()=>{window.removeEventListener("fyre:measure",event);document.removeEventListener("click",click);};
+    const faq=(e:Event)=>{
+      if (privateMode()) return;
+      const detail=e.target;
+      if (detail instanceof HTMLDetailsElement && detail.open && detail.closest(".article-faq")) window.gtag?.("event","faq_open",{send_to:id,section_id:detail.id});
+    };
+    window.addEventListener("fyre:measure",event);document.addEventListener("click",click);document.addEventListener("toggle",faq,true);
+    return ()=>{window.removeEventListener("fyre:measure",event);document.removeEventListener("click",click);document.removeEventListener("toggle",faq,true);};
   },[ready,consent]);
   const choose=(value:"yes"|"no")=>{
     const choice=privateMode()?"no":value;

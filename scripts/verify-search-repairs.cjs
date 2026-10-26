@@ -1,0 +1,30 @@
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const ts = require('typescript');
+require.extensions['.ts'] = (module, filename) => module._compile(ts.transpileModule(fs.readFileSync(filename,'utf8'), {compilerOptions:{module:ts.ModuleKind.CommonJS,esModuleInterop:true}}).outputText,filename);
+const {POSTS,getPostsByCategory} = require('../lib/catalog.ts');
+const {newsPageCount,newsPageItems,newsPagePath,NEWS_PAGE_SIZE} = require('../lib/news-pagination.ts');
+const {readingClusters,readingJourney} = require('../lib/reading-clusters.ts');
+const {readerLinkEvent} = require('../lib/reader-measurement.ts');
+const news=getPostsByCategory('news');
+const collected=Array.from({length:newsPageCount(news.length)},(_,i)=>newsPageItems(news,i+1)).flat();
+assert.deepEqual(collected.map(p=>p.slug),news.map(p=>p.slug),'Pagination preserves order and every story exactly once');
+assert.equal(newsPagePath(1),'/news');assert.equal(newsPagePath(2),'/news/page/2');
+assert.equal(newsPageItems(news,1).length,Math.min(NEWS_PAGE_SIZE,news.length));
+assert.equal(newsPageCount(24),1);assert.equal(newsPageCount(25),2);
+for(const cluster of readingClusters) for(const slug of cluster.slugs){
+  assert.ok(POSTS.some(p=>p.slug===slug),'Curated target exists: '+slug);
+  const journey=readingJourney(slug);assert.equal(journey.next.length,2);
+  assert.ok(!journey.next.includes(slug));assert.equal(new Set(journey.next).size,2);
+}
+const origin='https://www.fyrelinkz.com';
+assert.deepEqual(readerLinkEvent('/downloads/extraction-check.py?email=private#secret',origin,'download'),{name:'resource_download',fields:{resource_path:'/downloads/extraction-check.py'}});
+assert.equal(readerLinkEvent('https://evil.example/downloads/private.json',origin,'download'),null);
+assert.equal(readerLinkEvent('/downloads/personal%40mail.json',origin,'download'),null);
+assert.deepEqual(readerLinkEvent('https://docs.example/read?token=secret',origin,'source'),{name:'source_visit',fields:{source_domain:'docs.example'}});
+assert.equal(readerLinkEvent('javascript:alert(1)',origin,'source'),null);
+assert.deepEqual(readerLinkEvent('/workflow/guide?secret=1',origin,'related'),{name:'related_read',fields:{article_path:'/workflow/guide'}});
+assert.equal(readerLinkEvent('/contact?email=secret',origin,'other'),null);
+const result=JSON.parse(fs.readFileSync('public/downloads/extraction-check-result.json','utf8').replace(/^\uFEFF/,''));
+assert.equal(result.matched_expected,true);assert.equal(result.rows_recovered,2);
+console.log(`Search repairs verified: ${news.length} news stories across ${newsPageCount(news.length)} pages; ${readingClusters.reduce((n,c)=>n+c.slugs.length,0)} curated articles; private query fields excluded.`);

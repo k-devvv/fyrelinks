@@ -7,6 +7,7 @@ import { pageMetadata } from "@/lib/metadata";
 import JsonLd from "@/components/JsonLd";
 import StoryCard, { StoryImage } from "@/components/StoryCard";
 import AdSlot from "@/components/AdSlot";
+import ArticleNextSteps from "@/components/ArticleNextSteps";
 import ReadingProgress from "@/components/ReadingProgress";
 import VideoCostCalculator from "@/components/VideoCostCalculator";
 import type { Metadata } from "next";
@@ -114,6 +115,7 @@ export default async function ArticlePage({ params }: Props) {
             {i === 2 && nextRead && <aside className="article-next-read" aria-label="Related reading"><Link href={articlePath(nextRead)}><StoryImage post={nextRead} /><span><small className="eyebrow">READ NEXT</small><strong>{nextRead.title}</strong><span>{nextRead.metaDescription}</span></span></Link></aside>}
             {i === 2 && <AdSlot placement="article" />}
           </section>)}
+          <ArticleNextSteps slug={p.slug} />
           {p.faqs.length > 0 && <section className="article-faq" id="faq" aria-labelledby="faq-heading">
             <span className="eyebrow">CLEAR ANSWERS</span><h2 id="faq-heading">Frequently asked questions</h2>
             {p.faqs.map(faq => <details id={"faq-" + sectionId(faq.question)} key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}
@@ -122,7 +124,7 @@ export default async function ArticlePage({ params }: Props) {
             <p>Primary sources checked {formatDate(p.sourceCheckedAt)}. Vendor statements are attributed; editorial advice is our own.</p>
             <ol>{p.sources.map((s, i) => <li key={s.url}><span className="source-number">{i + 1}</span><div><a href={s.url} rel="noopener noreferrer" target="_blank">{s.title} ↗</a><small>{s.publisher}{s.publishedAt && " · " + formatDate(s.publishedAt)}</small></div></li>)}</ol>
           </section>
-          <div className="correction-link"><strong>Something changed?</strong><p>Help us keep this useful. <Link href="/contact">Check contact availability →</Link></p></div>
+          <div className="correction-link"><strong>Something changed?</strong><p>Help us keep this useful. <Link href="/contact">Report a factual correction →</Link></p></div>
         </div>
       </div>
       <section className="related-section"><div className="section-heading"><h2>Keep following the thread<span>.</span></h2></div><div className="guide-grid">{bottomRelated.map(r => <StoryCard post={r} key={r.slug} />)}</div></section>

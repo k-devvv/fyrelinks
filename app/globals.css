@@ -2107,3 +2107,5 @@ kbd {
   .planner-specs { gap: 6px; }
   .hardware-result-card { padding: 16px; }
 }
+
+.news-pagination{display:flex;flex-wrap:wrap;gap:.7rem;align-items:center;margin:2rem 0}.news-pagination a,.news-pagination span{padding:.7rem 1rem;border:1px solid currentColor;border-radius:8px}.news-pagination [aria-current=page]{font-weight:700;text-decoration:underline}
