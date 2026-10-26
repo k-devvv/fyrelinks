@@ -1,0 +1,21 @@
+FYRELINKZ — 3D ASSET AND MOTION REVIEW
+Original blank evaluation sheet. No benchmark results.
+
+Project / repository revision / checkpoint:
+Input capture dates / permissions:
+Input images or sequence identity:
+Held-out view or time interval (keep out of inputs):
+Observed surfaces versus generated completion:
+Preprocessing settings / runtime / hardware:
+
+REVIEW
+Silhouette / distinctive details:
+Scale and coordinates:
+Temporal consistency in the original input:
+Joint or control motion:
+Surface folds / boundaries / contacts:
+Export format and downstream compatibility:
+Failure / rejection reason:
+Reviewer time and accepted result:
+
+Keep observations separate from inferred geometry. A visual match is not a dimensional measurement. Share only permitted inputs and remove private paths.

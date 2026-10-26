@@ -1,5 +1,354 @@
 [
   {
+    "category": "workflow",
+    "publishedAt": "2026-10-26",
+    "updatedAt": "2026-10-26",
+    "sourceCheckedAt": "2026-10-26",
+    "featured": false,
+    "imageCaption": "Original FyreLinkz technical illustration. Not a model output, application screenshot or measured benchmark.",
+    "slug": "comfyui-cuda-out-of-memory-fix-by-stage",
+    "title": "ComfyUI CUDA out of memory: fix model loading, sampling and VAE",
+    "description": "Diagnose ComfyUI memory errors by the failed stage. Check batch size, resolution, custom nodes and low-VRAM mode with a downloadable troubleshooting log.",
+    "topic": "ComfyUI troubleshooting",
+    "image": "comfy-oom-oct26-photo",
+    "imageAlt": "Original diagnostic diagram separating model loading, sampling and VAE decoding into three memory checkpoints.",
+    "takeaway": "Read the failed node and full error before changing settings. Reduce one workload dimension at a time, retry a known workflow, and distinguish GPU memory from system RAM; no launch flag guarantees that every model fits.",
+    "sources": [
+      {
+        "publisher": "ComfyUI",
+        "title": "Official troubleshooting and memory optimization guidance",
+        "url": "https://docs.comfy.org/troubleshooting/overview"
+      },
+      {
+        "publisher": "ComfyUI",
+        "title": "Custom node troubleshooting",
+        "url": "https://docs.comfy.org/troubleshooting/custom-node-issues"
+      }
+    ],
+    "sections": [
+      {
+        "heading": "Start with the complete error report",
+        "content": "ComfyUI's official troubleshooting guide recommends opening Show report, checking model files and investigating custom nodes. It also recommends reducing resolution or batch size and closing other GPU workloads for memory-related failures. These are documented starting points, not evidence that your particular failure has one universal cause.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "Identify the stage before choosing a fix",
+        "content": "Record the failed node, the operation immediately before it and whether the workflow ever produced a latent result. A model-loading failure and a later decode failure need different experiments. A stage label narrows the next check; it does not by itself establish a memory leak or a faulty GPU.",
+        "table": {
+          "headers": [
+            "Where it fails",
+            "First controlled experiment",
+            "Keep in the log"
+          ],
+          "rows": [
+            [
+              "Model loading",
+              "Retry a smaller, compatible official workflow after closing other GPU jobs",
+              "Exact checkpoint, precision, runtime and complete error"
+            ],
+            [
+              "Sampling",
+              "Use batch size one and reduce image dimensions while keeping other settings fixed",
+              "Width, height, batch and active adapters"
+            ],
+            [
+              "VAE decode",
+              "Test a documented tiled-decode option if that workflow supports it",
+              "VAE, tile setting and visible seams or quality changes"
+            ],
+            [
+              "Whole system freezes",
+              "Inspect system RAM and disk pressure as well as VRAM",
+              "RAM use, free disk and operating-system event details"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "Make one reversible change",
+        "content": "Save a copy of the workflow before editing it. If batch size is above one, lower that first, then queue a single run. If it still fails, reduce dimensions while preserving the intended aspect ratio. Do not simultaneously replace the model, remove adapters and alter precision: a successful retry would leave you unsure what mattered. Keep the initial output and rejected attempts so you can judge whether a memory workaround also damaged the result."
+      },
+      {
+        "heading": "Use low-memory controls for your installation",
+        "content": "The official manual-installation guidance includes python main.py --lowvram and --preview-method none as memory-related options. Check your installed version's help and your installation's documented launcher before using flags. A portable Windows package or Desktop app is not the same launcher as a manual Python environment. The guide also notes trade-offs in caching and offloading; a successful load need not produce acceptable latency.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "Separate custom-node failures from the baseline",
+        "content": "A missing package, incompatible node or incorrect model path is not repaired by allocating more memory. ComfyUI publishes a separate custom-node troubleshooting process. Follow that process in a copy of your environment or workflow, then compare with a minimal supported example. Preserve the original configuration and note which extensions were active. Do not install an unrelated node pack merely because a forum post mentions the same error text.",
+        "sourceIds": [
+          2
+        ]
+      },
+      {
+        "heading": "Keep a useful troubleshooting record",
+        "content": "Download our [memory troubleshooting log](/downloads/local-ai-memory-troubleshooting.txt). Fill in the exact error, failed stage, checkpoint, context or image dimensions, memory observations and the single change made. A blank log is an original resource, not a completed benchmark. If a smaller baseline works, add one required component at a time. If it does not, share the diagnostic record with the relevant project's support channel after removing private paths and sensitive information."
+      },
+      {
+        "heading": "What to try before buying another GPU",
+        "content": "Use the [FLUX workflow checklist](/create/comfyui-flux-lora-training-and-inference-guide) to check model components, then the [GGUF versus Safetensors guide](/workflow/gguf-vs-safetensors-format-compatibility) to verify format and loader compatibility. For language models, use the separate [Ollama context guide](/workflow/ollama-context-length-vram-slow-model-fix). A card's advertised VRAM, a file's download size and the memory consumed by a complete running workflow are different measurements."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What should I change first for ComfyUI CUDA out of memory?",
+        "answer": "Read the full error and identify the failed stage. Then try one controlled reduction such as batch size one or lower resolution, using a supported baseline workflow."
+      },
+      {
+        "question": "Does --lowvram guarantee a model will run?",
+        "answer": "No. It changes memory management, but the model, workflow, system RAM and installed runtime still constrain what can run and how quickly."
+      },
+      {
+        "question": "Is a VAE decode failure the same as a model-loading failure?",
+        "answer": "No. Record the failed stage and test a stage-appropriate change instead of assuming all memory failures have the same cause."
+      },
+      {
+        "question": "Are these fixes independently benchmarked on a 6GB GPU?",
+        "answer": "No. This is a documentation-based diagnostic guide and a blank log; it makes no measured GPU performance claim."
+      }
+    ]
+  },
+  {
+    "category": "workflow",
+    "publishedAt": "2026-10-26",
+    "updatedAt": "2026-10-26",
+    "sourceCheckedAt": "2026-10-26",
+    "featured": false,
+    "imageCaption": "Original FyreLinkz technical illustration. Not a model output, application screenshot or measured benchmark.",
+    "slug": "ollama-context-length-vram-slow-model-fix",
+    "title": "Ollama context length and VRAM: check slow or CPU-split models",
+    "description": "Check Ollama's allocated context and CPU/GPU split with ollama ps. Compare context settings, concurrency and cold loading before changing hardware.",
+    "topic": "Local LLM memory",
+    "image": "ollama-context-oct26-photo",
+    "imageAlt": "Original technical diagram showing model weights and context allocations competing for finite GPU memory.",
+    "takeaway": "Increasing Ollama context requires more memory. Check the running model with ollama ps, then compare two context settings on the same task. A large supported context window is not proof it fits your GPU.",
+    "sources": [
+      {
+        "publisher": "Ollama",
+        "title": "Context length: configuration and allocated processor split",
+        "url": "https://docs.ollama.com/context-length"
+      },
+      {
+        "publisher": "Ollama",
+        "title": "FAQ: environment variables, concurrency and memory",
+        "url": "https://docs.ollama.com/faq"
+      }
+    ],
+    "sections": [
+      {
+        "heading": "Model capability and allocated context differ",
+        "content": "Ollama defines context length as the tokens a model can access in memory and documents that larger context requires more memory. Its current defaults vary by VRAM tier. Check the value on your own running model rather than assuming every installation uses a fixed default quoted by an older tutorial.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "Read ollama ps before diagnosing speed",
+        "content": "With a model running, execute ollama ps. Ollama documents PROCESSOR and CONTEXT as the columns for checking offload and allocated context. Save the model name and those columns with your configuration. This observation is a useful starting point; it does not prove that context is the only bottleneck.",
+        "sourceIds": [
+          1
+        ],
+        "table": {
+          "headers": [
+            "Observation",
+            "Next experiment",
+            "What it can establish"
+          ],
+          "rows": [
+            [
+              "CPU/GPU split",
+              "Try the same task with a smaller context",
+              "Whether the split changes under that setting"
+            ],
+            [
+              "100% GPU but slow first request",
+              "Separate initial loading from a repeated request",
+              "Whether cold loading explains part of the wait"
+            ],
+            [
+              "Works alone, slows under load",
+              "Reduce simultaneous requests or loaded models",
+              "Whether resource contention is involved"
+            ],
+            [
+              "Answer misses document details",
+              "Check retrieval and actual input content",
+              "Whether the required evidence reached the model"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "Change context through the supported control",
+        "content": "The official page documents an app settings slider and the OLLAMA_CONTEXT_LENGTH environment variable for the server. Its example uses Unix shell syntax; on Windows, configure the variable for the Ollama process using the documented platform procedure and restart the relevant app or server. Do not launch a second server over an existing instance and assume the running one received your new setting. Verify the actual CONTEXT afterwards.",
+        "sourceIds": [
+          1,
+          2
+        ]
+      },
+      {
+        "heading": "A two-setting comparison you can reproduce",
+        "content": "Choose a short task with a written correctness check. Run it at your current context, save the output and processor split, then repeat at a lower supported context while keeping the same model and task. Record cold and warm timings separately and repeat warm requests. Next use a longer task that actually needs additional context. A smaller setting that truncates necessary evidence is not an improvement, even if its response arrives sooner. No timing result is claimed here."
+      },
+      {
+        "heading": "Concurrent requests change the memory question",
+        "content": "Ollama's FAQ explains that parallel requests increase context-related memory allocation. Its example combines a 2K context with four parallel requests to illustrate an 8K effective allocation. A model that fits one chat therefore does not establish capacity for a group of users. Limit test concurrency, observe actual memory and add load gradually instead of estimating user capacity from download size.",
+        "sourceIds": [
+          2
+        ]
+      },
+      {
+        "heading": "Keep quality and latency on the same sheet",
+        "content": "Use the [memory troubleshooting log](/downloads/local-ai-memory-troubleshooting.txt) to record model tag, runtime version, context, concurrent work, processor split, timing and whether the answer passed. Keep exact prompt contents private if they include confidential material. A locally running model also needs a suitable retention and access policy for prompts or logs stored by surrounding apps. Local inference alone does not describe every connected service."
+      },
+      {
+        "heading": "When the laptop remains the constraint",
+        "content": "If the required task needs more context than your machine can handle usefully, try a smaller compatible model, retrieve fewer relevant passages or evaluate another deployment. The [RTX 4050 guide](/hardware/run-local-llm-rtx-4050-laptop-guide) explains why 6GB is a capacity constraint rather than a speed promise. The [local versus cloud worksheet](/stack/local-vs-cloud-ai-cost-per-accepted-task) helps compare reviewed outcomes. Keep a larger model's quality benefit separate from its memory and operating costs."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "How can I check Ollama's actual context and GPU use?",
+        "answer": "Run ollama ps while a model is loaded and inspect the CONTEXT and PROCESSOR columns."
+      },
+      {
+        "question": "Does increasing context use more VRAM?",
+        "answer": "Ollama documents that increasing context requires more memory. The final CPU/GPU allocation also depends on the model and running workload."
+      },
+      {
+        "question": "Why did a context setting change not take effect?",
+        "answer": "Check that the intended app or server process received the setting, restart it through the documented procedure and verify the allocated value with ollama ps."
+      },
+      {
+        "question": "Can one successful chat prove simultaneous-user capacity?",
+        "answer": "No. Concurrent requests can increase memory requirements; assess the intended workload under controlled load."
+      }
+    ]
+  },
+  {
+    "category": "workflow",
+    "publishedAt": "2026-10-26",
+    "updatedAt": "2026-10-26",
+    "sourceCheckedAt": "2026-10-26",
+    "featured": false,
+    "imageCaption": "Original FyreLinkz technical illustration. Not a model output, application screenshot or measured benchmark.",
+    "slug": "gguf-vs-safetensors-format-compatibility",
+    "title": "GGUF vs Safetensors: choose compatible model files before downloading",
+    "description": "GGUF and Safetensors are file formats, not quality rankings. Check architecture, tokenizer, loader, quantization and license before downloading a local model.",
+    "topic": "Local model files",
+    "image": "gguf-safetensors-oct26-photo",
+    "imageAlt": "Original comparison diagram of a metadata-and-tensor container beside tensor files with separate configuration.",
+    "takeaway": "Choose the artifact supported by your model's documented runtime. GGUF versus Safetensors does not determine quality, safety or memory fit on its own; check architecture, precision, tokenizer and required companion files.",
+    "sources": [
+      {
+        "publisher": "ggml",
+        "title": "GGUF format specification",
+        "url": "https://github.com/ggml-org/ggml/blob/master/docs/gguf.md"
+      },
+      {
+        "publisher": "Safetensors",
+        "title": "Official Safetensors repository and format rationale",
+        "url": "https://github.com/safetensors/safetensors"
+      },
+      {
+        "publisher": "HuggingFaceBio",
+        "title": "Carbon-X model card: tokenizer runtime limitations",
+        "url": "https://huggingface.co/HuggingFaceBio/Carbon-X"
+      }
+    ],
+    "sections": [
+      {
+        "heading": "The short answer: start with the runtime",
+        "content": "GGUF specifies tensor data together with structured metadata, including architecture and quantization information. Safetensors is a tensor serialization format designed to avoid pickle's arbitrary-code-execution behavior. Those are different packaging choices, not a leaderboard. A runtime still needs to implement the model's architecture and understand the surrounding configuration.",
+        "sourceIds": [
+          1,
+          2
+        ]
+      },
+      {
+        "heading": "Separate four decisions that file names blur",
+        "content": "Write down the model identity, the numeric representation, the container and the runtime. Changing one does not automatically change the others. Two files with similar names may encode different revisions or quantization schemes; two files in different containers may still represent closely related weights.",
+        "table": {
+          "headers": [
+            "Decision",
+            "Question to answer",
+            "Insufficient shortcut"
+          ],
+          "rows": [
+            [
+              "Architecture",
+              "Does this runtime implement this model?",
+              "The filename ends in .gguf"
+            ],
+            [
+              "Precision or quantization",
+              "Which representation and conversion were used?",
+              "The file is smaller"
+            ],
+            [
+              "Packaging",
+              "Which companion files and metadata are needed?",
+              "One download completed"
+            ],
+            [
+              "Runtime",
+              "Which loader and version are documented?",
+              "Another model opened in this app"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "A file extension does not guarantee compatibility",
+        "content": "Use the exact artifact recommended by the project's current instructions. Check the architecture, tokenizer and any extra code or components it requires. Carbon-X offers a concrete exception to generic format advice: its current card says llama.cpp and GGUF runtimes are unsupported because they cannot load its custom Python DNA tokenizer. A general suggestion to download every model in GGUF would fail for that documented case.",
+        "sourceIds": [
+          3
+        ]
+      },
+      {
+        "heading": "Compare representations without inventing a winner",
+        "content": "If both artifacts are documented as supported, test the same prompt, settings and required output. Record the exact revision and converter when known. Inspect correctness before comparing load time or memory. A comparison with different templates, context lengths or output budgets cannot cleanly attribute the difference to the container. Do not assume a lower bit count preserves the capability your task depends on. This article reports no independent format benchmark."
+      },
+      {
+        "heading": "Check the whole download and its terms",
+        "content": "Read the model card and enumerate required tokenizer, configuration, encoder, decoder and adapter files for that workflow. A complete package may involve several artifacts. Then check license terms for the weights and any bundled code separately. Neither a format extension nor a repository's popularity establishes commercial-use permission. Verify available storage and a feasible memory plan before spending time on a large download."
+      },
+      {
+        "heading": "Safer serialization is not a complete security review",
+        "content": "Safetensors' format addresses a particular loading risk associated with pickle; it does not make every surrounding installer, custom node or remote-code dependency trustworthy. Keep software updated, use the publisher's distribution route and inspect code before granting it execution. Avoid converting an unfamiliar bundle merely to make its filename look compatible. Our [model download safety checklist](/workflow/download-ai-models-safetensors-pickle-security-checklist) separates weight storage from executable components.",
+        "sourceIds": [
+          2
+        ]
+      },
+      {
+        "heading": "From a compatible file to a working model",
+        "content": "Once the documented baseline loads, inspect runtime allocation using the [Ollama context and memory guide](/workflow/ollama-context-length-vram-slow-model-fix), or use the [ComfyUI error-by-stage guide](/workflow/comfyui-cuda-out-of-memory-fix-by-stage) for image workflows. Record the file identity in the [memory log](/downloads/local-ai-memory-troubleshooting.txt). Compatibility is the first gate; quality, speed and operating cost remain separate evaluations."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is GGUF always better than Safetensors?",
+        "answer": "No. Choose the format and artifact supported by the exact model and runtime, then evaluate the task you need."
+      },
+      {
+        "question": "Does changing the extension convert a model?",
+        "answer": "No. A real conversion must handle tensor layout, metadata, architecture and any tokenizer requirements; renaming does not do that."
+      },
+      {
+        "question": "Does Safetensors make an entire model package safe?",
+        "answer": "No. It addresses tensor serialization risks, while executable dependencies, custom code and loaders require separate review."
+      },
+      {
+        "question": "Can a GGUF model still fail to fit my GPU?",
+        "answer": "Yes. Quantization, context, runtime buffers and other workloads affect memory independently of the extension."
+      }
+    ]
+  },
+  {
     "publishedAt": "2026-10-25",
     "updatedAt": "2026-10-25",
     "sourceCheckedAt": "2026-10-25",
@@ -1926,16 +2275,16 @@
   {
     "category": "news",
     "slug": "gaussianimate-skelebones-rigging-4d-gaussians",
-    "title": "GaussiAnimate: skeleton control for deforming 4D characters",
-    "description": "GaussiAnimate combines a kinematic scaffold with deforming surface controls. Understand required reconstructed sequences and evaluate animation fidelity.",
+    "title": "GaussiAnimate explained: 4D inputs, skelebones and rigging limits",
+    "description": "What GaussiAnimate needs before rigging: consistent 4D Gaussian or mesh sequences, skelebones, motion matching and a downloadable animation review checklist.",
     "topic": "3D animation",
     "image": "geometry-oct18-photo",
     "imageAlt": "AI-generated editorial illustration of a 3D artist's desk with a digital mannequin and architectural model.",
     "imageCaption": "AI-generated editorial illustration of generic equipment. Not an output from the named model, a photograph of the researchers' system or evidence of a test.",
     "takeaway": "GaussiAnimate studies controllable reanimation of reconstructed moving subjects. Its skeleton-plus-surface approach targets deformation, not a promise to rig any isolated picture automatically.",
     "publishedAt": "2026-10-18",
-    "updatedAt": "2026-10-18",
-    "sourceCheckedAt": "2026-10-18",
+    "updatedAt": "2026-10-26",
+    "sourceCheckedAt": "2026-10-26",
     "featured": false,
     "sections": [
       {
@@ -1948,6 +2297,39 @@
       {
         "heading": "What this changes for the reader",
         "content": "For an animation team, the first question is what evidence the reconstruction contains. Loose cloth can move independently of the underlying limb, so matching a joint pose alone may not recover the expected surface motion. Our suggested review checks control usability and deformation together instead of judging a single attractive turntable."
+      },
+      {
+        "heading": "Input readiness: what to inspect before rigging",
+        "content": "Use the [3D asset review sheet](/downloads/3d-asset-review.txt) to distinguish defects already present in a reconstruction from deformation introduced later. Choose a visible garment edge, a joint bend and one contact region. Track each through the same interval. If a feature flickers in the input, a clean still from the final animation is not enough to show the rig fixed it. This is an original review protocol rather than a measured claim about GaussiAnimate.",
+        "table": {
+          "headers": [
+            "Review gate",
+            "Check",
+            "Why separate it"
+          ],
+          "rows": [
+            [
+              "Input sequence",
+              "Stable identity and temporal correspondence",
+              "Input defects can be mistaken for rig errors"
+            ],
+            [
+              "Control motion",
+              "A known pose change and return",
+              "Makes the intended deformation inspectable"
+            ],
+            [
+              "Surface behavior",
+              "Edges, folds and contacts over time",
+              "Joint alignment alone misses visible artifacts"
+            ],
+            [
+              "Held-out interval",
+              "Motion not used in the comparison setup",
+              "Avoids evaluating only familiar frames"
+            ]
+          ]
+        }
       },
       {
         "heading": "A practical evaluation before adoption",
@@ -1963,8 +2345,8 @@
         "content": "The project reports its own comparisons. We have not run them, and its abstract's promise of code availability is not itself evidence that every asset or license is ready for production. Check the linked repository at the time of use."
       },
       {
-        "heading": "Where to go next",
-        "content": "Read our [image preservation and output review](/create/ai-image-upscaling-vs-img2img-preserve-details) for the adjacent workflow decision. Keep this project's conditions separate from other models' results. If a dependency, artifact or service limit is unclear, leave it unresolved in the comparison rather than filling the gap with an assumption."
+        "heading": "Where this fits in a 3D workflow",
+        "content": "[UniForge3D](/news/uniforge3d-sparse-views-reconstruction-generation) concerns sparse-view shape completion, while [PURE](/news/pure-unlabeled-video-3d-reconstruction) concerns reconstruction from observed video. GaussiAnimate assumes a consistent reconstructed moving sequence for its rigging problem. Keep these stages separate when deciding what you need to capture, reconstruct and review."
       }
     ],
     "sources": [
@@ -1992,16 +2374,16 @@
   {
     "category": "news",
     "slug": "uniforge3d-sparse-views-reconstruction-generation",
-    "title": "UniForge3D: complete 3D shapes without losing observed geometry",
-    "description": "UniForge3D joins reconstruction and generation from sparse unposed views. Separate observed surfaces from inferred geometry before using an asset.",
+    "title": "UniForge3D explained: inputs, setup and unseen 3D geometry",
+    "description": "How UniForge3D uses sparse unposed images, what its repository documents for input folders, and how to inspect inferred geometry against a held-out view.",
     "topic": "3D reconstruction",
-    "image": "geometry-oct18-photo",
-    "imageAlt": "AI-generated editorial illustration of a 3D artist's desk with a digital mannequin and architectural model.",
-    "imageCaption": "AI-generated editorial illustration of generic equipment. Not an output from the named model, a photograph of the researchers' system or evidence of a test.",
+    "image": "uniforge-inputs-oct26-photo",
+    "imageAlt": "Original diagram of three input-view cards connecting to a gridded 3D shape, with a separate held-out view for review.",
+    "imageCaption": "Original conceptual workflow illustration, not an asset generated by UniForge3D.",
     "takeaway": "UniForge3D combines reconstruction and shape generation in a shared coordinate system. Treat unseen surfaces as inferred completion, even when the finished asset looks plausible.",
     "publishedAt": "2026-10-18",
-    "updatedAt": "2026-10-18",
-    "sourceCheckedAt": "2026-10-18",
+    "updatedAt": "2026-10-26",
+    "sourceCheckedAt": "2026-10-26",
     "featured": false,
     "sections": [
       {
@@ -2010,6 +2392,43 @@
         "sourceIds": [
           1
         ]
+      },
+      {
+        "heading": "Inputs and repository setup: check the exact bundle",
+        "content": "The matching implementation repository describes placing each object’s input views in its own directory under assets, with example numbered PNG files, then running python infer.py in its documented environment. The landing page still displays coming-soon labels for paper and code links, so inspect the repository, checkpoint availability and current instructions rather than inferring completeness from the landing page. We have not validated the environment or established a minimum GPU specification.",
+        "sourceIds": [
+          1,
+          2
+        ],
+        "table": {
+          "headers": [
+            "Item",
+            "Example from the documented layout",
+            "Check before a run"
+          ],
+          "rows": [
+            [
+              "Object folder",
+              "assets/case01/",
+              "One object per directory"
+            ],
+            [
+              "Input views",
+              "001.png, 002.png, 003.png",
+              "Consistent object identity and useful coverage"
+            ],
+            [
+              "Inference entry",
+              "python infer.py",
+              "Use the repository’s matching environment and artifacts"
+            ],
+            [
+              "Evaluation view",
+              "Keep separately from input",
+              "Do not accidentally include the held-out evidence"
+            ]
+          ]
+        }
       },
       {
         "heading": "What this changes for the reader",
@@ -2025,12 +2444,22 @@
         ]
       },
       {
+        "heading": "A held-out-view review sheet",
+        "content": "For an object you are allowed to photograph, choose one view that exposes a distinctive feature, such as a handle or rear support. Do not provide that view during reconstruction. Inspect the resulting asset from a comparable angle and record whether the feature exists, whether it is plausible but invented, and whether another input view changes the result. Score observed detail and generated completion separately. This proposed review does not turn a visual match into a dimensional measurement. Use the [3D asset review sheet](/downloads/3d-asset-review.txt) to retain those decisions.",
+        "checklist": [
+          "Save original inputs and chosen hold-out separately.",
+          "Record repository revision and model artifact identity.",
+          "Inspect silhouette and local details, not only a turntable.",
+          "Check scale, topology and downstream export separately."
+        ]
+      },
+      {
         "heading": "Limits and availability to keep in view",
         "content": "Author-reported benchmark leadership is not a FyreLinkz measurement. We have not verified a complete inference environment, hardware floor or downstream asset compatibility. Read the current code and asset terms before adopting the pipeline."
       },
       {
-        "heading": "Where to go next",
-        "content": "Read our [image preservation and output review](/create/ai-image-upscaling-vs-img2img-preserve-details) for the adjacent workflow decision. Keep this project's conditions separate from other models' results. If a dependency, artifact or service limit is unclear, leave it unresolved in the comparison rather than filling the gap with an assumption."
+        "heading": "Choose reconstruction, refinement or animation",
+        "content": "Use [PURE](/news/pure-unlabeled-video-3d-reconstruction) for the adjacent question of reconstructing observed video. [Hi3D 1.0](/news/hi3d1-sparc3d-geometry-refinement-license) addresses refining a coarse mesh with a reference image. [GaussiAnimate](/news/gaussianimate-skelebones-rigging-4d-gaussians) concerns controllable motion from consistent reconstructed sequences. These are different stages, so compare the inputs and deliverable you actually need rather than treating every 3D project as interchangeable."
       }
     ],
     "sources": [
@@ -2038,6 +2467,11 @@
         "publisher": "UniForge3D project",
         "title": "UniForge3D — primary source and release details",
         "url": "https://xishuxishu.github.io/uniforge3d-project/"
+      },
+      {
+        "publisher": "UniForge3D repository",
+        "title": "Implementation README: installation and inference input folders",
+        "url": "https://github.com/xibushu/UniForge3D"
       }
     ],
     "faqs": [
@@ -2052,6 +2486,10 @@
       {
         "question": "Has FyreLinkz independently tested UniForge3D?",
         "answer": "No. This article reports the linked primary source and proposes an editorial evaluation; it contains no independent performance benchmark."
+      },
+      {
+        "question": "How are input images organized in the linked repository?",
+        "answer": "Its README shows a separate object directory under assets containing numbered PNG views. Follow the exact current repository instructions and check required artifacts before running inference."
       }
     ]
   },
@@ -4518,16 +4956,16 @@
   {
     "category": "finance",
     "publishedAt": "2026-10-15",
-    "updatedAt": "2026-10-15",
-    "sourceCheckedAt": "2026-10-15",
+    "updatedAt": "2026-10-26",
+    "sourceCheckedAt": "2026-10-26",
     "featured": false,
-    "imageCaption": "AI-generated editorial photograph of a generic workspace. Illustrative only; not financial data, a product endorsement or evidence of investment returns.",
+    "imageCaption": "Original arithmetic illustration. The $1,000 basket is hypothetical; this is not a chart of a measured household budget.",
     "slug": "us-inflation-september-2026-cpi-household-budget",
-    "title": "US inflation reaches 3.7%: September CPI explained",
-    "description": "September 2026 US CPI rose 3.7% annually. Understand headline versus core inflation, household budget implications and what the data cannot predict.",
+    "title": "September 2026 CPI: 3.7% US inflation and your budget",
+    "description": "September US CPI rose 3.7% annually and 0.6% monthly. Read the headline/core figures, a $1,000 budget example and a downloadable personal-price worksheet.",
     "topic": "Inflation & budgets",
-    "image": "data-enrichment-waterfall-photo",
-    "imageAlt": "AI-generated editorial photograph of an analyst comparing records at a desk; illustrative, not an inflation chart.",
+    "image": "cpi-budget-oct26-photo",
+    "imageAlt": "Original editorial diagram showing a hypothetical 1,000-dollar basket becoming 1,037 dollars after a 3.7 percent increase.",
     "eventDate": "2026-10-14",
     "takeaway": "US headline CPI rose 3.7% over the year to September 2026, according to the October 14 BLS release. The monthly seasonally adjusted rise was 0.6%. These figures describe a national price index, not your personal spending increase or a confirmed Federal Reserve decision.",
     "sections": [
@@ -4571,6 +5009,38 @@
         "content": "This is hypothetical arithmetic, not a forecast. If a basket costs $1,000 and its price rises exactly 3.7%, it would cost $1,037 after that increase. Applying the national CPI rate to your entire budget assumes your spending basket behaves like the index, which may be wrong. Use the example to understand percentages; use your own bills to estimate the cash you need. We are not recommending an investment or a particular response to inflation."
       },
       {
+        "heading": "Separate a price increase from buying more",
+        "content": "Use our [household price worksheet](/downloads/household-price-worksheet.txt) to record the same item, unit size and quantity in both periods. In a hypothetical example, ten identical items at $4 cost $40. If the unit price becomes $4.20 while quantity stays ten, spending becomes $42: a $2 price effect. Buying twelve at $4.20 costs $50.40, but that $10.40 spending increase includes additional quantity. Reporting all of it as inflation would misdescribe the example. This worksheet is for household recordkeeping, not an estimate of the official CPI.",
+        "table": {
+          "headers": [
+            "Hypothetical basket",
+            "Unit price",
+            "Quantity",
+            "Total"
+          ],
+          "rows": [
+            [
+              "Baseline",
+              "$4.00",
+              "10",
+              "$40.00"
+            ],
+            [
+              "Same quantity, new price",
+              "$4.20",
+              "10",
+              "$42.00"
+            ],
+            [
+              "New price and larger purchase",
+              "$4.20",
+              "12",
+              "$50.40"
+            ]
+          ]
+        }
+      },
+      {
         "heading": "What this release does not tell you",
         "content": "One inflation release does not establish the next interest-rate decision, tomorrow's currency move or which investment will outperform. Keep reported data separate from market expectations and forecasts. For immediate planning, check the renewal terms of important bills and distinguish fixed commitments from flexible spending. Our [emergency savings guide](/finance/emergency-fund-savings-account-checklist) offers a worksheet for unexpected costs; our [investment fee guide](/finance/investment-fees-expense-ratio-cost-example) explains a different source of purchasing-power drag.",
         "checklist": [
@@ -4579,6 +5049,10 @@
           "Use current bills to update a budget.",
           "Check an official central-bank statement before describing a policy decision."
         ]
+      },
+      {
+        "heading": "Which savings question comes next?",
+        "content": "This article describes US price data for September 2026, not Indian inflation or a forecast of the next release. US readers comparing cash products can use the [savings versus CD guide](/finance/high-yield-savings-vs-cd-apy-access-penalties). The separate [India savings, FDs and metals guide](/finance/inflation-savings-fd-stock-market-falls-gold-india) uses an Indian deposit-protection context. Keep geography, tax assumptions and account terms separate when applying either example."
       }
     ],
     "sources": [
@@ -4601,6 +5075,10 @@
       {
         "question": "Does this report confirm a Federal Reserve rate change?",
         "answer": "No. Inflation data and a monetary-policy decision are separate events. Verify an actual decision through an official statement."
+      },
+      {
+        "question": "How can I check my own price changes?",
+        "answer": "Compare the same item, unit size and quantity in two periods, separating price changes from quantity changes. The downloadable worksheet is personal recordkeeping, not an official CPI estimate."
       }
     ]
   },
@@ -6798,11 +7276,15 @@
             ]
           ]
         }
+      },
+      {
+        "heading": "If the workflow runs out of memory",
+        "content": "Use the [ComfyUI memory-error guide](/workflow/comfyui-cuda-out-of-memory-fix-by-stage) to separate loading, sampling and VAE failures. Record one change per retry in the downloadable log rather than combining unrelated launch flags."
       }
     ],
     "publishedAt": "2026-09-08",
-    "updatedAt": "2026-10-22",
-    "sourceCheckedAt": "2026-10-22",
+    "updatedAt": "2026-10-26",
+    "sourceCheckedAt": "2026-10-26",
     "imageAlt": "AI-generated editorial photograph of an artist using a pen display beside a monitor in a home studio.",
     "faqs": [
       {
@@ -7345,6 +7827,16 @@
         ]
       },
       {
+        "heading": "Try an original extraction fixture before a live site",
+        "content": "Use our [fictional pricing fixture](/downloads/extraction-practice.html) and [expected fields](/downloads/extraction-practice-expected.json) to test whether your extraction keeps plan names, billing periods, currency and row context together. The page is original practice material with no personal data or access barrier. Ask each workflow for the same fields and compare against the expected JSON. This isolates basic extraction correctness; it does not benchmark protected pages, real-world reliability or either service’s latency.",
+        "checklist": [
+          "Extract the table identified as plans, including its headings.",
+          "Keep monthly price and included-page units separate.",
+          "Treat missing fields as failures instead of filling them from a model guess.",
+          "Record the exact request, cache mode and returned fields before comparing cost."
+        ]
+      },
+      {
         "heading": "Scrapling vs Playwright: the layers overlap",
         "content": "Scrapling's DynamicFetcher supports browser-backed loading using Playwright's Chromium or Chrome. Playwright exposes locators for browser interactions. They are therefore not mutually exclusive choices. Evaluate Scrapling when parsing and crawling are the main job; evaluate direct Playwright when the interaction sequence is the difficult part. This is an architectural recommendation, not a measured ranking.",
         "sourceIds": [
@@ -7500,8 +7992,8 @@
       }
     ],
     "publishedAt": "2026-09-08",
-    "updatedAt": "2026-10-16",
-    "sourceCheckedAt": "2026-10-09",
+    "updatedAt": "2026-10-26",
+    "sourceCheckedAt": "2026-10-26",
     "imageAlt": "AI-generated editorial photograph of a person viewing web pages and text on two desktop monitors.",
     "faqs": [
       {
@@ -8045,8 +8537,8 @@
     "takeaway": "To make your first image, open ComfyUI’s official text-to-image workflow, install the checkpoint named by that workflow, refresh the model list, confirm the checkpoint is selected, then queue one run. Treat the official SD1.5 example as a learning baseline, not a universal setting. [Download the example workflow JSON](https://raw.githubusercontent.com/Comfy-Org/docs/refs/heads/main/public/text-to-image.json). For more local image-model setup notes, read our [FLUX setup guide](/create/comfyui-flux-lora-training-and-inference-guide).",
     "featured": true,
     "publishedAt": "2026-09-20",
-    "updatedAt": "2026-10-22",
-    "sourceCheckedAt": "2026-10-13",
+    "updatedAt": "2026-10-26",
+    "sourceCheckedAt": "2026-10-26",
     "sources": [
       {
         "publisher": "Comfy Org",
@@ -8198,6 +8690,10 @@
       {
         "heading": "Next: add one capability",
         "content": "Once the official baseline works, add one feature for a clear reason, such as a compatible LoRA or an image-to-image step. Keep the original graph unchanged so you can return to a known-good setup. For local workflow automation, read [ComfyUI and Comfy MCP workflows](/news/comfy-mcp-local-workflows)."
+      },
+      {
+        "heading": "If the workflow runs out of memory",
+        "content": "Use the [ComfyUI memory-error guide](/workflow/comfyui-cuda-out-of-memory-fix-by-stage) to separate loading, sampling and VAE failures. Record one change per retry in the downloadable log rather than combining unrelated launch flags."
       }
     ],
     "imageAlt": "AI-generated editorial photograph of a beginner reviewing a ComfyUI text-to-image workflow on a laptop in a home studio.",
@@ -8255,8 +8751,8 @@
     "image": "rtx-4050-laptop-photo",
     "featured": true,
     "publishedAt": "2026-09-22",
-    "updatedAt": "2026-10-20",
-    "sourceCheckedAt": "2026-10-09",
+    "updatedAt": "2026-10-26",
+    "sourceCheckedAt": "2026-10-26",
     "takeaway": "NVIDIA specifies 6GB of GDDR6 for the RTX 4050 Laptop GPU. That capacity does not promise a particular model, context length, or generation speed: available memory depends on the running system and model runtime. Start with a small quantized model, keep Ollama’s context at its documented default, and check `ollama ps` to see whether the model is on the GPU, CPU, or split across them. Treat the result as system-specific and measure your own workload.",
     "sources": [
       {
@@ -8457,6 +8953,10 @@
       {
         "heading": "Continue from memory fit to cost and safe installation",
         "content": "Model fit is one part of the decision. Use the [VRAM reduction guide](/workflow/reduce-local-llm-vram-quantization-offloading-guide) for context and offload trade-offs, the [model download safety checklist](/workflow/download-ai-models-safetensors-pickle-security-checklist) before installing unfamiliar files, and the [local versus cloud cost worksheet](/stack/local-vs-cloud-ai-cost-per-accepted-task) when comparing operating costs. These guides do not establish a universal best model or a measured winner for this laptop."
+      },
+      {
+        "heading": "Check actual context before a hardware upgrade",
+        "content": "Follow the [Ollama context and VRAM guide](/workflow/ollama-context-length-vram-slow-model-fix) to inspect PROCESSOR and CONTEXT, then compare the same task under two settings. Before downloading an alternative artifact, check [GGUF versus Safetensors compatibility](/workflow/gguf-vs-safetensors-format-compatibility). A smaller download is not proof of equivalent quality or complete GPU fit."
       }
     ],
     "imageAlt": "Illustrative laptop computer with a discrete graphics processor, not a FyreLinkz benchmark setup.",
