@@ -1,0 +1,26 @@
+FYRELINKZ — LOCAL AI MEMORY TROUBLESHOOTING LOG
+Original blank worksheet. Not benchmark results.
+
+Date / operating system:
+GPU / VRAM / available memory:
+System RAM / disk pressure:
+Runtime and version:
+Model repository / exact tag / revision:
+Weight format and quantization:
+Context OR image width, height and batch:
+Concurrent requests or GPU jobs:
+Failed node / execution stage:
+Complete error (remove private details before sharing):
+
+BASELINE
+Cold load time:
+Warm completion times (repeat):
+PROCESSOR / CONTEXT from ollama ps, if applicable:
+Output acceptance check:
+
+ONE CHANGE PER RETRY
+Setting changed / old value / new value:
+Did the exact error recur?
+Did output quality change?
+Was the task accepted?
+Next isolated check:

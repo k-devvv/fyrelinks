@@ -1,0 +1,17 @@
+{
+  "fictional": true,
+  "currency": "USD",
+  "billing_period": "month",
+  "plans": [
+    {
+      "name": "Studio",
+      "price": 12,
+      "included_pages": 1000
+    },
+    {
+      "name": "Workshop",
+      "price": 29,
+      "included_pages": 3000
+    }
+  ]
+}

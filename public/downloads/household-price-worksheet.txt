@@ -1,0 +1,23 @@
+FYRELINKZ — HOUSEHOLD PRICE WORKSHEET
+Original recordkeeping template. Not an official inflation index or financial advice.
+
+Compare the same currency, item and unit size.
+Item / unit size:
+Baseline date / unit price / quantity:
+Current date / unit price / quantity:
+
+Baseline spending = baseline price x baseline quantity.
+Price-only comparison = current price x baseline quantity.
+Price effect = price-only comparison minus baseline spending.
+Current spending = current price x current quantity.
+Quantity-and-mix effect = current spending minus price-only comparison.
+
+Hypothetical example:
+Baseline: $4.00 x 10 = $40.00
+Current price at baseline quantity: $4.20 x 10 = $42.00
+Price effect: $2.00
+Current spending: $4.20 x 12 = $50.40
+Quantity effect at current price: $8.40
+Total spending change: $10.40, not all a price increase.
+
+Repeat for your own comparable purchases. Record substitutions, discounts and missing bills. Do not label the result official CPI.
