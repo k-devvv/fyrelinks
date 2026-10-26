@@ -1,5 +1,1797 @@
 [
   {
+    "publishedAt": "2026-10-25",
+    "updatedAt": "2026-10-25",
+    "sourceCheckedAt": "2026-10-25",
+    "featured": false,
+    "imageCaption": "Original FyreLinkz technical illustration. Conceptual artwork, not a screenshot, model output or independent test result.",
+    "category": "news",
+    "slug": "ideogram-vector-svg-editable-artwork-guide",
+    "title": "Ideogram Vector: editable SVG artwork and export checks",
+    "description": "What Ideogram Vector creates, how editable SVG differs from a raster image, and what to check before using generated artwork in print or branding.",
+    "topic": "AI image generation",
+    "image": "ideogram-vector-oct25-photo",
+    "imageAlt": "Original technical illustration of curved vector paths, control points and a scalable geometric flower.",
+    "takeaway": "Ideogram Vector creates editable SVG artwork from prompts or images. Treat export structure, typography and print preparation as separate checks rather than assuming that a good preview is a finished design.",
+    "sources": [
+      {
+        "publisher": "Ideogram",
+        "title": "Ideogram Vector — official product and examples",
+        "url": "https://ideogram.ai/models/vector/"
+      }
+    ],
+    "sections": [
+      {
+        "heading": "What Ideogram Vector actually offers",
+        "content": "Ideogram describes prompt-to-vector and image-vectorization workflows that produce scalable, editable SVG artwork. Its examples include logos, illustrations and print designs. Individual shapes and colors can be adjusted after generation. These are vendor-described capabilities; FyreLinkz has not independently tested export quality, editing performance or print production.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "SVG is a structure, not just a sharp preview",
+        "content": "A raster image stores a grid of pixels. A vector document describes shapes that an editor can redraw at different sizes. For production, the practical question is whether those shapes are organized well enough to change. A file containing hundreds of tiny fragments may look fine and still be difficult to recolor or cut. Inspect the actual download in your intended editor instead of judging only the website preview.",
+        "table": {
+          "headers": [
+            "Check",
+            "Why it matters",
+            "Suggested inspection"
+          ],
+          "rows": [
+            [
+              "Path structure",
+              "Editing and plotter complexity",
+              "Select and recolor one meaningful object"
+            ],
+            [
+              "Typography",
+              "Spelling and portability",
+              "Read every character and check font dependence"
+            ],
+            [
+              "Small-size detail",
+              "Icon and label legibility",
+              "Inspect a thumbnail and a large export"
+            ],
+            [
+              "Embedded assets",
+              "A nominal SVG can still contain raster content",
+              "Inspect links and embedded image elements"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "A reproducible first project",
+        "content": "Start with a fictional cafe badge using an invented name, three specified colors and one simple botanical shape. Keep the brief short enough that a reviewer can check every requirement. Save the original prompt, the exported file and a screenshot from the editor. Request one revision that changes only the palette; compare whether geometry and lettering remain stable. This is a proposed evaluation, not a report of successful results.",
+        "checklist": [
+          "Check spelling manually before publishing.",
+          "Test a recolor without regenerating the whole design.",
+          "Export to the final format and reopen it.",
+          "Record time spent fixing the result, including rejected attempts."
+        ]
+      },
+      {
+        "heading": "Print, licensing and brand use remain separate",
+        "content": "A scalable file is not automatically print-ready. Confirm dimensions, bleed, stroke expansion, color conversion and any supplier-specific requirements with the printer. Likewise, an attractive generated logo does not establish trademark clearance or exclusive rights. Review the service terms applicable to your plan and investigate existing marks before commercial use. Do not substitute a model-generated visual for a legal clearance process."
+      },
+      {
+        "heading": "When a raster workflow still makes sense",
+        "content": "Photographic material, textured paintings and complex lighting often need a different production path from clean signage or icons. Choose the output format based on the final use, then compare editing time and accepted results. Our [MOSS-Image coverage](/news/moss-image-native-layout-json-base-sft) may be relevant to image layout; if that route changes, use the News index to find current image-model guides. A vector tool should earn its place by reducing real work, not simply by returning an SVG extension."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Does Ideogram Vector export SVG?",
+        "answer": "The official page describes scalable, editable SVG artwork from prompts or existing images."
+      },
+      {
+        "question": "Does SVG guarantee a print-ready logo?",
+        "answer": "No. Inspect paths, typography, dimensions, color handling and your printer's requirements; branding also needs separate rights checks."
+      },
+      {
+        "question": "Has FyreLinkz benchmarked Ideogram Vector?",
+        "answer": "No. This is a sourced explainer with a proposed export and editing evaluation."
+      }
+    ]
+  },
+  {
+    "publishedAt": "2026-10-25",
+    "updatedAt": "2026-10-25",
+    "sourceCheckedAt": "2026-10-25",
+    "featured": false,
+    "imageCaption": "Original FyreLinkz technical illustration. Conceptual artwork, not a screenshot, model output or independent test result.",
+    "category": "news",
+    "slug": "dessa-block-speech-only-full-duplex-model",
+    "title": "Dessa by Block: speech-only training and full-duplex conversation",
+    "description": "Block's Dessa learns from speech and listens while talking. Understand local Mac requirements, the waitlist and how to assess conversational latency.",
+    "topic": "AI voice",
+    "image": "dessa-oct25-photo",
+    "imageAlt": "Original editorial diagram showing two overlapping audio waveforms meeting in a conversational loop.",
+    "takeaway": "Block presents Dessa as a speech-to-speech model trained from human conversation, with simultaneous listening and speaking. Natural demos are not evidence of reliable advice, universal device support or a production-ready API.",
+    "sources": [
+      {
+        "publisher": "Block",
+        "title": "Dessa — official speech model announcement",
+        "url": "https://block.xyz/dessa"
+      }
+    ],
+    "sections": [
+      {
+        "heading": "What makes Dessa different",
+        "content": "Block says Dessa was trained from scratch on human speech rather than a text-pretrained model. It describes full-duplex interaction: the system can listen and speak at the same time, including conversational backchannels. The page states that local operation targets a MacBook Pro M4 Max or better and offers a waitlist. We have not run the model or verified its performance on those machines.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "Full-duplex is about turn handling",
+        "content": "A conventional interaction can feel like a sequence of separate recordings: speak, wait, receive a reply. Overlap introduces a harder problem. A useful system must distinguish a correction from a listener's brief acknowledgement, recover after interruptions and avoid talking over the person. Fast synthesis alone does not solve those questions. Evaluate the conversation as a whole, including what the system fails to hear while it is producing audio."
+      },
+      {
+        "heading": "A conversation test worth recording",
+        "content": "Use an original, low-stakes scheduling exercise with fictional names. Ask a question, interrupt halfway through the reply with a correction, then ask the system to restate the final plan. Repeat with a quiet room, mild background sound and different speaking speeds. Log whether the correction was incorporated rather than rating personality alone. This protocol is a suggestion; no success rate is claimed.",
+        "table": {
+          "headers": [
+            "Moment",
+            "Observable question",
+            "Failure to record"
+          ],
+          "rows": [
+            [
+              "Interruption",
+              "Does it stop or adapt appropriately?",
+              "Continues the superseded answer"
+            ],
+            [
+              "Backchannel",
+              "Does a short acknowledgement change intent?",
+              "Treats agreement as a new instruction"
+            ],
+            [
+              "Correction",
+              "Is the corrected detail retained?",
+              "Repeats the earlier detail"
+            ],
+            [
+              "Silence",
+              "Can the user pause to think?",
+              "Unwanted completion or pressure"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "Local operation and access need verification",
+        "content": "A hardware statement is not a memory specification, installation guide or guarantee for every computer with the same chip family. Before downloading anything, follow the official distribution route and confirm the exact supported package, memory needs and license. Do not assume Windows, a smaller Mac or an API account is supported merely because another speech model works there. Keep private recordings off unknown mirrors."
+      },
+      {
+        "heading": "Expressiveness is not judgment",
+        "content": "A sympathetic tone can make uncertain content sound more trustworthy. Keep high-stakes decisions outside an informal conversational experiment and verify factual claims independently. For voice testing, obtain consent from everyone recorded and decide where recordings will be stored and deleted. A local inference path may reduce one kind of data transfer, but it does not by itself describe diagnostics, download services or any connected product's privacy practices."
+      },
+      {
+        "heading": "Choose the right voice task",
+        "content": "Scripted narration, transcription and open-ended conversation have different success criteria. If you need an exact voice-over, measure pronunciation and script fidelity. If you need a conversation partner, measure interruption recovery and misunderstanding. Compare the corresponding articles in our [AI news index](/news), and resist a single ranking that merges those distinct jobs."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What is full-duplex speech AI?",
+        "answer": "It can process incoming speech while producing speech, allowing overlapping turns; useful performance depends on handling interruptions and corrections."
+      },
+      {
+        "question": "What hardware does Block mention for Dessa?",
+        "answer": "The official page states MacBook Pro M4 Max or better. FyreLinkz has not verified hardware compatibility or memory requirements."
+      },
+      {
+        "question": "Is Dessa the same as a text-to-speech narrator?",
+        "answer": "No. Block describes an interactive speech-to-speech conversation model rather than only rendering a fixed text script."
+      }
+    ]
+  },
+  {
+    "publishedAt": "2026-10-25",
+    "updatedAt": "2026-10-25",
+    "sourceCheckedAt": "2026-10-25",
+    "featured": false,
+    "imageCaption": "AI-generated FyreLinkz editorial illustration. Not a product screenshot, observed market data or independently tested model output.",
+    "category": "news",
+    "slug": "minimax-m31-flash-agent-pricing-evaluation",
+    "title": "MiniMax M3.1 Flash: agent pricing, costs and evaluation checks",
+    "description": "MiniMax M3.1 Flash's launch pricing explained with token-cost arithmetic, practical agent evaluation and checks before granting tools access.",
+    "topic": "AI agents",
+    "image": "minimax-agent-oct24-photo",
+    "imageAlt": "AI-generated editorial illustration of an amber orchestration hub connected to task panels.",
+    "eventDate": "2026-10-19",
+    "takeaway": "MiniMax M3.1 Flash targets agent and coding tasks. Compare total cost per verified outcome, including retries and tools, instead of treating the cheapest token rate as the cheapest completed job.",
+    "sources": [
+      {
+        "publisher": "MiniMax",
+        "title": "MiniMax M3.1 Flash launch and pricing",
+        "url": "https://www.minimax.io/blog/minimax-m31f"
+      }
+    ],
+    "sections": [
+      {
+        "heading": "What MiniMax announced",
+        "content": "MiniMax introduced M3.1 Flash on October 19, 2026, describing improvements in agent workflows, coding and computer use. Its benchmark and efficiency comparisons are vendor claims, not measurements made by FyreLinkz. Hosted availability should not be confused with permission or a package for running the model on your own hardware.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "Understand the launch token rates",
+        "content": "The launch article lists $0.15 per million input tokens, $0.60 per million output tokens and $0.015 per million cached input tokens. Verify the applicable service, currency and billing terms before use; prices can change.",
+        "sourceIds": [
+          1
+        ],
+        "table": {
+          "headers": [
+            "Illustrative usage",
+            "Arithmetic",
+            "Model-token subtotal"
+          ],
+          "rows": [
+            [
+              "2M uncached input tokens",
+              "2 × $0.15",
+              "$0.30"
+            ],
+            [
+              "0.5M output tokens",
+              "0.5 × $0.60",
+              "$0.30"
+            ],
+            [
+              "Combined example",
+              "$0.30 + $0.30",
+              "$0.60 before other charges"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "Cost per completed task beats cost per token",
+        "content": "An agent can generate a cheap answer that still needs expensive repair. For an evaluation, count the entire run: unsuccessful attempts, repeated context, tool calls, external searches and human review. Divide that spend by tasks that meet a written acceptance rule. Keep cached and uncached inputs separate so a warm repeated benchmark does not stand in for a first-time customer request. The example above is arithmetic, not a usage bill or savings claim."
+      },
+      {
+        "heading": "A bounded agent trial",
+        "content": "Choose a public repository and a small documentation task with a checklist. Start read-only: the output should cite exact files and propose a patch without pushing it. Evaluate correctness, irrelevant edits, missing evidence and whether the agent respects its allowed tools. Only introduce write access after reviewing the initial behavior. For repeated trials, preserve the starting commit and prompt so changes in the environment do not masquerade as model improvements.",
+        "checklist": [
+          "Define acceptance before looking at the answer.",
+          "Save failed attempts as well as successes.",
+          "Check citations against actual files.",
+          "Record wall-clock time and reviewer minutes."
+        ]
+      },
+      {
+        "heading": "A benchmark score is not your integration",
+        "content": "A headline result depends on the task set, harness, sampling and permissions. An agent that works well in one environment may fail when your tools return different schemas or when authentication expires. Add at least one realistic recovery case to your trial, such as an unavailable file or an ambiguous requirement. Score whether the model asks for missing information rather than inventing it."
+      },
+      {
+        "heading": "Before connecting business systems",
+        "content": "Decide what the agent can read, what it can change and which actions need a human. Avoid placing unrestricted credentials into an exploratory prompt. Retain an audit record of changes and a way to roll back. Browse our [practical guides](/workflow) for adjacent workflow decisions; no single model announcement replaces integration testing."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What launch price does MiniMax list for M3.1 Flash?",
+        "answer": "The linked launch post lists $0.15 per million input, $0.60 per million output and $0.015 per million cached input tokens; confirm current billing terms."
+      },
+      {
+        "question": "Does FyreLinkz independently verify its benchmark claims?",
+        "answer": "No. Vendor claims are attributed, and the proposed trial is not a completed benchmark."
+      },
+      {
+        "question": "What should I measure for an agent?",
+        "answer": "Verified task completion, total run cost, elapsed time, failed attempts and human correction effort."
+      }
+    ]
+  },
+  {
+    "publishedAt": "2026-10-25",
+    "updatedAt": "2026-10-25",
+    "sourceCheckedAt": "2026-10-25",
+    "featured": false,
+    "imageCaption": "AI-generated FyreLinkz editorial illustration. Not a product screenshot, observed market data or independently tested model output.",
+    "category": "news",
+    "slug": "mercury3-diffusion-llm-speed-pricing-latency",
+    "title": "Mercury 3 explained: diffusion LLM speed, pricing and latency",
+    "description": "What Mercury 3's diffusion approach, 1M context and token prices mean for applications, plus a checklist separating throughput from end-to-end latency.",
+    "topic": "AI inference",
+    "image": "mercury-diffusion-oct24-photo",
+    "imageAlt": "AI-generated editorial illustration of silver and cobalt blocks resolving into ordered parallel streams.",
+    "takeaway": "Inception reports high token throughput for Mercury 3, but an application's responsiveness also depends on input processing, network delay, tool calls and output quality.",
+    "sources": [
+      {
+        "publisher": "Inception",
+        "title": "Introducing Mercury 3",
+        "url": "https://www.inceptionlabs.ai/blog/introducing-mercury-3"
+      }
+    ],
+    "sections": [
+      {
+        "heading": "What the release page reports",
+        "content": "Inception presents Mercury 3 as a diffusion-based language model. Its announcement reports 1,068 tokens per second on NVIDIA GPUs and a one-million-token context window. Those figures describe the vendor's reported conditions; FyreLinkz has not reproduced them or established throughput on a consumer graphics card.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "Separate ordinary pricing from a launch offer",
+        "content": "The announcement lists $0.20 per million input tokens and $0.70 per million output tokens. It also advertises a 50% launch discount. Treat the discount as an offer to verify, not a permanent rate. At the listed non-discounted rates, one million input plus one million output tokens totals $0.90 before any other charges.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "Throughput does not equal response time",
+        "content": "Output tokens per second is only one component of an interaction. A long prompt can take time to process, and an agent can spend most of a task waiting for tools. Streaming behavior also affects how soon a person sees something useful. Record the first useful response, completion time and full task duration separately.",
+        "table": {
+          "headers": [
+            "Measure",
+            "What it answers",
+            "What it misses"
+          ],
+          "rows": [
+            [
+              "Output throughput",
+              "How quickly output is emitted under stated conditions",
+              "Input delay and correctness"
+            ],
+            [
+              "Time to first useful response",
+              "When the user can start acting",
+              "Whether the full answer finishes well"
+            ],
+            [
+              "End-to-end task time",
+              "How long the actual workflow takes",
+              "Why the run was slow"
+            ],
+            [
+              "Accepted outcome cost",
+              "What usable work costs",
+              "Whether another workload behaves similarly"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "A fair evaluation for your application",
+        "content": "Select a fixed set of representative inputs and a written answer rubric. Keep tool access, output limits and retries equal across candidates. Include a short request, a longer context task and a tool-dependent workflow rather than extrapolating from one favorable case. Save quality failures even when they arrive quickly. Report hardware or service endpoint, date and concurrent workload alongside timing so others can interpret the result."
+      },
+      {
+        "heading": "Context size is a ceiling to investigate",
+        "content": "A large context allowance does not prove reliable retrieval from every part of a document collection. Put a known answer near the beginning, middle and end of your test material. Add a contradictory document and require dated source citations. Measure whether the system notices uncertainty and preserves the relevant version. This is a proposed protocol; it does not establish Mercury 3's accuracy on those tests."
+      },
+      {
+        "heading": "Choose by workload",
+        "content": "A low-latency assistant and a batch report generator may need different trade-offs. Compare the cost of reviewed outcomes rather than choosing from a speed headline alone. Our [news index](/news) contains related agent and local-model coverage. Verify access and current terms with Inception before building an integration; an API launch does not establish downloadable model weights."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is Mercury 3's reported 1,068 tokens per second an independent FyreLinkz test?",
+        "answer": "No. It is a figure reported by Inception under its stated conditions."
+      },
+      {
+        "question": "What are the listed non-discounted token rates?",
+        "answer": "The announcement lists $0.20 per million input and $0.70 per million output tokens, with a separate launch discount."
+      },
+      {
+        "question": "Does a 1M context window guarantee perfect document recall?",
+        "answer": "No. Test retrieval, conflicting evidence and citation accuracy on representative documents."
+      }
+    ]
+  },
+  {
+    "publishedAt": "2026-10-25",
+    "updatedAt": "2026-10-25",
+    "sourceCheckedAt": "2026-10-25",
+    "featured": false,
+    "imageCaption": "AI-generated FyreLinkz editorial illustration. Not a product screenshot, observed market data or independently tested model output.",
+    "category": "finance",
+    "slug": "inflation-savings-fd-stock-market-falls-gold-india",
+    "title": "Inflation and savings: FDs, stock-market falls and gold in India",
+    "description": "Compare savings accounts, bank FDs, shares and gold during inflation and market falls. Understand real returns, liquidity, DICGC cover and metals risk.",
+    "topic": "Savings and inflation",
+    "image": "inflation-savings-oct24-photo",
+    "imageAlt": "AI-generated editorial illustration of a savings notebook, coins, gold and silver on an ivory desk.",
+    "takeaway": "Match money to the date you need it. Inflation, bank failure risk, market volatility and metals prices are different risks; no single asset removes them all.",
+    "sources": [
+      {
+        "publisher": "DICGC",
+        "title": "A guide to deposit insurance",
+        "url": "https://www.dicgc.org.in/guide-to-deposit-insurance"
+      },
+      {
+        "publisher": "Investor.gov",
+        "title": "Asset allocation, diversification and rebalancing",
+        "url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/asset-allocation"
+      },
+      {
+        "publisher": "CFTC",
+        "title": "Gold is no safe investment",
+        "url": "https://www.cftc.gov/LearnAndProtect/AdvisoriesAndArticles/gold_is_no_safe_investment.htm"
+      }
+    ],
+    "sections": [
+      {
+        "heading": "Start with the purpose of the money",
+        "content": "An emergency reserve, a bill due next year and a retirement goal are different decisions. Write the amount, deadline and acceptable shortfall for each before comparing products. This India-focused article is general financial education, not a crash forecast, current rate table or personalized allocation. An alarming headline is not enough evidence to move all savings into one product."
+      },
+      {
+        "heading": "Inflation changes purchasing power",
+        "content": "The exact inflation-adjusted return is (1 + nominal return) / (1 + inflation) − 1. In a hypothetical year with a 7% nominal return and 5% inflation, the real return is about 1.90% before tax. If an illustrative effective tax of 20% applied to all interest, the nominal return would be 5.6% and the real return about 0.57%. These are teaching assumptions, not current rates or a statement of your tax treatment. Compare after-tax proceeds and actual charges for your circumstances."
+      },
+      {
+        "heading": "Savings accounts and FDs solve different access needs",
+        "content": "Compare a bank's current product terms, maturity date, premature withdrawal rules and renewal instructions. A quoted annual rate alone does not tell you whether money will be accessible when a bill arrives. Keep written records of maturity instructions and nominees where applicable. Do not assume a corporate deposit has the same protection as an insured bank deposit.",
+        "table": {
+          "headers": [
+            "Question",
+            "Savings account",
+            "Bank fixed deposit"
+          ],
+          "rows": [
+            [
+              "Access",
+              "Check withdrawal and balance rules",
+              "Check maturity and early-exit terms"
+            ],
+            [
+              "Rate risk",
+              "Rate may change",
+              "Check contracted rate and reinvestment at maturity"
+            ],
+            [
+              "Net proceeds",
+              "Include tax and fees",
+              "Include tax and any early-exit penalty"
+            ],
+            [
+              "Protection",
+              "Confirm insured bank and capacity",
+              "Combine eligible balances at the same bank"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "DICGC cover is not per FD",
+        "content": "DICGC covers eligible deposits up to ₹5 lakh per depositor per bank in the same right and capacity, including principal and interest. Eligible savings and FD balances at the same bank are aggregated. For example, ₹4.7 lakh principal plus ₹50,000 interest totals ₹5.2 lakh, so do not assume all of it falls within the ceiling. The guide excludes NBFC deposits, mutual funds, stocks, bonds and ETFs. Check eligibility and the applicable account capacity directly.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "A market fall is not a reliable timing signal",
+        "content": "Investor.gov describes asset allocation in relation to time horizon and risk tolerance and explains that diversification does not guarantee against loss. That framework helps distinguish money needed soon from money intended for a longer horizon. A stock-market decline can continue; waiting for an exact bottom can also fail. Before reacting, check whether your goal, debt obligations or ability to bear a loss has actually changed. This article does not recommend a stock, fund or trade.",
+        "sourceIds": [
+          2
+        ]
+      },
+      {
+        "heading": "Gold and silver can fall too",
+        "content": "The CFTC warns that precious metals are not risk-free and highlights price volatility and fraud risk. Physical metals also involve dealer spreads, storage, purity and selling costs. A fund adds its own expense and structure considerations. A belief that metals protect against inflation is not a guarantee over your particular holding period. Compare the final buy-and-sell costs, not just a displayed spot price, and avoid promises of assured returns.",
+        "sourceIds": [
+          3
+        ]
+      },
+      {
+        "heading": "A simple decision checklist",
+        "content": "List upcoming cash needs separately from long-term goals. Gather actual account and product terms. Calculate an after-tax example using assumptions you understand. Check the insured bank and aggregate balances. Consider whether any decision concentrates risk instead of reducing it. If the consequences are substantial or the tax treatment is unclear, seek advice from an appropriately qualified professional rather than relying on a general article.",
+        "checklist": [
+          "Keep required near-term spending visible.",
+          "Check deposit protection rather than assuming it.",
+          "Record fees, withdrawal restrictions and tax assumptions.",
+          "Avoid borrowed-money bets on a crash or metals rally."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Does every FD receive separate ₹5 lakh insurance?",
+        "answer": "No. DICGC aggregates eligible deposits per depositor per bank in the same right and capacity, including principal and interest."
+      },
+      {
+        "question": "Can a positive FD return still lose purchasing power?",
+        "answer": "Yes. Inflation and applicable taxes or charges can reduce the purchasing power of the proceeds."
+      },
+      {
+        "question": "Are gold and silver guaranteed protection during a crash?",
+        "answer": "No. Metals prices can fall and ownership involves costs and risks."
+      },
+      {
+        "question": "Is this a prediction of a stock-market crash?",
+        "answer": "No. It is an educational comparison of risks, liquidity and purchasing power, without a market-timing forecast."
+      }
+    ]
+  },
+  {
+    "category": "news",
+    "publishedAt": "2026-10-25",
+    "updatedAt": "2026-10-25",
+    "sourceCheckedAt": "2026-10-25",
+    "featured": false,
+    "imageCaption": "Original FyreLinkz technical illustration. Conceptual artwork, not a screenshot, model output or independent test result.",
+    "slug": "fibo2-dev-image-editing-vgl-license",
+    "title": "Fibo 2.0 Dev: image editing, VGL prompts and commercial limits",
+    "description": "Understand Fibo 2.0 Dev versus Edit Turbo, structured VGL prompts, masked edits and BRIA's non-commercial weight license before choosing a workflow.",
+    "topic": "AI image editing",
+    "image": "fibo2-oct25-photo",
+    "imageAlt": "Layered image-editing panels with control marks in an original technical illustration.",
+    "takeaway": "Fibo 2.0 Dev combines generation and editing with structured captions. Test preservation outside the edit and check the license: downloadable weights do not grant unrestricted commercial use.",
+    "sources": [
+      {
+        "publisher": "BRIA",
+        "title": "Fibo 2.0 Dev model card",
+        "url": "https://huggingface.co/briaai/Fibo-2.0-dev"
+      }
+    ],
+    "sections": [
+      {
+        "heading": "What Fibo 2.0 Dev adds",
+        "content": "BRIA describes an 8B model for generation and editing, including masks and multiple references, controlled through Visual GenAI Language captions. Dev is the full base checkpoint; Edit Turbo is a separate distilled variant. The card lists conversational multi-turn editing among forthcoming additions, so do not treat every roadmap item as a shipped local feature.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "Start with a written edit brief",
+        "content": "For an editorial trial, photograph an object you own against a plain background. Specify one permitted change, such as replacing a label color. Identify protected details: silhouette, small lettering, shadows and camera angle. Compare the entire before-and-after frame, rather than judging only the edited object. A persuasive change can still fail if it quietly alters packaging text or makes an otherwise usable product photograph inaccurate. Keep the original, including the unedited regions."
+      },
+      {
+        "heading": "Structured control still needs visual verification",
+        "content": "Keep the source image, instruction, expanded caption and every output. Change one attribute at a time so that a failed edit has a traceable cause. When using references, state which relationship should transfer and which details must remain unchanged. Inspect small text at delivery resolution. A clear prompt is an inspectable intention; it does not prove the pixels obey it. Record rejected attempts instead of removing them from the comparison."
+      },
+      {
+        "heading": "Compare variants on completed work",
+        "content": "Use identical tasks and count all attempts. Record setup separately from generation, then include manual cleanup in cost per approved asset. Try a masked replacement, a material change and a composition using several references. Choose the variant that meets your acceptance rules consistently. The full checkpoint is not automatically the better production choice, and a fast preview is not necessarily a final deliverable. Set the acceptance criteria before viewing outputs."
+      },
+      {
+        "heading": "Commercial permissions and prompt services differ",
+        "content": "The card specifies CC BY-NC 4.0 for non-commercial use and a BRIA agreement for commercial use. Its bria-vgl example uses Gemini, adding a service dependency. Verify hosted-endpoint terms separately from downloadable weights. BRIA's licensed-training-data statement is a publisher claim, not a substitute for reviewing input rights or the intended use.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "A useful first decision",
+        "content": "Run a small, permissioned evaluation before integrating an editor into a catalog pipeline. Check how the service handles uploaded assets and whether your captioning stage sends them elsewhere. If the task is reliable compositing rather than generation, compare a conventional masked edit on the same brief. This article is a source-based workflow analysis; FyreLinkz has not independently benchmarked either checkpoint. Any future results should include settings, failures and the complete approval process."
+      },
+      {
+        "heading": "Make approval criteria explicit",
+        "content": "For a small shop, the acceptance sheet might ask whether a product name stayed exact, whether the background has visible seams and whether the result remains consistent with the original object. Have another person review without seeing which variant produced each image. Note where reviewers disagree instead of converting subjective preference into a fake accuracy percentage. Keep approval and rights review separate: a visually successful asset can still be unsuitable for the intended commercial use."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Are Fibo 2.0 Dev weights unrestricted commercially?",
+        "answer": "No. The linked card specifies non-commercial use and says commercial use requires an agreement with BRIA."
+      },
+      {
+        "question": "Is Dev the same as Edit Turbo?",
+        "answer": "No. Dev is the full base checkpoint; Edit Turbo is a separate distilled editing variant."
+      },
+      {
+        "question": "Does a structured prompt guarantee exact edits?",
+        "answer": "No. Inspect the requested change and untouched regions, retaining sources, prompts and every output."
+      }
+    ]
+  },
+  {
+    "category": "news",
+    "publishedAt": "2026-10-25",
+    "updatedAt": "2026-10-25",
+    "sourceCheckedAt": "2026-10-25",
+    "featured": false,
+    "imageCaption": "Original FyreLinkz technical illustration. Conceptual artwork, not a screenshot, model output or independent test result.",
+    "slug": "hy-nomas-interactive-world-generation-setup",
+    "title": "Hy-Nomas: interactive world generation and local setup checks",
+    "description": "Tencent's Hy-Nomas supports text and camera-controlled video worlds. Review model assets, Linux dependencies, low-memory configuration and consistency tests.",
+    "topic": "World models",
+    "image": "hy-nomas-oct25-photo",
+    "imageAlt": "An original technical illustration of a gridded landscape surface for interactive world generation.",
+    "takeaway": "Hy-Nomas exposes multi-turn text and camera control. Its low-memory path is a specific configuration, not proof that every consumer GPU can run the complete workflow.",
+    "sources": [
+      {
+        "publisher": "Tencent",
+        "title": "Hy-Nomas project website",
+        "url": "https://hy-nomas.hy.tencent.com/"
+      },
+      {
+        "publisher": "Tencent Hunyuan",
+        "title": "Hy-Nomas source and deployment documentation",
+        "url": "https://github.com/Tencent-Hunyuan/Hy-Nomas"
+      }
+    ],
+    "sections": [
+      {
+        "heading": "What Tencent released",
+        "content": "Hy-Nomas is an interactive video world-generation project with multi-turn prompts and camera control. Its repository includes training, inference, a demo and data-preparation code. Downloadable assets include generation checkpoints, decoders, adapters and a prompt-enhancement component rather than one self-contained file. Segment-wise generation retains history; the low-memory configuration instead bounds retained context.",
+        "sourceIds": [
+          1,
+          2
+        ]
+      },
+      {
+        "heading": "A camera move tests more than a beautiful frame",
+        "content": "Our proposed trial starts with a simple room and three recognizable objects. Move past one object, turn away, then return. Compare its position, shape and relationship to the others. Repeat the instruction sequence across runs and retain failures. This tests the intended navigation task. A coherent opening frame cannot establish persistent memory, and a convincing camera turn cannot prove the scene remains consistent after several turns."
+      },
+      {
+        "heading": "Map dependencies before downloading",
+        "content": "Tencent recommends a packaged Docker environment on a compatible Linux/NVIDIA host and documents a manual CUDA setup. A single-RTX-4090 low-memory configuration uses quantized components and a sliding history window. Treat that as a publisher-documented path, not an independently measured minimum. Preserve model directory structure and match every configured artifact path; a missing decoder cannot be repaired by rewriting a prompt.",
+        "sourceIds": [
+          2
+        ]
+      },
+      {
+        "heading": "Separate control, consistency and throughput",
+        "content": "Control means a requested movement or world change happens. Consistency means existing details survive that change. Throughput means the configured machine produces usable segments at the required pace. Record generation, decoding and queue time separately. A fast generator can still feel unresponsive if decoding stalls. Keep accepted and rejected turns, then judge the complete session rather than presenting its strongest isolated segment."
+      },
+      {
+        "heading": "Fine-tuning and a web demo are different workloads",
+        "content": "Do not estimate training feasibility from one inference run. Reproduce a documented inference path first, confirming expected files and outputs. A hosted demonstration also needs session limits, memory accounting and recovery after a failed turn. Use non-sensitive test uploads and inspect server logging. Set a fixed session budget before exposing the interface. A research demo does not become a reliable public service simply because its port is reachable."
+      },
+      {
+        "heading": "License and evaluation limits",
+        "content": "The repository identifies Apache-2.0 for Hy-Nomas and retains applicable third-party terms. Check those dependencies before redistributing a bundle. No hardware or performance result here is a FyreLinkz measurement. Use the supplied configuration as a reproducible starting point and publish actual settings alongside future comparisons. Report which history limits were used, because bounding memory can change the very consistency behavior that the evaluation is meant to examine.",
+        "sourceIds": [
+          2
+        ]
+      },
+      {
+        "heading": "Keep a session ledger",
+        "content": "A session record should pair each instruction with the preceding state, the returned segment and a short human assessment. Mark whether the user asked for camera motion or a change to world contents; otherwise a model might appear responsive while solving a different problem. If a retry restarts history, label it as a new session. This simple ledger makes a later comparison more informative than a montage that hides abandoned turns."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Does Hy-Nomas support camera control?",
+        "answer": "Yes. Tencent documents camera-controlled generation alongside multi-turn text prompts."
+      },
+      {
+        "question": "Will it run on any laptop GPU?",
+        "answer": "That is not established. The repository documents a specific RTX 4090 low-memory configuration."
+      },
+      {
+        "question": "Does inference feasibility prove training feasibility?",
+        "answer": "No. Training, inference and a multi-user demo need separate memory and throughput assessments."
+      }
+    ]
+  },
+  {
+    "category": "news",
+    "publishedAt": "2026-10-25",
+    "updatedAt": "2026-10-25",
+    "sourceCheckedAt": "2026-10-25",
+    "featured": false,
+    "imageCaption": "Original FyreLinkz technical illustration. Conceptual artwork, not a screenshot, model output or independent test result.",
+    "slug": "hi3d1-sparc3d-geometry-refinement-license",
+    "title": "Hi3D 1.0: mesh refinement, GPU requirements and license scope",
+    "description": "Hi3D 1.0 refines a coarse mesh using a reference image. Separate v3 texture claims from the 1.0 release, GPU requirements and custom license.",
+    "topic": "AI 3D",
+    "image": "hi3d1-oct25-photo",
+    "imageAlt": "An original technical illustration of a curved mesh and its connected vertices.",
+    "takeaway": "Hi3D 1.0 is an image-conditioned geometry-refinement release. Supply a coarse mesh and review the GPU stack and custom license before planning an asset pipeline.",
+    "sources": [
+      {
+        "publisher": "Hi3D",
+        "title": "Hi3D 1.0 announcement",
+        "url": "https://www.hi3d.ai/hi3d-1-0-open-source"
+      },
+      {
+        "publisher": "Hi3D",
+        "title": "Hi3D v1.0 inference repository",
+        "url": "https://github.com/hi3d-official/Hi3Dv1.0"
+      }
+    ],
+    "sections": [
+      {
+        "heading": "What the 1.0 release does",
+        "content": "The repository describes refining a coarse mesh using a reference image of the same object. It provides inference code and artifacts, not training code or an evaluation harness. Output is geometry only. The announcement separately promotes v3.0; its texture and resolution claims must not be attributed to the 1.0 download.",
+        "sourceIds": [
+          1,
+          2
+        ]
+      },
+      {
+        "heading": "Choose a mesh with known defects",
+        "content": "For an editorial evaluation, choose an object you can inspect from several directions. Keep a source mesh with clearly identified defects and a matching photograph. Mark which defects should improve and which structural properties must survive. Review hidden angles as well as the reference angle. A convincing silhouette can conceal invented cavities, disconnected surfaces or unstable thin parts. The baseline mesh should remain available for an honest comparison."
+      },
+      {
+        "heading": "GPU feasibility needs more than file size",
+        "content": "Hi3D documents Linux, CUDA and NVIDIA kernel dependencies, with no CPU inference path. Its measured high-resolution stack used a 96 GB H20; feasibility on smaller GPUs is not established there. Nominal sparse extraction grids reach 1536 cubed. Output is normalized, so original world coordinates and absolute scale are not retained. These are integration constraints even when visible geometry looks promising.",
+        "sourceIds": [
+          2
+        ]
+      },
+      {
+        "heading": "Assess downstream usability separately",
+        "content": "Inspect surface normals, disconnected components, narrow gaps and the effect of conversion or simplification. A game asset, a visualization and a manufacturing workflow have different acceptance rules. Define those before generating results. Do not equate nominal extraction resolution with dimensional accuracy or clean topology. Add cleanup time to your assessment and retain the version that actually passes the destination application's checks, rather than the most detailed render."
+      },
+      {
+        "heading": "Reproducibility means retaining the configuration",
+        "content": "Save the input mesh, reference image, artifact revision, resolution, seed, scheduler settings and runtime versions. Compare meshes geometrically rather than expecting identical files from a seed. Keep warnings and failed requests. When a requested resolution cannot be reached, investigate the reported condition rather than presenting a lower-resolution mesh as though it met the brief. Photographing the final render alone leaves too little evidence for another user to reproduce the result."
+      },
+      {
+        "heading": "Review the custom license by component",
+        "content": "Hi3D-owned materials use the Hi3D Open License Agreement 1.0 while original and third-party portions retain applicable terms. Do not describe the whole bundle as unrestricted Apache software. Check the agreement and dependency notices for the exact distribution or hosted service you intend. This explanation contains no independent mesh benchmark, memory measurement or legal determination. Its practical recommendation is to verify one complete input-to-export path before committing to production.",
+        "sourceIds": [
+          2
+        ]
+      },
+      {
+        "heading": "Use an export acceptance sheet",
+        "content": "Before a larger trial, open one exported mesh in the exact destination application. Check orientation, unit assumptions, object count and whether a downstream modifier behaves as expected. Save screenshots of both successful and failed imports. If manual repair is required, include that effort in the workflow comparison. This does not establish engineering fitness or manufacturing safety; those require their own domain-specific checks and should never be inferred from surface detail."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Does Hi3D 1.0 generate textures?",
+        "answer": "The official inference repository describes geometry-only output without textures, materials or vertex colors."
+      },
+      {
+        "question": "Does the core pipeline need a coarse mesh?",
+        "answer": "Yes. It takes a reference image and a coarse mesh; a coarse generator is a separate step."
+      },
+      {
+        "question": "Can v3.0 claims be applied to version 1.0?",
+        "answer": "No. Use version-specific documentation for the downloadable 1.0 release."
+      }
+    ]
+  },
+  {
+    "category": "news",
+    "publishedAt": "2026-10-25",
+    "updatedAt": "2026-10-25",
+    "sourceCheckedAt": "2026-10-25",
+    "featured": false,
+    "imageCaption": "Original FyreLinkz technical illustration. Conceptual artwork, not a screenshot, model output or independent test result.",
+    "slug": "pure-unlabeled-video-3d-reconstruction",
+    "title": "PURE: unlabeled-video post-training for dynamic 3D reconstruction",
+    "description": "PURE refines Pi3, DA3 and VGGT with unlabeled video. Understand offline demo limits, temporal reconstruction and a practical geometry evaluation.",
+    "topic": "AI 3D reconstruction",
+    "image": "pure3d-oct25-photo",
+    "imageAlt": "An original technical illustration of connected 3D reconstruction points across a curved surface.",
+    "takeaway": "PURE refines reconstruction through unlabeled-video post-training. Its long demonstration is offline accumulation, not evidence of a live causal reconstruction system.",
+    "sources": [
+      {
+        "publisher": "PURE researchers",
+        "title": "PURE method and demo provenance",
+        "url": "https://funnyguy525.github.io/PURE-Page/"
+      }
+    ],
+    "sections": [
+      {
+        "heading": "What PURE changes",
+        "content": "PURE uses unlabeled videos to post-train feed-forward 3D reconstruction models. Its complementary cues include monocular depth, dynamic masks and cross-frame matches, applied to Pi3, Depth Anything 3 and VGGT. The project links code, weights and a Studio demo. This is reconstruction from observed scenes, not world generation from a text prompt.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "Read the demonstration's operating conditions",
+        "content": "The showcased 2,000-frame reconstruction combines overlapping clips offline. The authors distinguish it from live causal reconstruction and acknowledge seams and moving-subject ghosting. Smooth playback is a presentation of results, not a measurement of processing incoming frames. Keep playback speed, inference speed and latency separate. The transparency about remaining defects is useful evidence when deciding what to test on your own footage.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "Design a motion-sensitive comparison",
+        "content": "Our proposed evaluation uses a stationary camera, a moving camera and a moving subject as separate cases. Include repeated views of a surface with known texture and shape. Check spatial position when the subject moves or becomes occluded. Retain input video and settings so later results use the same observation, rather than a more favorable clip. Start short enough that a person can inspect every frame and identify where the first failure appears."
+      },
+      {
+        "heading": "Inspect geometry instead of only the fly-through",
+        "content": "A rendered camera path can make noisy geometry appear stable. Inspect overhead views and regions around thin or reflective objects. Look for doubled surfaces, trails and background drift. Separate foreground motion errors from static-scene misalignment. Decide which defects block the intended task; tolerances for an illustrative visualization differ from measurement or navigation. Keep close-up views of failures alongside the overall reconstruction."
+      },
+      {
+        "heading": "Compare backbones with a fixed budget",
+        "content": "Use identical frames, resolution and hardware when comparing a baseline with a post-trained version. Record preprocessing and export time alongside inference. Check whether one setup receives extra masks, frames or information that the other lacks. A useful report retains failed clips and memory use. One selected scene cannot establish a broad improvement across your own recordings. Plan the test set before seeing which scenes produce attractive results."
+      },
+      {
+        "heading": "An honest first use",
+        "content": "Begin with a short, non-sensitive clip and a documented checkpoint. Confirm that the workflow exports usable geometry before attempting a long video. Review code, model and input-media terms separately; a project page does not automatically grant reuse rights over its demonstration footage. FyreLinkz has not run an independent reconstruction benchmark. These are proposed evaluation methods, and a future test should publish configuration, processing times and rejected outputs rather than implying the demo is a measured production service."
+      },
+      {
+        "heading": "Keep capture conditions comparable",
+        "content": "Record whether footage contains motion blur, exposure changes, repeated textures or cuts, and use the same preprocessing for every model in the trial. Those conditions can explain a reconstruction failure more directly than the model name alone. If footage must be excluded, document the rule before selecting examples. An honest evaluation can conclude that the workflow is useful only within a narrow capture setup rather than presenting that setup as universal."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is PURE text-to-3D generation?",
+        "answer": "No. PURE refines feed-forward reconstruction from observed video."
+      },
+      {
+        "question": "Does the long demo prove real-time processing?",
+        "answer": "No. The project describes offline temporal accumulation rather than live causal reconstruction."
+      },
+      {
+        "question": "What should a comparison retain?",
+        "answer": "Keep identical frames, configuration, checkpoint, hardware, exports, failures and processing times."
+      }
+    ]
+  },
+  {
+    "category": "news",
+    "publishedAt": "2026-10-25",
+    "updatedAt": "2026-10-25",
+    "sourceCheckedAt": "2026-10-25",
+    "featured": false,
+    "imageCaption": "Original FyreLinkz technical illustration. Conceptual artwork, not a screenshot, model output or independent test result.",
+    "slug": "sage-a15-scientific-agent-local-deployment",
+    "title": "Sage-A1.5: scientific agents, verification and local deployment",
+    "description": "Explore Sage-A1.5's 35B MoE design, local serving paths and research evaluation without treating model benchmarks as validated scientific discoveries.",
+    "topic": "Research agents",
+    "image": "sagea15-oct25-photo",
+    "imageAlt": "An original technical illustration of an agent hub connected to five evidence nodes.",
+    "takeaway": "Sage-A1.5 combines orchestration and internal verification for research tasks. Judge delivered evidence, reproducible code and tool boundaries, not the length of its reasoning.",
+    "sources": [
+      {
+        "publisher": "Alpha-Innovator",
+        "title": "Sage-A1.5 project and serving documentation",
+        "url": "https://alpha-innovator.github.io/Sage-A1.5/"
+      },
+      {
+        "publisher": "Alpha-Innovator",
+        "title": "Sage-A1.5 local deployment showcase",
+        "url": "https://alpha-innovator.github.io/Sage-A1.5/showcases/local-deployment/index.html"
+      }
+    ],
+    "sections": [
+      {
+        "heading": "What Sage-A1.5 proposes",
+        "content": "Alpha-Innovator describes a 35B mixture-of-experts model for engineering, search and scientific tasks, with parallel orchestration and optional internal verification. The project provides SGLang and vLLM serving examples under Alpha-Innovator/Agents-A1.5. Its benchmark tables are publisher-reported evaluations, not independent FyreLinkz measurements or proof of a new scientific discovery.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "Start with inspectable evidence",
+        "content": "For a first trial, use a small public dataset and a narrowly defined question with a known baseline. Require input identification, saved analysis code and the exact files needed to reproduce the result. Ask for observations and hypotheses to be separated. A modest, reproducible result is more useful than a fluent report whose transformations and assumptions are missing. Keep the original data immutable so corrections remain traceable."
+      },
+      {
+        "heading": "Self-review is a hypothesis to test",
+        "content": "Compare the same task with internal verification enabled and disabled under similar budgets. Blind final review where possible and score factual support, calculation accuracy and disclosure of failures. More self-critical prose is not a successful correction. The meaningful event is a verifiable error detected and repaired without introducing another unsupported claim. Check whether revisions improve the final artifact rather than merely increasing its length."
+      },
+      {
+        "heading": "Local serving is one part of the system",
+        "content": "The deployment showcase describes 35B total and 3B active parameters and several hardware routes. Its long-context setting is a configuration, not a minimum-memory guarantee. Active parameter count does not mean only those weights need memory. Measure complete runtime requirements, including context cache and tools, before promising workstation specifications or simultaneous-user capacity. Check the exact artifact and runtime version used.",
+        "sourceIds": [
+          2
+        ]
+      },
+      {
+        "heading": "Keep agent powers aligned with the task",
+        "content": "Begin with read-only inputs and a bounded output directory. Add tools only when needed. Separate reading public evidence from changing a repository, submitting a job or sending a message. Log tool calls and returned evidence so a reviewer can distinguish computation from an unsupported narrative that computation occurred. These are proposed workflow controls, not a claim about default deployment behavior. Set a time and token budget before starting a long investigation."
+      },
+      {
+        "heading": "Scientific usefulness has a higher bar",
+        "content": "A useful outcome may be a rejected hypothesis or a reproducible negative result. Retain it instead of selecting only dramatic conclusions. Review the exact model card and dependency terms before redistribution; this article does not certify commercial permissions. No independent model benchmark is claimed. The practical decision is whether the system makes evidence easier to audit. A later comparison should include scripts, failed attempts and the assumptions that remained unresolved."
+      },
+      {
+        "heading": "Measure the delivered work",
+        "content": "Review a saved research task using a small checklist: were all requested outputs produced, do calculations rerun, are sources traceable and are unresolved assumptions clearly marked? Include the time a person spends checking the result. Do not reward a longer answer merely because it feels comprehensive. A shorter artifact with correct inputs and executable analysis may save more work than a polished report that requires substantial reconstruction."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Can Sage-A1.5 be served locally?",
+        "answer": "The project links a model release and provides local SGLang and vLLM serving examples."
+      },
+      {
+        "question": "Does 3B active mean a 3B-sized memory requirement?",
+        "answer": "No. Total weights, context cache and runtime components also determine memory needs."
+      },
+      {
+        "question": "Does internal verification guarantee correct research?",
+        "answer": "No. Verify citations, rerun calculations and check that identified errors are actually corrected."
+      }
+    ]
+  },
+  {
+    "category": "news",
+    "publishedAt": "2026-10-25",
+    "updatedAt": "2026-10-25",
+    "sourceCheckedAt": "2026-10-25",
+    "featured": false,
+    "imageCaption": "Original FyreLinkz technical illustration. Conceptual artwork, not a screenshot, model output or independent test result.",
+    "slug": "ming3-tts-voice-design-local-setup",
+    "title": "Ming 3.0 TTS: voice design, cloning and local setup checks",
+    "description": "Compare Ming 3.0 TTS 0.5B and Tiny, understand separate speech task modes, and plan a pronunciation and voice-permission check before local deployment.",
+    "topic": "AI voice",
+    "image": "ming3-oct25-photo",
+    "imageAlt": "Two stylized audio waveforms in an original Ming 3.0 TTS technical illustration.",
+    "takeaway": "Ming 3.0 TTS provides open-weight voice design and controlled speech. Choose the task first: supported controls are not freely interchangeable, and Tiny's podcast support does not imply that the 0.5B model has it.",
+    "sections": [
+      {
+        "heading": "What Ming 3.0 TTS offers",
+        "content": "InclusionAI's release includes a 0.5B dense model and Tiny, a mixture-of-experts model with 7.9B total and 1.3B active parameters. The project supports voice design, cloning, free-form performance direction and paralinguistic tags. Tiny additionally supports multi-speaker podcast generation. The repository carries an MIT license and reports an October 2026 release.",
+        "sourceIds": [
+          1,
+          2
+        ]
+      },
+      {
+        "heading": "Choose a task before writing a prompt",
+        "content": "The cookbook separates cloning, multilingual generation, free-form direction, emotion, dialect and other controls. It explicitly rejects arbitrary combinations. Seven supported languages are Chinese, English, Japanese, Korean, French, German and Spanish; Cantonese and Sichuanese use their own dialect mode. This distinction matters more than a broad list of features when a production request fails.",
+        "sourceIds": [
+          1,
+          2
+        ]
+      },
+      {
+        "heading": "A repeatable pronunciation test",
+        "content": "Our suggested first evaluation uses an original forty-word script containing a date, a decimal, a name and a short abbreviation. Keep the text unchanged across three takes. Have a listener transcribe the clips without seeing your prompt, then compare the transcription with the intended script. Mark omissions and substitutions separately from accent preferences. A pleasant voice can still read a crucial number incorrectly. This is an evaluation plan, not a listening test we have completed."
+      },
+      {
+        "heading": "Keep the two installation environments separate",
+        "content": "The repository documents distinct dependency environments for 0.5B and Tiny and provides preflight tools that inspect checkpoints without loading their weights. Its reference hardware includes high-memory NVIDIA accelerators; those examples do not establish a consumer-GPU minimum. Start with the chosen model's documented environment rather than mixing dependencies from both variants.",
+        "sourceIds": [
+          2
+        ]
+      },
+      {
+        "heading": "Check permission, timing and editing effort",
+        "content": "Use your own voice or a voice for which you have clear permission. Record the permitted purpose, reference recording and whether generated clips may be shared. For a narration job, measure the time spent correcting pronunciation, removing unwanted sounds and joining takes. Total production time includes those edits, not only inference. For short announcements, one misread unit may matter more than an overall naturalness score. Keep rejected clips so cost and effort are not understated."
+      },
+      {
+        "heading": "When Ming belongs in a workflow",
+        "content": "Pick one measurable goal: accurate product names, consistent character delivery or a permitted multilingual voice. Save the model revision, task, text and controls with the accepted audio. Do not infer that a model-size label predicts latency on your machine. Compare the same finished deliverable with our [speech workflow guide](/news/elevenlabs-v4-turbo-speech-workflow), and keep transcription needs separate from speech generation."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "InclusionAI",
+        "title": "Ming 3.0 TTS project and task demonstrations",
+        "url": "https://nomorecoding.github.io/Ming-3.0-tts/"
+      },
+      {
+        "publisher": "InclusionAI",
+        "title": "Ming 3.0 TTS repository, cookbook and environments",
+        "url": "https://github.com/inclusionAI/Ming-3.0-tts"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Does Ming 3.0 TTS Tiny mean 1.3B weights?",
+        "answer": "No. The project reports 7.9B total parameters and 1.3B activated parameters for Tiny; active parameters do not describe the full checkpoint size."
+      },
+      {
+        "question": "Can every voice control be combined?",
+        "answer": "No. The cookbook defines separate tasks and supported inputs. Check the selected task rather than combining controls arbitrarily."
+      },
+      {
+        "question": "Has FyreLinkz tested Ming 3.0 TTS on a consumer GPU?",
+        "answer": "No. This source-based guide provides an evaluation plan and does not claim independent audio quality or hardware measurements."
+      }
+    ]
+  },
+  {
+    "category": "news",
+    "publishedAt": "2026-10-25",
+    "updatedAt": "2026-10-25",
+    "sourceCheckedAt": "2026-10-25",
+    "featured": false,
+    "imageCaption": "Original FyreLinkz technical illustration. Conceptual artwork, not a screenshot, model output or independent test result.",
+    "eventDate": "2026-10-19",
+    "slug": "viggle-jst2-3d-world-scenes-motion",
+    "title": "Viggle JST-2: 3D scenes, characters and motion explained",
+    "description": "Understand Viggle JST-2's physics-native tokens, hosted scene and character generation, and the distinction between learned motion and rule-based collisions.",
+    "topic": "3D world models",
+    "image": "jst2-oct25-photo",
+    "imageAlt": "An original JST-2 technical illustration of a three-dimensional gridded surface.",
+    "takeaway": "Evaluate JST-2 with one room and a short motion before relying on a large world. Keep speed, asset compatibility and contact behavior as separate acceptance checks.",
+    "sections": [
+      {
+        "heading": "What Viggle announced",
+        "content": "Viggle introduced JST-2 on October 19, 2026 for scene generation, animation-ready characters and full-body motion. Access is offered through its PINOC browser experience and API or MCP connections; the announcement does not establish a downloadable local checkpoint.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "A 3D representation changes the workflow",
+        "content": "Viggle says its decoder can produce images or 3D Gaussian splats, allowing repeated local browser viewing without regenerating the scene. New content still requires model inference. The useful question for a creator is therefore not simply whether a single frame looks good. It is whether the same space remains usable when the camera moves and when a character occupies it.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "Read the speed claim with its boundary",
+        "content": "The announcement reports scene inference in about one second on an NVIDIA B200, excluding network latency. That is not a promise of one-second end-to-end generation on a laptop. In a practical trial, time submission, service response, asset preparation and first interactive frame separately. A fast backend can still feel slow if a large asset takes time to download or render.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "Test a small room before a large world",
+        "content": "Our proposed test is a simple room with a doorway, a table and one distinctive object. Write down the intended layout before generation. Inspect the room from four camera positions and note duplicated objects, blocked passages and inconsistent scale. Then add a character and a short movement. Keep scene quality and motion quality as separate acceptance decisions, so a strong animation cannot hide a broken environment."
+      },
+      {
+        "heading": "Physics-native does not mean all physics is learned",
+        "content": "The project distinguishes learned character dynamics from rule-based scene collisions and object interactions. It places learned interaction dynamics on the JST-3 roadmap. For simulation work, inspect which component actually determines contact and movement rather than interpreting the product label as a guarantee of physical correctness.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "An adoption checklist for creators",
+        "content": "Before including a generated world in a client project, check export compatibility, service terms, attribution needs and whether you can reopen the asset outside the creation session. Keep source images that you have permission to use and retain the brief with the output. For motion work, review hands, foot contact and the character's route through the scene. FyreLinkz has not independently reproduced Viggle's timing or preference studies. Our [video workflow comparison](/create/ai-video-generation-matrix-minimax-higgsfield-seedance) covers a different output decision: finished clips rather than persistent 3D worlds."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "Viggle Research",
+        "title": "Introducing Viggle JST-2",
+        "url": "https://viggle.ai/jst2"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is JST-2 only a video generator?",
+        "answer": "No. Viggle describes a shared 3D representation for scenes, characters and motion, with outputs including images and Gaussian splats."
+      },
+      {
+        "question": "Does JST-2 learn every scene interaction?",
+        "answer": "No. The announcement says scene collisions and object interactions still use rule-based physics; learned interaction dynamics are part of the JST-3 roadmap."
+      },
+      {
+        "question": "Can I assume the one-second claim is laptop latency?",
+        "answer": "No. Viggle specifies B200 model inference and excludes network latency. Measure the complete hosted workflow separately."
+      }
+    ]
+  },
+  {
+    "category": "news",
+    "publishedAt": "2026-10-25",
+    "updatedAt": "2026-10-25",
+    "sourceCheckedAt": "2026-10-25",
+    "featured": false,
+    "imageCaption": "Original FyreLinkz technical illustration. Conceptual artwork, not a screenshot, model output or independent test result.",
+    "eventDate": "2026-10-19",
+    "slug": "sky001-engineering-world-model-cad-bim",
+    "title": "SKY-001: what Skyfall's engineering world model means for CAD",
+    "description": "Examine SKY-001's engineering world model, CAD and BIM claims, waitlist access and the geometry checks needed before treating a generated design as usable.",
+    "topic": "Engineering AI",
+    "image": "sky001-oct25-photo",
+    "imageAlt": "An original SKY-001 technical illustration of connected geometry on an engineering grid.",
+    "takeaway": "SKY-001 is Skyfall's proposed engineering world model for hierarchical physical designs. Public vendor comparisons and a waitlist do not establish manufacturability or access to a production CAD tool.",
+    "sections": [
+      {
+        "heading": "What SKY-001 is designed to do",
+        "content": "Skyfall describes SKY-001 as an engineering world model that works from a prompt or image, explores possible designs, separates assemblies into parts and constructs them hierarchically. Its public page emphasizes CAD and BIM. Access is offered through a waitlist, so a launch description should not be mistaken for an immediately available public download.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "Why part relationships matter",
+        "content": "A visual concept and an engineering asset solve different problems. An attractive assembly may have intersecting parts, missing fasteners or dimensions that cannot satisfy the brief. Our suggested review starts with a bill of intended components and a list of geometric constraints. Compare the generated structure against that list before judging surface appearance. This gives a reviewer something specific to accept or reject rather than relying on a promotional rendering."
+      },
+      {
+        "heading": "Keep vendor comparisons in their lane",
+        "content": "Skyfall publishes accuracy, time and cost comparisons for its CAD and BIM tasks. Those are vendor-reported results for the stated evaluation, not FyreLinkz measurements or a universal ranking of engineering systems. A lower cost per sample also does not include every possible revision or professional review required for a finished design.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "A useful first engineering trial",
+        "content": "Begin with a non-critical object such as a desk organizer with two removable trays. Specify external dimensions, material assumptions and the clearance between parts. Request an export you can inspect in your existing software. Check units, closed surfaces, component naming and assembly order. Change one dimension and see whether dependent parts remain coherent. Save both the first output and the revision; editing behavior often reveals more than a single generation."
+      },
+      {
+        "heading": "Manufacturability is a separate decision",
+        "content": "A plausible shape does not certify tolerances, strength, thermal behavior or a manufacturing process. For a real product, a qualified reviewer still needs to check the design against its intended use. The same caution applies to building models: visual continuity is not evidence that a layout satisfies structural or regulatory requirements. This guide makes no claim that SKY-001 has passed those checks."
+      },
+      {
+        "heading": "What to ask before joining a pilot",
+        "content": "Ask which file formats are supported, whether geometry remains editable, what happens to uploaded designs, and how revisions are charged. Clarify whether a demonstration uses the same access tier offered to participants. Keep confidential customer drawings out of an unreviewed pilot. For now, the practical opportunity is to evaluate hierarchical design assistance when access arrives, while preserving a clear boundary between concept generation and approved engineering work."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "Skyfall AI",
+        "title": "SKY-001 engineering world model and access",
+        "url": "https://skyfall.ai/sky-001"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Can anyone download SKY-001 now?",
+        "answer": "The reviewed official page offers a waitlist. It does not establish a public local checkpoint download."
+      },
+      {
+        "question": "Does a generated CAD assembly prove manufacturability?",
+        "answer": "No. Geometry, tolerances, material assumptions and the intended manufacturing process require separate review."
+      },
+      {
+        "question": "Are the speed and cost comparisons independent FyreLinkz tests?",
+        "answer": "No. They are Skyfall's published comparisons; FyreLinkz has not reproduced them."
+      }
+    ]
+  },
+  {
+    "category": "news",
+    "publishedAt": "2026-10-25",
+    "updatedAt": "2026-10-25",
+    "sourceCheckedAt": "2026-10-25",
+    "featured": false,
+    "imageCaption": "Original FyreLinkz technical illustration. Conceptual artwork, not a screenshot, model output or independent test result.",
+    "slug": "memt10-native-memory-flash-nano-agents",
+    "title": "MemT 1.0: native memory, Flash versus Nano and agent checks",
+    "description": "Understand MemTensor's MemT 1.0 native-memory models, Flash and Nano differences, saved memory states and a practical test for reliable agent recall.",
+    "topic": "Agent memory",
+    "image": "memt10-oct25-photo",
+    "imageAlt": "Four stacked memory panels in an original MemT 1.0 technical illustration.",
+    "takeaway": "MemT 1.0 integrates persistent memory into model computation. Its own model card says strong text-memory systems still lead overall on detailed retrieval; native memory is not a guarantee of exact recall.",
+    "sections": [
+      {
+        "heading": "What MemT 1.0 changes",
+        "content": "MemTensor describes MemT 1.0 as a model family combining dynamic local memory with trainable hyper memory. The intent is to use historical information without repeatedly supplying the original conversation text. Its model cards document creating a memory-enabled session, saving its state and resuming a conversation from that state.",
+        "sourceIds": [
+          1,
+          2
+        ]
+      },
+      {
+        "heading": "Flash and Nano are different deployments",
+        "content": "The family table lists Nano at 36B total and 3B activated parameters, and Flash at 288B total and 17B activated parameters. The reviewed Flash card specifies MIT licensing; Nano specifies Apache 2.0. These are separate artifacts, so check the chosen repository's license and runtime rather than applying one family's label to every file.",
+        "sourceIds": [
+          1,
+          2
+        ]
+      },
+      {
+        "heading": "Compression does not promise perfect retrieval",
+        "content": "The project reports a fixed-size persistent state and a storage reduction relative to full-context KV cache at a stated history length. It also says strong textual-memory systems remain ahead overall when long histories need detailed evidence retrieval. That limitation is important: memory efficiency and faithful quotation are different objectives.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "Test corrections, not only easy recall",
+        "content": "Our proposed evaluation starts with ten harmless fictional facts. Ask for them immediately, then after several unrelated turns, then after saving and restoring the session. Correct two facts and explicitly retract one. Score stale answers separately from missing answers. An agent that remembers an old address after you correct it creates a different failure from an agent that admits it cannot recall the address. Do not use private customer records for this first trial."
+      },
+      {
+        "heading": "Treat saved memory as sensitive application state",
+        "content": "A latent state may be less readable than a transcript without being harmless. Define which user owns it, how it is isolated, when it expires and how deletion is handled. Verify that restoring one session cannot expose another user's history. These are application design requirements, not capabilities proved by a model benchmark. Keep a clear record of the state version and checkpoint used when investigating a failed answer."
+      },
+      {
+        "heading": "Choose memory for a specific agent task",
+        "content": "For a support assistant, evaluate whether a corrected preference survives a restart. For coding, test whether a remembered project convention helps the next task without inventing constraints. Keep an external source of truth for facts that must be quoted exactly. FyreLinkz has not run an independent MemT benchmark. Before adoption, compare quality, persistence behavior and operational complexity on the same task, not merely the model's parameter count or a successful demo conversation."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "MemTensor",
+        "title": "MemT 1.0 Flash model card",
+        "url": "https://huggingface.co/MemTensor/MemT-1.0-Flash"
+      },
+      {
+        "publisher": "MemTensor",
+        "title": "MemT 1.0 Nano model card",
+        "url": "https://huggingface.co/MemTensor/MemT-1.0-Nano"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is MemT 1.0 the same as storing all previous messages?",
+        "answer": "No. The project describes native dynamic memory used during model computation and supports saving and restoring that memory state."
+      },
+      {
+        "question": "Do Flash and Nano share one license?",
+        "answer": "The reviewed Flash repository lists MIT, while Nano lists Apache 2.0. Check the exact artifact before deployment."
+      },
+      {
+        "question": "Does native memory guarantee exact long-history recall?",
+        "answer": "No. The project itself notes that strong textual-memory systems remain ahead overall on detailed long-history retrieval."
+      }
+    ]
+  },
+  {
+    "category": "news",
+    "publishedAt": "2026-10-25",
+    "updatedAt": "2026-10-25",
+    "sourceCheckedAt": "2026-10-25",
+    "featured": false,
+    "imageCaption": "Original FyreLinkz technical illustration. Conceptual artwork, not a screenshot, model output or independent test result.",
+    "slug": "ling30-flash-sante-checkpoint-deployment-checks",
+    "title": "Ling 3.0 Flash Santé: checkpoint files and deployment checks",
+    "description": "Identify inclusionAI's official Ling 3.0 Flash Santé repository, distinguish checkpoint storage from runtime memory, and plan compatibility checks without invented benchmarks.",
+    "topic": "Local language models",
+    "image": "ling-sante-oct25-photo",
+    "imageAlt": "Layered checkpoint panels in an original Ling 3.0 Flash Santé technical illustration.",
+    "takeaway": "The official Ling 3.0 Flash Santé repository exposes a sharded text-generation checkpoint. Confirm its exact revision and runtime support before downloading; repository size is not a measured VRAM requirement.",
+    "sections": [
+      {
+        "heading": "Identify the official checkpoint first",
+        "content": "The official inclusionAI repository is named Ling-3.0-flash-Sante. Its file listing identifies a text-generation model using the bailing_hybrid architecture and custom code, with MIT licensing. The reviewed listing shows roughly 255 GB of files and multiple safetensors shards. This guide verifies that artifact identity; it does not claim a new medical capability or a performance ranking from the word Santé.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "Do not confuse disk size with a GPU requirement",
+        "content": "The total size of repository files answers a storage-planning question. It does not establish the peak memory needed for inference. Loaded precision, intermediate tensors, cache length, batch size and offloading all affect a run. Before acquiring hardware, write down the intended context length and number of simultaneous requests. A machine that loads one short request may fail when several long requests arrive."
+      },
+      {
+        "heading": "Check runtime support before a large download",
+        "content": "Our suggested preflight begins with the configuration and tokenizer files. Verify that your chosen serving engine supports the exact architecture and revision, then inspect whether its instructions require loading custom repository code. Read that code before executing it and use an isolated environment for the first test. Do not assume support for a similarly named base model automatically covers this variant. Pin the repository revision so later changes do not silently alter your evaluation."
+      },
+      {
+        "heading": "A small, auditable acceptance test",
+        "content": "Use a set of fictional questions with answers you can verify locally. Include a formatting task, a short document summary and an explicit unknown. Score accuracy, missing details and fabricated assertions separately. Repeat one request after a clean restart to reveal hidden state or configuration differences. Record the prompt template, generation settings and runtime version alongside the output. This creates a reproducible comparison instead of an unqualified claim that the model is better."
+      },
+      {
+        "heading": "Handle variants as separate artifacts",
+        "content": "A community quantization may reduce download or memory needs, but it also introduces another maintainer, conversion process and numerical format. Confirm its base revision and license chain. Compare a small shared task set before moving an existing workflow. If a quantized variant behaves differently, keep that difference visible rather than attributing its results to the original checkpoint. This article does not certify any third-party conversion."
+      },
+      {
+        "heading": "What remains unverified here",
+        "content": "The full model-card body was unavailable through our research fetch, although the official file listing was readable. We therefore omit benchmark scores, specialization claims, exact context limits and a consumer-GPU minimum. FyreLinkz has not independently run this checkpoint. Use the official repository as the starting point and check its current documentation before installing; a recognizable name and an available download are not substitutes for workload-specific validation."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "inclusionAI",
+        "title": "Ling 3.0 Flash Santé official checkpoint file listing",
+        "url": "https://huggingface.co/inclusionAI/Ling-3.0-flash-Sante/tree/main"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is the 255 GB listing a measured VRAM minimum?",
+        "answer": "No. It describes repository storage, not peak inference memory. Runtime, precision, context and offloading change memory requirements."
+      },
+      {
+        "question": "Does this guide establish a healthcare specialization?",
+        "answer": "No. The accessible official listing does not establish that claim, and this article does not infer it from the model name."
+      },
+      {
+        "question": "Has FyreLinkz benchmarked this checkpoint?",
+        "answer": "No. The article verifies the official artifact listing and gives an editorial deployment checklist, not independent performance results."
+      }
+    ]
+  },
+  {
+    "category": "news",
+    "publishedAt": "2026-10-25",
+    "updatedAt": "2026-10-25",
+    "sourceCheckedAt": "2026-10-25",
+    "featured": false,
+    "imageCaption": "Original FyreLinkz technical illustration. Conceptual artwork, not a screenshot, model output or independent test result.",
+    "eventDate": "2026-10-20",
+    "slug": "fasth3-omni-local-video-audio-hardware",
+    "title": "FastH3 Omni: reference video, audio and local hardware limits",
+    "description": "Read FastH3 Omni's reference-guided video release, distinguish GB200 and desktop latency results, and compare local GPU recipes with their stated limitations.",
+    "topic": "Local AI video",
+    "image": "fasth3-omni-oct25-photo",
+    "imageAlt": "Two parallel audio waveforms in an original FastH3 Omni editorial illustration.",
+    "takeaway": "FastH3 Omni generates synchronized video and audio from multimodal references. Its data-center speed comparison and local hardware timings describe different setups; neither is a universal real-time guarantee.",
+    "sections": [
+      {
+        "heading": "What FastH3 Omni adds",
+        "content": "Hao AI Lab's October 20 release describes an eight-evaluation distilled MiniMax H3 model for reference-guided video and audio. Inputs can include a prompt, images, video clips and a voice reference. The team provides weights and serving recipes, followed by local-hardware guidance on October 21.",
+        "sourceIds": [
+          1,
+          2
+        ]
+      },
+      {
+        "heading": "Separate server speed from desktop speed",
+        "content": "The release reports 5.6–11.9 times lower end-to-end latency across 27 matched workloads on eight GB200 GPUs, compared with Base's lossless-policy serving recipe. That is a comparison of specified serving configurations. It is not a promise that every desktop can generate a video faster than its playback duration.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "Read the local timing footnotes",
+        "content": "For a one-photo, five-second 480p task, the follow-up reports about 62 seconds on an RTX 5090, 192 seconds on one DGX Spark, 16.9 minutes on an RTX 3090 and 19.5 minutes on an M5 Max. The Mac value is a single run, while the 3090 time excludes roughly seven minutes of model loading. Different numerical variants can produce different outputs.",
+        "sourceIds": [
+          2
+        ]
+      },
+      {
+        "heading": "A reference image changes the workload",
+        "content": "Our suggested comparison begins with one original reference image and a five-second brief. Keep resolution, duration and requested action constant. Record cold loading, prompt preparation, generation and export separately. Then add a voice reference you have permission to use and repeat the run. A reference-conditioned request does more work than plain text-to-video, so do not compare their timings as if they were identical tasks."
+      },
+      {
+        "heading": "Judge usable clips, not only finished files",
+        "content": "For each output, inspect whether the subject retains its identity, whether the requested movement is present and whether speech matches the intended words. Listen without watching once to catch audio artifacts hidden by attractive imagery. Keep failed takes and record the reason for rejection. The useful production measure includes the time required to produce an accepted clip, including retries and editing. This is our proposed evaluation, not a completed FyreLinkz benchmark."
+      },
+      {
+        "heading": "Choose the recipe for the actual machine",
+        "content": "Use the project's device-specific recipe and verify the linked checkpoint's terms before downloading. Check available disk space, host memory and GPU memory independently. Keep first tests short and avoid assuming that a community result shares your settings. Our [video cost comparison and calculator](/create/ai-video-generation-matrix-minimax-higgsfield-seedance) can help track spend per accepted minute when comparing a local workflow with hosted generation. A local run still has hardware and time costs even when there is no per-call API bill."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "Hao AI Lab",
+        "title": "FastVideo FastH3 Omni release and matched server comparisons",
+        "url": "https://haoailab.com/blogs/fastvideo-omniref-update/"
+      },
+      {
+        "publisher": "Hao AI Lab",
+        "title": "FastH3 Omni goes local: matched desktop workloads and limitations",
+        "url": "https://haoailab.com/blogs/fasth3-omni-local/"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Does FastH3 Omni generate audio too?",
+        "answer": "Yes. The project describes finished video with synchronized sound and supports image, video and voice references."
+      },
+      {
+        "question": "Does the 12× speed claim apply to an RTX laptop?",
+        "answer": "No. The stated comparison uses eight GB200 GPUs and specified serving recipes. Local results have separate settings and limitations."
+      },
+      {
+        "question": "Are the published desktop timings FyreLinkz measurements?",
+        "answer": "No. They are Hao AI Lab's reported results. FyreLinkz has not independently reproduced them."
+      }
+    ]
+  },
+  {
+    "category": "news",
+    "slug": "bark3-local-english-transcription-clean-memory",
+    "title": "Bark 3: local English transcription, Clean mode and memory",
+    "description": "Compare Underdog Bark 3's verbatim and Clean transcription, English-only scope, model downloads and runtime memory before choosing a local speech-to-text setup.",
+    "topic": "Local speech recognition",
+    "image": "bark3-oct25-photo",
+    "imageAlt": "Two stylized speech waveforms in an original Bark 3.0 transcription illustration.",
+    "imageCaption": "Original FyreLinkz technical illustration. Conceptual artwork, not a screenshot, model output or independent test result.",
+    "takeaway": "Bark 3 is English speech recognition, not a speech generator. Choose between a faithful transcript and cleaned dictation before judging accuracy, and plan runtime memory separately from the small download.",
+    "publishedAt": "2026-10-25",
+    "updatedAt": "2026-10-25",
+    "sourceCheckedAt": "2026-10-25",
+    "eventDate": "2026-10-15",
+    "featured": false,
+    "sections": [
+      {
+        "heading": "What Underdog Bark 3 actually does",
+        "content": "Underdog's Bark 3 release is an English-only automatic speech recognition family. Its base model downloads at about 163 MB; Clean and Plus are about 180 MB, while Pro is about 1.25 GB. The official model card lists CC BY 4.0 licensing and attribution details. This is a transcription release, not the similarly named speech-generation project.",
+        "sourceIds": [
+          1,
+          2
+        ]
+      },
+      {
+        "heading": "Verbatim and Clean solve different problems",
+        "content": "The base model preserves fillers in speech; Clean is intended to remove fillers and false starts for dictation. The release does not yet offer word timestamps, speaker identification or the custom word list for version 3. Those distinctions should guide the first trial rather than a general claim that one transcript looks neater.",
+        "sourceIds": [
+          1,
+          2
+        ]
+      },
+      {
+        "heading": "Write two reference transcripts for one recording",
+        "content": "Our suggested evaluation uses a short original recording with a hesitation, a corrected phrase, a name and a number. Write a verbatim reference and a separately approved clean reference before running either variant. Score base output against the verbatim version and Clean against the intended edited version. Otherwise a system can be penalized for removing words it was designed to remove, or rewarded for silently changing meaning. Preserve the recording so disputed words can be checked."
+      },
+      {
+        "heading": "A compact download is not a memory measurement",
+        "content": "The model card warns that packed weights expand in memory. It also notes that stock MLX audio processing can increase memory use with recording length and recommends splitting long recordings on smaller-memory Macs. Its Windows instructions use a PyTorch CUDA or CPU runtime rather than a native low-bit GPU export.",
+        "sourceIds": [
+          2
+        ]
+      },
+      {
+        "heading": "Measure useful transcription on your own files",
+        "content": "Record first-load time, processing time and peak memory separately. Start with a short clip and then a longer recording with the same speaker and microphone. Check names, decimal values, negation and corrected statements manually. A transcript that drops one important 'not' can fail a task despite looking fluent. If you split audio, inspect the boundaries for missing or duplicated words. The vendor's reported accuracy is not an independent FyreLinkz benchmark, and we have not reproduced its timing."
+      },
+      {
+        "heading": "Choose a variant by the final deliverable",
+        "content": "For notes, decide how much editing is acceptable and keep a link back to the source audio. For subtitles or multi-speaker records, confirm that missing timing and speaker features can be supplied by another verified step before choosing the model. Review the repository's NOTICE and keep attribution with a distributed integration. Compare the same recording with our [Phonon 2 deployment guide](/news/phonon2-speech-download-runtime-memory), rather than comparing file sizes alone. A smaller package is useful only when the complete transcription workflow meets your requirements."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "Underdog",
+        "title": "Bark 3 release and variant overview",
+        "url": "https://underdog.ai/bark"
+      },
+      {
+        "publisher": "ConwayResearch",
+        "title": "Underdog Bark 3.0 model card, license and platform runtimes",
+        "url": "https://huggingface.co/ConwayResearch/Underdog-Bark-3.0"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is Bark 3 a text-to-speech model?",
+        "answer": "No. Underdog Bark 3 transcribes English audio into text; this article does not describe a speech generator."
+      },
+      {
+        "question": "Why can Clean output differ from the recording?",
+        "answer": "Clean is intended to remove fillers and false starts. Compare it with an approved clean reference rather than a verbatim transcript."
+      },
+      {
+        "question": "Does a 163 MB download mean 163 MB of runtime memory?",
+        "answer": "No. The model card describes unpacking weights and recording-length-dependent memory use. Measure the complete chosen runtime."
+      }
+    ]
+  },
+  {
+    "slug": "wevisone-vl-visual-grounding-segmentation-matting",
+    "title": "WeVisOne-VL explained: detection, segmentation and matting in one model",
+    "description": "Understand Tencent's WeVisOne-VL, its 2B and 4B releases, pixel outputs and absent-object handling, with a practical visual-grounding evaluation checklist.",
+    "topic": "Vision-language models",
+    "image": "wevisone-oct25-photo",
+    "imageAlt": "Curved paths, anchor points and overlapping shapes in an original visual-perception illustration.",
+    "takeaway": "WeVisOne-VL combines object localization and pixel-level outputs. Choose it by the precision your workflow needs, then test absent targets and difficult edges rather than relying on a single demonstration.",
+    "sections": [
+      {
+        "heading": "What WeVisOne-VL does",
+        "content": "Tencent's WeChat Vision team presents WeVisOne-VL as a Qwen3-VL-based system for detection, referring localization, counting, pointing, OCR, segmentation and matting. The project links 2B and 4B weights, code and a demo. A small pixel decoder extends token-based predictions into masks and alpha mattes. Its code is Apache 2.0; check the selected weight card and dependencies separately. The project excludes identifying individuals from its intended use.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "A box, mask and matte solve different problems",
+        "content": "Our recommendation is to specify the output before choosing a model. A box can be enough to crop an object from a product photograph, but it cannot describe its boundary accurately. A binary mask separates foreground from background; an alpha matte represents partial transparency around fine edges. Treat these as different acceptance criteria. A visually pleasing crop does not prove that a hair edge or translucent material will composite cleanly against a new background.",
+        "table": {
+          "headers": [
+            "Output",
+            "Useful acceptance check"
+          ],
+          "rows": [
+            [
+              "Bounding box",
+              "Contains the intended object without excessive surrounding area"
+            ],
+            [
+              "Binary mask",
+              "Boundary follows the object without holes or merged neighbors"
+            ],
+            [
+              "Alpha matte",
+              "Fine edges survive compositing against light and dark backgrounds"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "Build a small visual-grounding test set",
+        "content": "Start with images you own or have permission to process. Include a clear isolated object, two visually similar objects, a crowded scene and a scene without the requested target. Write the expected target before viewing the prediction. Keep the source resolution, resizing method and prompt fixed when comparing checkpoints. Save outputs as files rather than judging only the embedded preview. This is a proposed evaluation procedure, not a benchmark we have run."
+      },
+      {
+        "heading": "Measure failures that matter downstream",
+        "content": "For an editing workflow, inspect the exported edge on both a white and dark background. For localization, record whether the system selected the correct instance before assessing box tightness. For OCR, compare exact characters against a manually checked reference instead of accepting an approximately correct phrase. Count incorrect predictions on absent targets separately from misses on present ones. Mixing these errors into one broad success percentage can hide an expensive failure mode."
+      },
+      {
+        "heading": "Deployment checks before a larger batch",
+        "content": "Model size alone does not establish peak memory at your image resolution or batch size. Run a single permitted sample first, record the software revision and retain a clean copy of the source. Separate model loading from per-image processing time. Avoid assuming that a successful demo has the same limits, data handling or hardware as your local installation. If several output formats are needed, verify all of them before committing a large collection to the workflow."
+      },
+      {
+        "heading": "When this approach is worth evaluating",
+        "content": "A unified system is most interesting when the same image needs language-based selection and a detailed pixel output. A single-purpose cropper may be simpler when every input has the same predictable layout. Before switching, compare the complete process: selection accuracy, time spent correcting masks, export quality and operator review. The useful result is fewer manual corrections on your images, not an unqualified claim that one model replaces every specialist tool."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Are WeVisOne-VL weights available?",
+        "answer": "The official project links 2B and 4B weights, code and a live demo. Review the individual artifact terms before downloading."
+      },
+      {
+        "question": "Does a bounding box replace an alpha matte?",
+        "answer": "No. A box locates an area; a matte describes partial transparency and fine boundaries for compositing."
+      },
+      {
+        "question": "Has FyreLinkz benchmarked WeVisOne-VL?",
+        "answer": "No. We reviewed the primary project and provide a proposed evaluation workflow, not independently measured performance."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "Tencent WeChat Vision",
+        "title": "WeVisOne-VL: Unified Visual Perception from Objects to Pixels",
+        "url": "https://tencent.github.io/WeVisOne-VL/"
+      }
+    ],
+    "category": "news",
+    "publishedAt": "2026-10-25",
+    "updatedAt": "2026-10-25",
+    "sourceCheckedAt": "2026-10-25",
+    "featured": false,
+    "imageCaption": "Original FyreLinkz technical illustration. Conceptual artwork, not a screenshot, model output or independent test result."
+  },
+  {
+    "slug": "carbon-x-dna-language-model-research-limits",
+    "title": "Carbon-X DNA model: local research, tokenizer support and limits",
+    "description": "Carbon-X combines DNA and language in a 14.8B model. Learn its research limits, runtime requirements and a cautious approach to evaluating existing sequence annotations.",
+    "topic": "AI genomics",
+    "image": "carbon-x-oct25-photo",
+    "imageAlt": "A stylized DNA double helix made of colored points in an original Carbon-X illustration.",
+    "takeaway": "Carbon-X is a DNA-and-language research model, not a clinical interpretation service. Runtime and tokenizer compatibility matter as much as fitting its weights into memory.",
+    "sections": [
+      {
+        "heading": "What Carbon-X is and what it is not",
+        "content": "HuggingFaceBio describes Carbon-X as a 14.8B decoder-only model combining DNA and natural language. The Apache 2.0 model uses a custom hybrid tokenizer and was evaluated with thinking disabled. The card specifies Transformers v5 or later, supports Transformers and vLLM, and says llama.cpp/GGUF runtimes are not supported because they cannot load its tokenizer. It states that the model is not clinically validated and should not guide medical decisions.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "Why tokenizer compatibility comes first",
+        "content": "Our practical advice is to verify the whole input path before interpreting an answer. A model can load successfully while receiving a different representation from the one expected during training. Do not treat a compatible file extension or a community conversion as evidence that every required preprocessing step works. Preserve an unmodified reference copy of any permitted test input, record the artifact revision and inspect the official implementation before using unfamiliar custom code."
+      },
+      {
+        "heading": "Separate research questions from clinical decisions",
+        "content": "An educational explanation of an existing public annotation is different from deciding whether a person's result needs treatment. A fluent paragraph does not supply a laboratory confirmation, patient history or clinical review. Use established reference material and qualified oversight for consequential interpretations. Keep uncertainty visible in notes rather than turning tentative language into a definitive label. This article concerns model evaluation and documentation; it is not a protocol for designing biological sequences."
+      },
+      {
+        "heading": "Use a documented, non-sensitive evaluation collection",
+        "content": "For an initial software assessment, choose existing public examples that you are authorized to use and that already have independently established annotations. Write the evaluation question and reference answer in advance. Record incorrect explanations and unsupported assertions as well as correct responses. Ask a domain reviewer to distinguish factual errors from harmless differences in phrasing. Do not upload personal genetic records to an arbitrary demo while checking whether the interface works."
+      },
+      {
+        "heading": "Keep exact operations outside a prose answer",
+        "content": "The model card warns about counting and coordinate errors, hallucinated biological context and uneven task coverage. It also says the system was not trained to design new sequences. In a research review, verify exact positions with deterministic tools and treat natural-language interpretation as something to check. A correct-looking explanation cannot repair a mismatched reference or an incorrect coordinate convention. Document those checks so another reviewer can understand what was actually assessed.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "Budget for a reproducible research environment",
+        "content": "Do not infer a deployment budget from parameter count alone. Account for loading, runtime dependencies, context length, output limits and the infrastructure used to process inputs. Keep timing and memory measurements separate from scientific quality. A cheaper answer that requires extensive expert correction may not save time. FyreLinkz has not run an independent biological benchmark; the useful next step is a bounded, reviewable evaluation with appropriate data permissions and a clearly stated research purpose."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Can Carbon-X diagnose a genetic condition?",
+        "answer": "No. Its model card says it has not been clinically validated and should not be used for medical decisions."
+      },
+      {
+        "question": "Does the official card support llama.cpp?",
+        "answer": "No. The checked card explicitly says llama.cpp and other GGUF runtimes are unsupported because of the custom Python DNA tokenizer."
+      },
+      {
+        "question": "Is this article an independent biological benchmark?",
+        "answer": "No. It summarizes the primary model card and proposes cautious software and documentation checks."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "HuggingFaceBio",
+        "title": "Carbon-X model card, runtime requirements and limitations",
+        "url": "https://huggingface.co/HuggingFaceBio/Carbon-X"
+      }
+    ],
+    "category": "news",
+    "publishedAt": "2026-10-25",
+    "updatedAt": "2026-10-25",
+    "sourceCheckedAt": "2026-10-25",
+    "featured": false,
+    "imageCaption": "Original FyreLinkz technical illustration. Conceptual artwork, not a screenshot, model output or independent test result."
+  },
+  {
+    "slug": "kimi-k31-pro-access-context-open-weights",
+    "title": "Kimi K3.1 Pro: access, million-token context and weights timeline",
+    "description": "Kimi K3.1 Pro introduces a million-token context and Highspeed option. Separate current hosted access from the announced November 4 weights release.",
+    "topic": "AI agents",
+    "image": "kimi-k31-oct25-photo",
+    "imageAlt": "A central processing hub linked to five task nodes in an original Kimi K3.1 Pro illustration.",
+    "takeaway": "Kimi K3.1 Pro is available through hosted Kimi products and API, while its launch post promises full weights by November 4. Evaluate long tasks by completed work and review effort, not context capacity alone.",
+    "sections": [
+      {
+        "heading": "Current access and the weights timeline",
+        "content": "Kimi's launch post describes K3.1 Pro as a 3T-class model with a one-million-token context and a Highspeed variant. It lists hosted access through Kimi.ai, Kimi Work, Kimi Code and the Kimi API. The same post says full model weights will be released by November 4. As checked on October 25, that announcement is a future commitment, not proof that those weights can already be downloaded.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "A large context is not a completed task",
+        "content": "Our evaluation question is whether the model can find and use the relevant material while ignoring distracting information. More room for inputs does not automatically produce accurate citations, reliable edits or a finished deliverable. Start with a document collection whose answers you can verify. Put decisive information in different locations across the collection and include a question that cannot be answered from it. Reward a clear statement of missing evidence rather than a confident guess."
+      },
+      {
+        "heading": "Test coding changes with an observable finish line",
+        "content": "Choose a small repository task with a reproducible starting state and a concrete outcome. Keep the requested behavior, allowed tools and test conditions constant across candidates. Review the resulting diff for unrelated edits and verify that the original defect is actually addressed. Count retries and manual intervention. An impressive explanation of a patch is not equivalent to working code, and a passing command does not establish that an untested user interaction works."
+      },
+      {
+        "heading": "Compare standard and Highspeed on the same job",
+        "content": "The vendor presents Highspeed as a faster option; that is a product claim rather than our measurement. To evaluate it, use identical task inputs and assess correctness before speed. Record response latency, full task duration and reviewer time separately. Preserve unsuccessful runs in the comparison. A faster initial answer can still produce a slower overall workflow if it needs more correction, repeated tool calls or manual recovery.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "Keep agent authority narrower than its context",
+        "content": "If you test a model with tools, begin in a copy of the workspace using synthetic or public information. Give it enough access to complete the bounded exercise, not every account connected to your business. Define which actions require human review. Keep changes inspectable and provide a recovery path. The relevant control is what the agent can actually do with its tools; the amount of text it can read is a separate property."
+      },
+      {
+        "heading": "What to verify when downloadable artifacts arrive",
+        "content": "Revisit the official release location, license, checksums and serving documentation rather than relying on the launch name. Confirm which variant each artifact represents and what environment the maintainers support. Do not derive a consumer-GPU recommendation from a total parameter label. Hosted API access and a self-hosted installation have different costs and responsibilities. This article contains no independent speed, coding or hardware benchmark and will need updating when the announced artifact status changes."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Are Kimi K3.1 Pro full weights already released?",
+        "answer": "The checked launch post promises the full weights by November 4. On October 25, that date is still in the future."
+      },
+      {
+        "question": "Where does the launch post list hosted access?",
+        "answer": "It lists Kimi.ai, Kimi Work, Kimi Code and the Kimi API."
+      },
+      {
+        "question": "Does a million-token context guarantee accurate research?",
+        "answer": "No. Context capacity does not establish retrieval accuracy, correct citations or successful completion of a task."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "Moonshot AI / Kimi",
+        "title": "Introducing Kimi K3.1 Pro",
+        "url": "https://www.kimi.ai/blog/kimi-k3-1-pro"
+      }
+    ],
+    "category": "news",
+    "publishedAt": "2026-10-25",
+    "updatedAt": "2026-10-25",
+    "sourceCheckedAt": "2026-10-25",
+    "featured": false,
+    "imageCaption": "Original FyreLinkz technical illustration. Conceptual artwork, not a screenshot, model output or independent test result."
+  },
+  {
+    "slug": "claude-duet-preview-access-permissions-review",
+    "title": "Claude Duet preview: access, connected apps and approval checks",
+    "description": "Claude Duet is a proactive assistant preview for US Pro and Max users by waitlist. Understand access, shared usage and sensible connected-app evaluation.",
+    "topic": "AI agents",
+    "image": "claude-duet-oct25-photo",
+    "imageAlt": "A central assistant node linked to five work nodes in an original Claude Duet illustration.",
+    "takeaway": "Claude Duet is a waitlisted research preview, not universal account access. Its background work should be judged by useful results, interruption quality and understandable permissions.",
+    "sections": [
+      {
+        "heading": "Who can access Claude Duet?",
+        "content": "Anthropic's October 21 announcement introduces Claude Duet as a proactive agent research preview, initially for US Pro and Max subscribers through a waitlist. It describes standalone iOS and Android apps and web access on claude.ai. During the preview, Duet shares the plan's usage limits. The product monitors connected apps, prepares briefs and handles delegated tasks; the announcement describes safeguards and checks before acting on the user's behalf.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "Decide what a helpful interruption looks like",
+        "content": "Our recommended first task is deliberately narrow: identify a small class of items that merit attention and explain why. Write down examples that should trigger a notification and examples that should remain quiet. Review missed items as well as unnecessary alerts. A proactive assistant that sends many technically correct messages can still make work harder if it interrupts at the wrong time or repeatedly asks you to revisit an already settled decision."
+      },
+      {
+        "heading": "Connect one workflow before a whole business",
+        "content": "Begin with a limited, reversible task using information you can safely expose to the service. Confirm the connected account and what it permits the assistant to read or change. Keep a human review step for messages and commitments. Test whether you can understand the proposed action before approving it. Do not assume that describing a desired outcome also specifies every recipient, attachment or account the assistant should use along the way."
+      },
+      {
+        "heading": "Distinguish a draft from an action",
+        "content": "For a scheduling or administrative exercise, keep separate records of the requested result, generated draft, approval decision and final external change. This makes failures easier to diagnose. A correct draft sent to an incorrect recipient is a different problem from a poor draft that stayed private. A status message saying work is complete should be checked against the actual destination. These are proposed evaluation controls, not a claim that we have penetration-tested the preview."
+      },
+      {
+        "heading": "Account for background work and review effort",
+        "content": "Treat the work happening between conversations as part of the resource budget. Review whether the assistant's briefs reduce the time needed to understand a situation and whether the underlying references are easy to inspect. Keep a short record of duplicated tasks, stale information and corrections. An assistant can be useful without taking over every step; a dependable draft and a clear handoff may be more valuable than an ambitious automation that needs frequent recovery."
+      },
+      {
+        "heading": "Preview status changes the adoption decision",
+        "content": "Do not build a time-critical process around assumed availability. Check the current invitation, regional access and plan conditions in the official product documentation before promising the feature to a team. Retain an ordinary way to finish the task when the assistant is unavailable. Assess the preview on a small, well-defined workflow first, then expand only if the results justify it. FyreLinkz has not independently measured Duet's reliability or security."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is Claude Duet available to everyone?",
+        "answer": "No. The launch describes a research preview through a waitlist, initially for US Pro and Max subscribers."
+      },
+      {
+        "question": "Does Duet have a separate unlimited usage allowance?",
+        "answer": "No. The announcement says the preview shares the usage limits of the user's Pro or Max plan."
+      },
+      {
+        "question": "Has FyreLinkz tested Duet's security?",
+        "answer": "No. This article reports the official announcement and suggests a bounded workflow evaluation; it is not a security audit."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "Anthropic",
+        "title": "Introducing Claude Duet",
+        "url": "https://claude.com/resources/articles/claude-duet",
+        "publishedAt": "2026-10-21"
+      }
+    ],
+    "category": "news",
+    "publishedAt": "2026-10-25",
+    "updatedAt": "2026-10-25",
+    "sourceCheckedAt": "2026-10-25",
+    "featured": false,
+    "imageCaption": "Original FyreLinkz technical illustration. Conceptual artwork, not a screenshot, model output or independent test result."
+  },
+  {
+    "slug": "openai-research-agents-brain-data-hypotheses",
+    "title": "OpenAI research agents: brain-data leads, evidence and limits",
+    "description": "OpenAI, PerturbAI and Scripps used distributed agents to interpret mouse-brain data. Learn what the study reports and why a research lead is not a treatment.",
+    "topic": "AI science",
+    "image": "research-agents-oct25-photo",
+    "imageAlt": "A stylized double helix representing biological research in an original technical illustration.",
+    "takeaway": "The reported agent study scales interpretation of existing biological data. Its output is a set of research leads for scientists to test, not proof of new treatments or a replacement for experimental validation.",
+    "sections": [
+      {
+        "heading": "What the reported study actually did",
+        "content": "OpenAI's October 21 publication describes work with PerturbAI and Scripps Research using thousands of GPT-Rosalind-powered agents to interpret existing data from millions of mouse brain cells. Agents examined gene-disruption responses, searched literature and proposed explanations. The reports formed a reasoning atlas. OpenAI reports a 32-minute analysis and expert comparisons favoring distributed reports. These are findings reported by the research participants, not measurements reproduced by FyreLinkz.",
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "A research lead is a question to test",
+        "content": "Our reading is that the useful output is a more specific experimental question. Linking an observed pattern to previous literature can help a scientist decide where to investigate next, but it does not establish that the explanation is correct. An apparently coherent chain of reasoning can depend on an irrelevant citation, a confounded comparison or an assumption that does not transfer to another setting. Keep the proposed mechanism distinct from the data that motivated it."
+      },
+      {
+        "heading": "Separate mouse data from human outcomes",
+        "content": "The announcement concerns interpretation of mouse-brain experimental data. It does not report a new approved treatment, a clinical diagnosis or demonstrated benefit in patients. Readers should resist headlines that compress these different stages into a cure claim. A responsible summary states the experimental setting, identifies what was observed and makes clear what remains hypothetical. The next decision belongs to qualified researchers assessing the evidence, not to a language model's confidence."
+      },
+      {
+        "heading": "What a useful evidence review should contain",
+        "content": "For a non-sensitive research-literature exercise, ask for a claim ledger rather than only a polished summary. Each proposed connection should point to an identifiable source and explain whether that source directly supports the statement or merely provides background. Record contradictory findings and reasons the hypothesis might fail. Have a domain reviewer inspect a sample before increasing the workload. This is an editorial suggestion for reviewing evidence, not a reproduction of the published biological experiment.",
+        "table": {
+          "headers": [
+            "Review item",
+            "Question to ask"
+          ],
+          "rows": [
+            [
+              "Observation",
+              "Which measured result motivates the lead?"
+            ],
+            [
+              "Literature",
+              "Does the cited work support this exact connection?"
+            ],
+            [
+              "Alternative",
+              "What competing explanation remains?"
+            ],
+            [
+              "Validation",
+              "What independent evidence would change the assessment?"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "More agents do not remove evaluation costs",
+        "content": "Parallel work can cover a wider set of questions, but the reviewer still needs to understand the selection process and the quality of the evidence. Count duplicated hypotheses, unsupported citations and incomplete reports. Compare systems using the same starting material and a declared resource budget. A faster collection of drafts is not necessarily a faster path to a defensible conclusion if its contents require extensive checking or create more low-value leads."
+      },
+      {
+        "heading": "Read the paper and atlas before reusing a headline",
+        "content": "OpenAI links the paper, experimental dataset and reasoning atlas from its announcement. Those artifacts are the appropriate next stop for readers assessing methods and scope. Keep reported elapsed time separate from total infrastructure cost, and keep preference judgments separate from biological validation. This article does not provide medical advice or laboratory instructions. Its practical lesson is to make AI-assisted interpretation auditable enough that scientists can decide which questions deserve further work."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Did this research demonstrate a cure for brain disease?",
+        "answer": "No. The announcement describes research leads from existing mouse-brain data that require further investigation."
+      },
+      {
+        "question": "Was the study about one general-purpose chatbot conversation?",
+        "answer": "No. OpenAI describes a distributed approach with thousands of agents examining gene-disruption responses and literature."
+      },
+      {
+        "question": "Has FyreLinkz reproduced the 32-minute result?",
+        "answer": "No. The timing and study comparisons are reported by the participating researchers, not independently reproduced here."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "OpenAI",
+        "title": "Using thousands of AI agents to uncover new leads in biological data",
+        "url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data/",
+        "publishedAt": "2026-10-21"
+      }
+    ],
+    "category": "news",
+    "publishedAt": "2026-10-25",
+    "updatedAt": "2026-10-25",
+    "sourceCheckedAt": "2026-10-25",
+    "featured": false,
+    "imageCaption": "Original FyreLinkz technical illustration. Conceptual artwork, not a screenshot, model output or independent test result."
+  },
+  {
     "category": "news",
     "slug": "fish-audio-drama3-voice-direction-preview",
     "title": "Fish Audio Drama 3: direct voices word by word in preview",
@@ -4804,6 +6596,10 @@
         "content": "Divide generation spend by accepted seconds, then multiply by 60. For an illustrative example, spending $12 across a batch that yields 30 accepted seconds gives $24 per usable minute. This is arithmetic, not a quoted vendor price or measured rejection rate. Include upscaling, editing and audio costs separately. For practical prompt structures and camera directions to try in your next shot, see our companion [AI video prompting guide](/create/ai-video-prompt-guide-examples)."
       },
       {
+        "heading": "Use the calculator with real accepted footage",
+        "content": "The calculator on this page keeps inputs in your browser. Enter the complete generation spend, including rejected attempts, and only the seconds you would actually deliver. It reports spend per accepted minute in the same currency. A zero-second result is undefined; it is not zero cost. For a hypothetical 12-unit spend and 30 accepted seconds, the arithmetic gives 24 units per accepted minute. This illustrates the formula only. Editing, repair, upscaling and audio remain separate costs."
+      },
+      {
         "heading": "Know when to stop rerolling",
         "content": "Decide the rejection budget before a test. If repeated outputs fail on the same critical detail, try a simpler shot, a different input method or a conventional editing step. A model that produces an impressive demo may still be a poor fit for one tightly constrained brief. Compare the cost of solving that brief, not the number of features on a landing page."
       },
@@ -4856,7 +6652,7 @@
       }
     ],
     "publishedAt": "2026-09-08",
-    "updatedAt": "2026-10-20",
+    "updatedAt": "2026-10-22",
     "sourceCheckedAt": "2026-09-12",
     "imageAlt": "Generated editorial photograph: Filmmaker comparing alternate generated video shots on a studio monitor.",
     "faqs": [
@@ -4888,6 +6684,16 @@
         "publisher": "Comfy Org",
         "title": "FLUX.1 text-to-image workflow examples",
         "url": "https://docs.comfy.org/tutorials/flux/flux-1-text-to-image"
+      },
+      {
+        "publisher": "Black Forest Labs",
+        "title": "FLUX.1 dev model card and license",
+        "url": "https://huggingface.co/black-forest-labs/FLUX.1-dev"
+      },
+      {
+        "publisher": "Black Forest Labs",
+        "title": "FLUX.1 schnell model card",
+        "url": "https://huggingface.co/black-forest-labs/FLUX.1-schnell"
       }
     ],
     "sections": [
@@ -4906,6 +6712,50 @@
         ]
       },
       {
+        "heading": "Full FLUX.1 dev: which file goes where?",
+        "content": "For the full dev workflow, ComfyUI's guide separates the diffusion model, two text encoders and VAE. A single-file FP8 checkpoint is a different packaging path: use its matching template rather than combining instructions. The table below is for the documented full workflow only. Refresh the model list or restart after moving files.",
+        "table": {
+          "headers": [
+            "Component",
+            "File in the full dev example",
+            "Folder"
+          ],
+          "rows": [
+            [
+              "Diffusion model",
+              "flux1-dev.safetensors",
+              "ComfyUI/models/diffusion_models/"
+            ],
+            [
+              "Text encoder",
+              "clip_l.safetensors",
+              "ComfyUI/models/text_encoders/"
+            ],
+            [
+              "Text encoder",
+              "t5xxl_fp16.safetensors",
+              "ComfyUI/models/text_encoders/"
+            ],
+            [
+              "VAE",
+              "ae.safetensors",
+              "ComfyUI/models/vae/"
+            ]
+          ]
+        },
+        "sourceIds": [
+          1
+        ]
+      },
+      {
+        "heading": "Dev, schnell and model rights",
+        "content": "Black Forest Labs identifies dev as an open-weight model governed by its FLUX.1 dev non-commercial license. Its card separately describes permitted use of generated outputs; do not confuse output rights with unrestricted commercial operation of the model. Schnell's card lists Apache-2.0 and one-to-four-step generation. Those publisher descriptions do not prove which variant is best for your project. Check the exact artifact and license before choosing a workflow.",
+        "sourceIds": [
+          2,
+          3
+        ]
+      },
+      {
         "heading": "Measure the complete pipeline",
         "content": "Record model files, precision, resolution, batch size, ComfyUI version and offload settings. Save a baseline output and peak memory measurement. If a run fails, change one setting and preserve the error log. No hardware benchmark is reported here."
       },
@@ -4916,11 +6766,43 @@
       {
         "heading": "Continue with safe installation",
         "content": "Use the [model download safety checklist](/workflow/download-ai-models-safetensors-pickle-security-checklist) before installing unfamiliar files, and the [ComfyUI first-image guide](/workflow/comfyui-beginner-first-workflow-guide) when troubleshooting a basic graph."
+      },
+      {
+        "heading": "Troubleshoot the graph before installing more nodes",
+        "content": "Use a small, saved baseline and change one variable per retry. The following is a diagnostic checklist, not a record of tests performed on our hardware.",
+        "table": {
+          "headers": [
+            "Symptom",
+            "Next check"
+          ],
+          "rows": [
+            [
+              "A model is missing from a loader",
+              "File folder, extension and loader selection; refresh the model list"
+            ],
+            [
+              "Full and FP8 instructions conflict",
+              "Return to the official template for the exact package"
+            ],
+            [
+              "Out of memory",
+              "Reduce the workload and inspect allocation; do not infer fit from file size"
+            ],
+            [
+              "Baseline works but LoRA fails",
+              "Remove the adapter; verify family, loader and adapter instructions"
+            ],
+            [
+              "Output quality changes after optimization",
+              "Compare the identical prompt and settings, retaining both images"
+            ]
+          ]
+        }
       }
     ],
     "publishedAt": "2026-09-08",
-    "updatedAt": "2026-10-17",
-    "sourceCheckedAt": "2026-10-17",
+    "updatedAt": "2026-10-22",
+    "sourceCheckedAt": "2026-10-22",
     "imageAlt": "AI-generated editorial photograph of an artist using a pen display beside a monitor in a home studio.",
     "faqs": [
       {
@@ -4930,6 +6812,14 @@
       {
         "question": "When should I add a LoRA to a FLUX workflow?",
         "answer": "First save a working base workflow and its output. Check that the adapter matches the model and loader, then add one LoRA and compare using the same input and settings."
+      },
+      {
+        "question": "Where do FLUX.1 dev model files go in ComfyUI?",
+        "answer": "In the documented full workflow: the diffusion model goes in models/diffusion_models, CLIP-L and T5 text encoders in models/text_encoders, and ae.safetensors in models/vae. Other packages require their matching template."
+      },
+      {
+        "question": "Is FLUX.1 dev the same as schnell?",
+        "answer": "No. They have separate checkpoints, sampling guidance and licenses. Check the model cards and use the workflow for the chosen variant."
       }
     ]
   },
@@ -6152,10 +8042,10 @@
     "description": "Run ComfyUI’s official SD1.5 workflow, install the right checkpoint, check node connections and fix missing-model errors. Includes source workflow JSON.",
     "topic": "ComfyUI",
     "image": "comfyui-first-workflow-photo",
-    "takeaway": "To make your first image, open ComfyUI’s official text-to-image workflow, install the checkpoint named by that workflow, refresh the model list, confirm the checkpoint is selected, then queue one run. Treat the official SD1.5 example as a learning baseline, not a universal setting. [Download the example workflow JSON](https://raw.githubusercontent.com/Comfy-Org/docs/refs/heads/main/public/text-to-image.json). For more local image-model setup notes, browse the [WildWeights directory](/wildweights).",
+    "takeaway": "To make your first image, open ComfyUI’s official text-to-image workflow, install the checkpoint named by that workflow, refresh the model list, confirm the checkpoint is selected, then queue one run. Treat the official SD1.5 example as a learning baseline, not a universal setting. [Download the example workflow JSON](https://raw.githubusercontent.com/Comfy-Org/docs/refs/heads/main/public/text-to-image.json). For more local image-model setup notes, read our [FLUX setup guide](/create/comfyui-flux-lora-training-and-inference-guide).",
     "featured": true,
     "publishedAt": "2026-09-20",
-    "updatedAt": "2026-10-13",
+    "updatedAt": "2026-10-22",
     "sourceCheckedAt": "2026-10-13",
     "sources": [
       {
@@ -6303,7 +8193,7 @@
       },
       {
         "heading": "Save a useful project handoff",
-        "content": "Keep the workflow JSON, a representative output and a short note together. List the checkpoint name, source and license; do not redistribute model weights unless their terms allow it. If asking for help, share the smallest reproducible graph and exact error. For model choices, see our [local AI workstation guide](/hardware/best-local-ai-workstation-build-guide-2026); for additional image models, see [WildWeights](/wildweights). When ready to add custom nodes, read our [ComfyUI FLUX and LoRA guide](/create/comfyui-flux-lora-training-and-inference-guide)."
+        "content": "Keep the workflow JSON, a representative output and a short note together. List the checkpoint name, source and license; do not redistribute model weights unless their terms allow it. If asking for help, share the smallest reproducible graph and exact error. For model choices, see our [local AI workstation guide](/hardware/best-local-ai-workstation-build-guide-2026); for image-preservation decisions, see our [upscaling versus img2img guide](/create/ai-image-upscaling-vs-img2img-preserve-details). When ready to add custom nodes, read our [ComfyUI FLUX and LoRA guide](/create/comfyui-flux-lora-training-and-inference-guide)."
       },
       {
         "heading": "Next: add one capability",

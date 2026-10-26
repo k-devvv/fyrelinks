@@ -1,0 +1,15 @@
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const ts = require('typescript');
+require.extensions['.ts'] = (m, f) => m._compile(ts.transpileModule(fs.readFileSync(f, 'utf8'), { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText, f);
+const { costPerAcceptedMinute: rate } = require('../lib/video-cost.ts');
+assert.equal(rate(12, 30), 24);
+assert.equal(rate(0, 30), 0);
+assert.equal(rate(12, 0), null);
+assert.equal(rate(-1, 30), null);
+assert.equal(rate(12, -1), null);
+assert.equal(rate(Infinity, 30), null);
+assert.equal(rate(12, NaN), null);
+assert.equal(rate(12, 120), 6);
+assert.equal(rate(Number.MAX_VALUE, Number.MIN_VALUE), null);
+console.log('Video cost checks passed: units, zero output, free accepted output and invalid values.');
