@@ -1,0 +1,29 @@
+{
+  "python_version": "3.11.9",
+  "method": "Python html.parser; local static fixture; no network",
+  "sha256": {
+    "fixture": "8f6054b186deca780ae22ee5bf6a166d5eb224d253401116bc60f23c1aa91ed9",
+    "expected": "677ec4fc8e2a02964a6a4525fe2039b273e1a731aff351fa2e5e788d5f155903",
+    "script": "3291440f33f747517f9f444983d8f20572ddb78e5c379beddc0aa9c8e8b349de"
+  },
+  "matched_expected": true,
+  "rows_recovered": 2,
+  "actual": {
+    "fictional": true,
+    "currency": "USD",
+    "billing_period": "month",
+    "plans": [
+      {
+        "name": "Studio",
+        "price": 12,
+        "included_pages": 1000
+      },
+      {
+        "name": "Workshop",
+        "price": 29,
+        "included_pages": 3000
+      }
+    ]
+  },
+  "limitations": "One fictional static table. No vendor, speed, browser, JavaScript or GPU comparison."
+}

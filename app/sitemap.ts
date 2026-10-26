@@ -2,6 +2,8 @@ import type { MetadataRoute } from "next";
 import { POSTS, CATEGORIES } from "@/lib/posts";
 import { SITE_URL, articlePath } from "@/lib/editorial";
 
+import { newsPageCount, newsPagePath } from "@/lib/news-pagination";
+
 function latestUpdate(posts: typeof POSTS) {
   return posts.reduce((latest, post) => post.updatedAt > latest ? post.updatedAt : latest, "");
 }
@@ -26,6 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         ...(lastModified ? { lastModified: new Date(lastModified) } : {})
       };
     }),
+    ...Array.from({ length: newsPageCount(POSTS.filter(p => p.category === "news").length) - 1 }, (_, i) => ({ url: SITE_URL + newsPagePath(i + 2) })),
     ...POSTS.map(post => ({
       url: SITE_URL + articlePath(post),
       lastModified: new Date(post.updatedAt)
