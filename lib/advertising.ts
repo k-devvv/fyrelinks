@@ -13,6 +13,30 @@ export function selectAdUnit(placement: AdPlacement, width: number, desktop: boo
   if (placement === 'article') return width >= 300 ? AD_UNITS.rectangle : null;
   return width >= 728 ? AD_UNITS.wide : width >= 468 ? AD_UNITS.medium : width >= 320 ? AD_UNITS.mobile : null;
 }
+// Visitors here must opt in before ads load; elsewhere ads are on until declined.
+// An unknown country is treated as opt-in.
+const OPT_IN_COUNTRIES = new Set([
+  'AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU',
+  'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'IS', 'LI', 'NO', 'GB', 'CH'
+]);
+export const AD_REGION_ENDPOINT = '/api/ad-region';
+export function adsNeedConsent(country: string | null | undefined) {
+  const code = country?.trim().toUpperCase();
+  return !code || !/^[A-Z]{2}$/.test(code) || OPT_IN_COUNTRIES.has(code);
+}
+// Vercel sends the country directly; Netlify sends base64 JSON with country.code.
+export function countryFromHeaders(headers: Headers) {
+  const vercel = headers.get('x-vercel-ip-country');
+  if (vercel) return vercel;
+  const netlify = headers.get('x-nf-geo');
+  if (!netlify) return null;
+  try {
+    const geo = JSON.parse(Buffer.from(netlify, 'base64').toString('utf8'));
+    return typeof geo?.country?.code === 'string' ? geo.country.code : null;
+  } catch {
+    return null;
+  }
+}
 // A separate origin is required: never combine scripts and same-origin access
 // in a frame hosted on the reader's own page origin.
 export const AD_FRAME_ORIGIN = process.env.NEXT_PUBLIC_AD_FRAME_ORIGIN || 'https://fyrelinkz.netlify.app';
