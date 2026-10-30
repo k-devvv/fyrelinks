@@ -10,11 +10,24 @@ import {getLiveNews} from "@/lib/live-news";
 export const revalidate = 3600;
 
 const SECTIONS = ["hardware", "workflow", "create"] as const;
+// Guides with the most Google Search impressions (Search Console, Aug–Oct 2026).
+const POPULAR = [
+  "run-local-llm-rtx-4050-laptop-guide",
+  "ai-video-generation-matrix-minimax-higgsfield-seedance",
+  "best-local-ai-workstation-build-guide-2026",
+  "cursor-vs-windsurf-vs-copilot-developer-benchmarks",
+  "ai-web-scraping-pipelines-firecrawl-playwright-rag",
+  "jev-needle3-small-ai-models-gpu-cost",
+  "moss-image-native-layout-json-base-sft",
+  "reflection-beam-gpu-requirements-open-weights",
+  "civitai-sdxl-photorealism-checkpoint-matrix"
+];
 const byUpdated = (a: EditorialPost, b: EditorialPost) => b.updatedAt.localeCompare(a.updatedAt);
 
 export default async function Home() {
   const perSource: Record<string, number> = {};
   const web = (await getLiveNews(80)).filter(i => (perSource[i.source] = (perSource[i.source] ?? 0) + 1) <= 2).slice(0, 9);
+  const popular = POPULAR.map(slug => POSTS.find(p => p.slug === slug)).filter((p): p is EditorialPost => Boolean(p));
   const [lead, ...rest] = NEWS;
   const secondary = rest.slice(0, 3);
   const latest = rest.slice(3, 11);
@@ -65,6 +78,11 @@ export default async function Home() {
     </section>}
 
     <ToolStrip />
+
+    {popular.length > 0 && <section className="web-strip" aria-labelledby="popular-heading">
+      <div className="bs-section-head"><h2 id="popular-heading">Popular guides</h2><Link href="/workflow">All guides <ArrowRight size={14} aria-hidden="true"/></Link></div>
+      <ul className="web-grid">{popular.map(p => <li key={p.slug}><Link href={articlePath(p)}>{p.title}</Link><span>{p.topic}</span></li>)}</ul>
+    </section>}
 
     {sections.map(({category, posts}) => <section className="bs-section" key={category.slug} aria-labelledby={`bs-${category.slug}`}>
       <div className="bs-section-head"><h2 id={`bs-${category.slug}`}>{category.name}</h2><Link href={`/${category.slug}`}>More {category.name.toLowerCase()} <ArrowRight size={14} aria-hidden="true"/></Link></div>
