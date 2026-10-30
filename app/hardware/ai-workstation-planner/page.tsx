@@ -14,7 +14,7 @@ export const metadata = pageMetadata(
 
 export default function AiWorkstationPlannerPage() {
   return (
-    <main className="wrap planner-page">
+    <div className="wrap planner-page">
       <JsonLd data={generateBreadcrumbSchema([
         { name: "Home", url: SITE_URL },
         { name: "Hardware", url: `${SITE_URL}/hardware` },
@@ -48,6 +48,6 @@ export default function AiWorkstationPlannerPage() {
         <details><summary>What if my budget is too low?</summary><p>The planner explains the constraint and points to lower-cost workload adjustments or relevant guides instead of claiming a full fit.</p></details>
       </section>
       <p className="planner-related"><Link href="/hardware/best-local-ai-workstation-build-guide-2026">Read the local AI workstation build guide ↗</Link></p>
-    </main>
+    </div>
   );
 }

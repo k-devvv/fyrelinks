@@ -1,0 +1,31 @@
+/* Tools strip, author box and engagement blocks. Uses the existing design tokens. */
+.tool-strip { margin: 3.5rem 0; }
+.tool-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.tool-card {
+  display: flex; flex-direction: column; gap: .55rem; padding: 1.35rem 1.4rem;
+  border: 1px solid var(--line); border-radius: 14px; background: color-mix(in srgb, var(--paper) 92%, var(--ink) 8%);
+  color: inherit; text-decoration: none; transition: transform .18s ease, border-color .18s ease;
+}
+.tool-card:hover, .tool-card:focus-visible { transform: translateY(-3px); border-color: var(--accent); }
+.tool-card svg { color: var(--accent); }
+.tool-card strong { font-family: var(--serif); font-size: 1.2rem; line-height: 1.25; }
+.tool-card span { color: var(--muted); line-height: 1.5; font-size: .95rem; }
+.tool-card em { margin-top: auto; padding-top: .6rem; font-style: normal; font-weight: 700; font-size: .85rem; color: var(--accent); display: inline-flex; align-items: center; gap: .25rem; }
+
+.author-box {
+  display: flex; gap: 1rem; align-items: flex-start; margin: 2.5rem 0 1.5rem; padding: 1.25rem 1.4rem;
+  border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 10px;
+}
+.author-box strong { display: block; font-family: var(--serif); font-size: 1.15rem; margin: .2rem 0 .35rem; }
+.author-box small { font-family: var(--sans); font-weight: 400; color: var(--muted); font-size: .85rem; }
+.author-box p { margin: .3rem 0; line-height: 1.55; }
+.author-photo { border-radius: 50%; object-fit: cover; flex: none; }
+.author-links { display: flex; gap: 1rem; flex-wrap: wrap; font-size: .9rem; }
+
+.verified-line { display: inline-flex; gap: .5rem; align-items: center; margin: .6rem 0 0; font-size: .85rem; color: var(--muted); }
+.verified-line::before { content: ""; width: .5rem; height: .5rem; border-radius: 50%; background: #3fa66b; }
+
+@media (max-width: 860px) {
+  .tool-grid { grid-template-columns: 1fr; }
+  .author-box { flex-direction: column; }
+}

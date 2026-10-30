@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { bylineName } from "@/lib/author";
 import { articleCardImagePath, articleImageDimensions, articlePath, formatDate, type EditorialPost } from "@/lib/editorial";
 
 export function StoryImage({
@@ -55,7 +56,7 @@ export default function StoryCard({
         </Heading>
         {variant !== "compact" && <p>{post.metaDescription}</p>}
         <div className="byline-small">
-          FyreLinkz Editorial{" "}
+          {bylineName()}{" "}
           <span>
             · {post.category !== "news" && "Updated "}
             <time dateTime={post.category === "news" ? post.publishedAt : post.updatedAt}>
