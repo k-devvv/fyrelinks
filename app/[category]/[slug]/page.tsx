@@ -88,7 +88,7 @@ export default async function ArticlePage({ params }: Props) {
         </nav>
       </div>
       <figure className="article-figure">
-        <StoryImage post={p} />
+        <StoryImage post={p} priority sizes="(max-width: 1180px) 100vw, 1180px" />
         <figcaption>
           {p.imageCaption ?? (p.image.endsWith("-photo")
             ? "Editorial photograph. Illustrative only; not a product screenshot or test evidence."

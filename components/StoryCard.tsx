@@ -6,11 +6,13 @@ import { articleCardImagePath, articleImageDimensions, articlePath, formatDate, 
 export function StoryImage({
   post,
   priority = false,
-  className = ""
+  className = "",
+  sizes = "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 760px"
 }: {
   post: EditorialPost;
   priority?: boolean;
   className?: string;
+  sizes?: string;
 }) {
   return (
     <Image
@@ -18,7 +20,7 @@ export function StoryImage({
       src={articleCardImagePath(post.image)}
       alt={post.imageAlt || `FyreLinkz editorial illustration: ${post.title}`}
       {...articleImageDimensions(post.image)}
-      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 760px"
+      sizes={sizes}
       priority={priority}
     />
   );
