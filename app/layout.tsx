@@ -8,7 +8,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AdSlot from "@/components/AdSlot";
 import Analytics from "@/components/Analytics";
-import { AdvertisingPreferences } from "@/components/Advertising";
 import ScrollReveal from "@/components/ScrollReveal";
 import PointerAccent from "@/components/PointerAccent";
 import JsonLd from "@/components/JsonLd";
@@ -97,5 +96,5 @@ export default function RootLayout({
         href: articlePath(p),
         topic: p.topic,
         description: p.metaDescription
-      }))]} /><main id="main-content" tabIndex={-1}>{children}<div className="wrap"><AdSlot placement="home" /></div></main><Footer /><Analytics /><AdvertisingPreferences /><ScrollReveal /></body></html>;
+      }))]} /><main id="main-content" tabIndex={-1}>{children}<div className="wrap"><AdSlot placement="home" /></div></main><Footer /><Analytics /><ScrollReveal /></body></html>;
 }
