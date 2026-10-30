@@ -44,6 +44,9 @@ export default function Advertising({ placement }: { placement: AdPlacement }) {
   const [width, setWidth] = useState(0);
   const [desktop, setDesktop] = useState(false);
   const [pageOrigin, setPageOrigin] = useState('');
+  // Error and 404 screens mark themselves so no ad unit loads beside them.
+  const [blocked, setBlocked] = useState(false);
+  useEffect(() => { setBlocked(document.querySelector('[data-no-ads]') !== null); }, [pathname]);
   useEffect(() => {
     const node = host.current; if (!node) return;
     const update = () => { setPageOrigin(window.location.origin); setWidth(node.clientWidth); setDesktop(window.matchMedia('(min-width: 1100px)').matches); };
@@ -60,6 +63,6 @@ export default function Advertising({ placement }: { placement: AdPlacement }) {
     window.addEventListener('message', receive);
     return () => window.removeEventListener('message', receive);
   }, [pathname, unit?.key, choice]);
-  if (choice === 'no') return null;
+  if (choice === 'no' || blocked) return null;
   return <section data-nosnippet="" role="complementary" ref={host} className={`network-ad network-ad-${placement}${unfilled ? ' network-ad-unfilled' : ''}${choice !== 'yes' ? ' network-ad-pending' : ''}`} aria-label="Advertisement"><span className="eyebrow">ADVERTISEMENT</span>{unfilled ? <p className="ad-opt-in">No advertisement available.</p> : choice === 'yes' && unit && frameUrl ? <iframe ref={frame} key={`${pathname}-${unit.key}`} title={`Adsterra ${unit.width} by ${unit.height} advertisement`} width={unit.width} height={unit.height} src={frameUrl} sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" referrerPolicy="strict-origin-when-cross-origin" /> : <div className="ad-opt-in"><p>Optional advertising supports FyreLinkz.</p><button type="button" onClick={() => window.dispatchEvent(new Event('fyre-open-ad-preferences'))}>Ad choices</button></div>}</section>;
 }

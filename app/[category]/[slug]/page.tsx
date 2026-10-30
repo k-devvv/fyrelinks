@@ -8,6 +8,8 @@ import JsonLd from "@/components/JsonLd";
 import StoryCard, { StoryImage } from "@/components/StoryCard";
 import AdSlot from "@/components/AdSlot";
 import ArticleNextSteps from "@/components/ArticleNextSteps";
+import AuthorBox from "@/components/AuthorBox";
+import { bylineName } from "@/lib/author";
 import ReadingProgress from "@/components/ReadingProgress";
 import VideoCostCalculator from "@/components/VideoCostCalculator";
 import type { Metadata } from "next";
@@ -72,8 +74,9 @@ export default async function ArticlePage({ params }: Props) {
         <h1>{p.title}</h1><p className="article-deck">{p.metaDescription}</p>
         <div className="article-byline">
           <span className="author-mark">f<span>✳</span></span>
-          <div><Link href="/about">{p.author.name}</Link><p>Published <time dateTime={p.publishedAt}>{formatDate(p.publishedAt)}</time>{p.updatedAt !== p.publishedAt && <> · Updated <time dateTime={p.updatedAt}>{formatDate(p.updatedAt)}</time></>}</p></div>
+          <div><Link href="/about">{bylineName(p.author.name)}</Link><p>Published <time dateTime={p.publishedAt}>{formatDate(p.publishedAt)}</time>{p.updatedAt !== p.publishedAt && <> · Updated <time dateTime={p.updatedAt}>{formatDate(p.updatedAt)}</time></>}</p></div>
         </div>
+        <p className="verified-line">Sources last checked <time dateTime={p.sourceCheckedAt}>{formatDate(p.sourceCheckedAt)}</time></p>
         {p.eventDate && <p className="event-date">Announcement date: <time dateTime={p.eventDate}>{formatDate(p.eventDate)}</time> · Reported from the original source</p>}
       </header>
       <div className="article-answer-first">
@@ -115,6 +118,7 @@ export default async function ArticlePage({ params }: Props) {
             {i === 2 && nextRead && <aside className="article-next-read" aria-label="Related reading"><Link href={articlePath(nextRead)}><StoryImage post={nextRead} /><span><small className="eyebrow">READ NEXT</small><strong>{nextRead.title}</strong><span>{nextRead.metaDescription}</span></span></Link></aside>}
             {i === 2 && <AdSlot placement="article" />}
           </section>)}
+          <AuthorBox />
           <ArticleNextSteps slug={p.slug} />
           {p.faqs.length > 0 && <section className="article-faq" id="faq" aria-labelledby="faq-heading">
             <span className="eyebrow">CLEAR ANSWERS</span><h2 id="faq-heading">Frequently asked questions</h2>

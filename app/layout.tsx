@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import "./tech-theme.css";
 import "./studio.css";
+import "./growth.css";
+import "./broadsheet.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AdSlot from "@/components/AdSlot";
@@ -73,7 +75,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <html lang="en"><head><script dangerouslySetInnerHTML={{ __html: `(()=>{try{const t=localStorage.getItem('fyrelinkz-theme');const d=window.matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.dataset.theme=t==='light'||t==='dark'?t:d?'dark':'light'}catch{}})()` }} /></head><body><a href="#main-content" className="skip-link">Skip to content</a><PointerAccent /><JsonLd data={[{
+  return <html lang="en" suppressHydrationWarning><head><script dangerouslySetInnerHTML={{ __html: `(()=>{try{const t=localStorage.getItem('fyrelinkz-theme');const d=window.matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.dataset.theme=t==='light'||t==='dark'?t:d?'dark':'light'}catch{}})()` }} /></head><body><a href="#main-content" className="skip-link">Skip to content</a><PointerAccent /><JsonLd data={[{
         "@context": "https://schema.org",
         "@type": "Organization",
         "@id": SITE_URL + "/#organization",
