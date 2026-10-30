@@ -66,27 +66,96 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <html lang="en"><head><script dangerouslySetInnerHTML={{ __html: `(()=>{try{const t=localStorage.getItem('fyrelinkz-theme');const d=window.matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.dataset.theme=t==='light'||t==='dark'?t:d?'dark':'light'}catch{}})()` }} /></head><body><a href="#main-content" className="skip-link">Skip to content</a><PointerAccent /><JsonLd data={[{
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "@id": SITE_URL + "/#organization",
-        name: "FyreLinkz",
-        url: SITE_URL,
-        logo: SITE_URL + "/brand/symbol.svg",
-        publishingPrinciples: SITE_URL + "/about"
-      }, {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "@id": SITE_URL + "/#website",
-        name: "FyreLinkz",
-        url: SITE_URL,
-        publisher: {
-          "@id": SITE_URL + "/#organization"
-        }
-      }]} /><Navbar records={[{title:"AI video model directory",href:"/ai-video-models",topic:"Models",description:"Kling Seedance Sora Veo Hailuo Ray Pika model pricing"}, ...POSTS.map(p => ({
-        title: p.title,
-        href: articlePath(p),
-        topic: p.topic,
-        description: p.metaDescription
-      }))]} /><main id="main-content" tabIndex={-1}>{children}</main><Footer /><Analytics /><ScrollReveal /></body></html>;
+  const adsenseClientId = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID;
+
+  return (
+    <html lang="en">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(()=>{try{const t=localStorage.getItem('fyrelinkz-theme');const d=window.matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.dataset.theme=t==='light'||t==='dark'?t:d?'dark':'light'}catch{}})()`
+          }}
+        />
+        {adsenseClientId && (
+          <>
+            <meta name="google-adsense-account" content={adsenseClientId} />
+            <script
+              async
+              src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClientId}`}
+              crossOrigin="anonymous"
+            />
+          </>
+        )}
+      </head>
+      <body>
+        <a href="#main-content" className="skip-link">Skip to content</a>
+        <PointerAccent />
+        <JsonLd
+          data={[
+            {
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "@id": SITE_URL + "/#organization",
+              name: "FyreLinkz",
+              alternateName: "FyreLinkz AI",
+              url: SITE_URL,
+              logo: {
+                "@type": "ImageObject",
+                url: SITE_URL + "/brand/symbol.svg"
+              },
+              publishingPrinciples: SITE_URL + "/about",
+              knowsAbout: [
+                "Artificial Intelligence",
+                "ComfyUI Workflows",
+                "Local GPU Workstations",
+                "AI Video Generation Models",
+                "Machine Learning Hardware"
+              ]
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "@id": SITE_URL + "/#website",
+              name: "FyreLinkz",
+              alternateName: "FyreLinkz AI",
+              url: SITE_URL,
+              description: "Sourced AI news, ComfyUI workflows, and local hardware guides for tech creators.",
+              publisher: {
+                "@id": SITE_URL + "/#organization"
+              },
+              inLanguage: "en-US",
+              potentialAction: {
+                "@type": "SearchAction",
+                target: {
+                  "@type": "EntryPoint",
+                  urlTemplate: `${SITE_URL}/?q={search_term_string}`
+                },
+                "query-input": "required name=search_term_string"
+              }
+            }
+          ]}
+        />
+        <Navbar
+          records={[
+            {
+              title: "AI video model directory",
+              href: "/ai-video-models",
+              topic: "Models",
+              description: "Kling Seedance Sora Veo Hailuo Ray Pika model pricing"
+            },
+            ...POSTS.map(p => ({
+              title: p.title,
+              href: articlePath(p),
+              topic: p.topic,
+              description: p.metaDescription
+            }))
+          ]}
+        />
+        <main id="main-content" tabIndex={-1}>{children}</main>
+        <Footer />
+        <Analytics />
+        <ScrollReveal />
+      </body>
+    </html>
+  );
 }

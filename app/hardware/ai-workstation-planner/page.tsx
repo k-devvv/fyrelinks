@@ -4,6 +4,8 @@ import JsonLd, { generateBreadcrumbSchema } from "@/components/JsonLd";
 import { pageMetadata } from "@/lib/metadata";
 import { SITE_URL } from "@/lib/editorial";
 
+import { generateSoftwareAppSchema } from "@/lib/schema";
+
 const route = "/hardware/ai-workstation-planner";
 
 export const metadata = pageMetadata(
@@ -15,11 +17,20 @@ export const metadata = pageMetadata(
 export default function AiWorkstationPlannerPage() {
   return (
     <main className="wrap planner-page">
-      <JsonLd data={generateBreadcrumbSchema([
-        { name: "Home", url: SITE_URL },
-        { name: "Hardware", url: `${SITE_URL}/hardware` },
-        { name: "AI workstation planner", url: `${SITE_URL}${route}` },
-      ])} />
+      <JsonLd data={[
+        generateBreadcrumbSchema([
+          { name: "Home", url: SITE_URL },
+          { name: "Hardware", url: `${SITE_URL}/hardware` },
+          { name: "AI workstation planner", url: `${SITE_URL}${route}` },
+        ]),
+        generateSoftwareAppSchema({
+          name: "AI Workstation Planner",
+          description: "Plan a local AI desktop build, upgrade, or laptop by budget, country, and workload across US, UK, Canada, and Germany.",
+          url: `${SITE_URL}${route}`,
+          applicationCategory: "HardwareCostCalculatorApplication",
+          operatingSystem: "WebBrowser"
+        })
+      ]} />
       <nav className="breadcrumbs" aria-label="Breadcrumb">
         <Link href="/">Home</Link><span>/</span><Link href="/hardware">Hardware</Link><span>/</span>
         <span aria-current="page">Workstation planner</span>

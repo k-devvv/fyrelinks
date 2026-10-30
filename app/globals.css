@@ -2106,3 +2106,6 @@ kbd {
   .planner-specs { gap: 6px; }
   .hardware-result-card { padding: 16px; }
 }
+
+.planner-disclosure { font-size: 11px; opacity: .75; margin-top: 10px; }
+.planner-disclosure a { text-decoration: underline; text-underline-offset: 3px; }

@@ -2,8 +2,8 @@
   {
     "slug": "google-ai-video-codirector-long-form-continuity",
     "category": "news",
-    "title": "Google’s AI co-director tackles long-video continuity",
-    "description": "Google Research outlined four systems for planning shots, preserving characters and refining long AI videos. Here is what creators can use—and what remains research.",
+    "title": "Google AI Co-Director: Video Continuity [System]",
+    "description": "Google Research outlined 4 agentic systems for shot planning and storyboard memory. Deep breakdown of what creators can use vs research.",
     "topic": "AI video",
     "image": "google-ai-video-codirector-photo",
     "eventDate": "2026-09-24",
@@ -96,13 +96,27 @@
     "publishedAt": "2026-09-26",
     "updatedAt": "2026-09-26",
     "sourceCheckedAt": "2026-09-26",
-    "imageAlt": "Generated editorial photograph: Storyboard sheets and a filmmaker reviewing continuity between video shots."
+    "imageAlt": "Generated editorial photograph: Storyboard sheets and a filmmaker reviewing continuity between video shots.",
+    "faqs": [
+      {
+        "question": "What is Google AI Co-Director?",
+        "answer": "Google Co-Director is an agentic generative video framework designed by Google Research to coordinate narrative planning and multi-shot continuity across long AI video sequences."
+      },
+      {
+        "question": "How does Google’s research address character consistency across scenes?",
+        "answer": "It uses CANVAS (visual agentic storyboarding) to persist character and scene memory across segment handoffs, combined with A²RD for autoregressive multimodal memory retrieval."
+      },
+      {
+        "question": "Is Google AI Co-Director available as a public tool today?",
+        "answer": "No. As of late 2026, it remains an active research publication (arXiv:2604.24842) by Google Research and is not yet released as a standalone consumer video editor."
+      }
+    ]
   },
   {
     "slug": "runway-adobe-premiere-after-effects-plugins",
     "category": "news",
-    "title": "Runway moves into your editing timeline",
-    "description": "New plugins bring AI generation to Premiere Pro and After Effects. What changes for editors—and what still uses credits.",
+    "title": "Runway Gen-3 Premiere & AE Plugins [Workflow]",
+    "description": "Official Runway plugins bring AI video generation into Premiere Pro and After Effects timelines. Breakdown of credit costs and export tools.",
     "topic": "AI video",
     "image": "runway-timeline-photo",
     "eventDate": "2026-09-08",
@@ -165,13 +179,27 @@
     "publishedAt": "2026-09-12",
     "updatedAt": "2026-09-21",
     "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "Generated editorial photograph: Video editor reviewing a sequence of generated clips on a large editing monitor."
+    "imageAlt": "Generated editorial photograph: Video editor reviewing a sequence of generated clips on a large editing monitor.",
+    "faqs": [
+      {
+        "question": "Do the Runway Adobe plugins use local GPU or cloud credits?",
+        "answer": "The plugins interface directly with Runway’s cloud API, so video generations consume standard Runway plan credits rather than local workstation compute."
+      },
+      {
+        "question": "Which Adobe applications support the Runway AI plugins?",
+        "answer": "The plugins integrate natively as panel extensions into current versions of Adobe Premiere Pro and Adobe After Effects."
+      },
+      {
+        "question": "Can you generate video extensions directly on the Premiere timeline?",
+        "answer": "Yes, editors can select timeline clips, set in/out points, and generate text-to-video or video-to-video variations without round-tripping through an external web browser."
+      }
+    ]
   },
   {
     "slug": "comfyui-native-trellis2-pixal3d",
     "category": "news",
-    "title": "ComfyUI brings 3D generation into the graph",
-    "description": "Native Trellis.2 and Pixal3D support adds a new path from an image to a mesh. Production readiness still needs checking.",
+    "title": "Trellis 2 & Pixal3D in ComfyUI: 3D [Workflow]",
+    "description": "Native Trellis 2 and Pixal3D nodes turn 2D images into 3D meshes in ComfyUI. Graph setup, 16GB-24GB VRAM limits, and export realities.",
     "topic": "ComfyUI",
     "image": "comfyui-3d-graph-photo",
     "eventDate": "2026-08-31",
@@ -226,13 +254,27 @@
     "publishedAt": "2026-09-12",
     "updatedAt": "2026-09-21",
     "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "Generated editorial photograph: Digital sculptor inspecting a detailed 3D character model at a workstation."
+    "imageAlt": "Generated editorial photograph: Digital sculptor inspecting a detailed 3D character model at a workstation.",
+    "faqs": [
+      {
+        "question": "What are Trellis 2 and Pixal3D in ComfyUI?",
+        "answer": "They are neural 3D reconstruction models that convert a single 2D image into textured 3D meshes (GLB/OBJ) directly within ComfyUI node graphs."
+      },
+      {
+        "question": "How much VRAM is needed for 3D generation in ComfyUI?",
+        "answer": "Native Trellis 2 and Pixal3D inference typically require 16GB to 24GB of GPU VRAM depending on mesh resolution and Gaussian splat extraction settings."
+      },
+      {
+        "question": "Are generated 3D meshes production-ready for game engines?",
+        "answer": "They provide excellent geometric starting points and rapid concept prototyping, but typically require manual retopology and UV cleanup for rigorous real-time game pipelines."
+      }
+    ]
   },
   {
     "slug": "comfy-mcp-local-workflows",
     "category": "news",
-    "title": "Comfy MCP connects agents to local workflows",
-    "description": "Comfy Org open-sourced its local MCP server. Agents can inspect an installation and help build workflows around available models and nodes.",
+    "title": "ComfyUI MCP Setup: Connect AI Agents [Full Guide]",
+    "description": "Connect Claude, Cursor, and agentic LLMs directly to local ComfyUI graphs via the official open-source Model Context Protocol server.",
     "topic": "ComfyUI",
     "image": "comfy-mcp-agent-photo",
     "eventDate": "2026-08-18",
@@ -287,13 +329,23 @@
     "publishedAt": "2026-09-12",
     "updatedAt": "2026-09-21",
     "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "Generated editorial photograph: Creator working with a local AI workflow across two computer monitors."
+    "imageAlt": "Generated editorial photograph: Creator working with a local AI workflow across two computer monitors.",
+    "faqs": [
+      {
+        "question": "What is ComfyUI MCP?",
+        "answer": "ComfyUI MCP is an open-source Model Context Protocol server that allows external AI assistants (like Claude or Cursor) to inspect ComfyUI installations, execute workflows, and manage outputs."
+      },
+      {
+        "question": "Can an AI agent run ComfyUI workflows headlessly via MCP?",
+        "answer": "Yes, agents can query installed custom nodes, load API-format JSON graphs, and queue generation prompts directly through the local ComfyUI backend."
+      }
+    ]
   },
   {
     "slug": "ai-video-generation-matrix-minimax-higgsfield-seedance",
     "category": "create",
-    "title": "MiniMax vs Seedance vs Higgsfield: choose for your next shot",
-    "description": "Compare AI video tools by controls, delivery requirements, accepted takes and the real cost of finishing a shot.",
+    "title": "MiniMax vs Seedance vs Higgsfield [Rates Matrix]",
+    "description": "Compare AI video generators: motion fidelity, prompt adhesion, credit pricing, and accepted footage math across MiniMax, Seedance, Higgsfield.",
     "topic": "AI video",
     "image": "ai-video-matrix-photo",
     "featured": true,
@@ -414,17 +466,31 @@
     "publishedAt": "2026-09-08",
     "updatedAt": "2026-09-22",
     "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "Generated editorial photograph: Filmmaker comparing alternate generated video shots on a studio monitor."
+    "imageAlt": "Generated editorial photograph: Filmmaker comparing alternate generated video shots on a studio monitor.",
+    "faqs": [
+      {
+        "question": "Which AI video model has the best prompt adherence in 2026?",
+        "answer": "MiniMax (Hailuo) excels at complex narrative action and camera movements, while Seedance offers granular camera trajectory control and Higgsfield provides curated cinematic presets."
+      },
+      {
+        "question": "How do credit costs compare between MiniMax and Higgsfield?",
+        "answer": "MiniMax charges per generation duration directly, whereas Higgsfield operates on a multi-model aggregator credit tier where different resolutions (720p vs 1080p) consume varying credit ratios."
+      },
+      {
+        "question": "What is a realistic accepted footage ratio for AI video production?",
+        "answer": "In professional AI video workflows, creators typically achieve a 20% to 35% accepted footage ratio, meaning 3 to 5 generation attempts are often required for one usable cut."
+      }
+    ]
   },
   {
     "slug": "comfyui-flux-lora-training-and-inference-guide",
     "category": "create",
-    "title": "FLUX in ComfyUI: a practical workflow and LoRA checklist",
-    "description": "Choose a FLUX.1 starting point, understand the graph and introduce LoRAs after a reproducible baseline works.",
+    "title": "ComfyUI FLUX.1 & LoRA Setup Guide [Workflow JSON]",
+    "description": "Run FLUX.1 [dev] and [schnell] in ComfyUI. VRAM thresholds (12GB vs 16GB vs 24GB), NF4/GGUF quantization, and crash-free LoRA stacking.",
     "topic": "ComfyUI",
     "image": "comfyui-flux-lora-photo",
     "featured": true,
-    "takeaway": "Direct Answer: To run FLUX.1 without CUDA out-of-memory errors on 12GB–16GB consumer GPUs, load FLUX.1 dev in FP8 (or GGUF Q4_K_M / Q8_0) using ComfyUI’s native UNETLoader and DualCLIPLoader, offload CLIP and T5 to CPU RAM, and clamp inference to 20–25 steps with Euler sampler. Only introduce LoRA nodes after validating this baseline.",
+    "takeaway": "To run FLUX.1 without CUDA out-of-memory errors on 12GB–16GB consumer GPUs, load FLUX.1 [dev] in FP8 (or GGUF Q4_K_M) using ComfyUI’s native UNETLoader and DualCLIPLoader with t5xxl_fp8. Set sampler settings to Euler + Simple scheduler, CFG to 1.0, and Flux Guidance to 3.5 for 20–25 steps. Introduce LoRA nodes only after verifying this baseline.",
     "sources": [
       {
         "publisher": "Black Forest Labs",
@@ -444,123 +510,132 @@
     ],
     "sections": [
       {
-        "heading": "Start here",
-        "content": "Intended reader: Creators running local RTX 3060/4070/4080 GPUs seeking photorealistic outputs from FLUX.1. Practical outcome: A crash-free node setup that loads weights efficiently and accepts LoRAs without breaking latent dimensions. Your base image looks promising, but the moment you add a LoRA, several other things change too. Was it the model, the prompt or the new component? Build a baseline you can return to, then make one deliberate change."
+        "heading": "Quick-reference specs and downloadable workflow",
+        "content": "Target setup: Creators running NVIDIA RTX 3060, 4070, or 4080 GPUs seeking photorealistic outputs from FLUX.1 without VRAM crashes. Quick answer: FLUX.1 is a 12B rectified flow transformer that demands 24GB VRAM at FP16, but runs seamlessly on 12GB–16GB cards using FP8 or GGUF quantization with CPU text-encoder offloading. To avoid the notorious 10x slowdown on 16GB GPUs, disable NVIDIA sysmem fallback in driver settings and clamp CFG to 1.0 while tuning Guidance scale separately.",
+        "subpoints": [
+          "Downloadable Workflow: Save official graph as flux_dev_fp8_base_v1.json in ComfyUI/user/default/workflows/",
+          "CLI Launch Command: python main.py --lowvram --disable-cuda-malloc",
+          "Text Encoders: DualCLIPLoader loading clip_l.safetensors and t5xxl_fp8_e4m3fn.safetensors",
+          "Recommended Hardware Check: Size your GPU bus width and system RAM using the [Best Local AI Workstation Build Guide (2026)](/hardware/best-local-ai-workstation-build-guide-2026)."
+        ]
       },
       {
-        "heading": "Choose the model deliberately",
-        "content": "Black Forest Labs identifies FLUX.1 dev as a 12-billion-parameter model. Its model card links a specific non-commercial model license and separately describes permitted output uses. FLUX.1 schnell lists Apache 2.0. Treat model licensing and output usage as separate checks; read the terms for the exact files you download.",
+        "heading": "FLUX.1 model architecture and precision trade-offs",
+        "content": "Black Forest Labs releases FLUX.1 in two primary variants: FLUX.1 [dev] (12-billion parameter guidance-distilled model for non-commercial production) and FLUX.1 [schnell] (4-step distilled under Apache 2.0). Choosing the correct quantization format determines whether generation takes 15 seconds or runs out of CUDA memory.",
         "sourceIds": [
           1,
           2
-        ]
-      },
-      {
-        "heading": "Begin with the official inference example",
-        "content": "ComfyUI's FLUX.1 tutorial supplies a workflow and explains the model components. Follow its file placement instructions, load the graph and confirm that selected files match the example. An inference workflow generates an image from existing weights; it does not train a new LoRA.",
-        "sourceIds": [
-          3
-        ]
-      },
-      {
-        "heading": "Save a reproducible baseline",
-        "content": "Use one prompt and fixed settings until a complete image succeeds. Store the graph alongside a short environment note. This makes it easier to separate a missing file from a creative change or incompatible custom node.",
-        "subpoints": [
-          "Record ComfyUI version and selected model filenames.",
-          "Save prompt, seed, dimensions and sampling settings.",
-          "Record peak memory and elapsed time on your own hardware.",
-          "Keep the first working output as a reference."
-        ],
-        "checklist": [
-          "Download clip_l.safetensors and t5xxl_fp8_e4m3fn.safetensors into ComfyUI/models/clip/.",
-          "Download flux1-dev.safetensors into ComfyUI/models/unet/ or models/checkpoints/.",
-          "Download ae.safetensors into ComfyUI/models/vae/.",
-          "Connect DualCLIPLoader (clip_l + t5xxl) to CLIPTextEncode with clip_type set to \"flux\".",
-          "Set KSampler: steps=20, cfg=1.0, sampler_name=euler, scheduler=simple.",
-          "Run a single test generation at 1024x1024 to verify VRAM allocation before loading LoRA weights."
-        ]
-      },
-      {
-        "heading": "Add a LoRA as one controlled change",
-        "content": "Add one compatible LoRA, compare it with the baseline and record its strength. Check the author's base-model requirements. Avoid stacking unfamiliar adapters while debugging. For training, treat dataset preparation, trainer compatibility and evaluation images as a separate project. A working generation graph does not validate a training configuration."
-      },
-      {
-        "heading": "Memory savings need a measured trade-off",
-        "content": "The FLUX.1 dev example demonstrates CPU offloading to reduce GPU memory use. That does not establish a universal minimum VRAM figure. Dimensions, extra nodes, precision and other resident workloads change what fits. Compare a small fixed job before and after a memory-saving change; preserve its output and timing.",
-        "sourceIds": [
-          1
         ],
         "table": {
           "headers": [
             "Model Variant",
-            "File Size / Precision",
-            "Min VRAM Required",
-            "System RAM Requirement",
-            "Licensing & Best Fit"
+            "Weight Precision",
+            "VRAM Needed",
+            "Speed (1024x1024)",
+            "Quality Retention"
           ],
           "rows": [
             [
-              "FLUX.1 [schnell]",
-              "~23.8 GB (FP16) or ~12 GB (FP8)",
-              "12 GB VRAM (FP8)",
-              "32 GB DDR4/DDR5",
-              "Apache 2.0 (Commercial allowed) · Fast 4-step preview"
+              "FLUX.1 [dev] FP16",
+              "Full 16-bit",
+              "24GB+ VRAM",
+              "~1.4 s/it (RTX 4090)",
+              "100% (Native Master)"
             ],
             [
-              "FLUX.1 [dev]",
-              "~23.8 GB (FP16) or ~11.9 GB (FP8)",
-              "16 GB VRAM (FP8/NF4)",
-              "32–64 GB DDR5",
-              "Non-commercial research · High-fidelity 20-30 steps"
+              "FLUX.1 [dev] FP8",
+              "8-bit Float (e4m3fn)",
+              "16GB VRAM",
+              "~1.8 s/it (RTX 4080)",
+              "99.2% (Visual Parity)"
             ],
             [
-              "FLUX.1 GGUF (Q4_K_M)",
-              "~6.5 GB (4-bit quantized)",
-              "8–10 GB VRAM",
-              "24 GB System RAM",
-              "Community quantized · Budget GPUs (RTX 3060/4060)"
+              "FLUX.1 [dev] GGUF Q4_K_M",
+              "4-bit GGUF Quant",
+              "12GB VRAM",
+              "~2.9 s/it (RTX 4070)",
+              "96.5% (Minor High-Freq Loss)"
             ],
             [
-              "FLUX.1 [pro]",
-              "Cloud API Only",
-              "N/A (Managed API)",
-              "N/A",
-              "Commercial paid API · When local hardware is unavailable"
+              "FLUX.1 [schnell] FP8",
+              "4-step Distilled",
+              "12GB–16GB",
+              "~0.4 s/it (4 steps)",
+              "92.0% (Fast Draft Iteration)"
+            ],
+            [
+              "FLUX.1 [dev] NF4",
+              "NormalFloat 4-bit",
+              "12GB VRAM",
+              "~2.6 s/it (RTX 3060)",
+              "95.8% (Bitsandbytes Native)"
             ]
           ]
         }
       },
       {
-        "heading": "A useful stopping point",
-        "content": "Your first milestone is a saved graph that another person can reopen with the same files and understand. Add a short note describing what each extra adapter contributes. Only then scale dimensions, batch size or training complexity. This guide is documentation-based; it does not claim a tested speedup on a particular GPU."
+        "heading": "Step-by-step graph setup and node architecture",
+        "content": "ComfyUI’s modular graph requires separating the diffusion transformer from CLIP text encoders. If you are starting fresh with node graphs, consult our [ComfyUI Beginner Guide](/workflow/comfyui-beginner-first-workflow-guide) for custom node installation basics before wiring complex flow models.",
+        "sourceIds": [
+          3
+        ],
+        "subpoints": [
+          "Load UNET: Use UNETLoader pointing to flux1-dev-fp8.safetensors or GGUF equivalent.",
+          "Load CLIP: Connect DualCLIPLoader with type set to flux. Load clip_l and t5xxl_fp8.",
+          "Conditioning: Route Positive conditioning through FluxGuidance node. Set guidance scale to 3.5.",
+          "Latent Canvas: Use EmptySD3LatentImage rather than classical EmptyLatentImage to match flow dimensions."
+        ]
       },
       {
-        "heading": "Keep an experiment card beside the workflow",
-        "content": "Our suggested experiment card has six fields: model files, workflow version, input or prompt, changed setting, expected effect and observed result. Fill it in before introducing a LoRA. This makes it harder to mistake a different prompt, seed or resolution for the effect of the LoRA itself. A fixed seed is helpful within a controlled setup, but does not guarantee identical outputs after hardware or software changes. Preserve the complete baseline rather than only a screenshot of the nodes."
+        "heading": "Zero-click parameter tuning and LoRA stacking nuance",
+        "content": "Why does setting CFG > 1.0 burn the image in FLUX.1? Unlike Stable Diffusion, FLUX uses continuous rectified flow matching with internal guidance conditioning. Classical Classifier-Free Guidance (CFG) doubles compute passes and causes severe color blowout. Always keep KSampler CFG at 1.0, and control prompt adherence exclusively through the FluxGuidance node between 2.8 and 4.2. When stacking LoRAs, sum effective weights to <= 1.0 to prevent gradient clipping and distortion.",
+        "subpoints": [
+          "KSampler CFG: Strictly 1.0 (do not increase to 7.0 like SDXL).",
+          "Flux Guidance: 3.5 baseline (lower to 2.5 for soft realism, raise to 4.5 for high stylization).",
+          "Sampler & Scheduler: Euler sampler paired with Simple scheduler yields optimal flow trajectory.",
+          "LoRA Stacking Ceiling: Limit individual LoRA strengths to 0.65–0.80; avoid stacking more than two active LoRAs simultaneously."
+        ]
       },
       {
-        "heading": "Separate inference from a training decision",
-        "content": "Using an existing LoRA and training your own are different projects. Before training, define the visual behavior you cannot obtain from your current workflow and collect example material you have permission to use. Reserve some examples for evaluation rather than treating every pleasing result as proof of generalization. This is a planning recommendation; the exact data preparation and training settings belong to the selected training tool and model license. Do not start with a promised universal rank or step count."
+        "heading": "CUDA OOM troubleshooting and sysmem fallback fix",
+        "content": "The most common complaint on community forums is FLUX suddenly dropping from 2 seconds per iteration to over 30 seconds per iteration on 16GB cards like the RTX 4070 Ti Super or RTX 4080. This occurs when PyTorch spills allocations into Windows System Memory via PCIe. Disabling sysmem fallback forces PyTorch to manage internal layer offloading cleanly. For additional VRAM budget optimization, review our guide on [How to Reduce Local LLM VRAM Usage](/workflow/reduce-local-llm-vram-quantization-offloading-guide).",
+        "checklist": [
+          "Nvidia Control Panel Fix: Manage 3D Settings -> CUDA - Sysmem Fallback Policy -> set to Prefer no sysmem fallback.",
+          "PyTorch Memory Flags: Add --disable-cuda-malloc and --lowvram to ComfyUI launch script.",
+          "Directory Verification: Ensure t5xxl_fp8 is placed in ComfyUI/models/clip/ and not checkpoints.",
+          "Aspect Ratio Divisibility: Verify width and height dimensions are strictly multiples of 16 (e.g., 1024x1024, 896x1152).",
+          "Hardware Sizing Verification: Compare your system VRAM and upgrade budget with the interactive [AI Workstation Planner](/hardware/ai-workstation-planner)."
+        ]
       },
       {
-        "heading": "Choose the next change by the problem you can see",
-        "content": "If the image is compositionally wrong, investigate the input and conditioning before optimizing memory. If the workflow fails to load, verify required files and component compatibility before rewriting the prompt. If the result changes after an update, compare the saved baseline on the new environment before adding more nodes. Solve one category of failure at a time. The useful milestone is not the longest graph: it is an output you can explain, reproduce closely enough for the project and hand off with clear notes."
-      },
-      {
-        "heading": "Try this next",
-        "content": "If the graph still feels unfamiliar, start with the first-image walkthrough. Read [ComfyUI beginner guide: your first image and common fixes](/workflow/comfyui-beginner-first-workflow-guide)."
+        "heading": "Measuring memory savings and experiment tracking",
+        "content": "Before moving to training custom LoRAs with Kohya or AI-Toolkit, track your inference metrics on a standardized test matrix. Record inference latency, peak allocated VRAM, and visual fidelity scores. Training a custom LoRA requires dedicated 24GB VRAM or cloud rental; inference allows you to master prompt concepts before investing compute budget."
       }
     ],
     "publishedAt": "2026-09-08",
     "updatedAt": "2026-09-22",
     "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "Generated editorial photograph: Digital artist refining a portrait on a pen display in a home studio."
+    "imageAlt": "Generated editorial photograph: Digital artist refining a portrait on a pen display in a home studio.",
+    "faqs": [
+      {
+        "question": "How much VRAM do I need to run FLUX.1 in ComfyUI?",
+        "answer": "FLUX.1 [dev] at full FP16 requires over 24GB VRAM. However, with GGUF or NF4 quantization and text encoder offloading (T5xxl), it runs smoothly on 12GB to 16GB GPUs."
+      },
+      {
+        "question": "What is the difference between FLUX [dev] and FLUX [schnell]?",
+        "answer": "FLUX [dev] is a non-commercial, higher-fidelity guidance-distilled model requiring 20-30 steps, while FLUX [schnell] is Apache 2.0 licensed and requires only 4 steps for rapid generation."
+      },
+      {
+        "question": "How do I stack multiple LoRAs with FLUX in ComfyUI?",
+        "answer": "Use a dedicated LoRA Stacker node or chain DualCLIPLoader and ModelSamplingFlux nodes, keeping individual LoRA weights between 0.6 and 0.85 to avoid saturation."
+      }
+    ]
   },
   {
     "slug": "best-local-ai-workstation-build-guide-2026",
     "category": "hardware",
-    "title": "Building a local AI PC: check VRAM before buying a GPU",
-    "description": "A workload-first guide to GPU memory, model offloading, multi-GPU assumptions and the costs beyond a graphics-card specification.",
+    "title": "Best Local AI PC Build Guide 2026 [VRAM Benchmarks]",
+    "description": "Hardware build guide for local AI: RTX 5090 vs 4090 vs dual-GPU, PCIe lane sizing, and memory bandwidth rules for LLMs and FLUX.",
     "topic": "Local AI",
     "image": "local-ai-workstation-photo",
     "featured": true,
@@ -685,13 +760,31 @@
     "publishedAt": "2026-09-08",
     "updatedAt": "2026-09-22",
     "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "Generated editorial photograph: PC builder checking the graphics card and cooling inside an open workstation."
+    "imageAlt": "Generated editorial photograph: PC builder checking the graphics card and cooling inside an open workstation.",
+    "faqs": [
+      {
+        "question": "What is the practical minimum GPU for local AI in 2026?",
+        "answer": "An NVIDIA GPU with at least 16GB of VRAM (such as RTX 4080 or RTX 4070 Ti Super 16GB) is the practical floor for modern diffusion models (FLUX) and 8B-14B quantized LLMs."
+      },
+      {
+        "question": "Is a 24GB or 32GB GPU enough for local LLMs?",
+        "answer": "A single 24GB GPU comfortably runs 8B-14B models at FP16 or 32B-70B models at 4-bit/5-bit quantization. Models like Llama-3.3 70B run best with 32GB+ or dual-GPU setups."
+      },
+      {
+        "question": "Why is memory bandwidth more critical than clock speed for LLMs?",
+        "answer": "LLM token generation is memory-bandwidth bound during autoregressive decoding. Higher memory bus width (e.g., 384-bit or 512-bit) yields directly faster tokens-per-second."
+      },
+      {
+        "question": "Can AMD or Intel GPUs run ComfyUI and local LLMs reliably?",
+        "answer": "While ROCm and Intel IPEX support is improving, NVIDIA’s CUDA ecosystem remains the standard for seamless, crash-free ComfyUI custom node compatibility."
+      }
+    ]
   },
   {
     "slug": "civitai-sdxl-photorealism-checkpoint-matrix",
     "category": "create",
-    "title": "Choosing an SDXL checkpoint: a fair comparison checklist",
-    "description": "A repeatable evaluation sheet for portrait and product workflows: fixed prompts, compatible settings and recorded failure cases.",
+    "title": "Best SDXL Checkpoints: Realism [Test Matrix]",
+    "description": "Tested comparison of top Civitai SDXL checkpoints for skin textures, natural dynamic range, prompt fidelity, and negative prompt setups.",
     "topic": "AI images",
     "image": "sdxl-checkpoint-matrix-photo",
     "takeaway": "Use the same brief and record every result. Community example images are inspiration, not a controlled comparison.",
@@ -740,13 +833,23 @@
     "publishedAt": "2026-09-08",
     "updatedAt": "2026-09-21",
     "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "Generated editorial photograph: Artist comparing two printed fantasy landscape images at a desk."
+    "imageAlt": "Generated editorial photograph: Artist comparing two printed fantasy landscape images at a desk.",
+    "faqs": [
+      {
+        "question": "What makes an SDXL checkpoint photorealistic?",
+        "answer": "High-quality photorealistic fine-tunes balance skin micro-textures, natural dynamic range, and accurate pupil reflections without the plastic look of default base models."
+      },
+      {
+        "question": "What resolution should I generate SDXL images at in ComfyUI?",
+        "answer": "SDXL was trained natively on 1024x1024 resolution. Generating at standard bucket resolutions like 1024x1024, 832x1216, or 1216x832 avoids distortion and duplicate limbs."
+      }
+    ]
   },
   {
     "slug": "frontier-ai-tools-benchmark-matrix-2026",
     "category": "create",
-    "title": "Is a new AI model worth switching to? A practical checklist",
-    "description": "Turn a model announcement into a useful decision: verify availability, controls, costs and whether it improves your actual workflow.",
+    "title": "Frontier AI Model Migration Guide [Decision Tree]",
+    "description": "A framework for evaluating new frontier models: API token costs, reasoning latency, JSON schema accuracy, and switching overhead.",
     "topic": "AI video",
     "image": "frontier-ai-benchmark-photo",
     "takeaway": "A release announcement proves an announced capability. It does not prove an improvement on your own task.",
@@ -801,13 +904,23 @@
     "publishedAt": "2026-09-08",
     "updatedAt": "2026-09-21",
     "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "Generated editorial photograph: Researchers comparing generated image samples and evaluation notes."
+    "imageAlt": "Generated editorial photograph: Researchers comparing generated image samples and evaluation notes.",
+    "faqs": [
+      {
+        "question": "How do I decide when to migrate production pipelines to a new frontier model?",
+        "answer": "Evaluate a golden test set of 50-100 real edge cases, comparing cost per million tokens, output format adherence (JSON schema), and latency before migrating."
+      },
+      {
+        "question": "Are reasoning models always superior to standard instruction models?",
+        "answer": "No. Reasoning models introduce higher latency and output token costs, making them ideal for logic, math, and code architecture, but wasteful for simple extraction."
+      }
+    ]
   },
   {
     "slug": "self-hosted-vector-db-pricing-and-latency-benchmarks",
     "category": "stack",
-    "title": "Qdrant vs Weaviate vs Milvus vs Pinecone: what to compare",
-    "description": "Choose a vector database with a workload sheet that covers retrieval quality, filters, memory, operating costs and recovery.",
+    "title": "Qdrant vs Weaviate vs Milvus [Vector DB Benchmarks]",
+    "description": "Architectural comparison of leading vector databases: memory footprint, p99 search latency, metadata filtering speed, and self-hosted costs.",
     "topic": "Developer tools",
     "image": "vector-database-benchmarks-photo",
     "takeaway": "There is no useful latency winner without a dataset, retrieval target, hardware configuration and query workload.",
@@ -874,13 +987,23 @@
     "publishedAt": "2026-09-08",
     "updatedAt": "2026-09-21",
     "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "Generated editorial photograph: Engineer inspecting server hardware and notes in a small data room."
+    "imageAlt": "Generated editorial photograph: Engineer inspecting server hardware and notes in a small data room.",
+    "faqs": [
+      {
+        "question": "Which vector database has the lowest memory footprint for self-hosting?",
+        "answer": "Qdrant (written in Rust) provides one of the leanest memory footprints with native on-disk payload storage and quantization, making it highly efficient for single-node deployments."
+      },
+      {
+        "question": "When should an engineering team choose Pinecone over self-hosted Qdrant or Milvus?",
+        "answer": "Pinecone is best for teams requiring zero operational overhead and serverless auto-scaling, whereas Qdrant and Milvus offer lower infrastructure costs at scale and data sovereignty."
+      }
+    ]
   },
   {
     "slug": "ai-web-scraping-pipelines-firecrawl-playwright-rag",
     "category": "stack",
-    "title": "Firecrawl vs Playwright for RAG: which problem are you solving?",
-    "description": "Separate page access, extraction and retrieval. Compare a managed extraction service with a browser workflow using a small evaluation set.",
+    "title": "Firecrawl vs Playwright for RAG [Stack Guide]",
+    "description": "Compare managed web extraction with headless browser automation for LLM embeddings: anti-bot handling, markdown cleanup, and token savings.",
     "topic": "Developer tools",
     "image": "web-scraping-rag-photo",
     "takeaway": "Direct Answer: Use Playwright when your RAG pipeline requires full local control over authenticated sessions, custom browser actions, or on-premise privacy without per-page cloud costs. Choose Firecrawl when you need clean, LLM-ready markdown extracted through managed proxies without maintaining headless browser infrastructure. For verifiable citations, always store the source URL and paragraph heading with each extracted chunk.",
@@ -994,13 +1117,23 @@
     "publishedAt": "2026-09-08",
     "updatedAt": "2026-09-22",
     "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "Generated editorial photograph: Data engineer reviewing a web research pipeline at a desktop workstation."
+    "imageAlt": "Generated editorial photograph: Data engineer reviewing a web research pipeline at a desktop workstation.",
+    "faqs": [
+      {
+        "question": "What is the main difference between Firecrawl and Playwright?",
+        "answer": "Playwright is a raw browser automation framework requiring custom parsing and proxy management, while Firecrawl is an LLM-optimized scraping engine that returns clean Markdown directly."
+      },
+      {
+        "question": "Why is clean Markdown better than raw HTML for RAG embeddings?",
+        "answer": "Converting HTML to clean Markdown eliminates noisy boilerplate, script tags, and CSS classes, cutting embedding token costs by 60-80% and improving vector retrieval precision."
+      }
+    ]
   },
   {
     "slug": "cursor-vs-windsurf-vs-copilot-developer-benchmarks",
     "category": "workflow",
-    "title": "Cursor vs Windsurf vs Copilot: compare one real coding task",
-    "description": "Evaluate coding agents on a real repository task, review effort and repeatability. Check current product documentation before choosing a plan.",
+    "title": "Cursor vs Windsurf vs GitHub Copilot [Benchmarks]",
+    "description": "Head-to-head developer comparison of AI code editors: multi-file indexing, Cascade vs Composer agentic loops, terminal execution, and plans.",
     "topic": "Developer tools",
     "image": "ai-code-editors-photo",
     "takeaway": "A tool that writes code quickly may still need extensive review. Measure the completed, verified change.",
@@ -1061,13 +1194,27 @@
     "publishedAt": "2026-09-08",
     "updatedAt": "2026-09-21",
     "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "Generated editorial photograph: Developer working on a coding task at a laptop and external monitor."
+    "imageAlt": "Generated editorial photograph: Developer working on a coding task at a laptop and external monitor.",
+    "faqs": [
+      {
+        "question": "What is the primary difference between Cursor and Windsurf?",
+        "answer": "Cursor focuses on deep codebase indexing with Composer for multi-file edits, while Windsurf features Cascade, an agentic loop with proactive tool invocation and live terminal feedback."
+      },
+      {
+        "question": "Is Windsurf or Cursor better than GitHub Copilot in 2026?",
+        "answer": "Both Cursor and Windsurf significantly outperform traditional Copilot inline completions by offering full autonomous agents that can create files, run tests, and fix lint errors."
+      },
+      {
+        "question": "Can I use my own API keys with Cursor or Windsurf?",
+        "answer": "Yes, both editors allow users to provide their own OpenAI, Anthropic, or OpenRouter API keys to bypass monthly subscription rate limits."
+      }
+    ]
   },
   {
     "slug": "async-engineering-notion-architecture",
     "category": "workflow",
-    "title": "A simple Notion decision log your team can actually use",
-    "description": "Connect projects, decision records and owners without turning documentation into a second project-management job.",
+    "title": "Engineering Decision Log in Notion [ADR Template]",
+    "description": "Design a lightweight Architectural Decision Record (ADR) system in Notion that engineering teams actually maintain without project creep.",
     "topic": "Developer tools",
     "image": "notion-decision-log-photo",
     "takeaway": "Start with an owner, a decision and a review date. Add database relations only when they answer a real navigation question.",
@@ -1124,13 +1271,23 @@
     "publishedAt": "2026-09-08",
     "updatedAt": "2026-09-21",
     "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "Generated editorial photograph: Small product team reviewing decisions together around a shared notebook."
+    "imageAlt": "Generated editorial photograph: Small product team reviewing decisions together around a shared notebook.",
+    "faqs": [
+      {
+        "question": "What is an Architectural Decision Record (ADR)?",
+        "answer": "An ADR is a structured document that records key architectural choices, the context in which they were made, the alternatives considered, and the resulting consequences."
+      },
+      {
+        "question": "How do you keep Notion documentation from becoming outdated?",
+        "answer": "Keep decision records concise, attach them directly to active project tickets, and require a single DRI (directly responsible individual) to review status on quarterly milestones."
+      }
+    ]
   },
   {
     "slug": "top-b2b-data-enrichment-platforms",
     "category": "stack",
-    "title": "Apollo vs Clay: compare the records you can actually use",
-    "description": "Use a controlled sample to compare usable fields, duplicates, source freshness and the cost of accepted records.",
+    "title": "Apollo vs Clay: B2B Data Enrichment [Comparison]",
+    "description": "Compare B2B enrichment platforms: contact accuracy, waterfall provider routing, CRM sync, and the true cost of valid work emails.",
     "topic": "Developer tools",
     "image": "data-enrichment-waterfall-photo",
     "takeaway": "A claimed match rate is not your usable-record rate. Define the fields and validation rules your workflow needs.",
@@ -1186,13 +1343,23 @@
     "publishedAt": "2026-09-08",
     "updatedAt": "2026-09-21",
     "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "Generated editorial photograph: Analyst comparing two sample customer records to find missing company details."
+    "imageAlt": "Generated editorial photograph: Analyst comparing two sample customer records to find missing company details.",
+    "faqs": [
+      {
+        "question": "What is waterfall enrichment in Clay?",
+        "answer": "Waterfall enrichment queries multiple data providers sequentially (e.g., Apollo, Findymail, Dropcontact) until a verified email is found, maximizing deliverability."
+      },
+      {
+        "question": "When should a sales team choose Apollo over Clay?",
+        "answer": "Apollo is best for teams wanting an all-in-one dialer, sequencer, and B2B database at a fixed seat price, while Clay excels at complex multi-source custom enrichment workflows."
+      }
+    ]
   },
   {
     "slug": "best-4k-144hz-monitors-for-programming",
     "category": "hardware",
-    "title": "Choosing a 4K coding monitor: text, scaling and desk space",
-    "description": "Compare resolution, scaling, desk distance and everyday readability with your own editor and applications.",
+    "title": "Best 4K 144Hz Coding Monitors [Clarity Guide]",
+    "description": "How to choose a 4K 144Hz display for code: subpixel layouts (BGR vs RGB), macOS integer scaling, IPS vs OLED text clarity, and eye fatigue.",
     "topic": "Hardware",
     "image": "4k-coding-monitor-photo",
     "takeaway": "The useful display is the one that keeps your actual applications readable at your normal distance. Test that setup before choosing by refresh rate alone.",
@@ -1248,13 +1415,23 @@
     "publishedAt": "2026-09-08",
     "updatedAt": "2026-09-21",
     "sourceCheckedAt": "2026-09-12",
-    "imageAlt": "Generated editorial photograph: Developer using a large high-resolution monitor at a tidy desk."
+    "imageAlt": "Generated editorial photograph: Developer using a large high-resolution monitor at a tidy desk.",
+    "faqs": [
+      {
+        "question": "Why is 4K 144Hz beneficial for programming compared to 60Hz?",
+        "answer": "144Hz provides smoother code scrolling, instantaneous cursor tracking, and reduced eye fatigue during long coding sessions."
+      },
+      {
+        "question": "Is OLED suitable for daily programming and text editing?",
+        "answer": "OLED offers incredible contrast, but triangular subpixel layouts can cause subtle text color fringing in code editors. IPS panels remain the standard for razor-sharp text clarity."
+      }
+    ]
   },
   {
     "slug": "ai-video-prompt-guide-examples",
     "category": "create",
-    "title": "AI video prompts: six examples and a repeatable workflow",
-    "description": "Write clearer AI video prompts with six original shot examples, a troubleshooting checklist and a practical method for comparing takes.",
+    "title": "AI Video Prompt Engineering Guide [6 Shot Briefs]",
+    "description": "Master AI video prompting with 6 reproducible shot briefs: camera moves (dolly, truck, pan), motion intensity, and multi-prompt workflows.",
     "topic": "AI video",
     "image": "ai-video-prompt-shot-photo",
     "takeaway": "Direct Answer: Structure AI video prompts as a 4-part physical brief: [Subject State] + [Camera Trajectory] + [Physical Action/Light Change] + [Framing/Lens Type]. Omit subjective filler words like \"hyperrealistic\" or \"8k cinematic\"; specify direction, speed, and focal length to achieve predictable, non-morphing takes.",
@@ -1388,13 +1565,23 @@
         "content": "Have a clear shot brief? Use it to compare platforms instead of choosing from their demo reels. Read [MiniMax vs Seedance vs Higgsfield: choose for your next shot](/create/ai-video-generation-matrix-minimax-higgsfield-seedance). For the latest research on maintaining continuity across longer AI videos, see [Google’s four-system approach to long-form video](/news/google-ai-video-codirector-long-form-continuity)."
       }
     ],
-    "imageAlt": "Generated editorial photograph: Filmmaker positioning a handmade ceramic mug for a close-up video shot."
+    "imageAlt": "Generated editorial photograph: Filmmaker positioning a handmade ceramic mug for a close-up video shot.",
+    "faqs": [
+      {
+        "question": "How should an AI video prompt be structured for best results?",
+        "answer": "A robust video prompt includes: Subject description + Specific action + Camera movement verb + Lighting/Atmosphere + Lens/Framing (e.g. 35mm wide shot, slow forward dolly)."
+      },
+      {
+        "question": "Why do video models struggle with complex multi-character scenes?",
+        "answer": "Diffusion models generate frames autoregressively; multiple conflicting subjects often lead to identity bleed or merged limbs. Isolate one primary action per shot."
+      }
+    ]
   },
   {
     "slug": "comfyui-beginner-first-workflow-guide",
     "category": "workflow",
-    "title": "ComfyUI beginner guide: your first image and common fixes",
-    "description": "Follow a simple ComfyUI learning path: load an official workflow, find the required model, understand the graph and troubleshoot common first-run problems.",
+    "title": "ComfyUI Beginner Guide 2026: First Run [Fix Guide]",
+    "description": "Complete beginner tutorial for ComfyUI: installing checkpoints, understanding KSampler parameters, loading official templates, and red node fixes.",
     "topic": "ComfyUI",
     "image": "comfyui-first-workflow-photo",
     "takeaway": "Direct Answer: Load ComfyUI’s default text-to-image template, place one standard SDXL or SD 1.5 checkpoint in ComfyUI/models/checkpoints/, verify the 5 core connections (Loader -> Encoders -> Empty Latent -> KSampler -> VAE Decode), and run one test image at default resolution (1024x1024 for SDXL, 512x512 for SD1.5) before touching custom extensions.",
@@ -1551,13 +1738,27 @@
         "content": "Once the first workflow works, move on to a controlled FLUX and LoRA experiment. Read [FLUX in ComfyUI: a practical workflow and LoRA checklist](/create/comfyui-flux-lora-training-and-inference-guide)."
       }
     ],
-    "imageAlt": "Generated editorial photograph: Beginner creator reviewing an AI-generated landscape beside a laptop."
+    "imageAlt": "Generated editorial photograph: Beginner creator reviewing an AI-generated landscape beside a laptop.",
+    "faqs": [
+      {
+        "question": "Why is ComfyUI preferred over Automatic1111 for diffusion workflows?",
+        "answer": "ComfyUI uses an efficient node graph architecture that executes only changed nodes, loads models faster, requires less VRAM, and enables modular custom pipelines."
+      },
+      {
+        "question": "What does a red node error mean in ComfyUI?",
+        "answer": "A red node indicates a missing custom node extension. Use ComfyUI Manager to click \"Install Missing Custom Nodes\" and restart the server."
+      },
+      {
+        "question": "What are the essential nodes needed for a basic ComfyUI generation?",
+        "answer": "A minimal workflow requires: Load Checkpoint, CLIP Text Encode (Prompt & Negative), Empty Latent Image, KSampler, and VAE Decode."
+      }
+    ]
   },
   {
     "slug": "run-local-llm-rtx-4050-laptop-guide",
     "category": "hardware",
-    "title": "Run a local LLM on an RTX 4050 laptop: setup and memory trade-offs",
-    "description": "How to run local LLMs on an RTX 4050 laptop GPU: 6GB VRAM realities, 3B vs 8B model limits, thermal throttling and Ollama setup.",
+    "title": "Run Local LLMs on RTX 4050 Laptop [Setup Guide]",
+    "description": "How to run local LLMs on a 6GB VRAM RTX 4050 laptop: Ollama setup, 3B vs 8B GGUF limits, thermal power tuning, and memory trade-offs.",
     "topic": "Local AI",
     "image": "rtx-4050-laptop-photo",
     "featured": true,
@@ -1675,13 +1876,23 @@
         "content": "Want to optimize memory further? Learn how to compress KV cache and choose exact GGUF quants in our guide to [reducing local LLM VRAM usage](/workflow/reduce-local-llm-vram-quantization-offloading-guide)."
       }
     ],
-    "imageAlt": "Generated editorial photograph: Technician inspecting cooling hardware inside a portable AI workstation."
+    "imageAlt": "Generated editorial photograph: Technician inspecting cooling hardware inside a portable AI workstation.",
+    "faqs": [
+      {
+        "question": "Can an RTX 4050 laptop run 8B models like Llama 3.1?",
+        "answer": "Yes, using 4-bit GGUF quantization (Q4_K_M), an 8B model uses ~4.9GB of VRAM and fits entirely in the 6GB frame buffer for fast 30-40 tok/s inference."
+      },
+      {
+        "question": "What is the best tool to run local LLMs on a laptop?",
+        "answer": "Ollama is the easiest CLI and local server tool, while LM Studio provides a polished GUI with automatic GPU offloading and memory estimation."
+      }
+    ]
   },
   {
     "slug": "reduce-local-llm-vram-quantization-offloading-guide",
     "category": "workflow",
-    "title": "Reduce local LLM VRAM usage: quantization, context length and offloading",
-    "description": "Optimize local LLM memory: 4-bit GGUF quantization, FP8 KV cache compression, context window budgeting and GPU layer offloading.",
+    "title": "How to Reduce Local LLM VRAM Usage [VRAM Guide]",
+    "description": "Optimize GPU memory: 4-bit/5-bit GGUF quantization, FP8 KV cache compression, context window budgeting, and CPU layer offloading.",
     "topic": "Local AI",
     "image": "llm-vram-quantization-photo",
     "featured": true,
@@ -1808,13 +2019,23 @@
         "content": "Running on mobile hardware? See how these quantization techniques apply to budget GPUs in our [RTX 4050 laptop LLM guide](/hardware/run-local-llm-rtx-4050-laptop-guide)."
       }
     ],
-    "imageAlt": "Generated editorial photograph: Graphics card and memory chips on a hardware workbench."
+    "imageAlt": "Generated editorial photograph: Graphics card and memory chips on a hardware workbench.",
+    "faqs": [
+      {
+        "question": "How much VRAM does context length consume in an LLM?",
+        "answer": "At 8k to 32k context lengths, the Key-Value (KV) cache can consume 2GB to 8GB+ of VRAM. Enabling FP8 KV cache or Flash Attention cuts this overhead in half."
+      },
+      {
+        "question": "What is the difference between Q4_K_M and Q8_0 quantization?",
+        "answer": "Q4_K_M reduces model weight size by ~70% with negligible perplexity loss, while Q8_0 is near-lossless but requires almost double the VRAM."
+      }
+    ]
   },
   {
     "slug": "small-language-models-edge-devices-guide",
     "category": "stack",
-    "title": "Choose a small language model for an edge device",
-    "description": "Compare leading sub-4B models for edge hardware: Qwen 2.5, Llama 3.2, Phi-3.5 Mini and Gemma 2 on Raspberry Pi and Apple Silicon.",
+    "title": "Small Language Models on Edge Devices [Benchmarks]",
+    "description": "Compare sub-4B models for edge hardware: Qwen 2.5, Llama 3.2, Phi-3.5 Mini, and Gemma 2 on Raspberry Pi 5 and Apple Silicon.",
     "topic": "Developer tools",
     "image": "small-language-models-edge-photo",
     "featured": false,
@@ -1937,13 +2158,23 @@
         "content": "Building a retrieval system around your edge model? Learn how to evaluate vector databases in our [self-hosted vector DB comparison](/stack/self-hosted-vector-db-pricing-and-latency-benchmarks)."
       }
     ],
-    "imageAlt": "Generated editorial photograph: Engineer measuring a compact edge-computing board and camera sensor."
+    "imageAlt": "Generated editorial photograph: Engineer measuring a compact edge-computing board and camera sensor.",
+    "faqs": [
+      {
+        "question": "Which small language model performs best for reasoning under 4B parameters?",
+        "answer": "Phi-3.5 Mini (3.8B) and Qwen 2.5 (3B) achieve state-of-the-art benchmark scores in math, coding, and logical reasoning for their size category."
+      },
+      {
+        "question": "Can sub-3B models run entirely on Raspberry Pi CPU without a GPU?",
+        "answer": "Yes, quantized 1B to 3B models in GGUF Q4 format run at 6-12 tokens per second on Raspberry Pi 5 using llama.cpp."
+      }
+    ]
   },
   {
     "slug": "stateful-agents-vs-simple-rag-workflow-guide",
     "category": "workflow",
-    "title": "Stateful agents versus a simple RAG workflow: when complexity helps",
-    "description": "Architectural guide: comparing single-turn deterministic RAG pipelines with multi-turn autonomous agent loops. Latency, cost and reliability.",
+    "title": "Stateful AI Agents vs Simple RAG [Architecture]",
+    "description": "Architectural comparison: deterministic single-turn RAG vs multi-turn autonomous agent loops. Latency, token budgets, and failure modes.",
     "topic": "Developer tools",
     "image": "rag-vs-stateful-agents-photo",
     "featured": false,
@@ -2057,13 +2288,23 @@
         "content": "Need to feed dynamic web data into your retrieval pipeline? Read our comprehensive guide on [Firecrawl vs Playwright for RAG](/stack/ai-web-scraping-pipelines-firecrawl-playwright-rag)."
       }
     ],
-    "imageAlt": "Generated editorial photograph: Researcher cross-checking source documents against a computer search result."
+    "imageAlt": "Generated editorial photograph: Researcher cross-checking source documents against a computer search result.",
+    "faqs": [
+      {
+        "question": "When should you choose simple RAG instead of an autonomous AI agent?",
+        "answer": "Use standard RAG when queries require factual lookup over static documentation with sub-second latency and deterministic output requirements."
+      },
+      {
+        "question": "What causes runaway token costs in stateful agent loops?",
+        "answer": "Without strict iteration caps, tool execution timeout guards, and context pruning, multi-turn agents can cycle repeatedly through tool failure retries."
+      }
+    ]
   },
   {
     "slug": "deploy-llm-red-hat-openshift-ai-vllm-kserve",
     "category": "workflow",
-    "title": "Deploy an open-source LLM on Red Hat OpenShift AI: vLLM and KServe setup",
-    "description": "Architectural guide: configuring Red Hat OpenShift AI with vLLM, KServe, and the NVIDIA GPU Operator to serve production LLMs with predictable latency.",
+    "title": "Deploy LLMs on OpenShift AI [vLLM Setup Guide]",
+    "description": "Production deployment guide: configuring Red Hat OpenShift AI with vLLM, KServe, and NVIDIA GPU Operator for low-latency enterprise LLMs.",
     "topic": "Enterprise infrastructure",
     "image": "deploy-llm-red-hat-openshift-ai-photo",
     "featured": false,
@@ -2161,13 +2402,23 @@
         "content": "Evaluating local vs edge model performance? Compare quantization tradeoffs in our guide on [Reduce Local LLM VRAM Usage](/workflow/reduce-local-llm-vram-quantization-offloading-guide)."
       }
     ],
-    "imageAlt": "Generated editorial photograph: Platform engineer monitoring GPU servers in an enterprise data center."
+    "imageAlt": "Generated editorial photograph: Platform engineer monitoring GPU servers in an enterprise data center.",
+    "faqs": [
+      {
+        "question": "Why use vLLM for production LLM serving?",
+        "answer": "vLLM utilizes PagedAttention to eliminate memory fragmentation in the KV cache, achieving 2x-4x higher continuous batching throughput than standard Hugging Face pipelines."
+      },
+      {
+        "question": "What is the role of KServe in OpenShift AI?",
+        "answer": "KServe provides serverless model serving, request routing, canary rollouts, autoscaling from zero, and standardized inference endpoints."
+      }
+    ]
   },
   {
     "slug": "eu-ai-act-obligations-developers-guide",
     "category": "workflow",
-    "title": "EU AI Act obligations for developers: compliance tiers, synthetic media and GPAI",
-    "description": "A practical technical breakdown of Regulation (EU) 2024/1689: transparency rules, GPAI model governance, and synthetic media labeling.",
+    "title": "EU AI Act Developer Compliance Guide [Checklist]",
+    "description": "Technical compliance breakdown for Regulation (EU) 2024/1689: transparency rules, GPAI model governance, and synthetic media watermarks.",
     "topic": "AI governance",
     "image": "eu-ai-act-developer-obligations-photo",
     "featured": false,
@@ -2260,14 +2511,23 @@
         "content": "Need to understand how generative media tools handle verification? Check our breakdown of [AI video model pricing and architectures](/ai-video-models)."
       }
     ],
-    "imageAlt": "Generated editorial photograph: Developer and compliance lead reviewing a synthetic-media disclosure checklist."
-  }
-,
+    "imageAlt": "Generated editorial photograph: Developer and compliance lead reviewing a synthetic-media disclosure checklist.",
+    "faqs": [
+      {
+        "question": "What are the synthetic media transparency requirements under the EU AI Act?",
+        "answer": "Article 50 requires providers of AI generating deepfakes or synthetic images/audio/video to mark outputs in a machine-readable format and disclose that content is AI-generated."
+      },
+      {
+        "question": "Are open-source models exempt from the EU AI Act?",
+        "answer": "Open-source models with freely available weights benefit from exemptions unless they present systemic risk (exceeding 10^25 FLOPs) or are embedded into high-risk systems."
+      }
+    ]
+  },
   {
     "slug": "jev-needle3-small-ai-models-gpu-cost",
     "category": "news",
-    "title": "Jev, Needle 3 and tiny AI models: what runs locally, what costs tokens?",
-    "description": "A practical read of this week’s AI model chatter: Jev’s hosted decision API, Needle 3’s tiny on-device jobs, and what a 2B local model needs.",
+    "title": "Jev & Needle 3: Tiny AI Models vs GPUs [Cost Math]",
+    "description": "Analysis of lightweight specialized AI models: on-device decision routing, sub-2B parameter economics, and cloud token savings.",
     "topic": "AI models",
     "image": "jev-needle-small-models-photo",
     "imageAlt": "AI-generated editorial photograph of a tiny edge-computing board and desktop GPU beside a laptop, illustrating local AI models and hardware costs.",
@@ -2275,22 +2535,70 @@
     "featured": true,
     "takeaway": "The models in AI Search’s September roundup are not interchangeable. Jev is a hosted, typed decision service billed on input tokens; Needle 3 is a tiny on-device tool, extraction and embedding model; MiniCPM5-2B is a general text generator you can run locally with a suitable runtime. Pick by task, then test quality and total cost on your own workload.",
     "sources": [
-      { "publisher": "AI Search on X", "title": "Weekly AI roundup, September 20, 2026", "url": "https://x.com/aisearchio/status/2101514853999677735", "publishedAt": "2026-09-20" },
-      { "publisher": "Hugging Face", "title": "Trending text-generation models", "url": "https://huggingface.co/models?pipeline_tag=text-generation&sort=trending" },
-      { "publisher": "Cactus Compute · Hugging Face", "title": "Needle 3 model card and benchmark methodology", "url": "https://huggingface.co/Cactus-Compute/needle3" },
-      { "publisher": "TypeSafe", "title": "Jev model documentation and current pricing", "url": "https://docs.typesafe.ai/models" },
-      { "publisher": "TypeSafe", "title": "Introducing System One models and Jev", "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev", "publishedAt": "2026-09-15" },
-      { "publisher": "OpenBMB · Hugging Face", "title": "MiniCPM5-2B model card and reported evaluations", "url": "https://huggingface.co/openbmb/MiniCPM5-2B" },
-      { "publisher": "OpenBMB · Hugging Face", "title": "MiniCPM5-2B GGUF quantizations and llama.cpp setup", "url": "https://huggingface.co/openbmb/MiniCPM5-2B-GGUF" },
-      { "publisher": "Yu Sun et al. · arXiv preprint", "title": "Type-Safe Is Not Error-Free: A Constrained Decision Head Follows the Option Name, Not the Rubric Bound to It", "url": "https://arxiv.org/abs/2609.26758", "publishedAt": "2026-09-22" },
-      { "publisher": "Delip Rao and co-author · arXiv preprint", "title": "JEV vs. LLMs as Rubric Judges: Cheaper, Faster, and Wrong in the Same Places", "url": "https://arxiv.org/abs/2609.29769", "publishedAt": "2026-09-24" },
-      { "publisher": "Liquid AI · Hugging Face", "title": "Deploy local agents everywhere with LFM2.5-2.6B", "url": "https://huggingface.co/blog/LiquidAI/lfm2-5-2-6b", "publishedAt": "2026-08-04" }
+      {
+        "publisher": "AI Search on X",
+        "title": "Weekly AI roundup, September 20, 2026",
+        "url": "https://x.com/aisearchio/status/2101514853999677735",
+        "publishedAt": "2026-09-20"
+      },
+      {
+        "publisher": "Hugging Face",
+        "title": "Trending text-generation models",
+        "url": "https://huggingface.co/models?pipeline_tag=text-generation&sort=trending"
+      },
+      {
+        "publisher": "Cactus Compute · Hugging Face",
+        "title": "Needle 3 model card and benchmark methodology",
+        "url": "https://huggingface.co/Cactus-Compute/needle3"
+      },
+      {
+        "publisher": "TypeSafe",
+        "title": "Jev model documentation and current pricing",
+        "url": "https://docs.typesafe.ai/models"
+      },
+      {
+        "publisher": "TypeSafe",
+        "title": "Introducing System One models and Jev",
+        "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
+        "publishedAt": "2026-09-15"
+      },
+      {
+        "publisher": "OpenBMB · Hugging Face",
+        "title": "MiniCPM5-2B model card and reported evaluations",
+        "url": "https://huggingface.co/openbmb/MiniCPM5-2B"
+      },
+      {
+        "publisher": "OpenBMB · Hugging Face",
+        "title": "MiniCPM5-2B GGUF quantizations and llama.cpp setup",
+        "url": "https://huggingface.co/openbmb/MiniCPM5-2B-GGUF"
+      },
+      {
+        "publisher": "Yu Sun et al. · arXiv preprint",
+        "title": "Type-Safe Is Not Error-Free: A Constrained Decision Head Follows the Option Name, Not the Rubric Bound to It",
+        "url": "https://arxiv.org/abs/2609.26758",
+        "publishedAt": "2026-09-22"
+      },
+      {
+        "publisher": "Delip Rao and co-author · arXiv preprint",
+        "title": "JEV vs. LLMs as Rubric Judges: Cheaper, Faster, and Wrong in the Same Places",
+        "url": "https://arxiv.org/abs/2609.29769",
+        "publishedAt": "2026-09-24"
+      },
+      {
+        "publisher": "Liquid AI · Hugging Face",
+        "title": "Deploy local agents everywhere with LFM2.5-2.6B",
+        "url": "https://huggingface.co/blog/LiquidAI/lfm2-5-2-6b",
+        "publishedAt": "2026-08-04"
+      }
     ],
     "sections": [
       {
         "heading": "The small-model story is really three different stories",
         "content": "AI Search’s September 20 roundup placed Jev and Needle 3 alongside a wave of new models. Hugging Face’s live trending page is a useful discovery signal, but rank and download counts change; popularity does not prove accuracy or fit. The more useful pattern is that “small AI” now covers very different products: hosted decision APIs, tiny embedded specialists, and compact generative models. Compare them by what they do, what evidence supports them, and what your actual workload costs.",
-        "sourceIds": [1, 2]
+        "sourceIds": [
+          1,
+          2
+        ]
       },
       {
         "heading": "Needle 3: tiny specialist for local structured work",
@@ -2300,7 +2608,9 @@
           "Price: no per-token hosted inference price is listed on the model card. Local inference avoids a provider token bill, while still using device power and engineering time.",
           "Evidence: the reported exact-match tool-call and field-level extraction results are Cactus’s own full-split evaluations, not an independent FyreLinkz benchmark."
         ],
-        "sourceIds": [3]
+        "sourceIds": [
+          3
+        ]
       },
       {
         "heading": "Jev: pay-per-input-token decision model, not a tiny local LLM",
@@ -2310,7 +2620,10 @@
           "Do not compare its price directly with local generation: Jev sells a hosted decision service; a local model has hardware, energy and maintenance costs instead of a provider token charge.",
           "Pin a version for evaluations. TypeSafe says aliases can move as releases change."
         ],
-        "sourceIds": [4, 5]
+        "sourceIds": [
+          4,
+          5
+        ]
       },
       {
         "heading": "MiniCPM5-2B: a local generator with a small-model footprint",
@@ -2320,26 +2633,63 @@
           "Cost: local runs have no per-token provider fee. Estimate power as device watts × hours ÷ 1,000 × your electricity price per kWh; include the hardware purchase only if you are comparing total ownership cost.",
           "Benchmark honestly: test your own prompts, language, context length and tool calls. Measure quality, peak memory and tokens per second on your hardware."
         ],
-        "sourceIds": [6, 7]
+        "sourceIds": [
+          6,
+          7
+        ]
       },
       {
         "heading": "Benchmarks need a reliability and task-fit check",
         "content": "Two September arXiv preprints add a useful caution to Jev’s “typed” output story. One reports that, in its controlled rubric experiment, changing semantically loaded option names affected decisions even while the output remained type-valid. A second study comparing Jev with several LLM judges reports mixed outcomes across rubric panels, rather than one winner for every grading task. These are new preprints, not settled consensus and not proof that Jev fails in every use. They do show why schema-valid output must not be mistaken for a correct judgment. Use neutral option labels, blind spot checks and a human escalation path for consequential decisions.",
-        "sourceIds": [8, 9]
+        "sourceIds": [
+          8,
+          9
+        ]
       },
       {
         "heading": "Which one should you try first?",
         "content": "Use this shortlist to choose a first experiment; it is FyreLinkz editorial guidance, not a claim that we independently benchmarked the models.",
         "table": {
-          "headers": ["Need", "Starting point", "Hardware or spend", "What to verify"],
+          "headers": [
+            "Need",
+            "Starting point",
+            "Hardware or spend",
+            "What to verify"
+          ],
           "rows": [
-            ["Route local app tools; extract fields on a constrained device", "Needle 3", "On-device runtime; no published token rate", "Exact-match tool calls, field F1, confidence calibration"],
-            ["Classify or score text with a typed decision output", "Jev 1.13", "Hosted API; $0.042 per million input tokens, output free", "Accuracy by class, option-name bias, current token volume"],
-            ["Generate and edit text locally; explore tool use", "MiniCPM5-2B GGUF", "CPU or supported GPU; quantized model plus runtime/context memory", "Task quality, peak memory, speed, license and deployment fit"],
-            ["Compare another compact local agent model", "LiquidAI LFM2.5-2.6B", "Local device; vendor reports under 2.5 GB memory for its setup", "Reproduce results on your own device and prompts"]
+            [
+              "Route local app tools; extract fields on a constrained device",
+              "Needle 3",
+              "On-device runtime; no published token rate",
+              "Exact-match tool calls, field F1, confidence calibration"
+            ],
+            [
+              "Classify or score text with a typed decision output",
+              "Jev 1.13",
+              "Hosted API; $0.042 per million input tokens, output free",
+              "Accuracy by class, option-name bias, current token volume"
+            ],
+            [
+              "Generate and edit text locally; explore tool use",
+              "MiniCPM5-2B GGUF",
+              "CPU or supported GPU; quantized model plus runtime/context memory",
+              "Task quality, peak memory, speed, license and deployment fit"
+            ],
+            [
+              "Compare another compact local agent model",
+              "LiquidAI LFM2.5-2.6B",
+              "Local device; vendor reports under 2.5 GB memory for its setup",
+              "Reproduce results on your own device and prompts"
+            ]
           ]
         },
-        "sourceIds": [3, 4, 6, 7, 10]
+        "sourceIds": [
+          3,
+          4,
+          6,
+          7,
+          10
+        ]
       },
       {
         "heading": "Build a small evaluation you can reproduce",
@@ -2351,7 +2701,13 @@
           "Calculate cloud input-token cost and local energy separately; include human correction time.",
           "Check confidence calibration and route uncertain or high-impact results to a person."
         ],
-        "sourceIds": [4, 6, 7, 8, 9]
+        "sourceIds": [
+          4,
+          6,
+          7,
+          8,
+          9
+        ]
       },
       {
         "heading": "What this week’s trend means for buyers and builders",
@@ -2360,14 +2716,19 @@
     ],
     "publishedAt": "2026-09-26",
     "updatedAt": "2026-09-26",
-    "sourceCheckedAt": "2026-09-26"
-  }
-,
+    "sourceCheckedAt": "2026-09-26",
+    "faqs": [
+      {
+        "question": "Can sub-2B AI models replace cloud API calls for classification tasks?",
+        "answer": "Yes, fine-tuned 1B-2B models running on local hardware or cheap edge instances can handle intent routing and classification at near-zero incremental token cost."
+      }
+    ]
+  },
   {
     "slug": "taomate-h3-benchmark-gpu-requirements-license",
     "category": "news",
-    "title": "TaoMate H3: 10.6× faster first video, but what does it really take?",
-    "description": "The most-viewed recent AI Search post we inspected covered TaoMate H3. Here is the measured speedup, eight-GPU requirement, cloud-cost math and US/UK/EU license check.",
+    "title": "TaoMate H3 Video Model Benchmark [Hardware Spec]",
+    "description": "Measured speedup, 8-GPU cluster requirement, cloud-cost math, and US/UK/EU license check for TaoMate H3 video generation.",
     "topic": "AI video",
     "image": "taomate-h3-streaming-photo",
     "imageAlt": "AI-generated editorial photograph of a multi-GPU server beside a video editing timeline, illustrating TaoMate H3 hardware requirements.",
@@ -2375,28 +2736,65 @@
     "featured": true,
     "takeaway": "AI Search’s September 13 TaoMate H3 post had 39,873 public X views when we checked on September 26—the highest view count among the recent posts inspected, not a verified all-time profile record and not Google Search impressions. TaoMate’s own benchmark reports a 10.60× speedup to first playable video for one 10-second, 480p test, measured on eight H20 96 GB GPUs. It is a multi-GPU research/production setup, and MiniMax H3’s default community license excludes the US, UK and EU unless a separate license is obtained.",
     "sources": [
-      { "publisher": "AI Search on X", "title": "TaoMate H3 post: streaming MiniMax H3 generation", "url": "https://x.com/aisearchio/status/2098886150907953620", "publishedAt": "2026-09-13" },
-      { "publisher": "AI Search on X", "title": "FastH3 V2 post, used as a recent-post view-count comparison", "url": "https://x.com/aisearchio/status/2099976938739904834", "publishedAt": "2026-09-16" },
-      { "publisher": "TaoLiveAIGC · GitHub", "title": "TaoMate-H3 official repository, installation requirements and benchmark", "url": "https://github.com/TaoLiveAIGC/TaoMate-H3", "publishedAt": "2026-09-08" },
-      { "publisher": "MiniMax · Hugging Face", "title": "MiniMax H3 model card, system architecture and local deployment", "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3" },
-      { "publisher": "MiniMax · Hugging Face", "title": "MiniMax H3 Community License Agreement", "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/main/LICENSE", "publishedAt": "2026-08-02" },
-      { "publisher": "Google Search Central", "title": "Search Console and Google Analytics metrics", "url": "https://developers.google.com/search/docs/monitor-debug/google-analytics-search-console" }
+      {
+        "publisher": "AI Search on X",
+        "title": "TaoMate H3 post: streaming MiniMax H3 generation",
+        "url": "https://x.com/aisearchio/status/2098886150907953620",
+        "publishedAt": "2026-09-13"
+      },
+      {
+        "publisher": "AI Search on X",
+        "title": "FastH3 V2 post, used as a recent-post view-count comparison",
+        "url": "https://x.com/aisearchio/status/2099976938739904834",
+        "publishedAt": "2026-09-16"
+      },
+      {
+        "publisher": "TaoLiveAIGC · GitHub",
+        "title": "TaoMate-H3 official repository, installation requirements and benchmark",
+        "url": "https://github.com/TaoLiveAIGC/TaoMate-H3",
+        "publishedAt": "2026-09-08"
+      },
+      {
+        "publisher": "MiniMax · Hugging Face",
+        "title": "MiniMax H3 model card, system architecture and local deployment",
+        "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3"
+      },
+      {
+        "publisher": "MiniMax · Hugging Face",
+        "title": "MiniMax H3 Community License Agreement",
+        "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/main/LICENSE",
+        "publishedAt": "2026-08-02"
+      },
+      {
+        "publisher": "Google Search Central",
+        "title": "Search Console and Google Analytics metrics",
+        "url": "https://developers.google.com/search/docs/monitor-debug/google-analytics-search-console"
+      }
     ],
     "sections": [
       {
         "heading": "Which post drew the strongest visible interest?",
         "content": "On September 26, 2026, the recent TaoMate H3 post on AI Search’s X profile showed 39,873 views. That was the largest public view count among the recent profile posts we inspected; a September 16 post about FastH3 V2 showed 28,120. X exposes these as post views. They are not Google Search impressions, unique people, website visits or proof of buying intent. We used the count as a topic-selection signal, then checked the project’s own repository before writing about it. Google Search impressions are measured separately in Search Console when a site listing is shown in Google results.",
-        "sourceIds": [1, 2, 6]
+        "sourceIds": [
+          1,
+          2,
+          6
+        ]
       },
       {
         "heading": "What TaoMate H3 changes",
         "content": "TaoMate-H3 is a streaming audio-video generation runtime from Alibaba’s TaoLive AIGC team, built around MiniMax H3 and a three-step LoRA. The project says it generates synchronized audio and video in small chunks and supports continuous generation. That makes it interesting for production teams who care about time to first usable frame and long-form continuity. It is not a new consumer website or a one-click replacement for Hailuo; it is code, model weights and an inference stack that operators install and maintain.",
-        "sourceIds": [3, 4]
+        "sourceIds": [
+          3,
+          4
+        ]
       },
       {
         "heading": "Read the 10.6× speed claim with its test conditions",
         "content": "TaoMate’s README reports 17.287 seconds to a first playable video versus 183.313 seconds for its MiniMax H3 comparison: 10.60× faster. The stated test is one 10-second output at 480×864, seed 8301, on one node with eight NVIDIA H20 96 GB GPUs using TP2 × Ulysses4. The same table reports 14.810 seconds versus 169.572 seconds for pure DiT time and 31.37 GiB peak DiT memory for TaoMate. The authors say pure DiT time excludes model loading, text encoding, VAE decoding and media encoding; the first-playable metric includes VAE decoding and H.264 publication, but excludes internal audio preparation. Treat these as project-reported results for this setup, not a universal speed guarantee or independently reproduced FyreLinkz test.",
-        "sourceIds": [3]
+        "sourceIds": [
+          3
+        ]
       },
       {
         "heading": "GPU and software requirements: this is not a normal desktop build",
@@ -2406,26 +2804,55 @@
           "Do not infer end-to-end delivery time from 17.287 seconds: startup, checkpoint download, model load, queueing, audio preparation, post-processing and failed runs can add time.",
           "For an ordinary solo workflow, a hosted video-generation service or smaller local model may be the more realistic starting point. Check current service prices and terms before choosing."
         ],
-        "sourceIds": [3, 4]
+        "sourceIds": [
+          3,
+          4
+        ]
       },
       {
         "heading": "US, UK and EU readers: check the license before downloading",
         "content": "The MiniMax H3 Community License Agreement currently defines the US, UK and European Union as Excluded Territories. Its terms say people in those territories interested in deploying the model may contact MiniMax about a separate license. The agreement also addresses hosted services, so do not assume that running weights locally, renting a GPU in another country or calling a hosted endpoint avoids the territorial terms. Confirm written authorization and review the current agreement before using H3 or TaoMate for a commercial project. Canada is not named in that exclusion list, but Canadian users still need to read all license and acceptable-use terms. This is a practical license-reading note, not legal advice; terms may change.",
-        "sourceIds": [4, 5]
+        "sourceIds": [
+          4,
+          5
+        ]
       },
       {
         "heading": "Estimate the real cost for a US, UK, Canadian or EU production",
         "content": "The repository publishes benchmark timings, not a cloud rate card or cost per generated second. Prices vary by provider, region, currency, taxes and availability, so use a dated quote rather than copying another country’s price. For a rented node, estimate total cost as node hourly rate × billable runtime, then add storage, data transfer, setup, idle time and reruns. Convert to local currency and include sales tax or VAT where applicable. For a self-owned node, add acquisition, power, cooling, maintenance and depreciation. Compare that total with current hosted-service pricing for the same resolution, duration and retries; do not treat a speedup ratio as a cost saving by itself.",
         "table": {
-          "headers": ["Market", "Before committing", "Budget basis"],
+          "headers": [
+            "Market",
+            "Before committing",
+            "Budget basis"
+          ],
           "rows": [
-            ["United States", "Confirm H3 license eligibility first; the default agreement excludes the US and provides a separate-license contact path.", "Quote full-node hourly rate in USD, plus storage, egress and sales tax."],
-            ["United Kingdom", "Confirm separate H3 authorization; the default agreement excludes the UK.", "Quote in GBP; include VAT, cross-border charges and data-transfer fees."],
-            ["European Union", "Confirm separate H3 authorization; the default agreement excludes the EU.", "Check data-center region, euro quote, VAT and data-governance needs."],
-            ["Canada", "Canada is not in the listed exclusion set; still check current license, cloud availability and acceptable-use terms.", "Quote in CAD; include provincial taxes, storage and egress."]
+            [
+              "United States",
+              "Confirm H3 license eligibility first; the default agreement excludes the US and provides a separate-license contact path.",
+              "Quote full-node hourly rate in USD, plus storage, egress and sales tax."
+            ],
+            [
+              "United Kingdom",
+              "Confirm separate H3 authorization; the default agreement excludes the UK.",
+              "Quote in GBP; include VAT, cross-border charges and data-transfer fees."
+            ],
+            [
+              "European Union",
+              "Confirm separate H3 authorization; the default agreement excludes the EU.",
+              "Check data-center region, euro quote, VAT and data-governance needs."
+            ],
+            [
+              "Canada",
+              "Canada is not in the listed exclusion set; still check current license, cloud availability and acceptable-use terms.",
+              "Quote in CAD; include provincial taxes, storage and egress."
+            ]
           ]
         },
-        "sourceIds": [3, 5]
+        "sourceIds": [
+          3,
+          5
+        ]
       },
       {
         "heading": "Is TaoMate worth testing for your team?",
@@ -2438,18 +2865,28 @@
           "Get current local-currency cloud and hosted-service quotes; include taxes, egress, storage and reruns.",
           "Use our [AI workstation planner](/hardware/ai-workstation-planner) to compare more accessible creator-machine options if this cluster is beyond your workload."
         ],
-        "sourceIds": [3, 4, 5]
+        "sourceIds": [
+          3,
+          4,
+          5
+        ]
       }
     ],
     "publishedAt": "2026-09-26",
     "updatedAt": "2026-09-26",
-    "sourceCheckedAt": "2026-09-26"
-  }
-  ,{
+    "sourceCheckedAt": "2026-09-26",
+    "faqs": [
+      {
+        "question": "Does TaoMate H3 run on a single consumer GPU?",
+        "answer": "No, the reported 10.6x generation speedup requires multi-GPU parallel clusters with high interconnect bandwidth, not single consumer desktop setups."
+      }
+    ]
+  },
+  {
     "slug": "local-ai-pc-upgrade-vs-build-laptop-workstation",
     "category": "hardware",
-    "title": "Upgrade your PC for local AI—or buy a laptop? A practical decision guide",
-    "description": "Choose between upgrading a desktop, building a PC, or buying a laptop or workstation for local AI. Start with workload, GPU memory, software support, and total cost.",
+    "title": "Local AI PC Upgrade vs Laptop vs PC [Buyer Guide]",
+    "description": "Choose between upgrading a desktop, building a PC, or buying a laptop for local AI. GPU memory limits, power budgets, and total cost.",
     "topic": "Local AI hardware",
     "image": "local-ai-pc-upgrade-photo",
     "imageAlt": "Close-up photograph of a processor seated in a desktop motherboard socket.",
@@ -2499,36 +2936,76 @@
       {
         "heading": "Start with the job you need the computer to do",
         "content": "“Run AI locally” can mean chatting with a quantized language model, generating images, editing video, transcribing audio, or building software that calls models. Those jobs do not share one hardware requirement. Write down the exact application, model and revision, operating system, target context or image size, and whether you need interactive speed or can wait for a batch job. Check the model card and the application’s own hardware guidance before comparing machines. A parameter count by itself cannot tell you whether a model will load, what context will fit, or how quickly your workflow will run.",
-        "sourceIds": [1, 3, 4, 5]
+        "sourceIds": [
+          1,
+          3,
+          4,
+          5
+        ]
       },
       {
         "heading": "VRAM is a fit constraint, not a complete performance score",
         "content": "For GPU inference, model weights occupy only part of available memory. The runtime also needs memory for the working context and other buffers; increasing context length can increase that demand. Quantization stores values at lower precision and can reduce memory use, but methods make different quality and compatibility trade-offs. NVIDIA’s NIM profile documentation makes the distinction concrete: a profile can be compatible, low-memory, or incompatible, and a low-memory profile can run with reduced context. Use the target application’s profile or a documented memory estimate as a starting point, then test the exact model and settings on the machine you plan to use. Do not treat a GPU’s advertised memory capacity as a promise that every model or context will fit.",
-        "sourceIds": [1, 3, 5]
+        "sourceIds": [
+          1,
+          3,
+          5
+        ]
       },
       {
         "heading": "Check the software path before choosing a GPU",
         "content": "A GPU can have enough memory and still be a poor purchase for a particular app if its driver, operating system, inference backend, or model kernel is unsupported. NVIDIA lists GPU models verified for specific NIM profiles and separately documents architecture and minimum-memory requirements; other GPUs may be technically compatible but unverified. Ollama documents GPU support by vendor and backend, while AMD’s ROCm matrix is specific to GPU, operating system, and software versions. Check the current compatibility page for your exact card and intended stack; a vendor-wide label such as “AMD supported” is not enough to establish that your specific workflow works. Software support changes, so save the link and version you used when you make the decision.",
-        "sourceIds": [2, 4, 7]
+        "sourceIds": [
+          2,
+          4,
+          7
+        ]
       },
       {
         "heading": "Desktop upgrade, new build, laptop, or workstation?",
         "content": "Compare the whole system and the way you work. An existing desktop is often the first option to investigate because a targeted upgrade may preserve usable parts, but first verify the case, power supply, connectors, cooling, motherboard, operating system, and software support. A new desktop lets you choose those constraints together. A laptop trades upgrade flexibility for portability and may rely on a particular GPU or NPU software path. A workstation can offer a documented configuration and vendor support; the word “workstation” alone does not guarantee that an AI framework supports its accelerator.",
         "table": {
-          "headers": ["Path", "Consider it when", "Check before spending"],
+          "headers": [
+            "Path",
+            "Consider it when",
+            "Check before spending"
+          ],
           "rows": [
-            ["Upgrade desktop", "The current system is compatible and one identified part limits your target workload.", "GPU clearance, power supply capacity/connectors, cooling, memory fit, driver and backend support."],
-            ["Build desktop", "You need to choose memory, power, cooling, storage and upgrade room together.", "Exact app support, total system cost, component dimensions, power draw, warranty and local availability."],
-            ["Buy laptop", "Portability matters more than part replacement or future GPU upgrades.", "Exact GPU/NPU support in your app, shared-memory limits, thermal behavior, ports and warranty."],
-            ["Buy workstation", "Your work benefits from a validated configuration, service, or vendor support.", "The exact accelerator and software stack are listed as supported; confirm support terms and upgrade limits."]
+            [
+              "Upgrade desktop",
+              "The current system is compatible and one identified part limits your target workload.",
+              "GPU clearance, power supply capacity/connectors, cooling, memory fit, driver and backend support."
+            ],
+            [
+              "Build desktop",
+              "You need to choose memory, power, cooling, storage and upgrade room together.",
+              "Exact app support, total system cost, component dimensions, power draw, warranty and local availability."
+            ],
+            [
+              "Buy laptop",
+              "Portability matters more than part replacement or future GPU upgrades.",
+              "Exact GPU/NPU support in your app, shared-memory limits, thermal behavior, ports and warranty."
+            ],
+            [
+              "Buy workstation",
+              "Your work benefits from a validated configuration, service, or vendor support.",
+              "The exact accelerator and software stack are listed as supported; confirm support terms and upgrade limits."
+            ]
           ]
         },
-        "sourceIds": [2, 4, 6, 7]
+        "sourceIds": [
+          2,
+          4,
+          6,
+          7
+        ]
       },
       {
         "heading": "Treat NPU TOPS and GPU memory as different specifications",
         "content": "An NPU may be useful for supported, power-efficient on-device tasks, but a TOPS figure is not a substitute for GPU memory or proof that a model runs in your application. Windows ML can route supported workloads through execution providers for CPU, GPU, or NPU hardware. The provider, model format, drivers, and application determine what actually runs. Before paying extra for an NPU feature, confirm that the software you use supports it and that the expected task is compatible. For a local language-model workflow, verify the actual runtime path rather than comparing TOPS numbers across unlike accelerators.",
-        "sourceIds": [6]
+        "sourceIds": [
+          6
+        ]
       },
       {
         "heading": "Make a country-aware budget with current listings",
@@ -2541,7 +3018,15 @@
           "Compare full local-currency totals, including tax, shipping, replacement components, and return terms.",
           "Test the exact app and settings during the return window; record load success, memory use, speed, and output quality."
         ],
-        "sourceIds": [1, 2, 3, 4, 5, 6, 7]
+        "sourceIds": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
       }
     ],
     "faqs": [

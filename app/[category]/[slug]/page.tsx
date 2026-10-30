@@ -88,7 +88,13 @@ export default async function ArticlePage({ params }: Props) {
             {p.faqs.length > 0 && <a href="#faq">Frequently asked questions</a>}
             <a href="#sources">Sources & further reading</a>
           </nav>
-          <Link href="/create" className="contents-tool">Explore AI creator guides ↗</Link>
+          {p.category === "hardware" ? (
+            <Link href="/hardware/ai-workstation-planner" className="contents-tool">Open AI workstation planner ↗</Link>
+          ) : p.topic.toLowerCase().includes("video") || p.slug.includes("video") ? (
+            <Link href="/ai-video-models" className="contents-tool">Compare 226+ AI video models ↗</Link>
+          ) : (
+            <Link href="/create" className="contents-tool">Explore AI creator guides ↗</Link>
+          )}
         </div></aside>
         <div className="article-body">
           <div className="takeaway"><span className="eyebrow">QUICK ANSWER</span><p>{p.verdict}</p></div>
@@ -98,6 +104,22 @@ export default async function ArticlePage({ params }: Props) {
             {s.table && <div className="table-wrap"><table className="article-table"><thead><tr>{s.table.headers.map((h, hIdx) => <th key={hIdx}>{h}</th>)}</tr></thead><tbody>{s.table.rows.map((row, rIdx) => <tr key={rIdx}>{row.map((cell, cIdx) => <td key={cIdx}>{renderInlineText(cell)}</td>)}</tr>)}</tbody></table></div>}
             {s.checklist && <div className="article-checklist"><span className="checklist-badge">REPRODUCIBLE CHECKLIST</span><ul>{s.checklist.map(item => <li key={item}><span className="check-box" aria-hidden="true">✓</span><span>{renderInlineText(item)}</span></li>)}</ul></div>}
             {s.sourceIds && <div className="inline-sources">Source: {s.sourceIds.map((id, j) => <span key={id}>{j > 0 && " · "}<a href={p.sources[id - 1].url} rel="noopener noreferrer" target="_blank">{p.sources[id - 1].publisher} [{id}] ↗</a></span>)}</div>}
+            {i === 1 && p.category === "hardware" && (
+              <aside className="planner-inline-callout" style={{ padding: "1.25rem", margin: "1.75rem 0", background: "var(--card-bg, #f2eee5)", borderRadius: "8px", border: "1px solid var(--border-color, #e0dbce)" }}>
+                <span className="eyebrow">INTERACTIVE TOOL</span>
+                <h3 style={{ margin: "0.35rem 0 0.5rem", fontSize: "1.1rem" }}>Calculate AI Workstation Specs by Budget & Country</h3>
+                <p style={{ margin: "0 0 0.75rem", fontSize: "0.95rem" }}>Compare GPUs, VRAM thresholds, and component estimates across the US, UK, Canada, and Germany.</p>
+                <Link href="/hardware/ai-workstation-planner" className="button-primary" style={{ display: "inline-block" }}>Launch Workstation Planner ↗</Link>
+              </aside>
+            )}
+            {i === 1 && (p.topic.toLowerCase().includes("video") || p.slug.includes("video")) && (
+              <aside className="planner-inline-callout" style={{ padding: "1.25rem", margin: "1.75rem 0", background: "var(--card-bg, #f2eee5)", borderRadius: "8px", border: "1px solid var(--border-color, #e0dbce)" }}>
+                <span className="eyebrow">MODEL RATES DIRECTORY</span>
+                <h3 style={{ margin: "0.35rem 0 0.5rem", fontSize: "1.1rem" }}>Compare 226+ AI Video Model Credit Rates</h3>
+                <p style={{ margin: "0 0 0.75rem", fontSize: "0.95rem" }}>Filter official pricing across Kling, Seedance, Runway Gen-3, Luma Dream Machine, and Hailuo.</p>
+                <Link href="/ai-video-models" className="button-primary" style={{ display: "inline-block" }}>Browse Video Model Directory ↗</Link>
+              </aside>
+            )}
             {i === 2 && nextRead && <aside className="article-next-read" aria-label="Related reading"><Link href={articlePath(nextRead)}><StoryImage post={nextRead} /><span><small className="eyebrow">READ NEXT</small><strong>{nextRead.title}</strong><span>{nextRead.metaDescription}</span></span></Link></aside>}
             {i === 2 && <AdSlot placement="article" />}
           </section>)}

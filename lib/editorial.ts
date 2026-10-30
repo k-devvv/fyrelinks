@@ -21,7 +21,9 @@ export interface ArticleInput {
   slug: string;
   category: ReviewPost['category'] | 'news';
   title: string;
+  metaTitle?: string;
   description: string;
+  metaDescription?: string;
   topic: string;
   image: string;
   imageAlt?: string;
@@ -71,8 +73,8 @@ export function articleFromInput(p: ArticleInput): EditorialPost {
   return {
     ...p,
     featured: p.featured ?? false,
-    metaTitle: p.title,
-    metaDescription: p.description,
+    metaTitle: p.metaTitle ?? p.title,
+    metaDescription: p.metaDescription ?? p.description,
     postType: p.category === 'hardware' ? 'hardware' : p.category === 'stack' ? 'comparison' : 'guide',
     verdict: p.takeaway,
     testedDate: '',
