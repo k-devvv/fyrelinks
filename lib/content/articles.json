@@ -8021,16 +8021,42 @@
   {
     "slug": "cursor-vs-windsurf-vs-copilot-developer-benchmarks",
     "category": "workflow",
-    "title": "Cursor vs Windsurf vs Copilot: features and workflow",
-    "description": "Compare Cursor, Windsurf/Cascade and GitHub Copilot by workflow, code review and execution location. Includes a feature table and downloadable test sheet.",
+    "title": "Cursor vs Windsurf vs GitHub Copilot (2026): prices and which to pick",
+    "description": "Cursor, Windsurf (now Devin Desktop) and GitHub Copilot compared on October 2026 prices, plans and models, with a clear pick for each type of developer.",
     "topic": "Developer tools",
     "image": "ai-code-editors-photo",
-    "takeaway": "Evaluate Cursor for an editor-centered coding workflow, Windsurf/Cascade for its Code and Chat workflow (now documented under Devin Desktop), and GitHub Copilot for GitHub-native repository and pull-request work. These products overlap and offer multiple surfaces. Compare the exact mode, permissions and verified outcome you need; this guide reports documented features, not a tested performance winner.",
+    "takeaway": "Pick GitHub Copilot Pro ($10 a month) if you want the cheapest paid plan with the coding agent and code review, use VS Code, Visual Studio, JetBrains or Eclipse, or start work from GitHub issues and pull requests. Pick Devin Desktop Pro (formerly Windsurf, $20 a month) if you want a dedicated AI editor with models from several labs and cloud agents in one subscription. Pick Cursor if you want Grok-first coding: Plus ($8) covers Grok models only, so most developers who want other models need Premium ($30), where third-party models are billed at API list price. Prices are from each vendor’s pricing page on 30 October 2026; this is a plan comparison, not a speed benchmark.",
     "sources": [
       {
         "publisher": "Cursor",
-        "title": "Cursor documentation",
-        "url": "https://cursor.com/docs"
+        "title": "Cursor pricing",
+        "url": "https://cursor.com/pricing"
+      },
+      {
+        "publisher": "Devin",
+        "title": "Devin pricing (windsurf.com/pricing redirects here)",
+        "url": "https://devin.ai/pricing"
+      },
+      {
+        "publisher": "GitHub",
+        "title": "GitHub Copilot plans",
+        "url": "https://github.com/features/copilot/plans"
+      },
+      {
+        "publisher": "GitHub Docs",
+        "title": "Requests in GitHub Copilot",
+        "url": "https://docs.github.com/en/copilot/concepts/billing/copilot-requests"
+      },
+      {
+        "publisher": "Devin",
+        "title": "Introducing our new Windsurf pricing plans",
+        "url": "https://devin.ai/blog/windsurf-pricing-plans",
+        "publishedAt": "2026-03-18"
+      },
+      {
+        "publisher": "Devin",
+        "title": "Cascade overview (formerly Windsurf documentation)",
+        "url": "https://docs.devin.ai/desktop/cascade/cascade"
       },
       {
         "publisher": "GitHub",
@@ -8038,15 +8064,15 @@
         "url": "https://docs.github.com/en/copilot/concepts/copilot-surfaces/copilot-on-github"
       },
       {
-        "publisher": "Devin",
-        "title": "Cascade overview (formerly Windsurf documentation)",
-        "url": "https://docs.devin.ai/desktop/cascade/cascade"
+        "publisher": "Cursor",
+        "title": "Cursor documentation",
+        "url": "https://cursor.com/docs"
       }
     ],
     "sections": [
       {
-        "heading": "Cursor vs Windsurf vs Copilot: which workflow fits?",
-        "content": "Start with where you want to work, then verify which mode your plan includes. Cursor's documentation describes editor and agent workflows. The former Windsurf Cascade documentation now lives under Devin Desktop. GitHub's documentation separates chat, cloud agent work and pull-request review. This table compares documented surfaces, not every feature or a measured speed ranking.",
+        "heading": "Cursor vs Windsurf vs Copilot at a glance (October 2026)",
+        "content": "All three changed their plans in 2026, so older comparisons quote prices that no longer exist. This table uses each vendor’s own pricing page, checked on 30 October 2026. Prices are in US dollars per month; check the linked pages before you buy, because all three say prices can change.",
         "sourceIds": [
           1,
           2,
@@ -8054,109 +8080,182 @@
         ],
         "table": {
           "headers": [
-            "Decision",
+            "",
             "Cursor",
-            "Windsurf / Cascade",
+            "Windsurf (now Devin Desktop)",
             "GitHub Copilot"
           ],
           "rows": [
             [
-              "Starting workflow",
-              "Editor-centered repository work, with agent and cloud options",
-              "Cascade Code/Chat inside Devin Desktop; check current product naming",
-              "IDE options plus GitHub.com chat, agents and pull-request workflows"
+              "Free plan",
+              "Limited agent and chat requests",
+              "Light agent quota; unlimited Tab completions and inline edits",
+              "2,000 inline suggestions a month; limited chat and agent use"
             ],
             [
-              "Changes and verification",
-              "Inspect the proposed diff and checks in the mode you choose",
-              "Code mode can modify files; Chat mode proposes code and answers questions",
-              "Cloud agent can edit files and run tests in a cloud development environment"
+              "Cheapest paid plan",
+              "Plus, $8 (Grok models only)",
+              "Pro, $20",
+              "Pro, $10"
             ],
             [
-              "Review and recovery",
-              "Review the actual change before accepting it",
-              "Checkpoints and reverts are documented; inspect their current limits",
-              "Pull-request code review can identify issues and suggest fixes"
+              "Next tier",
+              "Premium, $30: cloud agents, AI code review, third-party models at API list price",
+              "No plan between Pro and Max",
+              "Pro+, $39: $70 of AI credits and third-party agents"
             ],
             [
-              "Before sharing code",
-              "Confirm execution location, data terms and permissions",
-              "Confirm selected agent, model, workspace trust and account settings",
-              "Confirm repository access, organization policy and IDE/cloud surface"
+              "Top individual tier",
+              "Super, $100 (15× Plus usage); Ultra, $200 (50× Plus usage)",
+              "Max, $200: significantly higher quotas",
+              "Max, $100: $200 of AI credits"
             ],
             [
-              "Who wins?",
-              "No universal winner established",
-              "No universal winner established",
-              "No universal winner established"
+              "How usage is measured",
+              "One allowance shared by Cursor and Grok, refreshed weekly",
+              "Daily and weekly quotas; extra usage at API pricing",
+              "AI credits (1 credit = $0.01); Pro includes $15 a month"
+            ],
+            [
+              "Models",
+              "Grok on Plus; third-party models from Premium, billed at API list price",
+              "OpenAI, Claude, Gemini and SpaceXAI models on Pro",
+              "The same model list (Anthropic, OpenAI, Google, xAI and others) on every plan"
+            ],
+            [
+              "Where you work",
+              "Cursor’s own editor; cloud agents on Premium and above",
+              "The Devin Desktop editor; Devin Cloud agents on Pro",
+              "VS Code, Visual Studio, JetBrains, Eclipse, the CLI and GitHub.com"
+            ],
+            [
+              "Teams",
+              "From $30 per user",
+              "$80 a month plus $40 per full seat",
+              "Business and Enterprise through GitHub sales"
             ]
           ]
         }
       },
       {
-        "heading": "Check the current product first",
-        "content": "Cursor documents its agent tooling, GitHub describes its cloud agent, and the Windsurf Cascade documentation now redirects to Devin Desktop's Cascade pages. Product naming, available modes and plans change. Check the current official docs for the exact tool you are evaluating.",
+        "heading": "Which should you pick?",
+        "content": "These picks follow from each plan’s documented price, models and features. They are not a measured speed or quality ranking; for that, run the same task on your own code (see the test sheet below).",
         "sourceIds": [
           1,
           2,
           3
+        ],
+        "subpoints": [
+          "Lowest price with full features: GitHub Copilot Pro at $10 a month includes the coding agent, pull-request code review and unlimited inline suggestions.",
+          "You use JetBrains, Visual Studio or Eclipse: GitHub Copilot, which lists support for all of them. Cursor and Devin Desktop are their own editors, so check their current plugin support before switching.",
+          "Your work starts from GitHub issues and pull requests: GitHub Copilot. Its coding agent turns an assigned issue into a pull request, and code review runs on pull requests.",
+          "You want one AI editor with models from several labs: Devin Desktop Pro at $20 a month lists OpenAI, Claude, Gemini and SpaceXAI models plus Devin Cloud agents.",
+          "You want Grok-first coding or already use Grok: Cursor. Plus at $8 covers Grok models; Premium at $30 adds cloud agents, AI code review and third-party models billed at API list price.",
+          "Heavy daily agent use: compare the top tiers. Copilot Max is $100 with $200 of credits, Cursor Super is $100 and Ultra $200, and Devin Desktop Max is $200."
         ]
       },
       {
-        "heading": "Windsurf vs Copilot: local editor work or a GitHub task?",
-        "content": "If your task begins inside an editor, evaluate Cascade's Code/Chat behavior against the Copilot IDE mode available to you. If it begins with an issue or pull request, evaluate Copilot's GitHub.com workflow. A cloud task runs in a different environment from your local repository: record available dependencies, permissions and checks before comparing the outcome. Do not compare an editor suggestion with an autonomous cloud task as though their scope were identical.",
+        "heading": "What changed in 2026",
+        "content": "Three changes make older Cursor, Windsurf and Copilot comparisons unreliable. Windsurf now redirects to Devin Desktop: windsurf.com sends visitors to devin.ai/desktop and its pricing page to devin.ai/pricing. Cursor’s pricing page now sells Cursor alongside Grok and X features, with one usage allowance shared across Cursor and Grok. GitHub Copilot now measures usage in AI credits worth $0.01 each; the older premium-request allowances apply only to some existing annual Pro and Pro+ subscriptions.",
+        "sourceIds": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "heading": "Cursor pricing in 2026",
+        "content": "Cursor’s plans now bundle the editor with Grok and X features, and usage is shared between Cursor and Grok and refreshes weekly. Third-party model use is billed separately at API list price and is not included in the plan price.",
+        "sourceIds": [
+          1
+        ],
+        "subpoints": [
+          "Free, $0: limited agent and chat requests.",
+          "Plus, $8 a month: Cursor with Grok models only, plus Grok and X features.",
+          "Premium, $30 a month: four times Plus usage, the latest Grok models, cloud agents and automations, code hosting, AI code reviews and third-party models at API list price.",
+          "Super, $100 a month: 15 times Plus usage and priority model access at peak times.",
+          "Ultra, $200 a month: 50 times Plus usage and earliest access to new products and models.",
+          "Teams, from $30 per user a month: central billing, SSO and team privacy settings. Enterprise pricing is custom."
+        ]
+      },
+      {
+        "heading": "Windsurf (Devin Desktop) pricing in 2026",
+        "content": "Windsurf’s plans now live on Devin’s pricing page. Since 19 March 2026, included usage refreshes on a daily window with an additional weekly limit, and paid plans can buy extra usage at API pricing.",
         "sourceIds": [
           2,
-          3
-        ]
-      },
-      {
-        "heading": "Download a blank comparison sheet",
-        "content": "Download the [blank coding-assistant comparison log](/downloads/coding-assistant-comparison.csv). Give each tool the same starting commit and task, with the same permissions and acceptance rules. Record exact versions and modes, all attempts, test results, total elapsed time and your review effort. The template contains no measured tool results or winner. Keep private code and credentials out of anything you share."
-      },
-      {
-        "heading": "Choose a bounded repository task",
-        "content": "Our suggested comparison task has an observable bug, a small intended change and an existing check that can prove the result. Use the same starting commit and task description. Do not include private code in a service unless your project permits it."
-      },
-      {
-        "heading": "Measure review effort",
-        "content": "Record whether the tool found relevant files, made an appropriate change and ran the required checks. Count your corrections and the time spent reviewing the diff. A polished final message is not evidence that a command passed.",
+          5
+        ],
         "subpoints": [
-          "Did the tool preserve unrelated behavior?",
-          "Did it explain a failure accurately?",
-          "Did its tests exercise the requested behavior?",
-          "Could a teammate understand the resulting diff?"
+          "Free, $0: a light agent quota, limited models, and unlimited Tab completions and inline edits.",
+          "Pro, $20 a month: higher quotas, frontier models from OpenAI, Claude, Gemini and SpaceXAI, free use of SWE-2 and Devin Cloud access.",
+          "Max, $200 a month: everything in Pro with significantly higher quotas.",
+          "Teams, $80 a month plus $40 per full seat: up to 200 users, an admin dashboard and central billing. Enterprise pricing is custom."
         ]
       },
       {
-        "heading": "Try the workflow more than once",
-        "content": "Repeat with a documentation task or a small feature after the initial bug fix. A tool can be strong at one type of work and awkward at another. This page replaces unsupported autocomplete-latency and model-ranking claims with a reproducible evaluation method."
+        "heading": "GitHub Copilot pricing in 2026",
+        "content": "Copilot’s paid plans include a monthly amount of AI credits, where one credit equals $0.01, and unlimited inline suggestions. Every plan includes agent mode, the CLI and the same model list.",
+        "sourceIds": [
+          3,
+          4
+        ],
+        "subpoints": [
+          "Free, $0: 2,000 inline suggestions a month and limited chat and agent use. No coding agent or code review.",
+          "Pro, $10 a month: $15 of AI credits a month, the coding agent, Copilot in the cloud and code review.",
+          "Pro+, $39 a month: $70 of AI credits a month, plus third-party agents such as Claude and OpenAI Codex.",
+          "Max, $100 a month: $200 of AI credits a month.",
+          "Business and Enterprise: priced through GitHub sales; GitHub Enterprise now includes Copilot access."
+        ]
+      },
+      {
+        "heading": "Windsurf vs Copilot: editor work or a GitHub task?",
+        "content": "If your task begins inside an editor, compare Cascade’s Code and Chat modes in Devin Desktop with the Copilot IDE mode on your plan. If it begins with an issue or pull request, compare Copilot’s GitHub.com workflow. A cloud task runs in a different environment from your local repository, so record dependencies, permissions and checks before comparing results. Do not compare an editor suggestion with an autonomous cloud task as if their scope were the same.",
+        "sourceIds": [
+          6,
+          7,
+          8
+        ]
+      },
+      {
+        "heading": "Test them on your own code before paying",
+        "content": "All three have a free plan, so try the same small task in each before you pay. Download the [blank coding-assistant comparison log](/downloads/coding-assistant-comparison.csv). Give each tool the same starting commit and task, with the same permissions and acceptance rules. Record the plan and mode, every attempt, whether tests passed, total time and your review effort. Keep private code and credentials out of anything you share.",
+        "subpoints": [
+          "Did the tool find the relevant files and keep unrelated behavior intact?",
+          "Did it run the required checks, and report failures accurately?",
+          "How many corrections did you make, and how long did review take?",
+          "Would a teammate understand the resulting diff?"
+        ]
       },
       {
         "heading": "Try this next",
-        "content": "Keep the decision useful: record the task, evidence and reason for your choice in a short decision note. Read [A simple Notion system for decisions that stay findable](/workflow/async-engineering-notion-architecture)."
+        "content": "Write down the task, evidence and reason for your choice in a short decision note, so you can revisit it when prices change again. Read [A simple Notion system for decisions that stay findable](/workflow/async-engineering-notion-architecture)."
       }
     ],
     "publishedAt": "2026-09-08",
-    "updatedAt": "2026-10-19",
-    "sourceCheckedAt": "2026-10-19",
+    "updatedAt": "2026-10-30",
+    "sourceCheckedAt": "2026-10-30",
     "imageAlt": "Generated editorial photograph: Developer working on a coding task at a laptop and external monitor.",
     "faqs": [
       {
-        "question": "What is the main difference between Cursor, Windsurf and Copilot?",
-        "answer": "The useful starting distinction is workflow: Cursor is editor-centered, Cascade provides Code/Chat in Devin Desktop, and Copilot also offers GitHub.com repository and pull-request workflows. Their capabilities overlap. Check the exact product surface, plan and mode rather than choosing from a universal ranking."
+        "question": "Is Windsurf the same as Devin Desktop now?",
+        "answer": "Yes. windsurf.com and windsurf.com/pricing now permanently redirect to devin.ai/desktop and devin.ai/pricing, and the Cascade documentation lives on docs.devin.ai. Older Windsurf tutorials may use outdated names and plans."
       },
       {
-        "question": "Why do Windsurf documentation links open Devin Desktop?",
-        "answer": "The Cascade documentation used for this comparison now lives on docs.devin.ai and describes Cascade as a Devin Desktop agent. Check current product names and migration instructions before following an older Windsurf tutorial."
+        "question": "Which is cheapest: Cursor, Windsurf or Copilot?",
+        "answer": "Cursor Plus has the lowest list price at $8 a month but covers Grok models only. GitHub Copilot Pro at $10 a month is the cheapest paid plan with models from several providers, the coding agent and code review. Devin Desktop (Windsurf) Pro is $20 a month."
+      },
+      {
+        "question": "Can I still use Claude or GPT models in Cursor?",
+        "answer": "Cursor’s pricing page lists third-party models on Premium ($30 a month) and above, billed at API list price on top of the subscription. The $8 Plus plan is limited to Grok models."
+      },
+      {
+        "question": "Is GitHub Copilot free?",
+        "answer": "Copilot Free costs nothing and includes 2,000 inline suggestions a month plus limited chat and agent use. The coding agent and code review need Pro at $10 a month or higher."
       },
       {
         "question": "How can I compare coding assistants fairly?",
         "answer": "Give each tool the same bounded repository task from the same starting commit. Record the diff, required checks, corrections and review time before accepting the change."
-      },
-      {
-        "question": "Is faster code generation the same as a faster completed task?",
-        "answer": "No. Generated code may still need debugging, tests and review. Measure the completed, verified change rather than the time until the first suggestion appears."
       }
     ]
   },
