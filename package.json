@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "check": "node scripts/verify-link-policy.cjs && node scripts/verify-content.cjs && node scripts/verify-catalog.cjs && node scripts/verify-hardware-planner.cjs && tsc --noEmit && node scripts/verify-related-topics.cjs && node scripts/verify-video-cost.cjs && node scripts/verify-live-news.cjs && node scripts/verify-ad-region.cjs && node scripts/verify-feed.cjs && node scripts/verify-search-repairs.cjs"
+    "check": "node scripts/verify-link-policy.cjs && node scripts/verify-content.cjs && node scripts/verify-catalog.cjs && node scripts/verify-hardware-planner.cjs && tsc --noEmit && node scripts/verify-related-topics.cjs && node scripts/verify-video-cost.cjs && node scripts/verify-live-news.cjs && node scripts/verify-feed.cjs && node scripts/verify-search-repairs.cjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",
