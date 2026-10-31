@@ -7091,7 +7091,7 @@
       },
       {
         "heading": "A three-shot test with clear acceptance rules",
-        "content": "Use this original test brief to make the comparison actionable. It is a proposed protocol, not generated footage or a measured league table. Keep the same brief across services and record differences in supported inputs. Adapt our [six AI video prompt examples](/create/ai-video-prompt-guide-examples) rather than asking each candidate to invent a different scene.",
+        "content": "Use this original test brief to make the comparison actionable. It is a proposed protocol, not generated footage or a measured league table. Run the same brief on each service you are shortlisting — [MiniMax](/go/minimax), [Higgsfield](/go/video-higgsfield) and [Runway](/go/video-runway) — and record differences in supported inputs. Adapt our [six AI video prompt examples](/create/ai-video-prompt-guide-examples) rather than asking each candidate to invent a different scene.",
         "table": {
           "headers": [
             "Shot",
@@ -7442,7 +7442,7 @@
       },
       {
         "heading": "Make the purchase reversible where possible",
-        "content": "Check the seller's return terms and the physical compatibility of the whole build before ordering. List case clearance, power connectors, cooling space and the expansion slots your actual configuration will use. Plan where models, project inputs and backups will live. After assembly, run the smallest known working workflow, then your everyday workload, before adding the demanding one. Record failures and actual operating costs during this trial so the next upgrade follows evidence rather than a specification headline."
+        "content": "Check the seller's return terms and the physical compatibility of the whole build before ordering. List case clearance, power connectors, cooling space and the expansion slots your actual configuration will use. Plan where models, project inputs and backups will live. After assembly, run the smallest known working workflow, then your everyday workload, before adding the demanding one. Record failures and actual operating costs during this trial so the next upgrade follows evidence rather than a specification headline. The most reversible step of all is deferring the purchase: an hourly rental such as [RunPod](/go/runpod) can run the demanding workload on a larger card first, which turns a specification guess into a measurement."
       },
       {
         "heading": "Upgrade or keep the machine? Use this decision path",
@@ -9545,7 +9545,7 @@
       },
       {
         "heading": "Needle or Jev? Decide from the output contract",
-        "content": "Choose the task before comparing the deployment bill. A local tool router and a hosted decision service are not interchangeable simply because both can be small. If you need prose generation, first confirm that the selected product actually offers that output. For a wider cost comparison, use the [local versus cloud cost worksheet](/stack/local-vs-cloud-ai-cost-per-accepted-task).",
+        "content": "Choose the task before comparing the deployment bill. A local tool router and a hosted decision service are not interchangeable simply because both can be small. If you need prose generation, first confirm that the selected product actually offers that output. For a wider cost comparison, use the [local versus cloud cost worksheet](/stack/local-vs-cloud-ai-cost-per-accepted-task). Where that points to renting rather than buying, [RunPod](/go/runpod) publishes per-hour rates by card.",
         "table": {
           "headers": [
             "Requirement",
@@ -10306,7 +10306,7 @@
       },
       {
         "heading": "What local AI builders should do now",
-        "content": "Do not buy a GPU based on the 23B active number alone. Wait for Reflection’s checkpoint and model card, then check the actual quantized files, supported inference engines, memory measurements at your intended context length, license text and download source. If Beam is available only through a hosted endpoint at first, compare its live price and usage limits before planning a local build. For hardware choices you can make today, start with your actual workload and current software support in our [AI workstation planner](/hardware/ai-workstation-planner), and use our [local LLM VRAM guide](/workflow/reduce-local-llm-vram-quantization-offloading-guide) to understand the memory trade-offs.",
+        "content": "Do not buy a GPU based on the 23B active number alone. Wait for Reflection’s checkpoint and model card, then check the actual quantized files, supported inference engines, memory measurements at your intended context length, license text and download source. If Beam is available only through a hosted endpoint at first, compare its live price and usage limits before planning a local build. An hourly GPU rental such as [RunPod](/go/runpod) is the middle path while the files settle, since it prices a single run without committing to hardware. For hardware choices you can make today, start with your actual workload and current software support in our [AI workstation planner](/hardware/ai-workstation-planner), and use our [local LLM VRAM guide](/workflow/reduce-local-llm-vram-quantization-offloading-guide) to understand the memory trade-offs.",
         "sourceIds": [
           1
         ]
