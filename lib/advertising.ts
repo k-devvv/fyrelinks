@@ -13,10 +13,17 @@ export function selectAdUnit(placement: AdPlacement, width: number, desktop: boo
 }
 // A separate origin is required: never combine scripts and same-origin access
 // in a frame hosted on the reader's own page origin.
-export const AD_FRAME_ORIGIN = process.env.NEXT_PUBLIC_AD_FRAME_ORIGIN || 'https://fyrelinkz.netlify.app';
+// No default host: with none configured, no frame loads and no ad request is made.
+export const AD_FRAME_ORIGIN = process.env.NEXT_PUBLIC_AD_FRAME_ORIGIN || '';
+export function adFrameOrigin(): string | null {
+  try {
+    const url = new URL(AD_FRAME_ORIGIN);
+    return url.protocol === 'https:' ? url.origin : null;
+  } catch { return null; }
+}
 export function adFrameUrl(key: string, pageOrigin: string) {
   if (!pageOrigin || !Object.values(AD_UNITS).some(unit => unit.key === key)) return null;
-  const origin = new URL(AD_FRAME_ORIGIN).origin;
-  if (origin === pageOrigin || !/^https:\/\/(?:[a-z0-9-]+--)?fyrelinkz\.netlify\.app$/.test(origin)) return null;
+  const origin = adFrameOrigin();
+  if (!origin || origin === pageOrigin) return null;
   return origin + '/ads/frame.html?key=' + encodeURIComponent(key);
 }

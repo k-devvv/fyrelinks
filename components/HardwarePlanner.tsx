@@ -3,6 +3,7 @@
 import { FormEvent, useRef, useState } from "react";
 import Link from "next/link";
 import { measure } from "@/lib/measurement";
+import SmartLink from "@/components/SmartLink";
 import { plannerOutcome, type PlannerSourceKind } from "@/lib/planner-measurement";
 import { MARKET_BUDGET_LIMITS, recommendHardware } from "@/lib/hardware-planner/recommend";
 import type { MarketId, Recommendation, SystemPath, WorkloadId } from "@/lib/hardware-planner/types";
@@ -182,6 +183,8 @@ function RecommendationCard({ candidate, market, onGuideClick, onSourceClick }: 
       {spec && <a href={spec.url} target="_blank" rel="noopener noreferrer" onClick={() => onSourceClick("spec")}>Check specification source: {spec.label} ↗</a>}
       {price.source && <a href={price.source.url} target="_blank" rel="noopener noreferrer" onClick={() => onSourceClick("retailer")}>Check local price listing ↗</a>}
       <Link href="/hardware/best-local-ai-workstation-build-guide-2026" onClick={onGuideClick}>Read the workstation guide ↗</Link>
+      {candidate.path !== "laptop" && <SmartLink href={`/go/amazon-${market}`} onClick={() => measure("provider_visit", { provider: `amazon-${market}`, placement: "planner-retailer" })}>Compare graphics card prices at Amazon ↗</SmartLink>}
     </div>
+    {candidate.path !== "laptop" && <p className="planner-disclosure">Commission may apply on the retailer link. <Link href="/affiliate-disclosure">How this works</Link>.</p>}
   </article>;
 }

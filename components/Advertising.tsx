@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { AD_FRAME_ORIGIN, adFrameUrl, selectAdUnit, type AdPlacement } from '@/lib/advertising';
+import { adFrameOrigin, adFrameUrl, selectAdUnit, type AdPlacement } from '@/lib/advertising';
 // Ads load for every visitor; only a browser Do Not Track or Global Privacy Control signal turns them off.
 function restricted() {
   return navigator.doNotTrack === '1' || (navigator as Navigator & {globalPrivacyControl?: boolean}).globalPrivacyControl === true;
@@ -30,7 +30,7 @@ export default function Advertising({ placement }: { placement: AdPlacement }) {
   useEffect(() => {
     setUnfilled(false);
     const receive = (event: MessageEvent) => {
-      if (event.origin === new URL(AD_FRAME_ORIGIN).origin && event.source === frame.current?.contentWindow && event.data?.type === 'fyre-ad-unfilled' && event.data?.key === unit?.key) setUnfilled(true);
+      if (event.origin === adFrameOrigin() && event.source === frame.current?.contentWindow && event.data?.type === 'fyre-ad-unfilled' && event.data?.key === unit?.key) setUnfilled(true);
     };
     window.addEventListener('message', receive);
     return () => window.removeEventListener('message', receive);

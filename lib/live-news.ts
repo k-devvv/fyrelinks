@@ -77,7 +77,6 @@ export function parseFeed(xml: string, source: Source): LiveItem[] {
 async function load(source: Source): Promise<LiveItem[]> {
   try {
     const res = await fetch(source.feed, {
-      next: { revalidate: 3600 },
       signal: AbortSignal.timeout(8000),
       headers: { "user-agent": "FyreLinkzBot/1.0 (+https://www.fyrelinkz.com)", accept: "application/rss+xml, application/atom+xml, text/xml" }
     });

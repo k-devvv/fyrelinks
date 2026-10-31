@@ -1,0 +1,21 @@
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Strict-Transport-Security: max-age=31536000
+
+# Content-hashed by the build, so they can never go stale.
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Artwork is replaced by filename, not in place.
+/art/*
+  Cache-Control: public, max-age=604800
+/media/*
+  Cache-Control: public, max-age=604800
+/brand/*
+  Cache-Control: public, max-age=604800
+
+# Rebuilt every two hours; a shorter TTL keeps headlines from sticking.
+/
+  Cache-Control: public, max-age=600
