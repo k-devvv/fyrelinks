@@ -4,11 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && node scripts/optimize-export-images.cjs",
     "lint": "next lint",
     "check": "node scripts/verify-link-policy.cjs && node scripts/verify-content.cjs && node scripts/verify-catalog.cjs && node scripts/verify-hardware-planner.cjs && tsc --noEmit && node scripts/verify-related-topics.cjs && node scripts/verify-video-cost.cjs && node scripts/verify-live-news.cjs && node scripts/verify-feed.cjs && node scripts/verify-search-repairs.cjs",
     "preview": "npx --yes wrangler pages dev out",
-    "deploy": "npx --yes wrangler pages deploy out"
+    "deploy": "npx --yes wrangler pages deploy out",
+    "audit:images": "node scripts/audit-image-budget.cjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",

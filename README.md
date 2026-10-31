@@ -36,7 +36,8 @@ All articles are original writing grounded in official documentation and primary
 - `app/[category]/[slug]/page.tsx`: source-backed article template with table of contents, visible sources, inline links and related articles.
 - `app/ai-video-models/page.tsx`: searchable and filterable directory of 200+ video model options and rates.
 - `next.config.js`: permanent 308 redirect from legacy `/tools/video-cost` to `/create/ai-video-generation-matrix-minimax-higgsfield-seedance`.
-- `app/feed.xml`: RSS 2.0 feed containing all 16 articles.
+- `lib/feed.ts` served by `functions/feed.xml.js`: RSS 2.0 feed of every article, with
+  `Accept` negotiation that sends browsers to `/rss`.
 - `app/sitemap.ts` and `app/robots.ts`: crawlable sitemap (27 URLs) and robot instructions.
 
 Unknown URLs return 404. Structured data adheres to schema.org Article or NewsArticle specifications, including breadcrumbs and publisher identities.
