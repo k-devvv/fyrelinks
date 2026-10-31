@@ -48,7 +48,25 @@ jobs:
           # Function at request time, so they belong in the Pages project.
           NEXT_PUBLIC_AD_FRAME_ORIGIN: ${{ vars.NEXT_PUBLIC_AD_FRAME_ORIGIN }}
 
+      # Until the Pages project exists, a missing token would fail every
+      # scheduled run and bury real failures in noise. Checking first keeps the
+      # rebuild useful as a check-and-build signal while setup is in progress.
+      - name: Is Cloudflare Pages configured?
+        id: target
+        env:
+          PROJECT: ${{ vars.CLOUDFLARE_PROJECT_NAME }}
+          TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          if [ -n "$PROJECT" ] && [ -n "$TOKEN" ] && [ -n "$ACCOUNT" ]; then
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Skipping deploy: set the CLOUDFLARE_PROJECT_NAME variable and the CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID secrets."
+          fi
+
       - name: Deploy to Cloudflare Pages
+        if: steps.target.outputs.ready == 'true'
         run: npx --yes wrangler@4 pages deploy out --project-name "${{ vars.CLOUDFLARE_PROJECT_NAME }}" --branch main
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
