@@ -86,6 +86,24 @@ not a practical constraint:
   to `/rss`, which a static file cannot do. The logic lives in `lib/feed.ts` so the feed
   verifier tests the same code that serves it.
 
+### Static fallbacks, so either host works
+
+`scripts/emit-static-fallbacks.cjs` runs after the build and writes static
+equivalents of both Functions, because deploying this export to a host that does not run
+them returned 404 for `/feed.xml` and every `/go/<slug>` in production.
+
+- `out/feed.xml` is always written. Where the Function runs it still answers and keeps the
+  `Accept` negotiation that sends browsers to `/rss`; elsewhere readers get valid XML.
+- Static `/go/<slug>` redirects are appended to `out/_redirects` **only** when `NETLIFY` is
+  set, or `FYRE_STATIC_GO_REDIRECTS=1`. On Cloudflare the Function resolves each slug
+  against the Pages project's `FYRE_AFF_*` variables per request; a redirect baked at build
+  time could shadow it and silently drop affiliate tracking while appearing to work.
+- `public/_headers` marks `/go/*` `noindex, nofollow` and `no-store` on either host, so a
+  static redirect is treated the same as the Function's own response.
+
+A Netlify build needs the `FYRE_AFF_*` values in its own build environment for the static
+redirects to carry tracking, since they are baked in rather than read per request.
+
 ### Display advertising needs a second project
 
 `adFrameUrl` refuses to load the ad frame from the site's own origin, which is deliberate:
