@@ -1,12 +1,26 @@
 /**
  * Outbound link registry served by the /go/<slug> Cloudflare Pages Function.
  *
- * `destination` is the plain, non-commissioned URL. To turn a slug into an
- * affiliate link, set its `env` variable in the Pages project to the tracking
- * URL the partner programme gave you. Unset means the link still works and
- * earns nothing.
+ * `destination` is the plain, non-commissioned URL. A slug earns only once its
+ * `env` variable is set in the Pages project; unset means the plain link is
+ * served and earns nothing.
+ *
+ * Two kinds of programme, so two modes:
+ *
+ * - "replace" (the default) for programmes that hand you a complete tracking
+ *   URL, such as Runpod, Runway and Hailuo. The variable holds that whole URL.
+ * - "param" for programmes that work by adding one parameter to any URL on their
+ *   own domain, which is how Amazon Associates works. The variable holds just
+ *   the value — the tag itself — so one variable covers every link into that
+ *   marketplace, including deep links to specific products added later.
  */
-type OutboundLink = { destination: string; env?: string };
+type OutboundLink = {
+  destination: string;
+  env?: string;
+  mode?: "replace" | "param";
+  /** Query parameter to carry the variable's value. Required by mode "param". */
+  param?: string;
+};
 
 export const REDIRECT_MAP: Record<string, OutboundLink> = {
   minimax: { destination: "https://hailuoai.video", env: "FYRE_AFF_MINIMAX" },
@@ -18,15 +32,30 @@ export const REDIRECT_MAP: Record<string, OutboundLink> = {
   "video-runway": { destination: "https://runway.com/pricing", env: "FYRE_AFF_VIDEO_RUNWAY" },
   "video-luma": { destination: "https://lumalabs.ai/pricing", env: "FYRE_AFF_VIDEO_LUMA" },
   "video-pika": { destination: "https://pika.art/pricing?interval=month", env: "FYRE_AFF_VIDEO_PIKA" },
-  "amazon-us": { destination: "https://www.amazon.com/s?k=nvidia+rtx+graphics+card", env: "FYRE_AFF_AMAZON_US" },
-  "amazon-uk": { destination: "https://www.amazon.co.uk/s?k=nvidia+rtx+graphics+card", env: "FYRE_AFF_AMAZON_UK" },
-  "amazon-ca": { destination: "https://www.amazon.ca/s?k=nvidia+rtx+graphics+card", env: "FYRE_AFF_AMAZON_CA" },
-  "amazon-de": { destination: "https://www.amazon.de/s?k=nvidia+rtx+grafikkarte", env: "FYRE_AFF_AMAZON_DE" },
+  "amazon-us": { destination: "https://www.amazon.com/s?k=nvidia+rtx+graphics+card", env: "FYRE_AFF_AMAZON_US", mode: "param", param: "tag" },
+  "amazon-uk": { destination: "https://www.amazon.co.uk/s?k=nvidia+rtx+graphics+card", env: "FYRE_AFF_AMAZON_UK", mode: "param", param: "tag" },
+  "amazon-ca": { destination: "https://www.amazon.ca/s?k=nvidia+rtx+graphics+card", env: "FYRE_AFF_AMAZON_CA", mode: "param", param: "tag" },
+  "amazon-de": { destination: "https://www.amazon.de/s?k=nvidia+rtx+grafikkarte", env: "FYRE_AFF_AMAZON_DE", mode: "param", param: "tag" },
 };
 
 function lookup(slug: string): OutboundLink | undefined {
   const key = slug.toLowerCase();
   return Object.prototype.hasOwnProperty.call(REDIRECT_MAP, key) ? REDIRECT_MAP[key] : undefined;
+}
+
+/**
+ * Adds or replaces one query parameter, leaving an existing query string and
+ * fragment intact. An unparseable destination is returned untouched rather than
+ * producing a broken link.
+ */
+function withParam(destination: string, param: string, value: string): string {
+  try {
+    const url = new URL(destination);
+    url.searchParams.set(param, value);
+    return url.toString();
+  } catch {
+    return destination;
+  }
 }
 
 /**
@@ -39,8 +68,17 @@ export function resolveRedirect(
 ): string | undefined {
   const link = lookup(slug);
   if (!link) return undefined;
-  const override = link.env ? env[link.env] : undefined;
-  return (typeof override === "string" && override.trim()) || link.destination;
+
+  const raw = link.env ? env[link.env] : undefined;
+  const value = typeof raw === "string" ? raw.trim() : "";
+  if (!value) return link.destination;
+
+  if (link.mode === "param") {
+    // Without a parameter name there is nothing to attach the value to, and
+    // treating a bare tag as a URL would send readers somewhere unintended.
+    return link.param ? withParam(link.destination, link.param, value) : link.destination;
+  }
+  return value;
 }
 
 /** Node-side convenience used by the content checks. */

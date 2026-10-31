@@ -101,7 +101,35 @@ assert.ok(upgradeGuide.faqs.length >= 5, 'Upgrade guide includes useful reader F
 const faqSchema = faqPageSchema(upgradeGuide.faqs);
 assert.equal(faqSchema.mainEntity.length, upgradeGuide.faqs.length, 'FAQ structured data mirrors visible FAQ count');
 assert.deepEqual(faqSchema.mainEntity.map(q => [q.name, q.acceptedAnswer.text]), upgradeGuide.faqs.map(f => [f.question, f.answer]), 'FAQ structured data mirrors visible content exactly');
-const {getRedirectUrl}=require('../lib/redirects.ts');
+const {getRedirectUrl, resolveRedirect, REDIRECT_MAP}=require('../lib/redirects.ts');
 for(const slug of ['constructor','__proto__','toString','hasOwnProperty','unknown','']) assert.equal(getRedirectUrl(slug),undefined);
 assert.equal(getRedirectUrl('MINIMAX'),'https://hailuoai.video');
+
+// Unset or blank variables must serve the plain link rather than a broken one.
+for (const [slug, link] of Object.entries(REDIRECT_MAP)) {
+  assert.equal(resolveRedirect(slug, {}), link.destination, `${slug}: unset variable serves the plain link`);
+  assert.equal(resolveRedirect(slug, {[link.env]: '   '}), link.destination, `${slug}: blank variable serves the plain link`);
+  if (link.mode === 'param') assert.ok(link.param, `${slug}: param mode names a parameter`);
+}
+
+// mode "replace": the variable is the whole tracking URL.
+assert.equal(resolveRedirect('runpod', {FYRE_AFF_RUNPOD: 'https://runpod.io?ref=abc'}), 'https://runpod.io?ref=abc');
+
+// mode "param": the variable is just the tag, added to the existing query.
+assert.equal(
+  resolveRedirect('amazon-us', {FYRE_AFF_AMAZON_US: 'fyre-20'}),
+  'https://www.amazon.com/s?k=nvidia+rtx+graphics+card&tag=fyre-20',
+  'amazon-us appends the tag and keeps the search terms'
+);
+// A tag is never treated as a destination, however it is written.
+for (const value of ['fyre-20', 'https://evil.example/', 'not a url']) {
+  const resolved = resolveRedirect('amazon-uk', {FYRE_AFF_AMAZON_UK: value});
+  assert.ok(resolved.startsWith('https://www.amazon.co.uk/s?'), `amazon-uk stays on the marketplace for value ${value}`);
+}
+// The parameter is set, not duplicated, and a fragment stays last.
+assert.equal(
+  resolveRedirect('amazon-de', {FYRE_AFF_AMAZON_DE: 'a b&c'}).match(/tag=[^&#]*/)[0],
+  'tag=a+b%26c',
+  'amazon-de encodes the tag value'
+);
 console.log(`Content checks passed: ${POSTS.length} sourced articles, strict routes, safe redirects and valid dates.`);

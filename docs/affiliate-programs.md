@@ -66,18 +66,29 @@ There is nothing to fetch. Each programme issues a tracking URL or code only aft
 approves you, from its own dashboard, and you paste the result into the matching variable in
 the Cloudflare Pages project. Checked 31 October 2026; confirm on each programme's own page.
 
-### The value must be a complete URL
+### What each value looks like
 
-`resolveRedirect` **replaces** the destination with the variable's value, so each value is a
-full `https://` URL that already lands on the right page with tracking attached. A bare
-affiliate ID, a code, or a query fragment will not work.
+Programmes issue two different things, so `lib/redirects.ts` supports two modes per slug.
 
-    FYRE_AFF_AMAZON_US=https://www.amazon.com/s?k=nvidia+rtx+graphics+card&tag=yourtag-20
+**Mode `replace` (the default).** The programme hands you a complete tracking URL, as
+Runpod, Runway and Hailuo do. The variable holds that whole URL:
+
     FYRE_AFF_RUNPOD=https://runpod.io?ref=yourcode
 
-One slug resolves to exactly one destination. Amazon's model is appending `&tag=` to any
-URL, so deep links to specific products would each need their own slug, or the resolver
-would need a parameter-appending mode. Not built, because nothing needs it yet.
+**Mode `param`.** The programme works by adding one parameter to any URL on its own
+domain, which is how Amazon Associates works. The variable holds **just the value**:
+
+    FYRE_AFF_AMAZON_US=yourtag-20
+
+That resolves to `https://www.amazon.com/s?k=nvidia+rtx+graphics+card&tag=yourtag-20`. The
+existing query survives, a fragment stays last, an already-present `tag` is replaced rather
+than duplicated, and the value is URL-encoded. Because one variable carries the tag rather
+than a whole URL, the same value also covers deep links to specific products added later as
+their own slugs — no second account, no second variable.
+
+A `param` value is never treated as a destination, so a mistyped tag cannot send readers off
+the marketplace. `verify-content` asserts that, along with both modes and the blank-value
+fallback.
 
 A variable left unset is not a failure: the plain link is served and earns nothing.
 
@@ -102,7 +113,8 @@ It looks like the obvious starting point and is probably the worst use of effort
 
 - **Each storefront is a separate account with its own tag**, `-20` for US, `-21` for UK. Changing
   the domain while keeping another marketplace's tag earns nothing. Four variables means
-  four applications.
+  four applications. The `param` mode at least means each is one short value, and covers any
+  future deep link into the same marketplace.
 - **An India-based account likely earns nothing on US or UK buyers.** Publishers report
   commission only on Indian purchases, and the standard advice is to register with the
   storefront each visitor comes from. The planner's markets are US, UK, Canada and Germany,
