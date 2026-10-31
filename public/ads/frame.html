@@ -6,8 +6,7 @@
   if (window.parent === window) return;
   let parentOrigin;
   try { parentOrigin = new URL(document.referrer).origin; } catch { return; }
-  if (!/^https:\/\/(?:www\.)?fyrelinkz\.com$/.test(parentOrigin) &&
-      !/^https:\/\/[a-z0-9-]+--fyrelinkz\.netlify\.app$/.test(parentOrigin)) return;
+  if (!/^https:\/\/(?:www\.)?fyrelinkz\.com$/.test(parentOrigin)) return;
   if (parentOrigin === location.origin) return;
   const units = {"3a50733ae47bc10836d72bd1ac296fef":{"width":300,"height":250},"101bd27cf42b02ca573f75194b17ebcf":{"width":320,"height":50},"925de3f713e028c901874205d2383097":{"width":468,"height":60},"ce0c16d54dd755736635fc7722328d44":{"width":728,"height":90},"1f544a01d82de7ed149e8e83c6f330d9":{"width":160,"height":600}};
   const key = new URLSearchParams(location.search).get('key');

@@ -2109,3 +2109,9 @@ kbd {
 }
 
 .news-pagination{display:flex;flex-wrap:wrap;gap:.7rem;align-items:center;margin:2rem 0}.news-pagination a,.news-pagination span{padding:.7rem 1rem;border:1px solid currentColor;border-radius:8px}.news-pagination [aria-current=page]{font-weight:700;text-decoration:underline}
+
+.directory-cta { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; margin-top: 6px; font-size: 12px; }
+.directory-cta a:first-child { font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.directory-cta span { opacity: .7; }
+.planner-disclosure { font-size: 11px; opacity: .75; margin-top: 10px; }
+.planner-disclosure a { text-decoration: underline; text-underline-offset: 3px; }

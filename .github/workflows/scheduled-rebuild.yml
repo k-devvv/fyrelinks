@@ -1,0 +1,55 @@
+# The homepage and /live aggregate ten RSS feeds. The site is a static export,
+# so those headlines are only as fresh as the last build: this workflow is what
+# replaces request-time revalidation.
+#
+# Builds here rather than in Cloudflare Pages Build, so the cadence is limited by
+# GitHub Actions minutes rather than the 500 Pages builds a month on the free
+# plan. `wrangler pages deploy` is a direct upload and uploads functions/ too.
+#
+# Note: GitHub disables scheduled workflows in a repository with no activity for
+# 60 days. If headlines go stale, check that first.
+name: Rebuild and deploy
+
+on:
+  schedule:
+    - cron: "0 */2 * * *"
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Verify content and types
+        run: npm run check
+
+      - name: Build static export
+        run: npm run build
+        env:
+          # Build-time only. The /go/ affiliate variables are read by the Pages
+          # Function at request time, so they belong in the Pages project.
+          NEXT_PUBLIC_AD_FRAME_ORIGIN: ${{ vars.NEXT_PUBLIC_AD_FRAME_ORIGIN }}
+
+      - name: Deploy to Cloudflare Pages
+        run: npx --yes wrangler@4 pages deploy out --project-name "${{ vars.CLOUDFLARE_PROJECT_NAME }}" --branch main
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

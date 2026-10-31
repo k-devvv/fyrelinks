@@ -54,6 +54,59 @@ No ad-network scripts run on the live site. Monetization readiness is structured
 
 See `docs/marketing-operations.md` for audience priorities, network selection gates and launch checks.
 
+## Hosting and deployment
+
+The site builds to a static export in `out/` and is served by Cloudflare Pages on the free
+plan, whose terms place no non-commercial restriction on free accounts. Vercel's Hobby plan
+is limited to non-commercial personal use, which this site's affiliate links and display
+advertising do not fit.
+
+Build command `npm run build`, output directory `out`. `npm run preview` serves the export
+and both Functions locally; `npm run deploy` publishes. Both call `wrangler` through `npx`,
+so nothing needs installing.
+
+### Why a scheduled rebuild
+
+`app/page.tsx` and `app/live/page.tsx` previously used `revalidate = 3600` to refresh the
+ten RSS sources in `lib/live-news.ts`. A static export has no request-time revalidation, so
+`.github/workflows/scheduled-rebuild.yml` rebuilds and redeploys every two hours instead.
+Headlines are therefore up to two hours old rather than one. The build runs in GitHub
+Actions and deploys by direct upload, so the cadence is bounded by Actions minutes rather
+than the 500 Cloudflare Pages builds a month on the free plan.
+
+### Two Pages Functions
+
+Everything else is a static file. Only these invoke a Worker, so the free request quota is
+not a practical constraint:
+
+- `functions/go/[slug].js` — outbound affiliate redirects (307, `noindex`, `no-store`),
+  resolving slugs from `lib/redirects.ts` against the Pages environment.
+- `functions/feed.xml.js` — `/feed.xml` negotiates on the `Accept` header to send browsers
+  to `/rss`, which a static file cannot do. The logic lives in `lib/feed.ts` so the feed
+  verifier tests the same code that serves it.
+
+### Display advertising needs a second project
+
+`adFrameUrl` refuses to load the ad frame from the site's own origin, which is deliberate:
+scripts in a same-origin frame would have same-origin access to the page. Deploy `out/` to a
+second Cloudflare Pages project and set `NEXT_PUBLIC_AD_FRAME_ORIGIN` to that project's
+origin. Left unset, no ad frame loads and no ad request is made.
+
+### Cutover checklist
+
+1. Update the hosting paragraph in `app/privacy/page.tsx`, which still names Vercel. It must
+   name the actual host before the first production request.
+2. Create the Pages project; set the build command and output directory above, or use the
+   workflow and deploy by direct upload.
+3. Add repository variables `CLOUDFLARE_PROJECT_NAME` and `NEXT_PUBLIC_AD_FRAME_ORIGIN`, and
+   secrets `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`.
+4. Add the `FYRE_AFF_*` variables from `.env.example` to the **Pages project**, not the
+   workflow: the `/go/` Function reads them at request time. Unset means a plain link that
+   earns nothing.
+5. Move the custom domain, then confirm `/go/minimax` returns 307 with `X-Robots-Tag:
+   noindex`, `/tools/video-cost` returns 308, and `/feed.xml` still serves XML to a reader
+   and redirects a browser to `/rss`.
+
 ## Verification
 
 Run `node scripts/check-http.cjs` against a running production preview. See `docs/marketing-operations.md` for editorial operations, measurement details, distribution suggestions and compliance guidelines.

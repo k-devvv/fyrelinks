@@ -8,8 +8,10 @@ function latestUpdate(posts: typeof POSTS) {
   return posts.reduce((latest, post) => post.updatedAt > latest ? post.updatedAt : latest, "");
 }
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticUrls = ["about", "contact", "privacy", "terms", "rss", "ai-video-models", "hardware/ai-workstation-planner"];
+  const staticUrls = ["about", "contact", "privacy", "terms", "affiliate-disclosure", "rss", "ai-video-models", "hardware/ai-workstation-planner"];
   const homeLastModified = latestUpdate(POSTS);
   return [
     {

@@ -3,22 +3,20 @@ const nextConfig = {
   reactStrictMode: true,
   outputFileTracingRoot: __dirname,
   poweredByHeader: false,
+  // Static export to out/, served by Cloudflare Pages. Live headlines are
+  // fetched at build time and refreshed by the scheduled rebuild workflow, so
+  // no route needs a server at request time. Security headers live in
+  // public/_headers and the retired calculator redirect in public/_redirects,
+  // because next.config headers() and redirects() do not apply to an export.
+  output: "export",
   env: {
-    NEXT_PUBLIC_AD_FRAME_ORIGIN: process.env.CONTEXT === 'deploy-preview' && process.env.DEPLOY_URL
-      ? new URL(process.env.DEPLOY_URL).origin
-      : 'https://fyrelinkz.netlify.app',
-  },
-  async redirects() {
-    return [{ source: "/tools/video-cost", destination: "/create/ai-video-generation-matrix-minimax-higgsfield-seedance", permanent: true }];
-  },
-  async headers() {
-    return [{ source: "/:path*", headers: [
-      { key: "X-Content-Type-Options", value: "nosniff" },
-      { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-      { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" }
-    ] }];
+    // Empty keeps ads off. Set to the https origin of the separate Pages
+    // project that serves /ads/frame.html.
+    NEXT_PUBLIC_AD_FRAME_ORIGIN: process.env.NEXT_PUBLIC_AD_FRAME_ORIGIN || '',
   },
   images: {
+    // Required by output: "export"; no optimizer runs at request time.
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",

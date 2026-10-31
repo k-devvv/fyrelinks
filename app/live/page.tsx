@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import { getLiveNews, LIVE_SOURCES, type LiveItem } from "@/lib/live-news";
 import { SITE_URL } from "@/lib/editorial";
 
-export const revalidate = 3600;
+// Freshness comes from the scheduled rebuild workflow, not request-time revalidation.
 
 // Headline lists add little on their own, so keep this page out of search results.
 export const metadata: Metadata = {

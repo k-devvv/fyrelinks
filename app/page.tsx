@@ -7,7 +7,7 @@ import ToolStrip from "@/components/ToolStrip";
 import AdSlot from "@/components/AdSlot";
 import {getLiveNews} from "@/lib/live-news";
 
-export const revalidate = 3600;
+// Freshness comes from the scheduled rebuild workflow, not request-time revalidation.
 
 const SECTIONS = ["hardware", "workflow", "create"] as const;
 // Guides with the most Google Search impressions (Search Console, Aug–Oct 2026).
