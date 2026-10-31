@@ -24,3 +24,9 @@
 /go/*
   X-Robots-Tag: noindex, nofollow
   Cache-Control: no-store
+
+# The static feed is typed from its .xml extension, which gives application/xml and
+# disagrees with the rel=alternate link. Where the Pages Function serves /feed.xml it
+# sets this itself and this rule does not apply.
+/feed.xml
+  Content-Type: application/rss+xml; charset=utf-8
