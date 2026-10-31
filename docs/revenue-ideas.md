@@ -40,7 +40,7 @@ That keeps storage and bandwidth at zero and keeps the legal surface small.
 **Data pipeline.** A script pulls the public Hugging Face Hub API (downloads, likes, tags,
 license, gated flag, last modified) into JSON under `lib/content/`, committed to the repo
 and refreshed by a scheduled GitHub Action. Pages render statically on Vercel. No
-database, no Netlify, no per-request cost. Verify Hugging Face's current API terms and
+database and no per-request cost. Verify Hugging Face's current API terms and
 rate limits before the first sync.
 
 **Editorial layer is the product.** Hugging Face already lists the files; the value added
