@@ -12,3 +12,6 @@ test-results/
 .env*
 
 !.env.example
+
+# wrangler build and dev scratch output
+.wrangler
