@@ -144,6 +144,7 @@ export default function HardwarePlanner() {
         {result.length > 0 && result.every(candidate => candidate.fit === "over-budget") && <p className="planner-empty">The priced option is above your budget. Consider a smaller workflow or review the sourced hardware guide before changing parts.</p>}
         {!result.some(candidate => candidate.estimatedTotal !== null) && result.length > 0 && <p className="planner-empty">No complete current price is verified for these profiles in this market. Use the sourced specifications for fit guidance, then check local retailers before deciding.</p>}
       </div>}
+      {result && result.length > 0 && <p className="planner-next">Want this written up for your exact workload, budget and country? <Link href="/ai-workstation-build-spec" onClick={() => measure("planner_guide_click", { placement: "planner" })}>See the build spec service →</Link></p>}
       <p className="hardware-planner-disclosure">Planning estimates, not tested benchmarks or compatibility guarantees. Confirm every part, price, tax, stock, and shipping detail before purchase.</p>
     </section>
   );
