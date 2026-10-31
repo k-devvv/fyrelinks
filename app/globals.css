@@ -2109,3 +2109,7 @@ kbd {
 
 .planner-disclosure { font-size: 11px; opacity: .75; margin-top: 10px; }
 .planner-disclosure a { text-decoration: underline; text-underline-offset: 3px; }
+
+.directory-cta { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; margin-top: 6px; font-size: 12px; }
+.directory-cta a:first-child { font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.directory-cta span { opacity: .7; }

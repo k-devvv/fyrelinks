@@ -3,17 +3,14 @@ const nextConfig = {
   reactStrictMode: true,
   outputFileTracingRoot: __dirname,
   poweredByHeader: false,
-  async redirects() {
-    return [{ source: "/tools/video-cost", destination: "/create/ai-video-generation-matrix-minimax-higgsfield-seedance", permanent: true }];
-  },
-  async headers() {
-    return [{ source: "/:path*", headers: [
-      { key: "X-Content-Type-Options", value: "nosniff" },
-      { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-      { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" }
-    ] }];
-  },
+  // Static export: every route is prerendered to out/ and served by Cloudflare
+  // Pages at no per-request cost. Security headers moved to public/_headers and
+  // the retired calculator redirect to public/_redirects, because next.config
+  // headers() and redirects() are not applied to an exported site.
+  output: "export",
   images: {
+    // Required by output: "export"; no image optimizer runs at request time.
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",

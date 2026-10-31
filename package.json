@@ -5,9 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
     "lint": "next lint",
-    "check": "node scripts/verify-content.cjs && node scripts/verify-catalog.cjs && node scripts/verify-hardware-planner.cjs && tsc --noEmit"
+    "check": "node scripts/verify-content.cjs && node scripts/verify-catalog.cjs && node scripts/verify-hardware-planner.cjs && tsc --noEmit",
+    "preview": "npx --yes wrangler pages dev out",
+    "deploy": "npx --yes wrangler pages deploy out"
   },
   "dependencies": {
     "clsx": "^2.1.1",

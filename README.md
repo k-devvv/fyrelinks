@@ -9,7 +9,7 @@ npm ci
 npm run dev
 npm run check
 npm run build
-npm run start
+npm run preview
 ```
 
 Next.js and PostCSS were patched after a dependency audit; the lockfile is updated. `npm run check` validates article sources, check dates, category/slug lookup, model directory catalog integrity and TypeScript. Browser verification is in `scripts/check-browser.cjs`; it uses Playwright and an installed Chromium browser. Optional environment overrides: `FYRE_TEST_URL`, `FYRE_TEST_OUTPUT`, `FYRE_PLAYWRIGHT_PATH`, `FYRE_CHROMIUM_PATH`. Its default artifact directory is `work/verification`.
@@ -35,7 +35,9 @@ All articles are original writing grounded in official documentation and primary
 - `components/Navbar.tsx`: client-side search dialog, keyboard shortcuts (`Ctrl+K`) and mobile navigation.
 - `app/[category]/[slug]/page.tsx`: source-backed article template with table of contents, visible sources, inline links and related articles.
 - `app/ai-video-models/page.tsx`: searchable and filterable directory of 200+ video model options and rates.
-- `next.config.js`: permanent 308 redirect from legacy `/tools/video-cost` to `/create/ai-video-generation-matrix-minimax-higgsfield-seedance`.
+- `public/_redirects`: permanent 308 redirect from legacy `/tools/video-cost` to `/create/ai-video-generation-matrix-minimax-higgsfield-seedance`.
+- `public/_headers`: `X-Content-Type-Options`, `Referrer-Policy` and `Permissions-Policy` for every route.
+- `functions/go/[slug].js`: Cloudflare Pages Function serving outbound affiliate redirects (307, `noindex`).
 - `app/feed.xml`: RSS 2.0 feed containing all 16 articles.
 - `app/sitemap.ts` and `app/robots.ts`: crawlable sitemap (27 URLs) and robot instructions.
 
@@ -54,6 +56,33 @@ No ad-network scripts run on the live site. Monetization readiness is structured
 
 See `docs/marketing-operations.md` for audience priorities, network selection gates and launch checks.
 
+## Hosting and deployment
+
+The site builds to a static export in `out/` and is served by Cloudflare Pages on the
+free plan. Cloudflare's terms place no non-commercial restriction on free accounts, which
+Vercel's Hobby plan does; its free limits (500 builds/month, 20,000 files, 25 MiB per
+file, 100 custom domains) sit far above this site, which exports 265 files at 24 MB with a
+largest asset of 1.2 MB.
+
+Build command `npm run build`, output directory `out`. `npm run preview` serves the export
+and the `/go/` Function locally; `npm run deploy` publishes. Both call `wrangler` through
+`npx`, so no global install is needed.
+
+### Cutover checklist
+
+1. Update the hosting paragraph in `app/privacy/page.tsx`, which still names Vercel. It
+   must name the actual host before the first production request.
+2. Create the Pages project, point it at this repository, set the build command and output
+   directory above.
+3. Add the `FYRE_AFF_*` variables from `.env.example` as Pages environment variables for
+   the production environment. Unset variables fall back to plain, non-commissioned URLs.
+4. Move the custom domain, then confirm `/go/minimax` returns 307 with `X-Robots-Tag:
+   noindex` and `/tools/video-cost` returns 308.
+5. Resubmit the sitemap only if the hostname changes; the URL set is unchanged otherwise.
+
+Static pages cost nothing per request. Only `/go/` invokes a Function, so affiliate clicks
+are the sole draw on the free Workers request quota.
+
 ## Verification
 
-Run `node scripts/check-http.cjs` against a running production preview. See `docs/marketing-operations.md` for editorial operations, measurement details, distribution suggestions and compliance guidelines.
+Run `node scripts/check-http.cjs` against a running preview (`npm run preview`, which serves the export and the `/go/` Function together). `next start` no longer applies: the site is a static export. See `docs/marketing-operations.md` for editorial operations, measurement details, distribution suggestions and compliance guidelines.

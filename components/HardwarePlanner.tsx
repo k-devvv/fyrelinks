@@ -178,7 +178,7 @@ function RecommendationCard({ candidate, market, onGuideClick, onSourceClick }: 
       {spec && <a href={spec.url} target="_blank" rel="noopener noreferrer" onClick={onSourceClick}>Check specification source: {spec.label} ↗</a>}
       {price.source && <a href={price.source.url} target="_blank" rel="noopener noreferrer" onClick={onSourceClick}>Check local price listing ↗</a>}
       <Link href="/hardware/best-local-ai-workstation-build-guide-2026" onClick={onGuideClick}>Read the workstation guide ↗</Link>
-      {candidate.path !== "laptop" && <a href={`/go/amazon-${market}`} target="_blank" rel="nofollow sponsored noopener noreferrer" onClick={() => measure("provider_visit", { market, placement: "planner-retailer" })}>Compare graphics card prices at Amazon (affiliate link) ↗</a>}
+      {candidate.path !== "laptop" && <a href={`/go/amazon-${market}`} target="_blank" rel="nofollow sponsored noopener noreferrer" onClick={() => measure("provider_visit", { provider: `amazon-${market}`, placement: "planner-retailer" })}>Compare graphics card prices at Amazon (affiliate link) ↗</a>}
     </div>
     <p className="planner-disclosure">FyreLinkz may earn a commission from qualifying purchases. <Link href="/affiliate-disclosure">How we handle this</Link>.</p>
   </article>;

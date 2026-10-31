@@ -2,6 +2,8 @@ import type { MetadataRoute } from "next";
 import { POSTS, CATEGORIES } from "@/lib/posts";
 import { SITE_URL, SOURCE_CHECK_DATE, articlePath } from "@/lib/editorial";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const latestPostDate = POSTS.reduce(
     (latest, p) => (p.updatedAt > latest ? p.updatedAt : latest),
