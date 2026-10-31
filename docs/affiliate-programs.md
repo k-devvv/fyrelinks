@@ -60,6 +60,63 @@ reported programme. Runway, Luma and Pika terms were not found; check their site
 **Closed or paused as of 2026:** Leonardo AI closed its programme on 7 April 2026. Notion
 has been paused to new affiliates since early 2026.
 
+## Where each variable's value comes from
+
+There is nothing to fetch. Each programme issues a tracking URL or code only after it
+approves you, from its own dashboard, and you paste the result into the matching variable in
+the Cloudflare Pages project. Checked 31 October 2026; confirm on each programme's own page.
+
+### The value must be a complete URL
+
+`resolveRedirect` **replaces** the destination with the variable's value, so each value is a
+full `https://` URL that already lands on the right page with tracking attached. A bare
+affiliate ID, a code, or a query fragment will not work.
+
+    FYRE_AFF_AMAZON_US=https://www.amazon.com/s?k=nvidia+rtx+graphics+card&tag=yourtag-20
+    FYRE_AFF_RUNPOD=https://runpod.io?ref=yourcode
+
+One slug resolves to exactly one destination. Amazon's model is appending `&tag=` to any
+URL, so deep links to specific products would each need their own slug, or the resolver
+would need a parameter-appending mode. Not built, because nothing needs it yet.
+
+A variable left unset is not a failure: the plain link is served and earns nothing.
+
+### Programme by programme
+
+| Variable | Status | Where to get it |
+|---|---|---|
+| `FYRE_AFF_RUNPOD` | **Open, terms documented** | Referral dashboard. 5% of Serverless and 3% of Pod spend for 6 months, in credits. The 10% cash affiliate tier needs 25 paying referrals first and opting in is permanent. |
+| `FYRE_AFF_MINIMAX` | **Open** | `hailuoai.video/affiliate`. The page states tiers from 10% to 30% of paid referrals, $10 minimum payout, contact `partner@minimaxi.com`. Its own claims, unverified. |
+| `FYRE_AFF_VIDEO_RUNWAY` | **Open** | `runway.com/affiliate-program`. Applications open to every tier, needs a free Runway account, every submission reviewed. One locale page states $15 per new subscriber plus a 25%-off code for readers; terms differ by locale, so read the English page. Not to be confused with Runway Catalog on Awin, a different company, or the invitation-only Creative Partners Program. |
+| `FYRE_AFF_VIDEO_HIGGSFIELD` | Reported only | Impact-network Ambassador programme, reported at 15% recurring for 12 months by one secondary source. Find it through Impact or ask Higgsfield directly. |
+| `FYRE_AFF_IDEOGRAM` | Exists, gated | Routed through the Creators Club. Its terms say acceptance is at Ideogram's sole discretion and rewards can be changed or withheld. No public signup page found. |
+| `FYRE_AFF_VIDEO_LUMA` | **No affiliate programme** | Luma's Creative Partner Program is credits for creators, not commission, and expects 5,000+ engaged followers. Leave unset. |
+| `FYRE_AFF_VIDEO_PIKA` | **None found** | No affiliate or partner programme surfaced. Leave unset. |
+| `FYRE_AFF_SEEDANCE` | **None found** | fal.ai has partner and startup credit programmes, not a referral programme. Leave unset. |
+| `FYRE_AFF_KIMI` | Unchecked | Moonshot publishes no programme I have looked at. Leave unset. |
+| `FYRE_AFF_AMAZON_*` | Open but a poor fit | See below. |
+
+### Amazon is the weakest of these, not the easiest
+
+It looks like the obvious starting point and is probably the worst use of effort here.
+
+- **Each storefront is a separate account with its own tag**, `-20` for US, `-21` for UK. Changing
+  the domain while keeping another marketplace's tag earns nothing. Four variables means
+  four applications.
+- **An India-based account likely earns nothing on US or UK buyers.** Publishers report
+  commission only on Indian purchases, and the standard advice is to register with the
+  storefront each visitor comes from. The planner's markets are US, UK, Canada and Germany,
+  and Search Console shows the audience is US and UK, so an India account does not serve it.
+- **The India programme requires Indian residency, a local bank account and a PAN number.**
+- **OneLink may not localise links for a non-US home account**, reported by one publisher for
+  other non-US accounts and unconfirmed for India.
+- Computer and component categories sit at the bottom of Amazon's rate card, commissions are
+  one-off, and each account must reach qualifying sales within a deadline. At 468 impressions
+  a month, four accounts racing a sales deadline will most likely all lapse.
+
+Leave the planner links wired and expect nothing. Spend the effort on Runpod, Hailuo and
+Runway, whose commissions recur and whose signup does not depend on where you live.
+
 ## Not worth prioritising
 
 Amazon Associates. Computer and component categories sit at the bottom of its rate card,
