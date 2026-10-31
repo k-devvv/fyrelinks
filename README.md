@@ -58,9 +58,15 @@ See `docs/marketing-operations.md` for audience priorities, network selection ga
 ## Hosting and deployment
 
 The site builds to a static export in `out/` and is served by Cloudflare Pages on the free
-plan, whose terms place no non-commercial restriction on free accounts. Vercel's Hobby plan
-is limited to non-commercial personal use, which this site's affiliate links and display
-advertising do not fit.
+plan.
+
+Hosting history matters for reading older docs: production ran on Vercel until mid-October
+2026 (`docs/evidence/owned-pages-http-2026-10-10.json` records `vercelCache` hits), then
+moved to Netlify. The move to Cloudflare is driven by Netlify's credit-metered free tier,
+which a content site with artwork consumes steadily, and by Cloudflare placing no
+non-commercial restriction on free accounts and not metering static bandwidth. Vercel's
+Hobby plan does restrict free use to non-commercial personal use, which this site's
+affiliate links and display advertising would not fit, so it is not a fallback either.
 
 Build command `npm run build`, output directory `out`. `npm run preview` serves the export
 and both Functions locally; `npm run deploy` publishes. Both call `wrangler` through `npx`,
@@ -113,8 +119,11 @@ origin. Left unset, no ad frame loads and no ad request is made.
 
 ### Cutover checklist
 
-1. Update the hosting paragraph in `app/privacy/page.tsx`, which still names Vercel. It must
-   name the actual host before the first production request.
+1. Leave `app/privacy/page.tsx` alone until DNS moves. It currently names Netlify, which is
+   correct while Netlify serves the domain. The moment Cloudflare serves it, replace
+   "The production website uses Netlify" and the Netlify privacy link with Cloudflare and
+   <https://www.cloudflare.com/privacypolicy/>. Deploying to `*.pages.dev` does not require
+   the change; moving the domain does.
 2. Create the Pages project; set the build command and output directory above, or use the
    workflow and deploy by direct upload.
 3. Add repository variables `CLOUDFLARE_PROJECT_NAME` and `NEXT_PUBLIC_AD_FRAME_ORIGIN`, and
