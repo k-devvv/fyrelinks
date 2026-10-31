@@ -19,3 +19,8 @@
 # Rebuilt every two hours; a shorter TTL keeps headlines from sticking.
 /
   Cache-Control: public, max-age=600
+
+# Affiliate hops must never be indexed, whichever host serves them.
+/go/*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-store
