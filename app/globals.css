@@ -2116,5 +2116,8 @@ kbd {
 .planner-disclosure { font-size: 11px; opacity: .75; margin-top: 10px; }
 .planner-disclosure a { text-decoration: underline; text-underline-offset: 3px; }
 
+.commercial-line { font-size: 12px; opacity: .8; margin-top: 2px; }
+.commercial-line a { text-decoration: underline; text-underline-offset: 3px; }
+
 .planner-next { margin-top: 14px; font-size: 13px; }
 .planner-next a { text-decoration: underline; text-underline-offset: 3px; font-weight: 600; }

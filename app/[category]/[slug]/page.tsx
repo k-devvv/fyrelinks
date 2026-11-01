@@ -59,6 +59,9 @@ export default async function ArticlePage({ params }: Props) {
   if (!p) notFound();
   const category = getCategoryBySlug(p.category)!;
   const nextRead = getRelatedPosts(p.slug, 1)[0];
+  // Commercial links are written into the article body as [label](/go/slug);
+  // linkPolicy marks them sponsored, and this drives the visible disclosure.
+  const hasCommercialLinks = JSON.stringify(p).includes("](/go/");
   const bottomRelated = getRelatedPosts(p.slug, 3, nextRead ? [nextRead.slug] : []);
 
   return (
@@ -77,6 +80,9 @@ export default async function ArticlePage({ params }: Props) {
           <div><Link href="/about">{bylineName(p.author.name)}</Link><p>Published <time dateTime={p.publishedAt}>{formatDate(p.publishedAt)}</time>{p.updatedAt !== p.publishedAt && <> · Updated <time dateTime={p.updatedAt}>{formatDate(p.updatedAt)}</time></>}</p></div>
         </div>
         <p className="verified-line">Sources last checked <time dateTime={p.sourceCheckedAt}>{formatDate(p.sourceCheckedAt)}</time></p>
+        {/* rel="sponsored" addresses search engines; readers need telling too, so this
+            appears automatically whenever the body carries a commercial link. */}
+        {hasCommercialLinks && <p className="commercial-line">Some links below earn a commission, at no extra cost to you. <Link href="/affiliate-disclosure">How this works</Link>.</p>}
         {p.eventDate && <p className="event-date">Announcement date: <time dateTime={p.eventDate}>{formatDate(p.eventDate)}</time> · Reported from the original source</p>}
       </header>
       <div className="article-answer-first">
