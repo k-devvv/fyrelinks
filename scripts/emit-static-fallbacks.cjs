@@ -50,6 +50,48 @@ const out = path.join(__dirname, '..', 'out');
   fs.writeFileSync(path.join(out, 'feed.xml'), xml);
   console.log(`Wrote out/feed.xml (${(xml.length / 1024).toFixed(0)} KB).`);
 
+
+  // Content-Security-Policy, written here rather than in public/_headers because
+  // frame-src depends on the ad frame origin, which is a build-time variable.
+  //
+  // script-src needs 'unsafe-inline': a static export has no per-request nonce,
+  // and Next ships ~34 inline hydration scripts whose hashes change every build.
+  // So this does not stop injected inline script. What it does stop is loading
+  // script, styles, fonts or frames from origins not listed, which is the
+  // supply-chain and injected-third-party class of attack.
+  const adOrigin = (() => {
+    const raw = process.env.NEXT_PUBLIC_AD_FRAME_ORIGIN || '';
+    try { const u = new URL(raw); return u.protocol === 'https:' ? u.origin : null; } catch { return null; }
+  })();
+
+  const policy = [
+    "default-src 'self'",
+    "base-uri 'self'",
+    "object-src 'none'",
+    "form-action 'self'",
+    "frame-ancestors 'none'",
+    "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com",
+    "style-src 'self' 'unsafe-inline'",
+    "img-src 'self' data: https://images.unsplash.com https://assets.fyrelinkz.com https://www.googletagmanager.com https://www.google-analytics.com",
+    "font-src 'self' data:",
+    "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com",
+    `frame-src ${adOrigin || "'none'"}`,
+    'upgrade-insecure-requests'
+  ].join('; ');
+
+  const headersFile = path.join(out, '_headers');
+  const headers = fs.readFileSync(headersFile, 'utf8');
+  const marker = '  Permissions-Policy: camera=(), microphone=(), geolocation=()';
+  if (!headers.includes(marker)) {
+    // Failing loudly beats shipping a page with no policy and nobody noticing.
+    console.error('Could not find the global header block in out/_headers; CSP not written.');
+    process.exitCode = 1;
+    return;
+  }
+  fs.writeFileSync(headersFile, headers.replace(marker, `${marker}
+  Content-Security-Policy: ${policy}`));
+  console.log(`Wrote CSP (frame-src ${adOrigin || "'none'"}).`);
+
   const staticGo = process.env.NETLIFY || process.env.FYRE_STATIC_GO_REDIRECTS === '1';
   if (!staticGo) {
     console.log('Skipping static /go/ redirects: the Pages Function resolves them per request.');
