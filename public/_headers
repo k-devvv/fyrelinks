@@ -30,3 +30,10 @@
 # sets this itself and this rule does not apply.
 /feed.xml
   Content-Type: application/rss+xml; charset=utf-8
+
+# The ad frame exists to be framed by this site, so it needs its own policy
+# rather than the global frame-ancestors 'none'. Ad networks chain-load many
+# origins, so this restricts who may embed it and nothing else.
+/ads/frame.html
+  ! Content-Security-Policy
+  Content-Security-Policy: frame-ancestors https://www.fyrelinkz.com https://fyrelinkz.com

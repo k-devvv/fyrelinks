@@ -2118,3 +2118,6 @@ kbd {
 
 .commercial-line { font-size: 12px; opacity: .8; margin-top: 2px; }
 .commercial-line a { text-decoration: underline; text-underline-offset: 3px; }
+
+.planner-next { margin-top: 14px; font-size: 13px; }
+.planner-next a { text-decoration: underline; text-underline-offset: 3px; font-weight: 600; }
