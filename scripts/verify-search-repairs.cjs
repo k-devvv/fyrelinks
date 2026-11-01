@@ -25,6 +25,10 @@ assert.deepEqual(readerLinkEvent('https://docs.example/read?token=secret',origin
 assert.equal(readerLinkEvent('javascript:alert(1)',origin,'source'),null);
 assert.deepEqual(readerLinkEvent('/workflow/guide?secret=1',origin,'related'),{name:'related_read',fields:{article_path:'/workflow/guide'}});
 assert.equal(readerLinkEvent('/contact?email=secret',origin,'other'),null);
+assert.deepEqual(readerLinkEvent('mailto:editorial@fyrelinkz.com?subject=Build%20spec%20request',origin,'enquiry','build-spec'),{name:'service_enquiry',fields:{placement:'build-spec'}});
+assert.equal(readerLinkEvent('mailto:editorial@fyrelinkz.com',origin,'enquiry','not a placement'),null);
+assert.equal(readerLinkEvent('https://example.com/sales',origin,'enquiry','build-spec'),null);
+assert.equal(JSON.stringify(readerLinkEvent('mailto:editorial@fyrelinkz.com?subject=x',origin,'enquiry','build-spec')).includes('@'),false,'enquiry event carries no address');
 const result=JSON.parse(fs.readFileSync('public/downloads/extraction-check-result.json','utf8').replace(/^\uFEFF/,''));
 assert.equal(result.matched_expected,true);assert.equal(result.rows_recovered,2);
 console.log(`Search repairs verified: ${news.length} news stories across ${newsPageCount(news.length)} pages; ${readingClusters.reduce((n,c)=>n+c.slugs.length,0)} curated articles; private query fields excluded.`);

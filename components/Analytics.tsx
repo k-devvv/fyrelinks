@@ -94,8 +94,9 @@ export default function Analytics() {
       if (privateMode()) return;
       const link=(e.target as Element)?.closest?.("a[href]") as HTMLAnchorElement|null;
       if (!link) return;
-      const context:ReaderLinkContext=link.pathname.startsWith("/downloads/")?"download":["/feed.xml","/rss"].includes(link.pathname)?"rss":link.closest(".sources-box,.inline-sources")?"source":link.closest(".related-section,.article-next-steps,.article-next-read")?"related":"other";
-      const measured=readerLinkEvent(link.href,location.origin,context);
+      const enquiry=link.getAttribute("data-enquiry");
+      const context:ReaderLinkContext=enquiry?"enquiry":link.pathname.startsWith("/downloads/")?"download":["/feed.xml","/rss"].includes(link.pathname)?"rss":link.closest(".sources-box,.inline-sources")?"source":link.closest(".related-section,.article-next-steps,.article-next-read")?"related":"other";
+      const measured=readerLinkEvent(link.href,location.origin,context,enquiry??"");
       if (measured) window.gtag?.("event",measured.name,{...measured.fields,send_to:id});
     };
     const faq=(e:Event)=>{

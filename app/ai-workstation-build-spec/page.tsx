@@ -57,7 +57,7 @@ export default function BuildSpec() {
       <h2>How to start</h2>
       <p>Email the brief below. I will reply with a fixed price and the questions I still need answered before starting, or tell you plainly if the planner already covers your case and you do not need this.</p>
       <ol>{BRIEF.map(item => <li key={item}>{item}</li>)}</ol>
-      <a className="button-dark" href="mailto:editorial@fyrelinkz.com?subject=Build%20spec%20request">Email editorial@fyrelinkz.com ↗</a>
+      <a className="button-dark" data-enquiry="build-spec" href="mailto:editorial@fyrelinkz.com?subject=Build%20spec%20request">Email editorial@fyrelinkz.com ↗</a>
       <p className="fine-print">Opens your email application. Your message is sent only when you send it there. No payment is taken on this site.</p>
     </section>
   </div>;
