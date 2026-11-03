@@ -1,7 +1,7 @@
 // Editorially selected reader journeys; not measured keyword-volume or SERP clusters.
 export const readingClusters = [
   {name: 'Local inference: files, memory and privacy', why: 'Choose compatible files first, then check memory and cloud boundaries.', slugs: [
-    'run-local-llm-rtx-4050-laptop-guide', 'gguf-vs-safetensors-format-compatibility',
+    'run-local-llm-rtx-4050-laptop-guide', 'qwen3-06b-rtx4050-context-memory-measured-test', 'gguf-vs-safetensors-format-compatibility',
     'ollama-context-length-vram-slow-model-fix', 'ollama-local-only-mode-cloud-privacy-controls',
     'lfm25-24b-a2b-local-agents-context-memory', 'nemotron35-super-vl-total-active-parameters-memory',
     'comfyui-cuda-out-of-memory-fix-by-stage', 'comfyui-beginner-first-workflow-guide']},

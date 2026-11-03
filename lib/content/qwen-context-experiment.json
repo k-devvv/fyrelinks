@@ -1,0 +1,159 @@
+{
+  "category": "hardware",
+  "slug": "qwen3-06b-rtx4050-context-memory-measured-test",
+  "title": "Qwen3 on RTX 4050: measured context memory and latency",
+  "description": "We tested Qwen3-0.6B FP16 on a 6GB RTX 4050 laptop: 108–4,075 input tokens, memory, latency, nine raw trials and a reproducible script.",
+  "topic": "Local AI measurements",
+  "image": "qwen-context-memory-oct26-photo",
+  "imageAlt": "Measured Qwen3-0.6B FP16 results on an RTX 4050 laptop: peak allocated memory 1170, 1450 and 4139 MiB at 108, 1004 and 4075 input tokens.",
+  "imageCaption": "Original FyreLinkz chart from nine measured runs on 26 October 2026. Median peak PyTorch allocation and synchronized end-to-end generation time; not total GPU usage or pure decode speed.",
+  "takeaway": "In this RTX 4050 laptop experiment, Qwen3-0.6B FP16 completed all nine 64-token generation runs. Increasing input from 108 to 4,075 tokens raised median peak PyTorch allocation from 1,170.4 to 4,138.7 MiB and median generation time from 2.581 to 9.645 seconds. This measures one Transformers configuration, not every 6GB laptop or Ollama.",
+  "publishedAt": "2026-11-03",
+  "updatedAt": "2026-11-03",
+  "sourceCheckedAt": "2026-11-03",
+  "featured": true,
+  "measuredTest": {
+    "date": "2026-10-26",
+    "hardware": "NVIDIA GeForce RTX 4050 Laptop GPU, 6140.5 MiB reported device memory",
+    "scope": "Executed single-device Qwen3-0.6B FP16/SDPA experiment; three timed trials per actual input length after one warm-up. No GPU ranking or model-quality comparison.",
+    "dataPath": "/downloads/qwen-memory-result-oct26.json",
+    "scriptPath": "/downloads/qwen-memory-check.py"
+  },
+  "sections": [
+    {
+      "heading": "What did we actually run?",
+      "content": "We ran the official Qwen/Qwen3-0.6B checkpoint at revision c1899de289a04d12100db370d81485cdf75e47ca on a Windows laptop with an NVIDIA GeForce RTX 4050 Laptop GPU. PyTorch reported 6,140.5 MiB total device memory. The installed stack was Python 3.11.9, PyTorch 2.9.0+cu128, CUDA runtime 12.8 and Transformers 5.6.2. The model was loaded in float16 with the SDPA attention implementation, entirely onto CUDA. Remote Python model code was disabled. No quantization, CPU offload, Ollama or serving queue was used.",
+      "sourceIds": [
+        1,
+        2
+      ]
+    },
+    {
+      "heading": "Measured results: input length changes the footprint",
+      "content": "The table reports medians of three timed trials for each actual input length. Every measured run produced 64 output tokens. Target sizes were 128, 1,024 and 4,096 tokens; tokenization and chat formatting produced the actual lengths shown below. Use those actual lengths when interpreting or repeating this experiment. Memory values are peak PyTorch allocator allocation, not total GPU or operating-system usage.",
+      "table": {
+        "headers": [
+          "Actual input tokens",
+          "Output tokens",
+          "Median generation, s",
+          "Peak allocation, MiB",
+          "End-to-end output tokens/s"
+        ],
+        "rows": [
+          [
+            "108",
+            "64",
+            "2.581",
+            "1,170.4",
+            "24.80"
+          ],
+          [
+            "1004",
+            "64",
+            "2.675",
+            "1,450.0",
+            "23.92"
+          ],
+          [
+            "4075",
+            "64",
+            "9.645",
+            "4,138.7",
+            "6.63"
+          ]
+        ]
+      },
+      "sourceIds": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "heading": "Why this is not a pure decode-speed benchmark",
+      "content": "Each timed interval starts immediately before generate and ends after CUDA synchronization. It includes prompt processing and autoregressive output generation, while excluding model download, model load and tokenization. Dividing 64 output tokens by this complete interval gives an end-to-end rate; it does not isolate decode throughput or time to first token. The longer prompt therefore performs more work before output generation begins. We did not isolate which kernel or intermediate buffer caused each part of the allocation increase.",
+      "sourceIds": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "heading": "Repeat the experiment and inspect every trial",
+      "content": "Download the [experiment script](/downloads/qwen-memory-check.py) and [raw results](/downloads/qwen-memory-result-oct26.json). In an environment with compatible PyTorch, Transformers, safetensors, requests and a CUDA GPU, run `python qwen-memory-check.py --cache ./qwen-model-cache --output ./my-qwen-result.json`. The first run downloads roughly 1.5 GB of official pinned model data into your chosen cache. The script does not download remote Python code and makes no inference API calls. Model weights are not bundled with this article. The raw JSON contains file hashes, software versions, complete prompts, all nine outputs, timing and allocated/reserved memory for each trial. A rerun may differ.",
+      "checklist": [
+        "Verify the model revision and every downloaded-file hash against the recorded JSON.",
+        "Record your own GPU, software versions, power state and concurrent workloads.",
+        "Keep dtype, attention implementation, prompt and output cap identical before comparing results.",
+        "Separate model-loading time from timed generation.",
+        "Do not compare this end-to-end rate directly with a provider’s decode-only number."
+      ],
+      "sourceIds": [
+        1,
+        2
+      ]
+    },
+    {
+      "heading": "How prompts and trials were controlled",
+      "content": "The script used repeated neutral padding followed by the same request for a ten-item local-AI checklist. Thinking mode was disabled. Generation was greedy with do_sample=False, use_cache=True and max_new_tokens=64. Each case had one unreported warm-up followed by three measured trials; CUDA was synchronized around the timer and peak allocator statistics were reset before each trial. Outputs can end mid-sentence because of the 64-token cap. We did not score their correctness, usefulness or reasoning. This is a memory-and-latency experiment, not a model-quality evaluation.",
+      "sourceIds": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "heading": "What a 6GB laptop owner can take from this",
+      "content": "This specific small FP16 model completed the tested contexts on this laptop. That does not establish that a larger checkpoint, image workflow, long chat or another runtime will fit. Keep a known-working short-context baseline, then change one setting at a time and record peak allocation. For a practical next step, use the [RTX 4050 local setup guide](/hardware/run-local-llm-rtx-4050-laptop-guide), separate [GGUF and safetensors compatibility](/workflow/gguf-vs-safetensors-format-compatibility), or diagnose [Ollama context and slow-model behavior](/workflow/ollama-context-length-vram-slow-model-fix). The Ollama guide describes a different runtime; the measurements here do not benchmark it."
+    },
+    {
+      "heading": "Limits, uncontrolled conditions and how to cite this",
+      "content": "We tested one laptop, one checkpoint and one installed stack. Power mode, thermals and concurrent system activity were not controlled, and no cross-device comparison was performed. Peak allocator allocation and reservation exclude memory outside PyTorch and do not prove unused VRAM is available to another process. We did not test simultaneous users, sustained serving, quantization or maximum context. Cite this article with the run date, pinned model revision, actual input length and linked raw JSON. Preserve the distinction between measured values and conclusions; do not turn the result into a universal GPU recommendation.",
+      "sourceIds": [
+        3,
+        4
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "publisher": "Qwen",
+      "title": "Qwen3-0.6B model card and pinned revision",
+      "url": "https://huggingface.co/Qwen/Qwen3-0.6B/tree/c1899de289a04d12100db370d81485cdf75e47ca"
+    },
+    {
+      "publisher": "Hugging Face",
+      "title": "Transformers text generation API",
+      "url": "https://huggingface.co/docs/transformers/main_classes/text_generation"
+    },
+    {
+      "publisher": "PyTorch",
+      "title": "CUDA memory management: allocator statistics and caching",
+      "url": "https://docs.pytorch.org/docs/2.9/notes/cuda.html#cuda-memory-management"
+    },
+    {
+      "publisher": "PyTorch",
+      "title": "CUDA synchronize API",
+      "url": "https://docs.pytorch.org/docs/2.9/generated/torch.cuda.synchronize.html"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Did Qwen3-0.6B run on a 6GB RTX 4050 laptop?",
+      "answer": "Yes, in this recorded FP16/SDPA Transformers experiment, all nine measured runs completed at 108, 1,004 and 4,075 input tokens with 64 output tokens. This does not guarantee other models, machines or runtimes will fit."
+    },
+    {
+      "question": "How much GPU memory did the longest context allocate?",
+      "answer": "At 4,075 input tokens, median peak PyTorch allocation was 4,138.7 MiB. That is allocator memory for this process, not total GPU usage and not an Ollama measurement."
+    },
+    {
+      "question": "Are the reported tokens per second decode speed?",
+      "answer": "No. The rate divides 64 output tokens by synchronized end-to-end generation time, including prompt processing and decoding. Time to first token and decode-only throughput were not isolated."
+    },
+    {
+      "question": "Can I reproduce the numbers exactly?",
+      "answer": "The script, pinned revision, prompts, file hashes and all trials are available. Exact timings can differ with hardware, drivers, software, cooling, power and concurrent activity. Repeat the protocol and report those conditions."
+    }
+  ]
+}

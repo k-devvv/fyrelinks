@@ -77,6 +77,7 @@ export default async function Home() {
       <ul className="web-grid">{web.map(i => <li key={i.url}><a href={i.url} target="_blank" rel="noopener noreferrer">{i.title}</a><span>{i.source}</span></li>)}</ul>
     </section>}
 
+    <section className="bs-section" aria-labelledby="original-work-heading"><div className="bs-section-head"><h2 id="original-work-heading">Original measurements</h2><Link href="/research">Methods and resources <ArrowRight size={14} aria-hidden="true"/></Link></div><p>One RTX 4050 laptop, a pinned Qwen checkpoint and nine timed trials. Inspect the method, chart and raw results before generalizing.</p><Link href="/hardware/qwen3-06b-rtx4050-context-memory-measured-test">Qwen3 context memory: what changed from 108 to 4,075 input tokens?</Link></section>
     <ToolStrip />
 
     {popular.length > 0 && <section className="web-strip" aria-labelledby="popular-heading">
