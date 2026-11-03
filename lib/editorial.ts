@@ -42,6 +42,7 @@ export interface ArticleInput {
   updatedAt: string;
   sourceCheckedAt: string;
   featured?: boolean;
+  measuredTest?: { date: string; hardware: string; scope: string; dataPath: string; scriptPath: string };
 }
 export interface EditorialPost extends Omit<ReviewPost, 'category' | 'sections'> {
   category: ArticleInput['category'];
@@ -81,10 +82,10 @@ export function articleFromInput(p: ArticleInput): EditorialPost {
     metaDescription: p.description,
     postType: p.category === 'hardware' ? 'hardware' : p.category === 'stack' ? 'comparison' : 'guide',
     verdict: p.takeaway,
-    testedDate: '',
-    testedHardware: '',
-    testingScope: 'Based on linked primary sources and FyreLinkz editorial analysis. No independent performance benchmark is claimed.',
-    evidenceBasis: p.category === 'news' ? 'Source report' : 'Practical guide',
+    testedDate: p.measuredTest?.date ?? '',
+    testedHardware: p.measuredTest?.hardware ?? '',
+    testingScope: p.measuredTest?.scope ?? 'Based on linked primary sources and FyreLinkz editorial analysis. No independent performance benchmark is claimed.',
+    evidenceBasis: p.measuredTest ? 'Measured experiment' : p.category === 'news' ? 'Source report' : 'Practical guide',
     whoThisIsFor: '',
     whereItFails: '',
     readTime: `${Math.max(1, Math.ceil(words / 220))} min read`,

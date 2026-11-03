@@ -1,9 +1,10 @@
 "use client";
 
-import {useEffect, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
+import {useReportWebVitals} from "next/web-vitals";
 import {usePathname} from "next/navigation";
 import Link from "next/link";
-import {readerLinkEvent, type ReaderLinkContext} from "@/lib/reader-measurement";
+import {readerLinkEvent, webVitalFields, type ReaderLinkContext} from "@/lib/reader-measurement";
 import {sanitizePlannerFields} from "@/lib/planner-measurement";
 
 declare global {
@@ -14,7 +15,7 @@ const id = "G-FX5Q71NMSE";
 const containerId = "GTM-NBVLKZLF";
 const configured = /^G-[A-Z0-9]+$/.test(id) && /^GTM-[A-Z0-9]+$/.test(containerId);
 const consentKey = "fyre-analytics-consent";
-const allowedEvents = new Set(["estimate_view","estimate_share","model_select","plan_select","provider_visit","source_visit","rss_subscribe","related_read","planner_start","planner_complete","planner_market","planner_guide_click","planner_source_click"]);
+const allowedEvents = new Set(["web_vital","estimate_view","estimate_share","model_select","plan_select","provider_visit","source_visit","rss_subscribe","related_read","planner_start","planner_complete","planner_market","planner_guide_click","planner_source_click"]);
 
 
 function privateMode() {
@@ -42,6 +43,10 @@ function disableTracking() {
 }
 export default function Analytics() {
   const pathname=usePathname();
+  const reportVital=useCallback<Parameters<typeof useReportWebVitals>[0]>(metric=>{
+    window.dispatchEvent(new CustomEvent("fyre:measure",{detail:{name:"web_vital",properties:{name:metric.name,value:metric.value,rating:metric.rating}}}));
+  },[]);
+  useReportWebVitals(reportVital);
   const [consent,setConsent]=useState<"yes"|"no"|null>(null);
   const [ready,setReady]=useState(false);
   const [show,setShow]=useState(false);
@@ -83,8 +88,9 @@ export default function Analytics() {
       const detail=(e as CustomEvent).detail;
       if (!detail||!allowedEvents.has(detail.name)) return;
       const plannerEvent=detail.name.startsWith("planner_");
-      const fields:Record<string,string|number>=plannerEvent?sanitizePlannerFields(detail.properties):{};
-      if (!plannerEvent) for (const key of ["provider","model","plan","billing","fits","placement"]) {
+      const fields:Record<string,string|number>=plannerEvent?sanitizePlannerFields(detail.properties):detail.name==="web_vital"?webVitalFields(detail.properties):{};
+      if (detail.name==="web_vital" && !Object.keys(fields).length) return;
+      if (!plannerEvent && detail.name!=="web_vital") for (const key of ["provider","model","plan","billing","fits","placement"]) {
         const value=detail.properties?.[key];
         if (typeof value==="string"&&/^[a-zA-Z0-9_-]{1,150}$/.test(value)) fields[key]=value;
       }
@@ -107,6 +113,19 @@ export default function Analytics() {
     window.addEventListener("fyre:measure",event);document.addEventListener("click",click);document.addEventListener("toggle",faq,true);
     return ()=>{window.removeEventListener("fyre:measure",event);document.removeEventListener("click",click);document.removeEventListener("toggle",faq,true);};
   },[ready,consent]);
+  useEffect(()=>{
+    if (!ready || consent!=="yes" || privateMode() || !("IntersectionObserver" in window)) return;
+    const sources=document.querySelector(".article-page .sources-box");
+    if (!sources) return;
+    const observer=new IntersectionObserver(entries=>{
+      if (entries.some(entry=>entry.isIntersecting) && !privateMode()) {
+        window.gtag?.("event","article_end_view",{send_to:id,milestone:"sources_visible"});
+        observer.disconnect();
+      }
+    },{threshold:0.2});
+    observer.observe(sources);
+    return ()=>observer.disconnect();
+  },[pathname,ready,consent]);
   const choose=(value:"yes"|"no")=>{
     const choice=privateMode()?"no":value;
     if (choice==="no") disableTracking();

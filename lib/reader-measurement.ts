@@ -12,3 +12,13 @@ export function readerLinkEvent(href: string, origin: string, context: ReaderLin
   if (context === 'enquiry' && url.protocol === 'mailto:' && /^[a-z][a-z-]{1,38}[a-z]$/.test(placement)) return {name:'service_enquiry', fields:{placement}};
   return null;
 }
+
+/** No metric IDs, DOM attribution, URLs or arbitrary text are transmitted. */
+export function webVitalFields(properties: unknown): Record<string, string | number> {
+  if (!properties || typeof properties !== 'object' || Array.isArray(properties)) return {};
+  const p = properties as Record<string, unknown>;
+  if (typeof p.name !== 'string' || !['CLS','LCP','INP','FCP','TTFB'].includes(p.name)) return {};
+  if (typeof p.value !== 'number' || !Number.isFinite(p.value) || p.value < 0 || p.value > 3_600_000) return {};
+  if (typeof p.rating !== 'string' || !['good','needs-improvement','poor'].includes(p.rating)) return {};
+  return {metric_name:p.name, value:Math.round(p.name === 'CLS' ? p.value * 1000 : p.value), metric_rating:p.rating};
+}

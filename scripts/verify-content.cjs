@@ -17,7 +17,7 @@ const {
   getPostBySlug
 } = require('../lib/posts.ts');
 const { faqPageSchema, articleCardImagePath, articleShareImagePath, articleImageDimensions, articlePath, sectionId } = require('../lib/editorial.ts');
-const localRoutes = new Set(['/', '/about', '/contact', '/privacy', '/terms', '/rss', '/ai-video-models', '/hardware/ai-workstation-planner', ...CATEGORIES.map(c => '/' + c.slug), ...POSTS.map(articlePath)]);
+const localRoutes = new Set(['/', '/research', '/about', '/contact', '/privacy', '/terms', '/rss', '/ai-video-models', '/hardware/ai-workstation-planner', ...CATEGORIES.map(c => '/' + c.slug), ...POSTS.map(articlePath)]);
 const downloadsRoot = path.join(__dirname, '..', 'public', 'downloads');
 if (fs.existsSync(downloadsRoot)) {
   for (const name of fs.readdirSync(downloadsRoot)) {

@@ -1,4 +1,5 @@
 import data from './content/articles.json';
+import qwenExperiment from './content/qwen-context-experiment.json';
 import { articleFromInput, type ArticleInput } from './editorial';
 export const CATEGORIES = [{
   slug: 'finance',
@@ -31,7 +32,7 @@ export const CATEGORIES = [{
   metaTitle: 'AI tool comparisons: RAG, vector databases and data workflows',
   description: 'Compare tools by workflow, operating costs and requirements. Make a shortlist that fits your project.'
 }];
-export const POSTS = (data as ArticleInput[]).map(articleFromInput);
+export const POSTS = ([qwenExperiment, ...data] as ArticleInput[]).map(articleFromInput);
 export const NEWS = POSTS.filter(p => p.category === 'news').sort((a, b) => (b.eventDate ?? b.publishedAt).localeCompare(a.eventDate ?? a.publishedAt));
 export const GUIDES = POSTS.filter(p => p.featured && p.category !== 'news');
 export function getPostBySlug(category: string, slug: string) {

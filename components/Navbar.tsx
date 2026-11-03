@@ -11,7 +11,7 @@ export interface SearchRecord {
   topic: string;
   description: string;
 }
-const links = [["Hardware", "/hardware"], ["ComfyUI & guides", "/workflow"], ["AI video & images", "/create"], ["Model directory", "/ai-video-models"], ["Planner tool", "/hardware/ai-workstation-planner"], ["News", "/news"], ["Live feed", "/live"]];
+const links = [["Hardware", "/hardware"], ["ComfyUI & guides", "/workflow"], ["AI video & images", "/create"], ["Model directory", "/ai-video-models"], ["Planner tool", "/hardware/ai-workstation-planner"], ["News", "/news"], ["Research", "/research"], ["Live feed", "/live"]];
 export default function Navbar({
   records
 }: {
