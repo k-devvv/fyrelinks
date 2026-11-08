@@ -23,6 +23,11 @@ const POPULAR = [
   "civitai-sdxl-photorealism-checkpoint-matrix"
 ];
 const byUpdated = (a: EditorialPost, b: EditorialPost) => b.updatedAt.localeCompare(a.updatedAt);
+const Arrow = () => <ArrowRight size={14} aria-hidden="true"/>;
+
+function SectionHead({id, title, href, label}: {id: string; title: string; href: string; label: string}) {
+  return <div className="fx-section-head"><h2 id={id}>{title}</h2><Link href={href} className="fx-more">{label} <Arrow/></Link></div>;
+}
 
 export default async function Home() {
   const perSource: Record<string, number> = {};
@@ -36,61 +41,87 @@ export default async function Home() {
     posts: POSTS.filter(p => p.category === slug).sort(byUpdated).slice(0, 3)
   }));
 
-  return <div className="wrap home bs-home">
-    <h1 className="bs-dateline"><span>AI news, ComfyUI guides &amp; local hardware advice</span><span>Updated {formatDate(lead.publishedAt)}</span></h1>
+  return <div className="wrap fx-home">
+    <header className="fx-hero-head">
+      <h1>AI news, <em>ComfyUI guides</em> &amp; local hardware advice</h1>
+      <span className="fx-updated"><span className="fx-dot" aria-hidden="true"/>Updated {formatDate(lead.publishedAt)}</span>
+    </header>
 
-    <section className="bs-front" aria-label="Top stories">
-      <article className="bs-lead">
-        <Link href={articlePath(lead)} className="bs-lead-image" aria-label={lead.title}><StoryImage post={lead} priority /></Link>
-        <div className="bs-kicker">{lead.topic}</div>
-        <h2><Link href={articlePath(lead)}>{lead.title}</Link></h2>
-        <p>{lead.metaDescription}</p>
-        <div className="bs-meta"><time dateTime={lead.publishedAt}>{formatDate(lead.publishedAt)}</time><span>{lead.readTime}</span></div>
+    <section className="fx-front" aria-label="Top stories">
+      <article className="fx-lead">
+        <Link href={articlePath(lead)} className="fx-lead-image" aria-label={lead.title}><StoryImage post={lead} priority /></Link>
+        <div className="fx-lead-copy">
+          <div className="fx-kicker">{lead.topic}</div>
+          <h2><Link href={articlePath(lead)}>{lead.title}</Link></h2>
+          <p>{lead.metaDescription}</p>
+          <div className="fx-meta"><time dateTime={lead.publishedAt}>{formatDate(lead.publishedAt)}</time><span>{lead.readTime}</span></div>
+        </div>
       </article>
 
-      <div className="bs-mid">
-        {secondary.map(p => <article className="bs-mid-item" key={p.slug}>
+      <div className="fx-side">
+        {secondary.map(p => <article className="fx-mini" key={p.slug}>
           <div>
-            <div className="bs-kicker">{p.topic}</div>
+            <div className="fx-kicker">{p.topic}</div>
             <h3><Link href={articlePath(p)}>{p.title}</Link></h3>
-            <div className="bs-meta"><time dateTime={p.publishedAt}>{formatDate(p.publishedAt)}</time><span>{p.readTime}</span></div>
+            <div className="fx-meta"><time dateTime={p.publishedAt}>{formatDate(p.publishedAt)}</time><span>{p.readTime}</span></div>
           </div>
-          <Link href={articlePath(p)} className="bs-thumb" aria-hidden="true" tabIndex={-1}><StoryImage post={p} /></Link>
+          <Link href={articlePath(p)} className="fx-thumb" aria-hidden="true" tabIndex={-1}><StoryImage post={p} /></Link>
         </article>)}
       </div>
+    </section>
 
-      <aside className="bs-rail" aria-label="Latest headlines">
-        <h2 className="bs-rail-title">Latest</h2>
+    <div className="fx-band">
+      <section className="fx-panel fx-latest" aria-labelledby="latest-heading">
+        <h2 id="latest-heading">Latest</h2>
         <ol>
           {latest.map(p => <li key={p.slug}>
             <time dateTime={p.publishedAt}>{formatDate(p.publishedAt)}</time>
             <Link href={articlePath(p)}>{p.title}</Link>
           </li>)}
         </ol>
-        <Link href="/news" className="bs-more">All news <ArrowRight size={14} aria-hidden="true"/></Link>
+        <Link href="/news" className="fx-more">All news <Arrow/></Link>
+      </section>
+
+      <aside className="fx-rail" aria-label="Original work">
+        <section className="fx-panel fx-research" aria-labelledby="original-work-heading">
+          <span className="eyebrow">Original measurements</span>
+          <h2 id="original-work-heading">Measured on one RTX 4050 laptop</h2>
+          <p>One RTX 4050 laptop, a pinned Qwen checkpoint and nine timed trials. Inspect the method, chart and raw results before generalizing.</p>
+          <Link href="/hardware/qwen3-06b-rtx4050-context-memory-measured-test" className="fx-research-link">Qwen3 context memory: what changed from 108 to 4,075 input tokens?</Link>
+          <Link href="/research" className="fx-more">Methods and resources <Arrow/></Link>
+        </section>
         <AdSlot placement="sidebar" />
       </aside>
-    </section>
+    </div>
 
-    {web.length > 0 && <section className="web-strip" aria-labelledby="web-heading">
-      <div className="bs-section-head"><h2 id="web-heading">Around the web</h2><Link href="/live">All live headlines <ArrowRight size={14} aria-hidden="true"/></Link></div>
-      <ul className="web-grid">{web.map(i => <li key={i.url}><a href={i.url} target="_blank" rel="noopener noreferrer">{i.title}</a><span>{i.source}</span></li>)}</ul>
+    {web.length > 0 && <section className="fx-section" aria-labelledby="web-heading">
+      <SectionHead id="web-heading" title="Around the web" href="/live" label="All live headlines"/>
+      <ul className="fx-chips">{web.map(i => <li key={i.url}><a href={i.url} target="_blank" rel="noopener noreferrer">{i.title}</a><span>{i.source}</span></li>)}</ul>
     </section>}
 
-    <section className="bs-section" aria-labelledby="original-work-heading"><div className="bs-section-head"><h2 id="original-work-heading">Original measurements</h2><Link href="/research">Methods and resources <ArrowRight size={14} aria-hidden="true"/></Link></div><p>One RTX 4050 laptop, a pinned Qwen checkpoint and nine timed trials. Inspect the method, chart and raw results before generalizing.</p><Link href="/hardware/qwen3-06b-rtx4050-context-memory-measured-test">Qwen3 context memory: what changed from 108 to 4,075 input tokens?</Link></section>
     <ToolStrip />
 
-    {popular.length > 0 && <section className="web-strip" aria-labelledby="popular-heading">
-      <div className="bs-section-head"><h2 id="popular-heading">Popular guides</h2><Link href="/workflow">All guides <ArrowRight size={14} aria-hidden="true"/></Link></div>
-      <ul className="web-grid">{popular.map(p => <li key={p.slug}><Link href={articlePath(p)}>{p.title}</Link><span>{p.topic}</span></li>)}</ul>
+    {popular.length > 0 && <section className="fx-section" aria-labelledby="popular-heading">
+      <SectionHead id="popular-heading" title="Popular guides" href="/workflow" label="All guides"/>
+      <ul className="fx-chips">{popular.map(p => <li key={p.slug}><Link href={articlePath(p)}>{p.title}</Link><span>{p.topic}</span></li>)}</ul>
     </section>}
 
-    {sections.map(({category, posts}) => <section className="bs-section" key={category.slug} aria-labelledby={`bs-${category.slug}`}>
-      <div className="bs-section-head"><h2 id={`bs-${category.slug}`}>{category.name}</h2><Link href={`/${category.slug}`}>More {category.name.toLowerCase()} <ArrowRight size={14} aria-hidden="true"/></Link></div>
-      <div className="bs-cards">{posts.map(p => <StoryCard key={p.slug} post={p}/>)}</div>
+    {sections.map(({category, posts}) => <section className="fx-section" key={category.slug} aria-labelledby={`bs-${category.slug}`}>
+      <SectionHead id={`bs-${category.slug}`} title={category.name} href={`/${category.slug}`} label={`More ${category.name.toLowerCase()}`}/>
+      <div className="fx-cards">{posts.map(p => <StoryCard key={p.slug} post={p}/>)}</div>
     </section>)}
 
-    <section className="rss-banner"><Rss size={30}/><div><span className="eyebrow">KEEP YOUR EDGE</span><h2>New guides, straight to your feed.</h2><p>Follow new news, guides and updates in any RSS reader.</p></div><a href="/rss" className="button-secondary">Follow via RSS</a></section>
-    <section className="editorial-note"><span className="eyebrow">HOW WE WORK</span><p>Useful first.<br/><strong>Sources always.</strong></p><div>Every story links to where the information comes from. Vendor claims and our own analysis are labeled separately.<Link href="/about">Read our approach <ArrowRight size={16}/></Link></div></section>
+    <section className="fx-cta">
+      <Rss size={30} aria-hidden="true"/>
+      <div><span className="eyebrow">KEEP YOUR EDGE</span><h2>New guides, straight to your feed.</h2><p>Follow new news, guides and updates in any RSS reader.</p></div>
+      <a href="/rss" className="button-primary">Follow via RSS</a>
+    </section>
+
+    <section className="fx-principles" aria-labelledby="how-heading">
+      <h2 id="how-heading" className="eyebrow">HOW WE WORK</h2>
+      <div><strong>Useful first.</strong><p>Guides start from the problem a reader has, with steps and numbers you can check.</p></div>
+      <div><strong>Sources always.</strong><p>Every story links to where the information comes from.</p></div>
+      <div><strong>Labeled analysis.</strong><p>Vendor claims and our own analysis are labeled separately.</p><Link href="/about">Read our approach <Arrow/></Link></div>
+    </section>
   </div>;
 }

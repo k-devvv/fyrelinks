@@ -3,7 +3,7 @@ import "./globals.css";
 import "./tech-theme.css";
 import "./studio.css";
 import "./growth.css";
-import "./broadsheet.css";
+import "./theme.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AdSlot from "@/components/AdSlot";
@@ -14,7 +14,7 @@ import JsonLd from "@/components/JsonLd";
 import { POSTS } from "@/lib/posts";
 import { SITE_URL, articlePath } from "@/lib/editorial";
 export const viewport: Viewport = {
-  themeColor: "#f7f3eb",
+  themeColor: "#f6f5f1",
   width: "device-width",
   initialScale: 1
 };
