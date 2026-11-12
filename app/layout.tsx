@@ -91,7 +91,7 @@ export default function RootLayout({
         publisher: {
           "@id": SITE_URL + "/#organization"
         }
-      }]} /><Navbar records={[{title:"AI video model directory",href:"/ai-video-models",topic:"Models",description:"Kling Seedance Sora Veo Hailuo Ray Pika model pricing"}, ...POSTS.map(p => ({
+      }]} /><aside className="sale-banner" aria-label="Site for sale"><strong>FyreLinkz is for sale.</strong> <span>Domain, site and all articles included.</span> <a href="mailto:editorial@fyrelinkz.com?subject=FyreLinkz%20sale%20enquiry">Enquire by email</a></aside><Navbar records={[{title:"AI video model directory",href:"/ai-video-models",topic:"Models",description:"Kling Seedance Sora Veo Hailuo Ray Pika model pricing"}, ...POSTS.map(p => ({
         title: p.title,
         href: articlePath(p),
         topic: p.topic,

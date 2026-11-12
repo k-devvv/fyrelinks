@@ -29,3 +29,12 @@
   .tool-grid { grid-template-columns: 1fr; }
   .author-box { flex-direction: column; }
 }
+
+/* Site-wide notice that the site is for sale. */
+.sale-banner {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: .35rem .75rem;
+  padding: .6rem 1rem; background: #e8590c; color: #fff;
+  font-family: var(--sans); font-size: .9rem; line-height: 1.4; text-align: center;
+}
+.sale-banner a { color: #fff; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.sale-banner a:hover, .sale-banner a:focus-visible { text-decoration-thickness: 2px; }
