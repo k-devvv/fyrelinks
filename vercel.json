@@ -1,3 +1,19 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json"
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    { "source": "/tools/video-cost", "destination": "/create/ai-video-generation-matrix-minimax-higgsfield-seedance", "statusCode": 308 },
+    { "source": "/go/minimax", "destination": "https://hailuoai.video", "statusCode": 307 },
+    { "source": "/go/kimi", "destination": "https://kimi.moonshot.cn", "statusCode": 307 },
+    { "source": "/go/seedance", "destination": "https://fal.ai/models/fal-ai/seedance", "statusCode": 307 },
+    { "source": "/go/ideogram", "destination": "https://ideogram.ai", "statusCode": 307 },
+    { "source": "/go/runpod", "destination": "https://www.runpod.io", "statusCode": 307 },
+    { "source": "/go/video-higgsfield", "destination": "https://higgsfield.ai/pricing", "statusCode": 307 },
+    { "source": "/go/video-runway", "destination": "https://runway.com/pricing", "statusCode": 307 },
+    { "source": "/go/video-luma", "destination": "https://lumalabs.ai/pricing", "statusCode": 307 },
+    { "source": "/go/video-pika", "destination": "https://pika.art/pricing?interval=month", "statusCode": 307 },
+    { "source": "/go/amazon-us", "destination": "https://www.amazon.com/s?k=nvidia+rtx+graphics+card", "statusCode": 307 },
+    { "source": "/go/amazon-uk", "destination": "https://www.amazon.co.uk/s?k=nvidia+rtx+graphics+card", "statusCode": 307 },
+    { "source": "/go/amazon-ca", "destination": "https://www.amazon.ca/s?k=nvidia+rtx+graphics+card", "statusCode": 307 },
+    { "source": "/go/amazon-de", "destination": "https://www.amazon.de/s?k=nvidia+rtx+grafikkarte", "statusCode": 307 }
+  ]
 }
