@@ -114,7 +114,8 @@ redirects to carry tracking, since they are baked in rather than read per reques
 
 `adFrameUrl` refuses to load the ad frame from the site's own origin, which is deliberate:
 scripts in a same-origin frame would have same-origin access to the page. Deploy `out/` to a
-second Cloudflare Pages project and set `NEXT_PUBLIC_AD_FRAME_ORIGIN` to that project's
+second Cloudflare Pages project (the workflow does this when the `CLOUDFLARE_AD_PROJECT_NAME`
+variable is set) and set `NEXT_PUBLIC_AD_FRAME_ORIGIN` to that project's
 origin. Left unset, no ad frame loads and no ad request is made.
 
 ### Cutover checklist
