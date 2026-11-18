@@ -2,7 +2,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const ts = require('typescript');
 require.extensions['.ts'] = (m, f) => m._compile(ts.transpileModule(fs.readFileSync(f, 'utf8'), { compilerOptions: { module: ts.ModuleKind.CommonJS, esModuleInterop: true } }).outputText, f);
-const { POSTS } = require('../lib/posts.ts');
+const { LISTED: POSTS } = require('../lib/posts.ts');
 const editorial = require('../lib/editorial.ts');
 const { feedResponse } = require('../lib/feed.ts');
 
