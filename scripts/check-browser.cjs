@@ -17,7 +17,7 @@ fs.mkdirSync(output, { recursive: true });
   const errors = [];
   page.on('pageerror', e => errors.push(e.message));
 
-  const routes = ['/', '/news', '/create', '/workflow', '/hardware', '/hardware/ai-workstation-planner', '/stack', '/about', '/contact', '/privacy', '/terms', '/ai-video-models', ...data.map(p => '/' + p.category + '/' + p.slug)];
+  const routes = ['/', '/news', '/create', '/workflow', '/hardware', '/hardware/ai-workstation-planner', '/hardware/vram-calculator', '/stack', '/about', '/contact', '/privacy', '/terms', '/ai-video-models', ...data.map(p => '/' + p.category + '/' + p.slug)];
   let broken = [];
   let schemas = 0;
 
