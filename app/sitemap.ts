@@ -1,5 +1,8 @@
 import type { MetadataRoute } from "next";
-import { POSTS, CATEGORIES } from "@/lib/posts";
+import { LISTED as POSTS, CATEGORIES as ALL_CATEGORIES } from "@/lib/posts";
+
+// Finance is outside the site's focus and is noindexed, so it is left out of the sitemap.
+const CATEGORIES = ALL_CATEGORIES.filter(c => c.slug !== "finance");
 import { SITE_URL, articlePath } from "@/lib/editorial";
 
 import { newsPageCount, newsPagePath } from "@/lib/news-pagination";

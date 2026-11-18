@@ -7,7 +7,11 @@ import { getPostsByCategory } from "@/lib/posts";
 
 import AdSlot from "@/components/AdSlot";
 import { pageMetadata } from "@/lib/metadata";
-export const metadata = pageMetadata("Finance guides: savings, fees, business costs & crypto safety", "Understand business costs, financial decisions and crypto risks with primary-source resources and clear educational context.", "/finance");
+export const metadata = {
+  ...pageMetadata("Finance guides: savings, fees, business costs & crypto safety", "Understand business costs, financial decisions and crypto risks with primary-source resources and clear educational context.", "/finance"),
+  // Outside the site's focus on local AI; kept online for existing links only.
+  robots: { index: false, follow: true }
+};
 const financeFaqs = [
   {
     "question": "Does this page recommend investments?",

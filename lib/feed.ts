@@ -1,7 +1,7 @@
 // The RSS feed, extracted from the Next route so it can be served by a Cloudflare
 // Pages Function. A static export cannot host a handler that reads the request,
 // and this one negotiates on the Accept header to send browsers to /rss.
-import { POSTS } from "./posts";
+import { LISTED as POSTS } from "./posts";
 import { SITE_URL, articlePath } from "./editorial";
 const xml = (s: string) => s.replace(/[<>&"']/g, c => ({
   "<": "&lt;",

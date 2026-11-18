@@ -1,7 +1,7 @@
 import Link from "next/link";
 import SmartLink from "@/components/SmartLink";
 import { notFound } from "next/navigation";
-import { POSTS, getPostBySlug, getCategoryBySlug, getRelatedPosts } from "@/lib/posts";
+import { POSTS, isOffTopic, getPostBySlug, getCategoryBySlug, getRelatedPosts } from "@/lib/posts";
 import { SITE_URL, articlePath, articleShareImagePath, articleImageDimensions, sectionId, formatDate } from "@/lib/editorial";
 import { pageMetadata } from "@/lib/metadata";
 import JsonLd from "@/components/JsonLd";
@@ -28,6 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const m = pageMetadata(p.metaTitle || p.title, p.metaDescription, articlePath(p), articleShareImagePath(p.image), p.imageAlt);
   return {
     ...m,
+    ...(isOffTopic(p.slug) ? { robots: { index: false, follow: true } } : {}),
     openGraph: {
       ...m.openGraph,
       type: "article",
