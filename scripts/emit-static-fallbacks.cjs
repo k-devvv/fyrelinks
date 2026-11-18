@@ -70,11 +70,11 @@ const out = path.join(__dirname, '..', 'out');
     "object-src 'none'",
     "form-action 'self'",
     "frame-ancestors 'none'",
-    "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com",
+    "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://static.cloudflareinsights.com",
     "style-src 'self' 'unsafe-inline'",
     "img-src 'self' data: https://images.unsplash.com https://assets.fyrelinkz.com https://www.googletagmanager.com https://www.google-analytics.com",
     "font-src 'self' data:",
-    "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com",
+    "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://cloudflareinsights.com",
     `frame-src ${adOrigin || "'none'"}`,
     'upgrade-insecure-requests'
   ].join('; ');
