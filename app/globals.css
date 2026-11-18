@@ -2121,3 +2121,8 @@ kbd {
 
 .planner-next { margin-top: 14px; font-size: 13px; }
 .planner-next a { text-decoration: underline; text-underline-offset: 3px; font-weight: 600; }
+
+/* VRAM calculator */
+.vram-breakdown { width: 100%; max-width: 420px; border-collapse: collapse; margin: 16px 0; }
+.vram-breakdown th, .vram-breakdown td { padding: 8px 0; border-bottom: 1px solid rgba(127,127,127,.25); text-align: left; font-weight: 400; }
+.vram-breakdown td { text-align: right; font-variant-numeric: tabular-nums; }
