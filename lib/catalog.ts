@@ -142,7 +142,7 @@ export function getRelatedPosts(slug: string, limit = 3, excludeSlugs: string[] 
   };
 
   const exclusions = new Set([slug, ...excludeSlugs]);
-  return LISTED
+  return (isOffTopic(slug) ? POSTS : LISTED)
     .filter(x => !exclusions.has(x.slug))
     .sort((a, b) => {
       const diff = getScore(b) - getScore(a);
