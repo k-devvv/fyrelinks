@@ -1,6 +1,9 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
+import SmartLink from "@/components/SmartLink";
+import { measure } from "@/lib/measurement";
 import { CONTEXTS, GPU_SIZES, QUANTS, VRAM_MODELS, estimateVram } from "@/lib/vram";
 
 const VERDICT = {
@@ -29,6 +32,12 @@ export default function VramCalculator() {
     const r = estimateVram(model, q.bits, ctx, gpuGb).verdict;
     return r === "fits" || r === "tight";
   });
+
+  // Smallest GPU that runs this setup fully, shown only when the current one can't.
+  const needsUpgrade = est.verdict === "offload" || est.verdict === "too-big";
+  const fitsOn = (g: number) => ["fits", "tight"].includes(estimateVram(model, quant.bits, ctx, g).verdict);
+  const upgradeGb = needsUpgrade ? GPU_SIZES.find((g) => g > gpuGb && fitsOn(g)) : undefined;
+  const shopGb = upgradeGb ? [8, 12, 16, 24].find((g) => g >= upgradeGb) : undefined;
 
   return (
     <section className="hardware-planner vram-calculator" aria-labelledby="vram-calc-heading">
@@ -82,6 +91,22 @@ export default function VramCalculator() {
             ? <>Highest quality that fits fully on {gpuGb} GB at this context: <strong>{bestQuant.name}</strong>.</>
             : <>No quantization of {model.name} fits fully on {gpuGb} GB at this context. Try a smaller model or shorter context.</>}
         </p>
+        {needsUpgrade && (
+          <div className="vram-upgrade">
+            {shopGb ? (
+              <>
+                <p><strong>Want it to run fully?</strong> {model.name} at {quant.name} needs a GPU with <strong>{upgradeGb} GB+</strong> of VRAM at this context.</p>
+                <SmartLink href={`/go/amazon-us-gpu-${shopGb}gb`} onClick={() => measure("provider_visit", { provider: `amazon-us-gpu-${shopGb}gb`, placement: "vram-calculator" })}>See {shopGb} GB graphics cards on Amazon ↗</SmartLink>
+              </>
+            ) : (
+              <>
+                <p><strong>Want it to run fully?</strong> This setup needs {upgradeGb ? `${upgradeGb} GB` : "more than 48 GB"} of VRAM, beyond most consumer cards. Renting a cloud GPU by the hour is usually cheaper.</p>
+                <SmartLink href="/go/runpod" onClick={() => measure("provider_visit", { provider: "runpod", placement: "vram-calculator" })}>Rent a GPU on Runpod ↗</SmartLink>
+              </>
+            )}
+            <p className="planner-disclosure">Commission may apply on these links. <Link href="/affiliate-disclosure">How this works</Link>.</p>
+          </div>
+        )}
       </div>
     </section>
   );
