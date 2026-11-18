@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { POSTS } from "@/lib/posts";
+import { LISTED as POSTS } from "@/lib/posts";
 import { SITE_URL, articlePath, formatDate } from "@/lib/editorial";
 import { pageMetadata } from "@/lib/metadata";
 

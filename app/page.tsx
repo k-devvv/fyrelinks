@@ -1,6 +1,6 @@
 import Link from "next/link";
 import {ArrowRight, Rss} from "lucide-react";
-import {NEWS, POSTS, CATEGORIES} from "@/lib/posts";
+import {NEWS, LISTED as POSTS, CATEGORIES} from "@/lib/posts";
 import {articlePath, formatDate, type EditorialPost} from "@/lib/editorial";
 import StoryCard, {StoryImage} from "@/components/StoryCard";
 import ToolStrip from "@/components/ToolStrip";
@@ -43,10 +43,23 @@ export default async function Home() {
 
   return <div className="wrap fx-home">
     <header className="fx-hero-head">
-      <h1>AI news, <em>ComfyUI guides</em> &amp; local hardware advice</h1>
+      <h1>Run AI on <em>your own GPU</em>: local LLMs, ComfyUI &amp; hardware</h1>
       <span className="fx-updated"><span className="fx-dot" aria-hidden="true"/>Updated {formatDate(lead.publishedAt)}</span>
     </header>
 
+    <ToolStrip />
+
+    {popular.length > 0 && <section className="fx-section" aria-labelledby="popular-heading">
+      <SectionHead id="popular-heading" title="Popular guides" href="/workflow" label="All guides"/>
+      <ul className="fx-chips">{popular.map(p => <li key={p.slug}><Link href={articlePath(p)}>{p.title}</Link><span>{p.topic}</span></li>)}</ul>
+    </section>}
+
+    {sections.map(({category, posts}) => <section className="fx-section" key={category.slug} aria-labelledby={`bs-${category.slug}`}>
+      <SectionHead id={`bs-${category.slug}`} title={category.name} href={`/${category.slug}`} label={`More ${category.name.toLowerCase()}`}/>
+      <div className="fx-cards">{posts.map(p => <StoryCard key={p.slug} post={p}/>)}</div>
+    </section>)}
+
+    <div className="fx-section-head"><h2>Latest local AI news</h2></div>
     <section className="fx-front" aria-label="Top stories">
       <article className="fx-lead">
         <Link href={articlePath(lead)} className="fx-lead-image" aria-label={lead.title}><StoryImage post={lead} priority /></Link>
@@ -98,18 +111,6 @@ export default async function Home() {
       <SectionHead id="web-heading" title="Around the web" href="/live" label="All live headlines"/>
       <ul className="fx-chips">{web.map(i => <li key={i.url}><a href={i.url} target="_blank" rel="noopener noreferrer">{i.title}</a><span>{i.source}</span></li>)}</ul>
     </section>}
-
-    <ToolStrip />
-
-    {popular.length > 0 && <section className="fx-section" aria-labelledby="popular-heading">
-      <SectionHead id="popular-heading" title="Popular guides" href="/workflow" label="All guides"/>
-      <ul className="fx-chips">{popular.map(p => <li key={p.slug}><Link href={articlePath(p)}>{p.title}</Link><span>{p.topic}</span></li>)}</ul>
-    </section>}
-
-    {sections.map(({category, posts}) => <section className="fx-section" key={category.slug} aria-labelledby={`bs-${category.slug}`}>
-      <SectionHead id={`bs-${category.slug}`} title={category.name} href={`/${category.slug}`} label={`More ${category.name.toLowerCase()}`}/>
-      <div className="fx-cards">{posts.map(p => <StoryCard key={p.slug} post={p}/>)}</div>
-    </section>)}
 
     <section className="fx-cta">
       <Rss size={30} aria-hidden="true"/>

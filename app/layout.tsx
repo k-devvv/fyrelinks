@@ -11,7 +11,7 @@ import Analytics from "@/components/Analytics";
 import ScrollReveal from "@/components/ScrollReveal";
 import PointerAccent from "@/components/PointerAccent";
 import JsonLd from "@/components/JsonLd";
-import { POSTS } from "@/lib/posts";
+import { LISTED as POSTS } from "@/lib/posts";
 import { SITE_URL, articlePath } from "@/lib/editorial";
 export const viewport: Viewport = {
   themeColor: "#f6f5f1",

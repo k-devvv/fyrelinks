@@ -33,7 +33,41 @@ export const CATEGORIES = [{
   description: 'Compare tools by workflow, operating costs and requirements. Make a shortlist that fits your project.'
 }];
 export const POSTS = ([qwenExperiment, ...data] as ArticleInput[]).map(articleFromInput);
-export const NEWS = POSTS.filter(p => p.category === 'news').sort((a, b) => (b.eventDate ?? b.publishedAt).localeCompare(a.eventDate ?? a.publishedAt));
+// Posts outside the site's focus (local AI on consumer GPUs). They stay online for existing
+// links but are kept out of search engines, the sitemap, feeds and on-site listings.
+export const OFF_TOPIC = new Set<string>([
+  'inflation-savings-fd-stock-market-falls-gold-india',
+  'zero-percent-balance-transfer-fee-payoff-example',
+  'high-yield-savings-vs-cd-apy-access-penalties',
+  'credit-card-apr-daily-interest-example',
+  'us-inflation-september-2026-cpi-household-budget',
+  'emergency-fund-savings-account-checklist',
+  'investment-fees-expense-ratio-cost-example',
+  'small-business-break-even-fixed-variable-costs',
+  'crypto-investment-scams-wallet-recovery-fee-checklist',
+  'carbon-x-dna-language-model-research-limits',
+  'openai-research-agents-brain-data-hypotheses',
+  'google-willow-magic-state-cultivation-quantum-evidence',
+  'roboparty-rp1-open-humanoid-stack-hardware-software',
+  'pingpongduo-humanoid-doubles-coordination-research',
+  'mistral-ai-altair1-satellite-earth-orbit',
+  'samsung-helix-ai-infrastructure-investment',
+  'doe-selects-four-robotics-testbeds-autonomous-science',
+  'vanderbilt-magen-ai-genomics-grants-clinical-translation',
+  'anthropic-claude-wet-lab-art-enzyme-system',
+  'alphaprotein-novo-enzyme-design-evidence-terms',
+  'botanic1-gemma-plant-genomics-evidence',
+  'openai-math-results-lean-withdrawals-review',
+  'vals-room-temperature-magnetic-semiconductor-candidates',
+  'flashdexretarget-robot-hand-retargeting-benchmark',
+  'terra-terrain-musculoskeletal-locomotion-research',
+  'grad-conjecture-counterexamples-lean-plasma',
+  'napoleon-marmont-cipher-ai-reproducibility',
+  'landreman-analytic-3d-equilibria-ai-plasma',
+]);
+export const isOffTopic = (slug: string) => OFF_TOPIC.has(slug);
+export const LISTED = POSTS.filter(p => !OFF_TOPIC.has(p.slug));
+export const NEWS = LISTED.filter(p => p.category === 'news').sort((a, b) => (b.eventDate ?? b.publishedAt).localeCompare(a.eventDate ?? a.publishedAt));
 export const GUIDES = POSTS.filter(p => p.featured && p.category !== 'news');
 export function getPostBySlug(category: string, slug: string) {
   return POSTS.find(p => p.category === category && p.slug === slug);
@@ -108,7 +142,7 @@ export function getRelatedPosts(slug: string, limit = 3, excludeSlugs: string[] 
   };
 
   const exclusions = new Set([slug, ...excludeSlugs]);
-  return POSTS
+  return LISTED
     .filter(x => !exclusions.has(x.slug))
     .sort((a, b) => {
       const diff = getScore(b) - getScore(a);
