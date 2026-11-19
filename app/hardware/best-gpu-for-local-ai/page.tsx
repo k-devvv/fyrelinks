@@ -59,7 +59,7 @@ export default function BestGpuPage() {
             <h2 id={`tier-${t.gb}`}>{t.gb} GB VRAM</h2>
             <p>{t.who}</p>
             <p><strong>Runs fully on the GPU</strong> (Q4_K_M, 8K context): {models.length ? models.map((m) => m.name).join(", ") : "none of the tracked models"}.</p>
-            <p><SmartLink href={`/go/amazon-in-gpu-${t.gb}gb`}>See {t.gb} GB graphics cards on Amazon.in ↗</SmartLink></p>
+            <p><SmartLink className="button-primary" href={`/go/amazon-in-gpu-${t.gb}gb`}>See {t.gb} GB graphics cards on Amazon.in ↗</SmartLink></p>
           </section>
         );
       })}

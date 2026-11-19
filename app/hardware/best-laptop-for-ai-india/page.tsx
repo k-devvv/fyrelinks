@@ -78,13 +78,14 @@ export default function BestLaptopIndiaPage() {
         <div style={{ overflowX: "auto" }}>
           <table>
             <thead>
-              <tr><th>Budget</th><th>Look for GPU</th><th>RAM</th><th>SSD</th><th>Models that fit on GPU</th></tr>
+              <tr><th>Budget</th><th>Look for GPU</th><th>RAM</th><th>SSD</th><th>Models that fit on GPU</th><th>Buy</th></tr>
             </thead>
             <tbody>
               {TIERS.map((t) => (
                 <tr key={t.gb}>
                   <td>{t.budget}</td><td>{t.gpu}</td><td>{t.ram}</td><td>{t.ssd}</td>
                   <td>{fitsAt(t.gb).length}</td>
+                  <td><SmartLink href={`/go/amazon-in-laptop-${t.gb}gb`}>Check price ↗</SmartLink></td>
                 </tr>
               ))}
             </tbody>
@@ -102,7 +103,7 @@ export default function BestLaptopIndiaPage() {
             <p><strong>Runs fully on the GPU</strong> (Q4_K_M, 8K context): {models.length ? models.map((m) => m.name).join(", ") : "none of the tracked models"}.</p>
             <p><strong>Pros:</strong> {t.pros.join(". ")}.</p>
             <p><strong>Cons:</strong> {t.cons.join(". ")}.</p>
-            <p><SmartLink href={`/go/amazon-in-laptop-${t.gb}gb`}>See {t.gpu.split(" (")[0]} laptops on Amazon.in ↗</SmartLink></p>
+            <p><SmartLink className="button-primary" href={`/go/amazon-in-laptop-${t.gb}gb`}>Check {t.gpu.split(" (")[0]} laptop prices on Amazon.in ↗</SmartLink></p>
           </section>
         );
       })}
