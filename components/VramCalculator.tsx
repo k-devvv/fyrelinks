@@ -96,7 +96,7 @@ export default function VramCalculator() {
             {shopGb ? (
               <>
                 <p><strong>Want it to run fully?</strong> {model.name} at {quant.name} needs a GPU with <strong>{upgradeGb} GB+</strong> of VRAM at this context.</p>
-                <SmartLink href={`/go/amazon-us-gpu-${shopGb}gb`} onClick={() => measure("provider_visit", { provider: `amazon-us-gpu-${shopGb}gb`, placement: "vram-calculator" })}>See {shopGb} GB graphics cards on Amazon ↗</SmartLink>
+                <SmartLink href={`/go/amazon-in-gpu-${shopGb}gb`} onClick={() => measure("provider_visit", { provider: `amazon-in-gpu-${shopGb}gb`, placement: "vram-calculator" })}>See {shopGb} GB graphics cards on Amazon.in ↗</SmartLink>
               </>
             ) : (
               <>

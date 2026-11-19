@@ -59,7 +59,7 @@ export default function BestGpuPage() {
             <h2 id={`tier-${t.gb}`}>{t.gb} GB VRAM</h2>
             <p>{t.who}</p>
             <p><strong>Runs fully on the GPU</strong> (Q4_K_M, 8K context): {models.length ? models.map((m) => m.name).join(", ") : "none of the tracked models"}.</p>
-            <p><SmartLink href={`/go/amazon-us-gpu-${t.gb}gb`}>See {t.gb} GB graphics cards on Amazon ↗</SmartLink></p>
+            <p><SmartLink href={`/go/amazon-in-gpu-${t.gb}gb`}>See {t.gb} GB graphics cards on Amazon.in ↗</SmartLink></p>
           </section>
         );
       })}
@@ -85,7 +85,7 @@ export default function BestGpuPage() {
         <details><summary>Can I combine two GPUs?</summary><p>llama.cpp and Ollama can split a model across cards, but it adds cost, power and setup. One bigger card is simpler.</p></details>
       </section>
 
-      <p className="affiliate-note">FyreLinkz may earn a commission from links on this page, at no extra cost to you. <Link href="/affiliate-disclosure">Affiliate disclosure</Link>.</p>
+      <p className="affiliate-note">As an Amazon Associate I earn from qualifying purchases. FyreLinkz may earn a commission from links on this page, at no extra cost to you. <Link href="/affiliate-disclosure">Affiliate disclosure</Link>.</p>
     </div>
   );
 }
