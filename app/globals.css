@@ -2126,3 +2126,7 @@ kbd {
 .vram-breakdown { width: 100%; max-width: 420px; border-collapse: collapse; margin: 16px 0; }
 .vram-breakdown th, .vram-breakdown td { padding: 8px 0; border-bottom: 1px solid rgba(127,127,127,.25); text-align: left; font-weight: 400; }
 .vram-breakdown td { text-align: right; font-variant-numeric: tabular-nums; }
+
+.vram-upgrade { border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; margin-top: 16px; }
+.vram-upgrade p { margin: 0 0 8px; line-height: 1.6; }
+.vram-upgrade a { font-weight: 600; }

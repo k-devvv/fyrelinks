@@ -46,7 +46,7 @@ export default function VramCalculatorPage() {
         <details><summary>What happens if a model doesn&apos;t fit?</summary><p>Ollama and LM Studio move some layers to system RAM. The model still works, but tokens per second drop sharply as more of it leaves the GPU.</p></details>
         <details><summary>Which quantization should I pick?</summary><p>Q4_K_M is the usual sweet spot. Q5 and Q6 are slightly better quality if you have room; FP16 is rarely worth it on consumer GPUs.</p></details>
       </section>
-      <p className="planner-related"><Link href="/hardware/ai-workstation-planner">Planning a new machine? Try the AI workstation planner ↗</Link></p>
+      <p className="planner-related"><Link href="/hardware/best-gpu-for-local-ai">Which GPU should I buy? See the VRAM buying guide ↗</Link> · <Link href="/hardware/ai-workstation-planner">AI workstation planner ↗</Link></p>
     </div>
   );
 }
