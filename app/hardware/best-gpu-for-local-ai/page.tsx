@@ -76,6 +76,7 @@ export default function BestGpuPage() {
         <p><strong>NVIDIA is the easy path.</strong> Ollama, LM Studio and llama.cpp support CUDA best. AMD and Intel cards work but need more setup.</p>
         <p><strong>Used cards are fine</strong> if the seller lets you test them. Check the exact VRAM size, since some models ship in two memory versions.</p>
         <p>Model lists come from our <Link href="/hardware/vram-calculator">VRAM calculator</Link> estimates. They are planning numbers, not benchmarks.</p>
+        <p>Buying a laptop in India? See the <Link href="/hardware/best-laptop-for-ai-india">best laptop for AI by ₹ budget</Link>.</p>
       </section>
 
       <section className="planner-faq" aria-labelledby="gpu-faq-heading">

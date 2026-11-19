@@ -43,6 +43,12 @@ export const REDIRECT_MAP: Record<string, OutboundLink> = {
   "amazon-in-gpu-12gb": { destination: "https://www.amazon.in/s?k=rtx+graphics+card+12gb", env: "FYRE_AFF_AMAZON_IN", mode: "param", param: "tag" },
   "amazon-in-gpu-16gb": { destination: "https://www.amazon.in/s?k=rtx+graphics+card+16gb", env: "FYRE_AFF_AMAZON_IN", mode: "param", param: "tag" },
   "amazon-in-gpu-24gb": { destination: "https://www.amazon.in/s?k=rtx+graphics+card+24gb", env: "FYRE_AFF_AMAZON_IN", mode: "param", param: "tag" },
+  "amazon-in-laptop-6gb": { destination: "https://www.amazon.in/s?k=rtx+4050+laptop", env: "FYRE_AFF_AMAZON_IN", mode: "param", param: "tag" },
+  "amazon-in-laptop-8gb": { destination: "https://www.amazon.in/s?k=rtx+4060+laptop", env: "FYRE_AFF_AMAZON_IN", mode: "param", param: "tag" },
+  "amazon-in-laptop-12gb": { destination: "https://www.amazon.in/s?k=rtx+5070+ti+laptop", env: "FYRE_AFF_AMAZON_IN", mode: "param", param: "tag" },
+  "amazon-in-laptop-16gb": { destination: "https://www.amazon.in/s?k=rtx+5080+laptop", env: "FYRE_AFF_AMAZON_IN", mode: "param", param: "tag" },
+  "amazon-in-ram-32gb": { destination: "https://www.amazon.in/s?k=32gb+ddr5+laptop+ram", env: "FYRE_AFF_AMAZON_IN", mode: "param", param: "tag" },
+  "amazon-in-ssd-1tb": { destination: "https://www.amazon.in/s?k=1tb+nvme+ssd", env: "FYRE_AFF_AMAZON_IN", mode: "param", param: "tag" },
   "amazon-de": { destination: "https://www.amazon.de/s?k=nvidia+rtx+grafikkarte", env: "FYRE_AFF_AMAZON_DE", mode: "param", param: "tag" },
 };
 
