@@ -131,7 +131,7 @@ assert.equal(
   'https://www.amazon.in/s?k=rtx+graphics+card+12gb&tag=fyre-21',
   'India GPU slugs go to amazon.in with the India tag'
 );
-for (const [slug, q] of [['amazon-in-laptop-8gb', 'rtx+4060+laptop'], ['amazon-in-ram-32gb', '32gb+ddr5+laptop+ram'], ['amazon-in-ssd-1tb', '1tb+nvme+ssd']]) {
+for (const [slug, q] of [['amazon-in-laptop-8gb', 'rtx+4060+laptop'], ['amazon-in-ram-32gb', '32gb+ddr5+laptop+ram'], ['amazon-in-ssd-1tb', '1tb+nvme+ssd'], ['amazon-in-ram-16gb', '16gb+ddr5+laptop+ram'], ['amazon-in-ram-64gb', '64gb+ddr5+ram+kit'], ['amazon-in-ram-desktop-32gb', '32gb+ddr5+desktop+ram'], ['amazon-in-egpu', 'egpu+enclosure+thunderbolt'], ['amazon-in-ssd-2tb', '2tb+nvme+ssd']]) {
   assert.equal(resolveRedirect(slug, {FYRE_AFF_AMAZON_IN: 'fyre-21'}), `https://www.amazon.in/s?k=${q}&tag=fyre-21`, `${slug} goes to amazon.in with the India tag`);
 }
 // A tag is never treated as a destination, however it is written.

@@ -49,6 +49,11 @@ export const REDIRECT_MAP: Record<string, OutboundLink> = {
   "amazon-in-laptop-16gb": { destination: "https://www.amazon.in/s?k=rtx+5080+laptop", env: "FYRE_AFF_AMAZON_IN", mode: "param", param: "tag" },
   "amazon-in-ram-32gb": { destination: "https://www.amazon.in/s?k=32gb+ddr5+laptop+ram", env: "FYRE_AFF_AMAZON_IN", mode: "param", param: "tag" },
   "amazon-in-ssd-1tb": { destination: "https://www.amazon.in/s?k=1tb+nvme+ssd", env: "FYRE_AFF_AMAZON_IN", mode: "param", param: "tag" },
+  "amazon-in-ram-16gb": { destination: "https://www.amazon.in/s?k=16gb+ddr5+laptop+ram", env: "FYRE_AFF_AMAZON_IN", mode: "param", param: "tag" },
+  "amazon-in-ram-64gb": { destination: "https://www.amazon.in/s?k=64gb+ddr5+ram+kit", env: "FYRE_AFF_AMAZON_IN", mode: "param", param: "tag" },
+  "amazon-in-ram-desktop-32gb": { destination: "https://www.amazon.in/s?k=32gb+ddr5+desktop+ram", env: "FYRE_AFF_AMAZON_IN", mode: "param", param: "tag" },
+  "amazon-in-egpu": { destination: "https://www.amazon.in/s?k=egpu+enclosure+thunderbolt", env: "FYRE_AFF_AMAZON_IN", mode: "param", param: "tag" },
+  "amazon-in-ssd-2tb": { destination: "https://www.amazon.in/s?k=2tb+nvme+ssd", env: "FYRE_AFF_AMAZON_IN", mode: "param", param: "tag" },
   "amazon-de": { destination: "https://www.amazon.de/s?k=nvidia+rtx+grafikkarte", env: "FYRE_AFF_AMAZON_DE", mode: "param", param: "tag" },
 };
 

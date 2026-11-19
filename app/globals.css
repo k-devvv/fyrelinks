@@ -2130,3 +2130,43 @@ kbd {
 .vram-upgrade { border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; margin-top: 16px; }
 .vram-upgrade p { margin: 0 0 8px; line-height: 1.6; }
 .vram-upgrade a { font-weight: 600; }
+
+/* ---- Hardware shop + guide cards ---- */
+.shop-jump{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.shop-jump a{border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:.9rem;color:var(--ink);text-decoration:none;background:var(--surface)}
+.shop-jump a:hover{border-color:var(--accent);color:var(--accent)}
+.shop-section{margin-top:40px;scroll-margin-top:80px}
+.shop-section h2{margin-bottom:6px}
+.shop-intro{color:var(--muted);max-width:70ch;margin:0 0 16px}
+.shop-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.shop-card{display:flex;flex-direction:column;gap:8px;border:1px solid var(--line);border-radius:14px;padding:18px;background:var(--surface);transition:border-color .15s,transform .15s}
+.shop-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.shop-card.is-pick{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset}
+.shop-card h3{margin:4px 0 0;font-size:1.1rem}
+.shop-card p{margin:0;color:var(--muted);font-size:.95rem;line-height:1.5}
+.shop-card .shop-fit{color:var(--ink)}
+.shop-card .shop-fit strong{color:var(--accent);font-size:1.2rem}
+.shop-card .button-primary{margin-top:auto;justify-content:center;text-align:center;width:100%}
+.shop-card-top{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:3px 10px;font-size:.78rem;font-weight:600;letter-spacing:.02em;color:var(--ink);background:var(--raised)}
+.chip-pick{border-color:var(--accent);color:var(--accent)}
+.spec-chips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:12px 0}
+.pros-cons ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.pros-cons li{padding-left:24px;position:relative;line-height:1.45}
+.pros-cons .pros li::before{content:"✓";position:absolute;left:0;color:#4ade80;font-weight:700}
+.pros-cons .cons li::before{content:"✗";position:absolute;left:0;color:#f87171;font-weight:700}
+.pros-cons h3{font-size:.85rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 8px}
+.planner-page .vram-upgrade{border-radius:14px;padding:20px 22px;background:var(--surface)}
+.planner-page table{width:100%;border-collapse:collapse;font-size:.95rem}
+.planner-page th,.planner-page td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left}
+.planner-page thead th{font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.planner-page tbody tr:hover{background:var(--raised)}
+.shop-banner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;border:1px solid var(--accent);border-radius:14px;padding:16px 20px;margin-top:24px;background:var(--surface)}
+.shop-banner p{margin:0}
+@media (max-width:640px){
+  .pros-cons{grid-template-columns:1fr}
+  .shop-grid{grid-template-columns:1fr}
+  .planner-page .vram-upgrade{padding:16px}
+  .planner-page th,.planner-page td{padding:8px}
+}
