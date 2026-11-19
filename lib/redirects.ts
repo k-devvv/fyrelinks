@@ -39,6 +39,10 @@ export const REDIRECT_MAP: Record<string, OutboundLink> = {
   "amazon-us-gpu-12gb": { destination: "https://www.amazon.com/s?k=rtx+graphics+card+12gb", env: "FYRE_AFF_AMAZON_US", mode: "param", param: "tag" },
   "amazon-us-gpu-16gb": { destination: "https://www.amazon.com/s?k=rtx+graphics+card+16gb", env: "FYRE_AFF_AMAZON_US", mode: "param", param: "tag" },
   "amazon-us-gpu-24gb": { destination: "https://www.amazon.com/s?k=rtx+graphics+card+24gb", env: "FYRE_AFF_AMAZON_US", mode: "param", param: "tag" },
+  "amazon-in-gpu-8gb": { destination: "https://www.amazon.in/s?k=rtx+graphics+card+8gb", env: "FYRE_AFF_AMAZON_IN", mode: "param", param: "tag" },
+  "amazon-in-gpu-12gb": { destination: "https://www.amazon.in/s?k=rtx+graphics+card+12gb", env: "FYRE_AFF_AMAZON_IN", mode: "param", param: "tag" },
+  "amazon-in-gpu-16gb": { destination: "https://www.amazon.in/s?k=rtx+graphics+card+16gb", env: "FYRE_AFF_AMAZON_IN", mode: "param", param: "tag" },
+  "amazon-in-gpu-24gb": { destination: "https://www.amazon.in/s?k=rtx+graphics+card+24gb", env: "FYRE_AFF_AMAZON_IN", mode: "param", param: "tag" },
   "amazon-de": { destination: "https://www.amazon.de/s?k=nvidia+rtx+grafikkarte", env: "FYRE_AFF_AMAZON_DE", mode: "param", param: "tag" },
 };
 

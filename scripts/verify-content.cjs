@@ -126,6 +126,11 @@ assert.equal(
   'https://www.amazon.com/s?k=rtx+graphics+card+12gb&tag=fyre-20',
   'size-specific GPU slugs reuse the US tag'
 );
+assert.equal(
+  resolveRedirect('amazon-in-gpu-12gb', {FYRE_AFF_AMAZON_IN: 'fyre-21'}),
+  'https://www.amazon.in/s?k=rtx+graphics+card+12gb&tag=fyre-21',
+  'India GPU slugs go to amazon.in with the India tag'
+);
 // A tag is never treated as a destination, however it is written.
 for (const value of ['fyre-20', 'https://evil.example/', 'not a url']) {
   const resolved = resolveRedirect('amazon-uk', {FYRE_AFF_AMAZON_UK: value});
