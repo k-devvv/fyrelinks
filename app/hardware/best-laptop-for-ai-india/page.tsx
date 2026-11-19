@@ -94,15 +94,25 @@ export default function BestLaptopIndiaPage() {
         <p>Budgets are rough guides. Prices in India change with sales and new launches, so check the live price before you buy.</p>
       </section>
 
+      <div className="shop-banner">
+        <p><strong>Need RAM, an eGPU or more storage?</strong> See every upgrade in one place.</p>
+        <Link className="button-primary" href="/hardware/shop">Open the hardware shop</Link>
+      </div>
+
       {TIERS.map((t) => {
         const models = fitsAt(t.gb);
         return (
           <section key={t.gb} className="vram-upgrade" aria-labelledby={`laptop-${t.gb}`}>
             <h2 id={`laptop-${t.gb}`}>{t.budget}: {t.gpu}</h2>
+            <div className="spec-chips">
+              <span className="chip">{t.gb} GB VRAM</span><span className="chip">{t.ram} RAM</span><span className="chip">{t.ssd} SSD</span>
+            </div>
             <p>{t.who}</p>
             <p><strong>Runs fully on the GPU</strong> (Q4_K_M, 8K context): {models.length ? models.map((m) => m.name).join(", ") : "none of the tracked models"}.</p>
-            <p><strong>Pros:</strong> {t.pros.join(". ")}.</p>
-            <p><strong>Cons:</strong> {t.cons.join(". ")}.</p>
+            <div className="pros-cons">
+              <div className="pros"><h3>Pros</h3><ul>{t.pros.map((p) => <li key={p}>{p}</li>)}</ul></div>
+              <div className="cons"><h3>Cons</h3><ul>{t.cons.map((c) => <li key={c}>{c}</li>)}</ul></div>
+            </div>
             <p><SmartLink className="button-primary" href={`/go/amazon-in-laptop-${t.gb}gb`}>Check {t.gpu.split(" (")[0]} laptop prices on Amazon.in ↗</SmartLink></p>
           </section>
         );
@@ -114,6 +124,7 @@ export default function BestLaptopIndiaPage() {
         <p><strong>Check the GPU power (TGP).</strong> The same GPU can be much slower in a thin laptop that runs it at low wattage.</p>
         <p><strong>RAM can be upgraded later.</strong> Many gaming laptops have two RAM slots. 16 GB is enough to start; <SmartLink href="/go/amazon-in-ram-32gb">32 GB DDR5 kits on Amazon.in ↗</SmartLink> help when models spill out of VRAM.</p>
         <p><strong>Models take space.</strong> Each 7B–8B model is around 5 GB on disk. A second <SmartLink href="/go/amazon-in-ssd-1tb">1 TB NVMe SSD ↗</SmartLink> is a cheap upgrade if your laptop has a free slot.</p>
+        <p><strong>Thin laptop with Thunderbolt or USB4?</strong> An <SmartLink href="/go/amazon-in-egpu">eGPU enclosure ↗</SmartLink> lets it use a desktop graphics card at home.</p>
         <p><strong>Want more VRAM for less?</strong> A desktop gives far more VRAM per rupee. See the <Link href="/hardware/best-gpu-for-local-ai">best GPU for local AI</Link> guide or check a model in the <Link href="/hardware/vram-calculator">VRAM calculator</Link>.</p>
       </section>
 

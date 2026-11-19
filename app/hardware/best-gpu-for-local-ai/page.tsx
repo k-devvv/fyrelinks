@@ -64,6 +64,11 @@ export default function BestGpuPage() {
         );
       })}
 
+      <div className="shop-banner">
+        <p><strong>Also need RAM, an eGPU or an SSD?</strong> See every upgrade in one place.</p>
+        <Link className="button-primary" href="/hardware/shop">Open the hardware shop</Link>
+      </div>
+
       <section className="vram-upgrade" aria-labelledby="tier-cloud">
         <h2 id="tier-cloud">Bigger than 24 GB: rent instead</h2>
         <p>{tooBigFor24.map((m) => m.name).join(", ")} {tooBigFor24.length === 1 ? "does" : "do"} not fit on a single 24 GB card at Q4_K_M with 8K context. Renting a large cloud GPU by the hour avoids a multi-card build.</p>
