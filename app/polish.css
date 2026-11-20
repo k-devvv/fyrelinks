@@ -1,0 +1,130 @@
+/* polish.css — one unified design layer. Loaded last; wins over older styles. */
+
+/* 1. One font family everywhere (no serif/sans mixing) */
+:root, [data-theme="dark"] { --serif: var(--sans); --display: var(--sans); }
+body, h1, h2, h3, h4, h5, h6, p, li, blockquote, button, input, select, textarea { font-family: var(--sans); }
+h1 em, h2 em, h3 em, h1 span, h2 span, h3 span { font-style: normal; }
+h1, h2, h3, h4 { color: var(--ink); letter-spacing: -0.02em; text-wrap: balance; }
+
+/* 2. One heading scale */
+.category-header h1, .info-page h1, .not-found h1, .planner-intro h1, .article-header h1 {
+  font: 800 clamp(30px, 4.2vw, 46px)/1.1 var(--sans); letter-spacing: -0.03em; margin: 12px 0 14px;
+}
+.section-heading h2, .fx-section-head h2, .planner-methodology h2, .planner-faq h2,
+.related-section h2, .hardware-planner-promo h2, .hardware-planner-promo h3, .shop-section h2 {
+  font: 800 clamp(22px, 2.4vw, 28px)/1.2 var(--sans); letter-spacing: -0.02em; margin: 0 0 14px;
+}
+.story-copy h2, .story-copy h3, .tool-card h3, .shop-card-top h3 { font: 700 18px/1.3 var(--sans); }
+p { line-height: 1.65; }
+
+/* 3. Section spacing */
+.planner-page, .info-page { padding-block: 32px 72px; }
+.planner-intro { padding: 24px 0 28px; max-width: 760px; }
+.section-heading { margin: 0 0 20px; padding: 0; border: 0; display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.tool-strip, .related-section, .shop-section, .planner-methodology, .planner-faq { margin-top: 48px; }
+
+/* 4. Grids that never leave orphans */
+.tool-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; }
+.shop-grid, .guide-grid, .category-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; }
+
+/* 5. Cards: same radius, border, padding, hover */
+.tool-card, .story-card, .shop-grid > *, .guide-grid > *, .hardware-planner-promo, .sources-box, .takeaway, .planner-page .vram-upgrade {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: none;
+}
+.tool-card, .shop-grid > *, .guide-grid > * { padding: 20px; transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease; }
+.tool-card:hover, .shop-grid > *:hover, .guide-grid > *:hover, .story-card:hover {
+  transform: translateY(-2px); border-color: var(--accent); box-shadow: var(--shadow);
+}
+.hardware-planner-promo { background: var(--accent-soft); border-color: transparent; padding: 28px; }
+.takeaway { padding: 20px 22px; border-left: 4px solid var(--accent); }
+
+/* 6. Chips, buttons, breadcrumbs */
+.chip { border-radius: 999px; padding: 3px 10px; font-size: 12px; font-weight: 600; background: var(--raised); border: 1px solid var(--line); color: var(--ink); }
+.chip-pick { background: var(--accent-soft); color: var(--accent); border-color: transparent; }
+.button-dark, .button-primary { display: inline-flex; align-items: center; gap: 8px; border-radius: 999px; padding: 11px 20px; font: 700 15px/1 var(--sans); background: var(--accent); color: var(--accent-ink); border: 0; }
+.button-dark:hover, .button-primary:hover { filter: brightness(1.06); }
+.button-secondary { border-radius: 999px; padding: 11px 20px; font: 700 15px/1 var(--sans); }
+.breadcrumbs, .breadcrumb { font-size: 13px; color: var(--muted); }
+.breadcrumbs a, .breadcrumb a { color: var(--muted); text-decoration: none; }
+.breadcrumbs a:hover, .breadcrumb a:hover { color: var(--accent); }
+
+/* 7. Articles: comfortable reading width, sans body */
+.article-body { max-width: 72ch; }
+.article-body p, .article-body li { font: 400 18px/1.75 var(--sans); color: var(--ink); }
+.article-body h2 { font: 800 26px/1.25 var(--sans); margin: 44px 0 14px; }
+.article-body h3 { font: 700 20px/1.3 var(--sans); margin: 30px 0 10px; }
+.article-answer-first .takeaway p { font: 500 18px/1.65 var(--sans); }
+
+/* 8. Make old dark-only Tailwind colours follow the light/dark theme */
+.text-white:not(.button-primary):not(.button-dark):not([class*="bg-fyre"]):not([class*="bg-accent"]) { color: var(--ink); }
+[class*="bg-fyre"] .text-white, .button-primary .text-white { color: var(--accent-ink); }
+.text-gray-300, .text-gray-400, .text-gray-500 { color: var(--muted); }
+.text-fyre-300, .text-fyre-400, .text-fyre-500 { color: var(--accent); }
+.bg-surface { background-color: var(--surface); }
+.border-surface-border { border-color: var(--line); }
+
+/* 9. Mobile */
+@media (max-width: 640px) {
+  .wrap { width: calc(100% - 32px); }
+  .planner-page, .info-page { padding-block: 20px 56px; }
+  .hardware-planner-promo { padding: 20px; }
+  .tool-card, .shop-grid > *, .guide-grid > * { padding: 16px; }
+  .article-body p, .article-body li { font-size: 17px; }
+  .section-heading { flex-direction: column; align-items: flex-start; }
+}
+
+/* 10. Keep always-dark areas readable; make the cookie banner follow the theme */
+.site-footer h2, .site-footer h3, .site-footer h4, .site-footer .text-white { color: #fff; }
+.consent-banner { background: var(--surface); color: var(--ink); border: 1px solid var(--line); box-shadow: var(--shadow); border-radius: var(--radius); }
+.consent-banner p { color: var(--muted); }
+
+/* 11. ₹ budget picker: 2-step quiz with 3D laptop */
+.budget-picker { background: var(--surface); border: 1px solid var(--line); border-radius: calc(var(--radius) * 1.5); box-shadow: var(--shadow); padding: 28px; margin-block: 28px; overflow: hidden; }
+.budget-stage { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 20px; align-items: center; }
+.budget-step { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin: 0 0 6px; }
+.budget-picker h2 { margin: 0 0 16px; font-size: clamp(24px, 3vw, 32px); line-height: 1.15; }
+.budget-options { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.budget-option { font: inherit; text-align: left; display: flex; flex-direction: column; gap: 2px; padding: 14px 16px; border-radius: 14px; border: 1px solid var(--line); background: var(--raised); color: var(--ink); cursor: pointer; transition: transform .15s, border-color .15s, box-shadow .15s; }
+.budget-option span { font-weight: 700; }
+.budget-option small { color: var(--muted); font-size: 13px; }
+.budget-option:hover { border-color: var(--accent); transform: translateY(-2px); }
+.budget-option:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.budget-option.is-active { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); box-shadow: 0 10px 28px -12px var(--accent); }
+.budget-option.is-active small { color: inherit; opacity: .85; }
+.laptop-scene { position: relative; aspect-ratio: 4 / 3; min-height: 240px; border-radius: 18px; background: radial-gradient(120% 90% at 50% 20%, var(--accent-soft), transparent 70%); }
+.laptop-scene-canvas { position: absolute; inset: 0; width: 100% !important; height: 100% !important; }
+.laptop-scene-fallback { position: absolute; inset: 8%; width: 84%; height: 84%; }
+.laptop-scene.is-3d .laptop-scene-fallback { display: none; }
+.budget-result { margin-top: 20px; background: linear-gradient(135deg, var(--accent-soft), var(--raised)); border: 1px solid var(--line); border-radius: 18px; padding: 22px; }
+.budget-result p { margin: 0 0 8px; }
+.budget-headline { font-size: clamp(22px, 2.6vw, 30px); line-height: 1.2; }
+.budget-headline strong { color: var(--accent); }
+.budget-who { color: var(--muted); }
+.budget-meter { margin: 16px 0; }
+.budget-meter-label { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 14px; margin-bottom: 8px; }
+.budget-meter-label span { color: var(--muted); }
+.budget-meter-track { height: 12px; border-radius: 999px; background: var(--line); overflow: hidden; }
+.budget-meter-track span { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #ffb27a, var(--accent)); transition: width .5s cubic-bezier(.2,.8,.2,1); }
+.budget-meter-scale { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); margin-top: 4px; }
+.budget-chips { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0 0 18px; }
+.budget-chips li { padding: 6px 12px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); font-size: 13px; font-weight: 600; }
+.budget-chips .budget-chip-more { color: var(--muted); font-weight: 500; }
+.budget-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.budget-buy { font-size: 16px; padding: 14px 22px; }
+.budget-share { display: inline-flex; align-items: center; padding: 13px 18px; border-radius: 999px; border: 1px solid #25d366; color: inherit; font-weight: 600; text-decoration: none; }
+.budget-share:hover { background: #25d36622; }
+.budget-note { color: var(--muted); font-size: 14px; margin: 14px 0 0; }
+@media (max-width: 760px) {
+  .budget-picker { padding: 18px; }
+  .budget-stage { grid-template-columns: 1fr; }
+  .laptop-scene { order: -1; min-height: 200px; aspect-ratio: 16 / 10; }
+  .budget-actions > * { flex: 1 1 100%; justify-content: center; text-align: center; }
+}
+@media (prefers-reduced-motion: reduce) { .budget-option, .budget-meter-track span { transition: none; } }
+
+/* 12. Smaller cookie banner so it doesn't cover content */
+.consent-banner { width: min(380px, calc(100% - 32px)); padding: 14px 16px; bottom: 16px; left: 16px; }
+.consent-banner h2 { font-size: 15px; margin: 0; }
+.consent-banner p { font-size: 12px; line-height: 1.5; margin: 6px 0 10px; }
+.consent-banner > div button { padding: 8px 12px; font-size: 13px; }
+@media (max-width: 640px) { .consent-banner { left: 0; bottom: 0; width: 100%; padding: 10px 14px calc(10px + env(safe-area-inset-bottom)); } .consent-banner p { margin: 0 0 8px; } }
