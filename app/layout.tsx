@@ -4,6 +4,7 @@ import "./tech-theme.css";
 import "./studio.css";
 import "./growth.css";
 import "./theme.css";
+import "./polish.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AdSlot from "@/components/AdSlot";

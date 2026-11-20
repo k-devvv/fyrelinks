@@ -1,0 +1,79 @@
+/* polish.css — one unified design layer. Loaded last; wins over older styles. */
+
+/* 1. One font family everywhere (no serif/sans mixing) */
+:root, [data-theme="dark"] { --serif: var(--sans); --display: var(--sans); }
+body, h1, h2, h3, h4, h5, h6, p, li, blockquote, button, input, select, textarea { font-family: var(--sans); }
+h1 em, h2 em, h3 em, h1 span, h2 span, h3 span { font-style: normal; }
+h1, h2, h3, h4 { color: var(--ink); letter-spacing: -0.02em; text-wrap: balance; }
+
+/* 2. One heading scale */
+.category-header h1, .info-page h1, .not-found h1, .planner-intro h1, .article-header h1 {
+  font: 800 clamp(30px, 4.2vw, 46px)/1.1 var(--sans); letter-spacing: -0.03em; margin: 12px 0 14px;
+}
+.section-heading h2, .fx-section-head h2, .planner-methodology h2, .planner-faq h2,
+.related-section h2, .hardware-planner-promo h2, .hardware-planner-promo h3, .shop-section h2 {
+  font: 800 clamp(22px, 2.4vw, 28px)/1.2 var(--sans); letter-spacing: -0.02em; margin: 0 0 14px;
+}
+.story-copy h2, .story-copy h3, .tool-card h3, .shop-card-top h3 { font: 700 18px/1.3 var(--sans); }
+p { line-height: 1.65; }
+
+/* 3. Section spacing */
+.planner-page, .info-page { padding-block: 32px 72px; }
+.planner-intro { padding: 24px 0 28px; max-width: 760px; }
+.section-heading { margin: 0 0 20px; padding: 0; border: 0; display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.tool-strip, .related-section, .shop-section, .planner-methodology, .planner-faq { margin-top: 48px; }
+
+/* 4. Grids that never leave orphans */
+.tool-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; }
+.shop-grid, .guide-grid, .category-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; }
+
+/* 5. Cards: same radius, border, padding, hover */
+.tool-card, .story-card, .shop-grid > *, .guide-grid > *, .hardware-planner-promo, .sources-box, .takeaway, .planner-page .vram-upgrade {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: none;
+}
+.tool-card, .shop-grid > *, .guide-grid > * { padding: 20px; transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease; }
+.tool-card:hover, .shop-grid > *:hover, .guide-grid > *:hover, .story-card:hover {
+  transform: translateY(-2px); border-color: var(--accent); box-shadow: var(--shadow);
+}
+.hardware-planner-promo { background: var(--accent-soft); border-color: transparent; padding: 28px; }
+.takeaway { padding: 20px 22px; border-left: 4px solid var(--accent); }
+
+/* 6. Chips, buttons, breadcrumbs */
+.chip { border-radius: 999px; padding: 3px 10px; font-size: 12px; font-weight: 600; background: var(--raised); border: 1px solid var(--line); color: var(--ink); }
+.chip-pick { background: var(--accent-soft); color: var(--accent); border-color: transparent; }
+.button-dark, .button-primary { display: inline-flex; align-items: center; gap: 8px; border-radius: 999px; padding: 11px 20px; font: 700 15px/1 var(--sans); background: var(--accent); color: var(--accent-ink); border: 0; }
+.button-dark:hover, .button-primary:hover { filter: brightness(1.06); }
+.button-secondary { border-radius: 999px; padding: 11px 20px; font: 700 15px/1 var(--sans); }
+.breadcrumbs, .breadcrumb { font-size: 13px; color: var(--muted); }
+.breadcrumbs a, .breadcrumb a { color: var(--muted); text-decoration: none; }
+.breadcrumbs a:hover, .breadcrumb a:hover { color: var(--accent); }
+
+/* 7. Articles: comfortable reading width, sans body */
+.article-body { max-width: 72ch; }
+.article-body p, .article-body li { font: 400 18px/1.75 var(--sans); color: var(--ink); }
+.article-body h2 { font: 800 26px/1.25 var(--sans); margin: 44px 0 14px; }
+.article-body h3 { font: 700 20px/1.3 var(--sans); margin: 30px 0 10px; }
+.article-answer-first .takeaway p { font: 500 18px/1.65 var(--sans); }
+
+/* 8. Make old dark-only Tailwind colours follow the light/dark theme */
+.text-white:not(.button-primary):not(.button-dark):not([class*="bg-fyre"]):not([class*="bg-accent"]) { color: var(--ink); }
+[class*="bg-fyre"] .text-white, .button-primary .text-white { color: var(--accent-ink); }
+.text-gray-300, .text-gray-400, .text-gray-500 { color: var(--muted); }
+.text-fyre-300, .text-fyre-400, .text-fyre-500 { color: var(--accent); }
+.bg-surface { background-color: var(--surface); }
+.border-surface-border { border-color: var(--line); }
+
+/* 9. Mobile */
+@media (max-width: 640px) {
+  .wrap { width: calc(100% - 32px); }
+  .planner-page, .info-page { padding-block: 20px 56px; }
+  .hardware-planner-promo { padding: 20px; }
+  .tool-card, .shop-grid > *, .guide-grid > * { padding: 16px; }
+  .article-body p, .article-body li { font-size: 17px; }
+  .section-heading { flex-direction: column; align-items: flex-start; }
+}
+
+/* 10. Keep always-dark areas readable; make the cookie banner follow the theme */
+.site-footer h2, .site-footer h3, .site-footer h4, .site-footer .text-white { color: #fff; }
+.consent-banner { background: var(--surface); color: var(--ink); border: 1px solid var(--line); box-shadow: var(--shadow); border-radius: var(--radius); }
+.consent-banner p { color: var(--muted); }
