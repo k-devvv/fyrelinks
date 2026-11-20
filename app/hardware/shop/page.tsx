@@ -4,6 +4,8 @@ import JsonLd, { generateBreadcrumbSchema } from "@/components/JsonLd";
 import { pageMetadata } from "@/lib/metadata";
 import { SITE_URL } from "@/lib/editorial";
 import { VRAM_MODELS, estimateVram } from "@/lib/vram";
+import BudgetPicker from "@/components/BudgetPicker";
+import { pickerTiers } from "@/lib/india-laptops";
 
 const route = "/hardware/shop";
 const Q4_BITS = 4.85; // Q4_K_M, the Ollama default
@@ -89,6 +91,8 @@ export default function HardwareShopPage() {
           {SECTIONS.map((s) => <a key={s.id} href={`#${s.id}`}>{s.title}</a>)}
         </nav>
       </header>
+
+      <BudgetPicker tiers={pickerTiers()} />
 
       {SECTIONS.map((s) => (
         <section key={s.id} id={s.id} className="shop-section" aria-labelledby={`${s.id}-heading`}>
